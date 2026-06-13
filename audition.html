@@ -582,6 +582,23 @@ footer{background:#070F18;padding:28px 24px;border-top:1px solid var(--line)}
 .koubo-head h2{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(22px,3.3vw,32px);color:var(--cream);margin-top:15px;line-height:1.45}
 .koubo-head p{font-size:.9rem;color:var(--cream2);margin-top:15px;line-height:1.9}
 .koubo-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:880px;margin:0 auto 40px}
+/* 店主オーディション 5ステップの流れ */
+.aflow{max-width:760px;margin:0 auto}
+.aflow-step{display:flex;gap:16px;align-items:flex-start;position:relative;padding-bottom:22px}
+.aflow-step:not(:last-child)::before{content:"";position:absolute;left:21px;top:44px;bottom:-2px;width:2px;background:linear-gradient(var(--gold-dim),var(--line))}
+.aflow-num{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--navy);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--gold-lt);position:relative;z-index:1}
+.aflow-step.paid .aflow-num{background:rgba(205,169,79,.16)}
+.aflow-body{flex:1;background:var(--navy);border:1px solid var(--line);border-radius:13px;padding:18px 20px}
+.aflow-step.paid .aflow-body{border-color:var(--gold-dim);background:rgba(205,169,79,.06)}
+.aflow-body .bt{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:6px}
+.aflow-body h4{font-family:'Shippori Mincho B1',serif;font-size:1.04rem;color:var(--cream)}
+.aflow-body .badge{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:12px;letter-spacing:.04em}
+.aflow-body .badge.free{background:rgba(127,160,106,.18);color:#a8c694;border:1px solid rgba(127,160,106,.4)}
+.aflow-body .badge.pay{background:var(--gold);color:var(--navy)}
+.aflow-body .badge.only{background:rgba(111,160,194,.16);color:#9DC0D4;border:1px solid rgba(111,160,194,.4)}
+.aflow-body p{font-size:.85rem;color:var(--cream2);line-height:1.8}
+.aflow-fair{max-width:760px;margin:8px auto 0;background:var(--navy3);border:1px solid var(--gold-dim);border-radius:12px;padding:16px 20px;font-size:.82rem;color:var(--cream2);line-height:1.8}
+.aflow-fair b{color:var(--gold-lt)}
 @media(max-width:760px){.koubo-steps{grid-template-columns:1fr}}
 .koubo-step{background:var(--navy);border:1px solid var(--line);border-radius:13px;padding:24px 22px;position:relative}
 .koubo-step .kn{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
@@ -911,12 +928,48 @@ footer{background:#070F18;padding:28px 24px;border-top:1px solid var(--line)}
     </div>
 
     <div class="koubo-head reveal" style="margin-bottom:30px">
-      <h2 class="mincho" style="font-size:clamp(19px,2.6vw,24px)">登録してから、継ぐまで。<span class="gold">3ステップ</span>。</h2>
+      <h2 class="mincho" style="font-size:clamp(19px,2.6vw,24px)">登録してから、継ぐまで。<span class="gold">5ステップ</span>。</h2>
     </div>
-    <div class="koubo-steps">
-      <div class="koubo-step reveal"><div class="kn">Step 1</div><h4>無料で、継ぎ手登録</h4><p>まず登録だけ。お金も決断もまだ要りません。条件に合う店が出たら、あなたにご連絡します。</p></div>
-      <div class="koubo-step reveal"><div class="kn">Step 2</div><h4>店が出たら、想いで応募</h4><p>畳む店がオーディションに出たら、「なぜ続けたいか」を添えて応募。複数の継ぎ手の中から、店主があなたを選びます。</p></div>
-      <div class="koubo-step reveal"><div class="kn">Step 3</div><h4>選ばれたら、継ぐ準備へ</h4><p>事業計画・融資・補助金・営業許可まで、認定支援機関が一貫して伴走。想いを、続く店に変えます。</p></div>
+    <div class="aflow">
+      <div class="aflow-step reveal">
+        <div class="aflow-num">1</div>
+        <div class="aflow-body">
+          <div class="bt"><h4>無料で、継ぎ手登録</h4><span class="badge free">無料</span></div>
+          <p>まず登録だけ。お金も決断も要りません。エリア・業態・規模感など、<b style="color:var(--gold-lt)">店を特定できない範囲</b>で、いまオーディション中の店を見られます。</p>
+        </div>
+      </div>
+      <div class="aflow-step paid reveal">
+        <div class="aflow-num">2</div>
+        <div class="aflow-body">
+          <div class="bt"><h4>気になる店の、詳細を見る</h4><span class="badge pay">有料登録 1.5万円</span></div>
+          <p>「この店、もっと知りたい」と思ったら、有料登録（<b style="color:var(--gold-lt)">1件あたり1.5万円</b>）で<b style="color:var(--gold-lt)">店名・場所・条件などの詳しい情報</b>を確認できます。本気で継ぎたい方が、次に進むためのステップです。</p>
+          <p style="margin-top:9px;font-size:.8rem;color:var(--smoke)">▶ 承継が<b style="color:#a8c694">成立したら</b>、この1.5万円は<b style="color:#a8c694">その後の開業支援費用に充当</b>。<b style="color:#a8c694">成立しなかった場合は返金</b>します。だから、払い損にはなりません。</p>
+        </div>
+      </div>
+      <div class="aflow-step reveal">
+        <div class="aflow-num">3</div>
+        <div class="aflow-body">
+          <div class="bt"><h4>内覧会で、実際に見る</h4><span class="badge only">当事者のみ</span></div>
+          <p>日時を決めて、店主とあなただけで実際の店を見学。近所に知られないよう人数と時間を区切って行うので、<b style="color:var(--gold-lt)">店主も安心して</b>迎えられます。</p>
+        </div>
+      </div>
+      <div class="aflow-step reveal">
+        <div class="aflow-num">4</div>
+        <div class="aflow-body">
+          <div class="bt"><h4>承継を、申し込む</h4></div>
+          <p>続けたいと思ったら、「なぜ続けたいか」「どう続けるか」を、事業計画や資金の準備とあわせて申し込みます。複数の継ぎ手が手を挙げることもあります。</p>
+        </div>
+      </div>
+      <div class="aflow-step reveal">
+        <div class="aflow-num">5</div>
+        <div class="aflow-body">
+          <div class="bt"><h4>店主が、次の店主を選ぶ</h4></div>
+          <p>最後に選ぶのは、店主です。一番高い金額を出した人ではなく、<b style="color:var(--gold-lt)">一番続けてくれそうな人</b>。選ばれたら、開業準備へ。認定支援機関が一貫して伴走します。</p>
+        </div>
+      </div>
+    </div>
+    <div class="aflow-fair reveal">
+      ※ 有料登録（1件1.5万円）は、<b>詳しい情報を見るための「情報アクセス料」</b>です。<b>承継が成立すれば開業支援費用に充当、成立しなければ返金</b>するので、払い損にはなりません。そして、お金を払っても<b>選ばれやすくなるわけではありません</b>。継ぎ手を選ぶ基準は、あくまで<b>「続けられるか・想い」</b>。金額の入札ではありません。渡す側（店主）に費用はかかりません。
     </div>
   </div>
 </section>
