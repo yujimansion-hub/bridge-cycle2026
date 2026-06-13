@@ -12,7 +12,7 @@
 :root{
   --navy:#0B1927; --navy2:#11202F; --navy3:#1C304A; --navy4:#26405E;
   --gold:#CDA94F; --gold-lt:#EBD09A; --gold-dim:#9A7E40;
-  --cream:#F8F4EC; --cream2:#E4DAC4; --smoke:#C9BFA9;
+  --cream:#F8F4EC; --cream2:#E4DAC4; --smoke:#D5CCB9;
   --ink:#1A2433; --ink-soft:#46566A;
   --keep:#7FA06A; --pass:#C6A24A; --start:#6FA0C2;
   --line:rgba(205,169,79,.32);
@@ -641,6 +641,16 @@ footer{background:#070F18;padding:28px 24px;border-top:1px solid var(--line)}
 /* ===== 視認性向上：セクション境界の金ヘアライン ===== */
 .support,.koubo,.pricing,.cta,.trust,.oshi-band{position:relative}
 .support::before,.koubo::before,.pricing::before,.cta::before,.oshi-band::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:46px;height:3px;border-radius:2px;background:var(--gold);opacity:.85}
+
+/* ===== 読みやすさ底上げ（モバイル視認性・全LP共通） ===== */
+@media(max-width:640px){
+  body{font-size:15px;line-height:1.92;-webkit-text-size-adjust:100%}
+  .hero-sub,.sub,.lead,.sec-head p,.koubo-head p,.cost-head p,.fund-head p,.start3-head p,.teaser-head p,.checklist-head p,.who3-head p,.norush-in p{font-size:14.5px !important;line-height:1.95}
+  .note,.cap,.meta,.legal-note,.cost-note,.teaser-note,.checklist-note,.fund-note,.start3-note,.aflow-fair,.qa-sub,.hero-note,.aichat-note,.sf-note,.lg-notify,.support-note,.proc-note,.cl-row>div,.dd2-c li,.kcmp-row>div,.s3-c li,.merit-c p,.fund-c p{font-size:13px !important;line-height:1.8}
+  h1,.hero h1{line-height:1.4}
+  section{padding-left:18px !important;padding-right:18px !important}
+  .wrap{padding-left:18px;padding-right:18px}
+}
 </style>
 </head>
 <body>
