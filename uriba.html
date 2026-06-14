@@ -14,7 +14,7 @@
   --gold:#CDA94F; --gold-lt:#EBD09A; --gold-dim:#9A7E40;
   --cream:#F8F4EC; --cream2:#E4DAC4; --smoke:#D5CCB9;
   --ink:#1A2433; --ink-soft:#46566A;
-  --keep:#7FA06A; --pass:#C6A24A; --start:#6FA0C2;
+  --keep:#7FA06A; --pass:#C6A24A; --start:#6FA0C2; --stop:#C16A52;
   --line:rgba(205,169,79,.32);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -319,12 +319,46 @@ nav .nav-cta{font-size:.78rem;font-weight:700;color:var(--navy);background:var(-
 .who-creds span{font-size:.72rem;color:var(--gold-lt);background:rgba(198,162,74,.08);border:1px solid var(--line);border-radius:6px;padding:6px 11px}
 
 /* FAQ */
-.faq-list{max-width:760px;margin:0 auto;border-top:1px solid var(--line)}
-.faq-item{border-bottom:1px solid var(--line);padding:22px 4px}
-.faq-q{font-family:'Shippori Mincho B1',serif;font-size:.96rem;color:var(--gold-lt);line-height:1.5;display:flex;gap:12px}
-.faq-q::before{content:"Q";font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
-.faq-a{font-size:.85rem;color:var(--cream2);line-height:1.85;margin-top:11px;padding-left:24px}
-.faq-a b{color:var(--cream)}
+.faq-list{max-width:760px;margin:0 auto;display:grid;gap:13px}
+.faq-item{background:var(--navy2);border:1px solid var(--line);border-radius:13px;padding:22px 24px}
+.faq-q{font-family:'Shippori Mincho B1',serif;font-size:1.04rem;color:var(--gold-lt);line-height:1.55;display:flex;gap:12px;align-items:baseline}
+.faq-q::before{content:"Q";font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.15rem;font-weight:600}
+.faq-a{font-size:.92rem;color:var(--cream);line-height:1.95;margin-top:13px;padding-left:25px}
+.faq-a b{color:#fff}
+@media(max-width:600px){.faq-item{padding:18px 18px}.faq-q{font-size:15.5px}.faq-a{font-size:14.5px;padding-left:22px}}
+
+/* FOOD RULES / 食品を売る方へ */
+.foodrule{background:var(--navy2);border-top:1px solid var(--line)}
+.fr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;max-width:920px;margin:0 auto 30px}
+@media(max-width:760px){.fr-grid{grid-template-columns:1fr}}
+.fr-card{position:relative;background:var(--navy);border:1px solid var(--line);border-radius:14px;padding:24px 22px 22px;overflow:hidden}
+.fr-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bar,var(--line))}
+.fr-card.is-keep{--bar:var(--keep)}
+.fr-card.is-gold{--bar:var(--gold)}
+.fr-card.is-start{--bar:var(--start)}
+.fr-card.is-stop{--bar:var(--stop)}
+.fr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.fr-no{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold-lt);line-height:1}
+.fr-pill{font-size:.72rem;font-weight:700;border-radius:999px;padding:5px 13px;letter-spacing:.02em;white-space:nowrap}
+.fr-pill.keep{color:#cfe3c2;background:rgba(127,160,106,.18);border:1px solid rgba(127,160,106,.5)}
+.fr-pill.gold{color:var(--navy);background:var(--gold-lt)}
+.fr-pill.start{color:#cfe1ee;background:rgba(111,160,194,.18);border:1px solid rgba(111,160,194,.5)}
+.fr-pill.stop{color:#f0cabf;background:rgba(193,90,74,.2);border:1px solid rgba(193,90,74,.55)}
+.fr-title{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:1.02rem;color:var(--cream);line-height:1.5;margin-bottom:12px}
+.fr-row{font-size:.83rem;line-height:1.8;margin-top:7px;display:flex;gap:9px}
+.fr-row>span{flex:0 0 auto;font-size:.7rem;font-weight:700;color:var(--gold);border:1px solid var(--line);border-radius:5px;padding:2px 7px;height:fit-content;margin-top:2px}
+.fr-row.ex{color:var(--cream2)}
+.fr-row.do{color:var(--smoke)}
+.fr-row b{color:var(--cream)}
+.fr-callouts{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:920px;margin:0 auto 24px}
+@media(max-width:680px){.fr-callouts{grid-template-columns:1fr}}
+.fr-callout{background:rgba(198,162,74,.07);border:1px solid var(--line);border-radius:13px;padding:20px 22px}
+.fr-callout h5{font-family:'Shippori Mincho B1',serif;font-size:.92rem;color:var(--gold-lt);line-height:1.5;margin-bottom:9px}
+.fr-callout p{font-size:.82rem;color:var(--cream2);line-height:1.8}
+.fr-callout b{color:var(--cream)}
+.fr-confirm{max-width:920px;margin:0 auto;background:var(--navy);border:1px dashed var(--gold-dim);border-radius:11px;padding:16px 20px;font-size:.83rem;color:var(--cream);line-height:1.8}
+.fr-confirm b{color:var(--gold-lt)}
+.foodrule .entry-fine{margin-top:18px}
 
 /* CTA + FORM */
 .cta{padding:88px 24px;text-align:center;background:radial-gradient(110% 80% at 50% 0%,#1b2c41,var(--navy) 70%);border-top:1px solid var(--line)}
@@ -431,7 +465,7 @@ footer small{display:block;margin-top:22px;font-size:.72rem;color:var(--ink-soft
     <p class="how-lead reveal">大津の協力店舗の<b>店前や駐車場（軒先・路面のスペース）</b>を、1日だけお借りして出店します。むずかしい契約も、面談もいりません。空いている会場と日程を選んで、オンラインで予約するだけ。</p>
     <div class="venue-note reveal">
       <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></span>
-      <p><b>会場は、店の「外」のスペースです。</b>マルシェやキッチンカーのように、テント等を持ち込んで出店するイメージ。店内の厨房を借りる形ではありません。食品の販売は、許可施設で作ったパッケージ商品に限ります（詳しくは下のFAQ）。駐車場の会場は、店舗の営業時間外などが中心です。</p>
+      <p><b>会場は、店の「外」のスペースです。</b>マルシェやキッチンカーのように、テント等を持ち込んで出店するイメージ。店内の厨房を借りる形ではありません。食品の販売は、許可施設で作ったパッケージ商品に限ります（詳しくは<a href="#food-rules" class="gold">こちら</a>）。駐車場の会場は、店舗の営業時間外などが中心です。</p>
     </div>
     <div class="entries">
       <div class="entry feature reveal">
@@ -684,6 +718,64 @@ footer small{display:block;margin-top:22px;font-size:.72rem;color:var(--ink-soft
   </div>
 </section>
 
+<!-- 食品を売る方へ（食品衛生ルール） -->
+<section class="sec foodrule" id="food-rules">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eb">Food Safety</span>
+      <h2>あなたの商品は、<span class="gold">どれですか</span>。</h2>
+      <p>出店場所は、協力店舗の店前・駐車場などの屋外スペースです。店内の厨房は使いません。だから食品を売る場合は、「どこで作られたか」「その場で調理するか」で、できる・できないが変わります。まず、ご自身の商品が下のどれに当たるかをご確認ください。</p>
+    </div>
+
+    <div class="fr-grid">
+
+      <div class="fr-card is-keep reveal">
+        <div class="fr-top"><span class="fr-no">01</span><span class="fr-pill keep">出店できます</span></div>
+        <h4 class="fr-title">食品ではない物販</h4>
+        <p class="fr-row ex"><span>例</span>ハンドメイド雑貨、アクセサリー、衣類、花、作品、ドライ品など</p>
+        <p class="fr-row do"><span>手続き</span>食品衛生法の対象外。許可・届出はいりません。</p>
+      </div>
+
+      <div class="fr-card is-gold reveal">
+        <div class="fr-top"><span class="fr-no">02</span><span class="fr-pill gold">おすすめの形</span></div>
+        <h4 class="fr-title">常温で売れる、包装済みの食品</h4>
+        <p class="fr-row ex"><span>例</span>許可を持つ工房で作った焼き菓子・パン・瓶詰など。<b>食品表示ラベルを貼った密封・包装品</b></p>
+        <p class="fr-row do"><span>手続き</span>製造する施設に営業許可が必要です。常温で保存できる包装品なら、販売そのものの届出は原則いりません。</p>
+      </div>
+
+      <div class="fr-card is-start reveal">
+        <div class="fr-top"><span class="fr-no">03</span><span class="fr-pill start">事前にご相談</span></div>
+        <h4 class="fr-title">要冷蔵など、温度管理が要る包装食品</h4>
+        <p class="fr-row ex"><span>例</span>要冷蔵のスイーツ、生菓子など、保冷が前提の包装品</p>
+        <p class="fr-row do"><span>手続き</span>製造施設の許可に加え、当日の温度管理が必要です。販売の届出が要る場合があり、会場の設備によっては出店できないことがあります。</p>
+      </div>
+
+      <div class="fr-card is-stop reveal">
+        <div class="fr-top"><span class="fr-no">04</span><span class="fr-pill stop">原則できません</span></div>
+        <h4 class="fr-title">その場で調理・加熱・開封して出すもの</h4>
+        <p class="fr-row ex"><span>例</span>淹れたてコーヒー、焼きたて、量り売り、その場で盛り付け・開封して提供するもの</p>
+        <p class="fr-row do"><span>手続き</span>飲食店営業許可または露店営業許可が必要です。屋外の出店スペースではこの許可がないため、原則として行えません（ご自身で許可をお持ちの場合のみ、個別にご相談ください）。</p>
+      </div>
+
+    </div>
+
+    <div class="fr-callouts">
+      <div class="fr-callout reveal">
+        <h5>コーヒーは、缶・ボトルならOK／その場で淹れるとNG</h5>
+        <p>同じ「コーヒー」でも、<b>許可施設で作られた缶・ボトルの販売は02</b>、<b>その場で抽出して提供するのは04</b>です。間違えやすいので、当日お断りにならないようご注意ください。</p>
+      </div>
+      <div class="fr-callout reveal">
+        <h5>毎月・毎週、食品を続けて売りたい方へ</h5>
+        <p>同じ場所で<b>定期的に食品を販売する</b>場合、一度きりの出店とは扱いが変わり、別の許可が必要になることがあります。定期プランで食品の販売をご希望の方は、お申し込み前に<b>LINEでご相談ください</b>。物販（食品でないもの）の定期出店は、この制限はありません。</p>
+      </div>
+    </div>
+
+    <p class="fr-confirm reveal">確認先は<b>大津市保健所</b>です。大津市は中核市のため、滋賀県ではなく大津市保健所が食品許可の窓口になります。ご自身の商品の扱いに迷う場合は、お申し込み前に <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" class="gold">LINE</a> からご相談いただければ、確認のしかたをご案内します。</p>
+
+    <p class="entry-fine reveal">※ここに記載した内容は一般的な目安です。実際の許可・届出の要否は、商品の内容と会場の条件によって異なり、最終的には大津市保健所の判断によります。最新・正確な情報は大津市保健所でご確認ください。</p>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="sec">
   <div class="wrap">
@@ -695,7 +787,9 @@ footer small{display:block;margin-top:22px;font-size:.72rem;color:var(--ink-soft
       <div class="faq-item reveal"><div class="faq-q">本当に、誰とも話さずに予約できますか？</div><div class="faq-a">はい。会場と日程を選び、お支払いまで<b>この画面だけで完結</b>します。面談も電話も来店もいりません。受付は24時間。空き枠は先着順で、選んだ枠がそのまま予約になります。</div></div>
       <div class="faq-item reveal"><div class="faq-q">当日、テントや調理設備は用意されていますか？</div><div class="faq-a">出店場所は、協力店舗の<b>店前・駐車場などの屋外スペース</b>です。店内の設備を使う形ではないため、テント・机・什器・商品を並べる道具はご自身でご用意ください（マルシェやキッチンカーと同じイメージです）。電源・水道が使えるかは会場により異なります。電源・水道が使えるかは会場により異なります。各会場の条件（広さ・電源・水道・屋根の有無など）は、予約画面の会場情報に表示されます。</div></div>
       <div class="faq-item reveal"><div class="faq-q">3,000円のほかに、かかる費用はありますか？</div><div class="faq-a">各回、店舗協力費（5,000〜15,000円・出店時間や設備内容により異なります）を協力店舗へ直接お支払いいただきます。<b>売上からのシェアは一切いただきません。</b>その日の売上は全額あなたのもの。仕入・材料費はご自身の負担です。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">飲食（お菓子など）の販売もできますか？</div><div class="faq-a"><b>食品の販売には、食品衛生法上のルールがあります。</b>お菓子や食品は、<b>菓子製造業などの許可を持つ施設で製造された、パッケージ商品（食品表示ラベル貼付済み）</b>に限り販売できます。その場での調理・加工は、会場の設備条件により個別の確認が必要です（許可のない調理販売はできません）。コーヒーなどの提供も、内容により必要な許可・届出が異なります。各会場のページに販売できる商品の条件を表示しますので、ご自身で許可を確認のうえお申し込みください。無許可での調理・販売が判明した場合は、出店をお断りし、規約に基づき対応します。</div></div>
+      <div class="faq-item reveal"><div class="faq-q">飲食（お菓子など）の販売もできますか？</div><div class="faq-a"><b>許可施設で製造した、常温・包装済みのパッケージ商品（食品表示ラベル付き）</b>なら販売できます。一方で<b>その場での調理・加熱・コーヒーの抽出などは、屋外スペースでは原則できません。</b>ご自身の商品がどれに当たるかは、上の<a href="#food-rules" class="gold">「あなたの商品は、どれですか」</a>でご確認ください。無許可での調理・販売が判明した場合は、出店をお断りし、規約に基づき対応します。</div></div>
+      <div class="faq-item reveal"><div class="faq-q">自宅で作ったお菓子は、売れますか？</div><div class="faq-a"><b>自宅の台所など、許可のない場所で作ったものは販売できません。</b>菓子製造業などの許可を持つ施設で製造したものに限られます。許可施設の使い方が分からない場合も、LINEからご相談ください。</div></div>
+      <div class="faq-item reveal"><div class="faq-q">食品の許可は、どこに確認すればいいですか？</div><div class="faq-a">確認先は<b>大津市保健所</b>です。大津市は中核市のため、滋賀県ではなく大津市保健所が窓口になります。販売できる商品の条件は各会場のページにも表示します。迷う場合は、お申し込み前にLINEからご相談ください。</div></div>
       <div class="faq-item reveal"><div class="faq-q">副業中・会社員でも参加できますか？</div><div class="faq-a">参加できます。出店は土日開催も可能です。会社を辞める必要も、家族に無理を強いる必要もありません。</div></div>
       <div class="faq-item reveal"><div class="faq-q">すでにお店をやっています。使えますか？</div><div class="faq-a">使えます。新商品や新エリアの反応を見たいときの出店スペースとして、また、いつか実店舗や次の店を低リスクで持ちたいとお考えなら、その先の「店舗承継」までご相談に乗れます。</div></div>
       <div class="faq-item reveal"><div class="faq-q">出店を続けたら、その先に何かありますか？</div><div class="faq-a">もし「もっと続けたい」「いつか自分の店を」と思ったら、売ってきた実績をもとに、融資・補助金、そして街の店を引き継ぐ<b>「承継の店主オーディション」</b>へとつなげられます。急ぐ必要はありません。まずは、一日売ってみるところからどうぞ。</div></div>
