@@ -7,7 +7,7 @@
 <meta name="description" content="飲食店を手放したい方へ。自分で閉めれば原状回復で数十万〜数百万の持ち出し。設備や常連が活きるうちなら、その負担を抑え対価に変えられる可能性があります。撤去前に残せる設備・渡せる条件を整理し、募集から引き継ぎまで伴走。店名を伏せた相談も可能。滋賀・大津のBRIDGE CYCLE。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho+B1:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#0B1927; --navy2:#11202F; --navy3:#1C304A; --navy4:#26405E;
@@ -520,6 +520,119 @@ footer{background:#070F18;padding:28px 24px;border-top:1px solid var(--line)}
     </div>
 
     <p class="hero-skip">診断せずに <a href="#cta">そのまま相談する</a></p>
+  </div>
+</section>
+
+<!-- ===== マニフェスト（創業の物語） ===== -->
+<style>
+  .manifesto{position:relative;background:#F6EFE1;overflow:hidden}
+  .manifesto::before{content:"";position:absolute;top:0;left:0;right:0;height:64px;background:linear-gradient(180deg,var(--navy),rgba(11,25,39,0));z-index:2;pointer-events:none}
+  .manifesto::after{content:"";position:absolute;bottom:0;left:0;right:0;height:64px;background:linear-gradient(0deg,var(--navy3),rgba(28,48,74,0));z-index:2;pointer-events:none}
+  .mf-bg{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(120% 78% at 50% 16%,rgba(205,169,79,.12),transparent 58%),
+               radial-gradient(100% 60% at 50% 104%,rgba(154,126,64,.12),transparent 70%)}
+  .mf-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;filter:blur(1px);pointer-events:none}
+  .mf-in{position:relative;z-index:3;max-width:600px;margin:0 auto;padding:74px 26px 60px;text-align:center}
+  .mf-open{font-family:'Shippori Mincho B1',serif;font-weight:800;color:#241D16;
+    font-size:clamp(27px,7.4vw,38px);line-height:1.5;letter-spacing:.03em;margin:0 0 32px}
+  .mf-stanza{margin-bottom:27px}
+  .mf-line{font-family:'Shippori Mincho B1',serif;font-weight:400;color:#39302A;
+    font-size:clamp(15.5px,4.2vw,17px);line-height:2.1;margin:0;letter-spacing:.01em}
+  .mf-because{font-weight:500;color:#2C241D}
+  .mf-emph{font-family:'Shippori Mincho B1',serif;font-weight:700;color:#221B14;
+    font-size:clamp(20px,5.3vw,26px);line-height:1.7;letter-spacing:.02em;margin:0}
+  .mf-sign{font-weight:600;color:#2C241D;font-size:clamp(16px,4.4vw,18px)}
+  .mf-start{font-family:'Shippori Mincho B1',serif;font-weight:800;color:#241D16;
+    font-size:clamp(22px,5.8vw,30px);line-height:1.5;letter-spacing:.03em;margin:6px 0 0}
+  .mf-start .dot{display:inline-block;width:6px;height:6px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 9px 5px 0}
+  .mf-cta{margin-top:46px}
+  .mf-cta .sup{font-family:'Shippori Mincho B1',serif;font-weight:500;color:#5A4E40;font-size:clamp(14px,3.8vw,15.5px);margin-bottom:17px;line-height:1.7}
+  .mf-cta a.btn{display:inline-block;background:var(--navy);color:var(--cream);
+    font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(15px,4.2vw,16.5px);letter-spacing:.02em;
+    padding:18px 30px;border-radius:4px;border:1px solid var(--gold-dim);
+    box-shadow:0 18px 44px rgba(11,25,39,.24);line-height:1.5;transition:background .2s}
+  .mf-cta a.btn:hover{background:#102740}
+  .mf-cta a.btn .small{display:block;font-family:'Noto Sans JP',sans-serif;font-weight:400;font-size:11.5px;color:var(--gold-lt);margin-top:7px;letter-spacing:.08em}
+  /* 転回の「間」 */
+  .mf-turn{font-family:'Shippori Mincho B1',serif;font-weight:700;color:#241D16;font-size:clamp(22px,5.8vw,30px);letter-spacing:.06em;margin:18px 0 52px;line-height:1.5}
+  /* 最重要メッセージ：独立パネル（アイボリー・1.4倍超） */
+  .mf-key{font-family:'Shippori Mincho B1',serif;font-weight:800;color:#1E1810;
+    font-size:clamp(24px,6.4vw,33px);line-height:1.62;letter-spacing:.02em;
+    background:#FBF7EB;border:1px solid #E6D9BC;border-top:3px solid var(--gold);border-radius:7px;
+    padding:28px 22px;margin:34px 0;box-shadow:0 12px 34px rgba(120,95,40,.12)}
+  /* 署名 */
+  .mf-sign-block{margin-top:40px;font-family:'Shippori Mincho B1',serif}
+  .mf-sign-block .co{font-size:13px;color:#6A5C4A;letter-spacing:.06em}
+  .mf-sign-block .nm{font-size:20px;font-weight:700;color:#2A2018;margin-top:6px;letter-spacing:.1em}
+  .mf-sign-block .nm small{font-size:13px;font-weight:500;color:#5A4E40;margin-right:9px;letter-spacing:.04em}
+</style>
+<section class="manifesto">
+  <div class="mf-bg"></div>
+  <!-- 背景に夕暮れ／灯のともったカウンター写真を入れる場合は次の行を有効化：
+  <img class="mf-photo" src="yugure-otsu.jpg" alt=""> -->
+  <div class="mf-in">
+    <p class="mf-open">賑わいの衰退を、肌で感じています。<br>だから私は、この場所から動きます。</p>
+
+    <div class="mf-stanza">
+      <p class="mf-line">大津・草津で20年。飲食店を含む500を超える事業者の相談に向き合ってきました。</p>
+      <p class="mf-line">創業、融資、補助金、経営改善、事業承継、そして廃業。店を始める人の不安も、続ける人の苦しさも、閉じる人の決断の重さも、すべて現場で見届けてきました。</p>
+    </div>
+
+    <div class="mf-stanza">
+      <p class="mf-line">今でも、忘れられない現場があります。</p>
+      <p class="mf-line">それは、命をかけて作った店を閉めると決めた店主が、人目をはばからず涙を流していた「廃業」の現場です。</p>
+      <p class="mf-line">当時の私は、制度や手続きや、計画という名の「言葉」だけで、その壮絶な現実を、ただ綺麗に整理しようとしていました。</p>
+    </div>
+
+    <p class="mf-turn">けれど――。</p>
+
+    <div class="mf-stanza">
+      <p class="mf-line">自分自身がすべてを賭けて起業し、ゼロから事業を立ち上げる苦しさをいま、味わう中で、ようやく心の底から気づかされたのです。</p>
+    </div>
+
+    <div class="mf-stanza">
+      <p class="mf-line mf-because">続けることだけが、正解ではありません。</p>
+      <p class="mf-line">自らリスクを背負い、打席に立ち、挑戦してきた人だからこそ、「ここで畳む」と決めることにも、同じように大きな勇気があるはずです。</p>
+    </div>
+
+    <p class="mf-key">「辞める」という決断は、もっと、<br>圧倒的に評価されていい。</p>
+
+    <div class="mf-stanza">
+      <p class="mf-line">あなたが必死に守ってきた店には、</p>
+      <p class="mf-line">使える厨房があります。磨き抜かれた味があります。通ってくれた常連さんがいます。</p>
+      <p class="mf-line">そして、その場所に流れてきた、かけがえのない時間があります。</p>
+    </div>
+
+    <div class="mf-stanza">
+      <p class="mf-line">それを、ただの「閉店」で終わらせたくない。</p>
+      <p class="mf-line">あなたが命がけで残してきたものを、次に挑戦する人が受け取ることができれば、この街の灯は、まだ消えずにすみます。</p>
+    </div>
+
+    <div class="mf-stanza">
+      <p class="mf-line">これは、私ひとりの仕事ではありません。</p>
+      <p class="mf-line">前を向いてバトンを渡す人。そのバトンを受け取り、新しく打席に立つ人。挑戦者を信じて、場所を貸してくれる大家さん。そして、その店を愛してきたお客様。</p>
+      <p class="mf-emph">みんなが当事者として関わることで、この街の店は、もう一度循環しはじめる。</p>
+    </div>
+
+    <div class="mf-stanza">
+      <p class="mf-line mf-sign">綺麗事のコンサルティングは、もうやめました。</p>
+      <p class="mf-line">私は一人の起業家として、この街の現場に立ち、考え、動き続けます。</p>
+    </div>
+
+    <div class="mf-stanza">
+      <p class="mf-line">まずは、私たちの足元。</p>
+      <p class="mf-start"><span class="dot"></span>大津・草津から、はじめます。</p>
+    </div>
+
+    <div class="mf-sign-block">
+      <div class="co">BRIDGE CYCLE株式会社</div>
+      <div class="nm"><small>代表取締役</small>中村　裕二</div>
+    </div>
+
+    <div class="mf-cta">
+      <p class="sup">厨房が温かいうちに、次の選択肢を整理する。</p>
+      <a href="#cta" class="btn" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'});return false;">店名を伏せたまま、まずはそっと相談する<span class="small">無料・秘密厳守</span></a>
+    </div>
   </div>
 </section>
 
