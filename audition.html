@@ -7,76 +7,81 @@
 <meta name="description" content="設備も常連も活きた店を継ぐ。約1ヶ月の店主オーディションで、畳む店主から「続けてくれる人」として選ばれる。継ぎ手登録は無料。費用は承継・開業支援の内容に応じた事前見積り。滋賀・大津のBRIDGE CYCLE。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1d2b33;
-    --paper:#f5f6f5;
-    --surface:#ffffff;
-    --line:#e2e1da;
-    --brand:#2f6f6a;
-    --brand-dark:#245450;
-    --brand-tint:rgba(47,111,106,.08);
-    --accent:#c0682b;
-    --accent-dark:#a8581f;
-    --muted:#6c7780;
-    --sans:"Noto Sans JP",system-ui,sans-serif;
-    --serif:"Zen Old Mincho",serif;
+    --ink:#15302e;--paper:#e9edeb;--paper-2:#dfe5e2;--surface:#fff;--line:#cdd6d1;
+    --brand:#2f6f6a;--brand-dark:#143d3a;--brand-deep:#143d3a;--brand-tint:rgba(47,111,106,.08);
+    --accent:#bf4429;--accent-dark:#9e3722;--accent-soft:rgba(191,68,41,.08);
+    --muted:#5f6f69;
+    --sans:"Noto Sans JP",system-ui,sans-serif;--serif:"Shippori Mincho",serif;--mincho:"Shippori Mincho",serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.8;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
-  h2{font-family:var(--serif);font-weight:700;line-height:1.3;font-size:clamp(1.6rem,4.5vw,2.4rem);margin-bottom:.6em}
-  h3{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin-bottom:.4em}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.9;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+  h2{font-family:var(--serif);font-weight:700;line-height:1.32;font-size:clamp(1.6rem,4.5vw,2.4rem);margin-bottom:.6em}
+  h3{font-family:var(--serif);font-weight:700;font-size:1.14rem;margin-bottom:.4em}
   p{margin-bottom:1em}
-  .eyebrow{font-size:.78rem;letter-spacing:.18em;color:var(--brand);font-weight:700;margin-bottom:14px}
-  section{padding:72px 0;border-bottom:1px solid var(--line)}
-  /* header */
-  header{position:sticky;top:0;z-index:50;background:rgba(245,246,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
-  .logo{font-family:var(--serif);font-weight:700;letter-spacing:.04em}
-  .logo b{color:var(--brand)}
-  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:13px 26px;border-radius:9px;transition:background .15s,transform .15s;border:none;cursor:pointer;font-family:inherit;font-size:1rem}
-  .btn:hover{background:var(--accent-dark);transform:translateY(-1px)}
-  .btn:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
-  .btn-sm{padding:9px 18px;font-size:.9rem}
-  .btn-ghost{background:transparent;color:var(--brand-dark);border:1.5px solid var(--brand);font-weight:700;padding:12px 24px;border-radius:9px;text-decoration:none;display:inline-block}
-  /* hero */
-  .hero{padding:88px 0 76px;text-align:left}
-  .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.1rem,6.5vw,3.6rem);line-height:1.22;margin-bottom:.5em}
-  .hero h1 .br{color:var(--brand)}
-  .hero p.lead{font-size:1.08rem;max-width:62ch}
-  .hero-cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  /* stat band */
-  .stats{background:var(--ink);border:none}
+  a{color:inherit}
+  b{color:var(--brand-dark)}
+  .eyebrow{font-family:var(--serif);font-size:.8rem;letter-spacing:.18em;color:var(--brand);font-weight:700;margin-bottom:14px}
+  section{padding:70px 0;border-bottom:1px solid var(--line)}
+  /* header over hero */
+  header{position:absolute;top:0;left:0;right:0;z-index:10}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:24px}
+  .logo{font-family:var(--serif);font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .logo b{color:#9cd3cc}
+  .logo-mark{display:inline-block;width:12px;height:12px;border:2px solid #9cd3cc;border-radius:50%;border-top-color:transparent;margin-right:8px;vertical-align:-1px;transform:rotate(-30deg)}
+  .nav-cta{font-family:var(--serif);font-weight:700;font-size:.9rem;color:#fff;background:var(--accent);padding:9px 18px;border-radius:999px;text-decoration:none}
+  /* buttons：朱は動線専用 */
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-family:var(--serif);font-weight:700;padding:13px 28px;border-radius:999px;border:none;cursor:pointer;font-size:1rem;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 18px rgba(191,68,41,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(191,68,41,.36)}
+  .btn-sm{padding:9px 18px;font-size:.9rem;box-shadow:none}
+  .btn-ghost{display:inline-block;background:transparent;color:var(--brand-dark);border:1.5px solid var(--brand);font-family:var(--serif);font-weight:700;padding:12px 24px;border-radius:999px;text-decoration:none}
+  .hero .btn-ghost{color:#eaf2f0;border-color:rgba(255,255,255,.6)}
+  /* HERO with photo */
+  .hero{position:relative;min-height:72vh;display:flex;align-items:center;overflow:hidden;border-bottom:none;padding:0;text-align:left}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,40,38,.94),rgba(15,48,46,.80) 45%,rgba(15,48,46,.42))}
+  .hero .wrap{position:relative;z-index:2;padding:130px 0 70px}
+  .hero .eyebrow{color:#9cd3cc}
+  .hero h1{font-family:var(--serif);font-weight:800;color:#fff;font-size:clamp(2.1rem,6vw,3.7rem);line-height:1.22;margin-bottom:.5em;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+  .hero h1 .br{color:#8ec8c1}
+  .hero p.lead{font-size:1.04rem;max-width:62ch;color:#dcebe8}
+  .hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  /* stats */
+  .stats{background:var(--brand-deep);border:none}
   .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-  .stats .num{font-family:var(--serif);font-weight:700;font-size:2rem;color:#fff;line-height:1.1}
-  .stats .lab{color:#aeb8bd;font-size:.82rem;margin-top:6px}
+  .stats .num{font-family:var(--serif);font-weight:800;font-size:1.9rem;color:#fff;line-height:1.1}
+  .stats .lab{color:#9fb6b1;font-size:.82rem;margin-top:6px}
   @media(max-width:640px){.stats .grid{grid-template-columns:repeat(2,1fr)}}
   /* cards */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   @media(max-width:820px){.cards{grid-template-columns:1fr}}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
-  .card .tag{font-size:.72rem;letter-spacing:.12em;color:var(--brand);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+  .card .tag{font-size:.72rem;letter-spacing:.1em;color:var(--brand);font-weight:700;margin-bottom:10px;font-family:var(--serif)}
+  .card .kanji{font-family:var(--serif);font-weight:700;color:var(--brand);font-size:1.3rem;display:block;margin-bottom:8px}
   .card p:last-child{margin-bottom:0}
   /* compare table */
   .tbl{width:100%;border-collapse:collapse;background:var(--surface);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
   .tbl th,.tbl td{padding:16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-  .tbl thead th{background:var(--brand-tint);font-size:.9rem}
+  .tbl thead th{background:var(--brand-tint);font-size:.9rem;font-family:var(--serif)}
   .tbl thead th:last-child{color:var(--brand-dark)}
   .tbl td:first-child{color:var(--muted);font-size:.9rem;white-space:nowrap}
   .tbl td b,.tbl th b{color:var(--brand-dark)}
   .tbl tr:last-child td{border-bottom:none}
   /* steps */
-  .steps{counter-reset:st;display:grid;gap:0}
-  .step{position:relative;padding:22px 0 22px 56px;border-bottom:1px solid var(--line)}
+  .steps{counter-reset:st;display:grid;gap:0;margin-top:8px}
+  .step{position:relative;padding:22px 0 22px 62px;border-bottom:1px solid var(--line)}
   .step:last-child{border-bottom:none}
-  .step::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:22px;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;font-family:var(--serif);font-weight:700;display:flex;align-items:center;justify-content:center}
-  .step .meta{font-size:.78rem;color:var(--brand);font-weight:700;float:right}
-  .step .hl{background:var(--brand-tint);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.94rem}
+  .step::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:22px;width:40px;height:40px;border-radius:50%;background:var(--brand-tint);color:var(--brand-deep);font-family:var(--serif);font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--brand)}
+  .step .meta{font-size:.78rem;color:var(--brand);font-weight:700;float:right;font-family:var(--serif)}
+  .step h3{font-family:var(--serif)}
+  .step .hl{background:var(--brand-tint);border-left:3px solid var(--brand);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.94rem}
   /* fee */
-  .feebox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px}
+  .feebox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:34px}
   .feebox .row{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
   .feebox .row:last-of-type{border-bottom:none}
   .feebox .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;font-family:var(--serif);font-weight:700;display:flex;align-items:center;justify-content:center}
@@ -88,7 +93,7 @@
   .assure div{background:var(--brand-tint);border-radius:10px;padding:13px 16px;font-size:.95rem}
   .assure b{color:var(--brand-dark)}
   .note{font-size:.86rem;color:var(--muted);margin-top:16px}
-  /* generic two-col compare */
+  /* two-col */
   .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   @media(max-width:740px){.twocol{grid-template-columns:1fr}}
   .panel{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--surface)}
@@ -97,9 +102,22 @@
   .panel ul{list-style:none;margin:12px 0}
   .panel li{padding:6px 0;font-size:.95rem}
   .center{text-align:center}
-  footer{background:var(--ink);color:#cfd6d9;padding:48px 0;border:none;font-size:.9rem}
-  footer a{color:#fff}
-  .pill{display:inline-block;background:var(--brand-tint);color:var(--brand-dark);font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:999px;margin:2px}
+  .pill{display:inline-block;background:var(--brand-tint);color:var(--brand-dark);font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:999px;margin:2px;font-family:var(--serif)}
+  /* photo band */
+  .photo-band{margin-top:30px;border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative}
+  .photo-band img{width:100%;height:300px;object-fit:cover;display:block}
+  .photo-band .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;background:linear-gradient(transparent,rgba(13,40,38,.88));color:#fff;font-family:var(--serif);font-weight:700;font-size:1.05rem}
+  @media(max-width:640px){.photo-band img{height:220px}}
+  /* CTA */
+  .cta{position:relative;overflow:hidden;background:var(--brand-deep);border:none;color:#fff;text-align:center}
+  .cta-bg{position:absolute;inset:0;z-index:0}
+  .cta-bg img{width:100%;height:100%;object-fit:cover}
+  .cta-bg::after{content:"";position:absolute;inset:0;background:rgba(15,48,46,.88)}
+  .cta .wrap{position:relative;z-index:2}
+  .cta h2{color:#fff}
+  .cta p{color:#bcd2cd}
+  footer{background:#0f2422;color:#9fb6b1;padding:54px 0;border:none;font-size:.9rem}
+  footer a{color:#9cd3cc}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -107,19 +125,22 @@
 
 <header>
   <div class="wrap">
-    <span class="logo">BRIDGE <b>CYCLE</b></span>
-    <a href="#cta" class="btn btn-sm">無料で相談する</a>
+    <span class="logo"><span class="logo-mark"></span>BRIDGE <b>CYCLE</b></span>
+    <a href="https://line.me/R/ti/p/@907kxssd" class="nav-cta">継ぎ手登録</a>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero" id="top" style="border-bottom:none">
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1686063448920-b0b2ce738609?fm=jpg&q=72&w=1600&auto=format&fit=crop" alt="飲食店のカウンター">
+  </div>
   <div class="wrap">
-    <p class="eyebrow">飲食店の 事業承継 ｜ 店主オーディション</p>
+    <p class="eyebrow">弐 ／ 継ぐ ── 飲食店の事業承継</p>
     <h1>ゼロから作るより、<br><span class="br">活きた店を継ぐ。</span></h1>
     <p class="lead">設備・内装・常連が残る飲食店を、約1ヶ月の店主オーディションで、次の担い手へ。いきなり数百万円を賭けず、続けたい想いで選ばれる仕組みです。継ぎ手登録は無料。融資・補助金・営業許可の準備は、認定経営革新等支援機関が、承継が具体化してから支援します。</p>
     <div class="hero-cta">
-      <a href="#cta" class="btn">継ぎ手として登録する</a>
+      <a href="https://line.me/R/ti/p/@907kxssd" class="btn">継ぎ手として登録する</a>
       <a href="#flow" class="btn-ghost">継ぐまでの流れを見る</a>
     </div>
   </div>
@@ -245,6 +266,10 @@
       <div class="card"><h3>貸主・関係者と話し合える人</h3><p>賃貸借契約、設備の扱い、営業許可、引き継ぎ条件。必要な確認を飛ばさず、関係者と丁寧に進められる人。</p></div>
     </div>
     <p class="note">※店主オーディションは、金額の入札ではありません。店主・貸主・近隣・常連にとって、安心して任せられるかを一緒に確認します。</p>
+    <div class="photo-band">
+      <img src="https://images.unsplash.com/photo-1563118946-9d60eae4a82d?fm=jpg&q=72&w=1400&auto=format&fit=crop" alt="焼き場に立つ料理人">
+      <div class="cap">続けてくれる人へ。常連も、近隣との関係も、店の空気ごと引き継ぐ。</div>
+    </div>
   </div>
 </section>
 
@@ -302,24 +327,31 @@
       <div class="card"><div class="tag">Sample ・堅田エリア</div><h3>ベーカリー・洋菓子 居抜き</h3><p>オーブン・製造設備が活きる／地域の固定客がいる／製造許可付きの厨房。<br><span style="color:var(--muted);font-size:.9rem">想定：製造＋小売／駐車場あり</span></p></div>
     </div>
     <p class="note">※上の3件は、どんな店が出るかを示すサンプル（イメージ）であり、実際に募集中の案件ではありません。実際の案件は、継ぎ手登録された方に、条件に合うものが出たタイミングでご連絡します。</p>
+    <div class="photo-band">
+      <img src="https://images.unsplash.com/photo-1734018959097-1fd0696a1298?fm=jpg&q=72&w=1400&auto=format&fit=crop" alt="調理する料理人">
+      <div class="cap">設備も、技も、常連も活きた店が、オーディションに出ます。</div>
+    </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="cta" style="background:var(--brand);border:none;color:#fff;text-align:center">
+<section id="cta" class="cta">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1573240513057-86a945fa38dd?fm=jpg&q=72&w=1600&auto=format&fit=crop" alt="飲食店の厨房">
+  </div>
   <div class="wrap">
-    <h2 style="color:#fff">まずは、継ぎ手登録から。</h2>
+    <h2>まずは、継ぎ手登録から。</h2>
     <p style="max-width:56ch;margin:0 auto 28px">継ぎ手登録と初回相談は無料です。具体的な開業支援は、承継が具体化してからご案内します。費用は支援内容に応じて、相談のなかで事前に明示します。</p>
-    <a href="https://line.me/R/ti/p/@907kxssd" class="btn" style="background:#fff;color:var(--brand-dark)">LINEで継ぎ手登録する</a>
+    <a href="https://line.me/R/ti/p/@907kxssd" class="btn">LINEで継ぎ手登録する</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p style="font-family:var(--serif);font-size:1.1rem;color:#fff;margin-bottom:8px">BRIDGE <b style="color:#8fc7c1">CYCLE</b></p>
+    <p style="font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:8px"><span class="logo-mark" style="border-color:#9cd3cc;border-top-color:transparent"></span>BRIDGE <b style="color:#9cd3cc">CYCLE</b></p>
     運営：BRIDGE CYCLE株式会社（滋賀県大津市）／代表取締役 中村裕二 ／ 認定経営革新等支援機関<br>
     お問い合わせ：LINE（@907kxssd）<br><br>
-    <a href="uriba.html">▶ 街で売ってみたい方へ（売り場レンタル）</a>　|　<a href="watasu.html">▶ 店を渡したい・閉じる方へ</a>
+    <a href="index.html">‹ BRIDGE CYCLE トップへ</a>　｜　<a href="uriba.html">街で売ってみたい方へ</a>　｜　<a href="watasu.html">店を渡したい・閉じる方へ</a>
   </div>
 </footer>
 
