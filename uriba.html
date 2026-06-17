@@ -4,1031 +4,297 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>飲食テイクアウト出店レンタル｜キッチンカー・テントで売れる場所（滋賀・大津）</title>
-<meta name="description" content="飲食のテイクアウト出店専用スペース。キッチンカーやテント持参で、大津の協力店舗の店前・駐車場に1日から出店できます。利用料3,000円＋会場協力費の総額表示、売上は全額あなたのもの。営業許可は出店者ご自身で（申請のご相談も可）。運営：BRIDGE CYCLE株式会社。">
+<meta name="description" content="大津の協力店舗の店前・駐車場で、1日からテイクアウト・テント出店。利用料3,000円＋会場協力費の総額表示、売上は全額あなたのもの。LINEで空き枠確認、オンライン決済で予約確定。運営：BRIDGE CYCLE株式会社。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#0B1927; --navy2:#11202F; --navy3:#1C304A; --navy4:#26405E;
-  --gold:#CDA94F; --gold-lt:#EBD09A; --gold-dim:#9A7E40;
-  --cream:#F8F4EC; --cream2:#E4DAC4; --smoke:#D5CCB9;
-  --ink:#1A2433; --ink-soft:#46566A;
-  --keep:#7FA06A; --pass:#C6A24A; --start:#6FA0C2; --stop:#C16A52;
-  --line:rgba(205,169,79,.32);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{background:var(--navy);color:var(--cream);font-family:'Noto Sans JP',sans-serif;line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-feature-settings:"palt"}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:none;background:none}
-.mincho{font-family:'Shippori Mincho B1',serif;font-weight:800;letter-spacing:.02em}
-.eng{font-family:'Cormorant Garamond',serif;letter-spacing:.18em;text-transform:uppercase}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
-@media(max-width:600px){.wrap{padding:0 18px}}
-.gold{color:var(--gold)}
-.eb{display:inline-flex;align-items:center;gap:11px;font-size:.62rem;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;font-family:'Cormorant Garamond',serif}
-.eb::before{content:"";width:26px;height:1px;background:var(--gold)}
-section{position:relative}
-
-/* NAV */
-nav{position:fixed;inset:0 0 auto 0;height:60px;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(11,25,39,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .brand{display:flex;align-items:center;gap:10px;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:1.02rem;color:var(--cream)}
-nav .brand .bridge{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.5}
-nav .nav-cta{font-size:.78rem;font-weight:700;color:var(--navy);background:var(--gold);padding:9px 17px;border-radius:7px}
-@media(max-width:600px){nav .nav-cta{padding:8px 13px;font-size:.72rem}nav .brand{font-size:.92rem}}
-
-/* HERO */
-.hero{position:relative;padding:150px 24px 70px;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0;background:
-  radial-gradient(120% 90% at 50% 0%,#22364f 0%,#11202F 45%,var(--navy) 100%);}
-.hero-bg::after{content:"";position:absolute;inset:0;background-image:
-  repeating-linear-gradient(90deg,transparent 0 38px,rgba(198,162,74,.05) 38px 39px);opacity:.5}
-.hero-in{position:relative;z-index:2;max-width:760px;margin:0 auto}
-.hero .eb{justify-content:center}
-.hero h1{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(28px,5.4vw,54px);line-height:1.4;color:var(--cream);margin:20px 0 0;text-shadow:0 2px 18px rgba(0,0,0,.4)}
-.hero h1 .hl{display:inline-block;white-space:nowrap}
-@media(max-width:480px){.hero h1{font-size:clamp(23px,7vw,32px)}}
-.hero-sub{margin-top:22px;font-size:.98rem;color:var(--cream2);line-height:1.95}
-.hero-sub b{color:var(--gold-lt);font-weight:700}
-.price-pop{margin:26px auto 0;display:inline-flex;align-items:baseline;gap:10px;background:rgba(198,162,74,.1);border:1px solid var(--gold);border-radius:12px;padding:13px 22px}
-.price-pop .n{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:600;color:var(--gold-lt);line-height:1}
-.price-pop .t{font-size:.82rem;color:var(--cream)}
-.hero-ctas{margin-top:30px;display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;border-radius:9px;padding:15px 26px;font-size:.92rem;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 10px 30px rgba(198,162,74,.3)}
-.btn-line{background:#06C755;color:#fff}
-.btn-ghost{border:1px solid var(--line);color:var(--cream)}
-.btn svg{width:18px;height:18px}
-.hero-fine{margin-top:18px;font-size:.74rem;color:var(--smoke)}
-
-/* STATS */
-.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--navy2)}
-.stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:30px 18px;text-align:center;border-right:1px solid var(--line)}
-.stat:last-child{border-right:none}
-@media(max-width:680px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
-.stat .num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--gold-lt);line-height:1;display:block}
-.stat .num .u{font-size:1rem;margin-left:2px}
-.stat .cap{font-size:.84rem;color:var(--cream);margin-top:8px;font-weight:500}
-.stat .sub{font-size:.72rem;color:var(--smoke);margin-top:3px}
-
-/* SECTION SHELL */
-.sec{padding:84px 24px}
-.sec-head{text-align:center;max-width:660px;margin:0 auto 44px}
-.sec-head .eb{justify-content:center}
-.sec-head h2{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(22px,3.3vw,32px);color:var(--cream);margin-top:15px;line-height:1.45}
-.sec-head p{font-size:.9rem;color:var(--smoke);margin-top:15px;line-height:1.9}
-
-/* TARGET cards */
-.target{background:var(--navy2);border-top:1px solid var(--line)}
-.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:920px;margin:0 auto}
-@media(max-width:760px){.t-grid{grid-template-columns:1fr}}
-.t-card{background:var(--navy);border:1px solid var(--line);border-radius:13px;padding:26px 24px}
-.t-card h4{font-family:'Shippori Mincho B1',serif;font-size:1rem;color:var(--gold-lt);line-height:1.5;margin-bottom:12px}
-.t-card p{font-size:.85rem;color:var(--cream2);line-height:1.85}
-
-/* HOW / 仕組み */
-.how-lead{max-width:680px;margin:0 auto 36px;text-align:center;font-size:.95rem;color:var(--cream2);line-height:1.95}
-.how-lead b{color:var(--gold-lt)}
-.venue-note{max-width:620px;margin:0 auto 40px;display:flex;align-items:center;gap:14px;background:rgba(198,162,74,.07);border:1px solid var(--line);border-radius:11px;padding:16px 20px}
-.venue-note .ic{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(198,162,74,.16);display:flex;align-items:center;justify-content:center}
-.venue-note .ic svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.7}
-.venue-note p{font-size:.84rem;color:var(--cream);line-height:1.7}
-.venue-note b{color:var(--gold-lt)}
-.entries{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:940px;margin:0 auto}
-@media(max-width:760px){.entries{grid-template-columns:1fr}}
-.entry{background:var(--navy2);border:1px solid var(--line);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column}
-.entry.feature{border-color:var(--gold);background:linear-gradient(170deg,rgba(198,162,74,.08),var(--navy2))}
-.entry .who{font-family:'Shippori Mincho B1',serif;font-size:1.05rem;color:var(--cream);margin-bottom:6px}
-.entry .pr{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--gold-lt);line-height:1.1}
-.entry .pr small{font-size:.78rem;color:var(--smoke);font-family:'Noto Sans JP',sans-serif;margin-left:4px}
-.entry .tagline{font-size:.82rem;color:var(--gold);margin:10px 0 16px;font-weight:500}
-.entry ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
-.entry li{font-size:.82rem;color:var(--cream2);line-height:1.6;padding-left:20px;position:relative}
-.entry li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
-.entry .e-cta{margin-top:auto;text-align:center;font-size:.82rem;font-weight:700;color:var(--navy);background:var(--gold-lt);border-radius:8px;padding:11px}
-.entry.feature .e-cta{background:var(--gold)}
-.entry-fine{max-width:920px;margin:18px auto 0;font-size:.74rem;color:var(--smoke);line-height:1.75;text-align:center}
-
-/* WHY compare */
-.why{background:var(--navy2);border-top:1px solid var(--line)}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:880px;margin:0 auto}
-@media(max-width:680px){.cmp{grid-template-columns:1fr}}
-.cmp-c{border-radius:13px;padding:26px 26px;border:1px solid var(--line)}
-.cmp-c.bad{background:rgba(255,255,255,.02)}
-.cmp-c.good{background:rgba(198,162,74,.07);border-color:var(--gold)}
-.cmp-c h4{font-family:'Shippori Mincho B1',serif;font-size:1rem;margin-bottom:16px}
-.cmp-c.bad h4{color:var(--smoke)}
-.cmp-c.good h4{color:var(--gold-lt)}
-.cmp-c ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-.cmp-c li{font-size:.86rem;line-height:1.55;display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:10px}
-.cmp-c li:last-child{border-bottom:none}
-.cmp-c.bad li{color:var(--cream2)}.cmp-c.good li{color:var(--cream)}
-.cmp-c li b{color:var(--gold-lt);white-space:nowrap}
-.cmp-c.bad li b{color:#c98b7a}
-.cmp-emph{max-width:680px;margin:28px auto 0;text-align:center;font-size:.9rem;color:var(--cream2);line-height:1.9}
-.cmp-emph b{color:var(--gold-lt)}
-
-/* STAGES */
-.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:920px;margin:0 auto}
-@media(max-width:760px){.stages{grid-template-columns:1fr}}
-.stage{background:var(--navy2);border:1px solid var(--line);border-radius:13px;padding:26px 24px;position:relative}
-.stage .st-n{font-family:'Cormorant Garamond',serif;font-size:.7rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
-.stage h4{font-family:'Shippori Mincho B1',serif;font-size:1.08rem;color:var(--cream);margin:6px 0 4px}
-.stage .pr{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold-lt);font-weight:600;margin-bottom:14px}
-.stage ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.stage li{font-size:.82rem;color:var(--cream2);line-height:1.55;padding-left:18px;position:relative}
-.stage li::before{content:"−";position:absolute;left:0;color:var(--gold)}
-.stages-fine{max-width:880px;margin:20px auto 0;font-size:.74rem;color:var(--smoke);line-height:1.75;text-align:center}
-.honest{max-width:720px;margin:36px auto 0;background:var(--navy);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:24px 26px}
-.honest h4{font-family:'Shippori Mincho B1',serif;font-size:1rem;color:var(--gold-lt);margin-bottom:12px}
-.honest p{font-size:.86rem;color:var(--cream2);line-height:1.95}
-.honest p+p{margin-top:12px}
-.honest b{color:var(--cream)}
-
-/* ROADMAP */
-.roadmap{background:var(--navy2);border-top:1px solid var(--line)}
-.road{display:flex;flex-direction:column;gap:0;max-width:760px;margin:0 auto}
-.road-step{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
-.road-step:last-child{border-bottom:none}
-@media(max-width:600px){.road-step{grid-template-columns:1fr;gap:6px}}
-.road-step .rk{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding-top:5px}
-.road-step h4{font-family:'Shippori Mincho B1',serif;font-size:1.05rem;color:var(--cream);margin-bottom:6px}
-.road-step.dest h4{color:var(--gold-lt)}
-.road-step p{font-size:.85rem;color:var(--cream2);line-height:1.8}
-.road-step .rlink{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--gold-lt);border-bottom:1px solid var(--gold-dim);padding-bottom:1px}
-
-/* ===== 視認性向上（方向A） ===== */
-/* セクション境界：上端に金のヘアライン＋わずかな影で切れ目を明確化 */
-.sec, .target, .why, .roadmap, .succ-band, .who, .stats, .lend, .venues, .book{position:relative}
-.sec::before, .target::before, .why::before, .roadmap::before, .succ-band::before, .who::before, .lend::before, .venues::before, .book::before{
-  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:46px;height:3px;border-radius:2px;background:var(--gold);opacity:.85}
-/* 見出しの可読性 */
-.sec-head h2, .succ-in h2{letter-spacing:.01em}
-.sec-head p{color:var(--cream2)}
-/* eyebrow を少し大きく・はっきり */
-.eb{font-size:.66rem;letter-spacing:.2em}
-/* 本文の薄いグレーを底上げ（細字の可読性） */
-.entry-fine, .stages-fine, .vg-note, .book-fine, .hero-fine{color:var(--cream2)}
-/* 数字バンドを強調 */
-.stats{background:linear-gradient(180deg,var(--navy3),var(--navy2))}
-.stat .num{text-shadow:0 2px 14px rgba(0,0,0,.4)}
-.stat .cap{color:var(--cream);font-weight:700}
-.stat .sub{color:var(--cream2)}
-/* ヒーロー金額を主役に */
-.price-pop{background:rgba(205,169,79,.14);border:1.5px solid var(--gold);box-shadow:0 10px 34px rgba(0,0,0,.35)}
-.price-pop .n{text-shadow:0 2px 12px rgba(0,0,0,.4)}
-.price-pop .t{color:var(--cream)}
-/* 会場カードの料金を強調 */
-.vcard .vprice .amt{text-shadow:0 1px 8px rgba(0,0,0,.3)}
-.vcard h4{font-size:1.05rem}
-/* 予約・主要ボタンの存在感 */
-.btn-gold, .book-go, .form .submit, .lend-cta .btn{box-shadow:0 12px 32px rgba(205,169,79,.34);font-weight:800}
-.book-go:not(:disabled){box-shadow:0 14px 38px rgba(205,169,79,.46)}
-/* 予約サマリーを読みやすく */
-.book-summary{font-size:.9rem}
-.book-summary .tot{font-size:1.02rem}
-.book-summary .tot .v{font-size:1.15rem}
-/* FAQ 可読性 */
-.faq-a{color:var(--cream2)}
-.faq-q{font-size:1rem}
-/* カード内本文の底上げ */
-.t-card p, .lend-c p, .who-c p, .succ-pt p, .cmp-emph, .how-lead{color:var(--cream2)}
-/* リンクの視認性 */
-.rlink, .succ-links a, .foot-cross a{font-weight:700}
-
-
-.succ-pts{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;max-width:720px;margin:26px auto 0;text-align:left}
-@media(max-width:600px){.succ-pts{grid-template-columns:1fr}}
-.succ-pt{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:11px;padding:18px 20px}
-.succ-pt h5{font-family:'Shippori Mincho B1',serif;font-size:.94rem;color:var(--gold-lt);margin-bottom:7px;display:flex;gap:9px;align-items:baseline}
-.succ-pt h5 .pn{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:.9rem}
-.succ-pt p{font-size:.82rem;color:var(--cream2);line-height:1.8}
-
-/* スペースを貸したい方へ（供給側） */
-.lend{background:var(--navy2);border-top:1px solid var(--line)}
-.lend-money{max-width:720px;margin:0 auto 30px;text-align:center;background:radial-gradient(120% 130% at 50% 0%,rgba(205,169,79,.16),transparent 70%);border:1px solid var(--gold-dim);border-radius:16px;padding:28px 26px}
-.lend-money .big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(19px,2.8vw,26px);color:var(--cream);line-height:1.55}
-.lend-money .big b{color:var(--gold-lt)}
-.lend-money .sub{font-size:.86rem;color:var(--cream2);margin-top:11px;line-height:1.8}
-.lend-types{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;max-width:760px;margin:0 auto 30px}
-@media(max-width:680px){.lend-types{grid-template-columns:1fr;max-width:420px}}
-.lend-type{background:var(--navy);border:1px solid var(--line);border-radius:11px;padding:16px 18px;text-align:center}
-.lend-type .lt-ic{font-size:1.3rem;margin-bottom:6px}
-.lend-type h5{font-family:'Shippori Mincho B1',serif;font-size:.92rem;color:var(--gold-lt);margin-bottom:5px}
-.lend-type p{font-size:.78rem;color:var(--cream2);line-height:1.65}
-.lend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:920px;margin:0 auto 32px}
-@media(max-width:760px){.lend-grid{grid-template-columns:1fr;max-width:440px}}
-.lend-c{background:var(--navy);border:1px solid var(--line);border-radius:13px;padding:26px 24px}
-.lend-c .ic{width:40px;height:40px;border-radius:10px;background:rgba(198,162,74,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.lend-c .ic svg{width:21px;height:21px;stroke:var(--gold);fill:none;stroke-width:1.6}
-.lend-c h4{font-family:'Shippori Mincho B1',serif;font-size:1rem;color:var(--cream);margin-bottom:9px}
-.lend-c p{font-size:.84rem;color:var(--cream2);line-height:1.85}
-.lend-cta{text-align:center}
-.lend-cta .note{font-size:.84rem;color:var(--smoke);margin-bottom:18px;line-height:1.8}
-
-/* 予約フロー（非対面・オンライン完結） */
-.book{padding:88px 24px;background:radial-gradient(110% 80% at 50% 0%,#1b2c41,var(--navy) 70%);border-top:1px solid var(--line)}
-.book .sec-head{margin-bottom:30px}
-.book-auto{max-width:620px;margin:0 auto 26px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.book-auto span{font-size:.74rem;color:var(--gold-lt);background:rgba(198,162,74,.08);border:1px solid var(--line);border-radius:20px;padding:7px 15px}
-.book-card{max-width:620px;margin:0 auto;background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:30px 28px}
-.book-step{margin-bottom:26px}
-.book-step>.lbl{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--gold-lt);font-weight:700;margin-bottom:13px}
-.book-step>.lbl .no{font-family:'Cormorant Garamond',serif;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:600;flex-shrink:0}
-.venue-opts{display:flex;flex-direction:column;gap:9px}
-.vopt{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:13px 16px;cursor:pointer;transition:border-color .15s,background .15s}
-.vopt:hover{border-color:var(--gold-dim)}
-.vopt.sel{border-color:var(--gold);background:rgba(198,162,74,.08)}
-.vopt .dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--smoke);flex-shrink:0}
-.vopt.sel .dot{border-color:var(--gold);background:var(--gold)}
-.vopt .vn{font-size:.9rem;color:var(--cream);font-weight:500}
-.vopt .vp{margin-left:auto;font-family:'Cormorant Garamond',serif;color:var(--gold-lt);font-size:1rem;white-space:nowrap}
-.date-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px}
-.dchip{border:1px solid var(--line);border-radius:9px;padding:10px 4px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s}
-.dchip:hover:not(.full){border-color:var(--gold-dim)}
-.dchip.sel{border-color:var(--gold);background:rgba(198,162,74,.1)}
-.dchip .d{font-size:1rem;color:var(--cream);font-family:'Cormorant Garamond',serif;font-weight:600}
-.dchip .w{font-size:.66rem;color:var(--smoke);margin-top:2px}
-.dchip.full{opacity:.4;cursor:not-allowed}
-.dchip.full .w{color:#c98b7a}
-.book-step input,.book-step textarea{width:100%;background:var(--navy);border:1px solid var(--line);border-radius:9px;padding:12px 14px;color:var(--cream);font-family:inherit;font-size:.9rem;margin-bottom:9px}
-.book-step input:focus,.book-step textarea:focus{outline:none;border-color:var(--gold)}
-.book-summary{background:var(--navy);border:1px dashed var(--gold-dim);border-radius:11px;padding:16px 18px;margin-bottom:18px;font-size:.86rem;color:var(--cream);line-height:1.9}
-.book-summary .row{display:flex;justify-content:space-between;gap:12px}
-.book-summary .row .k{color:var(--smoke)}
-.book-summary .tot{border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-weight:700}
-.book-summary .tot .v{color:var(--gold-lt)}
-.book-go{width:100%;background:var(--gold);color:var(--navy);font-weight:700;padding:16px;border-radius:10px;font-size:.98rem;transition:opacity .15s}
-.book-go:disabled{opacity:.4;cursor:not-allowed}
-.book-fine{font-size:.74rem;color:var(--smoke);margin-top:14px;line-height:1.75;text-align:center}
-.book-agree{display:flex;gap:11px;align-items:flex-start;background:var(--navy);border:1px solid var(--gold-dim);border-radius:11px;padding:15px 17px;margin-bottom:16px;cursor:pointer}
-.book-agree input{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--gold);cursor:pointer}
-.book-agree label{font-size:.8rem;color:var(--cream2);line-height:1.7;cursor:pointer}
-.book-agree label b{color:var(--gold-lt)}
-
-/* 会場ギャラリー（サンプル枠・差し替え前提） */
-.venues{border-top:1px solid var(--line)}
-.vg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:0 auto}
-@media(max-width:760px){.vg-grid{grid-template-columns:1fr;max-width:420px}}
-.vcard{background:var(--navy2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.vcard .ph{position:relative;aspect-ratio:4/3;background:linear-gradient(160deg,var(--navy3),var(--navy));display:block}
-.vcard .ph svg{position:absolute;inset:0;width:100%;height:100%}
-.vcard .ph .tag{position:absolute;top:12px;left:12px;font-family:'Cormorant Garamond',serif;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);background:var(--gold-lt);padding:5px 10px;border-radius:6px;z-index:2}
-.vcard .ph .swap{position:absolute;bottom:12px;left:12px;right:12px;font-size:.7rem;color:var(--smoke);background:rgba(11,25,39,.6);border:1px dashed var(--line);border-radius:6px;padding:6px 10px;text-align:center;z-index:2}
-.vcard .body{padding:18px 20px}
-.vcard .vprice{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.vcard .vprice .amt{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold-lt);line-height:1}
-.vcard .vprice .per{font-size:.74rem;color:var(--smoke)}
-.vcard .vprice .bk{margin-left:auto;font-size:.68rem;color:var(--smoke);text-align:right;line-height:1.4}
-.vcard h4{font-family:'Shippori Mincho B1',serif;font-size:1rem;color:var(--cream);margin-bottom:10px}
-.vcard .specs{display:flex;flex-direction:column;gap:6px}
-.vcard .specs div{font-size:.8rem;color:var(--cream2);display:flex;gap:8px}
-.vcard .specs .k{color:var(--gold-lt);min-width:54px}
-.vg-note{max-width:680px;margin:30px auto 0;text-align:center;font-size:.8rem;color:var(--smoke);line-height:1.85}
-
-/* 承継つなぎ band */
-.succ-band{background:linear-gradient(135deg,var(--navy3),var(--navy));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.succ-in{max-width:780px;margin:0 auto;text-align:center}
-.succ-in h2{font-family:'Shippori Mincho B1',serif;font-size:clamp(20px,3vw,28px);color:var(--cream);line-height:1.5;margin-bottom:18px}
-.succ-in p{font-size:.92rem;color:var(--cream2);line-height:1.95;margin-bottom:14px}
-.succ-in b{color:var(--gold-lt)}
-.succ-links{margin-top:26px;display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
-.succ-links a{font-size:.86rem;font-weight:700;border:1px solid var(--gold);color:var(--gold-lt);border-radius:9px;padding:13px 22px;transition:background .15s}
-.succ-links a:hover{background:rgba(198,162,74,.1)}
-
-/* TAKEAWAY */
-.take-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;max-width:880px;margin:0 auto}
-@media(max-width:680px){.take-grid{grid-template-columns:1fr}}
-.take{background:var(--navy2);border:1px solid var(--line);border-radius:12px;padding:24px 24px}
-.take .tn{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);font-weight:600;line-height:1}
-.take h4{font-family:'Shippori Mincho B1',serif;font-size:.98rem;color:var(--cream);margin:8px 0 8px}
-.take p{font-size:.84rem;color:var(--cream2);line-height:1.8}
-
-/* WHO */
-.who{background:var(--navy2);border-top:1px solid var(--line)}
-.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:880px;margin:0 auto}
-@media(max-width:680px){.who-grid{grid-template-columns:1fr}}
-.who-c{background:var(--navy);border:1px solid var(--line);border-radius:13px;padding:26px 26px}
-.who-c .lbl{font-family:'Cormorant Garamond',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.who-c h4{font-family:'Shippori Mincho B1',serif;font-size:1.05rem;color:var(--cream);margin:8px 0 10px}
-.who-c p{font-size:.85rem;color:var(--cream2);line-height:1.85}
-.who-creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.who-creds span{font-size:.72rem;color:var(--gold-lt);background:rgba(198,162,74,.08);border:1px solid var(--line);border-radius:6px;padding:6px 11px}
-
-/* FAQ */
-.faq-list{max-width:760px;margin:0 auto;display:grid;gap:13px}
-.faq-item{background:var(--navy2);border:1px solid var(--line);border-radius:13px;padding:22px 24px}
-.faq-q{font-family:'Shippori Mincho B1',serif;font-size:1.04rem;color:var(--gold-lt);line-height:1.55;display:flex;gap:12px;align-items:baseline}
-.faq-q::before{content:"Q";font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.15rem;font-weight:600}
-.faq-a{font-size:.92rem;color:var(--cream);line-height:1.95;margin-top:13px;padding-left:25px}
-.faq-a b{color:#fff}
-@media(max-width:600px){.faq-item{padding:18px 18px}.faq-q{font-size:15.5px}.faq-a{font-size:14.5px;padding-left:22px}}
-
-/* FOOD RULES / 食品を売る方へ */
-.foodrule{background:var(--navy2);border-top:1px solid var(--line)}
-.fr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;max-width:920px;margin:0 auto 30px}
-@media(max-width:760px){.fr-grid{grid-template-columns:1fr}}
-.fr-card{position:relative;background:var(--navy);border:1px solid var(--line);border-radius:14px;padding:24px 22px 22px;overflow:hidden}
-.fr-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bar,var(--line))}
-.fr-card.is-keep{--bar:var(--keep)}
-.fr-card.is-gold{--bar:var(--gold)}
-.fr-card.is-start{--bar:var(--start)}
-.fr-card.is-stop{--bar:var(--stop)}
-.fr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
-.fr-no{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold-lt);line-height:1}
-.fr-pill{font-size:.72rem;font-weight:700;border-radius:999px;padding:5px 13px;letter-spacing:.02em;white-space:nowrap}
-.fr-pill.keep{color:#cfe3c2;background:rgba(127,160,106,.18);border:1px solid rgba(127,160,106,.5)}
-.fr-pill.gold{color:var(--navy);background:var(--gold-lt)}
-.fr-pill.start{color:#cfe1ee;background:rgba(111,160,194,.18);border:1px solid rgba(111,160,194,.5)}
-.fr-pill.stop{color:#f0cabf;background:rgba(193,90,74,.2);border:1px solid rgba(193,90,74,.55)}
-.fr-title{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:1.02rem;color:var(--cream);line-height:1.5;margin-bottom:12px}
-.fr-row{font-size:.83rem;line-height:1.8;margin-top:7px;display:flex;gap:9px}
-.fr-row>span{flex:0 0 auto;font-size:.7rem;font-weight:700;color:var(--gold);border:1px solid var(--line);border-radius:5px;padding:2px 7px;height:fit-content;margin-top:2px}
-.fr-row.ex{color:var(--cream2)}
-.fr-row.do{color:var(--smoke)}
-.fr-row b{color:var(--cream)}
-.fr-callouts{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:920px;margin:0 auto 24px}
-@media(max-width:680px){.fr-callouts{grid-template-columns:1fr}}
-.fr-callout{background:rgba(198,162,74,.07);border:1px solid var(--line);border-radius:13px;padding:20px 22px}
-.fr-callout h5{font-family:'Shippori Mincho B1',serif;font-size:.92rem;color:var(--gold-lt);line-height:1.5;margin-bottom:9px}
-.fr-callout p{font-size:.82rem;color:var(--cream2);line-height:1.8}
-.fr-callout b{color:var(--cream)}
-.fr-check{max-width:920px;margin:0 auto 18px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:13px;padding:22px 24px}
-.fr-check h5{font-family:'Shippori Mincho B1',serif;font-size:.98rem;color:var(--gold-lt);margin-bottom:6px}
-.fr-check .lead{font-size:.84rem;color:var(--cream2);margin-bottom:14px;line-height:1.7}
-.fr-check ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.fr-check li{position:relative;padding-left:28px;font-size:.86rem;color:var(--cream2);line-height:1.7}
-.fr-check li::before{content:"";position:absolute;left:0;top:.35em;width:14px;height:14px;border:1.5px solid var(--gold);border-radius:3px}
-.fr-check li b{color:var(--cream)}
-.fr-check .ft{font-size:.8rem;color:var(--smoke);margin-top:14px;line-height:1.7}
-.fr-check .ft b{color:var(--gold-lt)}
-.fr-confirm{max-width:920px;margin:0 auto;background:var(--navy);border:1px dashed var(--gold-dim);border-radius:11px;padding:16px 20px;font-size:.83rem;color:var(--cream);line-height:1.8}
-.fr-confirm b{color:var(--gold-lt)}
-.foodrule .entry-fine{margin-top:18px}
-
-/* CTA + FORM */
-.cta{padding:88px 24px;text-align:center;background:radial-gradient(110% 80% at 50% 0%,#1b2c41,var(--navy) 70%);border-top:1px solid var(--line)}
-.cta .eb{justify-content:center}
-.cta h2{font-family:'Shippori Mincho B1',serif;font-size:clamp(24px,3.6vw,36px);color:var(--cream);margin:16px 0 16px;line-height:1.4}
-.cta p{font-size:.92rem;color:var(--cream2);max-width:560px;margin:0 auto 28px;line-height:1.9}
-.direct{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
-.direct-or{font-size:.78rem;color:var(--smoke);margin:14px 0}
-.form{max-width:560px;margin:0 auto;text-align:left;background:var(--navy2);border:1px solid var(--line);border-radius:16px;padding:30px 28px}
-.form .frow{margin-bottom:16px}
-.form label{display:block;font-size:.8rem;color:var(--gold-lt);margin-bottom:7px;font-weight:500}
-.form input,.form select,.form textarea{width:100%;background:var(--navy);border:1px solid var(--line);border-radius:9px;padding:13px 15px;color:var(--cream);font-family:inherit;font-size:.9rem}
-.form textarea{resize:vertical;min-height:90px}
-.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
-.form .submit{width:100%;background:var(--gold);color:var(--navy);font-weight:700;padding:15px;border-radius:9px;font-size:.95rem;margin-top:6px}
-.form-fine{font-size:.74rem;color:var(--smoke);margin-top:14px;text-align:center}
-
-/* FOOTER */
-footer{background:var(--navy);border-top:1px solid var(--line);padding:48px 24px 40px;text-align:center}
-.foot-brand{display:inline-flex;align-items:center;gap:10px;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:1.05rem;color:var(--cream);margin-bottom:14px}
-.foot-brand svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.5}
-footer .meta{font-size:.8rem;color:var(--smoke);line-height:1.9}
-.foot-cross{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.foot-cross a{font-size:.8rem;color:var(--gold-lt);border:1px solid var(--line);border-radius:8px;padding:10px 16px}
-.foot-cross a:hover{border-color:var(--gold)}
-footer small{display:block;margin-top:22px;font-size:.72rem;color:var(--ink-soft)}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-
-/* ===== 読みやすさ底上げ（モバイル視認性・全LP共通） ===== */
-@media(max-width:640px){
-  body{font-size:15px;line-height:1.92;-webkit-text-size-adjust:100%}
-  .hero-sub,.sub,.lead,.sec-head p,.koubo-head p,.cost-head p,.fund-head p,.start3-head p,.teaser-head p,.checklist-head p,.who3-head p,.norush-in p{font-size:14.5px !important;line-height:1.95}
-  .note,.cap,.meta,.legal-note,.cost-note,.teaser-note,.checklist-note,.fund-note,.start3-note,.aflow-fair,.qa-sub,.hero-note,.aichat-note,.sf-note,.lg-notify,.support-note,.proc-note,.cl-row>div,.dd2-c li,.kcmp-row>div,.s3-c li,.merit-c p,.fund-c p{font-size:13px !important;line-height:1.8}
-  h1,.hero h1{line-height:1.4}
-  section{padding-left:18px !important;padding-right:18px !important}
-  .wrap{padding-left:18px;padding-right:18px}
-}
+  :root{
+    --ink:#1d2b33;--paper:#f5f6f5;--surface:#fff;--line:#e2e1da;
+    --brand:#2f6f6a;--brand-dark:#245450;--brand-tint:rgba(47,111,106,.08);
+    --accent:#c0682b;--accent-dark:#a8581f;--muted:#6c7780;
+    --sans:"Noto Sans JP",system-ui,sans-serif;--serif:"Zen Old Mincho",serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.8;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  h2{font-family:var(--serif);font-weight:700;line-height:1.3;font-size:clamp(1.6rem,4.5vw,2.4rem);margin-bottom:.6em}
+  h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin-bottom:.4em}
+  p{margin-bottom:1em}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;color:var(--brand);font-weight:700;margin-bottom:14px}
+  section{padding:68px 0;border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:50;background:rgba(245,246,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .logo{font-family:var(--serif);font-weight:700}.logo b{color:var(--brand)}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:13px 26px;border-radius:9px;transition:background .15s,transform .15s;border:none;cursor:pointer;font-family:inherit;font-size:1rem}
+  .btn:hover{background:var(--accent-dark);transform:translateY(-1px)}
+  .btn:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+  .btn-sm{padding:9px 18px;font-size:.9rem}
+  .btn-ghost{background:transparent;color:var(--brand-dark);border:1.5px solid var(--brand);font-weight:700;padding:12px 24px;border-radius:9px;text-decoration:none;display:inline-block}
+  .hero{padding:84px 0 72px}
+  .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.1rem,6.5vw,3.5rem);line-height:1.22;margin-bottom:.5em}
+  .hero h1 .br{color:var(--brand)}
+  .hero .lead{font-size:1.08rem;max-width:60ch}
+  .price-line{font-family:var(--serif);font-size:1.3rem;color:var(--brand-dark);font-weight:700;margin:22px 0 6px}
+  .sub{color:var(--muted);font-size:.92rem}
+  .hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+  .stats{background:var(--ink);border:none}
+  .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stats .num{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:#fff;line-height:1.15}
+  .stats .lab{color:#aeb8bd;font-size:.8rem;margin-top:6px}
+  @media(max-width:640px){.stats .grid{grid-template-columns:repeat(2,1fr)}}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .card .tag{font-size:.72rem;letter-spacing:.1em;color:var(--brand);font-weight:700;margin-bottom:8px}
+  .card p:last-child{margin-bottom:0}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.plans{grid-template-columns:1fr}}
+  .plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .plan.feature{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+  .plan .price{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--brand-dark);margin:6px 0}
+  .plan ul{list-style:none;margin:14px 0 18px}
+  .plan li{padding:5px 0 5px 22px;position:relative;font-size:.93rem}
+  .plan li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:10px;border:2px solid var(--brand);border-radius:50%}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:740px){.twocol{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--surface)}
+  .panel.win{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+  .panel ul{list-style:none}.panel li{padding:6px 0;font-size:.95rem}
+  .panel li b{color:var(--brand-dark)}
+  .steps{counter-reset:st}
+  .step{position:relative;padding:20px 0 20px 54px;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:20px;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;font-family:var(--serif);font-weight:700;display:flex;align-items:center;justify-content:center}
+  .step .meta{font-size:.76rem;color:var(--brand);font-weight:700;float:right}
+  .note{font-size:.85rem;color:var(--muted);margin-top:16px}
+  .callout{background:var(--brand-tint);border-radius:12px;padding:16px 20px;font-size:.94rem;border-left:3px solid var(--brand)}
+  .callout b{color:var(--brand-dark)}
+  details{border:1px solid var(--line);border-radius:10px;background:var(--surface);margin-bottom:10px;padding:0 18px}
+  summary{cursor:pointer;font-weight:700;padding:16px 0;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"＋";color:var(--brand);margin-right:10px;font-weight:700}
+  details[open] summary::before{content:"−"}
+  details p{padding-bottom:16px;margin:0;font-size:.94rem}
+  .lend{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+  @media(max-width:740px){.lend{grid-template-columns:1fr}}
+  footer{background:var(--ink);color:#cfd6d9;padding:48px 0;border:none;font-size:.9rem}
+  footer a{color:#fff}
+  .center{text-align:center}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
+<body>
 
-<body id="top">
+<header>
+  <div class="wrap">
+    <span class="logo">売り場レンタル｜BRIDGE <b>CYCLE</b></span>
+    <a href="#cta" class="btn btn-sm">空き枠を予約</a>
+  </div>
+</header>
 
-<nav>
-  <a href="#top" class="brand"><svg class="bridge" viewBox="0 0 48 48"><path d="M4 34c6-10 34-10 40 0M10 34V22M38 34V22M16 34v-7M32 34v-7M24 34V18"/></svg>売り場レンタル</a>
-  <a href="#cta" class="nav-cta">空き枠を予約</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-in">
-    <span class="eb">飲食テイクアウト出店スペース ｜ キッチンカー・テント ｜ 滋賀・大津</span>
-    <h1><span class="hl">あなたの「好き」を、</span><br><span class="hl">街で<span class="gold">売れる場所</span>。</span></h1>
-    <p class="hero-sub">自慢の一品を、テイクアウトで。<b>キッチンカー</b>やテント持参で、大津の協力店舗の<b>店前・駐車場</b>に1日だけ出店。空いている会場を選んで、自分の料理を街のお客様に出せます。<b>売上は、全額あなたのもの。</b></p>
-    <div class="price-pop">
-      <span class="n">¥8,000<small style="font-size:.9rem">〜</small></span><span class="t">1日・税込<br>システム利用料3,000＋会場協力費5,000〜 ／ 売上シェア¥0</span>
+<section class="hero" id="top" style="border-bottom:none">
+  <div class="wrap">
+    <p class="eyebrow">店前・駐車場のスペース貸し ｜ 滋賀・大津</p>
+    <h1>あなたの「好き」を、<br><span class="br">街で売れる場所。</span></h1>
+    <p class="lead">手づくりのお菓子、こだわりの一品、キッチンカーやテントのテイクアウト。大津の協力店舗の店前や駐車場から、空いている会場を選んで、1日だけ出店できます。<b>売上は、全額あなたのもの。</b></p>
+    <p class="price-line">¥8,000〜 / 1日・税込</p>
+    <p class="sub">システム利用料3,000＋会場協力費5,000〜 ／ 売上シェア¥0</p>
+    <div class="hero-cta">
+      <a href="#cta" class="btn">空き枠を確認して予約する</a>
+      <a href="https://line.me/R/ti/p/@907kxssd" class="btn-ghost">LINEで相談</a>
     </div>
-    <div class="hero-ctas">
-      <a href="#cta" class="btn btn-gold">空き枠を選んで予約する</a>
-      <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" class="btn btn-line"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.07.7.2.8.5.07.25 0 .65 0 .9l-.13.8c-.04.25-.2.96.84.52s5.6-3.3 7.65-5.65C20.6 13.5 22 11.9 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEで相談</a>
-    </div>
-    <p class="hero-fine">※<b>出店には飲食の営業許可が必要です</b>（キッチンカー、または許可施設で調理した調理済み品の販売）｜ 面談・来店は不要 ｜ オンラインで予約完結</p>
+    <p class="sub" style="margin-top:14px">※面談・来店は不要 ｜ LINEで空き枠を確認し、オンライン決済で予約確定</p>
   </div>
 </section>
 
-<!-- STATS -->
 <section class="stats">
-  <div class="stats-grid">
-    <div class="stat reveal"><span class="num">¥8,000<span class="u">〜</span></span><div class="cap">1日の総額</div><div class="sub">利用料3,000＋協力費</div></div>
-    <div class="stat reveal"><span class="num">全額</span><div class="cap">その日の売上</div><div class="sub">あなたのもの</div></div>
-    <div class="stat reveal"><span class="num">¥0</span><div class="cap">売上シェア</div><div class="sub">売れても引きません</div></div>
-    <div class="stat reveal"><span class="num">1<span class="u">日</span></span><div class="cap">から出店</div><div class="sub">続けるかは自由</div></div>
-  </div>
+  <div class="wrap"><div class="grid">
+    <div><div class="num">¥8,000〜</div><div class="lab">1日の総額</div></div>
+    <div><div class="num">全額</div><div class="lab">その日の売上はあなたのもの</div></div>
+    <div><div class="num">¥0</div><div class="lab">売上シェア</div></div>
+    <div><div class="num">1日</div><div class="lab">から、気軽に</div></div>
+  </div></div>
 </section>
 
-<!-- TARGET -->
-<section class="sec target">
+<section>
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">こんな方へ</span>
-      <h2>売る場所が、<span class="gold">ちょっと欲しい</span>。</h2>
-      <p>大げさな話ではありません。あなたの料理を、街のお客様に出してみる。その一日のための場所です。</p>
-    </div>
-    <div class="t-grid">
-      <div class="t-card reveal"><h4>料理で、独立・開業を考えている方へ</h4><p>いきなり店を構える前に。キッチンカーやテント出店で、自分の味に街のお客様がお金を出してくれるか、一日だけ確かめてみませんか。</p></div>
-      <div class="t-card reveal"><h4>固定店舗を持たず、自分の曜日で出したい方へ</h4><p>許可をお持ちのキッチンカーや、許可施設で作った一品を。固定店舗の家賃を抱えずに、週末や決まった曜日に「自分の場所」として出店できます。</p></div>
-      <div class="t-card reveal"><h4>飲食店・キッチンカーをやっている方へ</h4><p>新メニュー、新しいエリア、新しいお客様。いつものお店・いつもの場所とは別の場所で、街の反応を試したいときの出店スペースとして使えます。</p></div>
+    <p class="eyebrow">こんな方へ</p>
+    <h2>売る場所が、ちょっと欲しい。</h2>
+    <p>大げさな話ではありません。あなたの商品を、街のお客様に出してみる。その一日のための場所です。</p>
+    <div class="cards" style="margin-top:28px">
+      <div class="card"><div class="tag">趣味・手づくり</div><h3>試してみたい方へ</h3><p>ハンドメイド、お菓子、コーヒー、テイクアウト。身内やアプリの中だけじゃなく、街のお客様が「いいね」とお金を出してくれるか、一日だけ確かめてみませんか。</p></div>
+      <div class="card"><div class="tag">副業</div><h3>自分の曜日を持ちたい方へ</h3><p>会社を辞めなくても、固定費を抱えなくても大丈夫。週末や決まった曜日に、自分の商品を出す「小さな自分の場所」を持てます。</p></div>
+      <div class="card"><div class="tag">事業者・キッチンカー</div><h3>すでにお店や商品がある方へ</h3><p>新しい商品、新しいエリア、新しいお客様。いつものお店とは別の場所で、街の反応を試したいときの出店スペースとして使えます。</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== マニフェスト（運動バンド・凝縮版） ===== -->
-<style>
-  .manifesto{position:relative;background:#F6EFE1;overflow:hidden}
-  .manifesto::before{content:"";position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,#0B1927,rgba(11,25,39,0));z-index:2;pointer-events:none}
-  .manifesto::after{content:"";position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(0deg,#0B1927,rgba(11,25,39,0));z-index:2;pointer-events:none}
-  .mf-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 78% at 50% 16%,rgba(205,169,79,.12),transparent 58%),radial-gradient(100% 60% at 50% 104%,rgba(154,126,64,.12),transparent 70%)}
-  .mf-in{position:relative;z-index:3;max-width:540px;margin:0 auto;padding:62px 26px 58px;text-align:left}
-  .mf-open{font-family:'Shippori Mincho B1',serif;font-weight:800;color:#241D16;font-size:clamp(25px,6.8vw,34px);line-height:1.5;letter-spacing:.03em;margin:0 0 26px}
-  .mf-line{font-family:'Shippori Mincho B1',serif;font-weight:400;color:#39302A;font-size:clamp(15.5px,4.2vw,17px);line-height:2.05;margin:0 0 13px;letter-spacing:.01em}
-  .mf-emph{font-family:'Shippori Mincho B1',serif;font-weight:700;color:#221B14;font-size:clamp(19px,5vw,24px);line-height:1.7;letter-spacing:.02em;margin:24px 0}
-  .mf-start{font-family:'Shippori Mincho B1',serif;font-weight:800;color:#241D16;font-size:clamp(21px,5.6vw,29px);line-height:1.5;letter-spacing:.03em;margin:6px 0 0}
-  .mf-start .dot{display:inline-block;width:6px;height:6px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 9px 5px 0}
-  .mf-go{display:inline-block;margin-top:30px;font-family:'Shippori Mincho B1',serif;font-weight:700;color:#1E1810;font-size:clamp(14.5px,4vw,16px);border-bottom:2px solid var(--gold);padding-bottom:3px;transition:opacity .2s}
-  .mf-go:hover{opacity:.7}
-</style>
-<section class="manifesto">
-  <div class="mf-bg"></div>
-  <div class="mf-in">
-    <p class="mf-open">賑わいの衰退を、止めたい。</p>
-    <p class="mf-line">大津・草津で20年、500を超える店の、始まりと終わりに立ち会ってきました。</p>
-    <p class="mf-line">続ける人も、畳む人も、そして、これから挑戦するあなたも――<br>打席に立つ人がいるかぎり、街の灯は消えません。</p>
-    <p class="mf-emph">まず一日、街で売ってみる。<br>その一歩から、街はもう一度動きだす。</p>
-    <p class="mf-line">挑戦する人も、渡す人も、場所を貸す人も。</p>
-    <p class="mf-emph">みんなで、この街を変えたい。</p>
-    <p class="mf-start"><span class="dot"></span>大津・草津から、はじめます。</p>
-    <a href="#cta" class="mf-go">空き枠を選んで、まず一日はじめる ▶</a>
-  </div>
-</section>
-
-<!-- HOW / 仕組み -->
-<section class="sec">
+<section>
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">仕組み</span>
-      <h2>店前・駐車場を、<span class="gold">1日お借りして売る</span>。</h2>
-    </div>
-    <p class="how-lead reveal">大津の協力店舗の<b>店前や駐車場（軒先・路面のスペース）</b>を、1日だけお借りして出店します。むずかしい契約も、面談もいりません。空いている会場と日程を選んで、オンラインで予約するだけ。</p>
-    <div class="venue-note reveal">
-      <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></span>
-      <p><b>会場は、店の「外」のスペースです。</b>マルシェやキッチンカーのように、<b>キッチンカーやテントを持ち込んでテイクアウト販売</b>します。店内の厨房を借りる形ではありません。<b>出店にはご自身の営業許可が必要です（キッチンカーは車内で調理・提供。テント出店は、ご自身の許可施設で調理した「調理済みの食品」の販売に限ります）</b>（詳しくは<a href="#food-rules" class="gold">こちら</a>）。駐車場の会場は、店舗の営業時間外などが中心です。</p>
-    </div>
-    <div class="entries">
-      <div class="entry feature reveal">
-        <div class="who">1日だけ、試す</div>
-        <div class="pr">¥8,000<small>〜/日・税込</small></div>
-        <div class="tagline">システム利用料3,000＋会場協力費／売上シェア0円</div>
+    <p class="eyebrow">仕組み</p>
+    <h2>店前・駐車場を、1日お借りして売る。</h2>
+    <p>大津の協力店舗の店前や駐車場（軒先・路面のスペース）を、1日だけお借りして出店します。利用規約への同意と販売内容の確認だけで、面談なしで申し込めます。空いている会場と日程を選んで、オンラインで予約できます。</p>
+    <p>会場は、店の「外」のスペースです。マルシェやキッチンカーのように、テント等を持ち込んで出店するイメージ。店内の厨房を借りる形ではありません。<b>食品販売は、原則として許可施設で製造されたパッケージ商品が対象です。</b>キッチンカーなど、移動販売の営業許可をお持ちの場合は、会場条件により出店可否を個別に確認します（詳しくは下のFAQ）。</p>
+    <div class="plans" style="margin-top:28px">
+      <div class="plan feature">
+        <div class="tag" style="color:var(--brand);font-weight:700;font-size:.78rem">1日だけ、試す</div>
+        <div class="price">¥8,000〜<span style="font-size:.9rem;font-weight:400">/日・税込</span></div>
         <ul>
           <li>協力店舗の店前・駐車場で1日出店</li>
-          <li>空いている会場の中から、出たい場所を選べる</li>
-          <li>面談なし。会場と日程を選んで予約するだけ</li>
+          <li>出たい会場を選べる</li>
+          <li>面談なし・選んで予約するだけ</li>
           <li>売上は全額あなたのもの</li>
         </ul>
-        <a href="#cta" class="e-cta">空き枠を選んで予約</a>
+        <a href="#cta" class="btn btn-sm">空き枠を確認して予約</a>
       </div>
-      <div class="entry reveal">
-        <div class="who">月1・週1で、続ける</div>
-        <div class="pr">月額 ¥9,800<small>〜・税込</small></div>
-        <div class="tagline">自分の曜日を持つ</div>
+      <div class="plan">
+        <div class="tag" style="font-size:.78rem;color:var(--muted)">月1・週1で、続ける</div>
+        <div class="price">月額¥9,800〜</div>
         <ul>
           <li>毎月の出店枠＋お店の掲載＋予約導線</li>
-          <li>固定店舗を持たず、固定費ゼロで</li>
+          <li>会社を辞めず、固定費ゼロで</li>
           <li>「お客様のいる場所」で出店</li>
-          <li>現在、先行受付中（LINEにて）</li>
+          <li>現在、先行受付中</li>
         </ul>
-        <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" class="e-cta">LINEで先行受付</a>
+        <a href="https://line.me/R/ti/p/@907kxssd" class="btn-ghost" style="font-size:.9rem;padding:9px 18px">LINEで先行受付</a>
       </div>
-      <div class="entry reveal">
-        <div class="who">事業者として、試す</div>
-        <div class="pr">¥33,000<small>/回〜・税込</small></div>
-        <div class="tagline">新商品・新エリアの反応を見る</div>
+      <div class="plan">
+        <div class="tag" style="font-size:.78rem;color:var(--muted)">事業者として、試す</div>
+        <div class="price">¥33,000/回〜</div>
         <ul>
           <li>大津で実売テスト</li>
-          <li>競合の少ない場所で、街の反応を見る</li>
-          <li>気に入った会場に、くり返し出店できる</li>
-          <li>現在、先行受付中（LINEにて）</li>
+          <li>競合の少ない場所で反応を見る</li>
+          <li>気に入った会場にくり返し出店</li>
+          <li>現在、先行受付中</li>
         </ul>
-        <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" class="e-cta">LINEで相談する</a>
+        <a href="https://line.me/R/ti/p/@907kxssd" class="btn-ghost" style="font-size:.9rem;padding:9px 18px">LINEで相談</a>
       </div>
     </div>
-    <p class="entry-fine reveal">※料金は「システム利用料3,000円＋会場協力費5,000〜15,000円」の<b>総額表示</b>です（会場により総額が異なり、予約画面に表示されます）。お支払いは、この合計をオンラインで一括でお預かりします。テント・机・什器、仕入・材料費はご自身でご用意ください。</p>
+    <p class="note">※料金は「システム利用料3,000円＋会場協力費5,000〜15,000円」の総額表示です（会場により総額が異なり、予約時にご案内します）。お支払いは、この合計をオンラインで一括でお預かりし、会場協力費は当社から協力店舗へお支払いします。<b>会場ごとに、販売可能な商品・設置可能な什器・火気使用の可否・電源・水道が異なります。予約前に会場情報をご確認ください。</b>テント・机・什器、仕入・材料費はご自身でご用意ください。</p>
   </div>
 </section>
 
-<!-- 会場ギャラリー（サンプル・差し替え前提） -->
-<section class="sec venues">
+<section>
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">借りられる場所（一例）</span>
-      <h2>こんな<span class="gold">スペース</span>で出店します。</h2>
-      <p>実際の出店スペースの一例です。広さや設備は場所によって異なります。お申し込み後に、空いている会場の中から、あなたの商品に合う場所をご案内します。</p>
-    </div>
-    <div class="vg-grid">
-      <div class="vcard reveal">
-        <span class="ph">
-          <span class="tag">Sample</span>
-          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="320" height="240" fill="#16283c"/>
-            <rect x="0" y="150" width="320" height="90" fill="#1c304a"/>
-            <rect x="40" y="60" width="240" height="92" fill="#22364f" stroke="#C6A24A" stroke-opacity=".4"/>
-            <rect x="60" y="78" width="60" height="56" fill="#16283c" stroke="#C6A24A" stroke-opacity=".3"/>
-            <rect x="132" y="78" width="60" height="56" fill="#16283c" stroke="#C6A24A" stroke-opacity=".3"/>
-            <rect x="204" y="78" width="56" height="56" fill="#16283c" stroke="#C6A24A" stroke-opacity=".3"/>
-            <path d="M110 150 l16 -34 h68 l16 34 z" fill="#C6A24A" fill-opacity=".18" stroke="#C6A24A" stroke-opacity=".5"/>
-            <rect x="126" y="150" width="68" height="6" fill="#C6A24A" fill-opacity=".4"/>
-            <circle cx="160" cy="120" r="2.5" fill="#E1C485"/>
-          </svg>
-          <span class="swap">▲ 実際の会場写真に差し替え</span>
-        </span>
-        <div class="body">
-          <h4>店前のスペース</h4>
-          <div class="vprice"><span class="amt">¥8,000</span><span class="per">／日</span><span class="bk">利用料3,000＋<br>協力費5,000</span></div>
-          <div class="specs">
-            <div><span class="k">広さ</span><span>テント1張り程度（約2〜3m四方）</span></div>
-            <div><span class="k">人通り</span><span>路面・店の出入りのお客様</span></div>
-            <div><span class="k">設備</span><span>電源・水道は会場により異なる</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vcard reveal">
-        <span class="ph">
-          <span class="tag">Sample</span>
-          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="320" height="240" fill="#16283c"/>
-            <rect x="0" y="120" width="320" height="120" fill="#1c304a"/>
-            <line x1="160" y1="130" x2="160" y2="230" stroke="#C6A24A" stroke-opacity=".25" stroke-dasharray="6 8"/>
-            <line x1="60" y1="130" x2="60" y2="230" stroke="#C6A24A" stroke-opacity=".18" stroke-dasharray="6 8"/>
-            <line x1="260" y1="130" x2="260" y2="230" stroke="#C6A24A" stroke-opacity=".18" stroke-dasharray="6 8"/>
-            <rect x="92" y="86" width="44" height="40" fill="#C6A24A" fill-opacity=".16" stroke="#C6A24A" stroke-opacity=".5"/>
-            <path d="M88 86 h52 l-6 -12 h-40 z" fill="#C6A24A" fill-opacity=".28"/>
-            <rect x="180" y="150" width="60" height="40" rx="3" fill="#22364f" stroke="#C6A24A" stroke-opacity=".35"/>
-            <circle cx="114" cy="150" r="2.5" fill="#E1C485"/>
-          </svg>
-          <span class="swap">▲ 実際の会場写真に差し替え</span>
-        </span>
-        <div class="body">
-          <h4>駐車場の一角</h4>
-          <div class="vprice"><span class="amt">¥11,000</span><span class="per">／日</span><span class="bk">利用料3,000＋<br>協力費8,000</span></div>
-          <div class="specs">
-            <div><span class="k">広さ</span><span>車1〜2台分（テント・テーブル可）</span></div>
-            <div><span class="k">人通り</span><span>来店者・近隣の通行</span></div>
-            <div><span class="k">設備</span><span>キッチンカーも置ける場所あり</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vcard reveal">
-        <span class="ph">
-          <span class="tag">Sample</span>
-          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="320" height="240" fill="#16283c"/>
-            <rect x="0" y="160" width="320" height="80" fill="#1c304a"/>
-            <rect x="30" y="40" width="260" height="30" fill="#C6A24A" fill-opacity=".22"/>
-            <path d="M30 70 l0 14 M70 70 l0 14 M110 70 l0 14 M150 70 l0 14 M190 70 l0 14 M230 70 l0 14 M270 70 l0 14" stroke="#C6A24A" stroke-opacity=".4"/>
-            <rect x="30" y="70" width="260" height="14" fill="#22364f" stroke="#C6A24A" stroke-opacity=".3"/>
-            <rect x="120" y="118" width="80" height="42" fill="#C6A24A" fill-opacity=".15" stroke="#C6A24A" stroke-opacity=".45"/>
-            <line x1="120" y1="138" x2="200" y2="138" stroke="#E1C485" stroke-opacity=".5"/>
-            <circle cx="160" cy="128" r="2.5" fill="#E1C485"/>
-          </svg>
-          <span class="swap">▲ 実際の会場写真に差し替え</span>
-        </span>
-        <div class="body">
-          <h4>軒先・テント下</h4>
-          <div class="vprice"><span class="amt">¥9,000</span><span class="per">／日</span><span class="bk">利用料3,000＋<br>協力費6,000</span></div>
-          <div class="specs">
-            <div><span class="k">広さ</span><span>テーブル1〜2台分</span></div>
-            <div><span class="k">人通り</span><span>屋根あり・天候に強い</span></div>
-            <div><span class="k">設備</span><span>会場により電源利用可</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="vg-note reveal">※上の3点は、出店スペースのイメージと料金（サンプル）です。料金は「システム利用料3,000円（固定）＋会場協力費」の総額で、会場ごとに異なります。実際の会場が決まりしだい、写真と金額に差し替えてご案内します。会場ごとの広さ・電源・水道・屋根の有無などは、お申し込み後の相談で具体的にお伝えします。</p>
-  </div>
-</section>
-
-<!-- WHY 店前・駐車場の良さ -->
-<section class="sec why">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">なぜ、店前・駐車場なのか</span>
-      <h2>「街の人通り」の中で、<br><span class="gold">本物の反応</span>に出会える。</h2>
-      <p>家やネットの中ではわからない、通りすがりの人があなたの商品に足を止める瞬間。その手応えは、ここでしか得られません。</p>
-    </div>
-    <div class="cmp">
-      <div class="cmp-c good reveal">
-        <h4>店前・駐車場で売る良さ</h4>
+    <p class="eyebrow">なぜ、店前・駐車場なのか</p>
+    <h2>「街の人通り」の中で、本物の反応に出会える。</h2>
+    <p>家やネットの中ではわからない、通りすがりの人があなたの商品に足を止める瞬間。その手応えは、ここでしか得られません。</p>
+    <div class="twocol" style="margin-top:24px">
+      <div class="panel win">
+        <h3 style="color:var(--brand-dark)">店前・駐車場で売る良さ</h3>
         <ul>
-          <li>競合のいない場所<b>歓迎される</b></li>
-          <li>待ち時間のお客様<b>立ち寄ってくれる</b></li>
-          <li>あなたの出店で<b>店も賑わう</b></li>
-          <li>売上シェア<b>0円</b>・費用は事前表示</li>
+          <li>競合のいない場所で <b>歓迎される</b></li>
+          <li>待ち時間のお客様が <b>立ち寄ってくれる</b></li>
+          <li>あなたの出店で <b>店も賑わう</b></li>
+          <li>売上シェア <b>0円</b>・費用は事前表示</li>
         </ul>
       </div>
-      <div class="cmp-c bad reveal">
-        <h4>いきなり場所を構えると…</h4>
+      <div class="panel">
+        <h3 style="color:var(--muted)">いきなり場所を構えると…</h3>
         <ul>
-          <li>保証金・敷金<b>30万〜100万円</b></li>
-          <li>毎月の家賃<b>10万円〜</b></li>
-          <li>売れるかは<b>始めてから判明</b></li>
-          <li>やめるときも<b>費用がかかる</b></li>
+          <li>保証金・敷金 30万〜100万円</li>
+          <li>毎月の家賃 10万円〜</li>
+          <li>売れるかは始めてから判明</li>
+          <li>やめるときも費用がかかる</li>
         </ul>
       </div>
     </div>
-    <p class="cmp-emph reveal">大きな場所を構える前に、<b>まず街で、ひと足。</b>気軽に出られるから、気軽に試せます。</p>
+    <p style="margin-top:18px">大きな場所を構える前に、<b>まず街で、ひと足。</b>気軽に出られるから、気軽に試せます。</p>
   </div>
 </section>
 
-<!-- 出店までの流れ（マッチング） -->
-<section class="sec">
+<section id="flow">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">出店までの流れ</span>
-      <h2>探して、申し込んで、<span class="gold">出店</span>。</h2>
+    <p class="eyebrow">出店までの流れ</p>
+    <h2>探して、申し込んで、出店。</h2>
+    <div class="steps" style="margin-top:24px">
+      <div class="step"><span class="meta">無料</span><h3>会場を探す</h3><p>LINEで空いている店前・駐車場の会場を確認。広さ・場所・日程・販売条件を見て決める。</p></div>
+      <div class="step"><span class="meta">オンライン決済</span><h3>申し込む</h3><p>出たい枠を選び、利用規約に同意・販売内容を確認のうえ、オンライン決済で予約確定（面談なし）。</p></div>
+      <div class="step"><span class="meta">当日</span><h3>出店する</h3><p>店前のスペースで、あなたのお店の一日。売上は全額あなたのもの。</p></div>
+      <div class="step"><span class="meta">自由</span><h3>また出る</h3><p>気に入った会場に、また申し込める。続けたければ、月1・週1の枠へ。</p></div>
     </div>
-    <div class="stages">
-      <div class="stage reveal"><div class="st-n">Step 1</div><h4>会場を探す</h4><div class="pr">無料</div><ul><li>空いている店前・駐車場の会場から選ぶ</li><li>広さ・場所・日程を見て決める</li></ul></div>
-      <div class="stage reveal"><div class="st-n">Step 2</div><h4>申し込む</h4><div class="pr">合計表示</div><ul><li>空き枠を選んで、その場で予約</li><li>お支払いまでオンラインで完結（面談なし）</li></ul></div>
-      <div class="stage reveal"><div class="st-n">Step 3</div><h4>出店する</h4><div class="pr">当日</div><ul><li>店前のスペースで、あなたのお店の一日</li><li>売上は全額あなたのもの</li></ul></div>
-      <div class="stage reveal"><div class="st-n">Step 4</div><h4>また出る</h4><div class="pr">自由</div><ul><li>気に入った会場に、また申し込める</li><li>続けたければ、月1・週1の枠へ</li></ul></div>
-    </div>
-    <p class="stages-fine reveal">※表示はすべて税込。各回、店舗協力費（5,000〜15,000円）を協力店舗へ直接お支払いいただきます。テント・机・什器・仕入・材料費はご自身の負担です。空き枠は先着順です。予約はオンラインで完結します。</p>
+    <p class="note">※表示はすべて税込。店舗協力費（5,000〜15,000円）は、システム利用料と合わせてオンラインで一括前払いいただき、当社から協力店舗へお支払いします。テント・机・什器・仕入・材料費はご自身の負担です。空き枠は先着順です。</p>
   </div>
 </section>
 
-<!-- ===== 後半：願望の点火 ===== -->
-<section class="sec succ-band">
-  <div class="wrap succ-in reveal">
-    <span class="eb" style="justify-content:center;margin-bottom:14px">売ってみた、その先に</span>
-    <h2>もし、「<span class="gold">もっと</span>」と<br>思いはじめたら。</h2>
-    <p>一日だけのつもりが、また出たくなる。お客様の顔が増えてくる。そんなとき、人は自然と次を考えはじめます。急ぐ必要はありません。でも、もしその気持ちが芽生えたら——こんな道も、用意してあります。</p>
-  </div>
-</section>
-
-<section class="sec">
+<section>
   <div class="wrap">
-    <div class="t-grid" style="max-width:760px">
-      <div class="t-card reveal" style="grid-column:span 1">
-        <h4>「いつか、自分のお店を」と思ったら</h4>
-        <p>趣味や副業で売ってきた実績は、いざ自分の店を持つとき、何よりの後ろ盾になります。「これだけ売れた」という数字が、融資や補助金の申請を、ぐっと確かなものにします。いきなり大金を借りるのではなく、売れる手応えを持ってから。</p>
-      </div>
-      <div class="t-card reveal" style="grid-column:span 1">
-        <h4>「実店舗や、次の店を」と思ったら</h4>
-        <p>すでに事業をされている方が、低リスクで実店舗や2店舗目を持ちたいとき。設備や常連が活きた街の店を「継ぐ」という選択肢があります。一から内装に大金を投じるより、ずっと小さく始められます。</p>
-      </div>
+    <p class="eyebrow">売ってみた、その先に</p>
+    <h2>もし、「もっと」と思いはじめたら。</h2>
+    <p>一日だけのつもりが、また出たくなる。お客様の顔が増えてくる。急ぐ必要はありません。でも、もしその気持ちが芽生えたら——こんな道も、用意してあります。</p>
+    <div class="twocol" style="margin-top:24px">
+      <div class="panel"><h3>「いつか、自分のお店を」と思ったら</h3><p style="margin:0;font-size:.95rem">趣味や副業で売ってきた実績は、いざ自分の店を持つとき、何よりの後ろ盾に。「これだけ売れた」という数字が、融資や補助金の申請を確かなものにします。</p></div>
+      <div class="panel"><h3>「実店舗や、次の店を」と思ったら</h3><p style="margin:0;font-size:.95rem">低リスクで実店舗や2店舗目を持ちたいとき。設備や常連が活きた街の店を「継ぐ」という選択肢があります。一から内装に大金を投じるより、ずっと小さく。</p></div>
+    </div>
+    <div class="center" style="margin-top:24px">
+      <a href="audition.html" class="btn-ghost">店を継ぎたい方へ（店主オーディション）</a>
+      <a href="watasu.html" class="btn-ghost">店を渡したい・閉じる方へ</a>
     </div>
   </div>
 </section>
 
-<!-- 承継つなぎ band -->
-<section class="sec succ-band">
-  <div class="wrap succ-in reveal">
-    <span class="eb" style="justify-content:center;margin-bottom:14px">店舗承継という道</span>
-    <h2>街の店を、<span class="gold">継ぐ</span>という選び方。</h2>
-    <p>大津には、設備も常連も活きているのに、後継者がいなくて畳もうとしている店があります。畳む店主と、継ぎたい人が出会う「<b>店主オーディション</b>」は、約1ヶ月の募集で、金額の入札ではなく<b>続けられるかで選ばれる</b>仕組みです。売ってみた実績を持っていれば、店主に「この人に継いでほしい」と選ばれやすくなります。</p>
-    <p>融資・補助金から、店を継ぐ準備、開業後の伴走まで。約20年・500社超を支えてきた認定経営革新等支援機関が、伴走します。</p>
-    <div class="succ-pts">
-      <div class="succ-pt"><h5><span class="pn">01</span>約1ヶ月で、複数から選べる</h5><p>仲介のように一人を待つのではなく、約1ヶ月の募集期間で複数の継ぎ手が手を挙げます。比べて選べます。</p></div>
-      <div class="succ-pt"><h5><span class="pn">02</span>金額でなく、続けられるかで</h5><p>高い値をつけた人が勝つ入札ではありません。「この店を続けてくれるか」で、店主が継ぎ手を選びます。</p></div>
-      <div class="succ-pt"><h5><span class="pn">03</span>設備の活きた居抜きを、安く</h5><p>厨房も内装も常連も活きたまま継げるから、ゼロから作るより初期費用がずっと小さく済みます。</p></div>
-      <div class="succ-pt"><h5><span class="pn">04</span>売った実績が、後ろ盾になる</h5><p>「この場所でこれだけ売れた」という記録があれば、店主にも金融機関にも、強く信頼してもらえます。</p></div>
-    </div>
-    <div class="succ-links">
-      <a href="audition.html">店を継ぎたい方へ（店主オーディション）</a>
-      <a href="watasu.html">店を渡したい・閉じる方へ</a>
-    </div>
-  </div>
-</section>
-
-<!-- WHO -->
-<section class="sec who">
+<section>
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">場所と運営</span>
-      <h2>出店の舞台と、<span class="gold">伴走する人</span>。</h2>
-    </div>
-    <div class="who-grid">
-      <div class="who-c reveal">
-        <span class="lbl">Venue</span>
-        <h4>第1号 協力店舗：HAIRDOORS（大津市）</h4>
-        <p>大津エリアの美容室。その店前・駐車場という「本物の街の人通り」の中で出店できます。食べ物の競合がいないので歓迎され、カット・カラーの待ち時間のお客様にも出会えます。協力店舗は今後、大津〜草津エリアで順次拡大予定です。</p>
-      </div>
-      <div class="who-c reveal">
-        <span class="lbl">Operator</span>
-        <h4>運営：中村裕二（BRIDGE CYCLE株式会社 代表）</h4>
-        <p>商工会の経営指導員として約20年、500社超の創業・融資・承継・廃業を見てきました。売り場レンタルは、出店者と会場をつなぐ場です。そして「いつか自分の店を」「次の店を」と思ったときには、融資・補助金、店舗承継までご相談に乗れます。</p>
-        <div class="who-creds"><span>元・商工会経営指導員 約20年</span><span>支援実績 500社超</span><span>認定経営革新等支援機関</span></div>
-      </div>
+    <p class="eyebrow">場所と運営</p>
+    <h2>出店の舞台と、伴走する人。</h2>
+    <div class="twocol" style="margin-top:24px">
+      <div class="panel"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">Venue</div><h3>第1号 協力店舗：HAIRDOORS（大津市）</h3><p style="font-size:.95rem">大津エリアの美容室。その店前・駐車場という「本物の街の人通り」の中で出店できます。カット・カラーの待ち時間のお客様にも出会えます。</p><p style="margin:0;font-size:.9rem;color:var(--muted)">※会場により、販売可能な商品・設置できる什器・火気使用の可否が異なります（美容室のため、匂い・動線・近隣への配慮が必要な品目もあります）。出店前に会場情報をご確認ください。協力店舗は今後、大津〜草津エリアで順次拡大予定です。</p></div>
+      <div class="panel"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">Operator</div><h3>運営：中村裕二（BRIDGE CYCLE株式会社 代表）</h3><p style="margin:0;font-size:.95rem">商工会の経営指導員として約20年、500社超の創業・融資・承継・廃業を見てきました。「いつか自分の店を」「次の店を」と思ったときには、融資・補助金、店舗承継までご相談に乗れます。</p></div>
     </div>
   </div>
 </section>
 
-<!-- 飲食出店の営業許可ルール -->
-<section class="sec foodrule" id="food-rules">
+<section>
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">Food License</span>
-      <h2>営業許可は、<span class="gold">出店者ご自身で</span>。</h2>
-      <p>この場所は、<b>飲食のテイクアウト販売専用</b>の出店スペースです。出店には<b>ご自身の営業許可が必要</b>で、原則として営業許可をお持ちの方が対象です。出店のしかたは、次の2つです。</p>
-    </div>
-
-    <div class="fr-grid">
-      <div class="fr-card is-keep reveal">
-        <div class="fr-top"><span class="fr-no">A</span><span class="fr-pill keep">そのまま出店できます</span></div>
-        <h4 class="fr-title">キッチンカー（移動販売車）</h4>
-        <p class="fr-row ex"><span>例</span>営業許可を受けたキッチンカー・移動販売車での出店</p>
-        <p class="fr-row do"><span>手続き</span>営業許可は車両側にあります。許可エリア内であれば、会場の駐車場にそのまま乗り入れ、車内で調理して提供できます。いちばんスムーズな形です。</p>
-      </div>
-      <div class="fr-card is-start reveal">
-        <div class="fr-top"><span class="fr-no">B</span><span class="fr-pill start">調理済みのみ</span></div>
-        <h4 class="fr-title">テント出店（調理済みの販売）</h4>
-        <p class="fr-row ex"><span>例</span>ご自身の許可施設で調理した「調理済みの食品」を、テントで持ち帰り販売</p>
-        <p class="fr-row do"><span>手続き</span>飲食店営業許可などをお持ちで、その許可施設で調理した食品を販売する方が対象です。<b>テントでの新たな調理はできません（調理済みの販売のみ）。</b>必要な手続きは大津市保健所でご確認ください。</p>
-      </div>
-    </div>
-
-    <div class="fr-callouts">
-      <div class="fr-callout reveal">
-        <h5>無許可では、出店できません</h5>
-        <p>営業許可のない調理・販売はできません。出店時に許可の写し等の確認をお願いする場合があります。無許可が判明した場合は出店をお断りし、規約に基づいて対応します。</p>
-      </div>
-      <div class="fr-callout reveal">
-        <h5>まだ営業許可がない方へ</h5>
-        <p>出店には営業許可が必要ですが、「これから取りたい」段階でも大丈夫。<b>LINEからご相談いただければ、必要な許可の種類と取り方からご案内します。</b>許可を取得されたら、出店いただけます（BRIDGE CYCLEの開業支援の入口です）。</p>
-      </div>
-    </div>
-
-    <div class="fr-check reveal">
-      <h5>出店前に、大津市保健所で確認しておくこと</h5>
-      <p class="lead">許可をお持ちでも、屋外でのテイクアウト販売には個別の条件があります。出店前に、次の点をご自身で大津市保健所にご確認ください（チェックリスト）。</p>
-      <ul>
-        <li><b>テント出店の方：</b>自分の営業許可で、許可施設で調理した「調理済み品」を屋外テントで販売できるか。別途の届出・許可は要るか。</li>
-        <li><b>許可エリア：</b>許可を取った保健所が大津市外の場合、大津市内での出店（キッチンカー・テント）に追加手続きが要るか。</li>
-        <li><b>温度管理：</b>要冷蔵・温度管理が必要な品を屋外で売るときの、温度・消費期限表示・販売時間の条件。</li>
-        <li><b>定期出店：</b>同じ場所で毎週・毎月くり返し出る場合、単発と扱いが変わるか。</li>
-        <li><b>現場の衛生：</b>手洗い・給排水・ゴミなど、屋外販売の現場で求められる衛生条件。</li>
-      </ul>
-      <p class="ft">どの許可・手続きが要るか分からない方も大丈夫。<b>LINEからご相談いただければ、確認のしかたや申請の流れからご案内します。</b></p>
-    </div>
-
-    <p class="fr-confirm reveal">確認・申請先は<b>大津市保健所</b>です。大津市は中核市のため、滋賀県ではなく大津市保健所が食品営業許可の窓口になります。お申し込み前に <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" class="gold">LINE</a> からご相談いただければ、確認のしかたをご案内します。</p>
-
-    <p class="entry-fine reveal">※ここに記載した内容は一般的な目安です。実際に必要な営業許可は、提供メニュー・出店形態・会場の条件によって異なり、最終的には大津市保健所の判断によります。最新・正確な情報は大津市保健所でご確認ください。</p>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">よくある質問</span>
-      <h2>気になることに、<span class="gold">先に答えます</span>。</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item reveal"><div class="faq-q">本当に、誰とも話さずに予約できますか？</div><div class="faq-a">はい。会場と日程を選び、お支払いまで<b>この画面だけで完結</b>します。面談も電話も来店もいりません。受付は24時間。空き枠は先着順で、選んだ枠がそのまま予約になります。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">当日、テントや調理設備は用意されていますか？</div><div class="faq-a">出店場所は、協力店舗の<b>店前・駐車場などの屋外スペース</b>です。キッチンカーで乗り入れるか、テント・机・什器・調理道具をご自身で持ち込んで出店します（マルシェやキッチンカーと同じイメージ）。電源・水道が使えるか、キッチンカーが置ける広さかなどは会場により異なり、予約画面の会場情報に表示されます。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">3,000円のほかに、かかる費用はありますか？</div><div class="faq-a">各回、店舗協力費（5,000〜15,000円・出店時間や設備内容により異なります）を協力店舗へ直接お支払いいただきます。<b>売上からのシェアは一切いただきません。</b>その日の売上は全額あなたのもの。仕入・材料費はご自身の負担です。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">何を売れますか？飲食以外も出せますか？</div><div class="faq-a">この場所は<b>飲食のテイクアウト販売専用</b>です（ハンドメイド・雑貨などの物販は対象外）。出店には<b>ご自身の営業許可が必要</b>で、キッチンカーは車両の営業許可、テント出店はご自身の許可施設で調理した「調理済みの食品」の販売に限ります。詳しくは上の<a href="#food-rules" class="gold">「営業許可は、出店者ご自身で」</a>をご確認ください。無許可での営業はできません。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">キッチンカーを持っていなくても出店できますか？</div><div class="faq-a">できます。テント出店も可能です。ただし<b>ご自身の営業許可をお持ちで、許可施設で調理した「調理済みの食品」を販売する方に限ります</b>（テントでの新たな調理はできません）。許可がこれからの方も、取り方からLINEでご案内します。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">営業許可は、どこに確認・申請すればいいですか？</div><div class="faq-a">確認・申請先は<b>大津市保健所</b>です（大津市は中核市のため、滋賀県ではなく大津市保健所が窓口）。キッチンカーの営業許可や、テント出店（調理済み販売）に必要な手続きをご案内できますので、迷う場合はお申し込み前にLINEからご相談ください。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">副業中・会社員でも参加できますか？</div><div class="faq-a">参加できます。出店は土日開催も可能です。会社を辞める必要も、家族に無理を強いる必要もありません。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">すでにお店をやっています。使えますか？</div><div class="faq-a">使えます。新商品や新エリアの反応を見たいときの出店スペースとして、また、いつか実店舗や次の店を低リスクで持ちたいとお考えなら、その先の「店舗承継」までご相談に乗れます。</div></div>
-      <div class="faq-item reveal"><div class="faq-q">出店を続けたら、その先に何かありますか？</div><div class="faq-a">もし「もっと続けたい」「いつか自分の店を」と思ったら、売ってきた実績をもとに、融資・補助金、そして街の店を引き継ぐ<b>「承継の店主オーディション」</b>へとつなげられます。急ぐ必要はありません。まずは、一日売ってみるところからどうぞ。</div></div>
+    <p class="eyebrow">よくある質問</p>
+    <h2>気になることに、先に答えます。</h2>
+    <div style="margin-top:24px">
+      <details><summary>本当に、誰とも話さずに予約できますか？</summary><p>LINEで空き枠と会場条件を確認し、利用規約に同意・販売内容を確認のうえ、オンライン決済で予約が確定します。来店や対面の面談は不要です。受付は24時間、空き枠は先着順です。</p></details>
+      <details><summary>当日、テントや調理設備は用意されていますか？</summary><p>出店場所は、協力店舗の店前・駐車場などの屋外スペースです。テント・机・什器・商品を並べる道具はご自身でご用意ください（マルシェやキッチンカーと同じイメージ）。電源・水道・火気が使えるかは会場により異なり、予約前に会場情報でご確認いただけます。</p></details>
+      <details><summary>3,000円のほかに、かかる費用はありますか？</summary><p>店舗協力費（5,000〜15,000円・出店時間や設備内容により異なります）は、システム利用料と合わせてオンラインで一括前払いいただき、当社から協力店舗へお支払いします。売上からのシェアは一切いただきません。その日の売上は全額あなたのもの。仕入・材料費はご自身の負担です。</p></details>
+      <details><summary>キッチンカーでの調理販売はできますか？</summary><p>食品販売は、原則として許可施設で製造されたパッケージ商品（食品表示ラベル貼付済み）が対象です。キッチンカーなど移動販売の営業許可をお持ちの場合は、その場での調理販売が可能なこともありますが、会場の設備条件・火気使用の可否・近隣への配慮などにより出店可否を個別に確認します。まずはLINEでお問い合わせください。</p></details>
+      <details><summary>副業中・会社員でも参加できますか？</summary><p>参加できます。出店は土日開催も可能です。会社を辞める必要も、家族に無理を強いる必要もありません。</p></details>
     </div>
   </div>
 </section>
 
-<!-- 予約フロー（非対面・オンライン完結） -->
-<section class="book" id="cta">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb" style="justify-content:center">オンラインで完結</span>
-      <h2 class="mincho">空き枠を選んで、<span class="gold">そのまま予約</span>。</h2>
-      <p>面談も、電話も、いりません。会場と日程を選んで、お支払いまでこの画面で完結します。受付は24時間。</p>
+<section id="cta" style="background:var(--brand);border:none;color:#fff">
+  <div class="wrap center">
+    <p class="eyebrow" style="color:#bfe0dc">予約の流れ</p>
+    <h2 style="color:#fff">空き枠を確認して、オンライン決済で予約。</h2>
+    <p style="max-width:56ch;margin:0 auto 18px">面談・電話はいりません。LINEで空き枠と会場条件を確認し、オンライン決済で予約が確定します。受付は24時間。</p>
+    <div class="callout" style="background:rgba(255,255,255,.12);border-left-color:#fff;color:#eaf2f1;text-align:left;max-width:660px;margin:0 auto 24px">
+      <b style="color:#fff">予約の流れ：</b>① LINEで空き枠・会場条件を確認 → ② 利用規約に同意・販売内容を確認 → ③ システム利用料＋会場協力費の合計をオンライン決済 → ④ 予約確定。会場協力費は当社から協力店舗へお支払いします。
     </div>
-    <div class="book-auto reveal">
-      <span>✓ 面談・来店なし</span><span>✓ 24時間いつでも</span><span>✓ 選んで即予約</span>
-    </div>
-
-    <div class="book-card reveal">
-      <div class="book-step">
-        <div class="lbl"><span class="no">1</span>会場を選ぶ</div>
-        <div class="venue-opts" id="venueOpts">
-          <div class="vopt" data-v="店前のスペース" data-p="5000"><span class="dot"></span><span class="vn">店前のスペース</span><span class="vp">合計 ¥8,000/日</span></div>
-          <div class="vopt" data-v="駐車場の一角" data-p="8000"><span class="dot"></span><span class="vn">駐車場の一角</span><span class="vp">合計 ¥11,000/日</span></div>
-          <div class="vopt" data-v="軒先・テント下" data-p="6000"><span class="dot"></span><span class="vn">軒先・テント下</span><span class="vp">合計 ¥9,000/日</span></div>
-        </div>
-      </div>
-
-      <div class="book-step">
-        <div class="lbl"><span class="no">2</span>日程を選ぶ</div>
-        <div class="date-grid" id="dateGrid"></div>
-      </div>
-
-      <div class="book-step">
-        <div class="lbl"><span class="no">3</span>あなたの情報</div>
-        <input id="bk-name" type="text" placeholder="お名前">
-        <input id="bk-contact" type="text" placeholder="メール または 電話番号">
-        <input id="bk-item" type="text" placeholder="売りたいもの（例：焼き菓子、コーヒー）">
-      </div>
-
-      <div class="book-step">
-        <div class="lbl"><span class="no">4</span>内容を確認して予約</div>
-        <div class="book-summary" id="bkSummary">
-          <div class="row"><span class="k">会場</span><span id="s-venue">―</span></div>
-          <div class="row"><span class="k">日程</span><span id="s-date">―</span></div>
-          <div class="row"><span class="k">システム利用料（固定）</span><span>¥3,000</span></div>
-          <div class="row" id="row-kyoryoku"><span class="k">会場協力費</span><span id="s-kyoryoku">―</span></div>
-          <div class="row tot"><span class="k">合計（1日）</span><span class="v" id="s-total">―</span></div>
-        </div>
-        <label class="book-agree" for="bk-agree">
-          <input type="checkbox" id="bk-agree" onchange="refresh()">
-          <span><b>【必須】出店ルールに同意します。</b>食品を販売する場合は、許可施設で製造したパッケージ商品（食品表示ラベル付き）に限り、無許可での調理・販売はしません。違反が判明した場合は出店をお断りし、会場に損害が生じたときは賠償の対象となることに同意します。</span>
-        </label>
-        <button class="book-go" id="bkGo" disabled onclick="goReserve()">会場・日程を選んでください</button>
-        <p class="book-fine"><b>※お支払いは、上の合計金額（システム利用料＋会場協力費）を、この画面でオンライン一括でお預かりします。</b>会場により合計は異なり、決済完了で予約確定です。テント・什器・仕入はご自身でご用意ください。空き枠は先着順。</p>
-      </div>
-    </div>
-    <p class="book-fine reveal" style="max-width:620px;margin:20px auto 0">うまく進まないときや、事業者・定期出店のご相談は <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" style="color:var(--gold-lt);text-decoration:underline">LINE</a> からどうぞ（自動応答でご案内します）。</p>
+    <a href="https://line.me/R/ti/p/@907kxssd" class="btn" style="background:#fff;color:var(--brand-dark)">LINEで空き枠を確認する</a>
   </div>
 </section>
 
-<!-- スペースを貸したい方へ（供給側） -->
-<section class="sec lend">
+<section>
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eb">場所をお持ちの、どなたでも</span>
-      <h2>空いている場所が、<span class="gold">貸すだけで収入に</span>。</h2>
-      <p>店前・駐車場・軒先・空き地。使っていない場所を、<b>飲食のテイクアウト出店者（キッチンカー・テント）</b>に貸し出してくださる方を募集しています。<b>キッチンカーが置ける広さの駐車場は、特に歓迎です。</b></p>
+    <p class="eyebrow">場所をお持ちの、どなたでも</p>
+    <h2>空いている場所を、地域の小さな出店の舞台に。</h2>
+    <p>店前・駐車場・軒先・空き地・自宅の駐車スペース。使っていない場所が、これから始めたい人の最初の一歩を支えます。出店者の調整・やりとりはすべて運営が行うので、あなたは場所を貸すだけ。街に小さな賑わいが生まれ、続けたい人が育てば、いつか街の店を継ぐ人にもつながります。</p>
+    <div class="lend">
+      <div class="card"><h3>🏪 店舗・テナントの方</h3><p style="margin:0;font-size:.93rem">店前や駐車場の空き時間に。出店者の賑わいで、自店の認知も上がります。</p></div>
+      <div class="card"><h3>🏢 不動産オーナーの方</h3><p style="margin:0;font-size:.93rem">空き地・月極駐車場の遊休時間を、地域の出店スペースとして活かせます。</p></div>
+      <div class="card"><h3>🏠 一般住宅の方</h3><p style="margin:0;font-size:.93rem">自宅の駐車場・軒先の空き時間が、街の挑戦を応援する場所になります。</p></div>
     </div>
-
-    <div class="lend-money reveal">
-      <div class="big">何もしなくても、<b>空いている時間がお金になる</b>。</div>
-      <p class="sub">キッチンカーやテントの出店者が来て、売って、帰る。あなたは場所を貸すだけ。1回ごとに会場協力費（5,000〜15,000円目安）をお受け取りいただけます。ほったらかしの場所が、不労所得に変わります。</p>
-    </div>
-
-    <div class="lend-types reveal">
-      <div class="lend-type">
-        <div class="lt-ic">🏪</div>
-        <h5>店舗・テナントの方</h5>
-        <p>店前や駐車場の空き時間に。キッチンカーやテント出店の賑わいで、自店の認知も上がります。</p>
-      </div>
-      <div class="lend-type">
-        <div class="lt-ic">🏢</div>
-        <h5>不動産オーナーの方</h5>
-        <p>空き地・月極駐車場の遊休時間を収入に。キッチンカーが置ける区画は特に歓迎です。</p>
-      </div>
-      <div class="lend-type">
-        <div class="lt-ic">🏠</div>
-        <h5>一般住宅の方</h5>
-        <p>自宅前・軒先の空き時間が、テント1張りの出店場所として収入に。</p>
-      </div>
-    </div>
-    <div class="lend-grid">
-      <div class="lend-c reveal">
-        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-        <h4>貸すだけで、収入になる</h4>
-        <p>1回ごとに、会場協力費（5,000〜15,000円目安）をお支払いします。空いている時間・場所が、そのまま収入に変わります。</p>
-      </div>
-      <div class="lend-c reveal">
-        <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6M3 11l9-5 9 5"/></svg></span>
-        <h4>手間は、ほぼゼロ</h4>
-        <p>出店者との調整・やりとりは、すべて運営が行います。あなたは「貸せる場所・曜日・時間」を教えてくださるだけ。難しい手続きはありません。</p>
-      </div>
-      <div class="lend-c reveal">
-        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></span>
-        <h4>街の挑戦を、応援できる</h4>
-        <p>これから始めたい人の最初の一歩を、あなたの場所が支えます。続けたい人が育てば、街の店を継ぐ人にもつながります。</p>
-      </div>
-    </div>
-    <div class="lend-cta reveal">
-      <p class="note">面倒な調整は運営が行います。貸せる場所・曜日・時間を教えていただくところから。<br>まずは気軽に、ご相談ください。</p>
-      <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" class="btn btn-line"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.07.7.2.8.5.07.25 0 .65 0 .9l-.13.8c-.04.25-.2.96.84.52s5.6-3.3 7.65-5.65C20.6 13.5 22 11.9 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEで「スペースを貸したい」と相談する</a>
-    </div>
+    <p style="margin-top:20px;font-size:.95rem;color:var(--muted)">1回ごとに、会場協力費（5,000〜15,000円目安）をお受け取りいただけます。出店者との調整・やりとりは、すべて運営が行います。あなたは「貸せる場所・曜日・時間」を教えてくださるだけ。</p>
+    <a href="https://line.me/R/ti/p/@907kxssd" class="btn">LINEで「スペースを貸したい」と相談する</a>
   </div>
 </section>
 
 <footer>
-  <div class="foot-brand"><svg viewBox="0 0 48 48"><path d="M4 34c6-10 34-10 40 0M10 34V22M38 34V22M16 34v-7M32 34v-7M24 34V18"/></svg>売り場レンタル</div>
-  <div class="meta">
-    運営：BRIDGE CYCLE株式会社（滋賀県大津市）<br>
-    代表取締役 中村裕二 ／ 認定経営革新等支援機関<br>
-    お問い合わせ：LINE（@907kxssd）
+  <div class="wrap">
+    <p style="font-family:var(--serif);font-size:1.1rem;color:#fff;margin-bottom:8px">売り場レンタル｜BRIDGE <b style="color:#8fc7c1">CYCLE</b></p>
+    運営：BRIDGE CYCLE株式会社（滋賀県大津市）／代表取締役 中村裕二 ／ 認定経営革新等支援機関<br>
+    お問い合わせ：LINE（@907kxssd）<br><br>
+    <a href="audition.html">▶ 店を継ぎたい方へ（店主オーディション）</a>　|　<a href="watasu.html">▶ 店を渡したい・閉じる方へ</a>
   </div>
-  <div class="foot-cross">
-    <a href="audition.html">▶ 店を継ぎたい方へ（店主オーディション）</a>
-    <a href="watasu.html">▶ 店を渡したい・閉じる方へ</a>
-    <a href="#cta" onclick="document.querySelector('.lend').scrollIntoView({behavior:'smooth'});return false;">▶ スペースを貸したい店舗の方へ</a>
-  </div>
-  <small>© BRIDGE CYCLE Inc. 売り場レンタル｜店前・駐車場で、あなたの「好き」を売れる場所。</small>
 </footer>
 
-<script>
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* === 予約フロー（非対面・自動） === */
-const PAY_BASE = 3000; // システム利用料（固定）
-const PAYMENT_URL = "YOUR_PAYMENT_LINK"; // ← 決済サービス（Stripe/Square等）の決済URLに差し替え
-const state = {venue:null, vname:null, vprice:0, date:null};
-
-// 会場選択
-document.querySelectorAll('#venueOpts .vopt').forEach(el=>{
-  el.addEventListener('click',()=>{
-    document.querySelectorAll('#venueOpts .vopt').forEach(x=>x.classList.remove('sel'));
-    el.classList.add('sel');
-    state.vname = el.dataset.v;
-    state.vprice = parseInt(el.dataset.p,10);
-    refresh();
-  });
-});
-
-// 日程チップ（今日から14日、サンプルで一部を満席表示）
-(function buildDates(){
-  const grid=document.getElementById('dateGrid');
-  const wd=['日','月','火','水','木','金','土'];
-  const today=new Date();
-  const fullSample=new Set([2,5,9]); // サンプル満席（差し替え可）
-  for(let k=2;k<16;k++){
-    const dt=new Date(today); dt.setDate(today.getDate()+k);
-    const full=fullSample.has(k);
-    const chip=document.createElement('div');
-    chip.className='dchip'+(full?' full':'');
-    chip.innerHTML='<div class="d">'+dt.getDate()+'</div><div class="w">'+(full?'満席':(dt.getMonth()+1)+'/'+wd[dt.getDay()])+'</div>';
-    if(!full){
-      chip.addEventListener('click',()=>{
-        document.querySelectorAll('#dateGrid .dchip').forEach(x=>x.classList.remove('sel'));
-        chip.classList.add('sel');
-        state.date=(dt.getMonth()+1)+'月'+dt.getDate()+'日（'+wd[dt.getDay()]+'）';
-        refresh();
-      });
-    }
-    grid.appendChild(chip);
-  }
-})();
-
-function yen(n){return '¥'+n.toLocaleString('ja-JP');}
-function refresh(){
-  document.getElementById('s-venue').textContent = state.vname || '―';
-  document.getElementById('s-date').textContent = state.date || '―';
-  document.getElementById('s-kyoryoku').textContent = state.vname ? yen(state.vprice) : '―';
-  const picked = state.vname && state.date;
-  document.getElementById('s-total').textContent = picked ? yen(PAY_BASE+state.vprice) : '―';
-  const agreed = document.getElementById('bk-agree').checked;
-  const ready = picked && agreed;
-  const btn=document.getElementById('bkGo');
-  btn.disabled=!ready;
-  if(!picked){ btn.textContent='会場・日程を選んでください'; }
-  else if(!agreed){ btn.textContent='出店ルールに同意してください'; }
-  else { btn.textContent='予約してお支払いに進む（合計 '+yen(PAY_BASE+state.vprice)+'）'; }
-}
-function goReserve(){
-  if(!(state.vname && state.date)) return;
-  if(!document.getElementById('bk-agree').checked){ alert('出店ルールへの同意（必須）にチェックしてください。'); return; }
-  const name=(document.getElementById('bk-name').value||'').trim();
-  const contact=(document.getElementById('bk-contact').value||'').trim();
-  if(!name || !contact){ alert('お名前とご連絡先をご入力ください。'); return; }
-  const item=(document.getElementById('bk-item').value||'').trim();
-  const params=new URLSearchParams({venue:state.vname,date:state.date,amount:(PAY_BASE+state.vprice),name:name,contact:contact,item:item,agreed:'1'});
-  if(PAYMENT_URL==="YOUR_PAYMENT_LINK"){
-    alert('【プレビュー】この内容で予約に進みます：\n会場：'+state.vname+'\n日程：'+state.date+'\n合計：'+yen(PAY_BASE+state.vprice)+'（システム利用料3,000＋会場協力費'+yen(state.vprice)+'）\n\n※決済サービスのURLを設定すると、ここから自動でお支払い画面に進みます。');
-    return;
-  }
-  window.location.href = PAYMENT_URL + (PAYMENT_URL.includes('?')?'&':'?') + params.toString();
-}
-</script>
 </body>
 </html>
