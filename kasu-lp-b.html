@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>店前・駐車場の空きスペースを貸す｜遊休スペース活用で街の出店会場に（滋賀・大津）</title>
+<meta name="description" content="使っていない店前・駐車場・軒先を、1日だけの出店会場として貸し出せます。出店者の募集・調整・近隣ルールの共有はすべて運営が代行。初期費用0・貸す側の費用負担なし・1回から。会場協力費5,000〜15,000円を希望額で受取。運営：BRIDGE CYCLE株式会社（認定経営革新等支援機関）。">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<!-- ===== 計測タグ（gtag.js：GA4 ＋ Google広告）===== -->
+<!-- ↓↓ 下記3つのIDをあなたのアカウントの値に差し替えてください ↓↓ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');   /* ① GA4 測定ID（G-から始まる） */
+  gtag('config', 'AW-XXXXXXXXXX');  /* ② Google広告 コンバージョンID（AW-から始まる） */
+</script>
+<style>
+  :root{
+    --ink:#15302e;--paper:#e9edeb;--paper-2:#dfe5e2;--surface:#fff;--line:#cdd6d1;
+    --brand:#2f6f6a;--brand-dark:#143d3a;--brand-deep:#143d3a;--brand-tint:rgba(47,111,106,.08);
+    --accent:#bf4429;--accent-dark:#9e3722;--accent-soft:rgba(191,68,41,.08);
+    --muted:#5f6f69;
+    --sans:"Noto Sans JP",system-ui,sans-serif;--serif:"Shippori Mincho",serif;--mincho:"Shippori Mincho",serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.9;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+  h2{font-family:var(--serif);font-weight:700;line-height:1.32;font-size:clamp(1.6rem,4.5vw,2.4rem);margin-bottom:.6em}
+  h3{font-family:var(--serif);font-weight:700;font-size:1.14rem;margin-bottom:.4em}
+  p{margin-bottom:1em}
+  a{color:inherit}
+  b{color:var(--brand-dark)}
+  .eyebrow{font-family:var(--serif);font-size:.8rem;letter-spacing:.18em;color:var(--brand);font-weight:700;margin-bottom:14px}
+  section{padding:70px 0;border-bottom:1px solid var(--line)}
+  /* header over hero */
+  header{position:absolute;top:0;left:0;right:0;z-index:10}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:0}
+  .logo{font-family:var(--serif);font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4)}.logo b{color:#9cd3cc}
+  .logo-mark{display:inline-block;width:12px;height:12px;border:2px solid #9cd3cc;border-radius:50%;border-top-color:transparent;margin-right:8px;vertical-align:-1px;transform:rotate(-30deg)}
+  .nav-cta{font-family:var(--serif);font-weight:700;font-size:.9rem;color:#fff;background:var(--accent);padding:9px 18px;border-radius:999px;text-decoration:none}
+  /* buttons：朱は動線専用 */
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-family:var(--serif);font-weight:700;padding:13px 28px;border-radius:999px;border:none;cursor:pointer;font-size:1rem;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 18px rgba(191,68,41,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(191,68,41,.36)}
+  .btn-sm{padding:9px 18px;font-size:.9rem;box-shadow:none}
+  .btn-ghost{display:inline-block;background:transparent;color:var(--brand-dark);border:1.5px solid var(--brand);font-family:var(--serif);font-weight:700;padding:12px 24px;border-radius:999px;text-decoration:none}
+  .hero .btn-ghost{color:#eaf2f0;border-color:rgba(255,255,255,.6)}
+  /* HERO with photo */
+  .hero{position:relative;min-height:74vh;display:flex;align-items:center;overflow:hidden;border-bottom:none;padding:0}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,40,38,.94),rgba(15,48,46,.80) 45%,rgba(15,48,46,.42))}
+  .hero .wrap{position:relative;z-index:2;padding:128px 0 64px}
+  .hero .eyebrow{color:#9cd3cc}
+  .hero h1{font-family:var(--serif);font-weight:800;color:#fff;font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.22;margin-bottom:.5em;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+  .hero h1 .br{color:#8ec8c1}
+  .hero .lead{font-size:1.04rem;max-width:60ch;color:#dcebe8}
+  .hero .price-line{font-family:var(--serif);font-size:1.4rem;color:#fff;font-weight:800;margin:22px 0 6px}
+  .hero .sub{color:#bcd2cd;font-size:.92rem}
+  .hero-cta{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap}
+  .sub{color:var(--muted);font-size:.92rem}
+  /* stats */
+  .stats{background:var(--brand-deep);border:none}
+  .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stats .num{font-family:var(--serif);font-weight:800;font-size:1.7rem;color:#fff;line-height:1.15}
+  .stats .lab{color:#9fb6b1;font-size:.8rem;margin-top:6px}
+  @media(max-width:640px){.stats .grid{grid-template-columns:repeat(2,1fr)}}
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .card .tag{font-size:.72rem;letter-spacing:.1em;color:var(--brand);font-weight:700;margin-bottom:8px;font-family:var(--serif)}
+  .card p:last-child{margin-bottom:0}
+  /* plans */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.plans{grid-template-columns:1fr}}
+  .plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .plan.feature{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+  .plan .price{font-family:var(--serif);font-weight:800;font-size:1.7rem;color:var(--brand-deep);margin:6px 0}
+  .plan ul{list-style:none;margin:14px 0 18px}
+  .plan li{padding:5px 0 5px 22px;position:relative;font-size:.93rem}
+  .plan li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:10px;border:2px solid var(--brand);border-radius:50%}
+  /* twocol */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:740px){.twocol{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--surface)}
+  .panel.win{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+  .panel ul{list-style:none}.panel li{padding:6px 0;font-size:.95rem}
+  .panel li b{color:var(--brand-dark)}
+  /* steps */
+  .steps{counter-reset:st}
+  .step{position:relative;padding:20px 0 20px 60px;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:20px;width:38px;height:38px;border-radius:50%;background:var(--brand-tint);color:var(--brand-deep);font-family:var(--serif);font-weight:800;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--brand)}
+  .step .meta{font-size:.76rem;color:var(--brand);font-weight:700;float:right;font-family:var(--serif)}
+  .step h3{font-family:var(--serif)}
+  .note{font-size:.85rem;color:var(--muted);margin-top:16px}
+  .callout{background:var(--brand-tint);border-radius:12px;padding:16px 20px;font-size:.94rem;border-left:3px solid var(--brand)}
+  .callout b{color:var(--brand-dark)}
+  /* FAQ */
+  details{border:1px solid var(--line);border-radius:10px;background:var(--surface);margin-bottom:10px;padding:0 18px}
+  summary{cursor:pointer;font-weight:700;padding:16px 0;list-style:none;font-family:var(--serif)}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"＋";color:var(--brand);margin-right:10px;font-weight:700}
+  details[open] summary::before{content:"−"}
+  details p{padding-bottom:16px;margin:0;font-size:.94rem}
+  /* photo band */
+  .photo-band{margin-top:30px;border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative}
+  .photo-band img{width:100%;height:300px;object-fit:cover;display:block}
+  .photo-band .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;background:linear-gradient(transparent,rgba(13,40,38,.88));color:#fff;font-family:var(--serif);font-weight:700;font-size:1.05rem}
+  @media(max-width:640px){.photo-band img{height:220px}}
+  /* CTA */
+  .cta{position:relative;overflow:hidden;background:var(--brand-deep);border:none;color:#fff}
+  .cta h2{color:#fff}
+  footer{background:#0f2422;color:#9fb6b1;padding:54px 0;border:none;font-size:.9rem}
+  footer a{color:#9cd3cc}
+  .center{text-align:center}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="https://yujimansion-hub.github.io/bridge-cycle2026/" class="logo" style="text-decoration:none"><span class="logo-mark"></span>BRIDGE <b>CYCLE</b></a>
+    <a href="https://line.me/R/ti/p/@907kxssd" class="nav-cta">LINEで相談</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1759299983447-0f7e2e63cfeb?fm=jpg&q=72&w=1600&auto=format&fit=crop" alt="店前の屋外スペースに並ぶ出店">
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">壱 ／ 売る ── 場所を貸す側のあなたへ</p>
+    <h1>場所を貸すと、近所に迷惑では？<br><span class="br">その心配は、運営が引き受けます。</span></h1>
+    <p class="lead">使っていない店前や駐車場を貸したい。でも、駐車・ゴミ・騒音で近隣に迷惑がかからないか——一番の不安は、そこのはず。出店者の選定からルール共有・当日の管理まで、近隣への配慮はすべて運営が担います。<b style="color:#fff">あなたは、貸せる日と条件を教えるだけ。</b></p>
+    <p class="price-line">会場協力費 ¥5,000〜15,000 ／ 1回・希望額を選べる</p>
+    <p class="sub">初期費用0 ／ 貸す側の費用負担なし ／ まずは1回だけでも可</p>
+    <div class="hero-cta">
+      <a href="https://line.me/R/ti/p/@907kxssd" class="btn">LINEで「貸せる場所」を相談する</a>
+      <a href="#flow" class="btn-ghost">貸すまでの流れを見る</a>
+    </div>
+    <p class="sub" style="margin-top:14px">※相談・登録は無料。合わなければ、貸さなくて構いません。</p>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats">
+  <div class="wrap"><div class="grid">
+    <div><div class="num">¥0</div><div class="lab">初期費用・貸す側の負担</div></div>
+    <div><div class="num">5,000〜15,000円</div><div class="lab">1回の会場協力費（希望額を選べる）</div></div>
+    <div><div class="num">1回</div><div class="lab">から試せる・いつでも終了</div></div>
+    <div><div class="num">運営</div><div class="lab">が出店者対応・近隣調整</div></div>
+  </div></div>
+</section>
+
+<!-- ===== 本当の不安＝近隣（差別化の核） ===== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">貸す前に、一番気がかりなこと</p>
+    <h2>気がかりは、収入より"近隣"のはず。<br>そこを、運営が引き受けます。</h2>
+    <p>場所を貸すと聞いて、まず頭をよぎるのは「駐車は？ ゴミは？ 騒音は？ 近所から苦情が来ないか」ではないでしょうか。BRIDGE CYCLEは、出店者の販売内容・車の動線・ゴミ・時間を<b>事前に整理し、会場に合う出店だけを受け入れる</b>仕組みにしています。</p>
+    <div class="cards" style="margin-top:28px">
+      <div class="card"><h3>車の出入りを事前指定</h3><p style="margin:0;font-size:.93rem">駐車位置・搬入搬出ルート・Uターン禁止エリアを会場ごとに決め、出店者へ事前共有します。近隣住宅前での無断駐車はさせません。</p></div>
+      <div class="card"><h3>ゴミ・騒音を制限</h3><p style="margin:0;font-size:.93rem">ゴミは出店者が全量持ち帰り。音響・強い呼び込み・長時間の滞留など、近隣の迷惑になる行為は禁止です。</p></div>
+      <div class="card"><h3>販売品目を事前確認</h3><p style="margin:0;font-size:.93rem">匂い・煙・火気・油の有無を事前に確認し、会場に合わない出店はお断りします。ルール違反があれば、その場で出店中止です。</p></div>
+    </div>
+    <div class="callout" style="margin-top:24px">出店者との調整・ルール共有・予約確認は、すべて運営が行います。<b>あなたは「貸せる場所・曜日・時間・守ってほしい条件」を教えてくださるだけ。</b></div>
+  </div>
+</section>
+
+<!-- ===== こんな方へ ===== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">こんな場所をお持ちの方へ</p>
+    <h2>空いている"外"のスペースが、会場になります。</h2>
+    <p>大きな土地は要りません。店の前のわずかな間口、平日に空く駐車区画、軒先のひと枠。それで十分です。</p>
+    <div class="cards" style="margin-top:28px">
+      <div class="card"><div class="tag">店舗オーナー</div><h3>店前・駐車場に余白がある方</h3><p>出店者が来ると、その日のお客様や通りすがりの人が、あなたの店にも立ち寄ります。会場協力費に加えて、<b>自店の賑わい</b>という副次効果も。</p></div>
+      <div class="card"><div class="tag">駐車場・遊休地</div><h3>使っていない区画がある方</h3><p>平日や週末だけ空く駐車区画、しばらく動いていない遊休スペース。寝かせておくより、街の出店会場として活かせます。</p></div>
+      <div class="card"><div class="tag">商店街・空き区画</div><h3>通りに人を呼び戻したい方</h3><p>シャッター前や空き区画に出店が立つことで、通りに人の流れが生まれます。商店街単位でのご相談も歓迎します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== メリット比較 ===== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">個人で貸すのとは、違います</p>
+    <h2>相手探しも、苦情対応も、しなくていい。</h2>
+    <p>知らない誰かに直接場所を貸すのは、収入以上に「手間とリスク」がついて回ります。あいだに運営が入ることで、その大半が消えます。</p>
+    <div class="twocol" style="margin-top:24px">
+      <div class="panel win">
+        <h3 style="color:var(--brand-dark)">BRIDGE CYCLE経由で貸す</h3>
+        <ul>
+          <li>出店者の <b>募集・確認・調整を運営が代行</b></li>
+          <li>近隣ルールを <b>運営が事前に共有</b></li>
+          <li>合わない出店は <b>受け入れない</b></li>
+          <li>1回ごと、選んだ協力費を <b>受け取る</b></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 style="color:var(--muted)">個人間で直接貸すと…</h3>
+        <ul>
+          <li>相手を自分で探し、見極める</li>
+          <li>トラブル・近隣の苦情は自分で対応</li>
+          <li>原状回復や保険の不安</li>
+          <li>合わない相手でも断りづらい</li>
+        </ul>
+      </div>
+    </div>
+    <div class="photo-band">
+      <img src="https://images.unsplash.com/photo-1746274223799-818414e9d94a?fm=jpg&q=72&w=1400&auto=format&fit=crop" alt="賑わう街の出店">
+      <div class="cap">あなたの空きスペースが、街の人が立ち止まる一角になる。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 会場協力費（料金） ===== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">受け取る額</p>
+    <h2>いくら受け取るかは、あなたが選びます。</h2>
+    <p>会場協力費は、出店1回ごとに<b>5,000円・10,000円・15,000円の3パターンから、あなたが希望額を選べます。</b>選んだ額を、その都度お受け取りいただけます。貸す側の費用負担は一切ありません。</p>
+    <div class="plans" style="margin-top:16px">
+      <div class="plan">
+        <div class="tag" style="font-size:.78rem;color:var(--muted)">ライト ｜ まず気軽に</div>
+        <div class="price">¥5,000<span style="font-size:.9rem;font-weight:400">/回</span></div>
+        <ul>
+          <li>短時間・小規模の出店向け</li>
+          <li>まず1回だけ試したい方に</li>
+          <li>近隣の様子を見ながら</li>
+        </ul>
+      </div>
+      <div class="plan feature">
+        <div class="tag" style="color:var(--brand);font-weight:700;font-size:.78rem">スタンダード ｜ いちばん選ばれる</div>
+        <div class="price">¥10,000<span style="font-size:.9rem;font-weight:400">/回</span></div>
+        <ul>
+          <li>半日〜1日の出店向け</li>
+          <li>駐車・電源など条件のある会場に</li>
+          <li>くり返し貸す方の標準</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <div class="tag" style="font-size:.78rem;color:var(--muted)">プラス ｜ 条件の良い会場</div>
+        <div class="price">¥15,000<span style="font-size:.9rem;font-weight:400">/回</span></div>
+        <ul>
+          <li>人通り・設備の整った会場向け</li>
+          <li>電源・水道などを提供できる場合</li>
+          <li>立地条件の良いスペースに</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:24px"><b>たとえば：</b>週1で月4回 × 10,000円 ＝ <b>月40,000円</b>。出店時間や設備の条件に応じて、受け取る額を選べます。</div>
+    <p class="note">※会場協力費は、出店者が支払うシステム利用料と合わせて当社が一括でお預かりし、出店ごとに会場（あなた）へお支払いします。大きな副収入というより、<b>遊休スペースの活用・固定費の足し・店の賑わいづくり</b>として捉えていただくのが実態に近いものです。誇張はしません。</p>
+  </div>
+</section>
+
+<!-- ===== 貸すまでの流れ ===== -->
+<section id="flow">
+  <div class="wrap">
+    <p class="eyebrow">貸すまでの流れ</p>
+    <h2>教える、整える、受け取る。</h2>
+    <div class="steps" style="margin-top:24px">
+      <div class="step"><span class="meta">無料</span><h3>LINEで条件を伝える</h3><p>「貸せる場所・曜日・時間・守ってほしい条件」をLINEで送るだけ。写真があるとスムーズです。</p></div>
+      <div class="step"><span class="meta">無料・運営が実施</span><h3>会場として整える</h3><p>運営が会場情報を登録し、駐車・ゴミ・販売品目などのルールを整理します。会場にならない場合も、費用はかかりません。</p></div>
+      <div class="step"><span class="meta">運営が実施</span><h3>出店者とマッチング</h3><p>条件に合う出店者の募集・確認・予約調整は、すべて運営が行います。合わない出店は受け入れません。</p></div>
+      <div class="step"><span class="meta">当日</span><h3>出店・協力費を受け取る</h3><p>当日は、運営ルールに沿って出店者が出店。あなたは、選んだ会場協力費を受け取ります。</p></div>
+    </div>
+    <p class="note">※まずは1回だけでも大丈夫です。近隣状況や相性を見ながら、続けるか判断できます。いつでも終了できます。</p>
+  </div>
+</section>
+
+<!-- ===== 運営者・実績 ===== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">運営と、第1号会場</p>
+    <h2>誰が運営し、すでにどこで動いているか。</h2>
+    <div class="twocol" style="margin-top:24px">
+      <div class="panel"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">第1号 協力店舗</div><h3>桐生の風Fuu（大津市・古民家カフェ）</h3><p style="margin:0;font-size:.95rem">築100年の古民家を2年かけて改装した、自家焙煎コーヒーのカフェ。棚田と山並みを望むその駐車場・軒先を、出店会場として提供いただいています。<b>お店を営む人自身が、別の作り手に場所を開く</b>——店前・駐車場があれば、業種を問わず会場になり得ます。協力店舗は大津〜草津エリアで順次拡大予定です。</p></div>
+      <div class="panel"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">運営</div><h3>中村裕二（BRIDGE CYCLE株式会社 代表）</h3><p style="margin:0;font-size:.95rem">商工会の経営指導員として約20年、500社超の創業・融資・承継・廃業に伴走。<b>認定経営革新等支援機関</b>として、場所貸しから補助金・開業相談まで対応します。滋賀県大津市の会社です。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">よくある質問</p>
+    <h2>貸す前に、気になることへ。</h2>
+    <div style="margin-top:24px">
+      <details><summary>1回だけ貸して、やめてもいいですか？</summary><p>はい。まずは1回だけで大丈夫です。近隣の様子や出店者との相性を見て、合わなければそこで終了できます。継続の義務はありません。</p></details>
+      <details><summary>近隣トラブルや苦情が起きたら、どうなりますか？</summary><p>会場ごとに駐車位置・搬入時間・ゴミ・騒音などのルールを定め、出店前に出店者へ共有します。万一ルール違反や近隣からの苦情があった場合は、その場で出店を中止していただくか、今後のご利用をお断りします。協力店舗と近隣の方に迷惑がかからないことを最優先に運営します。</p></details>
+      <details><summary>貸す側に、費用はかかりますか？</summary><p>かかりません。初期費用・登録費は無料です。会場にならなかった場合も費用は発生しません。あなたは会場協力費を受け取る側です。</p></details>
+      <details><summary>受け取った協力費に、税金や確定申告は必要ですか？</summary><p>受け取った会場協力費は所得にあたり、規模や他の所得との合計によっては申告が必要になる場合があります。個別の判断は税理士・税務署にご確認いただくのが確実ですが、運営代表は経営指導員として申告まわりのご相談にも応じられます。</p></details>
+      <details><summary>どんな場所が対象になりますか？</summary><p>店前・駐車場・軒先・路面などの屋外スペースが対象です。広さ・立地・近隣条件により会場として使えるかを個別に確認します。原則は屋外スペースで、店内の厨房や室内の利用は別途ご相談ください。</p></details>
+      <details><summary>どれくらいの手間がかかりますか？</summary><p>出店者の募集・確認・調整・予約はすべて運営が行います。あなたにお願いするのは、最初に貸せる条件を教えていただくことと、当日スペースを空けておいていただくことだけです。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta" class="cta">
+  <div class="wrap center">
+    <p class="eyebrow" style="color:#9cd3cc">まずは相談から</p>
+    <h2>「貸せそうな場所」を、見せてください。</h2>
+    <p style="max-width:58ch;margin:0 auto 18px;color:#bcd2cd">写真と、貸せる曜日・時間・気になる条件をLINEで送るだけ。会場になるかを運営が確認し、ルールを整理します。相談・登録は無料。合わなければ、貸さなくて構いません。</p>
+    <div class="callout" style="background:rgba(255,255,255,.1);border-left-color:#9cd3cc;color:#eaf2f1;text-align:left;max-width:660px;margin:0 auto 24px">
+      <b style="color:#fff">相談の流れ：</b>① LINEで場所の写真・貸せる条件を送る → ② 運営が会場になるか確認・ルールを整理 → ③ 出店者とのマッチングは運営が実施 → ④ 出店当日、選んだ協力費を受け取る。
+    </div>
+    <a href="https://line.me/R/ti/p/@907kxssd" class="btn">LINEで「スペースを貸したい」と相談する</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <p style="font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:8px"><span class="logo-mark" style="border-color:#9cd3cc;border-top-color:transparent"></span>BRIDGE <b style="color:#9cd3cc">CYCLE</b></p>
+    運営：BRIDGE CYCLE株式会社（滋賀県大津市）／代表取締役 中村裕二 ／ 認定経営革新等支援機関<br>
+    お問い合わせ：LINE（@907kxssd）<br><br>
+    <a href="https://yujimansion-hub.github.io/bridge-cycle2026/">‹ BRIDGE CYCLE トップへ</a>　｜　<a href="uriba.html">出店したい方へ（売り場レンタル）</a>　｜　<a href="watasu.html">店を渡したい・閉じる方へ</a>　｜　<a href="audition.html">店を継ぎたい方へ</a><br><br>
+    <span style="font-size:.82rem;color:#7f9893"><a href="privacy.html">プライバシーポリシー</a>　｜　<a href="tokushoho.html">特定商取引法に基づく表記</a>（※Google広告の審査用に要設置）</span>
+  </div>
+</footer>
+<!-- ===== LINE相談ボタンのクリックをコンバージョン計測 ===== -->
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('a[href*="line.me"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        if (typeof gtag === 'function') {
+          /* ③ Google広告コンバージョン（「AW-XXXXXXXXXX/コンバージョンラベル」に差し替え） */
+          gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXXX/XXXXXXXXXXXXXXXXXX' });
+          /* GA4側のイベント（差し替え不要） */
+          gtag('event', 'line_consult_click', { 'event_category':'CTA', 'event_label':'kasu-lp' });
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
