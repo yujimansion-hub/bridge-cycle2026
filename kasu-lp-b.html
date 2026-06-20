@@ -307,6 +307,206 @@
 </section>
 
 <!-- ===== CTA ===== -->
+<!-- ═══════════ 貸せるか診断（スペース提供者向け）ここから ═══════════ -->
+<section class="bc-kasu" id="kasu-shindan">
+  <style>
+    .bc-kasu .bk-lead{max-width:600px;margin:0 auto 26px;color:var(--muted,#5f6f69);font-size:.97rem;line-height:1.85}
+    .bc-kasu .bk-app{max-width:600px;margin:0 auto;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:14px;padding:30px 26px 28px}
+    .bc-kasu .bk-eb{font-family:var(--serif,serif);font-size:.78rem;letter-spacing:.16em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 12px}
+    .bc-kasu .bk-q{font-family:var(--serif,serif);font-weight:700;font-size:1.2rem;line-height:1.55;margin:0 0 8px;color:var(--ink,#15302e)}
+    .bc-kasu .bk-note{font-size:.9rem;color:var(--muted,#5f6f69);margin:0 0 20px;line-height:1.75}
+    .bc-kasu .bk-choices{display:flex;flex-direction:column;gap:11px}
+    .bc-kasu .bk-choice{appearance:none;-webkit-appearance:none;text-align:left;width:100%;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:15px 17px;font-family:var(--sans,sans-serif);font-size:1rem;color:var(--ink,#15302e);cursor:pointer;line-height:1.5;transition:border-color .15s,box-shadow .15s,transform .06s}
+    .bc-kasu .bk-choice .bk-sub{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin-top:4px}
+    .bc-kasu .bk-choice:hover{border-color:var(--brand,#2f6f6a);box-shadow:0 4px 14px rgba(47,111,106,.1)}
+    .bc-kasu .bk-choice:active{transform:translateY(1px)}
+    .bc-kasu .bk-choice:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-kasu .bk-tier{display:inline-block;font-family:var(--serif,serif);font-size:.74rem;letter-spacing:.1em;font-weight:700;padding:5px 13px;border-radius:999px;border:1.5px solid var(--brand,#2f6f6a);color:var(--brand,#2f6f6a);margin:0 0 14px}
+    .bc-kasu .bk-tier.bk-ok{border-color:var(--accent,#bf4429);color:var(--accent,#bf4429);background:var(--accent-soft,rgba(191,68,41,.08))}
+    .bc-kasu .bk-rh{font-family:var(--serif,serif);font-weight:700;font-size:1.18rem;line-height:1.55;margin:0 0 12px;color:var(--ink,#15302e)}
+    .bc-kasu .bk-rb{font-size:.96rem;color:var(--ink,#15302e);margin:0 0 18px;line-height:1.8}
+    .bc-kasu .bk-ans{background:var(--brand-tint,rgba(47,111,106,.07));border-left:3px solid var(--brand,#2f6f6a);border-radius:0 8px 8px 0;padding:13px 15px;margin:0 0 18px}
+    .bc-kasu .bk-ans h4{font-family:var(--serif,serif);font-size:.82rem;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 6px}
+    .bc-kasu .bk-ans p{font-size:.9rem;color:var(--ink,#15302e);margin:0;line-height:1.75}
+    .bc-kasu .bk-check{border-top:1px solid var(--line,#cdd6d1);padding-top:16px}
+    .bc-kasu .bk-check h4{font-family:var(--serif,serif);font-size:.8rem;letter-spacing:.1em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-kasu .bk-check ul{margin:0;padding:0;list-style:none}
+    .bc-kasu .bk-check li{font-size:.92rem;line-height:1.65;padding:0 0 8px 18px;position:relative;color:var(--ink,#15302e)}
+    .bc-kasu .bk-check li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--brand,#2f6f6a)}
+    .bc-kasu .bk-memo{background:var(--brand-tint,rgba(47,111,106,.07));border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:16px 16px 14px;margin:22px 0 18px}
+    .bc-kasu .bk-memo h4{font-family:var(--serif,serif);font-size:.76rem;letter-spacing:.12em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-kasu .bk-memo dl{margin:0 0 12px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+    .bc-kasu .bk-memo dt{font-size:.82rem;color:var(--muted,#5f6f69);white-space:nowrap}
+    .bc-kasu .bk-memo dd{font-size:.9rem;margin:0;color:var(--ink,#15302e)}
+    .bc-kasu .bk-memo label{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin:0 0 6px}
+    .bc-kasu .bk-memo input{width:100%;font-family:var(--sans,sans-serif);font-size:.95rem;color:var(--ink,#15302e);background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:8px;padding:10px 12px}
+    .bc-kasu .bk-memo input:focus{outline:2px solid var(--brand,#2f6f6a);outline-offset:1px;border-color:var(--brand,#2f6f6a)}
+    .bc-kasu .bk-btn{display:block;width:100%;text-align:center;background:var(--accent,#bf4429);color:#fff;border:none;border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:1rem;padding:14px;cursor:pointer;text-decoration:none;box-shadow:0 6px 18px rgba(191,68,41,.28);transition:transform .15s,box-shadow .15s}
+    .bc-kasu .bk-btn:hover{transform:translateY(-1px);box-shadow:0 9px 22px rgba(191,68,41,.32)}
+    .bc-kasu .bk-btn:focus-visible{outline:2px solid var(--accent-dark,#9e3722);outline-offset:3px}
+    .bc-kasu .bk-ghost{display:block;width:100%;text-align:center;background:transparent;color:var(--brand-dark,#143d3a);border:1.5px solid var(--brand,#2f6f6a);border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:.92rem;padding:11px;cursor:pointer;text-decoration:none;margin-top:10px;transition:background .15s}
+    .bc-kasu .bk-ghost:hover{background:var(--brand-tint,rgba(47,111,106,.08))}
+    .bc-kasu .bk-ghost:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-kasu .bk-copied{color:var(--accent,#bf4429)}
+    .bc-kasu .bk-disc{font-size:.78rem;color:var(--muted,#5f6f69);line-height:1.65;margin-top:22px;border-top:1px solid var(--line,#cdd6d1);padding-top:14px}
+    .bc-kasu .bk-back{background:none;border:none;font-family:var(--sans,sans-serif);color:var(--muted,#5f6f69);font-size:.84rem;cursor:pointer;padding:0;margin:0 0 20px}
+    .bc-kasu .bk-back:hover{color:var(--ink,#15302e)}
+    .bc-kasu .bk-back::before{content:"\2190 "}
+    .bc-kasu .bk-step{animation:bkfade .3s ease}
+    @keyframes bkfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){.bc-kasu .bk-step{animation:none}.bc-kasu *{transition:none!important}}
+  </style>
+  <div class="wrap">
+    <p class="eyebrow">貸せるか、先に確かめる</p>
+    <h2>その場所、出店会場になる？一分で確認。</h2>
+    <p class="bk-lead">使っていない店前・駐車場・空き地・自宅の軒先。いくつかの質問で、貸せる見込みと、一番の気がかりへの答えが分かります。出店者対応も近隣調整も運営が引き受けます。あなたは、貸せる日と条件を伝えるだけ。</p>
+    <div class="bk-app" id="bc-kasu-app" aria-live="polite"></div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    var app=document.getElementById("bc-kasu-app");
+    if(!app) return;
+    var state={place:null,size:null,when:null,worry:null,area:""};
+    var history=[];
+    var LINE="https://line.me/R/ti/p/@907kxssd";
+
+    function render(html,withBack){
+      app.innerHTML=(withBack?'<button class="bk-back" id="bkBack">ひとつ戻る</button>':'')+'<div class="bk-step">'+html+'</div>';
+      if(withBack){document.getElementById("bkBack").onclick=goBack;}
+      var h=app.querySelector(".bk-q,.bk-rh");
+      if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true});}
+    }
+    function goBack(){if(history.length>1){history.pop();history[history.length-1]();}}
+    function show(fn){history.push(fn);fn();}
+
+    function start(){
+      render('<div class="bk-eb">問 一</div>'+
+        '<p class="bk-q">貸せそうな場所は、どれに近いですか。</p>'+
+        '<p class="bk-note">いちばん近いものを選んでください。</p>'+
+        '<div class="bk-choices">'+
+          ch("店舗・テナントの店前／駐車場","営業中のお店の前や駐車スペース","shop")+
+          ch("駐車場・空き地（不動産オーナー）","月極・コインP・遊休地など","estate")+
+          ch("自宅の駐車場・軒先","住宅の空きスペース","home")+
+          ch("その他・まだ分からない","当てはまるか相談したい","other")+
+        '</div>',false);bind();
+    }
+    function qSize(){
+      render('<div class="bk-eb">問 二</div>'+
+        '<p class="bk-q">広さは、どのくらいですか。</p>'+
+        '<p class="bk-note">おおよそで構いません。</p>'+
+        '<div class="bk-choices">'+
+          ch("テント1張り分（約2〜3m四方）はある","","s-tent")+
+          ch("車1〜2台分のスペースがある","","s-car")+
+          ch("もっと広い","空き地・広い駐車場など","s-big")+
+          ch("小さい・よく分からない","","s-small")+
+        '</div>',true);bind();
+    }
+    function qWhen(){
+      render('<div class="bk-eb">問 三</div>'+
+        '<p class="bk-q">貸せる曜日・時間帯は。</p>'+
+        '<p class="bk-note">店舗なら営業時間外など。後で変えられます。</p>'+
+        '<div class="bk-choices">'+
+          ch("週末","土日に貸せる","w-weekend")+
+          ch("平日","平日に貸せる","w-weekday")+
+          ch("どちらも・営業時間外なら","","w-both")+
+          ch("これから決める","","w-none")+
+        '</div>',true);bind();
+    }
+    function qWorry(){
+      render('<div class="bk-eb">あと 一問</div>'+
+        '<p class="bk-q">貸す前に、一番の気がかりは。</p>'+
+        '<p class="bk-note">そこに、先に答えます。</p>'+
+        '<div class="bk-choices">'+
+          ch("駐車・ゴミ・騒音で近隣に迷惑がかからないか","","wy-neighbor")+
+          ch("出店者とのやりとり・手間","","wy-effort")+
+          ch("どのくらいの収入になるか","","wy-income")+
+          ch("特にない・まず話を聞きたい","","wy-none")+
+        '</div>',true);bind();
+    }
+
+    function result(){
+      var r=verdict(),a=answer(),memo=buildMemo();
+      render(
+        '<span class="bk-tier'+(r.ok?' bk-ok':'')+'">'+r.tier+'</span>'+
+        '<p class="bk-rh">'+r.head+'</p><p class="bk-rb">'+r.body+'</p>'+
+        '<div class="bk-ans"><h4>'+a.h+'</h4><p>'+a.p+'</p></div>'+
+        '<div class="bk-check"><h4>このあと、運営が確認すること</h4><ul>'+r.checks.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>'+
+        '<div class="bk-memo"><h4>相談メモ</h4><dl>'+memo.html+'</dl>'+
+          '<label for="bkArea">場所のエリア（任意・例：大津市におの浜）</label>'+
+          '<input id="bkArea" type="text" maxlength="40" value="'+escAttr(state.area)+'" placeholder="だいたいの場所を書くと相談がスムーズです">'+
+        '</div>'+
+        '<a class="bk-btn" href="'+LINE+'" target="_blank" rel="noopener">LINEで「貸したい」と相談する</a>'+
+        '<button class="bk-ghost" id="bkCopy">メモをコピーして貼り付ける</button>'+
+        '<button class="bk-ghost" id="bkRestart">はじめからやり直す</button>'+
+        '<p class="bk-disc">この診断は目安です。実際に貸せるかは、場所の様子・近隣の状況をふまえ、相談のうえで決めます。初期費用や貸す側の費用負担はありません。まずは1回だけでも可能です。</p>',
+        true
+      );
+      var input=document.getElementById("bkArea");
+      input.oninput=function(){state.area=this.value;};
+      document.getElementById("bkCopy").onclick=function(){copyText(buildMemo().text,this);};
+      document.getElementById("bkRestart").onclick=restart;
+    }
+
+    function verdict(){
+      var qualified=(state.place==="shop"||state.place==="estate"||state.place==="home")&&(state.size==="s-tent"||state.size==="s-car"||state.size==="s-big");
+      if(qualified)return{
+        ok:true,tier:"貸せる可能性が高い",
+        head:"その広さなら、出店会場になる見込みがあります。",
+        body:"あとは場所の様子と近隣の状況を見て、合う出店だけを受け入れる形で進めます。貸す側の費用負担はありません。",
+        checks:["人や車の通り・立地の様子","駐車位置・搬入ルート・Uターン禁止エリアの取り決め","貸せる曜日・時間と、守ってほしい条件"]
+      };
+      return{
+        ok:false,tier:"まず場所を見て相談",
+        head:"貸せるかは、場所の様子を見てから一緒に判断します。",
+        body:"小さめでも、軒先のひと枠で十分なこともあります。写真や場所を教えていただければ、活かせるか具体的に見ていきます。",
+        checks:["スペースの広さ・形・出入りのしやすさ","人や車の通りの様子","貸せる曜日・時間と条件"]
+      };
+    }
+    function answer(){
+      switch(state.worry){
+        case "wy-neighbor":return{h:"近隣への配慮は、すべて運営が担います。",p:"駐車位置・搬入搬出ルート・Uターン禁止エリアを会場ごとに決めて、出店者へ事前共有します。販売内容・ゴミ・騒音・時間も事前に整理し、会場に合う出店だけを受け入れます。近隣住宅前での無断駐車はさせません。"};
+        case "wy-effort":return{h:"やりとりの手間は、ほぼかかりません。",p:"出店者の募集・確認・調整・当日の対応は、すべて運営が行います。あなたは「貸せる場所・曜日・時間・守ってほしい条件」を伝えるだけです。"};
+        case "wy-income":return{h:"1回ごとに、会場協力費をお受け取りいただけます。",p:"会場協力費は1回 5,000〜15,000円（希望額を選べます）。初期費用や貸す側の費用負担はありません。回数や条件はLINEで具体化します。"};
+        default:return{h:"まずは、話を聞くところから。",p:"出店者対応も近隣調整も運営が引き受けます。あなたは貸せる日と条件を伝えるだけ。1回だけ試して、合わなければいつでも終了できます。"};
+      }
+    }
+
+    function buildMemo(){
+      var place={shop:"店舗・テナントの店前／駐車場",estate:"駐車場・空き地（不動産）",home:"自宅の駐車場・軒先",other:"その他・要相談"}[state.place]||"\u2014";
+      var size={"s-tent":"テント1張り分以上","s-car":"車1〜2台分","s-big":"もっと広い","s-small":"小さい・不明"}[state.size]||"\u2014";
+      var when={"w-weekend":"週末","w-weekday":"平日","w-both":"どちらも・営業時間外","w-none":"これから決める"}[state.when]||"\u2014";
+      var worry={"wy-neighbor":"近隣・駐車・ゴミ・騒音","wy-effort":"やりとり・手間","wy-income":"収入・条件","wy-none":"特になし・話を聞きたい"}[state.worry]||"\u2014";
+      var rows=[["場所の種類",place],["広さ",size],["貸せる曜日・時間",when],["気がかり",worry]];
+      if(state.area&&state.area.trim())rows.push(["エリア",state.area.trim()]);
+      var html=rows.map(function(r){return '<dt>'+escHtml(r[0])+'</dt><dd>'+escHtml(r[1])+'</dd>';}).join('');
+      var text="【スペースを貸したい 相談メモ】\n"+rows.map(function(r){return "\u30fb"+r[0]+"\uff1a"+r[1];}).join("\n")+"\n（BRIDGE CYCLE 貸せるか診断より）";
+      return{html:html,text:text};
+    }
+
+    function ch(label,sub,val){return '<button class="bk-choice" data-val="'+val+'">'+label+(sub?'<span class="bk-sub">'+sub+'</span>':'')+'</button>';}
+    function bind(){app.querySelectorAll(".bk-choice").forEach(function(b){b.onclick=function(){route(b.getAttribute("data-val"));};});}
+    function route(v){
+      switch(v){
+        case "shop":case "estate":case "home":case "other":state.place=v;show(qSize);break;
+        case "s-tent":case "s-car":case "s-big":case "s-small":state.size=v;show(qWhen);break;
+        case "w-weekend":case "w-weekday":case "w-both":case "w-none":state.when=v;show(qWorry);break;
+        case "wy-neighbor":case "wy-effort":case "wy-income":case "wy-none":state.worry=v;show(result);break;
+      }
+    }
+    function escHtml(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function escAttr(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function copyText(text,el){var done=function(){el.textContent="コピーしました";el.classList.add("bk-copied");setTimeout(function(){el.textContent="メモをコピーして貼り付ける";el.classList.remove("bk-copied");},2200);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}}
+    function fb(text,done){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done();}catch(e){}document.body.removeChild(ta);}
+    function restart(){state={place:null,size:null,when:null,worry:null,area:""};history=[];show(start);}
+    show(start);
+  })();
+  </script>
+</section>
+<!-- ═══════════ 貸せるか診断 ここまで ═══════════ -->
+
+
 <section id="cta" class="cta">
   <div class="wrap center">
     <p class="eyebrow" style="color:#9cd3cc">まずは相談から</p>
@@ -325,7 +525,7 @@
     <p style="font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:8px"><span class="logo-mark" style="border-color:#9cd3cc;border-top-color:transparent"></span>BRIDGE <b style="color:#9cd3cc">CYCLE</b></p>
     運営：BRIDGE CYCLE株式会社（滋賀県大津市）／代表取締役 中村裕二 ／ 認定経営革新等支援機関<br>
     お問い合わせ：LINE（@907kxssd）<br><br>
-    <a href="https://yujimansion-hub.github.io/bridge-cycle2026/">‹ BRIDGE CYCLE トップへ</a>　｜　<a href="uriba.html">出店したい方へ（売り場レンタル）</a>　｜　<a href="watasu.html">店を渡したい・閉じる方へ</a>　｜　<a href="audition.html">店を継ぎたい方へ</a><br><br>
+    <a href="https://yujimansion-hub.github.io/bridge-cycle2026/">‹ BRIDGE CYCLE トップへ</a>　｜　<a href="uriba.html">出店したい方へ（飲食テイクアウト出店レンタル）</a>　｜　<a href="watasu.html">店を渡したい・閉じる方へ</a>　｜　<a href="audition.html">店を継ぎたい方へ</a><br><br>
     <span style="font-size:.82rem;color:#7f9893"><a href="privacy.html">プライバシーポリシー</a>　｜　<a href="tokushoho.html">特定商取引法に基づく表記</a>（※Google広告の審査用に要設置）</span>
   </div>
 </footer>
