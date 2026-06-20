@@ -313,6 +313,230 @@
   </div>
 </section>
 
+<!-- ═══════════ 出店診断（飲食・キッチンカー対応版）ここから ═══════════ -->
+<section class="bc-shindan" id="shindan">
+  <style>
+    .bc-shindan .bc-lead{max-width:600px;margin:0 auto 26px;color:var(--muted,#5f6f69);font-size:.97rem;line-height:1.85}
+    .bc-shindan .bc-app{max-width:600px;margin:0 auto;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:14px;padding:30px 26px 28px}
+    .bc-shindan .bc-eb{font-family:var(--serif,serif);font-size:.78rem;letter-spacing:.16em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 12px}
+    .bc-shindan .bc-q{font-family:var(--serif,serif);font-weight:700;font-size:1.2rem;line-height:1.55;margin:0 0 8px;color:var(--ink,#15302e)}
+    .bc-shindan .bc-note{font-size:.9rem;color:var(--muted,#5f6f69);margin:0 0 20px;line-height:1.75}
+    .bc-shindan .bc-choices{display:flex;flex-direction:column;gap:11px}
+    .bc-shindan .bc-choice{appearance:none;-webkit-appearance:none;text-align:left;width:100%;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:15px 17px;font-family:var(--sans,sans-serif);font-size:1rem;color:var(--ink,#15302e);cursor:pointer;line-height:1.5;transition:border-color .15s,box-shadow .15s,transform .06s}
+    .bc-shindan .bc-choice .bc-sub{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin-top:4px}
+    .bc-shindan .bc-choice:hover{border-color:var(--brand,#2f6f6a);box-shadow:0 4px 14px rgba(47,111,106,.1)}
+    .bc-shindan .bc-choice:active{transform:translateY(1px)}
+    .bc-shindan .bc-choice:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-shindan .bc-tier{display:inline-block;font-family:var(--serif,serif);font-size:.74rem;letter-spacing:.1em;font-weight:700;padding:5px 13px;border-radius:999px;border:1.5px solid var(--brand,#2f6f6a);color:var(--brand,#2f6f6a);margin:0 0 14px}
+    .bc-shindan .bc-tier.bc-ok{border-color:var(--accent,#bf4429);color:var(--accent,#bf4429);background:var(--accent-soft,rgba(191,68,41,.08))}
+    .bc-shindan .bc-rh{font-family:var(--serif,serif);font-weight:700;font-size:1.18rem;line-height:1.55;margin:0 0 12px;color:var(--ink,#15302e)}
+    .bc-shindan .bc-rb{font-size:.96rem;color:var(--ink,#15302e);margin:0 0 18px;line-height:1.8}
+    .bc-shindan .bc-check{border-top:1px solid var(--line,#cdd6d1);padding-top:16px}
+    .bc-shindan .bc-check h4{font-family:var(--serif,serif);font-size:.8rem;letter-spacing:.1em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-shindan .bc-check ul{margin:0;padding:0;list-style:none}
+    .bc-shindan .bc-check li{font-size:.92rem;line-height:1.65;padding:0 0 8px 18px;position:relative;color:var(--ink,#15302e)}
+    .bc-shindan .bc-check li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--brand,#2f6f6a)}
+    .bc-shindan .bc-memo{background:var(--brand-tint,rgba(47,111,106,.07));border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:16px 16px 14px;margin:22px 0 18px}
+    .bc-shindan .bc-memo h4{font-family:var(--serif,serif);font-size:.76rem;letter-spacing:.12em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-shindan .bc-memo dl{margin:0 0 12px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+    .bc-shindan .bc-memo dt{font-size:.82rem;color:var(--muted,#5f6f69);white-space:nowrap}
+    .bc-shindan .bc-memo dd{font-size:.9rem;margin:0;color:var(--ink,#15302e)}
+    .bc-shindan .bc-memo label{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin:0 0 6px}
+    .bc-shindan .bc-memo input{width:100%;font-family:var(--sans,sans-serif);font-size:.95rem;color:var(--ink,#15302e);background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:8px;padding:10px 12px}
+    .bc-shindan .bc-memo input:focus{outline:2px solid var(--brand,#2f6f6a);outline-offset:1px;border-color:var(--brand,#2f6f6a)}
+    .bc-shindan .bc-btn{display:block;width:100%;text-align:center;background:var(--accent,#bf4429);color:#fff;border:none;border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:1rem;padding:14px;cursor:pointer;text-decoration:none;box-shadow:0 6px 18px rgba(191,68,41,.28);transition:transform .15s,box-shadow .15s}
+    .bc-shindan .bc-btn:hover{transform:translateY(-1px);box-shadow:0 9px 22px rgba(191,68,41,.32)}
+    .bc-shindan .bc-btn:focus-visible{outline:2px solid var(--accent-dark,#9e3722);outline-offset:3px}
+    .bc-shindan .bc-ghost{display:block;width:100%;text-align:center;background:transparent;color:var(--brand-dark,#143d3a);border:1.5px solid var(--brand,#2f6f6a);border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:.92rem;padding:11px;cursor:pointer;text-decoration:none;margin-top:10px;transition:background .15s}
+    .bc-shindan .bc-ghost:hover{background:var(--brand-tint,rgba(47,111,106,.08))}
+    .bc-shindan .bc-ghost:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-shindan .bc-copied{color:var(--accent,#bf4429)}
+    .bc-shindan .bc-disc{font-size:.78rem;color:var(--muted,#5f6f69);line-height:1.65;margin-top:22px;border-top:1px solid var(--line,#cdd6d1);padding-top:14px}
+    .bc-shindan .bc-back{background:none;border:none;font-family:var(--sans,sans-serif);color:var(--muted,#5f6f69);font-size:.84rem;cursor:pointer;padding:0;margin:0 0 20px}
+    .bc-shindan .bc-back:hover{color:var(--ink,#15302e)}
+    .bc-shindan .bc-back::before{content:"\2190 "}
+    .bc-shindan .bc-step{animation:bcfade .3s ease}
+    @keyframes bcfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){.bc-shindan .bc-step{animation:none}.bc-shindan *{transition:none!important}}
+  </style>
+  <div class="wrap">
+    <p class="eyebrow">出店できるか、先に確かめる</p>
+    <h2>その飲食、ここで売れる？一分で確認。</h2>
+    <p class="bc-lead">予約の前に、いくつかの質問で目安が分かります。食品は「許可施設で作ったラベル付きの包装商品」が基本。キッチンカーなど営業許可をお持ちなら、その場調理ができる会場もあります。迷う段階でも、相談に進めます。</p>
+    <div class="bc-app" id="bc-shindan-app" aria-live="polite"></div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    var app=document.getElementById("bc-shindan-app");
+    if(!app) return;
+    var state={kind:null,label:null,timing:null,area:null,exp:null,item:""};
+    var history=[];
+    var LINE="https://line.me/R/ti/p/@907kxssd";
+
+    function render(html,withBack){
+      app.innerHTML=(withBack?'<button class="bc-back" id="bcBack">ひとつ戻る</button>':'')+'<div class="bc-step">'+html+'</div>';
+      if(withBack){document.getElementById("bcBack").onclick=goBack;}
+      var h=app.querySelector(".bc-q,.bc-rh");
+      if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true});}
+    }
+    function goBack(){if(history.length>1){history.pop();history[history.length-1]();}}
+    function show(fn){history.push(fn);fn();}
+
+    function start(){
+      render(
+        '<div class="bc-eb">問 一</div>'+
+        '<p class="bc-q">売りたい飲食と、出店スタイルは。</p>'+
+        '<p class="bc-note">いちばん近いものを選んでください。</p>'+
+        '<div class="bc-choices">'+
+          ch("許可施設で作った、包装ずみの商品をテントで売る","焼き菓子・パン・ジャム・コーヒー豆など、ラベルを貼れる商品","packaged")+
+          ch("キッチンカー・移動販売の営業許可があり、その場で調理して売る","車内などで調理・提供する","kitchencar")+
+          ch("自分で作る／その場で作りたいが、営業許可はまだない","自宅で作っている・これから整える","noperm")+
+          ch("どれにあたるか分からない","何を売れるか相談したい","unsure")+
+        '</div>',false
+      );bind();
+    }
+    function qLabel(){
+      render('<div class="bc-eb">問 二</div>'+
+        '<p class="bc-q">食品表示ラベルは、貼ってありますか。</p>'+
+        '<p class="bc-note">原材料・消費期限・製造者・アレルゲンなどの表示です。</p>'+
+        '<div class="bc-choices">'+
+          ch("貼ってある","表示ラベル付きで売る","label-yes")+
+          ch("まだ・分からない","ラベルの準備はこれから","label-no")+
+        '</div>',true);bind();
+    }
+    function qTiming(){
+      render('<div class="bc-eb">あと 三問</div><p class="bc-q">いつ頃、出店したいですか。</p><div class="bc-choices">'+
+        ch("今月のうちに","","t-soon")+ch("来月以降","","t-later")+ch("まだ未定","時期は相談しながら","t-none")+'</div>',true);bind();
+    }
+    function qArea(){
+      render('<div class="bc-eb">あと 二問</div><p class="bc-q">出店したいエリアは。</p><div class="bc-choices">'+
+        ch("大津市内","","a-otsu")+ch("大津の近隣","","a-near")+ch("まだ未定","","a-none")+'</div>',true);bind();
+    }
+    function qExp(){
+      render('<div class="bc-eb">あと 一問</div><p class="bc-q">出店の経験は。</p><div class="bc-choices">'+
+        ch("はじめて","","e-first")+ch("経験あり","イベント・マルシェ・キッチンカー等","e-yes")+'</div>',true);bind();
+    }
+
+    function result(){
+      var r=verdict(),memo=buildMemo();
+      var primary=r.ok
+        ?'<a class="bc-btn" id="bcResv" href="#cta">空き枠を選んで予約する</a><a class="bc-ghost" href="'+LINE+'" target="_blank" rel="noopener">先にLINEで相談する</a>'
+        :'<a class="bc-btn" href="'+LINE+'" target="_blank" rel="noopener">LINEで、この内容を相談する</a>';
+      render(
+        '<span class="bc-tier'+(r.ok?' bc-ok':'')+'">'+r.tier+'</span>'+
+        '<p class="bc-rh">'+r.head+'</p><p class="bc-rb">'+r.body+'</p>'+
+        '<div class="bc-check"><h4>確認しておくこと</h4><ul>'+r.checks.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>'+
+        '<div class="bc-memo"><h4>相談メモ</h4><dl>'+memo.html+'</dl>'+
+          '<label for="bcItem">売りたいもの（任意・例：自家焙煎のコーヒー豆）</label>'+
+          '<input id="bcItem" type="text" maxlength="40" value="'+escAttr(state.item)+'" placeholder="商品の内容を書くと相談がスムーズです">'+
+        '</div>'+primary+
+        '<button class="bc-ghost" id="bcCopy">メモをコピーして貼り付ける</button>'+
+        '<button class="bc-ghost" id="bcRestart">はじめからやり直す</button>'+
+        '<p class="bc-disc">この診断は目安です。食品の可否や、必要な許可・届出、会場ごとの設備・火気の条件は、最終的に保健所と会場の確認によって決まります。迷う場合ほど、まずご相談ください。</p>',
+        true
+      );
+      var input=document.getElementById("bcItem");
+      input.oninput=function(){state.item=this.value;};
+      document.getElementById("bcCopy").onclick=function(){copyText(buildMemo().text,this);};
+      document.getElementById("bcRestart").onclick=restart;
+      var resv=document.getElementById("bcResv");
+      if(resv){resv.onclick=function(e){
+        var t=document.getElementById("cta");
+        if(t){e.preventDefault();
+          var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          t.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"});
+        }
+      };}
+    }
+
+    function verdict(){
+      if(state.kind==="packaged"&&state.label==="yes")return{
+        ok:true,tier:"出店できる可能性が高い",
+        head:"ラベル付きの包装商品なら、出店できる可能性が高いです。",
+        body:"許可施設で作ったラベル付きの商品は、売り場レンタルの基本線にあてはまります。あとは会場ごとのルールを整えれば進められます。",
+        checks:["ラベルの記載（原材料・期限・製造者・アレルゲン）","製造した施設が、その商品に必要な許可を持つか","会場ごとの駐車・ゴミ・近隣のルール"]
+      };
+      if(state.kind==="packaged"&&state.label==="no")return{
+        ok:false,tier:"あと一歩・確認が必要",
+        head:"商品は近いですが、食品表示ラベルの準備が要ります。",
+        body:"許可施設で作った商品でも、売るには表示ラベルが要ります。ラベルの整え方から一緒に確認します。",
+        checks:["食品表示ラベルの作成（原材料・期限・製造者）","製造施設の許可の種類","会場ごとのルール"]
+      };
+      if(state.kind==="kitchencar")return{
+        ok:false,tier:"会場条件を個別確認",
+        head:"営業許可をお持ちなら、その場調理ができる会場もあります。",
+        body:"キッチンカーなど移動販売の営業許可があれば、その場での調理販売が可能なこともあります。火気・電源・近隣配慮の条件で、出せる会場を一緒に確認します。",
+        checks:["営業許可の種類と範囲（移動販売・飲食店営業など）","会場の火気・電源・水道の可否","煙・におい・動線など近隣への配慮"]
+      };
+      if(state.kind==="noperm")return{
+        ok:false,tier:"まず許可の段取りから",
+        head:"無許可での調理販売はできません。整え方から相談します。",
+        body:"その場で作って売るには営業許可が、商品として売るには許可施設での製造が要ります。許可の取得か、パッケージ商品化か、進めやすい方を一緒に整理します。",
+        checks:["必要な営業許可・製造許可の種類","許可のある施設の確保","パッケージ化＋食品表示ラベルの準備"]
+      };
+      return{
+        ok:false,tier:"まずは相談",
+        head:"どれにあたるか、一緒に確かめます。",
+        body:"分からない段階で構いません。売りたいものを聞いて、売り場レンタルで出せる形に整えられるか、一緒に見ていきます。",
+        checks:["売りたいものの内容","許可施設で作られているか／営業許可の有無","包装・ラベルの有無"]
+      };
+    }
+
+    function buildMemo(){
+      var kindLabel={
+        packaged:(state.label==="yes"?"許可施設製造・ラベル付き包装商品":"包装商品（ラベル準備中）"),
+        kitchencar:"キッチンカー・移動販売（営業許可あり）",
+        noperm:"自家製・営業許可なし（要相談）",
+        unsure:"未定・要相談"
+      }[state.kind]||"\u2014";
+      var timing={soon:"今月のうちに",later:"来月以降",none:"未定"}[state.timing]||"\u2014";
+      var area={otsu:"大津市内",near:"大津の近隣",none:"未定"}[state.area]||"\u2014";
+      var exp={first:"はじめて",yes:"経験あり"}[state.exp]||"\u2014";
+      var rows=[["売りたいもの",kindLabel]];
+      if(state.item&&state.item.trim())rows.push(["商品の内容",state.item.trim()]);
+      rows.push(["希望時期",timing],["エリア",area],["出店経験",exp]);
+      var html=rows.map(function(r){return '<dt>'+escHtml(r[0])+'</dt><dd>'+escHtml(r[1])+'</dd>';}).join('');
+      var text="【売り場レンタル 相談メモ】\n"+rows.map(function(r){return "\u30fb"+r[0]+"\uff1a"+r[1];}).join("\n")+"\n（BRIDGE CYCLE 出店診断より）";
+      return{html:html,text:text};
+    }
+
+    function ch(label,sub,val){return '<button class="bc-choice" data-val="'+val+'">'+label+(sub?'<span class="bc-sub">'+sub+'</span>':'')+'</button>';}
+    function bind(){app.querySelectorAll(".bc-choice").forEach(function(b){b.onclick=function(){route(b.getAttribute("data-val"));};});}
+    function route(v){
+      switch(v){
+        case "packaged":state.kind="packaged";show(qLabel);break;
+        case "kitchencar":state.kind="kitchencar";state.label=null;show(qTiming);break;
+        case "noperm":state.kind="noperm";state.label=null;show(qTiming);break;
+        case "unsure":state.kind="unsure";state.label=null;show(qTiming);break;
+        case "label-yes":state.label="yes";show(qTiming);break;
+        case "label-no":state.label="no";show(qTiming);break;
+        case "t-soon":state.timing="soon";show(qArea);break;
+        case "t-later":state.timing="later";show(qArea);break;
+        case "t-none":state.timing="none";show(qArea);break;
+        case "a-otsu":state.area="otsu";show(qExp);break;
+        case "a-near":state.area="near";show(qExp);break;
+        case "a-none":state.area="none";show(qExp);break;
+        case "e-first":state.exp="first";show(result);break;
+        case "e-yes":state.exp="yes";show(result);break;
+      }
+    }
+    function escHtml(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function escAttr(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function copyText(text,el){
+      var done=function(){el.textContent="コピーしました";el.classList.add("bc-copied");setTimeout(function(){el.textContent="メモをコピーして貼り付ける";el.classList.remove("bc-copied");},2200);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+    }
+    function fb(text,done){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done();}catch(e){}document.body.removeChild(ta);}
+    function restart(){state={kind:null,label:null,timing:null,area:null,exp:null,item:""};history=[];show(start);}
+    show(start);
+  })();
+  </script>
+</section>
+<!-- ═══════════ 出店診断 ここまで ═══════════ -->
+
+
 <section id="cta" class="cta">
   <div class="wrap center">
     <p class="eyebrow" style="color:#9cd3cc">予約の流れ</p>
