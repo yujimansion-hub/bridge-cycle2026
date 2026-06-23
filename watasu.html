@@ -281,6 +281,212 @@
   </div>
 </section>
 
+<!-- ═══════════ うちの店、渡せる？診断 ここから ═══════════ -->
+<section class="bc-shindan" id="shindan">
+  <style>
+    .bc-shindan .bc-lead{max-width:600px;margin:0 auto 26px;color:var(--muted,#5f6f69);font-size:.97rem;line-height:1.85}
+    .bc-shindan .bc-app{max-width:600px;margin:0 auto;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:14px;padding:30px 26px 28px}
+    .bc-shindan .bc-eb{font-family:var(--serif,serif);font-size:.78rem;letter-spacing:.16em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 12px}
+    .bc-shindan .bc-q{font-family:var(--serif,serif);font-weight:700;font-size:1.2rem;line-height:1.55;margin:0 0 8px;color:var(--ink,#15302e)}
+    .bc-shindan .bc-note{font-size:.9rem;color:var(--muted,#5f6f69);margin:0 0 20px;line-height:1.75}
+    .bc-shindan .bc-choices{display:flex;flex-direction:column;gap:11px}
+    .bc-shindan .bc-choice{appearance:none;-webkit-appearance:none;text-align:left;width:100%;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:15px 17px;font-family:var(--sans,sans-serif);font-size:1rem;color:var(--ink,#15302e);cursor:pointer;line-height:1.5;transition:border-color .15s,box-shadow .15s,transform .06s}
+    .bc-shindan .bc-choice .bc-sub{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin-top:4px}
+    .bc-shindan .bc-choice:hover{border-color:var(--brand,#2f6f6a);box-shadow:0 4px 14px rgba(47,111,106,.1)}
+    .bc-shindan .bc-choice:active{transform:translateY(1px)}
+    .bc-shindan .bc-choice:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-shindan .bc-tier{display:inline-block;font-family:var(--serif,serif);font-size:.74rem;letter-spacing:.1em;font-weight:700;padding:5px 13px;border-radius:999px;border:1.5px solid var(--brand,#2f6f6a);color:var(--brand,#2f6f6a);margin:0 0 14px}
+    .bc-shindan .bc-tier.bc-ok{border-color:var(--accent,#bf4429);color:var(--accent,#bf4429);background:var(--accent-soft,rgba(191,68,41,.08))}
+    .bc-shindan .bc-rh{font-family:var(--serif,serif);font-weight:700;font-size:1.18rem;line-height:1.55;margin:0 0 12px;color:var(--ink,#15302e)}
+    .bc-shindan .bc-rb{font-size:.96rem;color:var(--ink,#15302e);margin:0 0 18px;line-height:1.8}
+    .bc-shindan .bc-check{border-top:1px solid var(--line,#cdd6d1);padding-top:16px}
+    .bc-shindan .bc-check h4{font-family:var(--serif,serif);font-size:.8rem;letter-spacing:.1em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-shindan .bc-check ul{margin:0;padding:0;list-style:none}
+    .bc-shindan .bc-check li{font-size:.92rem;line-height:1.65;padding:0 0 8px 18px;position:relative;color:var(--ink,#15302e)}
+    .bc-shindan .bc-check li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--brand,#2f6f6a)}
+    .bc-shindan .bc-memo{background:var(--brand-tint,rgba(47,111,106,.07));border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:16px 16px 14px;margin:22px 0 18px}
+    .bc-shindan .bc-memo h4{font-family:var(--serif,serif);font-size:.76rem;letter-spacing:.12em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-shindan .bc-memo dl{margin:0 0 12px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+    .bc-shindan .bc-memo dt{font-size:.82rem;color:var(--muted,#5f6f69);white-space:nowrap}
+    .bc-shindan .bc-memo dd{font-size:.9rem;margin:0;color:var(--ink,#15302e)}
+    .bc-shindan .bc-memo label{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin:0 0 6px}
+    .bc-shindan .bc-memo input{width:100%;font-family:var(--sans,sans-serif);font-size:.95rem;color:var(--ink,#15302e);background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:8px;padding:10px 12px}
+    .bc-shindan .bc-memo input:focus{outline:2px solid var(--brand,#2f6f6a);outline-offset:1px;border-color:var(--brand,#2f6f6a)}
+    .bc-shindan .bc-btn{display:block;width:100%;text-align:center;background:var(--accent,#bf4429);color:#fff;border:none;border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:1rem;padding:14px;cursor:pointer;text-decoration:none;box-shadow:0 6px 18px rgba(191,68,41,.28);transition:transform .15s,box-shadow .15s}
+    .bc-shindan .bc-btn:hover{transform:translateY(-1px);box-shadow:0 9px 22px rgba(191,68,41,.32)}
+    .bc-shindan .bc-btn:focus-visible{outline:2px solid var(--accent-dark,#9e3722);outline-offset:3px}
+    .bc-shindan .bc-ghost{display:block;width:100%;text-align:center;background:transparent;color:var(--brand-dark,#143d3a);border:1.5px solid var(--brand,#2f6f6a);border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:.92rem;padding:11px;cursor:pointer;text-decoration:none;margin-top:10px;transition:background .15s}
+    .bc-shindan .bc-ghost:hover{background:var(--brand-tint,rgba(47,111,106,.08))}
+    .bc-shindan .bc-ghost:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-shindan .bc-copied{color:var(--accent,#bf4429)}
+    .bc-shindan .bc-disc{font-size:.78rem;color:var(--muted,#5f6f69);line-height:1.65;margin-top:22px;border-top:1px solid var(--line,#cdd6d1);padding-top:14px}
+    .bc-shindan .bc-back{background:none;border:none;font-family:var(--sans,sans-serif);color:var(--muted,#5f6f69);font-size:.84rem;cursor:pointer;padding:0;margin:0 0 20px}
+    .bc-shindan .bc-back:hover{color:var(--ink,#15302e)}
+    .bc-shindan .bc-back::before{content:"\2190 "}
+    .bc-shindan .bc-step{animation:bcfade .3s ease}
+    @keyframes bcfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){.bc-shindan .bc-step{animation:none}.bc-shindan *{transition:none!important}}
+  </style>
+  <div class="wrap">
+    <p class="eyebrow">うちの店、渡せる？</p>
+    <h2>畳む前に、渡せるか確かめる。30秒で。</h2>
+    <p class="bc-lead">閉めてしまう前なら、まだ選べます。いくつかの質問で、お店を次の担い手へ渡せる可能性が分かります。店名や場所の入力は不要——匿名のまま、確かめられます。</p>
+    <div class="bc-app" id="bc-watasu-app" aria-live="polite"></div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    var app=document.getElementById("bc-watasu-app");
+    if(!app) return;
+    var state={situation:null,property:null,landlord:null,asset:null,note:""};
+    var history=[];
+    var LINE="https://line.me/R/ti/p/@907kxssd";
+
+    function render(html,withBack){
+      app.innerHTML=(withBack?'<button class="bc-back" id="bcBack">ひとつ戻る</button>':'')+'<div class="bc-step">'+html+'</div>';
+      if(withBack){document.getElementById("bcBack").onclick=goBack;}
+      var h=app.querySelector(".bc-q,.bc-rh");
+      if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true});}
+    }
+    function goBack(){if(history.length>1){history.pop();history[history.length-1]();}}
+    function show(fn){history.push(fn);fn();}
+    function ch(label,sub,val){return '<button class="bc-choice" data-val="'+val+'">'+label+(sub?'<span class="bc-sub">'+sub+'</span>':'')+'</button>';}
+    function bind(){app.querySelectorAll(".bc-choice").forEach(function(b){b.onclick=function(){route(b.getAttribute("data-val"));};});}
+
+    function route(v){
+      switch(v){
+        case "s-undecided":case "s-closing":case "s-decided":
+          state.situation=v.slice(2);show(qProperty);break;
+        case "p-rent":state.property="rent";show(qLandlord);break;
+        case "p-own":state.property="own";state.landlord="own";show(qAsset);break;
+        case "l-likely":case "l-unsure":case "l-unlikely":
+          state.landlord=v.slice(2);show(qAsset);break;
+        case "a-alive":case "a-partial":case "a-gone":
+          state.asset=v.slice(2);show(result);break;
+      }
+    }
+
+    function start(){
+      render(
+        '<div class="bc-eb">問 一 ／ 今の状況</div>'+
+        '<p class="bc-q">今、お店をどうしようと考えていますか？</p>'+
+        '<p class="bc-note">いちばん近いものを選んでください。匿名のままで大丈夫です。</p>'+
+        '<div class="bc-choices">'+
+          ch("まだ、続けるか渡すか迷っている","決めていない段階","s-undecided")+
+          ch("閉めることを、考え始めた","そろそろかな、と","s-closing")+
+          ch("閉店の時期が、ほぼ決まっている","日付が見えている","s-decided")+
+        '</div>',false
+      );bind();
+    }
+    function qProperty(){
+      render('<div class="bc-eb">問 二 ／ 物件</div>'+
+        '<p class="bc-q">お店の物件は、借りていますか？</p>'+
+        '<div class="bc-choices">'+
+          ch("借りている（賃貸）","テナント・賃貸借契約","p-rent")+
+          ch("自己所有","建物・土地が自分のもの","p-own")+
+        '</div>',true);bind();
+    }
+    function qLandlord(){
+      render('<div class="bc-eb">問 三 ／ 貸主の承諾</div>'+
+        '<p class="bc-q">貸主（オーナー）は、次の人への引き継ぎを認めてくれそうですか？</p>'+
+        '<p class="bc-note">承継には貸主の承諾が欠かせません。今の見込みで構いません。</p>'+
+        '<div class="bc-choices">'+
+          ch("認めてくれそう／良い関係","話せる間柄","l-likely")+
+          ch("分からない","まだ聞いていない","l-unsure")+
+          ch("難しそう","関係や契約に不安","l-unlikely")+
+        '</div>',true);bind();
+    }
+    function qAsset(){
+      render('<div class="bc-eb">'+(state.property==="own"?"問 三":"問 四")+' ／ 設備・常連</div>'+
+        '<p class="bc-q">設備や常連のお客様は、まだ活きていますか？</p>'+
+        '<div class="bc-choices">'+
+          ch("設備も常連も、活きている","今も動いている","a-alive")+
+          ch("一部は残っている","設備か常連のどちらか","a-partial")+
+          ch("ほとんど無い／撤去済み","もう動いていない","a-gone")+
+        '</div>',true);bind();
+    }
+
+    function verdict(){
+      // 設備が失われている／貸主承諾が難しい → 条件確認
+      if(state.asset==="gone"||state.landlord==="unlikely"){
+        return{dest:"line",ok:false,tier:"条件の確認が要ります",
+          head:"渡せるかどうか、いくつか確認が要ります。",
+          body:"設備や常連が失われていたり、貸主の承諾が難しそうな場合、そのままでは承継のハードルが上がります。ただ、設備の一部だけ譲る、原状回復の負担を減らすなど、閉店そのものの負担を軽くできる道もあります。閉める前に、一度だけご相談ください。",
+          checks:["貸主・管理会社への確認（承継できるか）","残っている設備・什器で、譲れるもの","原状回復・退去の負担を減らせないか"]};
+      }
+      // まだ迷っている → 急がず、まず知る
+      if(state.situation==="undecided"){
+        return{dest:"learn",ok:false,tier:"まだ決めなくて、大丈夫",
+          head:"続けるか渡すか、まだ決めていない段階で構いません。",
+          body:"渡せる見込みはありそうです。急ぐ必要はありません。まずは「閉店」と「承継」で、手元に残るものがどう変わるかを知ることから。設備が活きるうちなら、選べる道があります。",
+          checks:["「閉店」と「承継」のちがい（手元に残るもの）","設備・常連が活きているうちの選択肢","決めるのは、知ってからで大丈夫"]};
+      }
+      // 設備活き・承諾OK/自己所有・閉店を考えている → 渡せる可能性が高い
+      var urgent=state.situation==="decided";
+      return{dest:"line",ok:true,tier:"渡せる可能性が、高いです",
+        head:"設備も常連も活きている今なら、次の担い手へ渡せます。",
+        body:"閉めれば消えてしまう設備・常連・立地・信用を、次の担い手へ受け渡せる可能性が高い状態です。あなたの持ち出しを、対価に変えられるかもしれません。"+(urgent?"閉店の時期が決まっているなら、貸主の承諾や引き継ぎ準備に数ヶ月かかることもあります。早めのご相談が安心です。":"閉める前に、店名を伏せたまま匿名でご相談ください。"),
+        checks:["貸主（オーナー）への、承継の相談","活きている設備・常連・契約条件の棚卸し","渡せる範囲と、受け取れる対価の見立て"]};
+    }
+
+    function result(){
+      var r=verdict(),memo=buildMemo();
+      var primary;
+      if(r.dest==="learn"){
+        primary='<a class="bc-btn" href="'+LINE+'" target="_blank" rel="noopener">匿名で、まず相談してみる</a>'+
+                '<a class="bc-ghost" href="#vs">「閉店」と「承継」のちがいを見る</a>';
+      }else{
+        primary='<a class="bc-btn" href="'+LINE+'" target="_blank" rel="noopener">'+(r.ok?"閉める前に、匿名で相談する":"匿名で、一度だけ相談する")+'</a>';
+      }
+      render(
+        '<span class="bc-tier'+(r.ok?' bc-ok':'')+'">'+r.tier+'</span>'+
+        '<p class="bc-rh">'+r.head+'</p><p class="bc-rb">'+r.body+'</p>'+
+        '<div class="bc-check"><h4>確認しておくこと</h4><ul>'+r.checks.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>'+
+        '<div class="bc-memo"><h4>相談メモ（匿名）</h4><dl>'+memo.html+'</dl>'+
+          '<label for="bcNote">ひとこと（任意・店名は書かなくて大丈夫です）</label>'+
+          '<input id="bcNote" type="text" maxlength="40" value="'+escAttr(state.note)+'" placeholder="例：年内に閉めるか迷っている など">'+
+        '</div>'+primary+
+        '<button class="bc-ghost" id="bcCopy">メモをコピーして貼り付ける</button>'+
+        '<button class="bc-ghost" id="bcRestart">はじめからやり直す</button>'+
+        '<p class="bc-disc">この診断は匿名で行えます。店名や場所の入力は不要です。実際に渡せるかは、貸主の承諾や物件・設備の状態によって決まります。迷う段階でも、まずご相談ください。</p>',
+        true
+      );
+      var input=document.getElementById("bcNote");
+      input.oninput=function(){state.note=this.value;};
+      document.getElementById("bcCopy").onclick=function(){copyText(buildMemo().text,this);};
+      document.getElementById("bcRestart").onclick=restart;
+    }
+
+    function buildMemo(){
+      var situation={undecided:"続けるか迷っている",closing:"閉めることを考え始めた",decided:"閉店時期がほぼ決定"}[state.situation]||"\u2014";
+      var property={rent:"賃貸",own:"自己所有"}[state.property]||"\u2014";
+      var landlord={likely:"承諾の見込みあり",unsure:"分からない",unlikely:"難しそう",own:"\u2014（自己所有）"}[state.landlord]||"\u2014";
+      var asset={alive:"設備・常連が活きている",partial:"一部残っている",gone:"ほとんど無い・撤去済み"}[state.asset]||"\u2014";
+      var rows=[["今の状況",situation],["物件",property]];
+      if(state.property==="rent")rows.push(["貸主の承諾",landlord]);
+      rows.push(["設備・常連",asset]);
+      if(state.note&&state.note.trim())rows.push(["ひとこと",state.note.trim()]);
+      var html=rows.map(function(r){return '<dt>'+escHtml(r[0])+'</dt><dd>'+escHtml(r[1])+'</dd>';}).join('');
+      var text="【退店前承継 渡せる？診断メモ（匿名）】\n"+rows.map(function(r){return "・"+r[0]+"："+r[1];}).join("\n")+"\nこの内容で、匿名で相談したいです。";
+      return{html:html,text:text};
+    }
+
+    function escAttr(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function escHtml(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function copyText(text,el){
+      var done=function(){el.textContent="コピーしました";el.classList.add("bc-copied");setTimeout(function(){el.textContent="メモをコピーして貼り付ける";el.classList.remove("bc-copied");},2200);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+    }
+    function fb(text,done){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done();}catch(e){}document.body.removeChild(ta);}
+    function restart(){state={situation:null,property:null,landlord:null,asset:null,note:""};history=[];show(start);}
+
+    show(start);
+  })();
+  </script>
+</section>
+<!-- ═══════════ うちの店、渡せる？診断 ここまで ═══════════ -->
+
 <section class="cta">
   <div class="cta-bg">
     <img src="https://images.unsplash.com/photo-1746274223799-818414e9d94a?fm=jpg&q=72&w=1600&auto=format&fit=crop" alt="賑わう飲食店">
