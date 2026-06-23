@@ -143,6 +143,17 @@
   .audi-photo{position:relative;margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 44px rgba(20,61,58,.18)}
   .audi-photo img{width:100%;display:block}
   .audi-photo .cap{position:absolute;right:12px;bottom:10px;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.04em;background:rgba(15,48,46,.55);border-radius:999px;padding:3px 10px}
+
+  .formwrap{max-width:640px;margin:26px auto 0;text-align:left}
+  .formwrap .btn{margin-top:6px;width:100%}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-family:var(--serif);font-weight:700;font-size:.92rem;margin-bottom:6px}
+  .field .req{color:var(--accent-dark);font-size:.78em;margin-left:6px}
+  .field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-family:var(--sans);font-size:1rem}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
+  .field textarea{min-height:88px;resize:vertical}
+  .field .hint{font-size:.8rem;color:var(--muted);margin-top:5px}
+  .form-note{font-size:.84rem;color:var(--muted);margin-top:14px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -391,6 +402,266 @@
     </div>
   </div>
 </section>
+
+<!-- ═══════════ 継ぎ手適性診断 ここから ═══════════ -->
+<section class="bc-shindan" id="shindan">
+  <style>
+    .bc-shindan .bc-lead{max-width:600px;margin:0 auto 26px;color:var(--muted,#5f6f69);font-size:.97rem;line-height:1.85}
+    .bc-shindan .bc-app{max-width:600px;margin:0 auto;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:14px;padding:30px 26px 28px}
+    .bc-shindan .bc-eb{font-family:var(--serif,serif);font-size:.78rem;letter-spacing:.16em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 12px}
+    .bc-shindan .bc-q{font-family:var(--serif,serif);font-weight:700;font-size:1.2rem;line-height:1.55;margin:0 0 8px;color:var(--ink,#15302e)}
+    .bc-shindan .bc-note{font-size:.9rem;color:var(--muted,#5f6f69);margin:0 0 20px;line-height:1.75}
+    .bc-shindan .bc-choices{display:flex;flex-direction:column;gap:11px}
+    .bc-shindan .bc-choice{appearance:none;-webkit-appearance:none;text-align:left;width:100%;background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:15px 17px;font-family:var(--sans,sans-serif);font-size:1rem;color:var(--ink,#15302e);cursor:pointer;line-height:1.5;transition:border-color .15s,box-shadow .15s,transform .06s}
+    .bc-shindan .bc-choice .bc-sub{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin-top:4px}
+    .bc-shindan .bc-choice:hover{border-color:var(--brand,#2f6f6a);box-shadow:0 4px 14px rgba(47,111,106,.1)}
+    .bc-shindan .bc-choice:active{transform:translateY(1px)}
+    .bc-shindan .bc-choice:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-shindan .bc-tier{display:inline-block;font-family:var(--serif,serif);font-size:.74rem;letter-spacing:.1em;font-weight:700;padding:5px 13px;border-radius:999px;border:1.5px solid var(--brand,#2f6f6a);color:var(--brand,#2f6f6a);margin:0 0 14px}
+    .bc-shindan .bc-tier.bc-ok{border-color:var(--accent,#bf4429);color:var(--accent,#bf4429);background:var(--accent-soft,rgba(191,68,41,.08))}
+    .bc-shindan .bc-rh{font-family:var(--serif,serif);font-weight:700;font-size:1.18rem;line-height:1.55;margin:0 0 12px;color:var(--ink,#15302e)}
+    .bc-shindan .bc-rb{font-size:.96rem;color:var(--ink,#15302e);margin:0 0 18px;line-height:1.8}
+    .bc-shindan .bc-check{border-top:1px solid var(--line,#cdd6d1);padding-top:16px}
+    .bc-shindan .bc-check h4{font-family:var(--serif,serif);font-size:.8rem;letter-spacing:.1em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-shindan .bc-check ul{margin:0;padding:0;list-style:none}
+    .bc-shindan .bc-check li{font-size:.92rem;line-height:1.65;padding:0 0 8px 18px;position:relative;color:var(--ink,#15302e)}
+    .bc-shindan .bc-check li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--brand,#2f6f6a)}
+    .bc-shindan .bc-memo{background:var(--brand-tint,rgba(47,111,106,.07));border:1px solid var(--line,#cdd6d1);border-radius:12px;padding:16px 16px 14px;margin:22px 0 18px}
+    .bc-shindan .bc-memo h4{font-family:var(--serif,serif);font-size:.76rem;letter-spacing:.12em;color:var(--brand,#2f6f6a);font-weight:700;margin:0 0 10px}
+    .bc-shindan .bc-memo dl{margin:0 0 12px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+    .bc-shindan .bc-memo dt{font-size:.82rem;color:var(--muted,#5f6f69);white-space:nowrap}
+    .bc-shindan .bc-memo dd{font-size:.9rem;margin:0;color:var(--ink,#15302e)}
+    .bc-shindan .bc-memo label{display:block;font-size:.8rem;color:var(--muted,#5f6f69);margin:0 0 6px}
+    .bc-shindan .bc-memo input{width:100%;font-family:var(--sans,sans-serif);font-size:.95rem;color:var(--ink,#15302e);background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:8px;padding:10px 12px}
+    .bc-shindan .bc-memo input:focus{outline:2px solid var(--brand,#2f6f6a);outline-offset:1px;border-color:var(--brand,#2f6f6a)}
+    .bc-shindan .bc-btn{display:block;width:100%;text-align:center;background:var(--accent,#bf4429);color:#fff;border:none;border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:1rem;padding:14px;cursor:pointer;text-decoration:none;box-shadow:0 6px 18px rgba(191,68,41,.28);transition:transform .15s,box-shadow .15s}
+    .bc-shindan .bc-btn:hover{transform:translateY(-1px);box-shadow:0 9px 22px rgba(191,68,41,.32)}
+    .bc-shindan .bc-btn:focus-visible{outline:2px solid var(--accent-dark,#9e3722);outline-offset:3px}
+    .bc-shindan .bc-ghost{display:block;width:100%;text-align:center;background:transparent;color:var(--brand-dark,#143d3a);border:1.5px solid var(--brand,#2f6f6a);border-radius:999px;font-family:var(--serif,serif);font-weight:700;font-size:.92rem;padding:11px;cursor:pointer;text-decoration:none;margin-top:10px;transition:background .15s}
+    .bc-shindan .bc-ghost:hover{background:var(--brand-tint,rgba(47,111,106,.08))}
+    .bc-shindan .bc-ghost:focus-visible{outline:2px solid var(--brand,#2f6f6a);outline-offset:2px}
+    .bc-shindan .bc-copied{color:var(--accent,#bf4429)}
+    .bc-shindan .bc-disc{font-size:.78rem;color:var(--muted,#5f6f69);line-height:1.65;margin-top:22px;border-top:1px solid var(--line,#cdd6d1);padding-top:14px}
+    .bc-shindan .bc-back{background:none;border:none;font-family:var(--sans,sans-serif);color:var(--muted,#5f6f69);font-size:.84rem;cursor:pointer;padding:0;margin:0 0 20px}
+    .bc-shindan .bc-back:hover{color:var(--ink,#15302e)}
+    .bc-shindan .bc-back::before{content:"\2190 "}
+    .bc-shindan .bc-step{animation:bcfade .3s ease}
+    @keyframes bcfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){.bc-shindan .bc-step{animation:none}.bc-shindan *{transition:none!important}}
+  </style>
+  <div class="wrap">
+    <p class="eyebrow">あなたは、継げる？</p>
+    <h2>4つの質問で、継ぎ手としての準備度がわかる。</h2>
+    <p class="bc-lead">継ぐのに、特別な資格は要りません。でも「想い・経験・資金・時期」がそろうほど、良い店に出会えます。今のあなたに合った“次の一手”を、その場でお返しします。準備が途上でも大丈夫——まず売り場で試す道もあります。</p>
+    <div class="bc-app" id="bc-audi-app" aria-live="polite"></div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    var app=document.getElementById("bc-audi-app");
+    if(!app) return;
+    var state={motive:null,exp:null,fund:null,timing:null,note:""};
+    var history=[];
+    var LINE="https://line.me/R/ti/p/@907kxssd";
+
+    function render(html,withBack){
+      app.innerHTML=(withBack?'<button class="bc-back" id="bcBack">ひとつ戻る</button>':'')+'<div class="bc-step">'+html+'</div>';
+      if(withBack){document.getElementById("bcBack").onclick=goBack;}
+      var h=app.querySelector(".bc-q,.bc-rh");
+      if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true});}
+    }
+    function goBack(){if(history.length>1){history.pop();history[history.length-1]();}}
+    function show(fn){history.push(fn);fn();}
+    function ch(label,sub,val){return '<button class="bc-choice" data-val="'+val+'">'+label+(sub?'<span class="bc-sub">'+sub+'</span>':'')+'</button>';}
+    function bind(){app.querySelectorAll(".bc-choice").forEach(function(b){b.onclick=function(){route(b.getAttribute("data-val"));};});}
+
+    function route(v){
+      switch(v){
+        case "m-strong":case "m-open":case "m-invest":case "m-vague":
+          state.motive=v.slice(2);show(qExp);break;
+        case "e-yes":case "e-some":case "e-none":
+          state.exp=v.slice(2);show(qFund);break;
+        case "f-ok":case "f-mid":case "f-low":
+          state.fund=v.slice(2);show(qTiming);break;
+        case "t-ready":case "t-year":case "t-explore":
+          state.timing=v.slice(2);show(result);break;
+      }
+    }
+
+    function start(){
+      render(
+        '<div class="bc-eb">問 一 ／ 想い</div>'+
+        '<p class="bc-q">店を継ぎたい——その理由に、いちばん近いのは？</p>'+
+        '<p class="bc-note">いちばん近いものを選んでください。</p>'+
+        '<div class="bc-choices">'+
+          ch("この街・この業態で、続けたい店がある","想いが具体的にある","m-strong")+
+          ch("自分の店を持ちたい。業態はこれから","やりたい方向はこれから決める","m-open")+
+          ch("低リスクで、自分の店・2店舗目を持ちたい","投資・多店舗の視点で","m-invest")+
+          ch("まだ漠然と、興味がある段階","情報を集めているところ","m-vague")+
+        '</div>',false
+      );bind();
+    }
+    function qExp(){
+      render('<div class="bc-eb">問 二 ／ 経験</div>'+
+        '<p class="bc-q">飲食の実務経験は？</p>'+
+        '<div class="bc-choices">'+
+          ch("飲食店で働いた・経営した経験がある","現場を知っている","e-yes")+
+          ch("接客や調理を、少し","アルバイト・手伝いなど","e-some")+
+          ch("経験はない","これから学ぶ","e-none")+
+        '</div>',true);bind();
+    }
+    function qFund(){
+      render('<div class="bc-eb">問 三 ／ 資金</div>'+
+        '<p class="bc-q">自己資金の目安は？</p>'+
+        '<p class="bc-note">居抜き承継は、一から開業するよりずっと小さく始められます。</p>'+
+        '<div class="bc-choices">'+
+          ch("200万円以上、用意できる／めどがある","","f-ok")+
+          ch("100〜200万円くらい","","f-mid")+
+          ch("100万円未満／これから準備","","f-low")+
+        '</div>',true);bind();
+    }
+    function qTiming(){
+      render('<div class="bc-eb">問 四 ／ 時期</div>'+
+        '<p class="bc-q">いつ頃、動きたいですか？</p>'+
+        '<div class="bc-choices">'+
+          ch("良い店があれば、数ヶ月以内に","すぐ動ける","t-ready")+
+          ch("1年以内には","準備しながら","t-year")+
+          ch("まだ情報収集の段階","急いではいない","t-explore")+
+        '</div>',true);bind();
+    }
+
+    function verdict(){
+      // 経験なし・動機が漠然・情報収集段階 → まず売り場で試す（売るへ戻す）
+      if(state.exp==="none"||state.motive==="vague"||state.timing==="explore"){
+        return{dest:"try",ok:false,tier:"まずは、低リスクで試してみる",
+          head:"いきなり承継より、“街で売ってみる”のがおすすめです。",
+          body:"継ぐ前に、店前・駐車場で1日から売って手応えを確かめられます。その実績は、いざ店を継ぐときの何よりの後ろ盾に。経験を積みながら、継ぐ準備を整えていきましょう。",
+          checks:["まず売り場レンタルで、1日から出店してみる","続けたい業態・お客様の手応えを確かめる","自己資金を、少しずつ準備する"]};
+      }
+      // 想い・経験・時期はあるが、資金が途上 → 準備相談（脱落させない）
+      if(state.fund==="low"){
+        return{dest:"prep",ok:false,tier:"あと少し。ここを整えると、継げます",
+          head:"想いと経験はあります。資金計画を、一緒に整えましょう。",
+          body:"継ぎ手としての土台はできています。居抜き承継は、一から内装に大金を投じるよりずっと小さく。自己資金・融資・補助金の組み立てを設計すれば、十分に手が届きます。",
+          checks:["自己資金の目安と、融資・補助金の活用","月々の見通し（売上・原価・家賃・返済）","継ぎたい業態・エリアの具体化"]};
+      }
+      // 経験・資金・時期がそろっている → 本気相談へ
+      return{dest:"ready",ok:true,tier:"継ぎ手として、準備が整っています",
+        head:"経験・資金・時期が、そろっています。",
+        body:"あなたは継ぎ手として有力です。守秘の範囲で継げる店をご紹介し、店主との面談（店主オーディション）へ進めます。一番高く買える人ではなく、続けてくれる人が選ばれる仕組みです。",
+        checks:["GATEで確認する6軸（想い・資金・店との相性・経験・計画・承継への柔軟さ）","店主との面談での条件すり合わせ","貸主の承諾と、賃貸借の引き継ぎ"]};
+    }
+
+    function result(){
+      var r=verdict(),memo=buildMemo();
+      var primary;
+      if(r.dest==="try"){
+        primary='<a class="bc-btn" href="uriba.html?utm_source=audition&utm_medium=shindan&utm_content=tameshi">まず、売り場レンタルで試す</a>'+
+                '<a class="bc-ghost" href="'+LINE+'" target="_blank" rel="noopener">継ぐ相談もしてみる</a>';
+      }else if(r.dest==="prep"){
+        primary='<a class="bc-btn" href="'+LINE+'" target="_blank" rel="noopener">準備の相談をする</a>'+
+                '<a class="bc-ghost" href="#flow">継ぐまでの流れを見る</a>';
+      }else{
+        primary='<a class="bc-btn" href="'+LINE+'" target="_blank" rel="noopener">継ぎ手として、本気で相談する</a>'+
+                '<a class="bc-ghost" href="#flow">継ぐまでの流れを見る</a>';
+      }
+      render(
+        '<span class="bc-tier'+(r.ok?' bc-ok':'')+'">'+r.tier+'</span>'+
+        '<p class="bc-rh">'+r.head+'</p><p class="bc-rb">'+r.body+'</p>'+
+        '<div class="bc-check"><h4>次に整えること</h4><ul>'+r.checks.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>'+
+        '<div class="bc-memo"><h4>相談メモ</h4><dl>'+memo.html+'</dl>'+
+          '<label for="bcNote">継ぎたい業態・エリア（任意・例：大津で和食を継ぎたい）</label>'+
+          '<input id="bcNote" type="text" maxlength="40" value="'+escAttr(state.note)+'" placeholder="書いておくと、相談がスムーズです">'+
+        '</div>'+primary+
+        '<button class="bc-ghost" id="bcCopy">メモをコピーして貼り付ける</button>'+
+        '<button class="bc-ghost" id="bcRestart">はじめからやり直す</button>'+
+        '<p class="bc-disc">この診断は目安です。実際に継げるかは、店主・物件・貸主の承諾、資金計画によって決まります。準備が途上でも、相談から始められます。継ぎ手の情報は守秘で扱います。</p>',
+        true
+      );
+      var input=document.getElementById("bcNote");
+      input.oninput=function(){state.note=this.value;};
+      document.getElementById("bcCopy").onclick=function(){copyText(buildMemo().text,this);};
+      document.getElementById("bcRestart").onclick=restart;
+    }
+
+    function buildMemo(){
+      var motive={strong:"続けたい店がある（具体的）",open:"自分の店を持ちたい（業態未定）",invest:"低リスクで店・2店舗目",vague:"まだ漠然と興味"}[state.motive]||"\u2014";
+      var exp={yes:"飲食の勤務・経営の経験あり",some:"接客・調理を少し",none:"経験なし"}[state.exp]||"\u2014";
+      var fund={ok:"200万円以上のめど",mid:"100〜200万円",low:"100万円未満／これから"}[state.fund]||"\u2014";
+      var timing={ready:"数ヶ月以内",year:"1年以内",explore:"情報収集の段階"}[state.timing]||"\u2014";
+      var rows=[["継ぎたい理由",motive],["飲食経験",exp],["自己資金",fund],["希望時期",timing]];
+      if(state.note&&state.note.trim())rows.push(["継ぎたい業態・エリア",state.note.trim()]);
+      var html=rows.map(function(r){return '<dt>'+escHtml(r[0])+'</dt><dd>'+escHtml(r[1])+'</dd>';}).join('');
+      var text="【店主オーディション 継ぎ手診断メモ】\n"+rows.map(function(r){return "・"+r[0]+"："+r[1];}).join("\n")+"\nこの内容で相談したいです。";
+      return{html:html,text:text};
+    }
+
+    function escAttr(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function escHtml(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function copyText(text,el){
+      var done=function(){el.textContent="コピーしました";el.classList.add("bc-copied");setTimeout(function(){el.textContent="メモをコピーして貼り付ける";el.classList.remove("bc-copied");},2200);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}else{fb(text,done);}
+    }
+    function fb(text,done){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done();}catch(e){}document.body.removeChild(ta);}
+    function restart(){state={motive:null,exp:null,fund:null,timing:null,note:""};history=[];show(start);}
+
+    show(start);
+  })();
+  </script>
+</section>
+<!-- ═══════════ 継ぎ手適性診断 ここまで ═══════════ -->
+
+<!-- ═══════════ 継ぎ手 無料登録 ここから ═══════════ -->
+<section id="touroku">
+  <div class="wrap">
+    <p class="eyebrow">無料登録</p>
+    <h2>継ぎ手として、まず登録する。<span style="color:var(--accent)">（無料）</span></h2>
+    <p>今すぐ継ぐ店が決まっていなくても大丈夫。登録しておくと、条件に合うお店が出たときにご案内します。費用はかかりません。情報は守秘で扱います。<br><span style="font-size:.92rem;color:var(--muted)">※特定の店へ本格的に応募する段階で、申込審査料（1.5万円・開業時に充当）を別途ご案内します。登録の時点では一切費用はかかりません。</span></p>
+    <form class="formwrap" action="https://formspree.io/f/mojoqekd" method="POST">
+      <input type="hidden" name="_subject" value="店主オーディション 継ぎ手 無料登録">
+      <div class="field"><label>お名前<span class="req">必須</span></label><input type="text" name="お名前" required></div>
+      <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="メール" required></div>
+      <div class="field"><label>電話番号</label><input type="tel" name="電話"></div>
+      <div class="field"><label>継ぎたいエリア</label>
+        <select name="継ぎたいエリア">
+          <option value="大津市内">大津市内</option>
+          <option value="大津の近隣">大津の近隣</option>
+          <option value="滋賀県内">滋賀県内どこでも</option>
+          <option value="未定">まだ未定</option>
+        </select>
+      </div>
+      <div class="field"><label>興味のある業態</label><input type="text" name="興味のある業態" placeholder="例：和食・カフェ・居酒屋・ベーカリー など"></div>
+      <div class="field"><label>飲食の経験</label>
+        <select name="飲食の経験">
+          <option value="経験あり">飲食店で働いた・経営した経験がある</option>
+          <option value="少し">接客や調理を少し</option>
+          <option value="なし">経験はない（これから学ぶ）</option>
+        </select>
+      </div>
+      <div class="field"><label>自己資金の目安</label>
+        <select name="自己資金">
+          <option value="200万円以上">200万円以上のめど</option>
+          <option value="100〜200万円">100〜200万円</option>
+          <option value="100万円未満">100万円未満・これから</option>
+          <option value="今は答えない">今は答えない</option>
+        </select>
+      </div>
+      <div class="field"><label>継ぎたい時期</label>
+        <select name="希望時期">
+          <option value="数ヶ月以内">良い店があれば、数ヶ月以内に</option>
+          <option value="1年以内">1年以内には</option>
+          <option value="情報収集中">まだ情報収集の段階</option>
+        </select>
+      </div>
+      <div class="field"><label>ご質問・ひとこと</label><textarea name="備考" placeholder="継ぎたい理由、気になることなど（任意）"></textarea></div>
+      <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="同意" value="同意" required style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem">登録は無料で、情報は守秘で扱われることを確認しました。<span class="req">必須</span></label></div>
+      <button type="submit" class="btn">無料で登録する</button>
+      <p class="form-note">送信後、運営（BRIDGE CYCLE株式会社）より折り返しご連絡します。登録は無料です。継ぎ手の情報は守秘で扱い、店名・案件の詳細は申込審査料のお手続き後にご案内します。お急ぎの方はLINEからもどうぞ。</p>
+    </form>
+  </div>
+</section>
+<!-- ═══════════ 継ぎ手 無料登録 ここまで ═══════════ -->
 
 <!-- CTA -->
 <section id="cta" class="cta">
