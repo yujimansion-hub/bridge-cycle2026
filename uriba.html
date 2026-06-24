@@ -116,6 +116,22 @@
 </style>
 </head>
 <body>
+<style>
+.bcnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 20px;background:rgba(20,61,58,.97);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);font-family:"Shippori Mincho",serif}
+.bcnav a{text-decoration:none}
+.bcnav-logo{font-weight:800;letter-spacing:.05em;font-size:1.02rem;color:#fff;white-space:nowrap}
+.bcnav-logo span{color:#9cd3cc}
+.bcnav-links{display:flex;gap:4px}
+.bcnav-links a{font-size:.92rem;color:#cfe6e1;padding:6px 15px;border-radius:999px;transition:background .15s,color .15s}
+.bcnav-links a:hover{background:rgba(255,255,255,.12);color:#fff}
+.bcnav-links a.active{background:#bf4429;color:#fff}
+@media(max-width:480px){.bcnav{padding:9px 13px;gap:8px}.bcnav-logo{font-size:.9rem}.bcnav-links a{padding:5px 11px;font-size:.82rem}}
+</style>
+<nav class="bcnav">
+  <a class="bcnav-logo" href="index.html">BRIDGE<span> CYCLE</span></a>
+  <div class="bcnav-links"><a href="uriba.html" class="active">売る</a><a href="audition.html">継ぐ</a><a href="watasu.html">渡す</a></div>
+</nav>
+
 
 <header>
   <div class="wrap">
@@ -169,7 +185,7 @@
     <p class="eyebrow">仕組み</p>
     <h2>店前・駐車場を、1日お借りして売る。</h2>
     <p>大津の協力店舗の店前や駐車場（軒先・路面のスペース）を、1日だけお借りして出店します。利用規約への同意と販売内容の確認だけで、面談なしで申し込めます。各会場ページの申込フォームから、希望日を選んでお申し込みください。</p>
-    <p>会場は、店の「外」のスペースです。マルシェやキッチンカーのように、テント等を持ち込んで出店するイメージ。店内の厨房を借りる形ではありません。<b>食品販売は、原則として許可施設で製造されたパッケージ商品が対象です。</b>キッチンカーなど、移動販売の営業許可をお持ちの場合は、会場条件により出店可否を個別に確認します（詳しくは下のFAQ）。</p>
+    <p>会場は、店の「外」のスペースです。マルシェやキッチンカーのように、テント等を持ち込んで出店するイメージで、店内の厨房を借りる形ではありません。<br><b>食品販売は、原則として許可施設で製造されたパッケージ商品が対象です。</b>キッチンカーなど移動販売の営業許可をお持ちなら、会場条件により出店可否を個別に確認します（詳しくは下のFAQ）。</p>
     <p style="margin-top:26px;margin-bottom:0;font-family:var(--mincho);font-weight:700;color:var(--brand-deep)">使い方に合わせて、3つから選べます。</p>
     <div class="plans" style="margin-top:16px">
       <div class="plan feature">
@@ -277,8 +293,7 @@
   <div class="wrap">
     <p class="eyebrow">場所と運営</p>
     <h2>出店の舞台と、伴走する人。</h2>
-    <div class="twocol" style="margin-top:24px">
-      <div class="panel"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">Venue</div><h3>第1号 協力店舗：HAIRDOORS（大津市）</h3><p style="font-size:.95rem">大津エリアの美容室。その店前・駐車場という「本物の街の人通り」の中で出店できます。カット・カラーの待ち時間のお客様にも出会えます。</p><p style="margin:0;font-size:.9rem;color:var(--muted)">※会場により、販売可能な商品・設置できる什器・火気使用の可否が異なります（美容室のため、匂い・動線・近隣への配慮が必要な品目もあります）。出店前に会場情報をご確認ください。協力店舗は今後、大津〜草津エリアで順次拡大予定です。</p></div>
+    <div style="margin-top:24px">
       <div class="panel"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">Venue</div><h3>銀工房（大津市北比良・JR比良駅すぐ）</h3><p style="font-size:.95rem">比良山を望む駐車場での、<b>飲食テイクアウト出店向け</b>の会場（飲食の営業許可をお持ちの方向け）。スペースは2か所。写真・地図・出店条件は会場ページでご確認いただけます。</p><p style="margin:0;font-size:.9rem"><a href="uriba-ginkobo.html" style="color:var(--brand);font-weight:700;text-decoration:none">▶ 会場ページを見る・申し込む（写真・地図・条件）</a></p></div>
     </div>
     <div class="panel" style="margin-top:20px"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">Operator</div><h3>運営：中村裕二（BRIDGE CYCLE株式会社 代表）</h3><p style="margin:0;font-size:.95rem">商工会の経営指導員として約20年、500社超の創業・融資・承継・廃業を見てきました。「いつか自分の店を」「次の店を」と思ったときには、融資・補助金、店舗承継までご相談に乗れます。</p></div>
