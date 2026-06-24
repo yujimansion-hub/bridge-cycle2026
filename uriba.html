@@ -160,10 +160,10 @@
 
 <section class="stats">
   <div class="wrap"><div class="grid">
-    <div><div class="num">¥8,000〜</div><div class="lab">1日の総額</div></div>
-    <div><div class="num">全額</div><div class="lab">その日の売上はあなたのもの</div></div>
-    <div><div class="num">¥0</div><div class="lab">売上シェア</div></div>
-    <div><div class="num">1日</div><div class="lab">から、気軽に</div></div>
+    <div><div class="num">1日〜</div><div class="lab">から、気軽に試せる</div></div>
+    <div><div class="num">全額</div><div class="lab">売上はあなたのもの</div></div>
+    <div><div class="num">¥0</div><div class="lab">売上シェアなし</div></div>
+    <div><div class="num">¥8,000〜</div><div class="lab">1日の出店料の目安</div></div>
   </div></div>
 </section>
 
@@ -299,6 +299,146 @@
     <div class="panel" style="margin-top:20px"><div class="tag" style="color:var(--brand);font-weight:700;font-size:.76rem">Operator</div><h3>運営：中村裕二（BRIDGE CYCLE株式会社 代表）</h3><p style="margin:0;font-size:.95rem">商工会の経営指導員として約20年、500社超の創業・融資・承継・廃業を見てきました。「いつか自分の店を」「次の店を」と思ったときには、融資・補助金、店舗承継までご相談に乗れます。</p></div>
   </div>
 </section>
+
+<!-- ═══════════ 日程から会場を探す ここから ═══════════ -->
+<section id="finder">
+  <style>
+    .vfind-wrap{max-width:640px;margin:24px auto 0}
+    .vfind-pick{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .vfind-pick label{font-family:var(--serif,serif);font-weight:700;font-size:.95rem;color:var(--brand-dark,#143d3a)}
+    .vfind-pick input[type=date]{font-family:var(--sans,sans-serif);font-size:1rem;padding:11px 14px;border:1px solid var(--line,#cdd6d1);border-radius:10px;background:#fff;color:var(--ink,#15302e)}
+    .vfind-pick input[type=date]:focus{outline:2px solid var(--brand,#2f6f6a);outline-offset:1px}
+    .vfind-selday{font-size:.92rem;color:var(--muted,#5f6f69);margin:12px 0 14px}
+    .vfind-selday b{color:var(--brand-dark,#143d3a)}
+    .vfind-result{display:grid;gap:12px}
+    .vfind-card{background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-top:3px solid var(--accent,#bf4429);border-radius:14px;padding:18px 20px}
+    .vfind-name{font-family:var(--serif,serif);font-weight:700;font-size:1.12rem;color:var(--brand-dark,#143d3a)}
+    .vfind-area{font-size:.82rem;color:var(--muted,#5f6f69);font-weight:400;margin-left:6px}
+    .vfind-meta{font-size:.88rem;color:var(--muted,#5f6f69);margin:6px 0;line-height:1.6}
+    .vfind-price{font-family:var(--serif,serif);font-weight:700;color:var(--accent,#bf4429);font-size:1rem;margin-bottom:13px}
+    .vfind-go{display:inline-block;background:var(--accent,#bf4429);color:#fff;text-decoration:none;font-family:var(--serif,serif);font-weight:700;font-size:.92rem;padding:10px 18px;border-radius:999px;transition:background .15s}
+    .vfind-go:hover{background:var(--accent-dark,#9e3722)}
+    .vfind-empty{background:var(--paper,#e9edeb);border:1px solid var(--line,#cdd6d1);border-radius:14px;padding:18px 20px;font-size:.92rem;color:var(--ink,#15302e);line-height:1.85}
+    .vfind-empty a{color:var(--brand,#2f6f6a);font-weight:700;text-decoration:none}
+    .vfind-soon{margin-top:24px;border-top:1px solid var(--line,#cdd6d1);padding-top:16px}
+    .vfind-soon-h{font-family:var(--serif,serif);font-size:.8rem;letter-spacing:.08em;color:var(--brand,#2f6f6a);font-weight:700;margin-bottom:11px}
+    .vfind-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .vfind-chip{font-family:var(--sans,sans-serif);font-size:.92rem;color:var(--brand-dark,#143d3a);background:#fff;border:1px solid var(--line,#cdd6d1);border-radius:999px;padding:8px 15px;cursor:pointer;transition:border-color .15s,background .15s}
+    .vfind-chip:hover{border-color:var(--brand,#2f6f6a);background:var(--brand-tint,rgba(47,111,106,.08))}
+    .vfind-chip em{font-style:normal;font-size:.82em;color:var(--muted,#5f6f69);margin-left:3px}
+    .vfind-note{font-size:.8rem;color:var(--muted,#5f6f69);margin-top:16px;line-height:1.7;border-top:1px solid var(--line,#cdd6d1);padding-top:13px}
+  </style>
+  <div class="wrap">
+    <p class="eyebrow">日程から探す</p>
+    <h2>出店したい日から、会場を選ぶ。</h2>
+    <p>出店したい日を選ぶと、その日に出店できる会場が表示されます。会場は土・日・祝が中心です。</p>
+    <div class="vfind-wrap">
+      <div class="vfind-pick">
+        <label for="vfindDate">出店したい日</label>
+        <input type="date" id="vfindDate">
+      </div>
+      <div class="vfind-selday" id="vfindSelday"></div>
+      <div class="vfind-result" id="vfindResult"></div>
+      <div class="vfind-soon">
+        <div class="vfind-soon-h">近日の、出店できる日</div>
+        <div class="vfind-chips" id="vfindChips"></div>
+      </div>
+      <p class="vfind-note">表示は会場ごとの営業日（土日祝など）にもとづく目安です。実際の空き状況は、会場ページのフォームまたはLINEでご確認ください。会場は今後、大津〜草津エリアで順次拡大予定です。</p>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    // ── 会場データ（増えたらここに足すだけ）──────────────
+    // open.wdays: 0=日,1=月,2=火,3=水,4=木,5=金,6=土 / open.holiday:true=祝日も営業
+    var VENUES=[
+      {name:"銀工房", area:"大津市北比良（JR比良駅すぐ）",
+       meta:"飲食テイクアウト向け／スペース2か所・砂利敷き",
+       price:"3,000円〜／日（キャンペーン）", url:"uriba-ginkobo.html",
+       open:{wdays:[0,6], holiday:true}}
+    ];
+    // ── 祝日（2026–2027・土日祝判定用）────────────────
+    var HOLIDAYS=new Set([
+      "2026-01-01","2026-01-12","2026-02-11","2026-02-23","2026-03-20","2026-04-29",
+      "2026-05-03","2026-05-04","2026-05-05","2026-05-06","2026-07-20","2026-08-11",
+      "2026-09-21","2026-09-22","2026-09-23","2026-10-12","2026-11-03","2026-11-23",
+      "2027-01-01","2027-01-11","2027-02-11","2027-02-23","2027-03-21","2027-04-29",
+      "2027-05-03","2027-05-04","2027-05-05","2027-07-19","2027-08-11","2027-09-20",
+      "2027-09-23","2027-10-11","2027-11-03","2027-11-23"
+    ]);
+    var WD=["日","月","火","水","木","金","土"];
+
+    var dateEl=document.getElementById("vfindDate");
+    var selEl=document.getElementById("vfindSelday");
+    var resEl=document.getElementById("vfindResult");
+    var chipEl=document.getElementById("vfindChips");
+    if(!dateEl) return;
+
+    function pad(n){return (n<10?"0":"")+n;}
+    function iso(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());}
+    function parse(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+    function isHoliday(d){return HOLIDAYS.has(iso(d));}
+    function isOpen(v,d){
+      if(v.open.wdays.indexOf(d.getDay())>=0) return true;
+      if(v.open.holiday && isHoliday(d)) return true;
+      return false;
+    }
+    function venuesOn(d){return VENUES.filter(function(v){return isOpen(v,d);});}
+    function fmt(d){return (d.getMonth()+1)+"月"+d.getDate()+"日（"+WD[d.getDay()]+"）";}
+
+    function escAttr(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+    function render(dstr){
+      var d=parse(dstr);
+      var hol=isHoliday(d);
+      selEl.innerHTML='選んだ日：<b>'+fmt(d)+(hol?' ・祝日':'')+'</b>';
+      var list=venuesOn(d);
+      if(list.length===0){
+        resEl.innerHTML='<div class="vfind-empty">この日に出店できる会場は、まだありません。<br>会場は土・日・祝が中心です。下の「出店できる日」から近い日を選ぶか、気になる日は <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEでご相談</a> ください。</div>';
+        return;
+      }
+      resEl.innerHTML=list.map(function(v){
+        return '<div class="vfind-card">'+
+          '<div class="vfind-name">'+v.name+'<span class="vfind-area">'+v.area+'</span></div>'+
+          '<div class="vfind-meta">'+v.meta+'</div>'+
+          '<div class="vfind-price">'+v.price+'</div>'+
+          '<a class="vfind-go" href="'+escAttr(v.url)+'?date='+iso(d)+'">この会場を見る・申し込む →</a>'+
+        '</div>';
+      }).join('');
+    }
+
+    function buildChips(){
+      var today=new Date();today.setHours(0,0,0,0);
+      var out=[],d=new Date(today),guard=0;
+      while(out.length<6 && guard<200){
+        if(venuesOn(d).length>0) out.push(new Date(d));
+        d.setDate(d.getDate()+1);guard++;
+      }
+      chipEl.innerHTML=out.map(function(x){
+        var hol=isHoliday(x);
+        return '<button class="vfind-chip" data-d="'+iso(x)+'">'+(x.getMonth()+1)+'/'+x.getDate()+'<em>('+WD[x.getDay()]+(hol?'祝':'')+')</em></button>';
+      }).join('');
+      chipEl.querySelectorAll(".vfind-chip").forEach(function(b){
+        b.onclick=function(){var ds=b.getAttribute("data-d");dateEl.value=ds;render(ds);}
+      });
+      return out;
+    }
+
+    // init
+    var today=new Date();today.setHours(0,0,0,0);
+    dateEl.min=iso(today);
+    var upcoming=buildChips();
+    var start=upcoming.length?iso(upcoming[0]):iso(today); // nearest open date
+    dateEl.value=start;
+    render(start);
+    dateEl.onchange=function(){ if(dateEl.value) render(dateEl.value); };
+  })();
+  </script>
+</section>
+<!-- ═══════════ 日程から会場を探す ここまで ═══════════ -->
+
+
 
 <section>
   <div class="wrap">
