@@ -48,9 +48,9 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     <a class="nav-cta" href="#entry">継ぎ手応募</a>
   </div>
 </header>
-
+ 
 <section class="hero">
-  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?fm=jpg&q=72&w=1800&auto=format&fit=crop" alt="飲食店のカウンター"></div>
+  <div class="hero-bg"><img src="assets/hero-kitchen.jpg" alt="居抜きで引き継げる、実際の厨房設備"></div>
   <div class="wrap">
     <p class="eyebrow">弐 ／ 継ぐ ── 飲食店の事業承継</p>
     <h1>ゼロから作るより、<br><span class="br">活きた店を継ぐ。</span></h1>
@@ -62,7 +62,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     <p class="hero-note">登録無料／継ぎ手応募はこのページで完了／店名・所在地などの詳細は守秘確認後に段階開示</p>
   </div>
 </section>
-
+ 
 <section class="stats">
   <div class="wrap">
     <div class="grid">
@@ -73,7 +73,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     </div>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <p class="eyebrow">こんな方へ</p>
@@ -86,7 +86,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     </div>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <p class="eyebrow">店主オーディション</p>
@@ -103,7 +103,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     </table>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap split">
     <div>
@@ -122,7 +122,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     </div>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <p class="eyebrow">いちばんお得な、開業のしかた</p>
@@ -134,7 +134,63 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     <p class="small">※金額は業種・規模・物件・立地・居抜きの状態により大きく変動します。一般的な目安であり、保証するものではありません。</p>
   </div>
 </section>
-
+ 
+<!-- ===== 資金サポート セクション（初期費用比較の直後に挿入） ===== -->
+<style>
+  .fund{background:var(--paper-2)}
+  .fund .lead{font-family:var(--serif);font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:700;color:var(--ink);line-height:1.7;margin:6px 0 4px}
+  .fund .sub{color:var(--muted);font-size:.98rem;line-height:1.9;margin-bottom:30px}
+  .fund .sub strong{color:var(--ink);font-weight:700}
+  .fund-card p strong{color:var(--accent-dark);font-weight:700}
+  .fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:720px){.fund-grid{grid-template-columns:1fr}}
+  .fund-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:var(--shadow)}
+  .fund-card .tag{display:inline-block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.08em;padding:5px 12px;border-radius:20px;margin-bottom:14px}
+  .fund-card.loan .tag{background:var(--accent-soft);color:var(--accent-dark)}
+  .fund-card.grant .tag{background:var(--brand-tint);color:var(--brand)}
+  .fund-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin:0 0 10px}
+  .fund-card p{color:var(--muted);font-size:.95rem;line-height:1.85;margin:0 0 16px}
+  .fund-card .price{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+  .fund-card .price .num{font-family:var(--serif);font-weight:800;font-size:1.7rem;color:var(--ink)}
+  .fund-card.grant .price .num{color:var(--brand)}
+  .fund-card .price .cap{font-size:.82rem;color:var(--muted)}
+  .fund-why{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:18px 22px}
+  .fund-why strong{font-family:var(--serif);color:var(--ink);font-size:1.02rem}
+  .fund-why p{color:var(--muted);font-size:.92rem;line-height:1.85;margin:6px 0 0}
+  .fund-note{color:var(--muted);font-size:.8rem;line-height:1.8;margin-top:16px}
+</style>
+<section class="fund">
+  <div class="wrap">
+    <p class="eyebrow">継ぐための、お金の話</p>
+    <h2>「200万円」の壁は、一人で越えなくていい。</h2>
+    <p class="lead">自己資金だけで足りなくても、独立はあきらめなくて大丈夫です。</p>
+    <p class="sub">継ぐ方（買い手）のサポート料は<strong>承継金額の20%</strong>。この中に、日本政策金融公庫への<strong>創業融資サポート（計画書づくり＋面談同席）</strong>まで含まれています。<br>商工会で20年・500社超を支援してきた経験を、あなたの独立に使ってください。</p>
+ 
+    <div class="fund-grid">
+      <div class="fund-card loan">
+        <span class="tag">承継サポートに込み</span>
+        <h3>開業資金の調達まで、<br>いっしょに。</h3>
+        <p>認定支援機関として、日本政策金融公庫の創業計画書づくりから面談同席までを伴走します。承継サポート料（20%）に含まれ、<strong>追加費用はかかりません。</strong></p>
+        <div class="price"><span class="num">20%に込み</span><span class="cap">融資額に連動した報酬はいただきません</span></div>
+      </div>
+      <div class="fund-card grant">
+        <span class="tag">補助金サポート（任意）</span>
+        <h3>開業後の補助金申請を、<br>着手金0円で。</h3>
+        <p>販促・設備投資に使える補助金（持続化補助金など）の申請を、ご希望の方だけお手伝いします。着手金はいただきません。採択されなければ、費用は一切かかりません。</p>
+        <div class="price"><span class="num">成功報酬 10%</span><span class="cap">着手金0円／採択されて初めて発生</span></div>
+      </div>
+    </div>
+ 
+    <div class="fund-why">
+      <strong>なぜ、融資サポートまで料金に含めるのか。</strong>
+      <p>資金の調達は、独立の成否を分ける大切な一歩だからです。承継に欠かせない「融資」はサポート料に含め、開業後の「補助金」は採択されて初めていただく成功報酬に。継ぐ方のリスクを、できるだけ小さくする料金設計です。</p>
+    </div>
+    <p class="fund-note">※ 融資・補助金の可否および金額は、金融機関・事務局の審査によります。融資額に連動した報酬はいただきません。<br>※ 記載は税別です。融資サポートは1金融機関・1回の申請までを含みます（再申請・複数行の並行申請は別途ご相談）。</p>
+  </div>
+</section>
+<!-- ===== /資金サポート ===== -->
+ 
+ 
 <section id="flow">
   <div class="wrap">
     <p class="eyebrow">応募後の流れ</p>
@@ -148,7 +204,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     </div>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <p class="eyebrow">継げる店のイメージ</p>
@@ -162,7 +218,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     <p class="small">※上の3件はサンプルであり、実際に募集中の案件ではありません。</p>
   </div>
 </section>
-
+ 
 <section id="entry" class="entry">
   <div class="wrap">
     <div class="entry-panel">
@@ -174,14 +230,14 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
         </div>
         <div class="entry-badge"><strong>応募は無料</strong><p>登録だけで費用は発生しません。条件に合う案件が出たときに、こちらからご連絡します。</p></div>
       </div>
-
+ 
       <div class="apply-flow">
         <div class="apply-card"><span>1</span><h3>応募前チェック</h3><p>希望エリア・業態・経験・資金を確認。</p></div>
         <div class="apply-card"><span>2</span><h3>応募フォーム入力</h3><p>このページ内で継ぎ手応募を完了。</p></div>
         <div class="apply-card"><span>3</span><h3>候補案件の案内</h3><p>条件が合う案件が出た場合に連絡。</p></div>
         <div class="apply-card"><span>4</span><h3>詳細確認・内覧へ</h3><p>守秘確認のうえ、面談・内覧を調整。</p></div>
       </div>
-
+ 
       <div class="notice-box">
         <h3>応募前にご確認ください</h3>
         <ul>
@@ -193,17 +249,17 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
           <li>応募情報の取扱いについては、プライバシーポリシーをご確認ください。</li>
         </ul>
       </div>
-
+ 
       <form id="entryForm" class="formwrap" action="https://formspree.io/f/mojoqekd" method="POST">
         <input type="hidden" name="_subject" value="店主オーディション 継ぎ手応募">
         <input type="hidden" name="応募区分" value="LP内完結応募">
         <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
-
+ 
         <div class="field"><label>お名前<span class="req">必須</span></label><input type="text" name="お名前" required autocomplete="name"></div>
         <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="メール" required autocomplete="email"></div>
         <div class="field"><label>電話番号</label><input type="tel" name="電話" autocomplete="tel"></div>
         <div class="field"><label>居住地・活動エリア</label><input type="text" name="居住地・活動エリア" placeholder="例：大津市、草津市、京都市山科区 など"></div>
-
+ 
         <div class="field"><label>継ぎたい業種</label>
           <select name="継ぎたい業種">
             <option value="カフェ">カフェ</option>
@@ -254,14 +310,14 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
         <div class="field"><label>なぜ店を継ぎたいのか<span class="req">必須</span></label><textarea name="なぜ店を継ぎたいのか" required placeholder="店を継ぎたい理由、続けたい業態、地域への想いなど"></textarea></div>
         <div class="field"><label>常連・近隣・貸主との関係で大切にしたいこと<span class="req">必須</span></label><textarea name="常連・近隣・貸主への配慮" required placeholder="騒音、ゴミ、駐車、営業時間、既存常連への接し方など"></textarea></div>
         <div class="field"><label>その他・相談したいこと</label><textarea name="備考" placeholder="気になること、質問、希望条件など"></textarea></div>
-
+ 
         <div class="checks">
           <div class="checkrow"><input id="c1" type="checkbox" name="守秘同意" value="同意" required><label for="c1">店主・店舗情報を守秘で扱い、無断で第三者に共有しないことに同意します。<span class="req">必須</span></label></div>
           <div class="checkrow"><input id="c2" type="checkbox" name="反社確認" value="該当しない" required><label for="c2">反社会的勢力に該当せず、関係もありません。<span class="req">必須</span></label></div>
           <div class="checkrow"><input id="c3" type="checkbox" name="承継保証の理解" value="理解した" required><label for="c3">応募しても承継が保証されるものではなく、最終的に店主が継ぎ手を選ぶことを理解しました。<span class="req">必須</span></label></div>
           <div class="checkrow"><input id="c4" type="checkbox" name="個人情報の取扱い同意" value="同意" required><label for="c4"><a href="privacy.html" target="_blank" rel="noopener" style="color:var(--brand-dark);text-decoration:underline">プライバシーポリシー</a>に同意し、応募情報の取扱いを承諾します。<span class="req">必須</span></label></div>
         </div>
-
+ 
         <div class="form-actions">
           <button id="submitBtn" type="submit" class="btn">無料で継ぎ手応募を完了する</button>
           <a class="btn-ghost" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">送信前にLINEで相談</a>
@@ -269,7 +325,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
         <p class="form-note">送信すると、応募内容がBRIDGE CYCLE株式会社に送信されます。送信後、このページ内に完了メッセージが表示されます。</p>
         <p id="formError" class="error">送信に失敗しました。通信環境を確認して再度お試しください。難しい場合は、LINEから「継ぎ手応募」と送ってください。</p>
       </form>
-
+ 
       <div id="thanks" class="thanks" aria-live="polite">
         <h3>継ぎ手応募を受け付けました。</h3>
         <p>ご入力ありがとうございます。応募内容を確認し、条件に合う案件がある場合にご連絡します。登録だけで費用は発生しません。具体的な店の詳細は、守秘確認のうえ段階的にお伝えし、面談・内覧を調整します。</p>
@@ -286,7 +342,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     </div>
   </div>
 </section>
-
+ 
 <section class="cta">
   <div class="cta-bg"><img src="https://images.unsplash.com/photo-1573240513057-86a945fa38dd?fm=jpg&q=72&w=1600&auto=format&fit=crop" alt="飲食店の厨房"></div>
   <div class="wrap">
@@ -295,7 +351,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     <a href="#entry" class="btn">無料で継ぎ手応募する</a>
   </div>
 </section>
-
+ 
 <footer>
   <div class="wrap">
     <p style="font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:8px"><span class="logo-mark" style="border-color:#9cd3cc;border-top-color:transparent"></span>BRIDGE <b style="color:#9cd3cc">CYCLE</b></p>
@@ -304,7 +360,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     <a href="https://yujimansion-hub.github.io/bridge-cycle2026/">‹ BRIDGE CYCLE トップへ</a> ｜ <a href="uriba.html">街で売ってみたい方へ</a> ｜ <a href="watasu.html">店を渡したい・閉じる方へ</a> ｜ <a href="privacy.html">プライバシーポリシー</a>
   </div>
 </footer>
-
+ 
 <script>
 (function(){
   var form=document.getElementById('entryForm');
