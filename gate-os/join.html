@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>無料会員登録 | BRIDGE CYCLE</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#fafaf8;color:#1a1a1a;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2.5rem 1rem}
+.logo{font-size:1.05rem;font-weight:700;letter-spacing:.12em;color:#b8860b;margin-bottom:2rem;text-decoration:none}
+.logo b{color:#1a1a1a}
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 18px rgba(0,0,0,.07);padding:2rem 1.75rem;width:100%;max-width:460px}
+.progress{display:flex;gap:5px;margin-bottom:1.8rem}
+.bar{flex:1;height:3px;border-radius:2px;background:#e8e8e8;transition:background .3s}
+.bar.on{background:#b8860b}
+h1{font-size:1.05rem;font-weight:700;margin-bottom:.3rem}
+.sub{font-size:.8rem;color:#888;margin-bottom:1.4rem;line-height:1.5}
+.fld{margin-bottom:.85rem}
+label{display:block;font-size:.76rem;font-weight:600;color:#555;margin-bottom:.28rem}
+.req{color:#b8860b;margin-left:2px}
+input,select{width:100%;border:1.5px solid #ddd;border-radius:5px;padding:.58rem .72rem;font-size:.92rem;background:#fff;color:#1a1a1a;outline:none;transition:border-color .2s;-webkit-appearance:none}
+input:focus,select:focus{border-color:#b8860b}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.note{font-size:.7rem;color:#aaa;margin-top:.2rem}
+.btn{width:100%;padding:.76rem;background:#b8860b;color:#fff;border:none;border-radius:5px;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:.4rem;transition:opacity .2s;letter-spacing:.04em}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.err{font-size:.8rem;margin-top:.65rem;padding:.5rem .75rem;background:#fef2f2;color:#b00;border-radius:4px;border:1px solid #fca5a5}
+.done{text-align:center;padding:.5rem 0 .5rem}
+.done .ic{font-size:2.2rem;margin-bottom:.7rem}
+.done h2{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.done p{font-size:.82rem;color:#555;line-height:1.7}
+a.back{display:block;text-align:center;margin-top:1.2rem;font-size:.8rem;color:#b8860b;text-decoration:none}
+</style>
+</head>
+<body>
+<a href="../" class="logo">BRIDGE <b>CYCLE</b></a>
+<div class="card">
+  <div class="progress"><div class="bar on" id="b0"></div><div class="bar" id="b1"></div><div class="bar" id="b2"></div></div>
+  <div id="s0">
+    <h1 id="h0">無料会員登録</h1>
+    <p class="sub">メールアドレスとパスワードを設定してください</p>
+    <div class="fld"><label>メールアドレス<span class="req">*</span></label><input id="em" type="email" autocomplete="email" inputmode="email"></div>
+    <div class="fld"><label>パスワード（8文字以上）<span class="req">*</span></label><input id="pw" type="password" autocomplete="new-password"></div>
+    <button class="btn" id="btn0">次へ →</button>
+    <div class="err" id="e0" style="display:none"></div>
+  </div>
+  <div id="s1" style="display:none"></div>
+  <div id="s1b" style="display:none">
+    <div class="done">
+      <div class="ic">📧</div>
+      <h2>確認メールを送りました</h2>
+      <p>メール内のリンクをクリックして認証を完了してください。<br>完了後、このページで自動的に登録が進みます。</p>
+      <p style="margin-top:.8rem;font-size:.75rem;color:#aaa">このタブを開いたまま、メールを確認してください</p>
+    </div>
+  </div>
+  <div id="s2" style="display:none">
+    <div class="done">
+      <div class="ic">✅</div>
+      <h2>登録完了</h2>
+      <p id="dmsg"></p>
+    </div>
+  </div>
+</div>
+<a href="javascript:history.back()" class="back">← 戻る</a>
+<script>
+const SB_URL='https://jeqfcgzlnexcakohttyt.supabase.co';
+const SB_KEY='sb_publishable_dBxoRWn2G8fGOoEqYWRgPw_BQdaI9kc';
+const db=supabase.createClient(SB_URL,SB_KEY);
+const TYPE=new URLSearchParams(location.search).get('type')||'store';
+document.getElementById('h0').textContent=TYPE==='store'?'店主として無料登録':'継ぎ手として無料登録';
+const PREF=['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'];
+const po='<option value="">選択</option>'+PREF.map(p=>`<option>${p}</option>`).join('');
+const IND=['飲食（カフェ・喫茶）','飲食（レストラン・食堂）','飲食（居酒屋・バー）','飲食（ラーメン・麺類）','飲食（その他）','小売（アパレル）','小売（雑貨・インテリア）','小売（食料品）','小売（その他）','美容・ヘアサロン','エステ・ネイル','整体・マッサージ','フィットネス','教育・習い事','医療・介護','宿泊・旅館','その他'];
+const io='<option value="">選択</option>'+IND.map(i=>`<option>${i}</option>`).join('');
+document.getElementById('s1').innerHTML=TYPE==='store'?`
+<h1>店舗の情報</h1>
+<p class="sub">店名・実名は管理者のみ閲覧。継ぎ手への開示は段階的に行います。</p>
+<div class="fld"><label>業態<span class="req">*</span></label><select id="f_ind">${io}</select></div>
+<div class="g2"><div class="fld"><label>都道府県<span class="req">*</span></label><select id="f_pref">${po}</select></div><div class="fld"><label>市区町村<span class="req">*</span></label><input id="f_city" placeholder="例：大津市"></div></div>
+<div class="g2"><div class="fld"><label>坪数（目安）</label><input id="f_tsub" type="number" min="1" placeholder="20"></div><div class="fld"><label>希望売却額（万円）</label><input id="f_price" type="number" min="0" placeholder="500"></div></div>
+<div class="fld"><label>希望時期</label><input id="f_eym" type="month"><p class="note">未定でも登録できます</p></div>
+<div class="fld"><label>店名（任意・非公開）</label><input id="f_sname" placeholder="段階的にのみ開示します"></div>
+<div class="fld"><label>代表者名（任意・管理者のみ）</label><input id="f_oname" placeholder="本人確認に使います"></div>
+<button class="btn" id="btn1">登録を完了する</button>
+<div class="err" id="e1" style="display:none"></div>`:`
+<h1>継ぎ手の情報</h1>
+<p class="sub">希望条件を入力してください。後から変更できます。</p>
+<div class="fld"><label>希望業態<span class="req">*</span></label><select id="f_ind">${io}</select></div>
+<div class="fld"><label>希望エリア（都道府県）<span class="req">*</span></label><select id="f_apref">${po}</select></div>
+<div class="fld"><label>希望市区町村（複数可・カンマ区切り）</label><input id="f_areas" placeholder="例：大津市, 草津市"></div>
+<div class="fld"><label>自己資金（万円）<span class="req">*</span></label><input id="f_fund" type="number" min="0" placeholder="例：300"></div>
+<div class="g2"><div class="fld"><label>希望規模 最小（坪）</label><input id="f_smin" type="number" min="1" placeholder="10"></div><div class="fld"><label>最大（坪）</label><input id="f_smax" type="number" min="1" placeholder="50"></div></div>
+<div class="fld"><label>開業希望時期</label><input id="f_sym" type="month"><p class="note">未定でも登録できます</p></div>
+<div class="fld"><label>お名前（任意）</label><input id="f_name" placeholder="本人確認時に必要です"></div>
+<button class="btn" id="btn1">登録を完了する</button>
+<div class="err" id="e1" style="display:none"></div>`;
+function setStep(n){
+  document.getElementById('s0').style.display=n===0?'':'none';
+  document.getElementById('s1').style.display=n===1?'':'none';
+  document.getElementById('s1b').style.display=n===1.5?'':'none';
+  document.getElementById('s2').style.display=n===2?'':'none';
+  [0,1,2].forEach(i=>document.getElementById('b'+i).classList.toggle('on',i<=Math.floor(n)));
+}
+function parseNum(id){const v=document.getElementById(id)?.value;return v?parseFloat(v):null;}
+function buildPayload(){
+  if(TYPE==='store'){
+    return{table:'stores',data:{
+      industry:document.getElementById('f_ind')?.value||null,
+      pref:document.getElementById('f_pref')?.value||null,
+      city:document.getElementById('f_city')?.value?.trim()||null,
+      tsub:parseNum('f_tsub'),price_man:parseNum('f_price'),
+      exit_ym:document.getElementById('f_eym')?.value||null,
+      store_name:document.getElementById('f_sname')?.value||null,
+      owner_real:document.getElementById('f_oname')?.value||null,
+      is_anonymous:true,status:'受付中'
+    }};
+  } else {
+    const ap=document.getElementById('f_apref')?.value||null;
+    const ar=(document.getElementById('f_areas')?.value||'').split(/[,、\s]+/).map(s=>s.trim()).filter(Boolean);
+    return{table:'successors',data:{
+      pref_industry:document.getElementById('f_ind')?.value||null,
+      pref:ap,areas:ar.length?ar:(ap?[ap]:[]),
+      fund_man:parseNum('f_fund'),
+      scale_min:parseNum('f_smin'),scale_max:parseNum('f_smax'),
+      start_ym:document.getElementById('f_sym')?.value||null,
+      full_name:document.getElementById('f_name')?.value||null,
+      kyc_verified:false,status:'受付中'
+    }};
+  }
+}
+function validate(p){
+  if(TYPE==='store'){
+    if(!p.data.industry)return '業態を選択してください';
+    if(!p.data.pref)return '都道府県を選択してください';
+    if(!p.data.city)return '市区町村を入力してください';
+  } else {
+    if(!p.data.pref_industry)return '希望業態を選択してください';
+    if(!p.data.pref)return '希望エリアを選択してください';
+    if(!p.data.fund_man)return '自己資金を入力してください';
+  }
+  return null;
+}
+async function doInsert(payload){
+  const{error}=await db.from(payload.table).insert(payload.data);
+  if(error)console.warn('insert:',error.message);
+  document.getElementById('dmsg').textContent=TYPE==='store'
+    ?'情報を受け付けました。担当者から順次ご連絡します。'
+    :'登録完了。案件情報を優先してご案内します。';
+  setStep(2);
+}
+(async()=>{
+  const{data:{session}}=await db.auth.getSession();
+  const pending=localStorage.getItem('bc_pending_reg');
+  if(session&&pending){localStorage.removeItem('bc_pending_reg');await doInsert(JSON.parse(pending));return;}
+  setStep(0);
+})();
+db.auth.onAuthStateChange(async(event,session)=>{
+  if(event==='SIGNED_IN'&&session){
+    const pending=localStorage.getItem('bc_pending_reg');
+    if(pending){localStorage.removeItem('bc_pending_reg');await doInsert(JSON.parse(pending));}
+  }
+});
+document.getElementById('btn0').onclick=async()=>{
+  const em=document.getElementById('em').value.trim();
+  const pw=document.getElementById('pw').value;
+  const err=document.getElementById('e0');
+  err.style.display='none';
+  if(!em||!pw){err.textContent='メールアドレスとパスワードを入力してください';err.style.display='';return;}
+  if(pw.length<8){err.textContent='パスワードは8文字以上にしてください';err.style.display='';return;}
+  const btn=document.getElementById('btn0');
+  btn.disabled=true;btn.textContent='処理中…';
+  const redirectTo=location.href.split('?')[0]+'?type='+TYPE+'&confirmed=1';
+  const{data,error}=await db.auth.signUp({email:em,password:pw,options:{emailRedirectTo:redirectTo}});
+  if(error){err.textContent=error.message;err.style.display='';btn.disabled=false;btn.textContent='次へ →';return;}
+  setStep(data.session?1:1.5);
+  btn.disabled=false;btn.textContent='次へ →';
+};
+document.addEventListener('click',async e=>{
+  if(e.target.id!=='btn1')return;
+  const btn=e.target;
+  const err=document.getElementById('e1');
+  err.style.display='none';
+  const payload=buildPayload();
+  const ve=validate(payload);
+  if(ve){err.textContent=ve;err.style.display='';return;}
+  btn.disabled=true;btn.textContent='登録中…';
+  const{data:{session}}=await db.auth.getSession();
+  if(!session){localStorage.setItem('bc_pending_reg',JSON.stringify(payload));setStep(1.5);return;}
+  await doInsert(payload);
+});
+</script>
+</body>
+</html>
