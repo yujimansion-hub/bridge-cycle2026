@@ -1,0 +1,416 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>承継OS「GATE」｜店主オーディション 半自動マッチング</title>
+<style>
+:root{--brand:#0c6c5e;--brand-d:#085247;--soft:#e8f4f1;--line:#d6e2dd;--ink:#1a2a24;--sub:#5b6b64;
+--gold:#8a6010;--s:#1f966e;--m:#c88c14;--h:#9aa7a1;--f:#b05046;--bg:#f4f8f6}
+*{box-sizing:border-box}body{margin:0;font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--brand);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+header .logo{font-weight:800;font-size:18px}header .logo span{font-weight:400;font-size:12px;color:#bfe6dc;margin-left:8px}
+header .who{font-size:12.5px;color:#dff1ec;display:flex;align-items:center;gap:10px}
+.mode{font-size:11px;padding:2px 8px;border-radius:20px;background:#0a5b4f;color:#bfe6dc}
+.mode.live{background:#e8f4f1;color:var(--brand-d)}
+.wrap{max-width:1180px;margin:0 auto;padding:18px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 14px}
+.tab{border:1px solid var(--line);background:#eef4f2;border-radius:10px;padding:9px 16px;cursor:pointer;font-weight:700;font-size:13.5px;color:var(--sub)}
+.tab.sel{background:#fff;color:var(--brand);border-color:var(--brand);box-shadow:0 0 0 2px rgba(12,108,94,.12)}
+.panel{display:none}.panel.show{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:0 0 14px}
+.card h2{margin:0 0 4px;font-size:16px}.card .desc{color:var(--sub);font-size:12.5px;margin:0 0 14px}
+label.f{display:block;font-size:12px;font-weight:700;color:var(--sub);margin:10px 0 4px}
+input,select,textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font-size:13.5px;font-family:inherit}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.areas{display:flex;flex-wrap:wrap;gap:8px}.areas label{font-size:12.5px;display:flex;gap:4px;align-items:center;font-weight:400;color:var(--ink)}
+button.btn{background:var(--brand);color:#fff;border:0;border-radius:9px;padding:11px 18px;font-weight:800;font-size:14px;cursor:pointer;margin-top:12px}
+button.btn.sec{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+button.mini{font-size:12px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700}
+.bands{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px;font-size:11.5px}
+.pill{padding:3px 10px;border-radius:20px;color:#fff;font-weight:700}.pill.s{background:var(--s)}.pill.m{background:var(--m)}.pill.h{background:var(--h)}.pill.f{background:var(--f)}
+table{border-collapse:collapse;width:100%;font-size:12.5px}th,td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left}
+th{color:var(--sub);font-size:11px}
+.mcard{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.mcard.top{border-color:var(--brand);border-width:2px}
+.mcard .nm{font-weight:800;font-size:15px}.mcard .meta{color:var(--sub);font-size:12px;margin-top:2px}
+.mcard .axes{font-size:11.5px;color:var(--brand-d);margin-top:6px}
+.score{text-align:right;flex-shrink:0}.score .n{font-size:26px;font-weight:800;line-height:1}
+.badge{font-size:10.5px;font-weight:800;padding:2px 9px;border-radius:20px;color:#fff;display:inline-block;margin-top:3px}
+.stepper{display:flex;gap:4px;margin:12px 0;flex-wrap:wrap}
+.st{flex:1;min-width:110px;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;font-size:12px;background:#fbfdfc}
+.st.done{background:var(--soft);border-color:var(--brand)}.st.cur{background:var(--brand);color:#fff;border-color:var(--brand)}
+.st .c{font-weight:800}.masked{color:var(--h);letter-spacing:1px;font-weight:700}
+.gate{background:#fff8ee;border:1px solid #ecd9a8;border-radius:8px;padding:8px 10px;font-size:12px;margin:6px 0}
+.ok{color:var(--brand-d);font-weight:700;font-size:12.5px}
+.hint{color:var(--sub);font-size:11.5px;margin-top:4px}.err{color:#b0322a;font-size:12.5px;margin-top:6px}
+.cfg{background:#0a5b4f;color:#cfe;padding:10px 14px;font-size:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cfg input{max-width:280px;padding:5px 8px;font-size:11.5px}
+.auth{max-width:380px;margin:40px auto}.foot{color:var(--sub);font-size:11px;text-align:center;padding:20px}
+.tag{display:inline-block;font-size:10.5px;background:var(--soft);color:var(--brand-d);border-radius:6px;padding:1px 7px;margin-left:6px}
+</style></head>
+<body>
+<header>
+  <div class="logo">承継OS「GATE」<span>店主オーディション 半自動マッチング</span></div>
+  <div class="who"><span id="whoami"></span><span class="mode" id="modeTag">DEMO</span><button class="mini" id="signout" style="display:none">ログアウト</button></div>
+</header>
+
+<!-- 設定バー（Supabase接続） -->
+<div class="cfg" id="cfgbar">
+  <b>接続：</b>
+  <span id="cfgstate">DEMOモード（この端末のみ・localStorage）</span>
+  <input id="supaUrl" placeholder="Supabase URL（https://xxx.supabase.co）" value="https://jeqfcgzlnexcakohttyt.supabase.co">
+  <input id="supaKey" placeholder="anon public key" value="sb_publishable_dBxoRWn2G8fGOoEqYWRgPw_BQdaI9kc">
+  <button class="mini" onclick="saveCfg()">接続して本番モードへ</button>
+  <button class="mini" onclick="clearCfg()">DEMOに戻す</button>
+</div>
+
+<!-- ログイン -->
+<div class="wrap auth" id="authView">
+  <div class="card">
+    <h2>ログイン</h2>
+    <div class="desc" id="authDesc">支援者アカウントでログインしてください。</div>
+    <label class="f">メールアドレス</label><input id="email" type="email" value="">
+    <label class="f">パスワード</label><input id="pass" type="password">
+    <button class="btn" style="width:100%" onclick="doLogin()">ログイン</button>
+    <button class="btn sec" style="width:100%" onclick="doSignup()">新規登録（支援者）</button>
+    <div class="err" id="authErr"></div>
+    <div class="hint" id="demoHint"></div>
+  </div>
+</div>
+
+<!-- アプリ本体 -->
+<div class="wrap" id="app" style="display:none">
+  <div class="tabs">
+    <div class="tab sel" data-t="reg" onclick="showTab('reg')">① 会員登録</div>
+    <div class="tab" data-t="match" onclick="showTab('match')">② 半自動マッチング</div>
+    <div class="tab" data-t="sm" onclick="showTab('sm')">③ 段階開示</div>
+    <div class="tab" data-t="admin" id="adminTabBtn" onclick="showTab('admin')" style="display:none">④ 運営（一覧）</div>
+  </div>
+
+  <!-- 登録 -->
+  <div class="panel show" id="p_reg">
+    <div class="grid2">
+      <div class="card">
+        <h2>退店店主（売り手）を登録</h2>
+        <div class="desc">店名は伏せたまま匿名で登録。マッチング後、段階開示で必要な段階でのみ開きます。</div>
+        <div class="grid2">
+          <div><label class="f">店名（実名・S3まで非開示）</label><input id="s_name"></div>
+          <div><label class="f">店主名（運営のみ）</label><input id="s_owner"></div>
+        </div>
+        <div class="grid2">
+          <div><label class="f">業種カテゴリ</label><select id="s_cat"></select></div>
+          <div><label class="f">細業種（例：カフェ）</label><input id="s_sub" placeholder="任意"></div>
+        </div>
+        <div class="grid2">
+          <div><label class="f">都道府県</label><input id="s_pref" value="滋賀県"></div>
+          <div><label class="f">市区町村</label><input id="s_city" value="大津市"></div>
+        </div>
+        <div class="grid3">
+          <div><label class="f">規模（坪）</label><input id="s_tsubo" type="number" value="15"></div>
+          <div><label class="f">承継対価（万円）</label><input id="s_price" type="number" value="250"></div>
+          <div><label class="f">退店目安(YYYY-MM)</label><input id="s_exit" value="2026-10"></div>
+        </div>
+        <button class="btn" onclick="addStore()">店主を登録</button>
+        <div class="ok" id="s_msg"></div>
+      </div>
+      <div class="card">
+        <h2>継ぎ手（買い手）を登録</h2>
+        <div class="desc">希望条件を登録すると、②で全国プールから3軸マッチングします。</div>
+        <div><label class="f">氏名</label><input id="t_name"></div>
+        <div class="grid2">
+          <div><label class="f">希望業種カテゴリ</label><select id="t_cat"></select></div>
+          <div><label class="f">希望細業種（例：カフェ）</label><input id="t_sub" placeholder="任意"></div>
+        </div>
+        <label class="f">希望地域（市区町村・カンマ区切り）</label><input id="t_areas" value="大津市,草津市">
+        <div class="grid2">
+          <div><label class="f">希望都道府県</label><input id="t_pref" value="滋賀県"></div>
+          <div><label class="f">自己資金（万円）</label><input id="t_fund" type="number" value="280"></div>
+        </div>
+        <div class="grid3">
+          <div><label class="f">規模 最小（坪）</label><input id="t_smin" type="number" value="12"></div>
+          <div><label class="f">規模 最大（坪）</label><input id="t_smax" type="number" value="25"></div>
+          <div><label class="f">開業希望(YYYY-MM)</label><input id="t_start" value="2026-09"></div>
+        </div>
+        <button class="btn" onclick="addSucc()">継ぎ手を登録</button>
+        <div class="ok" id="t_msg"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- マッチング -->
+  <div class="panel" id="p_match">
+    <div class="card">
+      <h2>半自動マッチング（3軸スコアリング）</h2>
+      <div class="desc">継ぎ手を選ぶと、全国の募集中店主に対し 業種地域規模40%／価格・財務35%／時期25% でスコア化します。</div>
+      <div class="bands">
+        <span class="pill s">75+ 有力：段階開示(S0)へ自動ハンドオフ</span>
+        <span class="pill m">60–74 候補：運営レビュー</span>
+        <span class="pill h">〜59 保留</span>
+        <span class="pill f">資金比&lt;0.5：資金要件未達</span>
+      </div>
+      <label class="f">継ぎ手を選択</label>
+      <select id="m_succ" onchange="runMatch()"></select>
+      <div id="m_results" style="margin-top:14px"></div>
+    </div>
+  </div>
+
+  <!-- 段階開示 -->
+  <div class="panel" id="p_sm">
+    <div class="card">
+      <h2>段階開示（S0→S4）</h2>
+      <div class="desc">各ゲート（eKYC・情報開示料・非circ署名・店主承認）が揃うと次段階へ。店名はS3で開きます。</div>
+      <label class="f">ケースを選択</label>
+      <select id="sm_case" onchange="renderCase()"></select>
+      <div id="sm_view" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <!-- 運営一覧 -->
+  <div class="panel" id="p_admin">
+    <div class="card">
+      <h2>支援者を招待</h2>
+      <div class="desc">運営が診断士・信金・商工会などの支援者を招待します（招待メールが届きます）。※本番モードのみ。</div>
+      <div class="grid2"><div><label class="f">メールアドレス</label><input id="inv_email" type="email"></div><div><label class="f">氏名</label><input id="inv_name"></div></div>
+      <div class="grid2"><div><label class="f">所属（商工会・信金など）</label><input id="inv_org"></div><div><label class="f">主担当の都道府県</label><input id="inv_pref"></div></div>
+      <button class="btn" onclick="inviteSupporter()">招待メールを送る</button>
+      <div class="ok" id="inv_msg"></div>
+    </div>
+    <div class="card"><h2>運営：全国一覧</h2><div class="desc">運営(admin)のみ。店名・店主名の実名を含みます。</div><div id="admin_view"></div></div>
+  </div>
+</div>
+
+<div class="foot">承継OS「GATE」 v1 ｜ BRIDGE CYCLE 株式会社 ｜ フロント=GitHub Pages／バックエンド=Supabase（無料枠）</div>
+
+<script>
+/* ============ 設定・接続層 ============ */
+const CATS=["飲食","美容","小売","サービス","その他"];
+let sb=null, MODE="demo", ME=null, IS_ADMIN=false;
+const LS_CFG="gate_cfg_v1", LS_DB="gate_demo_v1";
+function getCfg(){try{return JSON.parse(localStorage.getItem(LS_CFG))||{}}catch(e){return{}}}
+function saveCfg(){const url=supaUrl.value.trim(),key=supaKey.value.trim();
+  if(!url||!key){alert("URLとanon keyを入力してください");return}
+  localStorage.setItem(LS_CFG,JSON.stringify({url,key}));location.reload();}
+function clearCfg(){localStorage.removeItem(LS_CFG);location.reload();}
+
+/* ============ デモDB（localStorage） ============ */
+function demoLoad(){try{return JSON.parse(localStorage.getItem(LS_DB))||{stores:[],successors:[],matches:[],cases:[],seq:1}}catch(e){return{stores:[],successors:[],matches:[],cases:[],seq:1}}}
+function demoSave(d){localStorage.setItem(LS_DB,JSON.stringify(d))}
+function uid(){return 'id'+Math.random().toString(36).slice(2,10)}
+
+/* ============ 3軸スコアリング（SQLと同一ロジック） ============ */
+function ym(v){const m=/^(\d{4})-(\d{1,2})$/.exec(v||"");return m?(+m[1])*12+(+m[2]):null}
+function score(st,s){
+  let a1=0;
+  if(s.pref_sub&&st.sub_industry&&s.pref_sub===st.sub_industry)a1+=50;
+  else if(s.pref_industry===st.industry)a1+=30;
+  const areas=Array.isArray(s.areas)?s.areas:(s.areas||"").split(",").map(x=>x.trim());
+  if(areas.includes(st.city))a1+=30; else if(s.pref&&s.pref===st.pref)a1+=18; else a1+=6;
+  if(st.tsubo&&s.scale_min&&s.scale_max){
+    if(st.tsubo>=s.scale_min&&st.tsubo<=s.scale_max)a1+=20;
+    else if(st.tsubo>=s.scale_min*0.8&&st.tsubo<=s.scale_max*1.2)a1+=12; else a1+=4;
+  } else a1+=10;
+  const ratio=(!st.price_man)?1:(+s.fund_man||0)/st.price_man;
+  const a2=ratio>=1.5?100:ratio>=1.0?85:ratio>=0.7?65:ratio>=0.5?45:20;
+  const em=ym(st.exit_ym),sm=ym(s.start_ym); const md=(em!=null&&sm!=null)?Math.abs(em-sm):null;
+  const a3=md==null?60:md<=1?100:md<=3?85:md<=6?70:md<=12?50:30;
+  const tot=Math.round((0.40*a1+0.35*a2+0.25*a3)*10)/10;
+  const band=ratio<0.5?"資金要件未達":tot>=75?"有力":tot>=60?"候補":"保留";
+  return {total:tot,a1,a2,a3,band,ratio};
+}
+const bandCls=b=>b==="有力"?"s":b==="候補"?"m":b==="資金要件未達"?"f":"h";
+const bandColor=b=>({有力:"#1f966e",候補:"#c88c14",保留:"#9aa7a1",資金要件未達:"#b05046"}[b]);
+
+/* ============ データアクセス層（demo/supabase 共通API） ============ */
+const db={
+  async addStore(o){ if(MODE==="live"){const{error}=await sb.from('stores').insert(o);if(error)throw error;}
+    else{const d=demoLoad();o.id=uid();o.created_by=ME.id;o.status='募集中';d.stores.push(o);demoSave(d);} },
+  async addSucc(o){ if(MODE==="live"){const{error}=await sb.from('successors').insert(o);if(error)throw error;}
+    else{const d=demoLoad();o.id=uid();o.created_by=ME.id;o.status='募集中';d.successors.push(o);demoSave(d);} },
+  async stores(){ if(MODE==="live"){const{data,error}=await sb.from('v_stores').select('*').order('created_at',{ascending:false});if(error)throw error;return data;} return demoLoad().stores; },
+  async successors(){ if(MODE==="live"){const{data,error}=await sb.from('successors').select('*').order('created_at',{ascending:false});if(error)throw error;return data;} return demoLoad().successors; },
+  async runMatch(sid){ if(MODE==="live"){const{data,error}=await sb.rpc('match_for_successor',{p_successor_id:sid});if(error)throw error;return data;}
+    else{const d=demoLoad();const s=d.successors.find(x=>x.id===sid);const res=d.stores.filter(x=>x.status==='募集中').map(st=>({store_id:st.id,successor_id:sid,...score(st,s)}));
+      d.matches=d.matches.filter(m=>m.successor_id!==sid).concat(res);demoSave(d);return res.sort((a,b)=>b.total-a.total);} },
+  async cases(){ if(MODE==="live"){const{data,error}=await sb.from('cases').select('*').order('created_at',{ascending:false});if(error)throw error;return data;} return demoLoad().cases; },
+  async handoff(store_id,successor_id){ if(MODE==="live"){const{data,error}=await sb.rpc('handoff_case',{p_store:store_id,p_successor:successor_id});if(error)throw error;return data;}
+    else{const d=demoLoad();let c=d.cases.find(x=>x.store_id===store_id&&x.successor_id===successor_id);
+      if(!c){c={id:uid(),store_id,successor_id,stage:0,kyc:false,nda:false,fee_disclosure:false,noncircum:false,owner_approved:false};d.cases.push(c);demoSave(d);}return c;} },
+  async setGate(cid,field,val){ if(MODE==="live"){const o={};o[field]=val;const{error}=await sb.from('cases').update(o).eq('id',cid);if(error)throw error;}
+    else{const d=demoLoad();const c=d.cases.find(x=>x.id===cid);c[field]=val;demoSave(d);} },
+  async advance(cid){ if(MODE==="live"){const{data,error}=await sb.rpc('advance_case',{p_case_id:cid});if(error)throw error;return data;}
+    else{const d=demoLoad();const c=d.cases.find(x=>x.id===cid);let n=c.stage;
+      if(c.stage===0&&c.kyc&&c.nda)n=1;else if(c.stage===1&&c.fee_disclosure)n=2;else if(c.stage===2&&c.noncircum&&c.owner_approved)n=3;else if(c.stage===3)n=4;
+      c.stage=n;demoSave(d);return c;} },
+};
+
+/* ============ 認証 ============ */
+async function boot(){
+  CATS.forEach(c=>{s_cat.add(new Option(c,c));t_cat.add(new Option(c,c));});
+  const cfg=getCfg();
+  // localStorageになければHTMLのvalue属性（本番設定済み）を使用
+  const url=cfg.url||supaUrl.value.trim();
+  const key=cfg.key||supaKey.value.trim();
+  if(url&&key&&window.supabase){ MODE="live"; sb=window.supabase.createClient(url,key);
+    modeTag.textContent="本番(Supabase)";modeTag.className="mode live";cfgstate.textContent="本番モード：Supabaseに接続中";
+    const{data}=await sb.auth.getSession(); if(data.session) await onLogin(data.session.user); else showAuth();
+    supaUrl.value=url;supaKey.value=key;
+  } else { MODE="demo"; modeTag.textContent="DEMO"; demoHint.textContent="DEMOモード：メール任意・パスワード任意でそのまま入れます（この端末のみ）。管理者として試すには email に admin を含めてください。"; showAuth(); }
+}
+function showAuth(){authView.style.display="block";app.style.display="none";signout.style.display="none";}
+async function doLogin(){
+  authErr.textContent="";
+  if(MODE==="live"){ const{data,error}=await sb.auth.signInWithPassword({email:email.value,password:pass.value});
+    if(error){authErr.textContent=error.message;return;} await onLogin(data.user); }
+  else { ME={id:'demo-'+(email.value||'user'),email:email.value||'demo@local'}; IS_ADMIN=/admin/i.test(email.value); await onLogin(ME); }
+}
+async function doSignup(){
+  authErr.textContent="";
+  if(MODE==="live"){ const{data,error}=await sb.auth.signUp({email:email.value,password:pass.value});
+    if(error){authErr.textContent=error.message;return;} authErr.textContent="確認メールを送信しました。認証後にログインしてください。"; }
+  else doLogin();
+}
+async function onLogin(user){
+  ME=user;
+  if(MODE==="live"){ const{data}=await sb.from('profiles').select('role,full_name').eq('id',user.id).maybeSingle();
+    IS_ADMIN=data&&data.role==='admin'; whoami.textContent=(data&&data.full_name?data.full_name:user.email)+(IS_ADMIN?"（運営）":"（支援者）"); }
+  else whoami.textContent=(ME.email)+(IS_ADMIN?"（運営）":"（支援者）");
+  authView.style.display="none";app.style.display="block";signout.style.display="inline-block";
+  adminTabBtn.style.display=IS_ADMIN?"block":"none";
+  await refreshAll(); await handlePaidReturn();
+}
+async function doSignout(){ if(MODE==="live")await sb.auth.signOut(); ME=null;showAuth(); }
+document.getElementById('signout').onclick=doSignout;
+
+/* ============ 画面 ============ */
+function showTab(t){document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('sel',x.dataset.t===t));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById('p_'+t).classList.add('show');
+  if(t==='match')fillSuccPicker(); if(t==='sm')fillCasePicker(); if(t==='admin')renderAdmin();}
+async function refreshAll(){ await fillSuccPicker(); await fillCasePicker(); }
+
+async function addStore(){ try{
+  await db.addStore({owner_real:s_owner.value,store_name:s_name.value,industry:s_cat.value,sub_industry:s_sub.value||null,
+    pref:s_pref.value,city:s_city.value,tsubo:+s_tsubo.value||null,price_man:+s_price.value||null,exit_ym:s_exit.value,is_anonymous:true});
+  s_msg.textContent="✓ 店主を登録しました（匿名でプールに追加）"; s_name.value=s_owner.value=s_sub.value="";
+}catch(e){s_msg.textContent="";alert("登録エラー："+e.message);} }
+async function addSucc(){ try{
+  await db.addSucc({full_name:t_name.value,pref_industry:t_cat.value,pref_sub:t_sub.value||null,
+    areas:t_areas.value.split(",").map(x=>x.trim()).filter(Boolean),pref:t_pref.value,
+    fund_man:+t_fund.value||null,scale_min:+t_smin.value||null,scale_max:+t_smax.value||null,start_ym:t_start.value,kyc_verified:false});
+  t_msg.textContent="✓ 継ぎ手を登録しました"; t_name.value="";
+  fillSuccPicker();
+}catch(e){alert("登録エラー："+e.message);} }
+
+async function fillSuccPicker(){ const ss=await db.successors(); const sel=m_succ; sel.innerHTML="";
+  ss.forEach(s=>sel.add(new Option(`${s.full_name||'（無名）'}：${s.pref_industry}${s.pref_sub?'/'+s.pref_sub:''}・資金${s.fund_man||'-'}万・${(s.areas||[]).join('/')}`,s.id)));
+  if(ss.length)runMatch(); else m_results.innerHTML='<div class="hint">継ぎ手を登録するとここに候補が出ます。</div>'; }
+async function runMatch(){ const sid=m_succ.value; if(!sid)return;
+  let rows=await db.runMatch(sid); const stores=await db.stores(); const smap={};stores.forEach(x=>smap[x.id]=x);
+  rows=rows.sort((a,b)=>b.total-a.total);
+  m_results.innerHTML=rows.map(r=>{const st=smap[r.store_id]||{}; const top=r.band==='有力';
+    return `<div class="mcard ${top?'top':''}">
+      <div><div class="nm">${st.store_name||'（匿名店舗）'}</div>
+      <div class="meta">${st.industry||''}${st.sub_industry?'/'+st.sub_industry:''}・${st.pref||''}${st.city||''}・${st.tsubo||'-'}坪・承継額${st.price_man||'-'}万</div>
+      <div class="axes">業種地域規模 ${r.a1} ／ 価格・財務 ${r.a2} ／ 時期 ${r.a3}</div>
+      ${top?`<button class="mini" style="margin-top:8px" onclick="doHandoff('${r.store_id}','${sid}')">S0を生成して段階開示へ →</button>`:''}
+      </div>
+      <div class="score"><div class="n">${r.band==='資金要件未達'?'—':r.total}</div>
+        <span class="badge" style="background:${bandColor(r.band)}">${r.band}</span></div></div>`;}).join('')||'<div class="hint">募集中の店主がいません。①で登録してください。</div>';
+}
+async function doHandoff(store_id,successor_id){ await db.handoff(store_id,successor_id); alert("S0 匿名案件を生成しました。③段階開示で進められます。"); fillCasePicker(); }
+
+async function fillCasePicker(){ const cs=await db.cases(); const sel=sm_case; sel.innerHTML="";
+  const stores=await db.stores(),ss=await db.successors(); const sm={};stores.forEach(x=>sm[x.id]=x);const tm={};ss.forEach(x=>tm[x.id]=x);
+  window._sm={sm,tm};
+  cs.forEach(c=>sel.add(new Option(`${(tm[c.successor_id]||{}).full_name||'継ぎ手'} × ${(sm[c.store_id]||{}).industry||'店舗'} [S${c.stage}]`,c.id)));
+  if(cs.length)renderCase(); else sm_view.innerHTML='<div class="hint">②で有力ペアを「段階開示へ」すると、ここにケースが出ます。</div>'; }
+const STAGES=[["S0","匿名"],["S1","打診"],["S2","詳細開示"],["S3","店名開示"],["S4","成立"]];
+async function renderCase(){ const cid=sm_case.value; if(!cid)return; const cs=await db.cases(); const c=cs.find(x=>x.id===cid);
+  const st=(window._sm.sm[c.store_id])||{},t=(window._sm.tm[c.successor_id])||{};
+  const step=STAGES.map((s,i)=>`<div class="st ${c.stage>i?'done':c.stage===i?'cur':''}"><div class="c">${s[0]}</div>${s[1]}</div>`).join('<div style="align-self:center">→</div>');
+  const nameShown=c.stage>=3;
+  let gates="";
+  if(c.stage===0)gates=kycGate(c)+gate("","nda","守秘同意を得た",c.nda);
+  if(c.stage===1)gates=feeGate(c);
+  if(c.stage===2)gates=gate("店名開示には非circ署名＋店主承認","noncircum","非circumvention署名",c.noncircum)+gate("","owner_approved","店主のワンタップ承認",c.owner_approved);
+  const canAdv=(c.stage===0&&c.kyc&&c.nda)||(c.stage===1&&c.fee_disclosure)||(c.stage===2&&c.noncircum&&c.owner_approved)||c.stage===3;
+  sm_view.innerHTML=`<div class="stepper">${step}</div>
+   <div class="card" style="margin:0">
+     <table>
+       <tr><th>店名</th><td>${nameShown?`<b>${st.store_name||'—'}</b>`:'<span class="masked">●●●（S3で開示）</span>'}</td></tr>
+       <tr><th>業種・地域・規模</th><td>${st.industry||''}${st.sub_industry?'/'+st.sub_industry:''}・${st.pref||''}${st.city||''}・${st.tsubo||'-'}坪</td></tr>
+       <tr><th>承継対価</th><td>${st.price_man||'-'}万円</td></tr>
+       <tr><th>継ぎ手</th><td>${t.full_name||'—'}・資金${t.fund_man||'-'}万</td></tr>
+     </table>
+     ${gates}
+     ${c.stage===4?'<div class="ok">✓ S4 成立。手数料は料金体系（両側定額）で確定します。</div>':
+       `<button class="btn" ${canAdv?'':'disabled style=opacity:.5'} onclick="advCase('${cid}')">${c.stage<3?'ゲート充足を確認して次段階へ':'成立にする'}</button>`}
+   </div>`;
+}
+function gate(hint,field,label,val){const cid=sm_case.value;
+  return `${hint?`<div class="gate">🔒 ${hint}</div>`:''}<label style="display:flex;gap:8px;align-items:center;font-size:13px;margin:6px 0">
+    <input type="checkbox" style="width:auto" ${val?'checked':''} onchange="toggleGate('${cid}','${field}',this.checked)"> ${label}</label>`;}
+async function toggleGate(cid,field,val){ await db.setGate(cid,field,val); renderCase(); }
+/* 情報開示料ゲート（本番=Stripe決済／DEMO=スキップ） */
+function feeGate(c){
+  if(c.fee_disclosure) return `<div class="gate">🔒 情報開示料 ¥10,000（非返金／成立時充当）</div><div class="ok">✓ 情報開示料 入金済み。S2（詳細開示）へ進めます。</div>`;
+  if(MODE==="live") return `<div class="gate">🔒 詳細開示には 情報開示料 ¥10,000（非返金／成立時は仲介成功報酬へ充当）の決済が必要です。</div>
+     <button class="btn" onclick="payFee('${c.id}')">¥10,000 を決済する（情報開示料）</button>
+     <div class="hint">Stripeの安全な決済ページに移動します。完了すると自動でS2へ進める状態になります。</div>`;
+  return gate("詳細開示には情報開示料 ¥10,000（非返金／成立時充当）","fee_disclosure","（DEMO）情報開示料の入金を確認＝決済スキップ",c.fee_disclosure);
+}
+async function payFee(cid){ try{
+  const cfg=getCfg(); const {data:{session}}=await sb.auth.getSession();
+  const res=await fetch(`${cfg.url}/functions/v1/create-checkout`,{method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":`Bearer ${session.access_token}`,"apikey":cfg.key},
+    body:JSON.stringify({case_id:cid,success_url:location.href.split('?')[0],cancel_url:location.href.split('?')[0]})});
+  const j=await res.json(); if(j.url) location.href=j.url; else alert("決済開始エラー："+(j.error||'不明'));
+}catch(e){ alert("決済エラー："+e.message); } }
+function kycGate(c){
+  if(c.kyc) return `<div class="gate">🔒 本人確認(eKYC)</div><div class="ok">✓ 本人確認 完了</div>`;
+  if(MODE==="live") return `<div class="gate">🔒 打診には 本人確認(eKYC) が必要です（公的身分証＋顔照合）。</div>
+     <button class="btn" onclick="startKyc('${c.id}')">本人確認をする（eKYC）</button>
+     <div class="hint">Stripe Identityの安全なページで本人確認します。完了すると自動でゲートが開きます。</div>`;
+  return gate("打診には 本人確認(eKYC)","kyc","（DEMO）本人確認(eKYC)完了＝スキップ",c.kyc);
+}
+async function startKyc(cid){ try{
+  const cfg=getCfg(); const {data:{session}}=await sb.auth.getSession();
+  const res=await fetch(`${cfg.url}/functions/v1/create-verification`,{method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":`Bearer ${session.access_token}`,"apikey":cfg.key},
+    body:JSON.stringify({case_id:cid,return_url:location.href.split('?')[0]})});
+  const j=await res.json(); if(j.url) location.href=j.url; else alert("本人確認の開始エラー："+(j.error||'不明'));
+}catch(e){ alert("本人確認エラー："+e.message); } }
+async function handlePaidReturn(){
+  const q=new URLSearchParams(location.search); const cid=q.get('paid')||q.get('verified'); if(!cid) return;
+  const kind=q.get('paid')?'情報開示料の決済':'本人確認(eKYC)';
+  showTab('sm'); await fillCasePicker();
+  if([...sm_case.options].some(o=>o.value===cid)){ sm_case.value=cid; renderCase(); }
+  history.replaceState({},'',location.pathname);
+  alert("✓ "+kind+"が完了しました。ケースを開きました。ゲートが揃えば『次段階へ』で進めます。");
+}
+async function advCase(cid){ await db.advance(cid); fillCasePicker(); }
+
+async function renderAdmin(){ const stores=await db.stores(),ss=await db.successors(),cs=await db.cases();
+  admin_view.innerHTML=`<h3 style="font-size:13px">店主 ${stores.length}件 ／ 継ぎ手 ${ss.length}件 ／ ケース ${cs.length}件</h3>
+   <table><tr><th>店名(実名)</th><th>業種</th><th>地域</th><th>対価</th><th>状態</th></tr>
+   ${stores.map(s=>`<tr><td>${s.store_name||'—'}</td><td>${s.industry}${s.sub_industry?'/'+s.sub_industry:''}</td><td>${s.pref||''}${s.city||''}</td><td>${s.price_man||'-'}万</td><td>${s.status||''}</td></tr>`).join('')}</table>`;
+}
+
+async function inviteSupporter(){
+  if(MODE!=="live"){ alert("招待は本番モード（Supabase接続）でのみ使えます。"); return; }
+  try{
+    const cfg=getCfg(); const {data:{session}}=await sb.auth.getSession();
+    const res=await fetch(`${cfg.url}/functions/v1/invite-supporter`,{method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":`Bearer ${session.access_token}`,"apikey":cfg.key},
+      body:JSON.stringify({email:inv_email.value,full_name:inv_name.value,org:inv_org.value,pref:inv_pref.value,redirect_to:location.href.split('?')[0]})});
+    const j=await res.json();
+    if(j.ok){ inv_msg.textContent="✓ 招待メールを送信しました："+inv_email.value; inv_email.value=inv_name.value=inv_org.value=inv_pref.value=""; }
+    else alert("招待エラー："+(j.error||'不明'));
+  }catch(e){ alert("招待エラー："+e.message); }
+}
+/* ============ Supabase SDK 動的ロード ============ */
+(function(){ const cfg=getCfg();
+  if(cfg.url&&cfg.key){ const sc=document.createElement('script');
+    sc.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"; sc.onload=boot; sc.onerror=()=>{alert("Supabase SDKの読込に失敗。DEMOで起動します。");boot();}; document.head.appendChild(sc);
+  } else boot();
+})();
+</script>
+</body></html>
