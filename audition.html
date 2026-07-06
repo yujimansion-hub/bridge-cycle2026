@@ -185,7 +185,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
       <strong>料金を、わかりやすく分けています。</strong>
       <p>承継の成功報酬は<strong>譲渡額に応じた定額（20〜60万円）</strong>で、％連動ではないので費用が事前に読めます。国の補助金（専門家活用枠）の対象。創業融資サポートは任意の一律10万円、開業後の補助金申請は採択されて初めていただく成功報酬に。何にいくらかかるかを明確にした料金設計です。</p>
     </div>
-    <p class="fund-note">※ 上記の価格は、<strong>2026年8月以降の案件</strong>に適用されます。<br>※ 融資・補助金の可否および金額は、金融機関・事務局の審査によります。融資額に連動した報酬はいただきません。<br>※ 記載は税別です。融資サポートは1金融機関・1回の申請までを含みます（再申請・複数行の並行申請は別途ご相談）。</p>
+    <p class="fund-note">※ 上記の価格は、<strong>2026年7月10日以降の案件</strong>に適用されます。<br>※ 融資・補助金の可否および金額は、金融機関・事務局の審査によります。融資額に連動した報酬はいただきません。<br>※ 記載は税別です。融資サポートは1金融機関・1回の申請までを含みます（再申請・複数行の並行申請は別途ご相談）。</p>
   </div>
 </section>
 <!-- ===== /資金サポート ===== -->
@@ -375,6 +375,9 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
     btn.disabled=true;
     btn.textContent='送信中です…';
     var data=new FormData(form);
+    data.append('経路','継ぎ手応募');
+    var _em=(data.get('メール')||'').toString().trim();
+    if(/@/.test(_em)){data.append('email',_em);data.append('_replyto',_em);}
     data.append('送信ページ',location.href);
     data.append('送信日時',new Date().toLocaleString('ja-JP'));
     fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}})
@@ -394,3 +397,4 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}header .wrap{display:fl
 </script>
 </body>
 </html>
+ 
