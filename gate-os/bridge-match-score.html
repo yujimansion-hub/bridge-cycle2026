@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>承継マッチング・スコアリング（Phase 1 プロトタイプ）｜BRIDGE CYCLE OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#e9edeb;--surface:#fff;--ink:#15302e;--brand:#2f6f6a;--brand-deep:#143d3a;
+  --brand-tint:rgba(47,111,106,.08);--accent:#bf4429;--accent-soft:rgba(191,68,41,.08);
+  --muted:#5f6f69;--line:#cdd6d1;--sans:"Noto Sans JP",system-ui,sans-serif;--mincho:"Shippori Mincho",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header{background:var(--brand-deep);color:#fff;padding:26px 0 24px;margin-bottom:26px}
+header .eb{font-family:var(--mincho);font-size:.74rem;letter-spacing:.18em;color:#9cd3cc;font-weight:700;margin-bottom:8px}
+header h1{font-family:var(--mincho);font-weight:800;font-size:clamp(1.3rem,3.4vw,1.85rem);line-height:1.3}
+header p{color:#cfe1de;font-size:.9rem;margin-top:8px;max-width:70ch}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:880px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.panel h2{font-family:var(--mincho);font-weight:700;font-size:1.08rem;margin-bottom:2px}
+.panel .sub{font-size:.8rem;color:var(--muted);margin-bottom:14px}
+.field{margin-bottom:13px}
+.field label{display:block;font-weight:700;font-size:.82rem;margin-bottom:5px}
+.field .hint{font-weight:400;color:var(--muted);font-size:.76rem;margin-left:4px}
+select,input[type=text],input[type=number]{width:100%;font:inherit;font-size:.92rem;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+select:focus,input:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.candcard{border:1px solid var(--line);border-radius:12px;padding:15px;margin-bottom:12px;background:#fbfcfb;position:relative}
+.candcard .del{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;line-height:1}
+.candcard .del:hover{color:var(--accent)}
+.addbtn{width:100%;background:var(--brand-tint);border:1.5px dashed var(--brand);color:var(--brand-deep);font-family:var(--mincho);font-weight:700;border-radius:10px;padding:11px;cursor:pointer;font-size:.9rem}
+.addbtn:hover{background:rgba(47,111,106,.14)}
+.weights{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px}
+.weights h2{font-family:var(--mincho);font-weight:700;font-size:1.08rem;margin-bottom:2px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:14px}
+@media(max-width:640px){.wgrid{grid-template-columns:1fr}}
+.wrow label{display:flex;justify-content:space-between;font-size:.82rem;font-weight:700;margin-bottom:5px}
+.wrow label .v{color:var(--brand);font-family:var(--mincho)}
+.wrow input[type=range]{width:100%;accent-color:var(--brand)}
+.wnote{font-size:.76rem;color:var(--muted);margin-top:14px;border-top:1px solid var(--line);padding-top:12px;line-height:1.6}
+.wnote b{color:var(--brand-deep)}
+.results{margin-top:22px}
+.results h2{font-family:var(--mincho);font-weight:700;font-size:1.15rem;margin-bottom:12px}
+.rcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px;display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:center}
+@media(max-width:560px){.rcard{grid-template-columns:1fr}}
+.score{text-align:center}
+.score .num{font-family:var(--mincho);font-weight:800;font-size:2.1rem;line-height:1;color:var(--brand-deep)}
+.score .chip{display:inline-block;font-size:.68rem;font-weight:700;font-family:var(--mincho);padding:3px 9px;border-radius:999px;margin-top:7px;letter-spacing:.04em}
+.chip.t0{background:var(--accent-soft);color:var(--accent);border:1px solid rgba(191,68,41,.3)}
+.chip.t1{background:var(--brand-tint);color:var(--brand-deep);border:1px solid var(--brand)}
+.chip.t2{background:#f3efe6;color:#7e6a52;border:1px solid #d9cdb8}
+.chip.t3{background:#eee;color:#777;border:1px solid #ccc}
+.rname{font-family:var(--mincho);font-weight:700;font-size:1rem;margin-bottom:8px}
+.bars{display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:64px 1fr 40px;align-items:center;gap:9px;font-size:.78rem}
+.bar .lab{color:var(--muted)}
+.bar .track{background:#eef1ef;border-radius:999px;height:8px;overflow:hidden}
+.bar .fill{height:100%;background:var(--brand);border-radius:999px}
+.bar .fill.fac{background:var(--accent)}
+.bar .val{text-align:right;font-family:var(--mincho);font-weight:700;color:var(--brand-deep)}
+.reason{font-size:.8rem;color:var(--muted);margin-top:10px;background:var(--paper);border-radius:8px;padding:8px 10px}
+.reason b{color:var(--accent)}
+.empty{color:var(--muted);font-size:.9rem;background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:26px;text-align:center}
+.io{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.io button{background:#fff;border:1.5px solid var(--brand);color:var(--brand-deep);font-family:var(--mincho);font-weight:700;border-radius:999px;padding:9px 18px;cursor:pointer;font-size:.85rem}
+.io button:hover{background:var(--brand-tint)}
+.disc{font-size:.78rem;color:var(--muted);margin-top:22px;border-top:1px solid var(--line);padding-top:14px;line-height:1.7}
+.disc b{color:var(--brand-deep)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eb">BRIDGE CYCLE OS ／ Phase 1 プロトタイプ</div>
+    <h1>承継マッチング・スコアリング</h1>
+    <p>ルールベース（AIなし）。エリア・業態・時期の<b>適合</b>を加点し、賃料×自己資金の<b>成立可能性</b>を乗算ゲートにします。重みを実案件に合わせて動かし、あなたの判断を再現・較正するための道具です。</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+    <!-- 譲り手 -->
+    <div class="panel">
+      <h2>譲り手（店）</h2>
+      <p class="sub">手放す店の固定条件を入力します。</p>
+      <div class="field">
+        <label>エリア</label>
+        <select id="s_area">
+          <option value="center">大津市・中心部</option>
+          <option value="suburb">大津市・郊外</option>
+          <option value="near">大津近隣（草津・京都山科 等）</option>
+          <option value="other">その他エリア</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>業態</label>
+        <select id="s_gyotai">
+          <option value="cafe">カフェ</option>
+          <option value="bakery">ベーカリー／喫茶</option>
+          <option value="izakaya">居酒屋</option>
+          <option value="bar">バー</option>
+          <option value="ramen">ラーメン</option>
+          <option value="teishoku">定食／食堂</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label>月額賃料 <span class="hint">万円</span></label>
+          <input id="s_rent" type="number" min="0" step="1" value="15">
+        </div>
+        <div class="field">
+          <label>想定譲渡対価 <span class="hint">万円・任意</span></label>
+          <input id="s_taika" type="number" min="0" step="10" value="150">
+        </div>
+      </div>
+      <div class="field">
+        <label>譲渡希望時期</label>
+        <select id="s_timing">
+          <option value="now">今月中</option>
+          <option value="m1_3" selected>1〜3ヶ月</option>
+          <option value="m3_6">3〜6ヶ月</option>
+          <option value="undecided">未定</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 継ぎ手 -->
+    <div class="panel">
+      <h2>継ぎ手候補</h2>
+      <p class="sub">候補者を追加して、下でランキングします（audition フォームの入力項目と対応）。</p>
+      <div id="cands"></div>
+      <button class="addbtn" id="addCand">＋ 候補を追加</button>
+    </div>
+  </div>
+
+  <!-- 重み -->
+  <div class="weights">
+    <h2>重みづけ（調整可）</h2>
+    <p class="sub">適合3軸の比重と、成立可能性の前提を動かします。実案件で「自分の順位感」に合うまで較正してください。</p>
+    <div class="wgrid">
+      <div class="wrow"><label>エリア適合の重み <span class="v" id="v_wA">25</span></label><input id="wA" type="range" min="0" max="60" value="25"></div>
+      <div class="wrow"><label>業態適合の重み <span class="v" id="v_wB">30</span></label><input id="wB" type="range" min="0" max="60" value="30"></div>
+      <div class="wrow"><label>時期適合の重み <span class="v" id="v_wT">20</span></label><input id="wT" type="range" min="0" max="60" value="20"></div>
+      <div class="wrow"><label>必要自己資金＝賃料 × <span class="v" id="v_M">8</span> ヶ月</label><input id="wM" type="range" min="3" max="18" value="8"></div>
+      <div class="wrow"><label>融資係数（意向ありで実効資金を何倍まで見込むか） <span class="v" id="v_K">2.5</span></label><input id="wK" type="range" min="1" max="4" step="0.5" value="2.5"></div>
+    </div>
+    <p class="wnote"><b>読み方：</b>適合スコア＝（エリア×重み＋業態×重み＋時期×重み）÷重み合計（0〜100）。成立可能性係数は、実効資金（自己資金×融資係数）÷必要目安（譲渡対価＋賃料×Nヶ月）から算出。<b>最終＝適合×係数</b>。係数は加点ではなく必要条件なので、資金が届かない候補は適合が高くても最終が下がります。</p>
+    <div class="io">
+      <button id="exp">設定と候補を書き出す（JSON）</button>
+      <button id="imp">読み込む（JSON）</button>
+      <button id="genUrl">選択中の候補のURLを生成</button>
+      <input id="impFile" type="file" accept="application/json" style="display:none">
+    </div>
+    <p class="wnote" style="margin-top:12px"><b>URLパラメータ連携：</b>
+    <code>?name=田中&amp;area=center&amp;gyotai=cafe&amp;funds=f100_300&amp;loan=want&amp;timing=m1_3</code>
+    形式のURLを開くと候補を自動読み込みします。auditionフォームの日本語値（「カフェ」「大津市内」「使いたい」等）をそのまま使えます。
+    譲り手条件は <code>sa/sg/sr/st/sk</code> で指定可能。</p>
+  </div>
+
+  <!-- 結果 -->
+  <div class="results">
+    <h2>ショートリスト（スコア順）</h2>
+    <div id="out"></div>
+  </div>
+
+  <p class="disc">
+    <b>このスコアの範囲：</b>これは「適合」と「成立可能性」だけを機械化した<b>並べ替え・トリアージの補助</b>です。<b>貸主承諾（民法612・関門）</b>、<b>“続けたい想い”の目利き</b>、<b>許認可・契約・反社/本人確認</b>は、このスコアに<b>含めていません</b>し、含めるべきでもありません。ここは人が判断するゲートとして残す前提です。数値は目安であり、面談の優先順位づけに使ってください。
+  </p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  // ---- 状態 ----
+  var seller={area:"center",gyotai:"cafe",rent:15,taika:150,timing:"m1_3"};
+  var weights={wA:25,wB:30,wT:20,M:8,K:2.5};
+  var cands=[];
+  var seq=0;
+  var AREAS=[["center","大津市・中心部"],["suburb","大津市・郊外"],["near","大津近隣（草津・京都山科 等）"],["other","その他エリア"],["undecided","未定"]];
+  var GYO=[["cafe","カフェ"],["bakery","ベーカリー／喫茶"],["izakaya","居酒屋"],["bar","バー"],["ramen","ラーメン"],["teishoku","定食／食堂"],["other","その他"],["undecided","未定"]];
+  var TIMES=[["now","今月中"],["m1_3","1〜3ヶ月"],["m3_6","3〜6ヶ月"],["undecided","未定"]];
+  var FUNDS=[["u50","〜50万円"],["f50_100","50〜100万円"],["f100_300","100〜300万円"],["f300","300万円〜"]];
+  var LOAN=[["want","利用したい"],["maybe","検討中"],["no","利用しない"]];
+
+  // ---- 日本語→コード変換（Formspreeの値をURLにそのまま使える）----
+  var MAP_AREA={"大津市内":"center","大津の近隣":"near","大津近隣（草津・京都山科 等）":"near",
+    "滋賀県内どこでも":"suburb","京都寄り":"near","まだ未定":"undecided"};
+  var MAP_GYO={"カフェ":"cafe","ベーカリー・洋菓子":"bakery","ベーカリー／喫茶":"bakery",
+    "居酒屋・小料理":"izakaya","居酒屋":"izakaya","バー":"bar","ラーメン":"ramen",
+    "ラーメン・麺類":"ramen","定食／食堂":"teishoku","業態は未定":"undecided","その他":"other"};
+  var MAP_FUND={"50万円未満":"u50","50〜100万円":"f50_100","100〜300万円":"f100_300",
+    "300万円以上":"f300","未定・答えない":"f50_100"};
+  var MAP_LOAN={"使いたい":"want","必要なら使う":"maybe","使いたくない":"no","未定":"maybe"};
+  var MAP_TIME={"すぐ":"now","3か月以内":"m1_3","半年以内":"m3_6","1年以内":"m3_6",
+    "未定・情報収集":"undecided"};
+  function mapVal(map,v){return (v&&map[v])?map[v]:v;}
+
+  // ---- スコアリング ----
+  function areaScore(s,c){
+    if(c==="undecided") return 60;
+    if(c===s) return 100;
+    var otsu={center:1,suburb:1};
+    if(otsu[s]&&otsu[c]) return 75;
+    if((otsu[s]&&c==="near")||(otsu[c]&&s==="near")) return 65;
+    return 25;
+  }
+  function gyoScore(s,c){
+    if(c==="undecided") return 55;
+    if(c===s) return 100;
+    var near=[["cafe","bakery"],["izakaya","bar"],["ramen","teishoku"]];
+    for(var i=0;i<near.length;i++){
+      var p=near[i];
+      if((s===p[0]&&c===p[1])||(s===p[1]&&c===p[0])) return 65;
+    }
+    return 30;
+  }
+  function timeScore(s,c){
+    var ord={now:0,m1_3:1,m3_6:2,undecided:3};
+    if(s==="undecided"||c==="undecided") return 60;
+    var sc=ord[s],cc=ord[c];
+    if(cc<=sc) return 100;
+    if(cc===sc+1) return 55;
+    return 35;
+  }
+  function feasibility(rent,taika,funds,loan,M,K){
+    var mid={u50:30,f50_100:75,f100_300:200,f300:400}[funds]||0;
+    var mult={want:K,maybe:(1+K)/2,no:1}[loan]||1;
+    var eff=mid*mult;
+    var need=(Number(taika)||0)+(Number(rent)||0)*M;
+    if(need<=0) return {factor:1,ratio:Infinity,eff:eff,need:need};
+    var ratio=eff/need;
+    var factor= ratio>=1.2?1.0: ratio>=1.0?0.85: ratio>=0.7?0.6:0.3;
+    return {factor:factor,ratio:ratio,eff:eff,need:need};
+  }
+  function scoreOne(c){
+    var a=areaScore(seller.area,c.area);
+    var g=gyoScore(seller.gyotai,c.gyotai);
+    var t=timeScore(seller.timing,c.timing);
+    var W=weights.wA+weights.wB+weights.wT;
+    var fit= W>0 ? (a*weights.wA+g*weights.wB+t*weights.wT)/W : 0;
+    var f=feasibility(seller.rent,seller.taika,c.funds,c.loan,weights.M,weights.K);
+    var fin=Math.round(fit*f.factor);
+    // 理由
+    var reason;
+    var fitParts=[["エリア",a],["業態",g],["時期",t]];
+    fitParts.sort(function(x,y){return x[1]-y[1];});
+    if(f.factor<0.85){
+      reason="資金面がボトルネック：実効資金の目安 "+Math.round(f.eff)+"万円 に対し、必要目安 "+Math.round(f.need)+"万円（充足率 "+(f.ratio===Infinity?"—":Math.round(f.ratio*100)+"%")+"）。融資設計の前提が要ります。";
+    }else if(fitParts[0][1]<60){
+      reason="<b>"+fitParts[0][0]+"</b>の適合が低い（"+fitParts[0][1]+"）。ここのすり合わせ次第で順位が動きます。";
+    }else{
+      reason="適合・資金とも大きな欠落なし。面談を優先する候補。";
+    }
+    return {a:a,g:g,t:t,fit:Math.round(fit),factor:f.factor,fin:fin,reason:reason};
+  }
+  function band(v){ return v>=75?["有力","t0"]: v>=55?["検討","t1"]: v>=35?["要調整","t2"]:["不成立可能性","t3"]; }
+
+  // ---- 描画：候補カード ----
+  function opt(list,val){return list.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===val?' selected':'')+'>'+o[1]+'</option>';}).join('');}
+  function addCand(preset){
+    var id=++seq;
+    var c=preset||{id:id,name:"候補 "+id,area:"center",gyotai:"cafe",funds:"f100_300",loan:"want",timing:"m1_3"};
+    c.id=c.id||id;
+    cands.push(c);
+    var card=document.createElement("div");
+    card.className="candcard";
+    card.dataset.id=c.id;
+    card.innerHTML=
+      '<button class="del" title="削除" data-del="'+c.id+'">×</button>'+
+      '<div class="field"><label>名前・ID</label><input type="text" data-k="name" value="'+(c.name||"")+'"></div>'+
+      '<div class="two">'+
+        '<div class="field"><label>希望エリア</label><select data-k="area">'+opt(AREAS,c.area)+'</select></div>'+
+        '<div class="field"><label>希望業種</label><select data-k="gyotai">'+opt(GYO,c.gyotai)+'</select></div>'+
+      '</div>'+
+      '<div class="two">'+
+        '<div class="field"><label>自己資金</label><select data-k="funds">'+opt(FUNDS,c.funds)+'</select></div>'+
+        '<div class="field"><label>融資意向</label><select data-k="loan">'+opt(LOAN,c.loan)+'</select></div>'+
+      '</div>'+
+      '<div class="field"><label>希望時期</label><select data-k="timing">'+opt(TIMES,c.timing)+'</select></div>';
+    card.addEventListener("input",function(e){
+      var k=e.target.dataset.k; if(!k) return;
+      c[k]=e.target.value; recompute();
+    });
+    card.querySelector("[data-del]").addEventListener("click",function(){
+      cands=cands.filter(function(x){return x.id!==c.id;});
+      card.remove(); recompute();
+    });
+    document.getElementById("cands").appendChild(card);
+  }
+
+  // ---- 描画：結果 ----
+  function bar(lab,val,isFac){
+    return '<div class="bar"><span class="lab">'+lab+'</span><span class="track"><span class="fill'+(isFac?' fac':'')+'" style="width:'+Math.max(0,Math.min(100,val))+'%"></span></span><span class="val">'+val+'</span></div>';
+  }
+  function recompute(){
+    var out=document.getElementById("out");
+    if(cands.length===0){ out.innerHTML='<div class="empty">候補を追加すると、ここにスコア順のショートリストが出ます。</div>'; return; }
+    var scored=cands.map(function(c){return {c:c,s:scoreOne(c)};});
+    scored.sort(function(x,y){return y.s.fin-x.s.fin;});
+    out.innerHTML=scored.map(function(o){
+      var b=band(o.s.fin);
+      var facPct=Math.round(o.s.factor*100);
+      return '<div class="rcard">'+
+        '<div class="score"><div class="num">'+o.s.fin+'</div><span class="chip '+b[1]+'">'+b[0]+'</span></div>'+
+        '<div>'+
+          '<div class="rname">'+escapeHtml(o.c.name||"（無名）")+'</div>'+
+          '<div class="bars">'+
+            bar("エリア",o.s.a,false)+
+            bar("業態",o.s.g,false)+
+            bar("時期",o.s.t,false)+
+            bar("成立可能性",facPct,true)+
+          '</div>'+
+          '<div class="reason">'+o.s.reason+'</div>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+  }
+  function escapeHtml(s){return String(s).replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch];});}
+
+  // ---- 入力バインド：譲り手 ----
+  function bindSeller(){
+    var map=[["s_area","area"],["s_gyotai","gyotai"],["s_rent","rent"],["s_taika","taika"],["s_timing","timing"]];
+    map.forEach(function(m){
+      var el=document.getElementById(m[0]);
+      el.addEventListener("input",function(){
+        seller[m[1]] = (m[1]==="rent"||m[1]==="taika") ? Number(el.value) : el.value;
+        recompute();
+      });
+    });
+  }
+  // ---- 入力バインド：重み ----
+  function bindWeights(){
+    var map=[["wA","wA","v_wA"],["wB","wB","v_wB"],["wT","wT","v_wT"],["wM","M","v_M"],["wK","K","v_K"]];
+    map.forEach(function(m){
+      var el=document.getElementById(m[0]);
+      el.addEventListener("input",function(){
+        weights[m[1]]=Number(el.value);
+        document.getElementById(m[2]).textContent=el.value;
+        recompute();
+      });
+    });
+  }
+
+  // ---- JSON 入出力 ----
+  function exportJson(){
+    var data={seller:seller,weights:weights,cands:cands};
+    var blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement("a");
+    a.href=url; a.download="bridge-match-"+new Date().toISOString().slice(0,10)+".json";
+    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  }
+  function importJson(file){
+    var r=new FileReader();
+    r.onload=function(){
+      try{
+        var d=JSON.parse(r.result);
+        if(d.seller){ seller=d.seller; syncSeller(); }
+        if(d.weights){ weights=d.weights; syncWeights(); }
+        if(Array.isArray(d.cands)){
+          document.getElementById("cands").innerHTML=""; cands=[]; seq=0;
+          d.cands.forEach(function(c){ seq=Math.max(seq,c.id||0); addCand(c); });
+        }
+        recompute();
+      }catch(e){ alert("JSONの読み込みに失敗しました。"); }
+    };
+    r.readAsText(file);
+  }
+  function syncSeller(){
+    document.getElementById("s_area").value=seller.area;
+    document.getElementById("s_gyotai").value=seller.gyotai;
+    document.getElementById("s_rent").value=seller.rent;
+    document.getElementById("s_taika").value=seller.taika;
+    document.getElementById("s_timing").value=seller.timing;
+  }
+  function syncWeights(){
+    document.getElementById("wA").value=weights.wA; document.getElementById("v_wA").textContent=weights.wA;
+    document.getElementById("wB").value=weights.wB; document.getElementById("v_wB").textContent=weights.wB;
+    document.getElementById("wT").value=weights.wT; document.getElementById("v_wT").textContent=weights.wT;
+    document.getElementById("wM").value=weights.M; document.getElementById("v_M").textContent=weights.M;
+    document.getElementById("wK").value=weights.K; document.getElementById("v_K").textContent=weights.K;
+  }
+
+  // ---- 起動 ----
+  // URLパラメータ：譲り手条件（sa=s_area, sg=s_gyotai, sr=s_rent, st=s_taika, sk=s_timing）
+  var _p=new URLSearchParams(location.search);
+  var _smap={sa:"s_area",sg:"s_gyotai",sr:"s_rent",st:"s_taika",sk:"s_timing"};
+  Object.keys(_smap).forEach(function(k){
+    var v=_p.get(k);
+    if(v){var el=document.getElementById(_smap[k]);if(el)el.value=decodeURIComponent(v);}
+  });
+  // seller状態を入力値と同期してからバインド
+  var _sf=[["s_area","area"],["s_gyotai","gyotai"],["s_rent","rent"],["s_taika","taika"],["s_timing","timing"]];
+  _sf.forEach(function(m){
+    var el=document.getElementById(m[0]);
+    seller[m[1]]=(['rent','taika'].indexOf(m[1])>=0)?Number(el.value):el.value;
+  });
+  bindSeller(); bindWeights();
+  document.getElementById("addCand").addEventListener("click",function(){addCand();recompute();});
+  document.getElementById("exp").addEventListener("click",exportJson);
+  document.getElementById("imp").addEventListener("click",function(){document.getElementById("impFile").click();});
+  document.getElementById("impFile").addEventListener("change",function(e){ if(e.target.files[0]) importJson(e.target.files[0]); e.target.value=""; });
+  document.getElementById("genUrl").addEventListener("click",function(){
+    if(cands.length===0){alert("候補を1件追加してください。");return;}
+    var c=cands[0];
+    var base=location.origin+location.pathname;
+    var url=base+"?name="+encodeURIComponent(c.name||"応募者")
+      +"&area="+encodeURIComponent(c.area||"undecided")
+      +"&gyotai="+encodeURIComponent(c.gyotai||"undecided")
+      +"&funds="+encodeURIComponent(c.funds||"f50_100")
+      +"&loan="+encodeURIComponent(c.loan||"maybe")
+      +"&timing="+encodeURIComponent(c.timing||"undecided");
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){alert("コピーしました。");}).catch(function(){prompt("URLをコピー",url);});
+    }else{prompt("URLをコピー",url);}
+  });
+  // URLパラメータから候補を読み込む（なければサンプル2件）
+  var _hasCand=_p.has("area")||_p.has("gyotai")||_p.has("name")||_p.has("email");
+  if(_hasCand){
+    var _banner=document.createElement("div");
+    _banner.style.cssText="background:#e6f4f1;border:1px solid #2f6f6a;border-radius:10px;padding:9px 13px;margin:0 0 12px;font-size:.84rem;color:#143d3a";
+    _banner.textContent="URLパラメータから候補を自動読み込みしました。";
+    document.getElementById("cands").parentNode.insertBefore(_banner,document.getElementById("cands"));
+    addCand({
+      name:decodeURIComponent(_p.get("name")||_p.get("email")||"応募者"),
+      area:mapVal(MAP_AREA,decodeURIComponent(_p.get("area")||"undecided")),
+      gyotai:mapVal(MAP_GYO,decodeURIComponent(_p.get("gyotai")||"undecided")),
+      funds:mapVal(MAP_FUND,decodeURIComponent(_p.get("funds")||"f50_100")),
+      loan:mapVal(MAP_LOAN,decodeURIComponent(_p.get("loan")||"maybe")),
+      timing:mapVal(MAP_TIME,decodeURIComponent(_p.get("timing")||"undecided"))
+    });
+  }else{
+    addCand({name:"候補A（大津・同業態・資金厚め）",area:"center",gyotai:"cafe",funds:"f300",loan:"want",timing:"m1_3"});
+    addCand({name:"候補B（近隣・転換希望・資金薄め）",area:"near",gyotai:"izakaya",funds:"u50",loan:"maybe",timing:"m3_6"});
+  }
+  recompute();
+})();
+</script>
+</body>
+</html>
