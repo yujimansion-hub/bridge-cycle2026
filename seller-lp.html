@@ -64,13 +64,30 @@ footer{background:#2c3327;color:#c3b9a4;padding:50px 0;border:none;font-size:.9r
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(44,51,39,.97);border-top:2px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 18px;flex-wrap:wrap}
 .sticky-msg{color:#fff;font-family:var(--serif);font-weight:700;font-size:.95rem}.sticky-msg b{color:#f2d9c8}
 .sticky-btn{background:#06C755;color:#fff;text-decoration:none;font-family:var(--serif);font-weight:800;padding:11px 24px;border-radius:999px;white-space:nowrap}
+
+.hero-form{margin-top:1.6rem;max-width:500px}
+.hf-row{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem}
+.hero-form select,.hero-form input[type=email]{width:100%;padding:.72rem .85rem;border-radius:5px;border:none;font-size:.93rem;color:#222;background:#fff;-webkit-appearance:none}
+.hero-form input[type=email]::placeholder{color:#999}
+.hf-btn{width:100%;padding:.82rem;background:var(--accent);color:#fff;border:none;border-radius:5px;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.04em;font-family:var(--serif);margin-top:.1rem}
+.hf-note{font-size:.73rem;color:#c0b090;margin-top:.45rem}
+@media(max-width:480px){.hf-row{grid-template-columns:1fr}}
 </style></head><body>
 <header><div class="wrap"><a href="#" class="logo">BRIDGE <b>CYCLE</b></a><a href="gate-os/join.html?type=store" class="nav-cta">無料会員登録</a></div></header>
 <section class="hero"><div class="wrap">
 <p class="eyebrow">店主のための 無料会員制度｜閉店前承継</p>
 <h1>閉店を決める前に。<br>店名を伏せたまま、<br>継ぎ手の反応を見る。</h1>
 <p class="lead">「そろそろ閉めようか」と思ったら、その前に。<b style="color:#fff">無料会員</b>になると、店名を出さずに承継の可能性を診断し、継ぎ手候補へ匿名で打診できます。相談だけで終わっても費用はかかりません。まだ迷っている段階で大丈夫です。</p>
-<div class="hero-cta"><a href="gate-os/join.html?type=store" class="btn">オンラインで無料会員登録</a></div>
+<form class="hero-form" action="gate-os/join.html" method="get">
+<input type="hidden" name="type" value="store">
+<div class="hf-row">
+<select name="ind" required><option value="">業態を選ぶ</option><option>飲食（カフェ・喫茶）</option><option>飲食（レストラン・食堂）</option><option>飲食（居酒屋・バー）</option><option>飲食（ラーメン・麺類）</option><option>飲食（その他）</option><option>小売（アパレル）</option><option>小売（雑貨・インテリア）</option><option>小売（食料品）</option><option>小売（その他）</option><option>美容・ヘアサロン</option><option>エステ・ネイル</option><option>整体・マッサージ</option><option>フィットネス</option><option>教育・習い事</option><option>医療・介護</option><option>宿泊・旅館</option><option>その他</option></select>
+<select name="pref" required><option value="">都道府県</option><option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option><option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option><option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option><option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option><option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option></select>
+</div>
+<input type="email" name="email" placeholder="メールアドレス" required>
+<button type="submit" class="hf-btn">継ぎ手候補に匿名で打診する →</button>
+<p class="hf-note">入力して押すだけ。費用は承継成立時のみ。</p>
+</form>
 <p class="micro">会員登録・診断・匿名打診はすべて無料。費用がかかるのは、承継が成立したときだけです。</p>
 </div></section>
 <section class="strip"><div class="strip-row">
