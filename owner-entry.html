@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>店舗継承登録（店主専用）── BRIDGE CYCLE</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15302e;--paper:#e9edeb;--paper-2:#dfe5e2;--surface:#fff;--line:#cdd6d1;
+  --brand:#2f6f6a;--brand-dark:#143d3a;--brand-deep:#143d3a;--brand-tint:rgba(47,111,106,.08);
+  --accent:#2f6f6a;--accent-dark:#143d3a;--accent-soft:rgba(47,111,106,.08);
+  --muted:#5f6f69;--shadow:0 18px 50px rgba(20,61,58,.12);
+  --sans:"Noto Sans JP",system-ui,sans-serif;--serif:"Shippori Mincho",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.32}
+p{margin-bottom:1em}
+.lead{font-size:1.04rem;color:var(--muted);max-width:64ch}
+.eyebrow{font-family:var(--serif);font-size:.78rem;letter-spacing:.18em;color:var(--brand);font-weight:700;margin-bottom:14px}
+.logo{font-family:var(--serif);font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4);text-decoration:none}
+.logo b{color:#9cd3cc}
+.logo-mark{display:inline-block;width:12px;height:12px;border:2px solid #9cd3cc;border-radius:50%;border-top-color:transparent;margin-right:8px;vertical-align:-1px;transform:rotate(-30deg)}
+header{background:var(--brand-deep);padding:18px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between}
+.badge-private{font-size:.76rem;font-weight:700;color:var(--brand-deep);background:#9cd3cc;border-radius:999px;padding:4px 14px;letter-spacing:.06em}
+
+/* Hero */
+.hero{background:var(--brand-deep);padding:60px 0 50px;text-align:center;border-bottom:3px solid rgba(156,211,204,.3)}
+.hero .eyebrow{color:#9cd3cc}
+.hero h1{font-size:clamp(1.8rem,5vw,3rem);color:#fff;font-weight:800;margin-bottom:.5em}
+.hero p.lead{color:#cde5e2;margin:0 auto 24px;max-width:56ch}
+.confidential-box{display:inline-flex;align-items:center;gap:10px;background:rgba(156,211,204,.12);border:1px solid rgba(156,211,204,.35);border-radius:12px;padding:12px 20px;margin-top:6px}
+.confidential-box span{font-size:.88rem;color:#9cd3cc}
+
+/* Form panel */
+.form-section{padding:56px 0}
+.form-panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow)}
+.section-label{display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--brand-tint)}
+.section-label .num{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-family:var(--serif);font-weight:800;font-size:.88rem;flex-shrink:0}
+.section-label h3{font-size:1.05rem;color:var(--brand-dark);margin:0}
+.section-label:first-of-type{margin-top:0}
+
+/* Form fields */
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;font-size:.92rem;margin-bottom:7px}
+.req{display:inline-block;font-size:.68rem;color:#fff;background:var(--brand);border-radius:999px;padding:2px 8px;margin-left:8px;vertical-align:1px}
+.opt{display:inline-block;font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin-left:8px;vertical-align:1px}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+.field-note{font-size:.84rem;color:var(--muted);margin-top:5px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* Info box */
+.info-box{background:var(--brand-tint);border:1px solid rgba(47,111,106,.2);border-radius:14px;padding:18px 20px;margin:20px 0 0}
+.info-box p{margin:0;font-size:.9rem;color:var(--brand-dark)}
+.info-box ul{padding-left:1.2em;margin-top:6px}
+.info-box li{font-size:.88rem;color:var(--muted);margin-bottom:.3em}
+
+/* Confidential notice */
+.conf-notice{background:#fff9e6;border:1px solid #e6c84a;border-radius:14px;padding:16px 20px;margin:24px 0}
+.conf-notice p{margin:0;font-size:.9rem;color:#5a4a00}
+.conf-notice strong{color:#7a6300}
+
+/* Checks */
+.checks{display:grid;gap:12px;margin:18px 0}
+.checkrow{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px}
+.checkrow input{width:auto;margin-top:6px;flex-shrink:0}
+.checkrow label{margin:0;font-weight:500;font-size:.9rem}
+
+/* Actions */
+.form-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-family:var(--serif);font-weight:700;padding:14px 32px;border-radius:999px;border:none;cursor:pointer;font-size:1rem;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 18px rgba(47,111,106,.28)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(47,111,106,.36)}
+.btn[disabled]{opacity:.65;cursor:wait;transform:none}
+.form-note{font-size:.84rem;color:var(--muted);margin-top:14px}
+
+/* Thanks */
+.thanks{display:none;background:#fff;border:2px solid var(--brand);border-radius:20px;padding:32px;margin-top:24px;text-align:center}
+.thanks.show{display:block}
+.thanks h3{font-family:var(--serif);font-size:1.6rem;color:var(--brand-dark);margin-bottom:.5em}
+.thanks p{color:var(--muted);margin-bottom:0}
+
+/* Error */
+.error{display:none;color:#7a3000;background:#fff3ed;border:1px solid rgba(191,68,41,.25);border-radius:12px;padding:12px;margin-top:14px}
+.error.show{display:block}
+
+/* Honeypot */
+.hp{display:none!important}
+
+footer{background:var(--brand-deep);color:#c4d8d4;padding:36px 0;font-size:.86rem;text-align:center;margin-top:56px}
+footer a{color:#fff;text-decoration:none}
+
+@media(max-width:700px){
+  .grid-2{grid-template-columns:1fr}
+  .form-panel{padding:22px}
+  .form-actions .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="https://yujimansion-hub.github.io/bridge-cycle2026/"><span class="logo-mark"></span>BRIDGE <b>CYCLE</b></a>
+    <span class="badge-private">🔒 店主専用ページ</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">BRIDGE CYCLE ／ 店舗継承登録</p>
+    <h1>あなたの店を、<br>次の担い手へ。</h1>
+    <p class="lead">この登録フォームは、事業承継を検討されている店主様専用です。ご入力いただいた情報は厳重に管理し、事務局のBRIDGE CYCLEスタッフ以外には開示しません。</p>
+    <div class="confidential-box">
+      <span>🔒 店名・店主情報は外部に公開されません。安心してご記入ください。</span>
+    </div>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="wrap">
+    <div class="form-panel">
+
+      <form id="ownerForm" action="https://formspree.io/f/xpqgnorw" method="POST">
+        <input type="hidden" name="_subject" value="BRIDGE CYCLE 店舗継承登録">
+        <input type="hidden" name="送信ページ" value="https://yujimansion-hub.github.io/bridge-cycle2026/owner-entry.html">
+        <!-- honeypot -->
+        <input class="hp" type="text" name="_gotcha">
+
+        <!-- ① 店舗情報 -->
+        <div class="section-label">
+          <span class="num">1</span>
+          <h3>店舗情報</h3>
+        </div>
+
+        <div class="conf-notice">
+          <p><strong>🔒 守秘事項：</strong>店名・住所はBRIDGE CYCLE事務局のみが閲覧します。継ぎ手候補への開示は、双方が合意した面談以降に限ります。</p>
+        </div>
+
+        <div class="field">
+          <label>店名・屋号<span class="req">必須</span></label>
+          <input type="text" name="店名・屋号" placeholder="例：居酒屋〇〇、カフェ△△" required>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>業種<span class="req">必須</span></label>
+            <select name="業種" required>
+              <option value="">選択してください</option>
+              <option>カフェ・喫茶</option>
+              <option>居酒屋・小料理</option>
+              <option>ラーメン・麺類</option>
+              <option>ベーカリー・洋菓子</option>
+              <option>定食・日替わり</option>
+              <option>バー・ワインバー</option>
+              <option>イタリアン・洋食</option>
+              <option>和食・割烹</option>
+              <option>その他飲食</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>営業年数<span class="req">必須</span></label>
+            <select name="営業年数" required>
+              <option value="">選択してください</option>
+              <option>1〜3年</option>
+              <option>3〜5年</option>
+              <option>5〜10年</option>
+              <option>10〜20年</option>
+              <option>20年以上</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>所在地（市区町村まで）<span class="req">必須</span></label>
+          <input type="text" name="所在地" placeholder="例：大津市〇〇町" required>
+          <p class="field-note">詳細な番地は不要です。</p>
+        </div>
+
+        <!-- ② 事業状況 -->
+        <div class="section-label">
+          <span class="num">2</span>
+          <h3>事業状況（概算で構いません）</h3>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>月商の目安<span class="req">必須</span></label>
+            <select name="月商目安" required>
+              <option value="">選択してください</option>
+              <option>50万円未満</option>
+              <option>50〜100万円</option>
+              <option>100〜200万円</option>
+              <option>200〜400万円</option>
+              <option>400万円以上</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>家賃（月額）<span class="req">必須</span></label>
+            <select name="家賃月額" required>
+              <option value="">選択してください</option>
+              <option>5万円未満</option>
+              <option>5〜10万円</option>
+              <option>10〜15万円</option>
+              <option>15〜20万円</option>
+              <option>20万円以上</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>スタッフ数（本人除く）<span class="opt">任意</span></label>
+            <select name="スタッフ数">
+              <option value="">選択してください</option>
+              <option>0人（一人営業）</option>
+              <option>1〜2人</option>
+              <option>3〜5人</option>
+              <option>6人以上</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>席数<span class="opt">任意</span></label>
+            <input type="text" name="席数" placeholder="例：16席">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>常連客・地域との関係<span class="opt">任意</span></label>
+          <textarea name="常連客状況" placeholder="例：10年以上通ってくださる常連さんが中心。近隣の会社員の方がランチに来てくださいます。"></textarea>
+        </div>
+
+        <!-- ③ 継承条件 -->
+        <div class="section-label">
+          <span class="num">3</span>
+          <h3>継承の希望条件</h3>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>継承希望時期<span class="req">必須</span></label>
+            <select name="継承希望時期" required>
+              <option value="">選択してください</option>
+              <option>3か月以内</option>
+              <option>半年以内</option>
+              <option>1年以内</option>
+              <option>1〜2年以内</option>
+              <option>時期は未定</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>譲渡対価の希望<span class="req">必須</span></label>
+            <select name="譲渡対価希望" required>
+              <option value="">選択してください</option>
+              <option>50万円未満</option>
+              <option>50〜100万円</option>
+              <option>100〜200万円</option>
+              <option>200〜300万円</option>
+              <option>300万円以上</option>
+              <option>まだ決めていない</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>継ぎ手に続けてほしいこと<span class="opt">任意</span></label>
+          <div style="display:grid;gap:8px;margin-top:6px">
+            <label style="font-weight:normal;display:flex;gap:8px;align-items:center"><input type="checkbox" name="継続希望" value="業態・メニューを引き継ぐ"> 業態・メニューを引き継ぐ</label>
+            <label style="font-weight:normal;display:flex;gap:8px;align-items:center"><input type="checkbox" name="継続希望" value="スタッフを継続雇用する"> スタッフを継続雇用する</label>
+            <label style="font-weight:normal;display:flex;gap:8px;align-items:center"><input type="checkbox" name="継続希望" value="常連客を大切にする"> 常連客を大切にする</label>
+            <label style="font-weight:normal;display:flex;gap:8px;align-items:center"><input type="checkbox" name="継続希望" value="地域との関係を継ぐ"> 地域との関係を継ぐ</label>
+            <label style="font-weight:normal;display:flex;gap:8px;align-items:center"><input type="checkbox" name="継続希望" value="特にこだわりはない"> 特にこだわりはない</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>継ぎ手への要望・一言<span class="opt">任意</span></label>
+          <textarea name="継ぎ手への要望" placeholder="例：料理が好きで、地域に根ざしてやっていきたいと思っている方に継いでほしいです。"></textarea>
+        </div>
+
+        <!-- ④ 背景 -->
+        <div class="section-label">
+          <span class="num">4</span>
+          <h3>継承を考えた理由・背景</h3>
+        </div>
+
+        <div class="field">
+          <label>継承を考えるきっかけ・理由<span class="req">必須</span></label>
+          <textarea name="継承理由" placeholder="例：体力的な理由で引退を考え始めました。お世話になった地域のために、閉めるのではなく続けられる方法を探しています。" required></textarea>
+        </div>
+
+        <!-- ⑤ 連絡先（非公開） -->
+        <div class="section-label">
+          <span class="num">5</span>
+          <h3>店主の連絡先（外部非公開）</h3>
+        </div>
+
+        <div class="conf-notice">
+          <p><strong>🔒 守秘事項：</strong>こちらの情報はBRIDGE CYCLE事務局のみが確認します。継ぎ手候補には開示されません。</p>
+        </div>
+
+        <div class="field">
+          <label>店主氏名<span class="req">必須</span></label>
+          <input type="text" name="店主氏名" placeholder="山田　太郎" required>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>電話番号<span class="req">必須</span></label>
+            <input type="tel" name="電話" placeholder="090-0000-0000" required>
+          </div>
+          <div class="field">
+            <label>メールアドレス<span class="opt">任意</span></label>
+            <input type="email" name="email" placeholder="example@mail.com">
+            <p class="field-note">返信用メールアドレス</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>ご希望の連絡方法<span class="opt">任意</span></label>
+          <select name="連絡方法">
+            <option value="">選択してください</option>
+            <option>電話が良い</option>
+            <option>メールが良い</option>
+            <option>どちらでも可</option>
+          </select>
+        </div>
+
+        <!-- ⑥ 同意 -->
+        <div class="section-label">
+          <span class="num">6</span>
+          <h3>確認・同意</h3>
+        </div>
+
+        <div class="checks">
+          <div class="checkrow">
+            <input type="checkbox" id="agree1" name="守秘同意" value="同意" required>
+            <label for="agree1">入力した情報（店名・店主氏名を含む）は、BRIDGE CYCLE事務局のみが管理し、第三者に無断で開示しないことを了解しました。<span class="req">必須</span></label>
+          </div>
+          <div class="checkrow">
+            <input type="checkbox" id="agree2" name="個人情報同意" value="同意" required>
+            <label for="agree2">個人情報は本サービスの運営目的のみに使用され、適切に管理されることに同意します。<span class="req">必須</span></label>
+          </div>
+          <div class="checkrow">
+            <input type="checkbox" id="agree3" name="登録理解" value="同意" required>
+            <label for="agree3">この登録は「継承の検討開始」であり、成約を保証するものではないことを理解しました。<span class="req">必須</span></label>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <p>📋 <strong>登録後の流れ</strong></p>
+          <ul>
+            <li>登録後、事務局から3営業日以内にご連絡します</li>
+            <li>初回ヒアリング（30分程度）で詳細を確認します</li>
+            <li>継ぎ手候補のマッチングを開始します</li>
+            <li>費用は一切かかりません（成約報酬型）</li>
+          </ul>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn" id="submitBtn">登録を送信する →</button>
+        </div>
+        <p class="form-note">送信後、ご入力のメールアドレスに受付確認メールをお送りします（メールをご入力の場合）。</p>
+
+        <div class="error" id="formError">送信に失敗しました。しばらくしてから再度お試しください。</div>
+      </form>
+
+      <div class="thanks" id="thanks">
+        <div style="font-size:2.5rem;margin-bottom:12px">🤝</div>
+        <h3>ご登録ありがとうございます</h3>
+        <p>BRIDGE CYCLE事務局より、<strong>3営業日以内</strong>にご連絡いたします。<br>メールを入力された方には確認メールをお送りしました。</p>
+        <div style="margin-top:20px;padding:16px;background:var(--brand-tint);border-radius:14px">
+          <p style="font-size:.9rem;color:var(--brand-dark);margin:0">ご不明な点はBRIDGE CYCLE事務局までお気軽にご連絡ください。</p>
+        </div>
+      </div>
+
+    </div><!-- /form-panel -->
+  </div><!-- /wrap -->
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://yujimansion-hub.github.io/bridge-cycle2026/">BRIDGE CYCLE</a> ／ 事務局専用ページ ─ 外部への公開はご遠慮ください</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('ownerForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const err = document.getElementById('formError');
+  btn.disabled = true;
+  btn.textContent = '送信中…';
+  err.classList.remove('show');
+
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      this.style.display = 'none';
+      document.getElementById('thanks').classList.add('show');
+      document.getElementById('thanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      throw new Error('server error');
+    }
+  } catch {
+    err.classList.add('show');
+    btn.disabled = false;
+    btn.textContent = '登録を送信する →';
+  }
+});
+</script>
+</body>
+</html>
