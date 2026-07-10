@@ -40,7 +40,6 @@
   .hero h1 .dim{color:#8ec8c1}
   .hero h1 .mid{display:block;font-size:.44em;font-weight:600;color:#cfe3df;letter-spacing:.1em;margin-top:.6em}
   .hero p.lede{margin-top:28px;max-width:44ch;font-size:1.05rem;color:#dcebe8}
-  /* 朱の視線誘導：スクロールを促す */
   .hero .scroll-cue{display:inline-flex;align-items:center;gap:10px;margin-top:34px;font-family:var(--mincho);font-weight:700;color:#fff;background:var(--accent);padding:12px 22px;border-radius:999px;text-decoration:none;box-shadow:0 6px 20px rgba(191,68,41,.4);transition:transform .2s,box-shadow .2s}
   .hero .scroll-cue:hover{transform:translateY(2px);box-shadow:0 4px 14px rgba(191,68,41,.5)}
 
@@ -61,7 +60,6 @@
   .node:hover circle.dot{fill:var(--accent);stroke:var(--accent)}
   .node:hover .num{fill:#fff}.node:hover .label{fill:var(--accent)}
 
-  /* way rows with real photo + 朱の動線 */
   .ways{margin-top:34px;border-top:1px solid var(--line)}
   .way{display:grid;grid-template-columns:148px 1fr auto;gap:26px;align-items:center;padding:22px 0 22px 0;border-bottom:1px solid var(--line);border-left:3px solid transparent;text-decoration:none;transition:background .2s,border-color .2s,padding-left .2s}
   .way:hover{background:var(--accent-soft);border-left-color:var(--accent);padding-left:14px}
@@ -103,6 +101,19 @@
   .trust-card .tnum{font-family:var(--mincho);font-weight:700;color:var(--brand);font-size:1.3rem;display:block;margin-bottom:6px}
   .trust-card h3{font-family:var(--mincho);font-weight:700;font-size:1.14rem;margin-bottom:10px;color:var(--brand-deep)}
   .trust-card p{font-size:.94rem;margin:0;color:var(--ink);max-width:none}
+
+  /* partner section */
+  .partner-sec{background:var(--paper);border-top:1px solid var(--line);padding:84px 0}
+  .partner-sec .eyebrow{font-family:var(--mincho);letter-spacing:.16em;color:var(--brand);font-size:.82rem;font-weight:700;margin-bottom:14px}
+  .partner-sec h2{font-family:var(--mincho);font-weight:700;font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.4;margin-bottom:.5em}
+  .partner-sec>.wrap>p{max-width:60ch;color:#2c423e;margin-bottom:34px}
+  .partner-card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;text-decoration:none;transition:box-shadow .2s,transform .2s}
+  .partner-card:hover{box-shadow:0 6px 24px rgba(47,111,106,.18);transform:translateY(-2px)}
+  .partner-card .icon{font-size:1.6rem;display:block;margin-bottom:10px}
+  .partner-card h3{font-family:var(--mincho);font-weight:700;font-size:1.1rem;margin-bottom:10px;color:var(--brand-deep)}
+  .partner-card p{font-size:.92rem;color:var(--muted);margin:0 0 16px;line-height:1.75}
+  .partner-card .go-link{font-family:var(--mincho);font-weight:700;font-size:.88rem;color:var(--accent)}
+
   /* join CTA */
   .join{background:var(--paper);padding:88px 0;text-align:center}
   .join .local{font-family:var(--mincho);color:var(--brand);font-size:1.02rem;font-weight:700;max-width:42ch;margin:0 auto 22px;line-height:1.7}
@@ -251,6 +262,35 @@
       <path d="M40 70 a180 70 0 0 1 380 0" stroke="#ffb59f" stroke-opacity="0.4" stroke-dasharray="3 6"/>
     </g>
   </svg>
+</section>
+
+<!-- 支援機関・金融機関・不動産オーナー向けパートナーセクション -->
+<section class="partner-sec">
+  <div class="wrap">
+    <p class="eyebrow">支援機関・金融機関・不動産オーナーの方へ</p>
+    <h2>地域の連携パートナーとして、<br>一緒に動きませんか。</h2>
+    <p>廃業相談を受ける支援機関、取引先の動向を見守る金融機関、テナントを持つ不動産オーナー——BRIDGE CYCLE は、それぞれの立場に合った連携の形を用意しています。</p>
+    <div class="trust-grid">
+      <a class="partner-card" href="partner-shien.html">
+        <span class="icon">🏛️</span>
+        <h3>支援機関・士業の方へ</h3>
+        <p>廃業を止める手段が、もう一つ増えます。商工会・よろず・中小企業支援センターとの連携を歓迎します。</p>
+        <span class="go-link">詳細を見る →</span>
+      </a>
+      <a class="partner-card" href="partner-kinyu.html">
+        <span class="icon">🏦</span>
+        <h3>金融機関の方へ</h3>
+        <p>取引先の廃業が、承継に変わるかもしれない。地方銀行・信用金庫・信用組合との連携事例を作ります。</p>
+        <span class="go-link">詳細を見る →</span>
+      </a>
+      <a class="partner-card" href="partner-fudosan.html">
+        <span class="icon">🏠</span>
+        <h3>不動産オーナーの方へ</h3>
+        <p>閉店の予告を受けたとき、空き店舗になる前に動く。物件付き承継で空白期間を最短化します。</p>
+        <span class="go-link">詳細を見る →</span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- 共通CTA（迷っている人向け＋地域性） -->
