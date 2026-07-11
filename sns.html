@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRIDGE CYCLE｜飲食店の「継ぐ・渡す・売る」滋賀・大津</title>
+<meta name="description" content="「いい物件、見つけた」── その次の瞬間、手が止まる。LINEに登録すると、公開前の案件が届きます。滋賀・大津の飲食店承継サービス BRIDGE CYCLE。">
+<meta property="og:title" content="BRIDGE CYCLE｜飲食店の承継・開業">
+<meta property="og:description" content="公開前の案件を、LINE登録者だけに届けます。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#15302e;
+  --brand:#2E5E5A;
+  --brand-deep:#143d3a;
+  --brand-tint:rgba(46,94,90,.07);
+  --accent:#BF4429;
+  --paper:#f7f5f0;
+  --surface:#fff;
+  --muted:#5f6f69;
+  --line:#d4dbd8;
+  --line-green:#06C755;
+  --serif:'Shippori Mincho',serif;
+  --sans:'Noto Sans JP',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  min-height:100dvh;
+}
+
+/* ── HEADER ── */
+.hd{
+  background:var(--brand-deep);
+  padding:14px 20px;
+  text-align:center;
+}
+.hd .logo{
+  font-family:var(--serif);
+  font-weight:800;
+  font-size:1.05rem;
+  color:#fff;
+  letter-spacing:.22em;
+  text-decoration:none;
+}
+.hd .logo span{font-weight:400;opacity:.7}
+
+/* ── HERO ── */
+.hero{
+  background:var(--brand-deep);
+  color:#fff;
+  padding:44px 24px 52px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 60% 40%, rgba(46,94,90,.6) 0%, transparent 70%);
+}
+.hero .inner{position:relative;z-index:1;max-width:520px;margin:0 auto}
+.hero .eyebrow{
+  font-size:.72rem;
+  letter-spacing:.22em;
+  color:rgba(255,255,255,.55);
+  margin-bottom:18px;
+  font-weight:500;
+}
+.hero h1{
+  font-family:var(--serif);
+  font-weight:800;
+  font-size:clamp(1.6rem,5.5vw,2rem);
+  line-height:1.45;
+  margin-bottom:16px;
+}
+.hero h1 .quote{
+  display:block;
+  font-size:clamp(1.2rem,4.2vw,1.5rem);
+  color:rgba(255,255,255,.88);
+  margin-bottom:6px;
+}
+.hero h1 .dash{
+  display:block;
+  font-size:clamp(.95rem,3.2vw,1.15rem);
+  font-weight:400;
+  color:rgba(255,255,255,.6);
+  letter-spacing:.04em;
+}
+.hero .sub{
+  font-size:.9rem;
+  color:rgba(255,255,255,.65);
+  max-width:28em;
+  margin:0 auto 28px;
+  line-height:1.8;
+}
+
+/* LINE CTA ボタン */
+.btn-line{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:var(--line-green);
+  color:#fff;
+  text-decoration:none;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.05rem;
+  padding:17px 28px;
+  border-radius:999px;
+  box-shadow:0 6px 24px rgba(6,199,85,.38);
+  transition:transform .18s,box-shadow .18s;
+  max-width:380px;
+  margin:0 auto;
+  letter-spacing:.04em;
+}
+.btn-line:active{transform:translateY(1px);box-shadow:0 3px 12px rgba(6,199,85,.28)}
+.btn-line svg{flex-shrink:0}
+.btn-note{
+  display:block;
+  text-align:center;
+  margin-top:12px;
+  font-size:.8rem;
+  color:rgba(255,255,255,.45);
+}
+
+/* ── WHAT YOU GET ── */
+.gets{
+  background:var(--surface);
+  padding:44px 24px;
+  border-top:1px solid var(--line);
+}
+.gets .wrap{max-width:520px;margin:0 auto}
+.gets .label{
+  font-size:.72rem;
+  letter-spacing:.2em;
+  font-weight:700;
+  color:var(--brand);
+  margin-bottom:16px;
+  text-align:center;
+}
+.gets h2{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.2rem;
+  text-align:center;
+  margin-bottom:24px;
+  color:var(--ink);
+  line-height:1.55;
+}
+.gets-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.get-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px;
+  background:var(--brand-tint);
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.get-icon{
+  width:38px;height:38px;
+  border-radius:50%;
+  background:var(--brand);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  margin-top:2px;
+}
+.get-icon svg{width:18px;height:18px;fill:#fff}
+.get-text strong{
+  display:block;
+  font-weight:700;
+  font-size:.95rem;
+  margin-bottom:3px;
+  color:var(--ink);
+}
+.get-text span{
+  font-size:.84rem;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* ── WHO ── */
+.who{
+  background:var(--paper);
+  padding:44px 24px;
+  border-top:1px solid var(--line);
+}
+.who .wrap{max-width:520px;margin:0 auto}
+.who .label{
+  font-size:.72rem;
+  letter-spacing:.2em;
+  font-weight:700;
+  color:var(--brand);
+  margin-bottom:16px;
+  text-align:center;
+}
+.who h2{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.15rem;
+  text-align:center;
+  margin-bottom:24px;
+  line-height:1.55;
+}
+.who-cards{display:flex;flex-direction:column;gap:12px}
+.who-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 18px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  text-decoration:none;
+  color:var(--ink);
+  transition:box-shadow .2s,transform .2s;
+}
+.who-card:active{transform:translateY(1px)}
+.who-card .num{
+  font-family:var(--serif);
+  font-weight:800;
+  font-size:1.4rem;
+  color:var(--brand);
+  width:36px;
+  flex-shrink:0;
+  text-align:center;
+}
+.who-card .txt strong{
+  display:block;
+  font-weight:700;
+  font-size:.95rem;
+  margin-bottom:2px;
+}
+.who-card .txt span{
+  font-size:.82rem;
+  color:var(--muted);
+}
+.who-card .arr{
+  margin-left:auto;
+  color:var(--muted);
+  font-size:1rem;
+  flex-shrink:0;
+}
+
+/* ── CTA REPEAT ── */
+.cta-repeat{
+  background:var(--brand-deep);
+  padding:44px 24px;
+  text-align:center;
+  color:#fff;
+}
+.cta-repeat .wrap{max-width:520px;margin:0 auto}
+.cta-repeat h2{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.25rem;
+  margin-bottom:10px;
+  line-height:1.5;
+}
+.cta-repeat p{
+  font-size:.88rem;
+  color:rgba(255,255,255,.6);
+  margin-bottom:24px;
+  line-height:1.8;
+}
+.cta-note{
+  margin-top:16px;
+  font-size:.78rem;
+  color:rgba(255,255,255,.4);
+}
+
+/* ── PROOF ── */
+.proof{
+  background:var(--surface);
+  padding:36px 24px;
+  border-top:1px solid var(--line);
+}
+.proof .wrap{max-width:520px;margin:0 auto;text-align:center}
+.proof .label{
+  font-size:.72rem;
+  letter-spacing:.2em;
+  font-weight:700;
+  color:var(--brand);
+  margin-bottom:20px;
+}
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:20px;
+}
+.proof-stat{
+  padding:16px 12px;
+  background:var(--brand-tint);
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.proof-stat .num{
+  font-family:var(--serif);
+  font-weight:800;
+  font-size:1.5rem;
+  color:var(--brand);
+  display:block;
+  line-height:1.1;
+}
+.proof-stat .desc{
+  font-size:.75rem;
+  color:var(--muted);
+  margin-top:4px;
+  line-height:1.5;
+}
+.proof-name{
+  font-size:.8rem;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--brand-deep);
+  color:rgba(255,255,255,.5);
+  padding:24px;
+  text-align:center;
+  font-size:.75rem;
+  line-height:1.8;
+}
+footer a{color:rgba(255,255,255,.5);text-decoration:underline}
+footer .main-link{
+  display:inline-block;
+  margin-bottom:12px;
+  color:#fff;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:.85rem;
+  letter-spacing:.1em;
+  text-decoration:none;
+}
+
+/* ── STICKY BAR ── */
+#sns-sticky{
+  position:fixed;bottom:0;left:0;right:0;
+  z-index:9999;
+  background:rgba(20,61,58,.97);
+  backdrop-filter:blur(8px);
+  padding:10px 16px 10px;
+  padding-bottom:max(10px, env(safe-area-inset-bottom));
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 -3px 20px rgba(0,0,0,.35);
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+#sns-sticky a{
+  display:flex;align-items:center;gap:7px;
+  background:var(--line-green);
+  color:#fff;text-decoration:none;
+  font-weight:700;font-size:.92rem;
+  padding:11px 22px;border-radius:999px;
+  white-space:nowrap;
+  box-shadow:0 3px 12px rgba(6,199,85,.3);
+}
+#sns-sticky button{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  background:none;border:none;
+  color:rgba(255,255,255,.45);font-size:20px;cursor:pointer;line-height:1;padding:4px;
+  margin-top:calc(-1 * env(safe-area-inset-bottom) / 2);
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hd">
+  <a href="index.html" class="logo">BRIDGE <span>CYCLE</span></a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner">
+    <p class="eyebrow">飲食店の承継・開業 ── 滋賀・大津</p>
+    <h1>
+      <span class="quote">「いい物件、見つけた」</span>
+      <span class="dash">── その次の瞬間、手が止まる。</span>
+    </h1>
+    <p class="sub">「家賃、高くないか」「前の店、なぜ閉めたんだろう」──<br>気になって調べているうちに、誰かが内見を申し込む。<br><br>BRIDGE CYCLEのLINEに登録した人には、<br><strong style="color:#fff;font-weight:700">表に出る前に連絡が届きます。</strong></p>
+    <a href="touroku.html" class="btn-line">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.02 3.55 7.39 8.35 8.03.32.07.77.21.88.49.1.25.06.63.03.88l-.14.85c-.04.25-.2.98.86.53s5.7-3.36 7.78-5.75C21.36 13.5 22 11.9 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+      LINE無料登録で、先に受け取る
+    </a>
+    <p class="btn-note">登録は60秒・無料・いつでも解除OK</p>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="gets">
+  <div class="wrap">
+    <p class="label">LINE登録でできること</p>
+    <h2>登録すると、何が変わるか。</h2>
+    <div class="gets-list">
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="get-text">
+          <strong>公開前の案件が届く</strong>
+          <span>表に出る前の、まだ誰も知らない案件情報をLINEで先行受け取り。</span>
+        </div>
+      </div>
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        </div>
+        <div class="get-text">
+          <strong>匿名で相談できる</strong>
+          <span>店名も場所も出さなくていい。まず状況を話すだけで大丈夫。</span>
+        </div>
+      </div>
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div class="get-text">
+          <strong>20年・500社超の支援実績</strong>
+          <span>商工会経営指導員・認定支援機関として、小さな飲食店の現場を知っています。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div class="wrap">
+    <p class="label">あなたはどちらですか</p>
+    <h2>継ぎたい人も、渡したい人も。</h2>
+    <div class="who-cards">
+      <a href="audition.html" class="who-card">
+        <span class="num">継</span>
+        <div class="txt">
+          <strong>店を継ぎたい方へ</strong>
+          <span>ゼロから開くより初期費用3〜5分の1。設備・常連・立地ごと引き継ぐ。</span>
+        </div>
+        <span class="arr">›</span>
+      </a>
+      <a href="watasu.html" class="who-card">
+        <span class="num">渡</span>
+        <div class="txt">
+          <strong>店を渡したい方へ</strong>
+          <span>閉めれば数十万〜数百万の持ち出し。渡せば対価になる可能性がある。</span>
+        </div>
+        <span class="arr">›</span>
+      </a>
+      <a href="uriba.html" class="who-card">
+        <span class="num">売</span>
+        <div class="txt">
+          <strong>まず試してみたい方へ</strong>
+          <span>店前・駐車場を1日から借りて、小さく売ってみる。0から始める入口。</span>
+        </div>
+        <span class="arr">›</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="wrap">
+    <p class="label">BRIDGE CYCLEについて</p>
+    <div class="proof-grid">
+      <div class="proof-stat">
+        <span class="num">20年</span>
+        <span class="desc">商工会での<br>事業支援歴</span>
+      </div>
+      <div class="proof-stat">
+        <span class="num">500社+</span>
+        <span class="desc">支えてきた<br>事業者数</span>
+      </div>
+      <div class="proof-stat">
+        <span class="num">3〜5分<br><small style="font-size:.8rem">の1</small></span>
+        <span class="desc">居抜き承継の<br>初期費用目安</span>
+      </div>
+      <div class="proof-stat">
+        <span class="num">0円</span>
+        <span class="desc">継ぎ手応募・<br>LINE登録の費用</span>
+      </div>
+    </div>
+    <p class="proof-name">BRIDGE CYCLE株式会社 ／ 代表取締役 中村裕二<br>認定経営革新等支援機関 ／ M&A支援機関登録<br>〒520-0801 滋賀県大津市におの浜</p>
+  </div>
+</section>
+
+<!-- CTA REPEAT -->
+<section class="cta-repeat">
+  <div class="wrap">
+    <h2>まずは、LINEに登録するだけ。</h2>
+    <p>費用は一切かかりません。<br>案件が出たときだけ連絡が届きます。<br>いつでも解除できます。</p>
+    <a href="touroku.html" class="btn-line" style="max-width:380px;margin:0 auto">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.02 3.55 7.39 8.35 8.03.32.07.77.21.88.49.1.25.06.63.03.88l-.14.85c-.04.25-.2.98.86.53s5.7-3.36 7.78-5.75C21.36 13.5 22 11.9 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+      LINE無料登録で、先に受け取る
+    </a>
+    <p class="cta-note">登録60秒・無料・いつでも解除OK</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="main-link">BRIDGE CYCLE ─ 飲食店の承継・開業、滋賀・大津</a><br>
+  <a href="privacy.html">プライバシーポリシー</a> ／
+  <a href="index.html">トップページ</a><br><br>
+  © 2025 BRIDGE CYCLE株式会社
+</footer>
+
+<!-- STICKY BAR -->
+<div id="sns-sticky">
+  <a href="touroku.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.02 3.55 7.39 8.35 8.03.32.07.77.21.88.49.1.25.06.63.03.88l-.14.85c-.04.25-.2.98.86.53s5.7-3.36 7.78-5.75C21.36 13.5 22 11.9 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+    LINE無料登録（60秒）
+  </a>
+  <button onclick="this.parentElement.style.transform='translateY(100%)'" aria-label="閉じる">×</button>
+</div>
+
+<script>
+(function(){
+  var bar = document.getElementById('sns-sticky');
+  if (!bar) return;
+  var shown = false;
+  window.addEventListener('scroll', function(){
+    if (!shown && window.scrollY > 200) {
+      shown = true;
+      bar.style.transform = 'translateY(0)';
+    }
+  }, {passive: true});
+})();
+</script>
+</body>
+</html>
