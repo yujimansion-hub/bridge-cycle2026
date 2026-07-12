@@ -70,13 +70,11 @@ const db=supabase.createClient(SB_URL,SB_KEY);
 const params=new URLSearchParams(location.search);
 const TYPE=params.get('type')||'store';
 
-// Pre-fill from LP hero form params
 const preEmail = params.get('email') || '';
 const preInd   = params.get('ind')   || '';
 const prePref  = params.get('pref')  || '';
 const preApref = params.get('apref') || '';
 if (preEmail) document.getElementById('em').value = preEmail;
-// Pre-fill step-1 selects after injection
 function applyPrefill() {
   if (preInd)   { const el=document.getElementById('f_ind');   if(el) el.value=preInd; }
   if (prePref)  { const el=document.getElementById('f_pref');  if(el) el.value=prePref; }
@@ -167,18 +165,9 @@ async function doInsert(payload){
 }
 (async()=>{
   const{data:{session}}=await db.auth.getSession();
-  const pending=localStorage.getItem('bc_pending_reg');
-  if(session&&pending){localStorage.removeItem('bc_pending_reg');await doInsert(JSON.parse(pending));return;}
-  if(session){setStep(1);return;}  // メール確認後に戻ってきた場合→店舗情報入力へ
+  if(session){setStep(1);return;}
   setStep(0);
 })();
-db.auth.onAuthStateChange(async(event,session)=>{
-  if(event==='SIGNED_IN'&&session){
-    const pending=localStorage.getItem('bc_pending_reg');
-    if(pending){localStorage.removeItem('bc_pending_reg');await doInsert(JSON.parse(pending));return;}
-    setStep(1);  // 確認メールクリック後→店舗情報入力へ
-  }
-});
 document.getElementById('btn0').onclick=async()=>{
   const em=document.getElementById('em').value.trim();
   const pw=document.getElementById('pw').value;
@@ -188,10 +177,9 @@ document.getElementById('btn0').onclick=async()=>{
   if(pw.length<8){err.textContent='パスワードは8文字以上にしてください';err.style.display='';return;}
   const btn=document.getElementById('btn0');
   btn.disabled=true;btn.textContent='処理中…';
-  const redirectTo=location.href.split('?')[0]+'?type='+TYPE+'&confirmed=1';
-  const{data,error}=await db.auth.signUp({email:em,password:pw,options:{emailRedirectTo:redirectTo}});
+  const{data,error}=await db.auth.signUp({email:em,password:pw});
   if(error){err.textContent=error.message;err.style.display='';btn.disabled=false;btn.textContent='次へ →';return;}
-  setStep(data.session?1:1.5);
+  setStep(1);
   btn.disabled=false;btn.textContent='次へ →';
 };
 document.addEventListener('click',async e=>{
@@ -204,7 +192,7 @@ document.addEventListener('click',async e=>{
   if(ve){err.textContent=ve;err.style.display='';return;}
   btn.disabled=true;btn.textContent='登録中…';
   const{data:{session}}=await db.auth.getSession();
-  if(!session){localStorage.setItem('bc_pending_reg',JSON.stringify(payload));setStep(1.5);return;}
+  if(!session){err.textContent='セッションが切れました。ページを再読み込みして再度お試しください。';err.style.display='';btn.disabled=false;btn.textContent='登録を完了する';return;}
   await doInsert(payload);
 });
 </script>
