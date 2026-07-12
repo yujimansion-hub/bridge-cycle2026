@@ -125,11 +125,11 @@ function buildPayload(){
       industry:document.getElementById('f_ind')?.value||null,
       pref:document.getElementById('f_pref')?.value||null,
       city:document.getElementById('f_city')?.value?.trim()||null,
-      tsub:parseNum('f_tsub'),price_man:parseNum('f_price'),
+      tsubo:parseNum('f_tsub'),price_man:parseNum('f_price'),
       exit_ym:document.getElementById('f_eym')?.value||null,
       store_name:document.getElementById('f_sname')?.value||null,
       owner_real:document.getElementById('f_oname')?.value||null,
-      is_anonymous:true,status:'受付中'
+      is_anonymous:true,status:'募集中'
     }};
   } else {
     const ap=document.getElementById('f_apref')?.value||null;
@@ -141,7 +141,7 @@ function buildPayload(){
       scale_min:parseNum('f_smin'),scale_max:parseNum('f_smax'),
       start_ym:document.getElementById('f_sym')?.value||null,
       full_name:document.getElementById('f_name')?.value||null,
-      kyc_verified:false,status:'受付中'
+      kyc_verified:false,status:'募集中'
     }};
   }
 }
