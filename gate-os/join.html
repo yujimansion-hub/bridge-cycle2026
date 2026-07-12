@@ -67,7 +67,8 @@ a.back{display:block;text-align:center;margin-top:1.2rem;font-size:.8rem;color:#
 const SB_URL='https://jeqfcgzlnexcakohttyt.supabase.co';
 const SB_KEY='sb_publishable_dBxoRWn2G8fGOoEqYWRgPw_BQdaI9kc';
 const db=supabase.createClient(SB_URL,SB_KEY);
-const TYPE=new URLSearchParams(location.search).get('type')||'store';
+const params=new URLSearchParams(location.search);
+const TYPE=params.get('type')||'store';
 
 // Pre-fill from LP hero form params
 const preEmail = params.get('email') || '';
