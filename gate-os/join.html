@@ -169,12 +169,14 @@ async function doInsert(payload){
   const{data:{session}}=await db.auth.getSession();
   const pending=localStorage.getItem('bc_pending_reg');
   if(session&&pending){localStorage.removeItem('bc_pending_reg');await doInsert(JSON.parse(pending));return;}
+  if(session){setStep(1);return;}  // メール確認後に戻ってきた場合→店舗情報入力へ
   setStep(0);
 })();
 db.auth.onAuthStateChange(async(event,session)=>{
   if(event==='SIGNED_IN'&&session){
     const pending=localStorage.getItem('bc_pending_reg');
-    if(pending){localStorage.removeItem('bc_pending_reg');await doInsert(JSON.parse(pending));}
+    if(pending){localStorage.removeItem('bc_pending_reg');await doInsert(JSON.parse(pending));return;}
+    setStep(1);  // 確認メールクリック後→店舗情報入力へ
   }
 });
 document.getElementById('btn0').onclick=async()=>{
