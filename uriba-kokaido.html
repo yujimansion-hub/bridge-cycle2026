@@ -308,7 +308,7 @@
     <p class="eyebrow">出店のお申し込み</p>
     <h2>この会場で、出店してみる。</h2>
     <p>下記フォームからお申し込みください。空き状況を確認し、運営（BRIDGE CYCLE）より折り返しご連絡します。来店や面談は不要です。出店できる内容か迷う段階のご相談も歓迎です。</p>
-    <div class="callout" style="margin:0 auto 4px;max-width:640px">本会場は<b>飲食のテイクアウト出店専用</b>です。お申し込みは、<b>飲食の営業許可・食品衛生責任者・賠償責任保険をお持ちの方</b>に限らせていただきます。下の「かんたん確認」を通過した方のみ、お申し込みフォームが開きます。</div>
+    <div class="callout" style="margin:0 auto 4px;max-width:640px">本会場は<b>飲食のテイクアウト出店専用</b>です。お申し込みは、<b>飲食の営業許可・食品衛生責任者・賠償責任保険をお持ちの方</b>に限らせていただきます。下の「かんたん確認」を通過した方のみ、お申し込みフォームが開きます。<br><a href="./kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700;text-decoration:underline">▶ 出店規約を読む</a>（お申し込み前に必ずご確認ください）</div>
 <div class="callout" style="margin:8px auto 4px;max-width:640px;border-left-color:var(--accent)"><b>びわ湖大花火大会の開催当日は、ご出店をお受けできません。</b>当会場は花火大会のメイン会場（県営大津港沖）に隣接し、当日は周辺一帯が交通規制・有料観覧エリアの対象となるためです。<span style="display:block;color:var(--muted);font-size:.88em;margin-top:4px">直近では2026年8月6日(木)開催予定。最新の開催日は公式情報をご確認ください。</span></div>
     <!-- ▼ 送信先(action)をFormspreeのエンドポイントに差し替えてください（手順は別途案内） ▼ -->
     <div id="eligGate" style="max-width:640px;margin:0 auto 14px;background:#fff;border:2px solid #2f6f6a;border-radius:14px;padding:20px 22px">
@@ -351,10 +351,11 @@
       <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="食品衛生責任者の確認" value="配置可" required style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem">食品衛生責任者を配置できます。<span class="req">必須</span></label></div>
       <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="賠償責任保険の確認" value="加入済み" required style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem">賠償責任保険（PL保険・イベント保険等）に加入しています。<span class="req">必須</span></label></div>
       <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="牛肉不使用の確認" value="使用しない" required style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem">牛肉を使った商品は販売しません（隣接の近江牛店への配慮）。<span class="req">必須</span></label></div>
+      <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="出店規約の同意" value="同意する" required style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem"><a href="./kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">出店規約</a>を読み、内容に同意します。<span class="req">必須</span></label></div>
       <button type="submit" class="btn">確認して申し込む（この後、カードでお支払い）</button>
       <p class="form-note" style="margin-top:8px">※ お申し込み後、<b>カードでのお支払いのご案内（決済リンク）</b>をお送りします。お支払い完了をもって予約確定です。<b>カード番号はこのサイトに保存されません。</b></p>
       <!-- 固定の決済リンクを使う場合：Stripe Payment Link 等のURLを下のhrefに設定して有効化 → <a class="btn" href="（決済リンクURL）" target="_blank" rel="noopener" style="margin-top:8px">カードで支払う</a> -->
-      <p class="form-note">送信後、運営（BRIDGE CYCLE株式会社）より折り返しご連絡します。お急ぎのご質問は <a href="https://line.me/R/ti/p/@907kxssd" style="color:var(--brand);font-weight:700">LINE</a> でも承ります。</p>
+      <p class="form-note">送信後、運営（BRIDGE CYCLE株式会社）より折り返しご連絡します。お急ぎのご質問は <a href="https://line.me/R/ti/p/@944gewwp" style="color:var(--brand);font-weight:700">LINE</a> でも承ります。</p>
     </form>
   </div>
 </section>
@@ -363,7 +364,7 @@
   <div class="wrap">
     <p style="margin-bottom:8px"><b style="color:#fff">BRIDGE CYCLE株式会社</b>（認定経営革新等支援機関）</p>
     <p style="margin-bottom:8px">売り場レンタル ／ 運営：中村裕二　｜　滋賀県大津市</p>
-    <p style="margin:0"><a href="https://yujimansion-hub.github.io/bridge-cycle2026/">トップへ戻る</a></p>
+    <p style="margin:0"><a href="./kiyaku.html">出店規約</a>　｜　<a href="https://yujimansion-hub.github.io/bridge-cycle2026/">トップへ戻る</a></p>
   </div>
 </footer>
 
@@ -377,20 +378,14 @@
     {q:"賠償責任保険（PL保険・イベント保険等）に加入していますか？",yes:"加入している",no:"未加入",fail:"万一に備え、賠償責任保険への加入を必須としています。加入後にあらためてお申し込みください。"},
     {q:"会場の利用条件・近隣配慮（搬入動線／ゴミ持ち帰り／騒音／火気は事前相談）に同意いただけますか？",yes:"同意する",no:"同意しない",fail:"恐れ入りますが、利用条件に同意いただけない場合はお申し込みいただけません。"},
   ];
-  var i=0;
-  function el(id){return document.getElementById(id);}
-  function render(){
-    el("egProg").textContent="確認 "+(i+1)+" / "+qs.length;
-    var Q=qs[i];var b=el("egBody");b.innerHTML="";
+  var i=0;function el(id){return document.getElementById(id);}
+  function render(){el("egProg").textContent="確認 "+(i+1)+" / "+qs.length;var Q=qs[i];var b=el("egBody");b.innerHTML="";
     var q=document.createElement("div");q.style.cssText="background:rgba(47,111,106,.08);border-radius:10px;padding:14px 16px;font-weight:700;margin-bottom:12px";q.textContent=Q.q;b.appendChild(q);
-    var wrap=document.createElement("div");wrap.style.cssText="display:flex;gap:10px;flex-wrap:wrap";
-    var yes=document.createElement("button");yes.type="button";yes.textContent=Q.yes;yes.style.cssText="flex:1;min-width:130px;padding:12px;border:1.5px solid #2f6f6a;border-radius:10px;background:#fff;color:#143d3a;font-weight:700;cursor:pointer";
-    yes.addEventListener("click",function(){i++;if(i>=qs.length){pass();}else{render();}});
-    var no=document.createElement("button");no.type="button";no.textContent=Q.no;no.style.cssText="flex:1;min-width:130px;padding:12px;border:1.5px solid #cdd6d1;border-radius:10px;background:#fff;color:#5f6f69;font-weight:700;cursor:pointer";
-    no.addEventListener("click",function(){fail(Q.fail);});
-    wrap.appendChild(yes);wrap.appendChild(no);b.appendChild(wrap);
-  }
-  function fail(msg){el("egProg").textContent="";el("egBody").innerHTML='<div style="background:rgba(126,106,82,.1);border:1px solid #e0d3bf;border-radius:10px;padding:16px"><b>今回はお申し込みいただけません。</b><br>'+msg+'<br><br><a href="https://line.me/R/ti/p/@907kxssd" style="display:inline-block;background:#bf4429;color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:999px">LINEで相談する</a></div>';}
+    var w=document.createElement("div");w.style.cssText="display:flex;gap:10px;flex-wrap:wrap";
+    var y=document.createElement("button");y.type="button";y.textContent=Q.yes;y.style.cssText="flex:1;min-width:130px;padding:12px;border:1.5px solid #2f6f6a;border-radius:10px;background:#fff;color:#143d3a;font-weight:700;cursor:pointer";y.addEventListener("click",function(){i++;if(i>=qs.length){pass();}else{render();}});
+    var n=document.createElement("button");n.type="button";n.textContent=Q.no;n.style.cssText="flex:1;min-width:130px;padding:12px;border:1.5px solid #cdd6d1;border-radius:10px;background:#fff;color:#5f6f69;font-weight:700;cursor:pointer";n.addEventListener("click",function(){fail(Q.fail);});
+    w.appendChild(y);w.appendChild(n);b.appendChild(w);}
+  function fail(m){el("egProg").textContent="";el("egBody").innerHTML='<div style="background:rgba(126,106,82,.1);border:1px solid #e0d3bf;border-radius:10px;padding:16px"><b>今回はお申し込みいただけません。</b><br>'+m+'<br><br><a href="https://line.me/R/ti/p/@944gewwp" style="display:inline-block;background:#bf4429;color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:999px">LINEで相談する</a></div>';}
   function pass(){var g=el("eligGate");if(g)g.style.display="none";var f=el("applyForm");if(f){f.style.display="";f.scrollIntoView({behavior:"smooth",block:"start"});}}
   render();
 })();
