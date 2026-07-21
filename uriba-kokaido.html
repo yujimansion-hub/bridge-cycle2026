@@ -443,6 +443,15 @@
         e.stopPropagation();
         input.focus();
         if(input.reportValidity) input.reportValidity();
+        return;
+      }
+      // 裸火・ガス（Tier B）はメール件名で即判別できるようにする
+      var subj = form.querySelector('input[name="_subject"]');
+      var fire = form.querySelector('input[name="火気の使用"]:checked');
+      if(subj){
+        subj.value = (fire && /裸火|ガス/.test(fire.value))
+          ? "【Tier B・要審査】旧大津公会堂 出店申込（裸火・ガス）"
+          : "旧大津公会堂 出店申込";
       }
     }, true);
   }
