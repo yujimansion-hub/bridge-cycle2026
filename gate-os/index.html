@@ -156,7 +156,7 @@ th{color:var(--sub);font-size:11px}
   <div class="panel" id="p_sm">
     <div class="card">
       <h2>段階開示（S0→S4）</h2>
-      <div class="desc">各ゲート（eKYC・情報開示料・非circ署名・店主承認）が揃うと次段階へ。店名はS3で開きます。</div>
+      <div class="desc">各ゲート（eKYC・応募着手金・非circ署名・店主承認）が揃うと次段階へ。店名はS3で開きます。</div>
       <label class="f">ケースを選択</label>
       <select id="sm_case" onchange="renderCase()"></select>
       <div id="sm_view" style="margin-top:12px"></div>
@@ -349,13 +349,13 @@ function gate(hint,field,label,val){const cid=sm_case.value;
   return `${hint?`<div class="gate">🔒 ${hint}</div>`:''}<label style="display:flex;gap:8px;align-items:center;font-size:13px;margin:6px 0">
     <input type="checkbox" style="width:auto" ${val?'checked':''} onchange="toggleGate('${cid}','${field}',this.checked)"> ${label}</label>`;}
 async function toggleGate(cid,field,val){ await db.setGate(cid,field,val); renderCase(); }
-/* 情報開示料ゲート（本番=Stripe決済／DEMO=スキップ） */
+/* 応募着手金ゲート（本番=Stripe決済／DEMO=スキップ） */
 function feeGate(c){
-  if(c.fee_disclosure) return `<div class="gate">🔒 情報開示料 ¥10,000（非返金／成立時充当）</div><div class="ok">✓ 情報開示料 入金済み。S2（詳細開示）へ進めます。</div>`;
-  if(MODE==="live") return `<div class="gate">🔒 詳細開示には 情報開示料 ¥10,000（非返金／成立時は仲介成功報酬へ充当）の決済が必要です。</div>
-     <button class="btn" onclick="payFee('${c.id}')">¥10,000 を決済する（情報開示料）</button>
+  if(c.fee_disclosure) return `<div class="gate">🔒 応募・事業計画準備着手金 ¥50,000（税別・成立時充当）</div><div class="ok">✓ 応募着手金 入金済み。S2（詳細開示）へ進めます。</div>`;
+  if(MODE==="live") return `<div class="gate">🔒 応募には 着手金 ¥50,000（税別・非返金／成立時は仲介成功報酬へ充当）の決済が必要です。</div>
+     <button class="btn" onclick="payFee('${c.id}')">¥50,000 を決済する（応募着手金）</button>
      <div class="hint">Stripeの安全な決済ページに移動します。完了すると自動でS2へ進める状態になります。</div>`;
-  return gate("詳細開示には情報開示料 ¥10,000（非返金／成立時充当）","fee_disclosure","（DEMO）情報開示料の入金を確認＝決済スキップ",c.fee_disclosure);
+  return gate("応募には着手金 ¥50,000（税別・成立時の基本支援料に充当）","fee_disclosure","（DEMO）応募着手金の入金を確認＝決済スキップ",c.fee_disclosure);
 }
 async function payFee(cid){ try{
   const cfg=getCfg(); const {data:{session}}=await sb.auth.getSession();
@@ -380,7 +380,7 @@ async function startKyc(cid){ try{
 }catch(e){ alert("本人確認エラー："+e.message); } }
 async function handlePaidReturn(){
   const q=new URLSearchParams(location.search); const cid=q.get('paid')||q.get('verified'); if(!cid) return;
-  const kind=q.get('paid')?'情報開示料の決済':'本人確認(eKYC)';
+  const kind=q.get('paid')?'応募着手金の決済':'本人確認(eKYC)';
   showTab('sm'); await fillCasePicker();
   if([...sm_case.options].some(o=>o.value===cid)){ sm_case.value=cid; renderCase(); }
   history.replaceState({},'',location.pathname);
