@@ -589,6 +589,7 @@
       <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="出店規約の同意" value="同意する" required style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem"><a href="bridge-cycle-kokaido-kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">出店規約</a>を読み、内容に同意します。<span class="req">必須</span></label></div>
       <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="実績掲載の承諾" value="承諾する" style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem">出店の様子・実績（写真・売上等の数字）を、運営の紹介（SNS・ウェブサイト）に使用してもかまいません。<span style="display:block;color:var(--muted);font-size:.85em">（任意。屋号の表示有無は掲載前に確認します。後からの変更も可能です）</span></label></div>
       <button type="submit" class="btn">確認して申し込む（この後、カードでお支払い）</button>
+      <p id="sendErr" style="display:none;color:#bf4429;font-weight:700;font-size:.9rem;margin-top:10px"></p>
       <p class="form-note" style="margin-top:8px">※ 送信後、<b>そのままカードでのお支払いにお進みいただけます。</b>お支払いの完了をもって予約確定です。<b>カード番号はこのサイトに保存されません。</b></p>
       <p class="form-note">※ <b>確定はお支払いの完了順</b>です（お申し込みの順ではありません）。同じ日に複数のお申し込みがあった場合、先にお支払いが完了した方を優先します。お支払いが完了するまで会場は確保されません。</p>
       <p class="form-note">※ 裸火・ガスを使用する出店は、安全・保険上の条件の確認と、別途の費用をご案内する場合があります。詳しくは<a href="bridge-cycle-kokaido-kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">出店規約</a>をご確認ください。</p>
@@ -702,6 +703,39 @@
         else if(/土日/.test(sv))             { code = /終日/.test(sv) ? "we-full" : "we-half"; }
         var base = next.value.split("?")[0];
         next.value = code ? (base + "?p=" + encodeURIComponent(code)) : base;
+      }
+
+      /* ---- 非同期送信（Formspree の AJAX 送信）----------------------------
+         _next によるリダイレクトは Formspree の有料機能のため、無料プランでは
+         効きません。ここでは fetch で送信し、遷移は自前で行います。
+         JavaScript が動かない環境では、この下の通常送信にそのまま落ちます。 */
+      if(window.fetch && window.FormData && next){
+        e.preventDefault();
+        var thanksUrl = next.value;
+        var fd = new FormData(form);
+        fd.delete("_next");                       // AJAX送信では不要
+        var btn = form.querySelector('button[type="submit"]');
+        var btnText = btn ? btn.textContent : "";
+        var sendErr = document.getElementById("sendErr");
+        function fail(msg){
+          if(btn){ btn.disabled = false; btn.textContent = btnText; }
+          if(sendErr){ sendErr.textContent = msg; sendErr.style.display = ""; }
+        }
+        if(btn){ btn.disabled = true; btn.textContent = "送信中…"; }
+        if(sendErr){ sendErr.style.display = "none"; }
+        fetch(form.action, {
+          method: "POST",
+          body: fd,
+          headers: { "Accept": "application/json" }
+        }).then(function(res){
+          if(res.ok){ location.href = thanksUrl; return; }
+          return res.json().catch(function(){ return null; }).then(function(d){
+            var m = (d && d.errors && d.errors[0] && d.errors[0].message) ? d.errors[0].message : ("送信できませんでした（" + res.status + "）");
+            fail("送信できませんでした：" + m + "　お手数ですがLINEからご連絡ください。");
+          });
+        }).catch(function(){
+          fail("送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。解決しない場合はLINEからご連絡ください。");
+        });
       }
     }, true);
   }
