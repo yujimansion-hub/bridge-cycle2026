@@ -117,6 +117,10 @@
 <style>
   .vfind-kc{font-size:.84rem;margin-top:6px;padding:6px 10px;border-radius:8px;background:rgba(47,111,106,.08);border-left:3px solid var(--brand);line-height:1.6}
   .vfind-kc b{font-weight:700}
+  .vfind-closed{background:rgba(191,68,41,.07);border:1px solid rgba(191,68,41,.3);border-left:4px solid var(--accent);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:.92rem;line-height:1.8}
+  .vfind-closed b{color:var(--accent)}
+  .vfind-closed-sub{color:var(--muted);font-size:.9em}
+  .vfind-closed a{color:var(--brand);font-weight:700}
   @media(max-width:760px){.uriba-types{grid-template-columns:1fr!important}}
 </style>
 </head>
@@ -388,6 +392,13 @@
        meta:"飲食テイクアウト向け／昼・夜の区画制／電源・水道あり／年中出店可",
        kitchencar:"可（進入・駐車OK／テント含め2店舗まで）※電気調理は可・ガス式は要相談",
        price:"平日1,500円／区画〜・土日2,500円／区画〜", url:"uriba-kokaido.html",
+       // closed: 出店を受け付けない日（YYYY-MM-DD: 理由の名詞）。会場ページの
+       //         BLOCKED_DATES と必ず同じ日付を入れること。
+       closed:{
+         "2026-08-06":"びわ湖大花火大会",
+         "2026-10-10":"大津祭（宵宮）",
+         "2026-10-11":"大津祭（本祭）"
+       },
        open:{wdays:[0,1,2,3,4,5,6], holiday:true}},
       {name:"銀工房", area:"大津市北比良（JR比良駅すぐ）",
        meta:"飲食テイクアウト向け／スペース2か所・砂利敷き",
@@ -416,10 +427,19 @@
     function iso(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());}
     function parse(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
     function isHoliday(d){return HOLIDAYS.has(iso(d));}
-    function isOpen(v,d){
+    function baseOpen(v,d){
       if(v.open.wdays.indexOf(d.getDay())>=0) return true;
       if(v.open.holiday && isHoliday(d)) return true;
       return false;
+    }
+    function closedWhy(v,d){return (v.closed && v.closed[iso(d)]) || null;}
+    function isOpen(v,d){
+      if(closedWhy(v,d)) return false;
+      return baseOpen(v,d);
+    }
+    // 本来なら出店できる曜日だが、休止日に当たっている会場を返す
+    function closedOn(d){
+      return VENUES.filter(function(v){return closedWhy(v,d) && baseOpen(v,d);});
     }
     function venuesOn(d){return VENUES.filter(function(v){return isOpen(v,d);});}
     function fmt(d){return (d.getMonth()+1)+"月"+d.getDate()+"日（"+WD[d.getDay()]+"）";}
@@ -431,11 +451,15 @@
       var hol=isHoliday(d);
       selEl.innerHTML='選んだ日：<b>'+fmt(d)+(hol?' ・祝日':'')+'</b>';
       var list=venuesOn(d);
+      var shut=closedOn(d);
+      var shutHtml=shut.length? '<div class="vfind-closed">'+shut.map(function(v){
+        return '<b>'+v.name+'</b>は、この日は'+closedWhy(v,d)+'のため、お申し込みを受け付けていません。';
+      }).join('<br>')+'<br><span class="vfind-closed-sub">別の日をお選びいただくか、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEでご相談</a>ください。</span></div>' : '';
       if(list.length===0){
-        resEl.innerHTML='<div class="vfind-empty">この日に出店できる会場は、まだありません。<br>会場は土・日・祝が中心です。下の「出店できる日」から近い日を選ぶか、気になる日は <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEでご相談</a> ください。</div>';
+        resEl.innerHTML = shutHtml || '<div class="vfind-empty">この日に出店できる会場は、まだありません。<br>会場は土・日・祝が中心です。下の「出店できる日」から近い日を選ぶか、気になる日は <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEでご相談</a> ください。</div>';
         return;
       }
-      resEl.innerHTML=list.map(function(v){
+      resEl.innerHTML=shutHtml+list.map(function(v){
         return '<div class="vfind-card">'+
           '<div class="vfind-name">'+v.name+'<span class="vfind-area">'+v.area+'</span></div>'+
           '<div class="vfind-meta">'+v.meta+'</div>'+
