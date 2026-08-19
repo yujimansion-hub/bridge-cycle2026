@@ -85,8 +85,8 @@
       </div>
 
       <div id="payManual">
-        <h2>お支払いのご案内をお送りします</h2>
-        <p style="margin:0;font-size:.95rem">ご選択のプランは、空き状況の確認が必要なため、運営より個別にお支払いのご案内（決済リンク）をお送りします。<b>お手続きはまだ完了していません。</b>ご連絡をお待ちください。</p>
+        <h2 id="manualTitle">お支払いのご案内をお送りします</h2>
+        <p id="manualBody" style="margin:0;font-size:.95rem">ご選択のプランは、空き状況の確認が必要なため、運営より個別にお支払いのご案内（決済リンク）をお送りします。<b>お手続きはまだ完了していません。</b>ご連絡をお待ちください。</p>
         <p style="margin:16px 0 0"><a class="btn-line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで問い合わせる</a></p>
       </div>
 
@@ -162,14 +162,26 @@
   }
 
   /* 申込フォームから引き継いだプラン記号を読む（個人情報はURLに載せていません） */
-  var code = "";
+  var code = "", isKitchenCar = false;
   try{
     var q = new URLSearchParams(location.search);
     code = (q.get("p") || "").trim();
+    isKitchenCar = q.get("kc") === "1";
   }catch(e){ code = ""; }
 
   var plan = PLANS[code];
   var url  = linkFor(code);
+
+  /* キッチンカーは1日1台限り。前庭が台形（奥行3.6m）で2台分の設営・動線を確保できないため、
+     空き状況と車両寸法を運営が確認するまで決済に進ませません。二重予約と返金対応を防ぐ措置です。 */
+  if(isKitchenCar){
+    document.getElementById("manualTitle").textContent = "空き状況を確認してご連絡します";
+    document.getElementById("manualBody").innerHTML =
+      "キッチンカーでの出店は、前庭の形状（店頭側の間口 約7.2m／奥側 約3.6m／奥行 約3.6m の台形）により<b>1日1台限り</b>とさせていただいています。" +
+      "車両の寸法と設営位置を確認のうえ、運営より可否をご案内します。<b>この時点ではまだ予約は確定していません。</b>" +
+      "お受けできる場合のみ、お支払いのご案内をお送りします。";
+    plan = null; // 決済ボタンは表示しない
+  }
 
   if(plan && url){
     document.getElementById("planName").textContent   = plan.label;

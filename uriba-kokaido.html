@@ -554,6 +554,10 @@
           <option value="テント等で販売">テント等を持ち込んで販売</option>
           <option value="キッチンカー">キッチンカー（その場調理・テイクアウト）</option>
         </select>
+        <div id="kcNotice" style="display:none;background:var(--accent-soft);border-left:4px solid var(--accent);padding:11px 13px;border-radius:0 8px 8px 0;font-size:.88rem;margin-top:10px">
+          <b>キッチンカーは1日1台限りです。</b>前庭が台形（店頭側の間口 約7.2m／奥側 約3.6m／奥行 約3.6m）で、車両2台分の設営と動線を確保できないためです。<br>
+          そのため<b>この場でのお支払いには進みません。</b>送信後、運営が車両寸法と空き状況を確認し、可否をご案内します。確定できる場合のみ、お支払いのリンクをお送りします。
+        </div>
       </div>
       <div class="field"><label>お持ちの営業許可<span class="req">必須</span></label>
         <select name="営業許可" required>
@@ -710,6 +714,16 @@
     var el = document.querySelector('select[name="' + n + '"]');
     if(el) el.addEventListener("change", check);
   });
+
+  /* キッチンカーを選んだときだけ、1日1台の制限を明示します。
+     前庭が台形（奥行3.6m）で車両2台の設営・動線を確保できないためです。 */
+  var kcSel = document.querySelector('select[name="出店形態"]');
+  var kcBox = document.getElementById("kcNotice");
+  function kcToggle(){
+    if(!kcBox) return;
+    kcBox.style.display = (kcSel && /キッチンカー/.test(kcSel.value)) ? "" : "none";
+  }
+  if(kcSel){ kcSel.addEventListener("change", kcToggle); kcToggle(); }
   check(); // 復元入力・オートフィル対策として初期表示時にも判定
   if(form){
     form.addEventListener("submit", function(e){
@@ -746,8 +760,16 @@
         else if(/レギュラー/.test(sv))       { code = "regular"; }
         else if(/平日/.test(sv))             { code = /終日/.test(sv) ? "wd-full" : "wd-half"; }
         else if(/土日/.test(sv))             { code = /終日/.test(sv) ? "we-full" : "we-half"; }
+        /* キッチンカーは1日1台限りのため、その場では決済に進ませません。
+           運営が車両寸法と空き状況を確認してから個別にご案内します。 */
+        var kc = form.querySelector('select[name="出店形態"]');
+        var isKC = kc && /キッチンカー/.test(kc.value);
+
         var base = next.value.split("?")[0];
-        next.value = code ? (base + "?p=" + encodeURIComponent(code)) : base;
+        var q = [];
+        if(code) q.push("p=" + encodeURIComponent(code));
+        if(isKC)  q.push("kc=1");
+        next.value = q.length ? (base + "?" + q.join("&")) : base;
       }
 
       /* ---- 非同期送信（Formspree の AJAX 送信）----------------------------
