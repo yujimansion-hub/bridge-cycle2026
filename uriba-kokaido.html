@@ -504,6 +504,46 @@
   </div>
 </section>
 
+<!-- ═══════════ 空き枠カレンダー ここから ═══════════ -->
+<section id="calendar">
+  <style>
+    .cal-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0 0}
+    @media(max-width:680px){.cal-wrap{grid-template-columns:1fr}}
+    .cal{background:var(--surface,#fff);border:1px solid var(--line,#cdd6d1);border-radius:14px;padding:14px 12px}
+    .cal h3{font-family:var(--serif,serif);font-size:1rem;text-align:center;margin:2px 0 10px;color:var(--brand-dark,#143d3a)}
+    .cal table{width:100%;border-collapse:collapse;table-layout:fixed}
+    .cal th{font-size:.72rem;color:var(--muted,#5f6f69);font-weight:500;padding:2px 0 6px}
+    .cal th.sat{color:#2f6f9f}.cal th.sun{color:#bf4429}
+    .cal td{padding:1px;vertical-align:top}
+    .cd{border-radius:8px;padding:3px 2px 4px;min-height:46px;text-align:center;background:var(--paper-2,#dfe5e2)}
+    .cd.off{background:transparent}
+    .cd .dnum{font-size:.76rem;font-weight:700;color:var(--ink,#15302e);line-height:1.3}
+    .cd.sat .dnum{color:#2f6f9f}.cd.sun .dnum{color:#bf4429}
+    .cd .slots{display:flex;gap:2px;justify-content:center;margin-top:2px}
+    .sl{flex:1;font-size:.6rem;line-height:1.5;border-radius:4px;font-weight:700;cursor:pointer;border:none;padding:0;font-family:inherit}
+    .sl.ok{background:var(--brand,#2f6f6a);color:#fff}
+    .sl.ok:hover{background:var(--brand-dark,#143d3a)}
+    .sl.no{background:#cdd6d1;color:#7c8a84;cursor:not-allowed}
+    .cd.dim{opacity:.32}
+    .cd.ng{background:var(--accent-soft,rgba(191,68,41,.08))}
+    .cal-legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:.8rem;color:var(--muted,#5f6f69);margin-top:14px}
+    .cal-legend i{display:inline-block;width:13px;height:13px;border-radius:4px;vertical-align:-2px;margin-right:5px}
+  </style>
+  <div class="wrap">
+    <p class="eyebrow">空き状況</p>
+    <h2>空いている枠を選んで、申し込む。</h2>
+    <p>昼の部（9:00〜15:00）・夜の部（15:00〜21:00）ごとの空き状況です。<b>空いている枠をタップすると、下のお申し込みフォームに日付と区画が入ります。</b>平日は1区画1,500円、土日は2,500円です。</p>
+    <div class="cal-wrap" id="calWrap"></div>
+    <div class="cal-legend">
+      <span><i style="background:var(--brand,#2f6f6a)"></i>空きあり</span>
+      <span><i style="background:#cdd6d1"></i>満枠</span>
+      <span><i style="background:var(--accent-soft,rgba(191,68,41,.08));border:1px solid var(--line,#cdd6d1)"></i>受付不可日</span>
+    </div>
+    <p class="note" style="text-align:center;margin-top:12px">※表示は運営が把握している時点の状況です。お支払いの完了順に確定するため、お申し込みの時点で埋まっている場合があります。</p>
+  </div>
+</section>
+<!-- ═══════════ 空き枠カレンダー ここまで ═══════════ -->
+
 <!-- CTA -->
 <section id="apply">
   <div class="wrap">
@@ -660,6 +700,11 @@
     }
   };
 
+  /* 空き枠カレンダーが同じルールを参照できるよう公開します。
+     設定はこのファイル内の1箇所（上の3つの変数）だけで完結させ、二重管理を避けます。 */
+  window.URIBA_RULES = { MIN_DATE: MIN_DATE, BLOCKED_DATES: BLOCKED_DATES, BLOCKED_SLOTS: BLOCKED_SLOTS };
+  try{ document.dispatchEvent(new CustomEvent("uriba:rules-ready")); }catch(e){}
+
   var input = document.getElementById("uriDate");
   var err   = document.getElementById("uriDateErr");
   var form  = document.getElementById("applyForm");
@@ -810,6 +855,108 @@
       }
     }, true);
   }
+})();
+</script>
+
+<script>
+/* ▼ 空き枠カレンダー：申込フォームと同じ BLOCKED_SLOTS / BLOCKED_DATES を参照して描画します ▼ */
+(function(){
+  var WRAP = document.getElementById("calWrap");
+  if(!WRAP) return;
+  var MONTHS = 2;          // 表示する月数
+  var WD = ["日","月","火","水","木","金","土"];
+
+  function pad(n){ return (n<10?"0":"") + n; }
+  function ymd(d){ return d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()); }
+
+  function build(rules){
+    var MIN = rules.MIN_DATE || "";
+    var BD  = rules.BLOCKED_DATES || {};
+    var BS  = rules.BLOCKED_SLOTS || {};
+    var today = new Date(); today.setHours(0,0,0,0);
+    var todayStr = ymd(today);
+    var start = (MIN > todayStr) ? MIN : todayStr;   // 受付開始日と今日の遅いほう
+    var sy = parseInt(start.slice(0,4),10), sm = parseInt(start.slice(5,7),10)-1;
+
+    var html = "";
+    for(var m=0; m<MONTHS; m++){
+      var first = new Date(sy, sm + m, 1);
+      var y = first.getFullYear(), mo = first.getMonth();
+      var last = new Date(y, mo+1, 0).getDate();
+      html += '<div class="cal"><h3>' + y + '年 ' + (mo+1) + '月</h3><table><thead><tr>';
+      for(var w=0; w<7; w++){
+        html += '<th class="' + (w===0?"sun":w===6?"sat":"") + '">' + WD[w] + '</th>';
+      }
+      html += '</tr></thead><tbody><tr>';
+      for(var b=0; b<first.getDay(); b++) html += '<td><div class="cd off"></div></td>';
+      for(var d=1; d<=last; d++){
+        var dt = new Date(y, mo, d);
+        var key = ymd(dt);
+        var dow = dt.getDay();
+        var weekend = (dow===0 || dow===6);
+        var cls = ["cd"];
+        if(dow===0) cls.push("sun"); else if(dow===6) cls.push("sat");
+
+        var cell;
+        if(key < start){                       // 受付開始前・過去
+          cls.push("dim");
+          cell = '<div class="dnum">' + d + '</div>';
+        }else if(Object.prototype.hasOwnProperty.call(BD, key)){   // 受付不可日
+          cls.push("ng");
+          cell = '<div class="dnum">' + d + '</div><div class="slots"><span class="sl no" style="flex:1">不可</span></div>';
+        }else{
+          var blocked = (BS[key] && BS[key].slots) ? BS[key].slots : [];
+          var allDayNG = blocked.indexOf("終日") !== -1;
+          var dayNG    = allDayNG || blocked.indexOf("昼") !== -1;
+          var nightNG  = allDayNG || blocked.indexOf("夜") !== -1;
+          cell = '<div class="dnum">' + d + '</div><div class="slots">'
+               + slotBtn(key, "昼", dayNG, weekend)
+               + slotBtn(key, "夜", nightNG, weekend)
+               + '</div>';
+        }
+        html += '<td><div class="' + cls.join(" ") + '">' + cell + '</div></td>';
+        if(dt.getDay() === 6 && d < last) html += '</tr><tr>';
+      }
+      html += '</tr></tbody></table></div>';
+    }
+    WRAP.innerHTML = html;
+  }
+
+  function slotBtn(key, label, ng, weekend){
+    if(ng) return '<span class="sl no">' + label + '</span>';
+    var price = weekend ? "2,500円" : "1,500円";
+    return '<button type="button" class="sl ok" data-d="' + key + '" data-s="' + label + '" '
+         + 'title="' + label + 'の部（' + price + '／区画）に申し込む">' + label + '</button>';
+  }
+
+  /* 空き枠をタップしたら、申込フォームの日付と区画を埋めて該当位置へ移動します */
+  WRAP.addEventListener("click", function(e){
+    var btn = e.target.closest ? e.target.closest("button.sl.ok") : null;
+    if(!btn) return;
+    var d = btn.getAttribute("data-d"), s = btn.getAttribute("data-s");
+    var input = document.getElementById("uriDate");
+    if(input){
+      input.value = d;
+      input.dispatchEvent(new Event("input",  {bubbles:true}));
+      input.dispatchEvent(new Event("change", {bubbles:true}));
+    }
+    var sel = document.querySelector('select[name="希望区画"]');
+    if(sel){
+      var dow = new Date(d.slice(0,4), parseInt(d.slice(5,7),10)-1, d.slice(8,10)).getDay();
+      var we  = (dow===0 || dow===6);
+      for(var i=0;i<sel.options.length;i++){
+        var v = sel.options[i].value;
+        if(!v) continue;
+        var isWE = v.indexOf("土日") === 0;
+        if(isWE === we && v.indexOf(s + "の部") !== -1){ sel.value = v; sel.dispatchEvent(new Event("change",{bubbles:true})); break; }
+      }
+    }
+    var target = document.getElementById("eligGate") || document.getElementById("apply");
+    if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+
+  if(window.URIBA_RULES){ build(window.URIBA_RULES); }
+  else{ document.addEventListener("uriba:rules-ready", function(){ build(window.URIBA_RULES || {}); }); }
 })();
 </script>
 </body>
