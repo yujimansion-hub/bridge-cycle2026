@@ -640,6 +640,18 @@
   // 受付開始日（YYYY-MM-DD）: これより前の出店日は選べません。変更はこの1行だけで済みます。
   var MIN_DATE = "2026-09-01";
   var MIN_DATE_MSG = "お申し込みは2026年9月1日以降の出店日が対象です。9月1日以降の日付をお選びください。";
+
+  /* 満枠になった「日付 × 区画」をブロック。
+     slots に "昼" "夜" "終日" のいずれかを入れると、その区画を含む申し込みを止めます。
+     「終日」は昼と夜の両方を占有するため、昼または夜が埋まっている日は自動的に選べません。
+     予約が埋まったら、ここに1行追加するだけで運用できます。 */
+  var BLOCKED_SLOTS = {
+    "2026-09-01": {
+      slots: ["昼"],
+      message: "9月1日の昼の部（9:00〜15:00）は、すでにご予約で埋まっています。同日は夜の部（15:00〜21:00）のみお申し込みいただけます。"
+    }
+  };
+
   var input = document.getElementById("uriDate");
   var err   = document.getElementById("uriDateErr");
   var form  = document.getElementById("applyForm");
@@ -658,13 +670,46 @@
       show(BLOCKED_DATES[v]);
       return false;
     }
+    var slotMsg = blockedSlotMessage(v);
+    if(slotMsg){
+      input.setCustomValidity(slotMsg); // ブラウザ標準の送信ブロックも作動
+      show(slotMsg);
+      return false;
+    }
     input.setCustomValidity("");
     clear();
     return true;
   }
+
+  /* 選択中の「日付 × 区画（＋商品プラン）」が満枠かどうかを判定します。
+     満枠なら表示するメッセージを、問題なければ空文字を返します。 */
+  function blockedSlotMessage(v){
+    var rule = v && Object.prototype.hasOwnProperty.call(BLOCKED_SLOTS, v) ? BLOCKED_SLOTS[v] : null;
+    if(!rule) return "";
+    var slotSel = document.querySelector('select[name="希望区画"]');
+    var prodSel = document.querySelector('select[name="商品プラン"]');
+    var sv = slotSel ? slotSel.value : "";
+    var pv = prodSel ? prodSel.value : "";
+    if(!sv && !pv) return "";
+    // 販売データパック・販売実証パックは終日利用のため、終日と同じ扱いにします。
+    var isAllDay = /終日/.test(sv) || /パック/.test(pv);
+    var wantsDay   = isAllDay || /昼の部/.test(sv);
+    var wantsNight = isAllDay || /夜の部/.test(sv);
+    var blocked = rule.slots || [];
+    var hit = (blocked.indexOf("終日") !== -1 && (wantsDay || wantsNight))
+           || (blocked.indexOf("昼") !== -1 && wantsDay)
+           || (blocked.indexOf("夜") !== -1 && wantsNight);
+    return hit ? rule.message : "";
+  }
+
   if(!input.getAttribute("min")) input.setAttribute("min", MIN_DATE); // HTML側の指定漏れへの保険
   input.addEventListener("input", check);
   input.addEventListener("change", check);
+  // 区画・商品プランを変えたときも、その場で満枠判定をやり直します。
+  ["希望区画","商品プラン"].forEach(function(n){
+    var el = document.querySelector('select[name="' + n + '"]');
+    if(el) el.addEventListener("change", check);
+  });
   check(); // 復元入力・オートフィル対策として初期表示時にも判定
   if(form){
     form.addEventListener("submit", function(e){
