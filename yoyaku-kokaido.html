@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>事前注文・取り置き｜旧大津公会堂 前庭（びわ湖浜大津）</title>
+<meta name="description" content="びわ湖浜大津・旧大津公会堂の前庭に出店するお店に、事前に注文して取り置きできます。お支払いは当日、店頭で。受取時間を選んで、待たずに受け取れます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15302e;--paper:#e9edeb;--paper-2:#dfe5e2;--surface:#fff;--line:#cdd6d1;
+    --brand:#2f6f6a;--brand-dark:#143d3a;--brand-deep:#143d3a;--brand-tint:rgba(47,111,106,.08);
+    --accent:#bf4429;--accent-dark:#9e3722;--accent-soft:rgba(191,68,41,.08);
+    --muted:#5f6f69;
+    --sans:"Noto Sans JP",system-ui,sans-serif;--serif:"Shippori Mincho",serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.85;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  header{background:var(--brand-dark);color:#fff;padding:16px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  header b{font-family:var(--serif);font-size:1rem}
+  header a{color:#cfe0dd;text-decoration:none;font-size:.82rem}
+  main{padding:30px 0 60px}
+  h1{font-family:var(--serif);font-size:1.6rem;line-height:1.5;margin:0 0 8px}
+  .lead{color:var(--muted);font-size:.95rem;margin:0 0 4px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 18px;margin-bottom:16px}
+  h2{font-family:var(--serif);font-size:1.1rem;margin:0 0 10px;color:var(--brand-dark)}
+  h3{font-family:var(--serif);font-size:1.05rem;margin:0 0 2px}
+  .steps{display:flex;gap:8px;margin:0;padding:0;list-style:none}
+  .steps li{flex:1;text-align:center;font-size:.76rem;color:var(--muted);border-top:3px solid var(--brand);padding-top:8px}
+  label{display:block;font-weight:700;font-size:.9rem;margin:14px 0 5px}
+  select,input[type=text],input[type=tel],input[type=email],textarea{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit;background:#fff;color:var(--ink)}
+  textarea{min-height:78px;resize:vertical}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-family:var(--serif);font-weight:700;padding:14px 30px;border-radius:999px;border:none;cursor:pointer;font-size:1.02rem;box-shadow:0 6px 18px rgba(191,68,41,.28)}
+  .btn:hover{background:var(--accent-dark)}
+  .btn[disabled]{background:#b9c3bd;box-shadow:none;cursor:not-allowed}
+  .btn-line{display:inline-block;background:#06c755;color:#fff;text-decoration:none;font-weight:700;padding:11px 24px;border-radius:999px;font-size:.94rem}
+  .note{font-size:.85rem;color:var(--muted);margin-top:12px}
+  .callout{background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 14px;border-radius:0 8px 8px 0;font-size:.9rem;margin-top:14px}
+  .tint{background:var(--brand-tint);border-left:4px solid var(--brand);padding:12px 14px;border-radius:0 8px 8px 0;font-size:.9rem;margin-top:14px}
+  .shop{border:1px solid var(--line);border-radius:12px;padding:16px 14px;margin-top:14px;background:#fff}
+  .shop .meta{font-size:.85rem;color:var(--muted);margin:2px 0 10px}
+  .item{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+  .item:first-of-type{border-top:none}
+  .item .nm{flex:1;min-width:0}
+  .item .nm b{display:block;font-size:.95rem;font-weight:700}
+  .item .nm span{display:block;font-size:.8rem;color:var(--muted)}
+  .item .pr{font-family:var(--serif);font-weight:700;color:var(--brand-deep);white-space:nowrap}
+  .qty{display:flex;align-items:center;gap:4px}
+  .qty button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:1rem;font-weight:700;cursor:pointer;color:var(--brand-dark);line-height:1}
+  .qty button:hover{background:var(--brand-tint)}
+  .qty output{min-width:22px;text-align:center;font-weight:700}
+  .total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--brand);margin-top:12px;padding-top:10px;font-weight:700}
+  .total .amt{font-family:var(--serif);font-size:1.35rem;color:var(--brand-deep)}
+  .empty{text-align:center;color:var(--muted);padding:26px 10px}
+  footer{background:var(--brand-dark);color:#cfe0dd;font-size:.84rem;padding:22px 0;margin-top:10px}
+  footer a{color:#fff}
+  .hide{display:none}
+  .err{color:var(--accent);font-weight:700;font-size:.9rem;margin-top:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <b>BRIDGE CYCLE</b>
+    <a href="uriba-kokaido.html">会場について →</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="card">
+      <h1>待たずに受け取る。事前注文</h1>
+      <p class="lead">びわ湖浜大津・旧大津公会堂の前庭に出店するお店に、あらかじめ注文しておけます。<b>お支払いは当日、店頭で。</b>取り置きのご予約です。</p>
+      <ol class="steps" style="margin-top:18px">
+        <li>① 日付とお店<br>を選ぶ</li>
+        <li>② 商品と受取<br>時間を選ぶ</li>
+        <li>③ 当日、店頭で<br>受け取る</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>出店日とお店を選ぶ</h2>
+      <div id="dateField">
+        <label for="odate">出店日</label>
+        <select id="odate"><option value="">選択してください</option></select>
+      </div>
+      <div id="shopArea"></div>
+      <div id="noShop" class="empty">現在、事前注文を受け付けている出店はありません。<br>出店予定は<a href="uriba-kokaido.html#calendar" style="color:var(--brand);font-weight:700">会場ページ</a>でご確認いただけます。</div>
+    </div>
+
+    <div class="card hide" id="custCard">
+      <h2>受け取りとご連絡先</h2>
+      <label for="ptime">受取時間<span style="color:var(--accent)">（必須）</span></label>
+      <select id="ptime"><option value="">選択してください</option></select>
+      <label for="cname">お名前<span style="color:var(--accent)">（必須）</span></label>
+      <input type="text" id="cname" placeholder="例：大津 花子" autocomplete="name">
+      <label for="ctel">お電話番号<span style="color:var(--accent)">（必須）</span></label>
+      <input type="tel" id="ctel" placeholder="例：090-1234-5678" autocomplete="tel">
+      <p class="note" style="margin-top:6px">当日ご連絡がつくお電話番号をお願いします。天候などで出店が中止になった場合のご連絡に使います。</p>
+      <label for="cnote">ご要望（任意）</label>
+      <textarea id="cnote" placeholder="例：アレルギーの有無、受取が少し遅れそう など"></textarea>
+
+      <div class="callout">
+        <b>お支払いは当日、店頭でお願いします。</b>事前のお支払いは不要です。<br>
+        受取時間を大きく過ぎる場合や、キャンセルされる場合は、恐れ入りますがお早めにお店またはLINEへご連絡ください。商品の準備が無駄になってしまいます。
+      </div>
+
+      <p style="margin:18px 0 0"><button type="button" class="btn" id="submitBtn">この内容で注文する</button></p>
+      <p class="err hide" id="formErr"></p>
+      <p class="note">送信すると、ご注文内容がお店に直接届きます。お名前・お電話番号は、当日のお渡しとご連絡のためにお店と運営が使用します（<a href="privacy.html" style="color:var(--brand);font-weight:700">プライバシーポリシー</a>）。</p>
+    </div>
+
+    <div class="card hide" id="doneCard">
+      <h2 id="doneTitle">ご注文を受け付けました</h2>
+      <div id="doneBody"></div>
+      <div class="tint" style="margin-top:16px">
+        <b>この画面のスクリーンショットを残しておいてください。</b>ご注文の控えとしてお使いいただけます。
+      </div>
+      <p style="margin:16px 0 0"><a class="btn-line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで問い合わせる</a></p>
+    </div>
+
+    <div class="card">
+      <h2>ご利用にあたって</h2>
+      <ul style="margin:0;padding-left:1.2em;font-size:.93rem">
+        <li>お支払いは<b>当日、店頭</b>でお願いします。お支払い方法はお店により異なります。</li>
+        <li>お渡しは、旧大津公会堂の前庭（京阪「びわ湖浜大津駅」すぐ）です。</li>
+        <li>荒天等で出店が中止になる場合があります。中止の際は、ご登録のお電話番号へご連絡します。</li>
+        <li>商品の内容・数量は、仕入れの状況により変更になる場合があります。</li>
+        <li>ご注文の変更・キャンセルは、お早めにご連絡ください。</li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0 0 6px"><b style="color:#fff">BRIDGE CYCLE株式会社</b>（認定経営革新等支援機関）</p>
+    <p style="margin:0"><a href="uriba-kokaido.html">会場ページ</a>　｜　<a href="tokushoho.html">特定商取引法に基づく表記</a>　｜　<a href="privacy.html">プライバシーポリシー</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ══════════════════════════════════════════════════════════════
+     ▼▼▼ ここだけ編集してください（出店予定と商品の登録） ▼▼▼
+
+     出店日ごとに、その日出店するお店を配列で並べます。
+     日付を丸ごと消せば、その日は事前注文を受け付けません。
+
+     order の指定方法は2通りです。
+       { type:"form",   url:"https://formspree.io/f/xxxxxxx" }
+           … お店がFormspree等のフォーム受信先をお持ちの場合。
+             注文はそのままお店に届きます（推奨）。
+       { type:"mailto", to:"shop@example.com" }
+           … 受信先がない場合。お客様のメールアプリが立ち上がり、
+             注文内容が本文に入った状態でお店宛に送られます。
+
+     pickup は受取時間の選択肢です。省略すると hours から30分刻みで自動生成します。
+     ══════════════════════════════════════════════════════════════ */
+  var SHOPS = {
+    /* ── 記入例（このまま公開しても表示されません。コメントを外して使います）──
+    "2026-09-01": [
+      {
+        name: "Joe's Coffee",
+        intro: "自家焙煎のドリップコーヒーと焼き菓子。",
+        hours: "9:00〜15:00",
+        order: { type:"mailto", to:"joescoffee2025@example.com" },
+        items: [
+          { name:"ドリップコーヒー（ホット）", price:450 },
+          { name:"アイスコーヒー",             price:480 },
+          { name:"スコーン（プレーン）",       price:280, note:"数量限定" }
+        ]
+      }
+    ],
+    ──────────────────────────────────────────────────────── */
+  };
+  /* ▲▲▲ 編集ここまで ▲▲▲ */
+
+  var WD = ["日","月","火","水","木","金","土"];
+  var qs = function(id){ return document.getElementById(id); };
+  var dateSel = qs("odate"), shopArea = qs("shopArea"), noShop = qs("noShop");
+  var custCard = qs("custCard"), doneCard = qs("doneCard"), ptime = qs("ptime");
+  var state = { date:"", shop:null, qty:{} };
+
+  function yen(n){ return "¥" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  function label(key){
+    var p = key.split("-");
+    var d = new Date(+p[0], +p[1]-1, +p[2]);
+    return (+p[1]) + "月" + (+p[2]) + "日（" + WD[d.getDay()] + "）";
+  }
+
+  /* hours "9:00〜15:00" から30分刻みの受取時間をつくります（最後の30分は準備のため除外） */
+  function slots(shop){
+    if(shop.pickup && shop.pickup.length) return shop.pickup;
+    var m = String(shop.hours || "").match(/(\d{1,2}):(\d{2})\D+(\d{1,2}):(\d{2})/);
+    if(!m) return [];
+    var s = (+m[1])*60 + (+m[2]), e = (+m[3])*60 + (+m[4]) - 30, out = [];
+    for(var t = s + 30; t <= e; t += 30){
+      out.push(Math.floor(t/60) + ":" + (t%60 === 0 ? "00" : "30"));
+    }
+    return out;
+  }
+
+  /* 受付対象の日付（今日以降で、登録がある日）を新しい順ではなく近い順に並べます */
+  function init(){
+    var today = new Date(); today.setHours(0,0,0,0);
+    var keys = Object.keys(SHOPS).filter(function(k){
+      var p = k.split("-"); return new Date(+p[0], +p[1]-1, +p[2]) >= today && (SHOPS[k]||[]).length;
+    }).sort();
+    if(!keys.length){ qs("dateField").className = "hide"; return; }  // 受付中の日がなければ日付欄を隠し、案内文だけ残す
+    noShop.className = "empty hide";
+    keys.forEach(function(k){
+      var o = document.createElement("option"); o.value = k; o.textContent = label(k); dateSel.appendChild(o);
+    });
+  }
+
+  dateSel.addEventListener("change", function(){
+    state.date = dateSel.value; state.shop = null; state.qty = {};
+    custCard.className = "card hide"; doneCard.className = "card hide";
+    var list = SHOPS[state.date] || [];
+    if(!list.length){ shopArea.innerHTML = ""; return; }
+    var html = "";
+    list.forEach(function(sh, i){
+      html += '<div class="shop"><h3>' + esc(sh.name) + '</h3>'
+            + '<div class="meta">' + esc(sh.intro || "") + (sh.hours ? '　／　出店時間 ' + esc(sh.hours) : "") + '</div>';
+      (sh.items || []).forEach(function(it, j){
+        html += '<div class="item"><div class="nm"><b>' + esc(it.name) + '</b>'
+              + (it.note ? '<span>' + esc(it.note) + '</span>' : "") + '</div>'
+              + '<div class="pr">' + yen(it.price) + '</div>'
+              + '<div class="qty"><button type="button" data-s="' + i + '" data-i="' + j + '" data-d="-1">−</button>'
+              + '<output id="q' + i + '_' + j + '">0</output>'
+              + '<button type="button" data-s="' + i + '" data-i="' + j + '" data-d="1">＋</button></div></div>';
+      });
+      html += '<div class="total"><span>小計</span><span class="amt" id="sub' + i + '">¥0</span></div></div>';
+    });
+    shopArea.innerHTML = html;
+  });
+
+  shopArea.addEventListener("click", function(e){
+    var b = e.target.closest ? e.target.closest("button[data-s]") : null;
+    if(!b) return;
+    var si = +b.getAttribute("data-s"), ii = +b.getAttribute("data-i"), d = +b.getAttribute("data-d");
+    var list = SHOPS[state.date] || [], sh = list[si]; if(!sh) return;
+
+    /* 1回のご注文は1店舗までとします（受取時間と受け渡しが店ごとに異なるため） */
+    if(state.shop !== null && state.shop !== si){ state.qty = {}; resetAll(); }
+    state.shop = si;
+
+    var key = si + "_" + ii;
+    state.qty[key] = Math.max(0, Math.min(20, (state.qty[key] || 0) + d));
+    qs("q" + key).textContent = state.qty[key];
+
+    var sub = 0, any = false;
+    (sh.items || []).forEach(function(it, j){
+      var q = state.qty[si + "_" + j] || 0; sub += q * it.price; if(q) any = true;
+    });
+    qs("sub" + si).textContent = yen(sub);
+
+    if(any){
+      buildTimes(sh);
+      custCard.className = "card";
+    }else{
+      state.shop = null;
+      custCard.className = "card hide";
+    }
+  });
+
+  function resetAll(){
+    var list = SHOPS[state.date] || [];
+    list.forEach(function(sh, i){
+      (sh.items || []).forEach(function(it, j){ var o = qs("q" + i + "_" + j); if(o) o.textContent = "0"; });
+      var s = qs("sub" + i); if(s) s.textContent = "¥0";
+    });
+  }
+
+  function buildTimes(sh){
+    ptime.innerHTML = '<option value="">選択してください</option>';
+    slots(sh).forEach(function(t){
+      var o = document.createElement("option"); o.value = t; o.textContent = t + " ごろ"; ptime.appendChild(o);
+    });
+  }
+
+  function orderLines(){
+    var sh = (SHOPS[state.date] || [])[state.shop], lines = [], total = 0;
+    (sh.items || []).forEach(function(it, j){
+      var q = state.qty[state.shop + "_" + j] || 0;
+      if(q){ lines.push(it.name + " × " + q + "　" + yen(it.price * q)); total += it.price * q; }
+    });
+    return { shop: sh, lines: lines, total: total };
+  }
+
+  qs("submitBtn").addEventListener("click", function(){
+    var err = qs("formErr");
+    var name = qs("cname").value.trim(), tel = qs("ctel").value.trim(), t = ptime.value;
+    if(state.shop === null){ return fail("商品の数量をお選びください。"); }
+    if(!t)    return fail("受取時間をお選びください。");
+    if(!name) return fail("お名前をご入力ください。");
+    if(!tel)  return fail("お電話番号をご入力ください。");
+    err.className = "err hide";
+
+    var o = orderLines();
+    var body = [
+      "【事前注文】" + o.shop.name,
+      "",
+      "出店日：" + label(state.date),
+      "受取時間：" + t + " ごろ",
+      "お名前：" + name,
+      "お電話：" + tel,
+      "",
+      "ご注文内容",
+      o.lines.join("\n"),
+      "合計：" + yen(o.total) + "（当日店頭でお支払い）",
+      "",
+      "ご要望：" + (qs("cnote").value.trim() || "なし"),
+      "",
+      "※このご注文は、旧大津公会堂 前庭の事前注文ページから送信されました。"
+    ].join("\n");
+
+    var oc = o.shop.order || {};
+    var btn = qs("submitBtn");
+
+    if(oc.type === "form" && /^https:\/\//.test(oc.url || "")){
+      btn.disabled = true; btn.textContent = "送信中…";
+      var fd = new FormData();
+      fd.append("_subject", "【事前注文】" + label(state.date) + " " + t + "　" + name + " 様");
+      fd.append("出店日", label(state.date));
+      fd.append("受取時間", t);
+      fd.append("お名前", name);
+      fd.append("お電話", tel);
+      fd.append("ご注文", o.lines.join(" / "));
+      fd.append("合計", yen(o.total));
+      fd.append("ご要望", qs("cnote").value.trim() || "なし");
+      fetch(oc.url, { method:"POST", body:fd, headers:{ "Accept":"application/json" } })
+        .then(function(r){ if(r.ok){ done(o, t, name, tel, false); } else { throw new Error(r.status); } })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "この内容で注文する";
+          fail("送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。解決しない場合はLINEからご連絡ください。");
+        });
+    }else if(oc.type === "mailto" && oc.to){
+      location.href = "mailto:" + oc.to
+        + "?subject=" + encodeURIComponent("【事前注文】" + label(state.date) + " " + t + "　" + name + " 様")
+        + "&body=" + encodeURIComponent(body);
+      done(o, t, name, tel, true);
+    }else{
+      fail("このお店は現在、事前注文を受け付けていません。恐れ入りますがLINEからお問い合わせください。");
+    }
+
+    function fail(m){ err.textContent = m; err.className = "err"; err.scrollIntoView({behavior:"smooth",block:"center"}); }
+  });
+
+  function done(o, t, name, tel, isMail){
+    custCard.className = "card hide";
+    qs("doneTitle").textContent = isMail ? "メールの送信をお願いします" : "ご注文を受け付けました";
+    qs("doneBody").innerHTML =
+      (isMail ? '<p style="margin:0 0 12px">メールアプリが開きます。<b>そのまま送信してください。</b>送信が完了するまで、ご注文は成立していません。</p>' : "")
+      + '<p style="margin:0"><b>' + esc(o.shop.name) + '</b>／' + esc(label(state.date)) + '　' + esc(t) + ' ごろ お渡し</p>'
+      + '<div style="margin-top:10px;font-size:.95rem">' + o.lines.map(esc).join("<br>") + '</div>'
+      + '<div class="total"><span>合計（当日店頭でお支払い）</span><span class="amt">' + yen(o.total) + '</span></div>'
+      + '<p class="note">お名前：' + esc(name) + '／お電話：' + esc(tel) + '</p>';
+    doneCard.className = "card";
+    doneCard.scrollIntoView({ behavior:"smooth", block:"start" });
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
