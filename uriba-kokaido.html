@@ -523,6 +523,8 @@
     .sl{flex:1;font-size:.6rem;line-height:1.5;border-radius:4px;font-weight:700;cursor:pointer;border:none;padding:0;font-family:inherit}
     .sl.ok{background:var(--brand,#2f6f6a);color:#fff}
     .sl.ok:hover{background:var(--brand-dark,#143d3a)}
+    .sl.half{background:#e8b84b;color:#4a3a10}
+    .sl.half:hover{background:#d8a832}
     .sl.no{background:#cdd6d1;color:#7c8a84;cursor:not-allowed}
     .cd.dim{opacity:.32}
     .cd.ng{background:var(--accent-soft,rgba(191,68,41,.08))}
@@ -536,6 +538,7 @@
     <div class="cal-wrap" id="calWrap"></div>
     <div class="cal-legend">
       <span><i style="background:var(--brand,#2f6f6a)"></i>空きあり</span>
+      <span><i style="background:#e8b84b"></i>残り1区画（テント等のみ）</span>
       <span><i style="background:#cdd6d1"></i>満枠</span>
       <span><i style="background:var(--accent-soft,rgba(191,68,41,.08));border:1px solid var(--line,#cdd6d1)"></i>受付不可日</span>
     </div>
@@ -599,7 +602,7 @@
           <option value="キッチンカー">キッチンカー（その場調理・テイクアウト）</option>
         </select>
         <div id="kcNotice" style="display:none;background:var(--accent-soft);border-left:4px solid var(--accent);padding:11px 13px;border-radius:0 8px 8px 0;font-size:.88rem;margin-top:10px">
-          <b>キッチンカーは1日1台限りです。</b>前庭が台形（店頭側の間口 約7.2m／奥側 約3.6m／奥行 約3.6m）で、車両2台分の設営と動線を確保できないためです。<br>
+          <b>キッチンカーは、その時間帯の2区画すべてを使用します。</b>前庭が台形（店頭側の間口 約7.2m／奥側 約3.6m／奥行 約3.6m）で、車両2台分の設営と動線を確保できないためです。同じ時間帯に他の出店は入りません。<b>すでに1区画が埋まっている時間帯には、お申し込みいただけません。</b><br>
           そのため<b>この場でのお支払いには進みません。</b>送信後、運営が車両寸法と空き状況を確認し、可否をご案内します。確定できる場合のみ、お支払いのリンクをお送りします。
         </div>
       </div>
@@ -689,20 +692,40 @@
   var MIN_DATE = "2026-09-01";
   var MIN_DATE_MSG = "お申し込みは2026年9月1日以降の出店日が対象です。9月1日以降の日付をお選びください。";
 
-  /* 満枠になった「日付 × 区画」をブロック。
-     slots に "昼" "夜" "終日" のいずれかを入れると、その区画を含む申し込みを止めます。
-     「終日」は昼と夜の両方を占有するため、昼または夜が埋まっている日は自動的に選べません。
-     予約が埋まったら、ここに1行追加するだけで運用できます。 */
-  var BLOCKED_SLOTS = {
-    "2026-09-01": {
-      slots: ["昼"],
-      message: "9月1日の昼の部（9:00〜15:00）は、すでにご予約で埋まっています。同日は夜の部（15:00〜21:00）のみお申し込みいただけます。"
-    }
+  /* ══════════════════════════════════════════════════════════════
+     予約が入った枠の登録。1つの時間帯（昼／夜）には区画が2つあります。
+
+       "キッチンカー" … 車両1台で2区画を占有します。その時間帯は満枠になります。
+       1              … テント等が1区画を使用。残り1区画はテント等のみ申込可
+                        （キッチンカーは2区画必要なため申し込めません）。
+       2              … テント等が2区画を使用。その時間帯は満枠になります。
+
+     予約が確定したら、この表に1行足すだけで、申込フォームと
+     空き枠カレンダーの両方に反映されます。
+     ══════════════════════════════════════════════════════════════ */
+  var SLOT_USE = {
+    "2026-09-01": { "昼": "キッチンカー" }
   };
 
+  var CAPACITY = 2;   // 1時間帯あたりの区画数
+
+  /* 指定した日付・時間帯の残り区画数を返します（0〜2） */
+  function slotsLeft(dateKey, slot){
+    var day = SLOT_USE[dateKey];
+    var v = day ? day[slot] : undefined;
+    if(v === undefined || v === null) return CAPACITY;
+    if(v === "キッチンカー") return 0;
+    var used = parseInt(v, 10);
+    if(isNaN(used)) return CAPACITY;
+    return Math.max(0, CAPACITY - used);
+  }
+
   /* 空き枠カレンダーが同じルールを参照できるよう公開します。
-     設定はこのファイル内の1箇所（上の3つの変数）だけで完結させ、二重管理を避けます。 */
-  window.URIBA_RULES = { MIN_DATE: MIN_DATE, BLOCKED_DATES: BLOCKED_DATES, BLOCKED_SLOTS: BLOCKED_SLOTS };
+     設定はこのファイル内の1箇所（上の変数）だけで完結させ、二重管理を避けます。 */
+  window.URIBA_RULES = {
+    MIN_DATE: MIN_DATE, BLOCKED_DATES: BLOCKED_DATES,
+    SLOT_USE: SLOT_USE, CAPACITY: CAPACITY, slotsLeft: slotsLeft
+  };
   try{ document.dispatchEvent(new CustomEvent("uriba:rules-ready")); }catch(e){}
 
   var input = document.getElementById("uriDate");
@@ -734,32 +757,51 @@
     return true;
   }
 
-  /* 選択中の「日付 × 区画（＋商品プラン）」が満枠かどうかを判定します。
-     満枠なら表示するメッセージを、問題なければ空文字を返します。 */
+  /* 選択中の「日付 × 時間帯 × 出店形態」で申し込めるかを判定します。
+     申し込めない場合は表示するメッセージを、問題なければ空文字を返します。
+
+     キッチンカーは2区画を占有するため、残り2区画の時間帯にしか入れません。
+     テント等は1区画なので、残り1区画でも申し込めます。 */
   function blockedSlotMessage(v){
-    var rule = v && Object.prototype.hasOwnProperty.call(BLOCKED_SLOTS, v) ? BLOCKED_SLOTS[v] : null;
-    if(!rule) return "";
+    if(!v) return "";
     var slotSel = document.querySelector('select[name="希望区画"]');
     var prodSel = document.querySelector('select[name="商品プラン"]');
+    var kcSel   = document.querySelector('select[name="出店形態"]');
     var sv = slotSel ? slotSel.value : "";
     var pv = prodSel ? prodSel.value : "";
     if(!sv && !pv) return "";
+
     // 販売データパック・販売実証パックは終日利用のため、終日と同じ扱いにします。
     var isAllDay = /終日/.test(sv) || /パック/.test(pv);
-    var wantsDay   = isAllDay || /昼の部/.test(sv);
-    var wantsNight = isAllDay || /夜の部/.test(sv);
-    var blocked = rule.slots || [];
-    var hit = (blocked.indexOf("終日") !== -1 && (wantsDay || wantsNight))
-           || (blocked.indexOf("昼") !== -1 && wantsDay)
-           || (blocked.indexOf("夜") !== -1 && wantsNight);
-    return hit ? rule.message : "";
+    var want = [];
+    if(isAllDay || /昼の部/.test(sv)) want.push("昼");
+    if(isAllDay || /夜の部/.test(sv)) want.push("夜");
+    if(!want.length) return "";
+
+    var isKC  = kcSel && /キッチンカー/.test(kcSel.value);
+    var need  = isKC ? 2 : 1;               // 必要な区画数
+    var dateJP = (+v.slice(5,7)) + "月" + (+v.slice(8,10)) + "日";
+
+    for(var i=0; i<want.length; i++){
+      var slot = want[i];
+      var left = slotsLeft(v, slot);
+      if(left >= need) continue;
+      var band = slot === "昼" ? "昼の部（9:00〜15:00）" : "夜の部（15:00〜21:00）";
+      if(left === 0){
+        return dateJP + "の" + band + "は、すでにご予約で埋まっています。空き枠カレンダーから別の枠をお選びください。";
+      }
+      // left === 1 かつ キッチンカー
+      return dateJP + "の" + band + "は、残り1区画です。キッチンカーは設営に2区画分の広さが必要なため、この枠にはお申し込みいただけません。"
+           + "テント等での出店であればお申し込みいただけます。空き枠カレンダーで「2区画とも空き」の枠もご確認ください。";
+    }
+    return "";
   }
 
   if(!input.getAttribute("min")) input.setAttribute("min", MIN_DATE); // HTML側の指定漏れへの保険
   input.addEventListener("input", check);
   input.addEventListener("change", check);
   // 区画・商品プランを変えたときも、その場で満枠判定をやり直します。
-  ["希望区画","商品プラン"].forEach(function(n){
+  ["希望区画","商品プラン","出店形態"].forEach(function(n){
     var el = document.querySelector('select[name="' + n + '"]');
     if(el) el.addEventListener("change", check);
   });
@@ -872,7 +914,7 @@
   function build(rules){
     var MIN = rules.MIN_DATE || "";
     var BD  = rules.BLOCKED_DATES || {};
-    var BS  = rules.BLOCKED_SLOTS || {};
+    var left = rules.slotsLeft || function(){ return 2; };   // 残り区画数（0〜2）
     var today = new Date(); today.setHours(0,0,0,0);
     var todayStr = ymd(today);
     var start = (MIN > todayStr) ? MIN : todayStr;   // 受付開始日と今日の遅いほう
@@ -905,13 +947,9 @@
           cls.push("ng");
           cell = '<div class="dnum">' + d + '</div><div class="slots"><span class="sl no" style="flex:1">不可</span></div>';
         }else{
-          var blocked = (BS[key] && BS[key].slots) ? BS[key].slots : [];
-          var allDayNG = blocked.indexOf("終日") !== -1;
-          var dayNG    = allDayNG || blocked.indexOf("昼") !== -1;
-          var nightNG  = allDayNG || blocked.indexOf("夜") !== -1;
           cell = '<div class="dnum">' + d + '</div><div class="slots">'
-               + slotBtn(key, "昼", dayNG, weekend)
-               + slotBtn(key, "夜", nightNG, weekend)
+               + slotBtn(key, "昼", left(key, "昼"), weekend)
+               + slotBtn(key, "夜", left(key, "夜"), weekend)
                + '</div>';
         }
         html += '<td><div class="' + cls.join(" ") + '">' + cell + '</div></td>';
@@ -922,16 +960,19 @@
     WRAP.innerHTML = html;
   }
 
-  function slotBtn(key, label, ng, weekend){
-    if(ng) return '<span class="sl no">' + label + '</span>';
+  function slotBtn(key, label, n, weekend){
+    if(n <= 0) return '<span class="sl no">' + label + '</span>';
     var price = weekend ? "2,500円" : "1,500円";
-    return '<button type="button" class="sl ok" data-d="' + key + '" data-s="' + label + '" '
-         + 'title="' + label + 'の部（' + price + '／区画）に申し込む">' + label + '</button>';
+    var half  = (n === 1);
+    var tip   = label + 'の部（' + price + '／区画）'
+              + (half ? '／残り1区画・テント等のみ（キッチンカーは2区画必要です）' : '／2区画とも空き');
+    return '<button type="button" class="sl ' + (half ? "half" : "ok") + '" data-d="' + key + '" data-s="' + label + '" '
+         + 'title="' + tip + '">' + label + '</button>';
   }
 
   /* 空き枠をタップしたら、申込フォームの日付と区画を埋めて該当位置へ移動します */
   WRAP.addEventListener("click", function(e){
-    var btn = e.target.closest ? e.target.closest("button.sl.ok") : null;
+    var btn = e.target.closest ? e.target.closest("button.sl.ok, button.sl.half") : null;
     if(!btn) return;
     var d = btn.getAttribute("data-d"), s = btn.getAttribute("data-s");
     var input = document.getElementById("uriDate");
