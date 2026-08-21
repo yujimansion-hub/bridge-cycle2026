@@ -65,6 +65,39 @@
     main{padding:0}
   }
 </style>
+<!-- ▼ Meta Pixel（広告計測）。FB_PIXEL_ID が空の間は何も読み込みません。
+     uriba-kokaido.html と同じIDを "" に入れてください。
+     このページはStripe決済完了後のリダイレクト先なので、?p=金額 を Purchase の金額として計測します。
+     ?sid=（StripeのCheckoutセッションID）で同じ決済の二重計上を防ぎます。 -->
+<script>
+window.FB_PIXEL_ID = "";
+(function(){
+  if(!window.FB_PIXEL_ID) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', window.FB_PIXEL_ID);
+  fbq('track', 'PageView');
+  try{
+    var q = new URLSearchParams(location.search);
+    var p = parseInt(q.get('p'), 10);
+    var sid = q.get('sid') || '';
+    if(p > 0){
+      /* 再読み込み・ブックマーク再訪での二重計上を防ぐガード。
+         sid（決済ごとに一意）があればそれを、なければ金額+日付をキーにします。 */
+      var key = 'fbq_purchase_' + (sid || (p + '_' + new Date().toDateString()));
+      var done = false;
+      try{ done = !!sessionStorage.getItem(key); }catch(e){}
+      if(!done){
+        fbq('track', 'Purchase', {value:p, currency:'JPY'});
+        try{ sessionStorage.setItem(key, '1'); }catch(e){}
+      }
+    }
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
 

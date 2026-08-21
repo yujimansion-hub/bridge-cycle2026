@@ -52,6 +52,21 @@
   footer a{color:#fff}
   .hide{display:none}
 </style>
+<!-- ▼ Meta Pixel（広告計測）。FB_PIXEL_ID が空の間は何も読み込みません。
+     uriba-kokaido.html と同じIDを "" に入れてください。 -->
+<script>
+window.FB_PIXEL_ID = "";
+(function(){
+  if(!window.FB_PIXEL_ID) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', window.FB_PIXEL_ID);
+  fbq('track', 'PageView');
+})();
+</script>
 </head>
 <body>
 
@@ -155,10 +170,22 @@
   };
 
   function yen(n){ return "¥" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  /* 広告の流入元（utm_◯◯）をStripeの決済リンクへ引き継ぎます。
+     Stripeは決済リンクURLに付いたUTMを、決済完了後のリダイレクトURLへ自動で引き継ぐため、
+     広告→申込→決済完了までを同じutm_contentで突き合わせられます。 */
+  function withUtm(u){
+    try{
+      var cur = new URLSearchParams(location.search);
+      var qs = [];
+      cur.forEach(function(v,k){ if(/^utm_/i.test(k)) qs.push(encodeURIComponent(k)+"="+encodeURIComponent(v)); });
+      if(!qs.length) return u;
+      return u + (u.indexOf("?") >= 0 ? "&" : "?") + qs.join("&");
+    }catch(e){ return u; }
+  }
   function linkFor(code){
     var p = PLANS[code]; if(!p) return "";
     var u = PAY_LINKS[p.key];
-    return (typeof u === "string" && /^https:\/\//.test(u)) ? u : "";
+    return (typeof u === "string" && /^https:\/\//.test(u)) ? withUtm(u) : "";
   }
 
   /* 申込フォームから引き継いだプラン記号を読む（個人情報はURLに載せていません） */
@@ -189,6 +216,7 @@
     document.getElementById("payBtn").setAttribute("href", url);
     document.getElementById("payReady").className     = "";
     document.getElementById("payManual").className    = "hide";
+    try{ if(window.fbq) fbq('track','InitiateCheckout',{value:plan.amount, currency:'JPY'}); }catch(e){}
   }
   /* url が未設定 / code が不明 の場合は、初期状態のまま（LINE案内）を表示します */
 

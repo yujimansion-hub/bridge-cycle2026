@@ -106,6 +106,23 @@
   footer a{color:#9cd3cc}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
+<!-- ▼ Meta Pixel（広告計測）。FB_PIXEL_ID が空の間は何も読み込まず、ページの動作に影響しません。
+     Metaイベントマネージャでデータセット（ピクセル）を作成したら、発行された15〜16桁のIDを
+     下の "" の中に入れてください。同じIDを thanks-kokaido.html / kanryo-kokaido.html にも入れます。 -->
+<script>
+window.FB_PIXEL_ID = "";
+(function(){
+  if(!window.FB_PIXEL_ID) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', window.FB_PIXEL_ID);
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {content_name:'旧大津公会堂 会場ページ', content_category:'venue'});
+})();
+</script>
 </head>
 <body>
 
@@ -976,6 +993,13 @@
         var q = [];
         if(code) q.push("p=" + encodeURIComponent(code));
         if(isKC)  q.push("kc=1");
+        /* 広告の流入元（utm_◯◯）を支払いページまで引き継ぎます。
+           支払いページはこれをStripeの決済リンクにも付け、Stripeは決済完了後の
+           リダイレクトURLへ自動で引き継ぐため、広告→決済完了まで1本の線で追えます。 */
+        try{
+          var cur = new URLSearchParams(location.search);
+          cur.forEach(function(v,k){ if(/^utm_/i.test(k)) q.push(encodeURIComponent(k)+"="+encodeURIComponent(v)); });
+        }catch(e){}
         next.value = q.length ? (base + "?" + q.join("&")) : base;
       }
 
@@ -1002,7 +1026,10 @@
           body: fd,
           headers: { "Accept": "application/json" }
         }).then(function(res){
-          if(res.ok){ location.href = thanksUrl; return; }
+          if(res.ok){
+            try{ if(window.fbq) fbq('track','Lead'); }catch(e){}  /* 申込送信＝Lead（決済完了=Purchaseとは別に数えます） */
+            location.href = thanksUrl; return;
+          }
           return res.json().catch(function(){ return null; }).then(function(d){
             var m = (d && d.errors && d.errors[0] && d.errors[0].message) ? d.errors[0].message : ("送信できませんでした（" + res.status + "）");
             fail("送信できませんでした：" + m + "　お手数ですがLINEからご連絡ください。");
