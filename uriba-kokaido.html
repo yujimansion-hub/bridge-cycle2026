@@ -612,6 +612,21 @@
           <b>キッチンカーは、その時間帯の2区画すべてを使用します。</b>前庭が台形（店頭側の間口 約7.2m／奥側 約3.6m／奥行 約3.6m）で、車両2台分の設営と動線を確保できないためです。同じ時間帯に他の出店は入りません。<b>すでに1区画が埋まっている時間帯には、お申し込みいただけません。</b><br>
           そのため<b>この場でのお支払いには進みません。</b>送信後、運営が車両寸法と空き状況を確認し、可否をご案内します。確定できる場合のみ、お支払いのリンクをお送りします。
         </div>
+        <div id="kcSize" style="display:none;margin-top:12px">
+          <label style="display:block">車両の大きさ<span class="req">必須</span></label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <div style="flex:1 1 140px">
+              <input type="number" name="車両の全長（縦・m）" id="kcLen" step="0.1" min="1" max="15" placeholder="例：4.7" inputmode="decimal">
+              <div class="hint" style="margin-top:4px">全長（縦・前後方向）m</div>
+            </div>
+            <div style="flex:1 1 140px">
+              <input type="number" name="車両の全幅（横・m）" id="kcWid" step="0.1" min="1" max="15" placeholder="例：1.9" inputmode="decimal">
+              <div class="hint" style="margin-top:4px">全幅（横・左右方向）m</div>
+            </div>
+          </div>
+          <div class="hint" style="margin-top:8px">※<b>ミラー・ステップ・オーニング（日よけ）など、営業時に外へはみ出す部分を含めた寸法</b>をご記入ください。前庭は台形（店頭側の間口 約7.2m／奥側 約3.6m／奥行 約3.6m）で、この寸法が<b>実際に使える広さ</b>です。</div>
+          <div id="kcSizeWarn" style="display:none;background:rgba(191,68,41,.07);border:1px solid var(--accent,#bf4429);border-radius:8px;padding:10px 12px;font-size:.86rem;margin-top:8px"></div>
+        </div>
       </div>
       <div class="field"><label>お持ちの営業許可<span class="req">必須</span></label>
         <select name="営業許可" required>
@@ -830,13 +845,67 @@
 
   /* キッチンカーを選んだときだけ、1日1台の制限を明示します。
      前庭が台形（奥行3.6m）で車両2台の設営・動線を確保できないためです。 */
-  var kcSel = document.querySelector('select[name="出店形態"]');
-  var kcBox = document.getElementById("kcNotice");
-  function kcToggle(){
-    if(!kcBox) return;
-    kcBox.style.display = (kcSel && /キッチンカー/.test(kcSel.value)) ? "" : "none";
+  var kcSel  = document.querySelector('select[name="出店形態"]');
+  var kcBox  = document.getElementById("kcNotice");
+  var kcSize = document.getElementById("kcSize");
+  var kcLen  = document.getElementById("kcLen");
+  var kcWid  = document.getElementById("kcWid");
+  var kcWarn = document.getElementById("kcSizeWarn");
+
+  /* 前庭は台形（店頭側の間口7.2m／奥側3.6m／奥行3.6m）。
+     車両を店頭側に寄せて置いたとき、奥行W分だけ入った位置の使用可能幅は (7.2 − W) になります。
+     したがって「全長 + 全幅 ≦ 7.2」が、収まるかどうかの目安になります。
+     判定はあくまで目安で、送信は止めません（最終判断は運営の現地確認です）。 */
+  var KC_FRONT = 7.2, KC_DEPTH = 3.6;
+
+  function kcSizeCheck(){
+    if(!kcWarn) return;
+    var isKC = kcSel && /キッチンカー/.test(kcSel.value);
+    var a = kcLen ? parseFloat(kcLen.value) : NaN;
+    var b = kcWid ? parseFloat(kcWid.value) : NaN;
+    if(!isKC || isNaN(a) || isNaN(b) || a <= 0 || b <= 0){
+      kcWarn.style.display = "none";
+      return;
+    }
+    var shortSide = Math.min(a, b);
+    if(shortSide > KC_DEPTH){
+      kcWarn.innerHTML = "<b>ご記入の寸法では、前庭に収まらない可能性が高いです。</b>前庭の奥行は約" + KC_DEPTH +
+        "mで、縦・横のどちらを奥行方向にしても収まりません。お申し込みの送信はできますが、運営の確認でお受けできない場合があります。先にLINEでご相談いただくと確実です。";
+      kcWarn.style.display = "";
+    } else if(a + b > KC_FRONT){
+      kcWarn.innerHTML = "<b>収まるかどうか、確認が必要な寸法です。</b>前庭は奥に向かって幅が狭くなる台形（店頭側 約" + KC_FRONT +
+        "m／奥側 約" + KC_DEPTH + "m）のため、この寸法では設営位置の調整が必要になる可能性があります。" +
+        "お申し込みの送信はできます。運営が確認のうえ可否をご案内しますが、先にLINEでご相談いただくと確実です。";
+      kcWarn.style.display = "";
+    } else {
+      kcWarn.style.display = "none";
+    }
   }
-  if(kcSel){ kcSel.addEventListener("change", kcToggle); kcToggle(); }
+
+  function kcToggle(){
+    var isKC = !!(kcSel && /キッチンカー/.test(kcSel.value));
+    if(kcBox)  kcBox.style.display  = isKC ? "" : "none";
+    if(kcSize) kcSize.style.display = isKC ? "" : "none";
+    /* 非表示のまま required が残ると、ブラウザが「表示されていない項目」で送信を止めてしまうため、
+       表示・非表示に合わせて required を付け外しします。 */
+    [kcLen, kcWid].forEach(function(el){
+      if(!el) return;
+      if(isKC){
+        el.disabled = false;
+        el.setAttribute("required", "required");
+      }else{
+        el.removeAttribute("required");
+        el.value = "";
+        el.disabled = true;   // 送信データからも外し、テント出店の通知に空欄が並ばないようにします
+      }
+    });
+    kcSizeCheck();
+  }
+  if(kcSel){ kcSel.addEventListener("change", kcToggle); }
+  [kcLen, kcWid].forEach(function(el){
+    if(el){ el.addEventListener("input", kcSizeCheck); el.addEventListener("change", kcSizeCheck); }
+  });
+  kcToggle();
   check(); // 復元入力・オートフィル対策として初期表示時にも判定
   if(form){
     form.addEventListener("submit", function(e){
