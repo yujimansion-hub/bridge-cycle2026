@@ -359,12 +359,27 @@
     .vfind-chip{font-family:var(--sans,sans-serif);font-size:.92rem;color:var(--brand-dark,#143d3a);background:#fff;border:1px solid var(--line,#cdd6d1);border-radius:999px;padding:8px 15px;cursor:pointer;transition:border-color .15s,background .15s}
     .vfind-chip:hover{border-color:var(--brand,#2f6f6a);background:var(--brand-tint,rgba(47,111,106,.08))}
     .vfind-chip em{font-style:normal;font-size:.82em;color:var(--muted,#5f6f69);margin-left:3px}
+    .vfind-chip em.vfind-chip-n{background:var(--brand,#2f6f6a);color:#fff;font-size:.74em;font-weight:700;border-radius:999px;padding:2px 7px;margin-left:6px}
     .vfind-note{font-size:.8rem;color:var(--muted,#5f6f69);margin-top:16px;line-height:1.7;border-top:1px solid var(--line,#cdd6d1);padding-top:13px}
+    .vfind-kc{font-size:.86rem;color:var(--ink,#15302e);background:var(--brand-tint,rgba(47,111,106,.08));border-radius:8px;padding:7px 11px;margin:0 0 9px;line-height:1.6}
+    .vfind-kc b{color:var(--brand-dark,#143d3a)}
+    /* 出店日ではない会場・休止日の会場のカード */
+    .vfind-card.off{border-top-color:var(--line,#cdd6d1);background:var(--paper-2,#dfe5e2)}
+    .vfind-card.off .vfind-name,.vfind-card.off .vfind-price{color:var(--muted,#5f6f69)}
+    .vfind-status{display:inline-block;font-family:var(--sans,sans-serif);font-size:.78rem;font-weight:700;letter-spacing:.02em;border-radius:999px;padding:3px 11px;margin:7px 0 9px}
+    .vfind-status.off{background:#e3e8e5;color:#5f6f69}
+    .vfind-status.rest{background:rgba(191,68,41,.12);color:var(--accent-dark,#9e3722)}
+    .vfind-next{display:inline-block;background:var(--brand,#2f6f6a);color:#fff;border:none;font-family:var(--serif,serif);font-weight:700;font-size:.9rem;padding:10px 17px;border-radius:999px;cursor:pointer;margin-right:8px}
+    .vfind-next:hover{background:var(--brand-dark,#143d3a)}
+    .vfind-ghost{display:inline-block;color:var(--brand-dark,#143d3a);border:1.5px solid var(--line,#cdd6d1);background:#fff;text-decoration:none;font-family:var(--serif,serif);font-weight:700;font-size:.9rem;padding:9px 16px;border-radius:999px}
+    .vfind-ghost:hover{border-color:var(--brand,#2f6f6a)}
+    .vfind-closed{background:rgba(191,68,41,.07);border-left:4px solid var(--accent,#bf4429);border-radius:0 10px 10px 0;padding:13px 15px;font-size:.9rem;line-height:1.7}
+    .vfind-closed-sub{color:var(--muted,#5f6f69);font-size:.88em}
   </style>
   <div class="wrap">
     <p class="eyebrow">日程から探す</p>
     <h2>出店したい日から、会場を選ぶ。</h2>
-    <p>出店したい日を選ぶと、その日に出店できる会場が表示されます。旧大津公会堂は年中出店可、その他の会場は土・日・祝が中心です。</p>
+    <p>出店したい日を選ぶと、その日に出店できる会場が表示されます。<b>出店日ではない会場も一覧に残り、次に出店できる日をご案内します。</b>旧大津公会堂は年中出店可、銀工房は土・日・祝の出店です。</p>
     <div class="vfind-wrap">
       <div class="vfind-pick">
         <label for="vfindDate">出店したい日</label>
@@ -441,31 +456,75 @@
     }
     function venuesOn(d){return VENUES.filter(function(v){return isOpen(v,d);});}
     function fmt(d){return (d.getMonth()+1)+"月"+d.getDate()+"日（"+WD[d.getDay()]+"）";}
+    /* その会場が次に出店できる日（選んだ日を含めて最大400日先まで探します）。
+       会場が増えても、VENUES に足すだけでそのまま働きます。 */
+    function nextOpen(v,from){
+      var d=new Date(from.getTime());
+      for(var i=0;i<400;i++){
+        if(isOpen(v,d)) return d;
+        d.setDate(d.getDate()+1);
+      }
+      return null;
+    }
  
     function escAttr(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
  
+    /* すべての会場を必ず一覧に出します。
+       選んだ日に出店できない会場も、伏せずに「次に出店できる日」を添えて残します。
+       会場を伏せてしまうと、平日に見た人には銀工房の存在自体が伝わらないためです。 */
     function render(dstr){
       var d=parse(dstr);
       var hol=isHoliday(d);
       selEl.innerHTML='選んだ日：<b>'+fmt(d)+(hol?' ・祝日':'')+'</b>';
-      var list=venuesOn(d);
-      var shut=closedOn(d);
-      var shutHtml=shut.length? '<div class="vfind-closed">'+shut.map(function(v){
-        return '<b>'+v.name+'</b>は、この日は'+closedWhy(v,d)+'のため、お申し込みを受け付けていません。';
-      }).join('<br>')+'<br><span class="vfind-closed-sub">別の日をお選びいただくか、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEでご相談</a>ください。</span></div>' : '';
-      if(list.length===0){
-        resEl.innerHTML = shutHtml || '<div class="vfind-empty">この日に出店できる会場は、まだありません。<br>会場は土・日・祝が中心です。下の「出店できる日」から近い日を選ぶか、気になる日は <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEでご相談</a> ください。</div>';
-        return;
+
+      var openList=[], offList=[];
+      VENUES.forEach(function(v){ (isOpen(v,d)?openList:offList).push(v); });
+
+      function head(v){
+        return '<div class="vfind-name">'+v.name+'<span class="vfind-area">'+v.area+'</span></div>';
       }
-      resEl.innerHTML=shutHtml+list.map(function(v){
-        return '<div class="vfind-card">'+
-          '<div class="vfind-name">'+v.name+'<span class="vfind-area">'+v.area+'</span></div>'+
-          '<div class="vfind-meta">'+v.meta+'</div>'+
-          (v.kitchencar?'<div class="vfind-kc"><b>キッチンカー</b>：'+v.kitchencar+'</div>':'')+
-          '<div class="vfind-price">'+v.price+'</div>'+
+      function body(v){
+        return '<div class="vfind-meta">'+v.meta+'</div>'+
+               (v.kitchencar?'<div class="vfind-kc"><b>キッチンカー</b>：'+v.kitchencar+'</div>':'')+
+               '<div class="vfind-price">'+v.price+'</div>';
+      }
+
+      var html = openList.map(function(v){
+        return '<div class="vfind-card">'+ head(v)+ body(v)+
           '<a class="vfind-go" href="'+escAttr(v.url)+'?date='+iso(d)+'">この会場を見る・申し込む →</a>'+
         '</div>';
       }).join('');
+
+      html += offList.map(function(v){
+        var why  = closedWhy(v,d);              // 本来は営業日だが、その日だけ休止
+        var next = nextOpen(v, d);
+        var label = why
+          ? '<span class="vfind-status rest">この日は'+why+'のためお休みです</span>'
+          : '<span class="vfind-status off">この日は出店日ではありません</span>';
+        var jump = next
+          ? '<button type="button" class="vfind-next" data-d="'+iso(next)+'">次に出店できる '+fmt(next)+' で見る →</button>'
+          : '';
+        return '<div class="vfind-card off">'+ head(v)+ label+ body(v)+
+          jump+
+          '<a class="vfind-ghost" href="'+escAttr(v.url)+'">会場ページを見る →</a>'+
+        '</div>';
+      }).join('');
+
+      if(!openList.length){
+        html += '<div class="vfind-empty">この日に出店できる会場は、いまのところありません。<br>上の「次に出店できる日で見る」からお選びいただくか、気になる日は <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEでご相談</a> ください。</div>';
+      }
+
+      resEl.innerHTML = html;
+
+      /* 「次に出店できる日で見る」を押したら、その日付で再描画します */
+      resEl.querySelectorAll(".vfind-next").forEach(function(b){
+        b.onclick=function(){
+          var ds=b.getAttribute("data-d");
+          dateEl.value=ds;
+          render(ds);
+          resEl.scrollIntoView({behavior:"smooth", block:"start"});
+        };
+      });
     }
  
     function buildChips(){
@@ -477,7 +536,11 @@
       }
       chipEl.innerHTML=out.map(function(x){
         var hol=isHoliday(x);
-        return '<button class="vfind-chip" data-d="'+iso(x)+'">'+(x.getMonth()+1)+'/'+x.getDate()+'<em>('+WD[x.getDay()]+(hol?'祝':'')+')</em></button>';
+        var n=venuesOn(x).length;
+        /* その日に出店できる会場が2つ以上あるときは、件数を出します。
+           銀工房が出られる日（土日祝）が、日付を開かなくても分かるようにするためです。 */
+        var badge = n>1 ? '<em class="vfind-chip-n">'+n+'会場</em>' : '';
+        return '<button class="vfind-chip" data-d="'+iso(x)+'">'+(x.getMonth()+1)+'/'+x.getDate()+'<em>('+WD[x.getDay()]+(hol?'祝':'')+')</em>'+badge+'</button>';
       }).join('');
       chipEl.querySelectorAll(".vfind-chip").forEach(function(b){
         b.onclick=function(){var ds=b.getAttribute("data-d");dateEl.value=ds;render(ds);}

@@ -209,7 +209,7 @@
       <div class="field"><label>お名前・屋号<span class="req">必須</span></label><input type="text" name="お名前・屋号" required></div>
       <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="メール" required></div>
       <div class="field"><label>電話番号</label><input type="tel" name="電話"></div>
-      <div class="field"><label>ご希望の出店日<span class="req">必須</span></label><input type="date" name="希望日" required><div class="hint">※ご利用は土・日・祝の 9:00〜17:00 です。</div></div>
+      <div class="field"><label>ご希望の出店日<span class="req">必須</span></label><input type="date" id="ginDate" name="希望日" required><div class="hint">※ご利用は土・日・祝の 9:00〜17:00 です。</div><div id="ginDateErr" style="display:none;color:#bf4429;font-weight:700;font-size:.88rem;margin-top:6px"></div></div>
       <div class="field"><label>ご希望のスペース</label>
         <select name="希望スペース">
           <option value="どちらでも">どちらでも可</option>
@@ -251,6 +251,72 @@
     <p style="margin:0"><a href="https://yujimansion-hub.github.io/bridge-cycle2026/">トップへ戻る</a></p>
   </div>
 </footer>
+
+<script>
+/* 会場ファインダー（uriba.html#finder）からの ?date=YYYY-MM-DD を受け取り、
+   希望日に流し込みます。あわせて、本会場の出店日（土・日・祝）から外れた日が
+   選ばれた場合に、送信前にその場でお知らせします。 */
+(function(){
+  "use strict";
+  var input = document.getElementById("ginDate");
+  var errEl = document.getElementById("ginDateErr");
+  var form  = input && input.form;
+  if(!input) return;
+
+  /* 祝日（2026–2027）。uriba.html の会場ファインダーと同じ一覧です。
+     年をまたぐときは両方を更新してください。 */
+  var HOLIDAYS = {
+    "2026-01-01":1,"2026-01-12":1,"2026-02-11":1,"2026-02-23":1,"2026-03-20":1,"2026-04-29":1,
+    "2026-05-03":1,"2026-05-04":1,"2026-05-05":1,"2026-05-06":1,"2026-07-20":1,"2026-08-11":1,
+    "2026-09-21":1,"2026-09-22":1,"2026-09-23":1,"2026-10-12":1,"2026-11-03":1,"2026-11-23":1,
+    "2027-01-01":1,"2027-01-11":1,"2027-02-11":1,"2027-02-23":1,"2027-03-21":1,"2027-04-29":1,
+    "2027-05-03":1,"2027-05-04":1,"2027-05-05":1,"2027-07-19":1,"2027-08-11":1,"2027-09-20":1,
+    "2027-09-23":1,"2027-10-11":1,"2027-11-03":1,"2027-11-23":1
+  };
+
+  function pad(n){ return (n<10?"0":"")+n; }
+  function todayISO(){ var d=new Date(); return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+  input.min = todayISO();
+
+  /* ファインダーからの受け渡し（?date=2026-08-22 など） */
+  try{
+    var q = new URLSearchParams(location.search).get("date") || "";
+    if(/^\d{4}-\d{2}-\d{2}$/.test(q) && q >= input.min && !input.value){ input.value = q; }
+  }catch(e){}
+
+  function check(){
+    var v = input.value;
+    if(!v){ errEl.style.display="none"; input.setCustomValidity(""); return true; }
+    var p = v.split("-");
+    var d = new Date(+p[0], +p[1]-1, +p[2]);
+    var wd = d.getDay();                    // 0=日, 6=土
+    var ok = (wd === 0 || wd === 6 || HOLIDAYS[v] === 1);
+    if(ok){ errEl.style.display="none"; input.setCustomValidity(""); return true; }
+    var msg = (+p[1]) + "月" + (+p[2]) + "日は平日です。本会場のご利用は土・日・祝（9:00〜17:00）です。" +
+              "土日祝の日付をお選びいただくか、平日のご出店をご希望の場合は " +
+              "旧大津公会堂の前庭（年中出店可）もご検討ください。";
+    errEl.innerHTML = msg + ' <a href="uriba-kokaido.html" style="color:#bf4429;text-decoration:underline">旧大津公会堂の会場ページ →</a>';
+    errEl.style.display = "";
+    input.setCustomValidity("本会場のご利用は土・日・祝です。");
+    return false;
+  }
+
+  input.addEventListener("change", check);
+  input.addEventListener("input", check);
+  check();  // 復元入力・オートフィル・?date= 受け取り時にも判定
+
+  if(form){
+    form.addEventListener("submit", function(e){
+      if(!check()){
+        e.preventDefault();
+        e.stopPropagation();
+        input.focus();
+        if(input.reportValidity) input.reportValidity();
+      }
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
