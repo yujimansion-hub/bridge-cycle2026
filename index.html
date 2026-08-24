@@ -73,6 +73,18 @@ h2{font-family:var(--serif);font-size:clamp(20px,3.8vw,27px);font-weight:800;mar
 .chip.g{background:var(--midpale);color:var(--mid)}
 .chip.a{background:var(--aipale);color:var(--ai)}
 .chip.k{background:var(--kinpale);color:var(--kin)}
+/* 売り場レンタル：2会場 */
+.bz .ph2{display:grid;grid-template-columns:1fr 1fr;height:160px}
+.bz .ph2 .h{background-size:cover;background-position:center;position:relative}
+.bz .ph2 .h+.h{border-left:2px solid var(--card)}
+.bz .ph2::after{content:none}
+.bz .ph2 .tag{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;background:rgba(21,23,28,.55);border-radius:999px;padding:4px 12px;backdrop-filter:blur(4px)}
+.venues{display:grid;gap:8px;margin-top:12px}
+.vn{display:flex;align-items:center;gap:10px;border:1.5px solid var(--rule);border-radius:11px;padding:10px 14px;text-decoration:none;color:var(--ink);background:var(--card2)}
+.vn:hover{border-color:var(--aimid);background:var(--aipale)}
+.vn b{font-size:13px}
+.vn .d{font-size:11px;color:var(--ink3);display:block;line-height:1.5}
+.vn .ar{margin-left:auto;color:var(--aimid);font-weight:800;font-size:13px;white-space:nowrap}
 
 /* つながり */
 .link3{margin-top:30px;background:var(--card2);border:1px solid var(--rule);border-radius:14px;padding:18px 22px;font-size:13px;color:var(--ink2)}
@@ -123,16 +135,21 @@ footer .row{margin-top:6px}
       </div>
     </a>
 
-    <a class="bz" href="uriba-kokaido.html">
-      <div class="ph" style="background-image:url('kokaido-hero.jpg')"><span class="tag">事業 02</span></div>
-      <div class="bd">
-        <h3>売り場レンタル<br>〈旧大津公会堂〉</h3>
-        <div class="who">出店してみたい人・新商圏を試したいお店</div>
-        <p>登録有形文化財のレンガ建築前の前庭で、テント・キッチンカーの半日出店。売れるかどうかを、閉店のリスクなしで試せる場所です。電源・水道あり、売上歩合なし。</p>
-        <div class="chips"><span class="chip a">平日 半日1,500円</span><span class="chip a">土日 半日2,500円</span></div>
-        <div class="go">空き枠を見る →</div>
+    <div class="bz" style="cursor:default">
+      <div class="ph2">
+        <div class="h" style="background-image:url('kokaido-hero.jpg')"><span class="tag">事業 02</span></div>
+        <div class="h" style="background-image:url('images/ginkobo-card.jpg')"></div>
       </div>
-    </a>
+      <div class="bd">
+        <h3>売り場レンタル</h3>
+        <div class="who">出店してみたい人・新商圏を試したいお店</div>
+        <p>売れるかどうかを、閉店のリスクなしで試せる場所。大津市内の2会場から、商圏と客層に合うほうを選べます。売上歩合なし。</p>
+        <div class="venues">
+          <a class="vn" href="uriba-kokaido.html"><span><b>〈旧大津公会堂〉</b><span class="d">浜大津駅すぐ・登録有形文化財の前庭｜電源・水道あり｜平日 半日1,500円／土日 2,500円</span></span><span class="ar">空き枠 →</span></a>
+          <a class="vn" href="uriba-ginkobo.html"><span><b>〈銀工房〉</b><span class="d">JR比良駅すぐ・比良山を望む駐車場｜火気使用可・水道あり｜土日祝 1日1,000円</span></span><span class="ar">空き枠 →</span></a>
+        </div>
+      </div>
+    </div>
 
     <a class="bz" href="hojokin.html">
       <div class="ph" style="background-image:url('images/partner.jpg')"><span class="tag">事業 03</span></div>
@@ -159,7 +176,7 @@ footer .row{margin-top:6px}
     <dt>所在地</dt><dd>滋賀県大津市（詳細は<a href="matching.html#legal-tokusho">特定商取引法に基づく表記</a>をご覧ください）</dd>
     <dt>設立</dt><dd>2026年3月17日</dd>
     <dt>認定</dt><dd>国の認定経営革新等支援機関（認定番号 109825000112）</dd>
-    <dt>事業内容</dt><dd>飲食店の退店前承継マッチング事業／売り場レンタル事業（旧大津公会堂）／経営支援・補助金・融資サポート事業</dd>
+    <dt>事業内容</dt><dd>飲食店の退店前承継マッチング事業／売り場レンタル事業（旧大津公会堂・銀工房）／経営支援・補助金・融資サポート事業</dd>
     <dt>連絡先</dt><dd><a href="mailto:yujimansion@gmail.com">yujimansion@gmail.com</a>（メールでのお問い合わせをお願いしています）</dd>
   </dl>
 </div></section>
@@ -169,6 +186,7 @@ footer .row{margin-top:6px}
   <p class="row">
     <a href="matching.html">退店前承継マッチング</a>｜
     <a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a>｜
+    <a href="uriba-ginkobo.html">売り場レンタル（銀工房）</a>｜
     <a href="hojokin.html">補助金・融資サポート</a>
   </p>
   <p class="row">
