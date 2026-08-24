@@ -83,18 +83,23 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
  filter:drop-shadow(0 3px 8px rgba(20,22,26,.18))}
 @media(max-width:860px){.seal{width:76px;height:76px;right:-4px;top:auto;bottom:-10px}}
 /* サイクル図 */
-.cycle{margin-top:34px;background:var(--card);border:1px solid var(--rule);border-radius:18px;
- padding:26px 22px;box-shadow:var(--shadow);display:grid;grid-template-columns:230px 1fr;gap:24px;align-items:center}
+.cycle{margin-top:38px;background:var(--ai);border:none;border-radius:20px;
+ padding:30px 28px;box-shadow:0 14px 34px rgba(27,59,95,.28);display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:center;color:#D8E2EE}
 @media(max-width:760px){.cycle{grid-template-columns:1fr;justify-items:center;text-align:left}}
-.cycle .dg{width:220px;height:220px}
-.cycle h3{font-family:var(--serif);font-size:17.5px;font-weight:800;margin-bottom:8px}
-.cycle p{font-size:13px;color:var(--ink2);line-height:1.95}
-.cycle .nm{font-family:var(--serif);font-weight:800;color:var(--ai)}
+.cycle .dgbox{background:#fff;border-radius:16px;padding:14px;display:grid;place-items:center}
+.cycle .dg{width:210px;height:210px}
+.cycle h3{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:8px;color:#fff}
+.cycle p{font-size:13px;color:#C9D7E6;line-height:1.95}
+.cycle p b{color:#fff}
+.cycle .nm{font-family:var(--serif);font-weight:800;color:#9FBBD6}
 
 
-section{padding:56px 0;border-bottom:1px solid var(--rule)}
+section{padding:60px 0;border-bottom:1px solid var(--rule)}
+#business{background:var(--card)}
+#business .bz{border:1px solid var(--rule)}
+#business .vn{background:var(--paper)}
 .eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--aimid);font-weight:700;margin-bottom:8px}
-h2{font-family:var(--serif);font-size:clamp(20px,3.8vw,27px);font-weight:800;margin-bottom:10px}
+h2{font-family:var(--serif);font-size:clamp(22px,4.2vw,31px);font-weight:800;margin-bottom:10px}
 .sub{color:var(--ink2);margin-bottom:26px;max-width:66ch}
 
 /* 事業カード */
@@ -102,6 +107,9 @@ h2{font-family:var(--serif);font-size:clamp(20px,3.8vw,27px);font-weight:800;mar
 @media(max-width:840px){.biz{grid-template-columns:1fr}}
 .bz{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--rule);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
 .bz:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(20,22,26,.07),0 16px 36px rgba(20,22,26,.12)}
+#business .biz>.bz:nth-child(1){border-top:5px solid var(--aimid)}
+#business .biz>.bz:nth-child(2){border-top:5px solid var(--mid)}
+#business .biz>.bz:nth-child(3){border-top:5px solid var(--kin)}
 .bz .ph{height:160px;background-size:cover;background-position:center;position:relative}
 .bz .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,23,28,0) 45%,rgba(21,23,28,.42))}
 .bz .ph .tag{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;background:rgba(21,23,28,.55);border-radius:999px;padding:4px 12px;backdrop-filter:blur(4px)}
@@ -150,6 +158,14 @@ h2{font-family:var(--serif);font-size:clamp(20px,3.8vw,27px);font-weight:800;mar
 .co dt:last-of-type,.co dd:last-of-type{border-bottom:none}
 @media(max-width:560px){.co{grid-template-columns:120px 1fr}}
 
+.ctaband{background:var(--shu);border:none;padding:54px 0;text-align:center;color:#F6E7E4}
+.ctaband h2{color:#fff;margin-bottom:8px}
+.ctaband p{max-width:56ch;margin:0 auto 22px;font-size:13.5px;color:#F3DBD6}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cbtn{display:inline-flex;align-items:center;border-radius:999px;padding:14px 30px;font-weight:800;font-size:15px;text-decoration:none;transition:transform .13s}
+.cbtn.w{background:#fff;color:var(--shu)}
+.cbtn.o{border:2px solid rgba(255,255,255,.75);color:#fff}
+.cbtn:hover{transform:translateY(-2px)}
 footer{background:#132B45;color:#9FB4C9;padding:38px 0 48px;font-size:12px}
 footer a{color:#C6D6E5}
 footer .row{margin-top:8px;line-height:2}
@@ -242,7 +258,7 @@ footer .fl b{color:#9FBBD6}
 
   </div>
   <div class="cycle rv">
-    <svg class="dg" viewBox="0 0 220 220" aria-hidden="true">
+    <div class="dgbox"><svg class="dg" viewBox="0 0 220 220" aria-hidden="true">
       <defs>
         <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="#3D6389"/>
@@ -263,7 +279,7 @@ footer .fl b{color:#9FBBD6}
         <text x="110" y="122" font-size="11" fill="#767870" font-family="inherit">BRIDGE</text>
         <text x="110" y="138" font-size="11" fill="#767870" font-family="inherit">CYCLE</text>
       </g>
-    </svg>
+    </svg></div>
     <div>
       <h3>社名のとおり、橋を架けて、循環を回す。</h3>
       <p>売り場レンタルで<b>試した</b>人が、承継マッチングで店を<b>継ぎ</b>、補助金サポートで資金を<b>整える</b>。「いきなり開業」でも「黙って閉店」でもない道筋を、ひとつの会社の中でつなげています。<span class="nm">BRIDGE</span>＝始める人と渡す人のあいだに橋を架けること。<span class="nm">CYCLE</span>＝店とまちの価値を循環させること。これが、この社名の意味です。</p>
@@ -310,6 +326,15 @@ footer .fl b{color:#9FBBD6}
     <dt>事業内容</dt><dd>飲食店の退店前承継マッチング事業／売り場レンタル事業（旧大津公会堂・銀工房）／補助金サポート事業（認定経営革新等支援機関としての経営支援を含む）</dd>
     <dt>連絡先</dt><dd><a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>　／　<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINEで問い合わせる</a></dd>
   </dl>
+</div></section>
+
+<section class="ctaband"><div class="wrap">
+  <h2>相談は、無料です。</h2>
+  <p>「まだ決めていない」段階のご相談を歓迎します。閉店の話も、出店の話も、補助金の話も——まず状況をお聞かせください。</p>
+  <div class="cta-row">
+    <a class="cbtn w" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINEで相談する</a>
+    <a class="cbtn o" href="mailto:info@bridgecycleco.com">メールで相談する</a>
+  </div>
 </div></section>
 
 <footer><div class="wrap">
