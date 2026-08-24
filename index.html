@@ -10,6 +10,7 @@
 <meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/">
 <meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%231B3B5F"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="%239FBBD6" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round"/></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -42,13 +43,32 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 .nav .sp{margin-left:auto;font-size:11px;color:var(--ink3)}
 @media(max-width:720px){.nav .l,.nav .sp{display:none}}
 
-.hero{padding:74px 0 58px;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.hero{padding:70px 0 56px;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:46px;align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:34px}}
 .hero .badge{display:inline-block;font-size:11.5px;letter-spacing:.14em;color:var(--ai);font-weight:700;border:1.5px solid var(--rule2);background:rgba(255,255,255,.78);border-radius:999px;padding:6px 16px;margin-bottom:22px}
 .hero h1{font-family:var(--serif);font-size:clamp(27px,5.8vw,44px);line-height:1.42;font-weight:800}
 .hero h1 u{text-decoration:none;border-bottom:5px solid var(--aimid);padding-bottom:2px}
 .hero .lead{margin-top:20px;color:var(--ink2);max-width:62ch}
 .hero .cert{margin-top:20px;font-size:12px;color:var(--ink3)}
 .hero .cert b{color:var(--ink2)}
+/* ヒーロー写真パネル：2枚重ね */
+.hpanel{position:relative;min-height:360px}
+.hpanel .hp{position:absolute;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:5px solid var(--card);background-size:cover;background-position:center}
+.hpanel .hp1{top:0;right:8%;width:78%;aspect-ratio:5/3.4;transform:rotate(1.4deg)}
+.hpanel .hp2{bottom:0;left:0;width:64%;aspect-ratio:5/3.6;transform:rotate(-2deg)}
+.hpanel .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;background:linear-gradient(transparent,rgba(21,23,28,.62));color:#fff;font-family:var(--serif);font-size:12px;font-weight:700;letter-spacing:.06em}
+@media(max-width:860px){.hpanel{min-height:250px;max-width:440px}.hpanel .hp1{right:0}}
+/* 実績バンド */
+.stats{background:var(--ai);color:#DCE7F2;padding:26px 0}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center}
+.stats b{display:block;font-family:var(--serif);font-size:clamp(19px,3vw,26px);color:#fff;line-height:1.3}
+.stats span{font-size:11px;letter-spacing:.12em;opacity:.85}
+@media(max-width:640px){.stats .wrap{grid-template-columns:1fr 1fr 1fr;gap:6px}.stats b{font-size:15px}.stats span{font-size:9.5px;letter-spacing:.04em}}
+/* さりげない出現アニメーション */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
 section{padding:56px 0;border-bottom:1px solid var(--rule)}
 .eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--aimid);font-weight:700;margin-bottom:8px}
@@ -97,9 +117,11 @@ h2{font-family:var(--serif);font-size:clamp(20px,3.8vw,27px);font-weight:800;mar
 .co dt:last-of-type,.co dd:last-of-type{border-bottom:none}
 @media(max-width:560px){.co{grid-template-columns:120px 1fr}}
 
-footer{padding:34px 0 48px;font-size:12px;color:var(--ink3)}
-footer a{color:var(--ink3)}
-footer .row{margin-top:6px}
+footer{background:#132B45;color:#9FB4C9;padding:38px 0 48px;font-size:12px}
+footer a{color:#C6D6E5}
+footer .row{margin-top:8px;line-height:2}
+footer .fl{font-family:var(--serif);font-weight:800;letter-spacing:.09em;font-size:15px;color:#fff}
+footer .fl b{color:#9FBBD6}
 </style>
 </head>
 <body>
@@ -112,11 +134,22 @@ footer .row{margin-top:6px}
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <span class="badge">BRIDGE CYCLE株式会社｜滋賀県大津市</span>
-  <h1>小さな飲食店の、<br>「始める」と「渡す」を<u>支える</u>。</h1>
-  <p class="lead">お店をたたむとき、造作をすべて剥がして返すだけが選択肢ではありません。始めるとき、いきなり大きな借入だけが道ではありません。BRIDGE CYCLEは、<b>承継のマッチング</b>・<b>1日から試せる売り場</b>・<b>定額の資金サポート</b>の3つの事業で、飲食店のはじまりと引き継ぎを地元から支えます。</p>
-  <p class="cert"><b>国の認定経営革新等支援機関</b>（認定番号 109825000112）｜経営指導歴20年・支援実績500社超の代表が運営しています。</p>
+  <div>
+    <span class="badge">BRIDGE CYCLE株式会社｜滋賀県大津市</span>
+    <h1>小さな飲食店の、<br>「始める」と「渡す」を<u>支える</u>。</h1>
+    <p class="lead">お店をたたむとき、造作をすべて剥がして返すだけが選択肢ではありません。始めるとき、いきなり大きな借入だけが道ではありません。BRIDGE CYCLEは、<b>承継のマッチング</b>・<b>1日から試せる売り場</b>・<b>成果連動の補助金サポート</b>の3つの事業で、飲食店のはじまりと引き継ぎを地元から支えます。</p>
+  </div>
+  <div class="hpanel" aria-hidden="true">
+    <div class="hp hp1" style="background-image:url('images/hero-cafe.jpg')"><span class="cap">場の価値は、次の人へ。</span></div>
+    <div class="hp hp2" style="background-image:url('images/hero.jpg')"><span class="cap">譲る人と、続ける人。</span></div>
+  </div>
 </div></header>
+
+<div class="stats"><div class="wrap">
+  <div><b>約20年</b><span>商工会での経営指導</span></div>
+  <div><b>500社超</b><span>支援実績</span></div>
+  <div><b>認定支援機関</b><span>認定番号 109825000112</span></div>
+</div></div>
 
 <section id="business"><div class="wrap">
   <p class="eyebrow">BUSINESS</p>
@@ -124,7 +157,7 @@ footer .row{margin-top:6px}
   <p class="sub">それぞれ独立してご利用いただけます。組み合わせると、「試して、継いで、資金をつける」まで一続きになります。</p>
   <div class="biz">
 
-    <a class="bz" href="matching.html">
+    <a class="bz rv" href="matching.html">
       <div class="ph" style="background-image:url('images/hero-cafe.jpg')"><span class="tag">事業 01</span></div>
       <div class="bd">
         <h3>退店前承継マッチング</h3>
@@ -135,7 +168,7 @@ footer .row{margin-top:6px}
       </div>
     </a>
 
-    <div class="bz" style="cursor:default">
+    <div class="bz rv" style="cursor:default">
       <div class="ph2">
         <div class="h" style="background-image:url('kokaido-hero.jpg')"><span class="tag">事業 02</span></div>
         <div class="h" style="background-image:url('images/ginkobo-card.jpg')"></div>
@@ -151,7 +184,7 @@ footer .row{margin-top:6px}
       </div>
     </div>
 
-    <a class="bz" href="hojokin.html">
+    <a class="bz rv" href="hojokin.html">
       <div class="ph" style="background-image:url('images/partner.jpg')"><span class="tag">事業 03</span></div>
       <div class="bd">
         <h3>補助金サポート</h3>
@@ -182,7 +215,7 @@ footer .row{margin-top:6px}
 </div></section>
 
 <footer><div class="wrap">
-  <p><b style="color:var(--ink2)">BRIDGE CYCLE株式会社</b>｜滋賀県大津市</p>
+  <p><span class="fl">BRIDGE <b>CYCLE</b></span>　<span style="font-size:11px">株式会社｜滋賀県大津市｜国の認定経営革新等支援機関</span></p>
   <p class="row">
     <a href="matching.html">退店前承継マッチング</a>｜
     <a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a>｜
@@ -197,5 +230,14 @@ footer .row{margin-top:6px}
   </p>
 </div></footer>
 
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('on');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.15});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
 </body>
 </html>

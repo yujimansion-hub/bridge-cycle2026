@@ -204,10 +204,22 @@
     <p>下記フォームからお申し込みください。空き状況を確認し、運営（BRIDGE CYCLE）より折り返しご連絡します。来店や面談は不要です。出店できる内容か迷う段階のご相談も歓迎です。</p>
     <div class="callout" style="margin:0 auto 4px;max-width:640px">本会場は<b>飲食のテイクアウト出店専用</b>です。お申し込みは、<b>飲食の営業許可をお持ちの方</b>に限らせていただきます。</div>
     <!-- ▼ 送信先(action)をFormspreeのエンドポイントに差し替えてください（手順は別途案内） ▼ -->
-    <form class="formwrap" action="https://formspree.io/f/mojoqekd" method="POST">
+    <form class="formwrap" action="https://formsubmit.co/info@bridgecycleco.com" method="POST">
       <input type="hidden" name="_subject" value="銀工房 出店申込">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_replyto" value="">
+      <input type="hidden" name="_autoresponse" value="【銀工房 売り場レンタル】お申し込みを受け付けました。
+
+このメールは自動返信です。お申し込みありがとうございます。
+空き状況と内容を確認のうえ、運営（BRIDGE CYCLE株式会社）より原則2営業日以内に折り返しご連絡します。この時点では予約はまだ確定していません。
+
+お急ぎのご質問は、公式LINE（https://line.me/R/ti/p/@907kxssd）でも承ります。
+
+BRIDGE CYCLE株式会社（滋賀県大津市）／ info@bridgecycleco.com">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <div class="field"><label>お名前・屋号<span class="req">必須</span></label><input type="text" name="お名前・屋号" required></div>
-      <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="メール" required></div>
+      <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required><div class="hint">ご記入のアドレスに、受付確認の自動返信メールをお送りします。</div></div>
       <div class="field"><label>電話番号</label><input type="tel" name="電話"></div>
       <div class="field"><label>ご希望の出店日<span class="req">必須</span></label><input type="date" id="ginDate" name="希望日" required><div class="hint">※ご利用は土・日・祝の 9:00〜17:00 です。</div><div id="ginDateErr" style="display:none;color:#bf4429;font-weight:700;font-size:.88rem;margin-top:6px"></div></div>
       <div class="field"><label>ご希望のスペース</label>
@@ -312,6 +324,49 @@
         e.stopPropagation();
         input.focus();
         if(input.reportValidity) input.reportValidity();
+        return;
+      }
+      /* ---- 非同期送信（FormSubmit）: 受付確認の自動返信つき。
+         JavaScriptが動かない環境では通常送信にそのまま落ちます。 ---- */
+      if(window.fetch && window.FormData){
+        e.preventDefault();
+        var reply=form.querySelector('input[name="_replyto"]');
+        var mail=form.querySelector('input[name="email"]');
+        if(reply&&mail)reply.value=mail.value;
+        var fd=new FormData(form);
+        fd.delete("_honey");
+        var btn=form.querySelector('button[type="submit"], input[type="submit"]')||form.querySelector('button');
+        var btnText=btn?btn.textContent:"";
+        var err=document.getElementById("ginSendErr");
+        if(!err){
+          err=document.createElement("div");
+          err.id="ginSendErr";
+          err.style.cssText="display:none;color:#bf4429;font-weight:700;font-size:.9rem;margin-top:10px";
+          form.appendChild(err);
+        }
+        function fail(m){
+          if(btn){btn.disabled=false;btn.textContent=btnText;}
+          err.textContent=m;err.style.display="";
+        }
+        if(btn){btn.disabled=true;btn.textContent="送信しています…";}
+        err.style.display="none";
+        fetch("https://formsubmit.co/ajax/info@bridgecycleco.com",{
+          method:"POST",body:fd,headers:{"Accept":"application/json"}
+        }).then(function(res){
+          return res.json().catch(function(){return null;}).then(function(d){
+            var ok=d&&(d.success==="true"||d.success===true);
+            if(res.ok&&ok){
+              form.innerHTML='<div style="text-align:center;padding:30px 8px">'
+                +'<div style="font-size:42px;line-height:1;color:#2f6f6a">✓</div>'
+                +'<div style="font-family:var(--serif,serif);font-size:1.15rem;font-weight:700;margin-top:12px">お申し込みを受け付けました。</div>'
+                +'<div style="font-size:.92rem;color:#5f6f69;margin-top:10px;line-height:1.9">受付確認の自動返信メールをお送りしました。<br>空き状況を確認のうえ、原則2営業日以内に折り返しご連絡します。</div></div>';
+              return;
+            }
+            fail("送信できませんでした："+((d&&d.message)||("エラー "+res.status))+"　お手数ですがLINEからご連絡ください。");
+          });
+        }).catch(function(){
+          fail("送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。解決しない場合はLINEからご連絡ください。");
+        });
       }
     });
   }
