@@ -158,7 +158,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
     <div class="fld"><label>ご状況（差し支えない範囲で）</label><textarea id="cMsg" placeholder="例：来春に大津市内でカフェの承継を検討しています。自己資金は300万円ほどで、残りを融資で考えています。"></textarea></div>
     <button class="btn" id="cSend" style="width:100%">この内容で申し込む</button>
     <p class="fmsg" id="cOut" role="status" aria-live="polite"></p>
-    <p class="mut">送信いただいた内容は、本件のご連絡の目的にのみ利用します（<a href="matching.html#legal-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>）。</p>
+    <p class="mut">送信いただいた内容は、本件のご連絡の目的にのみ利用します（<a href="matching.html#legal-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>）。フォームのほか、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINE</a>・<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a> でもご相談を受け付けています。</p>
   </div>
 </div></section>
 
@@ -175,8 +175,8 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 </div></footer>
 
 <script>
-/* 送信先：FormSubmit（yujimansion@gmail.com宛・本番ドメインで有効化済み） */
-const EP='https://formsubmit.co/ajax/79ac2824fb770b3113a2a00f0f92bba8';
+/* 送信先：FormSubmit（info@bridgecycleco.com宛・本番ドメインで有効化済み） */
+const EP='https://formsubmit.co/ajax/info@bridgecycleco.com';
 document.getElementById('cSend').onclick=async()=>{
   const out=document.getElementById('cOut'),btn=document.getElementById('cSend');
   const name=document.getElementById('cName').value.trim();
@@ -205,7 +205,7 @@ document.getElementById('cSend').onclick=async()=>{
     btn.disabled=false;btn.textContent='この内容で申し込む';
     out.textContent=location.protocol==='file:'
       ?'このファイルを直接開いているため送信できません。公開URLでお試しください。'
-      :'送信できませんでした。お手数ですが時間をおいて再度お試しいただくか、yujimansion@gmail.com まで直接ご連絡ください。';
+      :'送信できませんでした。お手数ですが時間をおいて再度お試しいただくか、info@bridgecycleco.com まで直接ご連絡ください。';
   }
 };
 </script>
