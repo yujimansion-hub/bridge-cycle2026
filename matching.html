@@ -718,6 +718,12 @@ footer a{text-decoration:underline}
         <p>退去予告を最初に知るのは、家主さんです。空室期間の短縮と、原状回復をめぐるトラブルの予防に、この仕組みをお使いいただけます。当社は物件の客付け・賃貸借の媒介は行いません。</p></div>
       <a class="btn" href="#entry" data-seg="partner">お話を聞かせてください</a>
     </div>
+    <div class="wc-sub rv">
+      <div class="ic">🤝</div>
+      <div class="t"><h3>中小企業診断士・士業の方 ── 連携パートナー募集</h3>
+        <p>店舗の所在地によっては、承継判断・融資・補助金の支援を、地域の中小企業診断士の先生に担当いただく体制をとっています。ご依頼者との契約・料金設定は先生と直接（当社は契約の当事者になりません）。担当エリア・分野、連携の条件は個別にご相談させてください。承継・廃業の相談窓口をお持ちの士業の方も歓迎です。</p></div>
+      <a class="btn" href="#entry" data-seg="expert">連携について問い合わせる</a>
+    </div>
     <p class="note rv">※ 写真はすべてイメージです。特定の店舗を撮影したものではありません。</p>
   </div>
 </section>
@@ -859,6 +865,7 @@ footer a{text-decoration:underline}
       <button data-u="owner" class="on">店を渡したい方</button>
       <button data-u="taker">店を継ぎたい方</button>
       <button data-u="partner">家主・支援機関の方</button>
+      <button data-u="expert">診断士・士業の方</button>
     </div>
     <div id="flowWrap"></div>
   </div>
@@ -934,6 +941,7 @@ footer a{text-decoration:underline}
         <button data-s="owner" class="on">店を渡したい</button>
         <button data-s="taker">店を継ぎたい</button>
         <button data-s="partner">家主・支援機関</button>
+        <button data-s="expert">診断士・士業（連携）</button>
       </div>
       <div class="fnote"><b>この段階では、機微な情報は入力しないでください。</b>
         資金、信用情報、債務整理の有無などは、開設後にご本人の同意のうえで、専用の申告シートに入力していただきます。ここでは連絡先とご状況だけで結構です。</div>
@@ -1383,7 +1391,16 @@ const FLOW={
    d:'退去予告は、契約で定めた予告期間の分だけ早く届きます。<b>その時点で知っているのは、家主さんだけです。</b>店主が誰にも言っていない段階で、造作を引き継げる方を探しはじめられます。'},
   {t:'当社は、造作の譲渡だけを扱います',time:'—',cost:'free',
    d:'<b>物件の客付けはしません。</b>賃貸借契約は、これまでどおり御社が依頼される宅地建物取引業者を通じて締結してください。当社は宅地建物の売買・交換・貸借の代理または媒介を行いません。当社が受領する対価は、賃貸借契約の成立に連動しません。',
-   trap:['支援機関の方へ。','廃業相談の受け皿として、算定シートと申告シートの書式をお使いいただく形も検討しています。あわせてご相談ください。']}]}
+   trap:['支援機関の方へ。','廃業相談の受け皿として、算定シートと申告シートの書式をお使いいただく形も検討しています。あわせてご相談ください。']}]},
+ expert:{sum:['連携募集','<b>中小企業診断士・士業の先生との連携を募集しています。</b>店舗の所在地により、承継判断・融資・補助金の支援を地域の先生に担当いただく体制です。'],
+  steps:[
+  {t:'フォームから連携希望を送る',time:'3分',cost:'free',
+   d:'下の事前登録フォームで「診断士・士業（連携）」を選び、活動エリアと、承継・融資・補助金など<b>お受けいただける分野</b>をご記入ください。'},
+  {t:'オンラインで30分ほどお話しする',time:'30分',cost:'free',
+   d:'これまでのご支援の分野、稼働の目安、進め方の考え方をうかがいます。<b>当社の無料マッチング基盤・算定シート等の書式は、連携先の先生にもお使いいただけます。</b>'},
+  {t:'担当エリアの案件をご紹介',time:'—',cost:'free',
+   d:'該当エリアで有料支援のご依頼が生じた際にご紹介します。<b>ご依頼者との契約・料金設定は先生と直接</b>で、当社は契約の当事者になりません（利用規約・特定商取引法に基づく表記に明記のとおり）。紹介の条件は事前の協議で定めます。',
+   trap:['ご留意ください。','ご依頼者の情報は、ご本人の同意がある場合にのみお渡しします（プライバシーポリシー記載のとおり）。']}]}
 };
 let useSeg='owner';
 function drawFlow(){
@@ -1418,12 +1435,13 @@ drawFlow();
 
 /* フォーム */
 let seg='owner';
-const SEGNAME={owner:'店を渡したい（店主）',taker:'店を継ぎたい',partner:'家主・管理会社・支援機関'};
+const SEGNAME={owner:'店を渡したい（店主）',taker:'店を継ぎたい',partner:'家主・管理会社・支援機関',expert:'中小企業診断士・士業（連携希望）'};
 function setSeg(s){
   seg=s;
   $$('.fseg button').forEach(b=>b.classList.toggle('on',b.dataset.s===s));
-  $('#fldGyo').style.display=s==='partner'?'none':'block';
-  $('#fldWhen').style.display=s==='partner'?'none':'block';
+  const hide=(s==='partner'||s==='expert');
+  $('#fldGyo').style.display=hide?'none':'block';
+  $('#fldWhen').style.display=hide?'none':'block';
 }
 $$('.fseg button').forEach(b=>b.onclick=()=>setSeg(b.dataset.s));
 $$('[data-seg]').forEach(a=>a.addEventListener('click',()=>setSeg(a.dataset.seg)));
@@ -1456,7 +1474,7 @@ $('#fSend').onclick=async()=>{
     '所在地':$('#fArea').value.trim()||'（未記入）',
     'きっかけ':$('#fSrc').value||'（未選択）'
   };
-  if(seg!=='partner'){
+  if(seg!=='partner'&&seg!=='expert'){
     data['業態']=$('#fGyo').value||'（未選択）';
     data['時期']=$('#fWhen').value||'（未選択）';
   }
