@@ -6,7 +6,7 @@
 <title>補助金サポート｜BRIDGE CYCLE株式会社（認定経営革新等支援機関・滋賀県大津市）</title>
 <meta name="description" content="設備投資・販路開拓・事業承継の補助金申請を、認定経営革新等支援機関が支援します。料金は着手金5万円＋採択時に補助額の10%（着手金充当）。不採択の場合、着手金以外のご負担はありません。初回相談60分は0円で、要件・時期が合わない場合ははっきりお断りします。滋賀県大津市。">
 <meta property="og:title" content="補助金サポート｜BRIDGE CYCLE">
-<meta property="og:description" content="採択されて、はじめて報酬をいただく補助金申請サポート。着手金5万円＋採択時に補助額の10%。初回相談0円。">
+<meta property="og:description" content="着手金5万円＋採択時に補助額の10%の補助金申請サポート。不採択なら、ご負担は着手金5万円まで。初回相談0円。">
 <meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/hojokin.html">
 <meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/ogp.png">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%231B3B5F"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="%239FBBD6" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round"/></svg>'>
@@ -59,6 +59,14 @@ b{color:var(--ai)}
 .tchip.g{background:var(--midpale);color:var(--mid)}
 .tchip.a{background:var(--aipale);color:var(--ai)}
 .tchip.k{background:var(--kinpale);color:var(--kin)}
+/* 実績タイル */
+.rec4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+@media(max-width:760px){.rec4{grid-template-columns:1fr 1fr}}
+.rec{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 14px;text-align:center}
+.rec .t{font-size:11.5px;font-weight:700;color:var(--ink2);line-height:1.6}
+.rec .v{font-family:var(--serif);font-weight:800;font-size:clamp(20px,3.4vw,27px);color:var(--ai);margin:4px 0 2px}
+.rec .v small{font-size:12px;color:var(--mid);font-family:inherit}
+.rec .s{font-size:10.5px;color:var(--ink3)}
 /* 実例タイル */
 .extiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media(max-width:680px){.extiles{grid-template-columns:1fr}}
@@ -127,6 +135,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 
 <nav class="nav"><div class="wrap">
   <a class="logo" href="./" title="BRIDGE CYCLE株式会社 トップへ">BRIDGE <b>CYCLE</b></a>
+  <a class="l" href="#results">実績</a>
   <a class="l" href="#menu">支援内容と料金</a>
   <a class="l" href="#caution">補助金の注意</a>
   <a class="l" href="#flow">進め方</a>
@@ -136,7 +145,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 <header class="hero"><div class="wrap">
   <div>
     <span class="badge">補助金サポート｜国の認定経営革新等支援機関（認定番号 109825000112）</span>
-    <h1>採択されて、はじめて<br><u>報酬</u>をいただく。</h1>
+    <h1>不採択なら、ご負担は<br><u>着手金5万円</u>まで。</h1>
     <p class="lead">設備投資・販路開拓・事業承継の<b>補助金申請</b>を支援します。補助金は返済不要の給付で、採択額が大きいほどお客様の利益も大きい——<b>当社の報酬とお客様の利益の方向が一致する</b>料金体系です。だからこそ、見込みのない申請は初回相談の段階ではっきりお断りします。</p>
     <div class="trustline">
       <span class="tchip g">初回相談（60分）0円</span>
@@ -154,6 +163,18 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
     </div>
   </div>
 </div></header>
+
+<section id="results"><div class="wrap">
+  <p class="eyebrow">RESULTS</p>
+  <h2>これまでの支援実績</h2>
+  <div class="rec4">
+    <div class="rec"><div class="t">ものづくり補助金</div><div class="v">5<small>／5件</small></div><div class="s">採択率 100%</div></div>
+    <div class="rec"><div class="t">事業再構築補助金</div><div class="v">6<small>／8件</small></div><div class="s">採択率 75%</div></div>
+    <div class="rec"><div class="t">小規模事業者<br>持続化補助金</div><div class="v">約150<small>件</small></div><div class="s">申請支援の累計</div></div>
+    <div class="rec"><div class="t">元商工会経営指導員</div><div class="v">歴20<small>年</small></div><div class="s">支援実績500社超</div></div>
+  </div>
+  <p class="mut" style="margin-top:12px">※商工会経営指導員としての支援実績を含む過去の実績であり、今後の採択をお約束するものではありません。補助金は公募ごとの要件と審査があり、不採択となる場合があります。</p>
+</div></section>
 
 <section id="menu"><div class="wrap">
   <p class="eyebrow">PRICE</p>
@@ -250,7 +271,7 @@ document.getElementById('cSend').onclick=async()=>{
     'ご状況':document.getElementById('cMsg').value.trim()||'（未記入）',
     _subject:'【補助金サポート相談】'+name,
     _replyto:mail,_template:'table',
-    _autoresponse:'【BRIDGE CYCLE】初回相談のお申し込みを受け付けました。\n\nこのメールは自動返信です。お申し込みありがとうございます。\n担当者より、原則2営業日以内にメールでご返信し、初回相談（60分・0円）の日程をご案内します。\n\nご不明な点は、このメールに返信してお知らせください。\n\nBRIDGE CYCLE株式会社（滋賀県大津市）\n国の認定経営革新等支援機関（認定番号 109825000112）'
+    _autoresponse:'【BRIDGE CYCLE】初回相談のお申し込みを受け付けました。\n\nこのメールは自動返信です。お申し込みありがとうございます。\n担当者より、原則2営業日以内にメールでご返信し、初回相談（60分・0円）の日程をご案内します。\n\nご不明な点は、このメールに返信してお知らせください。\n\n補助金の要件に合わない場合も、承継マッチング・売り場レンタルなど、別の道をあわせてご案内します。\n\nBRIDGE CYCLE株式会社（滋賀県大津市）\n国の認定経営革新等支援機関（認定番号 109825000112）'
   };
   try{
     const r=await fetch(EP,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});

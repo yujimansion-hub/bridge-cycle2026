@@ -968,6 +968,17 @@ footer a{text-decoration:underline}
           <option>3か月以内</option><option>半年以内</option><option>1年以内</option>
           <option>まだ決めていない</option>
         </select></div>
+      <div class="fld"><label for="fSrc">このサービスを、どこでお知りになりましたか<span class="hint">今後のご案内の改善にだけ使います。</span></label>
+        <select id="fSrc" name="src">
+          <option value="">選択してください（任意）</option>
+          <option>金融機関・税理士などからの紹介</option>
+          <option>家主・不動産会社からの紹介</option>
+          <option>知人・同業の店主から</option>
+          <option>検索（Google等）</option>
+          <option>SNS・note</option>
+          <option>チラシ・カード</option>
+          <option>その他</option>
+        </select></div>
       <div class="fld"><label for="fMsg">ご状況・ご質問
         <span class="hint">差し支えない範囲で結構です。書いていただくほど、こちらから具体的にご案内できます。</span></label>
         <textarea id="fMsg" name="message" placeholder="例：体力的に続けるのが難しく、来年の春ごろに閉めることを考えています。厨房設備は5年前に入れ替えました。"></textarea></div>
@@ -1442,7 +1453,8 @@ $('#fSend').onclick=async()=>{
     'お立場':SEGNAME[seg],
     'お名前':name,
     'メール':mail,
-    '所在地':$('#fArea').value.trim()||'（未記入）'
+    '所在地':$('#fArea').value.trim()||'（未記入）',
+    'きっかけ':$('#fSrc').value||'（未選択）'
   };
   if(seg!=='partner'){
     data['業態']=$('#fGyo').value||'（未選択）';
@@ -1458,6 +1470,9 @@ $('#fSend').onclick=async()=>{
     +'このメールは自動返信です。ご登録ありがとうございます。\n'
     +'サービス開設のご案内と造作価格の自己算定シートを、このメールアドレスにお送りします。\n'
     +'開設まで、ご案内以外のメールをお送りすることはありません。\n\n'
+    +'■ 開設を待つ間に\n'
+    +'旧大津公会堂・銀工房の「売り場レンタル」（1日1,000円〜）で、テイクアウト販売の腕試しができます。\n'
+    +'https://yujimansion-hub.github.io/bridge-cycle2026/uriba-kokaido.html\n\n'
     +'ご質問はこのメールに返信いただくか、info@bridgecycleco.com までお寄せください。\n\n'
     +'BRIDGE CYCLE株式会社（滋賀県大津市）';
 
