@@ -64,11 +64,33 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center}
 .stats b{display:block;font-family:var(--serif);font-size:clamp(19px,3vw,26px);color:#fff;line-height:1.3}
 .stats span{font-size:11px;letter-spacing:.12em;opacity:.85}
+.stats b .cnt{font-size:inherit;letter-spacing:inherit;opacity:1}
 @media(max-width:640px){.stats .wrap{grid-template-columns:1fr 1fr 1fr;gap:6px}.stats b{font-size:15px}.stats span{font-size:9.5px;letter-spacing:.04em}}
 /* さりげない出現アニメーション */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .rv.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+/* ヒーローCTA */
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 26px;
+ font-weight:800;font-size:14.5px;text-decoration:none;transition:transform .13s,box-shadow .13s}
+.btn.shu{background:var(--shu);color:#fff;box-shadow:0 6px 16px rgba(168,56,44,.28)}
+.btn.shu:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(168,56,44,.36)}
+.btn.gh{border:1.5px solid var(--rule2);color:var(--ink2);background:rgba(255,255,255,.7)}
+.btn.gh:hover{border-color:var(--aimid);color:var(--ai)}
+/* 朱印風・認定シール */
+.seal{position:absolute;z-index:3;right:-6px;top:44%;width:92px;height:92px;transform:rotate(8deg);
+ filter:drop-shadow(0 3px 8px rgba(20,22,26,.18))}
+@media(max-width:860px){.seal{width:76px;height:76px;right:-4px;top:auto;bottom:-10px}}
+/* サイクル図 */
+.cycle{margin-top:34px;background:var(--card);border:1px solid var(--rule);border-radius:18px;
+ padding:26px 22px;box-shadow:var(--shadow);display:grid;grid-template-columns:230px 1fr;gap:24px;align-items:center}
+@media(max-width:760px){.cycle{grid-template-columns:1fr;justify-items:center;text-align:left}}
+.cycle .dg{width:220px;height:220px}
+.cycle h3{font-family:var(--serif);font-size:17.5px;font-weight:800;margin-bottom:8px}
+.cycle p{font-size:13px;color:var(--ink2);line-height:1.95}
+.cycle .nm{font-family:var(--serif);font-weight:800;color:var(--ai)}
+
 
 section{padding:56px 0;border-bottom:1px solid var(--rule)}
 .eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--aimid);font-weight:700;margin-bottom:8px}
@@ -136,18 +158,29 @@ footer .fl b{color:#9FBBD6}
 <header class="hero"><div class="wrap">
   <div>
     <span class="badge">BRIDGE CYCLE株式会社｜滋賀県大津市</span>
-    <h1>小さな飲食店の、<br>「始める」と「渡す」を<u>支える</u>。</h1>
-    <p class="lead">お店をたたむとき、造作をすべて剥がして返すだけが選択肢ではありません。始めるとき、いきなり大きな借入だけが道ではありません。BRIDGE CYCLEは、<b>承継のマッチング</b>・<b>1日から試せる売り場</b>・<b>成果連動の補助金サポート</b>の3つの事業で、飲食店のはじまりと引き継ぎを地元から支えます。</p>
+    <h1>始める人と、渡す人の<br>あいだに、<u>橋</u>を。</h1>
+    <p class="lead">お店をたたむとき、造作をすべて剥がして返すだけが選択肢ではありません。始めるとき、いきなり大きな借入だけが道ではありません。BRIDGE CYCLEは、<b>承継のマッチング</b>・<b>1日から試せる売り場</b>・<b>成果連動の補助金サポート</b>の3つの事業で、小さな飲食店の「始める」と「渡す」を地元・大津から支えます。</p>
+    <div class="hero-cta">
+      <a class="btn shu" href="#business">3つの事業を見る</a>
+      <a class="btn gh" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINEで相談する</a>
+    </div>
   </div>
   <div class="hpanel" aria-hidden="true">
     <div class="hp hp1" style="background-image:url('images/hero-cafe.jpg')"><span class="cap">場の価値は、次の人へ。</span></div>
     <div class="hp hp2" style="background-image:url('images/hero.jpg')"><span class="cap">譲る人と、続ける人。</span></div>
+    <svg class="seal" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#A8382C" stroke-width="3.2"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="#A8382C" stroke-width="1.4"/>
+      <text x="50" y="42" text-anchor="middle" fill="#A8382C" font-size="13.5" font-weight="700" font-family="'Shippori Mincho',serif">国認定</text>
+      <text x="50" y="58" text-anchor="middle" fill="#A8382C" font-size="10.5" font-weight="700" font-family="'Shippori Mincho',serif">経営革新等</text>
+      <text x="50" y="71" text-anchor="middle" fill="#A8382C" font-size="10.5" font-weight="700" font-family="'Shippori Mincho',serif">支援機関</text>
+    </svg>
   </div>
 </div></header>
 
 <div class="stats"><div class="wrap">
-  <div><b>約20年</b><span>商工会での経営指導</span></div>
-  <div><b>500社超</b><span>支援実績</span></div>
+  <div><b>約<span class="cnt" data-n="20">20</span>年</b><span>商工会での経営指導</span></div>
+  <div><b><span class="cnt" data-n="500">500</span>社超</b><span>支援実績</span></div>
   <div><b>認定支援機関</b><span>認定番号 109825000112</span></div>
 </div></div>
 
@@ -196,8 +229,33 @@ footer .fl b{color:#9FBBD6}
     </a>
 
   </div>
-  <div class="link3">
-    <b>3つはつながっています。</b>売り場レンタルで商売を試した人が、承継マッチングで店を受け取り、資金は補助金サポートで整える——「いきなり開業」でも「黙って閉店」でもない道筋を、ひとつの会社の中で用意しています。
+  <div class="cycle rv">
+    <svg class="dg" viewBox="0 0 220 220" aria-hidden="true">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#3D6389"/>
+        </marker>
+      </defs>
+      <!-- 循環の矢印 -->
+      <path d="M 110 34 A 76 76 0 0 1 176 148" fill="none" stroke="#3D6389" stroke-width="3" marker-end="url(#ah)"/>
+      <path d="M 162 172 A 76 76 0 0 1 58 172" fill="none" stroke="#3D6389" stroke-width="3" marker-end="url(#ah)"/>
+      <path d="M 44 148 A 76 76 0 0 1 110 34" fill="none" stroke="#3D6389" stroke-width="3" marker-end="url(#ah)"/>
+      <!-- 3つの節 -->
+      <g font-family="'Shippori Mincho',serif" font-weight="700" text-anchor="middle">
+        <circle cx="110" cy="26" r="24" fill="#E7EEF5" stroke="#1B3B5F" stroke-width="1.6"/>
+        <text x="110" y="31" font-size="13" fill="#1B3B5F">試す</text>
+        <circle cx="184" cy="160" r="24" fill="#E3EFE9" stroke="#2E6B4F" stroke-width="1.6"/>
+        <text x="184" y="165" font-size="13" fill="#2E6B4F">継ぐ</text>
+        <circle cx="36" cy="160" r="24" fill="#F5F0E0" stroke="#8A6D1F" stroke-width="1.6"/>
+        <text x="36" y="165" font-size="13" fill="#8A6D1F">整える</text>
+        <text x="110" y="122" font-size="11" fill="#767870" font-family="inherit">BRIDGE</text>
+        <text x="110" y="138" font-size="11" fill="#767870" font-family="inherit">CYCLE</text>
+      </g>
+    </svg>
+    <div>
+      <h3>社名のとおり、橋を架けて、循環を回す。</h3>
+      <p>売り場レンタルで<b>試した</b>人が、承継マッチングで店を<b>継ぎ</b>、補助金サポートで資金を<b>整える</b>。「いきなり開業」でも「黙って閉店」でもない道筋を、ひとつの会社の中でつなげています。<span class="nm">BRIDGE</span>＝始める人と渡す人のあいだに橋を架けること。<span class="nm">CYCLE</span>＝店とまちの価値を循環させること。これが、この社名の意味です。</p>
+    </div>
   </div>
 </div></section>
 
@@ -236,6 +294,26 @@ footer .fl b{color:#9FBBD6}
   if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('on');});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.15});
+  els.forEach(function(e){io.observe(e);});
+})();
+/* 実績数字のカウントアップ（動きを減らす設定では即表示） */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.cnt');
+  if(!els.length)return;
+  if(reduce||!('IntersectionObserver'in window)){els.forEach(function(e){e.textContent=e.dataset.n;});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){
+    if(!en.isIntersecting)return;
+    var el=en.target,target=parseInt(el.dataset.n,10),t0=null;
+    io.unobserve(el);
+    function step(t){
+      if(!t0)t0=t;
+      var p=Math.min(1,(t-t0)/900);
+      el.textContent=Math.round(target*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(step);
+    }
+    el.textContent='0';requestAnimationFrame(step);
+  });},{threshold:.6});
   els.forEach(function(e){io.observe(e);});
 })();
 </script>
