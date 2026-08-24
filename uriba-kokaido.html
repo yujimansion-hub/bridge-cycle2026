@@ -358,11 +358,28 @@ window.FB_PIXEL_ID = "1370343645272166";
       <div id="egProg" style="font-size:.78rem;color:#5f6f69;margin-bottom:10px"></div>
       <div id="egBody"></div>
     </div>
-    <form id="applyForm" class="formwrap" action="https://formspree.io/f/mojoqekd" method="POST" style="display:none">
+    <form id="applyForm" class="formwrap" action="https://formsubmit.co/79ac2824fb770b3113a2a00f0f92bba8" method="POST" style="display:none">
       <input type="hidden" name="_subject" value="旧大津公会堂 出店申込">
       <input type="hidden" name="_next" value="https://yujimansion-hub.github.io/bridge-cycle2026/thanks-kokaido.html">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_replyto" value="">
+      <input type="hidden" name="_autoresponse" value="【旧大津公会堂 売り場レンタル】お申し込みを受け付けました。
+
+このメールは自動返信です。お申し込みの種類によって、次のステップが異なります。
+
+■テント等でお申し込みの方
+送信後に表示されたお支払いページから、カード決済にお進みください。お支払いの完了をもって予約確定となります（同じ枠に複数のお申し込みがあった場合は、お支払いの完了順に確定します）。お支払いページを閉じてしまった場合は、LINEからご連絡ください。決済リンクをお送りします。
+
+■キッチンカー・土日レギュラー（月額）でお申し込みの方
+車両寸法や空き状況を確認のうえ、原則2営業日以内に運営からご案内をお送りします。この時点では予約はまだ確定していません。
+
+ご不明な点はLINE（https://line.me/R/ti/p/@907kxssd）からお気軽にどうぞ。
+
+旧大津公会堂 売り場レンタル 運営事務局">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <div class="field"><label>お名前・屋号<span class="req">必須</span></label><input type="text" name="お名前・屋号" required></div>
-      <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="メール" required></div>
+      <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required><div class="hint">ご記入のアドレスに、受付確認の自動返信メールをお送りします。</div></div>
       <div class="field"><label>電話番号</label><input type="tel" name="電話"></div>
       <div class="field"><label>ご希望の出店日<span class="req">必須</span></label><input type="date" id="uriDate" name="希望日" min="2026-09-01" required><div class="hint">ご利用時間は、昼の部 9:00〜15:00／夜の部 15:00〜21:00／終日 9:00〜21:00 です。<b>準備（設営）と片付け（撤収・清掃）も、ご予約の時間帯の中で完了してください。</b><b style="color:#bf4429">お申し込みは、2026年9月1日以降の出店日が対象です。</b>日程のご相談はLINEからお気軽にどうぞ。</div><div id="uriDateErr" style="display:none;color:#bf4429;font-weight:700;font-size:.88rem;margin-top:6px"></div></div>
       <div class="field"><label>ご希望の区画・プラン<span class="req">必須</span></label>
@@ -829,8 +846,11 @@ window.FB_PIXEL_ID = "1370343645272166";
                         （キッチンカーは2区画必要なため申し込めません）。
        2              … テント等が2区画を使用。その時間帯は満枠になります。
 
-     予約が確定したら、この表に1行足すだけで、申込フォームと
-     空き枠カレンダーの両方に反映されます。
+     【自動連携について】ふだんの更新はGoogleスプレッドシート
+     「旧大津公会堂_空き枠管理」に1行足すだけです（HTML編集は不要）。
+     ページを開くたびにシートを読み込み、下の埋め込み値を上書きします。
+     下の埋め込み値は、シートが読めないとき（オフライン・共有設定漏れ等）
+     の予備として使われるだけなので、編集しなくてもかまいません。
      ══════════════════════════════════════════════════════════════ */
   var SLOT_USE = {
     "2026-09-01": { "昼": "キッチンカー" },                    // Joe's Coffee（決済済）
@@ -1066,15 +1086,21 @@ window.FB_PIXEL_ID = "1370343645272166";
         next.value = q.length ? (base + "?" + q.join("&")) : base;
       }
 
-      /* ---- 非同期送信（Formspree の AJAX 送信）----------------------------
-         _next によるリダイレクトは Formspree の有料機能のため、無料プランでは
-         効きません。ここでは fetch で送信し、遷移は自前で行います。
-         JavaScript が動かない環境では、この下の通常送信にそのまま落ちます。 */
+      /* ---- 非同期送信（FormSubmit の AJAX 送信）---------------------------
+         申込者への受付確認メール（_autoresponse）を自動送信するため、
+         BRIDGE CYCLE LPと同じFormSubmit（yujimansion@gmail.com宛・
+         本番ドメインで有効化済み）に送信します。ここでは fetch で送信し、
+         遷移は自前で行います。JavaScript が動かない環境では、この下の
+         通常送信（formsubmit.co への直接POST）にそのまま落ちます。 */
+      var reply = form.querySelector('input[name="_replyto"]');
+      var mail  = form.querySelector('input[name="email"]');
+      if(reply && mail) reply.value = mail.value;   // 返信先を申込者に
       if(window.fetch && window.FormData && next){
         e.preventDefault();
         var thanksUrl = next.value;
         var fd = new FormData(form);
         fd.delete("_next");                       // AJAX送信では不要
+        fd.delete("_honey");                      // 迷惑対策の空欄項目は送らない
         var btn = form.querySelector('button[type="submit"]');
         var btnText = btn ? btn.textContent : "";
         var sendErr = document.getElementById("sendErr");
@@ -1084,17 +1110,18 @@ window.FB_PIXEL_ID = "1370343645272166";
         }
         if(btn){ btn.disabled = true; btn.textContent = "送信中…"; }
         if(sendErr){ sendErr.style.display = "none"; }
-        fetch(form.action, {
+        fetch("https://formsubmit.co/ajax/79ac2824fb770b3113a2a00f0f92bba8", {
           method: "POST",
           body: fd,
           headers: { "Accept": "application/json" }
         }).then(function(res){
-          if(res.ok){
-            try{ if(window.fbq) fbq('track','Lead'); }catch(e){}  /* 申込送信＝Lead（決済完了=Purchaseとは別に数えます） */
-            location.href = thanksUrl; return;
-          }
           return res.json().catch(function(){ return null; }).then(function(d){
-            var m = (d && d.errors && d.errors[0] && d.errors[0].message) ? d.errors[0].message : ("送信できませんでした（" + res.status + "）");
+            var okFlag = d && (d.success === "true" || d.success === true);
+            if(res.ok && okFlag){
+              try{ if(window.fbq) fbq('track','Lead'); }catch(e){}  /* 申込送信＝Lead（決済完了=Purchaseとは別に数えます） */
+              location.href = thanksUrl; return;
+            }
+            var m = (d && d.message) ? d.message : ("送信できませんでした（" + res.status + "）");
             fail("送信できませんでした：" + m + "　お手数ですがLINEからご連絡ください。");
           });
         }).catch(function(){
@@ -1205,7 +1232,83 @@ window.FB_PIXEL_ID = "1370343645272166";
   });
 
   if(window.URIBA_RULES){ build(window.URIBA_RULES); }
-  else{ document.addEventListener("uriba:rules-ready", function(){ build(window.URIBA_RULES || {}); }); }
+  /* シート読み込み完了などで rules-ready が再発火したら、カレンダーを描き直します */
+  document.addEventListener("uriba:rules-ready", function(){ build(window.URIBA_RULES || {}); });
+})();
+</script>
+<script>
+/* ▼ 空き枠の自動読み込み（Googleスプレッドシート連携） ▼
+   ──────────────────────────────────────────────
+   スプレッドシート「旧大津公会堂_空き枠管理」を開くたびに読み込み、
+   埋め込みの SLOT_USE を最新の内容に置き換えます。
+   ・シートに1行足すだけで、空き枠カレンダーと申込フォームの
+     両方に反映されます（HTMLの編集・アップロードは不要）。
+   ・シートの列: A=日付(2026-09-01)  B=時間帯(昼/夜/終日)
+                 C=使用(キッチンカー/確認中/1/2)  D=メモ
+   ・シートは「リンクを知っている全員が閲覧可」で公開されるため、
+     メモ欄は屋号までにとどめ、個人名・電話・メールは書かないでください。
+   ・読み込みに失敗した場合は埋め込み値のまま表示されます（壊れません）。
+   ・連携をやめる場合は SHEET_ID を "" にしてください。 */
+(function(){
+  var SHEET_ID = "1WJGcIBrIMQm_BzBSdX_FduxEo1QqzDsYPvq5ojygfBA";
+  if(!SHEET_ID || !window.fetch) return;
+  var GURL = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:json&headers=1";
+  function pad2(n){ n = parseInt(n, 10); return (n < 10 ? "0" : "") + n; }
+  function normDate(cell){
+    if(!cell) return "";
+    var v = cell.v, m;
+    if(typeof v === "string"){
+      m = v.match(/^Date\((\d+),(\d+),(\d+)/);            // GVizの日付形式 Date(2026,8,1)（月は0始まり）
+      if(m) return m[1] + "-" + pad2(+m[2] + 1) + "-" + pad2(m[3]);
+      m = v.trim().replace(/\//g, "-").match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+      if(m) return m[1] + "-" + pad2(m[2]) + "-" + pad2(m[3]);
+    }
+    if(cell.f){                                            // 表示文字列（例 2026/09/01）
+      m = String(cell.f).replace(/\//g, "-").match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+      if(m) return m[1] + "-" + pad2(m[2]) + "-" + pad2(m[3]);
+    }
+    return "";
+  }
+  function normUse(cell){
+    if(!cell || cell.v === null || cell.v === undefined) return null;
+    if(typeof cell.v === "number") return cell.v;
+    var s = String(cell.v).trim();
+    if(s === "") return null;
+    if(s === "キッチンカー" || s === "確認中") return s;
+    var n = parseInt(s, 10);
+    return isNaN(n) ? "確認中" : n;                        // 想定外の文字は安全側（申込停止）に倒す
+  }
+  fetch(GURL, { cache: "no-store" }).then(function(r){
+    if(!r.ok) throw new Error("HTTP " + r.status);
+    return r.text();
+  }).then(function(t){
+    var m = t.match(/setResponse\(([\s\S]*)\);?\s*$/);
+    if(!m) throw new Error("gviz形式ではありません");
+    var table = JSON.parse(m[1]).table;
+    if(!table || !table.rows) throw new Error("表がありません");
+    var fresh = {};
+    for(var i = 0; i < table.rows.length; i++){
+      var c = table.rows[i].c || [];
+      var date = normDate(c[0]);
+      var slot = (c[1] && c[1].v !== null && c[1].v !== undefined) ? String(c[1].v).trim() : "";
+      var use  = normUse(c[2]);
+      if(!date || !slot || use === null) continue;         // 空行・書きかけの行は無視
+      if(slot === "終日"){                                  // 「終日」は昼夜両方に展開
+        fresh[date] = fresh[date] || {};
+        fresh[date]["昼"] = use; fresh[date]["夜"] = use;
+      } else if(slot === "昼" || slot === "夜"){
+        fresh[date] = fresh[date] || {};
+        fresh[date][slot] = use;
+      }
+    }
+    var SU = window.URIBA_RULES && window.URIBA_RULES.SLOT_USE;
+    if(!SU) return;
+    Object.keys(SU).forEach(function(k){ delete SU[k]; });          // 既存オブジェクトの中身だけ入れ替え
+    Object.keys(fresh).forEach(function(k){ SU[k] = fresh[k]; });   // （slotsLeft等の参照を保つため）
+    try{ document.dispatchEvent(new CustomEvent("uriba:rules-ready")); }catch(e){}
+  }).catch(function(e){
+    try{ console.warn("空き枠シートの読み込みに失敗（埋め込み値で表示継続）:", e && e.message); }catch(_){}
+  });
 })();
 </script>
 </body>
