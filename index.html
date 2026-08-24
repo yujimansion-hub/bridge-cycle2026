@@ -128,6 +128,17 @@ h2{font-family:var(--serif);font-size:clamp(20px,3.8vw,27px);font-weight:800;mar
 .vn .d{font-size:11px;color:var(--ink3);display:block;line-height:1.5}
 .vn .ar{margin-left:auto;color:var(--aimid);font-weight:800;font-size:13px;white-space:nowrap}
 
+/* 一般的なコンサルとの違い */
+.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:840px){.diff{grid-template-columns:1fr}}
+.df{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:20px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.df h3{font-family:var(--serif);font-size:16.5px;font-weight:800;margin-bottom:12px;line-height:1.5}
+.df .x{font-size:12px;color:var(--ink3);background:var(--card2);border-radius:10px;padding:10px 13px;line-height:1.8}
+.df .x::before{content:"✕ 一般的には";display:block;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--ink3);margin-bottom:2px}
+.df .o{font-size:13px;color:var(--ink2);margin-top:12px;line-height:1.9;flex:1}
+.df .o::before{content:"✓ BRIDGE CYCLEは";display:block;font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--mid);margin-bottom:3px}
+.df .o b{color:var(--ai)}
+
 /* つながり */
 .link3{margin-top:30px;background:var(--card2);border:1px solid var(--rule);border-radius:14px;padding:18px 22px;font-size:13px;color:var(--ink2)}
 .link3 b{color:var(--ai)}
@@ -151,6 +162,7 @@ footer .fl b{color:#9FBBD6}
 <nav class="nav"><div class="wrap">
   <a class="logo" href="./">BRIDGE <b>CYCLE</b></a>
   <a class="l" href="#business">事業内容</a>
+  <a class="l" href="#difference">選ばれる理由</a>
   <a class="l" href="#company">会社情報</a>
   <span class="sp">滋賀県大津市｜認定経営革新等支援機関</span>
 </div></nav>
@@ -255,6 +267,29 @@ footer .fl b{color:#9FBBD6}
     <div>
       <h3>社名のとおり、橋を架けて、循環を回す。</h3>
       <p>売り場レンタルで<b>試した</b>人が、承継マッチングで店を<b>継ぎ</b>、補助金サポートで資金を<b>整える</b>。「いきなり開業」でも「黙って閉店」でもない道筋を、ひとつの会社の中でつなげています。<span class="nm">BRIDGE</span>＝始める人と渡す人のあいだに橋を架けること。<span class="nm">CYCLE</span>＝店とまちの価値を循環させること。これが、この社名の意味です。</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="difference"><div class="wrap">
+  <p class="eyebrow">DIFFERENCE</p>
+  <h2>一般的なコンサルとの、3つの違い。</h2>
+  <p class="sub">「経営支援」を名乗る会社は多くあります。当社が違うのは、助言の中身より先に、<b>契約の形と、支援の後ろにある「場」</b>です。</p>
+  <div class="diff">
+    <div class="df rv">
+      <h3>報酬が、あなたの利益と<br>逆行しない。</h3>
+      <div class="x">融資額や譲渡額が増えるほどコンサル側の報酬も増える契約が、少なくありません。「多く借りさせる」動機が構造に組み込まれています。</div>
+      <div class="o">融資支援は<b>定額</b>、マッチングの成約料は<b>0円</b>。補助金だけは成果連動ですが、<b>不採択なら着手金5万円のみ</b>——報酬が増える方向とあなたの利益が増える方向を、契約の形で一致させています。</div>
+    </div>
+    <div class="df rv">
+      <h3>計画書を書いて、<br>終わりにしない。</h3>
+      <div class="x">立派な事業計画書を納品して支援が終わる——「紙で終わるコンサル」は、開業後・承継後の現実を引き受けません。</div>
+      <div class="o">計画の先の「実行の場」を自社で運営しています。<b>1日から試せる売り場（2会場）</b>で商売を検証し、<b>承継マッチング</b>で相手と出会う。助言と実行の場が、ひとつの会社の中でつながっています。</div>
+    </div>
+    <div class="df rv">
+      <h3>売り込む前に、<br>お断りする。</h3>
+      <div class="x">初回面談が実質的な営業になっていて、契約ありきで話が進むことがあります。</div>
+      <div class="o">初回相談（0円）で<b>「有料支援は要りません」「補助金は要件に合いません」とはっきりお伝えします</b>。商工会の窓口で約20年・500社超を見てきた公的支援の現場出身——売り込みより、見立てを優先します。</div>
     </div>
   </div>
 </div></section>
