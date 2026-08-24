@@ -9,6 +9,7 @@
 <meta property="og:description" content="採択されて、はじめて報酬をいただく補助金申請サポート。着手金5万円＋採択時に補助額の10%。初回相談0円。">
 <meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/hojokin.html">
 <meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/ogp.png">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%231B3B5F"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="%239FBBD6" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round"/></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -36,7 +37,40 @@ b{color:var(--ai)}
 .nav .l{font-size:12.5px;color:var(--ink3);text-decoration:none}
 .nav .cta{margin-left:auto;background:var(--ai);color:#fff;text-decoration:none;font-weight:700;font-size:13px;border-radius:999px;padding:9px 18px}
 @media(max-width:640px){.nav .l{display:none}}
-.hero{padding:66px 0 50px;border-bottom:1px solid var(--rule)}
+.hero{padding:62px 0 54px;border-bottom:1px solid var(--rule);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:30px}}
+/* 料金の図解パネル */
+.pricebox{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:22px 22px 18px;
+ box-shadow:0 1px 2px rgba(20,22,26,.06),0 14px 34px rgba(20,22,26,.10);transform:rotate(.8deg)}
+.pricebox .pb-t{font-size:11px;letter-spacing:.16em;color:var(--aimid);font-weight:700;margin-bottom:12px}
+.pricebox .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule)}
+.pricebox .row .k{font-size:12.5px;font-weight:700;color:var(--ink2)}
+.pricebox .row .v{font-family:var(--serif);font-weight:800;font-size:20px;color:var(--ai);white-space:nowrap}
+.pricebox .row .v small{font-size:11px;color:var(--ink3);font-family:inherit;font-weight:400}
+.pricebox .split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.pricebox .oc{border-radius:12px;padding:12px 12px;text-align:center}
+.pricebox .oc b{display:block;font-family:var(--serif);font-size:16px}
+.pricebox .oc span{font-size:10.5px;display:block;margin-top:2px;line-height:1.5}
+.pricebox .oc.ok{background:var(--midpale);color:var(--mid)}
+.pricebox .oc.ng{background:var(--card2);color:var(--ink2);border:1px dashed var(--rule2)}
+.trustline{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.tchip{font-size:11px;font-weight:700;border-radius:999px;padding:4px 13px}
+.tchip.g{background:var(--midpale);color:var(--mid)}
+.tchip.a{background:var(--aipale);color:var(--ai)}
+.tchip.k{background:var(--kinpale);color:var(--kin)}
+/* 実例タイル */
+.extiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media(max-width:680px){.extiles{grid-template-columns:1fr}}
+.ext{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;text-align:center}
+.ext .a{font-size:11.5px;color:var(--ink3);font-weight:700}
+.ext .b{font-family:var(--serif);font-weight:800;font-size:19px;color:var(--ai);margin:2px 0}
+.ext .c{font-size:11px;color:var(--ink3);line-height:1.6}
+.ext.ng .b{color:var(--ink2)}
+/* さりげない出現 */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 .badge{display:inline-block;font-size:11.5px;letter-spacing:.14em;color:var(--ai);font-weight:700;border:1.5px solid var(--rule2);background:rgba(255,255,255,.75);border-radius:999px;padding:6px 16px;margin-bottom:20px}
 h1{font-family:var(--serif);font-size:clamp(26px,5.5vw,40px);line-height:1.45;font-weight:800}
 h1 u{text-decoration:none;border-bottom:5px solid var(--aimid);padding-bottom:2px}
@@ -64,12 +98,16 @@ tr.set{background:var(--aipale)}
 .why h3{font-family:var(--serif);font-size:18px;color:#fff;margin-bottom:8px}
 .why b{color:#fff}
 .mut{color:var(--ink3);font-size:12.5px}
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:16px}
+.flow .st{position:relative}
+.flow .st:not(:last-child)::after{content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);
+ color:var(--aimid);font-weight:800;font-size:17px}
+@media(max-width:680px){.flow .st:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-22px;transform:translateX(-50%)}}
 .st{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:15px 16px}
 .st .no{font-family:var(--serif);font-weight:800;color:var(--aimid);font-size:13px}
 .st b{display:block;margin:2px 0 3px}
 .st p{font-size:12.5px;color:var(--ink2);line-height:1.8}
-@media(max-width:680px){.flow{grid-template-columns:1fr}}
+@media(max-width:680px){.flow{grid-template-columns:1fr;gap:26px}}
 .fld{margin-bottom:14px}
 .fld label{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin-bottom:5px}
 .fld .req{color:var(--shu);font-size:10.5px;margin-left:6px}
@@ -79,8 +117,9 @@ tr.set{background:var(--aipale)}
 .btn{display:inline-block;border:none;background:var(--ai);color:#fff;border-radius:999px;padding:14px 30px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit}
 .btn:disabled{opacity:.55;cursor:not-allowed}
 .fmsg{font-size:13px;margin-top:10px;min-height:1.5em}
-footer{padding:34px 0 46px;font-size:12px;color:var(--ink3)}
-footer a{color:var(--ink3)}
+footer{background:#132B45;color:#9FB4C9;padding:36px 0 46px;font-size:12px;line-height:2}
+footer a{color:#C6D6E5}
+footer b{color:#fff!important}
 button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offset:2px;border-radius:4px}
 </style>
 </head>
@@ -95,9 +134,25 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <span class="badge">補助金サポート｜国の認定経営革新等支援機関（認定番号 109825000112）</span>
-  <h1>採択されて、はじめて<br><u>報酬</u>をいただく。</h1>
-  <p class="lead">設備投資・販路開拓・事業承継の<b>補助金申請</b>を支援します。料金は<b>着手金5万円＋採択時に補助額の10%</b>（着手金は報酬に充当）。不採択の場合、着手金以外のご負担はありません。補助金は返済不要の給付で、採択額が大きいほどお客様の利益も大きい——<b>当社の報酬とお客様の利益の方向が一致する</b>料金体系です。だからこそ、見込みのない申請は初回相談の段階ではっきりお断りします。</p>
+  <div>
+    <span class="badge">補助金サポート｜国の認定経営革新等支援機関（認定番号 109825000112）</span>
+    <h1>採択されて、はじめて<br><u>報酬</u>をいただく。</h1>
+    <p class="lead">設備投資・販路開拓・事業承継の<b>補助金申請</b>を支援します。補助金は返済不要の給付で、採択額が大きいほどお客様の利益も大きい——<b>当社の報酬とお客様の利益の方向が一致する</b>料金体系です。だからこそ、見込みのない申請は初回相談の段階ではっきりお断りします。</p>
+    <div class="trustline">
+      <span class="tchip g">初回相談（60分）0円</span>
+      <span class="tchip a">着手金5万円＋採択時 補助額の10%</span>
+      <span class="tchip k">不採択なら追加負担 0円</span>
+    </div>
+  </div>
+  <div class="pricebox" aria-hidden="true">
+    <div class="pb-t">料金のしくみ</div>
+    <div class="row"><span class="k">初回相談（60分）</span><span class="v" style="color:var(--mid)">0円</span></div>
+    <div class="row"><span class="k">ご契約時（着手金）</span><span class="v">50,000<small>円</small></span></div>
+    <div class="split">
+      <div class="oc ok"><b>採択なら</b><span>補助額×10%<br>（着手金5万円を充当）</span></div>
+      <div class="oc ng"><b>不採択なら</b><span>追加のお支払い<br>0円</span></div>
+    </div>
+  </div>
 </div></header>
 
 <section id="menu"><div class="wrap">
@@ -112,7 +167,11 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
     <tr><td><span class="nm">採択時報酬</span></td><td>交付決定した補助額の10%。着手金5万円を充当するため、<b>追加のお支払いは「補助額×10% − 5万円」</b>です。不採択の場合は0円。</td><td class="pr">補助額の10%<small>最低額 50,000円（=着手金）</small></td></tr>
   </table>
   </div>
-  <p style="margin-top:14px"><b>例で言うと：</b>補助額100万円なら報酬は計10万円（着手金5万円＋採択後5万円）。補助額500万円なら計50万円。不採択なら、ご負担は着手金の5万円だけです。</p>
+  <div class="extiles rv">
+    <div class="ext"><span class="a">補助額 100万円 の場合</span><span class="b">報酬 計10万円</span><span class="c">着手金5万円＋採択後5万円</span></div>
+    <div class="ext"><span class="a">補助額 500万円 の場合</span><span class="b">報酬 計50万円</span><span class="c">着手金5万円＋採択後45万円</span></div>
+    <div class="ext ng"><span class="a">不採択 の場合</span><span class="b">計5万円のみ</span><span class="c">着手金のみ・追加負担なし</span></div>
+  </div>
   <p class="mut" style="margin-top:8px">事業計画書の作成支援は、ご本人による作成を支援するものであり、当社が代わって作成するものではありません。事業の所在地により連携する中小企業診断士が担当する場合があり、その場合の料金は担当者が定めるため上記と異なることがあります（契約の相手方は当該診断士となります）。融資申込支援・承継関連の定額支援は<a href="matching.html#price">承継マッチングの料金ページ</a>をご覧ください。</p>
   <div class="why">
     <h3>なぜ、成果連動にしているのか。</h3>
@@ -124,10 +183,10 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 <section id="caution"><div class="wrap">
   <p class="eyebrow">HONESTY FIRST</p>
   <h2>補助金について、先にお伝えしておくべきこと</h2>
-  <div class="note3">
-    <div class="n3"><b>誰でも使えるわけではありません。</b>補助金は公募ごとに対象者・対象事業の要件が定められており、審査で不採択になることもあります。要件に合わない場合はその旨をお伝えし、お申し込みをお断りします。</div>
-    <div class="n3"><b>申請できる時期が決まっています。</b>公募期間（多くは年に数回、それぞれ数週間）を外れると、次回の公募まで申請できません。事業のスケジュールと公募の時期が合わないことは、珍しくありません。</div>
-    <div class="n3"><b>補助対象になる期間が決まっています。</b>原則として、交付決定より前に発注・契約・支払いをした費用は補助の対象になりません。「先に進めて、後から申請」はできないものとお考えください。</div>
+  <div class="note3 rv">
+    <div class="n3"><b>① 誰でも使えるわけではありません。</b>補助金は公募ごとに対象者・対象事業の要件が定められており、審査で不採択になることもあります。要件に合わない場合はその旨をお伝えし、お申し込みをお断りします。</div>
+    <div class="n3"><b>② 申請できる時期が決まっています。</b>公募期間（多くは年に数回、それぞれ数週間）を外れると、次回の公募まで申請できません。事業のスケジュールと公募の時期が合わないことは、珍しくありません。</div>
+    <div class="n3"><b>③ 補助対象になる期間が決まっています。</b>原則として、交付決定より前に発注・契約・支払いをした費用は補助の対象になりません。「先に進めて、後から申請」はできないものとお考えください。</div>
   </div>
   <p style="margin-top:14px">当社の着手金は<b>申請支援という役務の対価</b>であり、採択をお約束するものではありません。不採択の場合も返金いたしかねます（採択時報酬は発生しません）。だからこそ、要件・時期・対象期間が合わない場合は、<b>初回相談（0円）の段階でそうお伝えします</b>。</p>
 </div></section>
@@ -135,7 +194,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 <section id="flow"><div class="wrap">
   <p class="eyebrow">FLOW</p>
   <h2>進め方は、3ステップです。</h2>
-  <div class="flow">
+  <div class="flow rv">
     <div class="st"><span class="no">STEP 1</span><b>初回相談（60分・0円）</b><p>状況とご希望をうかがい、使える制度の見当と、有料支援が必要かどうかをお伝えします。オンライン可。</p></div>
     <div class="st"><span class="no">STEP 2</span><b>ご契約・着手（着手金5万円）</b><p>支援内容と料金体系を書面でご確認いただいてから着手します。計画づくりの伴走と申請書類の整備を進めます。</p></div>
     <div class="st"><span class="no">STEP 3</span><b>申請 → 採択時に報酬</b><p>採択（交付決定）となった場合のみ、補助額の10%から着手金を差し引いた額をお支払いいただきます。不採択なら追加のご負担はありません。</p></div>
@@ -208,6 +267,15 @@ document.getElementById('cSend').onclick=async()=>{
       :'送信できませんでした。お手数ですが時間をおいて再度お試しいただくか、info@bridgecycleco.com まで直接ご連絡ください。';
   }
 };
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('on');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.15});
+  els.forEach(function(e){io.observe(e);});
+})();
 </script>
 </body>
 </html>
