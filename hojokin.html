@@ -176,6 +176,78 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
   <p class="mut" style="margin-top:12px">※商工会経営指導員としての支援実績を含む過去の実績であり、今後の採択をお約束するものではありません。補助金は公募ごとの要件と審査があり、不採択となる場合があります。</p>
 </div></section>
 
+
+<!-- 公募スケジュール（Googleシートから自動表示） -->
+<section id="schedule"><div class="wrap">
+  <p class="eyebrow">SCHEDULE</p>
+  <h2>いま申請できる補助金</h2>
+  <p class="mut" style="margin:6px 0 14px">当社の管理シートから自動で表示しています。締切までの残り日数は表示日時点の計算です。<b>正確な要件・締切は、必ず各公式サイトの公募要領でご確認ください。</b></p>
+  <style>
+    #schedule .sk{border:1px solid #DDD6C9;border-radius:12px;background:#fff;padding:14px 16px;margin-bottom:10px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+    #schedule .sk .nm{font-weight:800;font-size:14.5px;min-width:0}
+    #schedule .sk .rd{font-size:11.5px;color:#6B6357}
+    #schedule .sk .bdg{flex:none;font-size:11px;font-weight:800;border-radius:999px;padding:3px 12px}
+    #schedule .sk .bdg.open{background:#E3EFE9;color:#2E6B4F}
+    #schedule .sk .bdg.soon{background:var(--aipale);color:var(--aimid)}
+    #schedule .sk .bdg.tbd{background:#F1EDE3;color:#8A6D1F}
+    #schedule .sk .dt{font-size:12.5px;color:#3A362E}
+    #schedule .sk .dt b{font-family:Georgia,serif;font-size:15px}
+    #schedule .sk .left{flex:none;margin-left:auto;font-size:12px;font-weight:800;color:#2E6B4F}
+    #schedule .sk .memo{width:100%;font-size:11.5px;color:#6B6357;margin-top:2px}
+    #schedule .fallback{border:1px dashed #C9BFA9;border-radius:12px;padding:16px 18px;font-size:13px;color:#3A362E;background:#FBF9F3}
+  </style>
+  <div id="skList"><div class="fallback">スケジュールを読み込んでいます…</div></div>
+  <p class="mut" style="margin-top:10px;font-size:11px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>ほか各補助金公式サイト。掲載のない補助金・地方自治体の補助金についてもご相談いただけます。</p>
+</div></section>
+
+<script>
+(function(){
+  var SHEET='1AWMnHyvHGEgqnlatVTzBa0pwz0u7lG0HyTfNntXUFXs';
+  var url='https://docs.google.com/spreadsheets/d/'+SHEET+'/gviz/tq?tqx=out:json&tq='+encodeURIComponent('select A,B,C,D,E,F');
+  var box=document.getElementById('skList');
+  function fallback(){box.innerHTML='<div class="fallback"><b>最新の公募スケジュールは、公式サイトでご確認ください。</b><br>中小機構「<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">補助金活用ナビ</a>」に主要補助金の公募状況がまとまっています。個別のご相談は下のフォームからどうぞ。</div>';}
+  function toDate(v){
+    if(v==null)return null;
+    if(typeof v==='string'){
+      var m=v.match(/Date\((\d+),(\d+),(\d+)/); if(m)return new Date(+m[1],+m[2],+m[3]);
+      var m2=v.match(/(\d{4})[\/年-](\d{1,2})[\/月-](\d{1,2})/); if(m2)return new Date(+m2[1],+m2[2]-1,+m2[3]);
+    }
+    return null;
+  }
+  function fmt(d){return (d.getMonth()+1)+'月'+d.getDate()+'日';}
+  fetch(url).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){
+    var j=JSON.parse(t.substring(t.indexOf('(')+1,t.lastIndexOf(')')));
+    var rows=(j.table&&j.table.rows)||[];
+    var today=new Date(); today.setHours(0,0,0,0);
+    var items=[];
+    rows.forEach(function(r){
+      var c=r.c||[]; function g(i){return c[i]?(c[i].f!=null?String(c[i].f):(c[i].v!=null?String(c[i].v):'')):'';}
+      var name=g(0); if(!name||name==='補助金名')return;
+      var kai=g(1), st=toDate(c[2]&&c[2].v!=null?String(c[2].v):g(2)), en=toDate(c[3]&&c[3].v!=null?String(c[3].v):g(3));
+      var memo=g(4), link=g(5);
+      var status,order,extra='';
+      if(en&&today>en){return;} // 締切済みは表示しない
+      if(en&&(!st||today>=st)){
+        var days=Math.round((en-today)/86400000);
+        status='<span class="bdg open">受付中</span>'; order=0+days/1000;
+        extra='<span class="left">締切まで あと'+days+'日</span>';
+      }else if(st&&today<st){
+        status='<span class="bdg soon">まもなく</span>'; order=1+st.getTime()/1e13;
+      }else{
+        status='<span class="bdg tbd">時期未定</span>'; order=2;
+      }
+      var dt='';
+      if(st||en){dt='<span class="dt">'+(st?fmt(st):'')+(st&&en?' → ':'')+(en?'<b>'+fmt(en)+'</b> 締切':'')+'</span>';}
+      var nm=link?'<a href="'+link+'" target="_blank" rel="noopener" style="color:inherit">'+name+'</a>':name;
+      items.push({order:order,html:'<div class="sk">'+status+'<span class="nm">'+nm+'</span><span class="rd">'+kai+'</span>'+dt+extra+(memo?'<span class="memo">'+memo+'</span>':'')+'</div>'});
+    });
+    if(!items.length){fallback();return;}
+    items.sort(function(a,b){return a.order-b.order;});
+    box.innerHTML=items.map(function(i){return i.html;}).join('');
+  }).catch(fallback);
+})();
+</script>
+
 <section id="menu"><div class="wrap">
   <p class="eyebrow">PRICE</p>
   <h2>料金は、3行で説明できます。</h2>
