@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BRIDGE CYCLE｜閉める前に、渡す。退店前承継マッチング（滋賀県大津市）</title>
-<meta name="description" content="閉店してスケルトンに戻す前に、造作を引き継いで続けたい人を探せます。登録・マッチング・成約料はすべて0円。価格は店主が自分で決め、当社は査定も検証もしません。滋賀県大津市のBRIDGE CYCLE株式会社。">
+<!-- ★設計原則（この3行に反する追記はしない）
+     お店版の婚活マッチング。／双方が「気になる」でマッチ。承継まで基本0円。／分析や計画づくりを頼みたいときだけ有料。 -->
+<meta name="description" content="閉店してスケルトンに戻す前に、造作を引き継いで続けたい人を探せます。登録・マッチング・成約料はすべて0円。造作価格は店主自身が決定。希望者には、人流実測による店舗価値カルテや承継事業化診断も提供します。滋賀県大津市のBRIDGE CYCLE株式会社。">
 <link rel="canonical" href="https://yujimansion-hub.github.io/bridge-cycle2026/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#16324F">
@@ -486,6 +488,39 @@ footer a{text-decoration:underline}
 .mcta .btn{flex:1;padding:13px 10px;font-size:14.5px;white-space:nowrap}
 .mcta .btn.oc{background:var(--card);border:2px solid var(--ai);color:var(--ai)}
 @media(max-width:760px){.mcta{display:flex}}
+
+/* ── FREE / OPTION 境界の視覚化 ─────────────────────── */
+.free-route{margin-top:28px;border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:22px 22px 18px;background:rgba(255,255,255,.06)}
+.free-route-label{display:inline-block;background:var(--midori);color:#fff;border-radius:999px;padding:5px 14px;font-size:12px;font-weight:800;letter-spacing:.05em;margin-bottom:16px}
+.free-route-steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center}
+.free-route-steps>div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:13px 12px;text-align:center;color:#fff}
+.free-route-steps span{display:block;font-family:"Roboto Mono",monospace;font-size:10px;color:#9FBBD6;margin-bottom:3px}
+.free-route-steps b{display:block;font-size:14px}
+.free-route-steps small{display:block;font-size:10.5px;color:#C6D6E5;margin-top:3px;line-height:1.5}
+.free-route-steps i{font-style:normal;color:#9FBBD6;font-size:20px}
+.free-route>p{font-size:12px;color:#C6D6E5;line-height:1.8;margin-top:14px;text-align:center}
+.free-route>p b{color:#fff}
+.optional-zone{position:relative;background:linear-gradient(180deg,#fff 0%,var(--paper) 260px);border-top:8px solid var(--kin)}
+.option-boundary{text-align:center;margin:-40px auto 34px;background:var(--card);border:1px solid var(--rule);border-top:6px solid var(--kin);border-radius:18px;padding:28px 22px 20px;box-shadow:var(--shadow);position:relative;z-index:2}
+.ob-chip{display:inline-block;background:var(--kin-pale);color:var(--kin);border:1px solid #D9C98D;border-radius:999px;padding:5px 13px;font-size:11px;font-weight:800;letter-spacing:.08em;margin-bottom:12px}
+.option-boundary h2{font-size:clamp(23px,4vw,34px);line-height:1.45}
+.option-boundary h2 em{font-style:normal;color:var(--kin)}
+.option-boundary>p{font-size:13px;color:var(--ink-2);line-height:1.9;margin-top:10px}
+.boundary-line{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-top:20px;font-size:11px;font-weight:800}
+.boundary-line span:first-child{background:var(--midori-pale);color:var(--midori);border-radius:999px;padding:7px 10px}
+.boundary-line span:last-child{background:var(--kin-pale);color:var(--kin);border-radius:999px;padding:7px 10px}
+.boundary-line b{color:var(--ink-3);font-size:10.5px}
+.option-purpose{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 24px}
+.option-purpose>div{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:17px 16px;text-align:center}
+.option-purpose span{display:inline-block;font-size:10.5px;font-weight:800;color:var(--kin);background:var(--kin-pale);border-radius:999px;padding:2px 9px;margin-bottom:6px}
+.option-purpose b{display:block;font-size:16px}
+.option-purpose small{display:block;font-size:11px;color:var(--ink-3);margin-top:4px}
+@media(max-width:720px){
+ .free-route-steps{grid-template-columns:1fr;gap:8px}.free-route-steps i{transform:rotate(90deg);line-height:1}
+ .option-boundary{margin-top:-28px;padding:24px 16px 18px}
+ .boundary-line{grid-template-columns:1fr}.boundary-line b{padding:2px 0}
+ .option-purpose{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -493,12 +528,10 @@ footer a{text-decoration:underline}
 
 <nav class="nav"><div class="wrap nav-in">
   <a class="logo" href="./" style="text-decoration:none;color:inherit" title="BRIDGE CYCLE株式会社 トップへ">BRIDGE <b>CYCLE</b></a>
-  <a class="l" href="#why">なぜ</a>
-  <a class="l" href="#how">仕組み</a>
-  <a class="l" href="#app">画面</a>
-  <a class="l" href="#use">使い方</a>
+  <a class="l" href="#matchfig">仕組み</a>
+  <a class="l" href="#compare">違い</a>
   <a class="l" href="#price">料金</a>
-  <a class="l" href="#faq">よくある質問</a>
+  <a class="l" href="#faq">FAQ</a>
   <a class="btn pri" href="#entry"><span class="lb-pc">事前登録する</span><span class="lb-sp">無料で登録</span></a>
 </div></nav>
 
@@ -528,19 +561,22 @@ footer a{text-decoration:underline}
   <div class="wrap">
    <div class="hcopy">
     <span class="badge">事前登録 受付中｜滋賀県大津市</span>
-    <h1 class="mincho">払って閉じるか、<br><span style="white-space:nowrap"><u>受け取って渡す</u>か。</span></h1>
-    <p>シャッターを下ろし、内装をすべて剥がして、スケルトンに戻す。その費用を払って、価値をゼロにする前に。まだ営業しているうちなら、続けたい人を探せます。</p>
+    <h1 class="mincho">閉める前に、<br><u>渡す</u>。</h1>
+    <p class="subh1 mincho">お店版の、婚活マッチング。</p>
+    <p>店主と継ぎたい人が、<br>お互いに「気になる」を押したときだけマッチ。</p>
+    <style>.hero .subh1{font-size:clamp(20px,3.6vw,27px);font-weight:800;margin-top:18px;color:var(--ink);line-height:1.6}
+      .hero .subh1+p{margin-top:10px}</style>
+    <p class="zeroline"><b>登録・マッチング・成約料</b><span class="z0">すべて0円</span></p>
     <div class="cta">
-      <a class="btn pri big" href="#entry" data-seg="owner">店を渡したい方（無料）</a>
-      <a class="btn big" href="#entry" data-seg="taker" style="background:var(--card);border:2px solid var(--ai);color:var(--ai)">店を継ぎたい方（無料）</a>
+      <a class="btn pri big" href="#entry" data-seg="owner" style="background:var(--shu)">店を渡したい</a>
+      <a class="btn big" href="#entry" data-seg="taker" style="background:var(--card);border:2px solid var(--ai);color:var(--ai)">店を継ぎたい</a>
     </div>
-    <div style="margin-top:10px"><a class="btn gh" href="#why">まだ決めていない方は、まず仕組みから</a></div>
-    <div class="terms">
-      <span class="term"><b>登録</b> 0円</span>
-      <span class="term"><b>マッチング</b> 0円</span>
-      <span class="term"><b>成約料</b> 0円</span>
-    </div>
-    <p class="trustline">運営は<b>国の認定経営革新等支援機関</b>（認定番号 109825000112）。代表は商工会の経営指導員として<b>20年・500社超</b>の経営支援に携わってきました。</p>
+    <p class="optnote"><b>何も依頼しなければ、0円。</b>必要な方だけ、人流分析・事業性診断・融資支援などをオプションで利用できます。</p>
+    <style>
+      .zeroline{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-top:26px;font-size:14px;color:var(--ink-2)}
+      .zeroline .z0{font-family:var(--mincho,serif);font-weight:800;font-size:23px;color:var(--midori,#2E6B4F)}
+      .optnote{margin-top:14px;font-size:11.5px;color:var(--ink-3)}
+    </style>
    </div><!-- /hcopy -->
 
    <div class="art">
@@ -628,15 +664,63 @@ footer a{text-decoration:underline}
 
 <main id="main">
 
-<!-- なぜ -->
-<section id="why">
+<div id="trustbar">
+  <div class="wrap tb">
+    <span>運営は<b>国の認定経営革新等支援機関</b>（認定番号 109825000112）</span>
+    <span>代表は商工会の経営指導員として<b>20年・500社超</b>の経営支援に従事</span>
+    <span>滋賀県大津市｜BRIDGE CYCLE株式会社</span>
+  </div>
+</div>
+<style>
+  #trustbar{background:var(--card-2,#F4F4F0);border-block:1px solid var(--rule)}
+  #trustbar .tb{display:flex;gap:8px 28px;flex-wrap:wrap;justify-content:center;padding:13px 0;font-size:12px;color:var(--ink-2)}
+</style>
+
+<!-- 通常退店との比較：店主が実際に選ぶ代替行動 -->
+<section id="choice">
   <div class="narrow">
-    <div class="eyebrow rv">01｜なぜ、閉める前なのか</div>
-    <h2 class="sec mincho rv">閉めた瞬間に、<em>渡せるものがなくなる</em>。</h2>
-    <p class="lede rv">厨房機器も、カウンターも、空調も、そのままなら次の人が使えます。ところが多くの賃貸借契約には原状回復義務があり、閉店する店主は<b>お金を払って、それらを撤去します</b>。使える設備を、費用をかけて価値ゼロにしている。この非合理が、毎年いたるところで起きています。</p>
-    <div class="heronum rv"><span class="n" id="hn">294</span><span class="u">万円</span>
-      <span class="lab">閉店した場合と、承継が成立した場合の差（38㎡・16席・営業8年のカフェで試算した一例）</span></div>
-    <div class="fig rv">
+    <style>
+      .ch2{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin-top:22px}
+      @media(max-width:720px){.ch2{grid-template-columns:1fr}}
+      .chvs{display:flex;align-items:center;justify-content:center;font-family:var(--mincho,serif);font-weight:800;color:var(--ink-3);font-size:15px}
+      .chc{border-radius:16px;padding:28px 20px 22px;text-align:center;min-width:0}
+      .chc.bad{background:#F7ECEA;border:1.5px solid #DCB9B1}
+      .chc.good{background:var(--midori-pale,#E3EFE9);border:2px solid var(--midori,#2E6B4F)}
+      .chc .lb{font-size:12px;font-weight:800;letter-spacing:.06em}
+      .chc.bad .lb{color:#A8382C}.chc.good .lb{color:var(--midori,#2E6B4F)}
+      .chc h3{font-family:var(--mincho,serif);font-size:20px;margin:8px 0 0}
+      .chc .amt{font-family:var(--mincho,serif);font-weight:800;font-size:clamp(34px,6vw,52px);line-height:1.3}
+      .chc.bad .amt{color:#A8382C}.chc.good .amt{color:var(--midori,#2E6B4F)}
+      .chc .dt{font-size:12px;color:var(--ink-2);line-height:1.9;margin-top:6px}
+      .chc .fin{margin-top:12px;font-size:12.5px;font-weight:800;border-top:1px dashed var(--rule-2);padding-top:9px}
+      .chc.bad .fin{color:var(--ink-3)}.chc.good .fin{color:var(--midori,#2E6B4F)}
+      .chdiff{text-align:center;font-family:var(--mincho,serif);font-weight:800;font-size:clamp(16px,3vw,22px);margin-top:20px}
+      .chdiff b{color:var(--midori,#2E6B4F);font-size:1.2em}
+    </style>
+    <div class="eyebrow rv">閉める店の、2つの選択肢</div>
+    <h2 class="sec mincho rv">「閉める」以外に、<em>「渡す」</em>という<br>選択肢があります。</h2>
+    <div class="ch2 rv">
+      <div class="chc bad">
+        <span class="lb">通常退店</span>
+        <h3>🔨 壊して返す</h3>
+        <div class="amt">▲114万円</div>
+        <p class="dt">原状回復・撤去。<br>設備は撤去・廃棄。</p>
+        <div class="fin">↓ 退去完了</div>
+      </div>
+      <div class="chvs"><span style="font-size:11px;letter-spacing:.1em;color:var(--ink-3)">差</span><b style="font-family:var(--mincho,serif);font-size:clamp(26px,4.4vw,42px);color:var(--midori,#2E6B4F)">294<span style="font-size:.55em">万円</span></b><span style="font-size:10px;color:var(--ink-3)">※一例</span></div>
+      <div class="chc good">
+        <span class="lb">退店前承継</span>
+        <h3>🤝 使えるまま渡す</h3>
+        <div class="amt">＋180万円</div>
+        <p class="dt">設備・造作を引き継ぐ。<br>次の人が、そのまま使う。</p>
+        <div class="fin">↓ 店舗承継</div>
+      </div>
+    </div>
+    <style>.chvs{flex-direction:column;gap:2px}</style>
+    <p class="note rv" style="text-align:center">※モデルケース（38㎡・16席・営業8年のカフェ。原状回復見積114万円・造作譲渡代金180万円で試算した一例）です。原状回復の範囲・造作の状態・貸主の意向により結果は大きく変わります。当社は金額を算定しません。</p>
+    <div class="rv" style="text-align:center;margin-top:6px"><details class="figfold rv" style="margin-top:16px">
+      <summary style="cursor:pointer;list-style:none;display:inline-block;font-size:13px;font-weight:800;color:var(--ai-mid);border:1px solid var(--rule-2);border-radius:999px;padding:7px 18px;background:var(--card)">詳しい294万円の試算を見る ▾</summary>
+    <div class="fig" style="margin-top:14px;text-align:left">
       <div class="t">閉店した場合と、承継した場合｜店主の手元の増減</div>
       <div class="s">単位は万円。原状回復の見積114万円、造作譲渡代金180万円で試算した場合。差は294万円。</div>
       <svg class="chart" id="chartA" viewBox="0 0 620 270" role="img"
@@ -652,138 +736,145 @@ footer a{text-decoration:underline}
           <tr><td colspan="2"><b>差</b></td><td class="n"><b>294</b></td></tr>
         </tbody></table>
     </div>
-    <p class="note rv"><b>※ 上記は一例です。</b>原状回復の範囲、造作の状態、貸主の意向により結果は大きく変わります。当社は金額を算定しません。</p>
+    </details></div>
+    <p class="lede rv" style="margin-top:26px;max-width:none">厨房機器も、カウンターも、空調も、そのままなら次の人が使えます。ところが多くの賃貸借契約には原状回復義務があり、閉店する店主は<b>お金を払って、それらを撤去します</b>。使える設備を、費用をかけて価値ゼロにしている。この非合理が、毎年いたるところで起きています。</p>
+    <p class="lede rv" style="margin-top:26px"><b>閉店は、失敗ではありません。</b>長く続けてこられた商いの、閉じ方のひとつです。私たちが変えたいのは閉じるかどうかではなく、<b>「受け取って渡す」という閉じ方が、ほとんど知られていないこと</b>です。</p>
   </div>
 </section>
 
-<div id="glance">
-  <div class="wrap">
-    <div class="gt">はじめての方へ ── 全体は、この3つだけです</div>
-    <div class="gl3">
-      <a class="gi" href="#who"><i>1</i><div><b>店主が、匿名のまま載せる</b>
-        <span>営業中でかまいません。実名も場所も伏せたまま。登録は0円。</span></div><span class="arw">→</span></a>
-      <a class="gi" href="#how"><i>2</i><div><b>双方が「気になる」を押したら、話せる</b>
-        <span>片方だけでは何も起きません。仕組みは婚活アプリ型。0円。</span></div><span class="arw">→</span></a>
-      <a class="gi" href="#use"><i>3</i><div><b>合意したら、当事者どうしで引き継ぐ</b>
-        <span>成約料も0円。費用がかかるのは、経営判断や融資・補助金などの支援を頼みたい方だけ。</span></div><span class="arw">→</span></a>
+<!-- 他サービスとの違い（1枚で理解） -->
+<section id="compare" style="background:var(--card-2,#F4F4F0);border-block:1px solid var(--rule)">
+  <div class="wrap" style="max-width:960px">
+    <style>
+      .cmpwrap{overflow-x:auto;margin-top:20px;-webkit-overflow-scrolling:touch}
+      .cmp{width:100%;min-width:680px;border-collapse:collapse;font-size:12px;background:var(--card);border-radius:12px;overflow:hidden}
+      .cmp th,.cmp td{border:1px solid var(--rule);padding:9px 10px;text-align:center;line-height:1.6}
+      .cmp thead th{background:var(--card-2,#F4F4F0);font-size:11.5px}
+      .cmp td:first-child,.cmp th:first-child{text-align:left;font-weight:700;background:var(--card-2,#F4F4F0);white-space:nowrap}
+      .cmp .bc{background:var(--ai-pale);font-weight:800}
+      .cmp thead .bc{background:var(--ai);color:#fff}
+      .cmp .z9{color:var(--midori,#2E6B4F);font-family:var(--mincho,serif);font-weight:800}
+      .cmp-big{text-align:center;font-family:var(--mincho,serif);font-weight:800;font-size:clamp(19px,3.4vw,27px);margin:28px 0 0;line-height:1.7}
+      .cmp-big em{font-style:normal;color:var(--midori,#2E6B4F)}
+      .cmp-sub{text-align:center;font-size:12px;color:var(--ink-3);margin-top:8px}
+    </style>
+    <div class="eyebrow rv">他のサービスと、どう違うか</div>
+    <h2 class="sec mincho rv">閉め方・継ぎ方で、<em>残るもの</em>が変わります。</h2>
+    <style>
+      .four-line{max-width:560px;margin:22px auto 0;font-size:13.5px;line-height:2.3;border-left:3px solid var(--rule-2);padding-left:18px;color:var(--ink-2)}
+      .four-line b{color:var(--ink)}
+      .four-line .last{color:var(--ai);font-weight:800;font-family:var(--mincho,serif);font-size:15.5px}
+    </style>
+    <div class="four-line rv">
+      通常退店は、<b>「壊して返す」</b>。<br>
+      居抜きは、<b>「残った物件を探す」</b>。<br>
+      M&amp;Aは、<b>「事業を買う」</b>。<br>
+      <span class="last">BRIDGE CYCLEは、「閉める前に、人と人が出会う」。</span>
     </div>
-  </div>
-</div>
+    <div class="cmpwrap rv">
+<table class="cmp">
+        <thead><tr><th> </th><th>通常退店</th><th>居抜き</th><th>M&amp;A</th><th class="bc">BRIDGE CYCLE</th></tr></thead>
+        <tbody>
+          <tr><td>何をする？</td><td>閉じる</td><td>造作付き物件を探す</td><td>事業を売買</td><td class="bc">閉める前に次の人を探す</td></tr>
+          <tr><td>相手との出会い方</td><td>―</td><td>掲載・紹介等</td><td>仲介等</td><td class="bc">双方が「気になる」</td></tr>
+          <tr><td>BRIDGE CYCLEへの費用</td><td>―</td><td>―</td><td>―</td><td class="bc"><span class="z9">自分たちで進めれば0円</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mxhint rv cmp-pc" style="text-align:center">→ 表は横にスクロールしてご覧いただけます</p>
+    <style>
+      .cmpcards{display:none}
+      @media(max-width:640px){
+        .cmpwrap,.cmp-pc{display:none}
+        .cmpcards{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
+      }
+      .cmk{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;font-size:12.5px;line-height:1.8;color:var(--ink-2)}
+      .cmk b{display:block;font-size:14px;color:var(--ink)}
+      .cmk.bcx{border:2px solid var(--ai);background:var(--ai-pale)}
+      .cmk.bcx b{color:var(--ai)}
+      .cmk .z7{font-weight:800;color:var(--midori,#2E6B4F)}
+    </style>
+    <div class="cmpcards rv">
+      <div class="cmk"><b>🔨 通常退店</b>壊して返す。設備は撤去・廃棄する場合。</div>
+      <div class="cmk"><b>🏠 居抜き</b>残った物件を探す。掲載・紹介等で出会う。</div>
+      <div class="cmk"><b>🏢 M&amp;A</b>事業を買う。仲介等を通じて。</div>
+      <div class="cmk bcx"><b>🤝 BRIDGE CYCLE</b>閉める前に、人と出会う。♡ 双方が「気になる」でMATCH。<span class="z7">自分たちで進めれば0円。</span></div>
+    </div>
+    <p class="cmp-big rv">BRIDGE CYCLEのメリットは、安いことだけではありません。<br>「閉めた後の物件」を探すのではなく、<br><em>「まだ店として生きているうち」</em>に、次の人を探せます。</p>
 
-<!-- 対象 -->
-<section id="who" style="background:var(--card-2);border-block:1px solid var(--rule)">
-  <div class="wrap">
-    <div class="eyebrow rv">02｜どなたに</div>
-    <h2 class="sec mincho rv">3つの立場から、<em>ご登録いただけます</em>。</h2>
-    <div class="chk6 rv">
-      <div class="c6t">店主の方へ ── ひとつでも当てはまれば、この仕組みの対象です</div>
-      <ul>
-        <li>厨房設備を、捨てたくない</li>
-        <li>常連のお客さまがいる</li>
-        <li>原状回復費がいくらになるか、不安がある</li>
-        <li>家族・親族に、継ぐ人がいない</li>
-        <li>M&amp;Aの仲介に頼むほど、大きな店ではない</li>
-        <li>閉めるかどうか、まだ迷っている</li>
-      </ul>
-      <p class="c6f">大企業のM&amp;Aでもなく、ただの居抜き売買でもない。<b>小さな店の第三者承継</b>のための仕組みです。迷っている段階の登録が、いちばん選択肢が多く残っています。</p>
-      <p class="c6d">当社がいう「退店前承継」とは、営業中の店舗について、造作・什器・厨房設備等を次の事業者へ引き継ぎ、<b>同じ場所で新たな営業を始められる可能性をつなぐ</b>仕組みを指します。屋号・事業そのもの・賃貸借契約・許認可等が当然に引き継がれることを意味するものではありません。</p>
-    </div>
-    <div class="who">
-      <div class="wc a rv">
-        <div class="ph"><div class="fb" style="background:linear-gradient(140deg,#2A2318,#4A3C22)"></div>
-          <div class="im" data-ph="owner" role="img" aria-label="長く続いてきた小さな店の店内（イメージ）"></div></div>
-        <div class="inner"><div class="ic">🏠</div><h3>店を渡したい方</h3>
-        <ul>
-          <li>閉店を考えているが、設備を捨てたくない</li>
-          <li>原状回復の見積を見て、手が止まっている</li>
-          <li>常連や従業員のことが気がかり</li>
-          <li>価格をいくらにすればいいか分からない</li>
-        </ul>
-        <a class="btn pri" href="#entry" data-seg="owner">店主として登録</a></div></div>
-      <div class="wc b rv">
-        <div class="ph"><div class="fb" style="background:linear-gradient(140deg,#1F2A33,#3A4A55)"></div>
-          <div class="im" data-ph="taker" role="img" aria-label="これから始める店の店内（イメージ）"></div></div>
-        <div class="inner"><div class="ic">🍳</div><h3>店を継ぎたい方</h3>
-        <ul>
-          <li>ゼロから開業する資金が足りない</li>
-          <li>設備の整った店を、そのまま使いたい</li>
-          <li>続いている店を、続けたい</li>
-          <li>融資や許認可の段取りが分からない</li>
-        </ul>
-        <a class="btn" href="#entry" data-seg="taker" style="border:2px solid var(--ai);color:var(--ai)">継ぎ手として登録</a></div></div>
-    </div>
-    <div class="wc-sub rv">
-      <div class="ic">🔑</div>
-      <div class="t"><h3>家主・管理会社・支援機関の方</h3>
-        <p>退去予告を最初に知るのは、家主さんです。空室期間の短縮と、原状回復をめぐるトラブルの予防に、この仕組みをお使いいただけます。当社は物件の客付け・賃貸借の媒介は行いません。</p></div>
-      <a class="btn" href="#entry" data-seg="partner">お話を聞かせてください</a>
-    </div>
-    <div class="wc-sub rv">
-      <div class="ic">🤝</div>
-      <div class="t"><h3>中小企業診断士・士業の方 ── 連携パートナー募集</h3>
-        <p>店舗の所在地によっては、承継判断・融資・補助金の支援を、地域の中小企業診断士の先生に担当いただく体制をとっています。ご依頼者との契約・料金設定は先生と直接（当社は契約の当事者になりません）。担当エリア・分野、連携の条件は個別にご相談させてください。承継・廃業の相談窓口をお持ちの士業の方も歓迎です。</p></div>
-      <a class="btn" href="#entry" data-seg="expert">連携について問い合わせる</a>
-    </div>
-    <p class="note rv">※ 写真はすべてイメージです。特定の店舗を撮影したものではありません。</p>
+
   </div>
 </section>
 
-<!-- 仕組み -->
-<section id="how">
-  <div class="wrap">
-    <div class="eyebrow rv">03｜仕組み</div>
-    <h2 class="sec mincho rv">仕組みは、<em>婚活アプリ型</em>です。</h2>
-    <p class="lede rv">おたがいが「気になる」を押したときだけ、話が始まります。片方だけでは何も起こりません。<b>押したことも、押さなかったことも、相手には伝わりません。</b>閉店は、多くの店主にとって人に言いたいことではないからです。<br>この仕組みの新しさは、無料であることではありません。<b>閉店をまだ誰にも言えない段階から、安全に相手を探せる</b>ことです。</p>
-
-    <!-- 図1：相互マッチング -->
-    <div class="mtch">
-      <div class="mrow rv">
-        <div class="mlab">ケース A ── 片方だけが押した</div>
-        <div class="mline">
-          <div class="mcard"><span class="who">店を渡したい店主</span><span class="hb on">♥ 気になる</span></div>
-          <div class="op">＋</div>
-          <div class="mcard"><span class="who">店を継ぎたい人</span><span class="hb">♡ まだ押していない</span></div>
-          <div class="op">＝</div>
-          <div class="mres no"><b>何も起きません</b>
-            <span>相手に通知は届きません。押したことも、押さなかったことも伝わりません。</span></div>
-        </div>
-      </div>
-      <div class="mrow hit rv">
-        <div class="mlab">ケース B ── 両方が押した（マッチング成立）</div>
-        <div class="mline">
-          <div class="mcard"><span class="who">店を渡したい店主</span><span class="hb on">♥ 気になる</span></div>
-          <div class="op">＋</div>
-          <div class="mcard"><span class="who">店を継ぎたい人</span><span class="hb on">♥ 気になる</span></div>
-          <div class="op">＝</div>
-          <div class="mres yes"><b>メッセージが開きます</b>
-            <span>ここから先は当事者どうしの会話です。当社は同席も仲介もしません。</span></div>
-        </div>
-      </div>
+<!-- 婚活型の一枚図 -->
+<section id="matchfig" style="padding:56px 0">
+  <div class="narrow">
+    <style>
+      .mfig{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;max-width:760px;margin:24px auto 0}
+      .mfp{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 16px;text-align:center;min-width:0}
+      .mfp .mo{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 12px;margin-bottom:6px}
+      .mfp.o{border-top:4px solid var(--shu)} .mfp.o .mo{background:var(--shu-pale,#F6E7E4);color:var(--shu)}
+      .mfp.t{border-top:4px solid var(--ai)} .mfp.t .mo{background:var(--ai-pale);color:var(--ai)}
+      .mfp b{display:block;font-size:14px}
+      .mfp .hb2{display:inline-block;margin-top:10px;background:var(--shu-pale,#F6E7E4);color:var(--shu);border-radius:999px;padding:3px 16px;font-size:13px;font-weight:800}
+      .mmid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+      .mmid .arr{color:var(--ink-3);font-size:16px}
+      .mmatch{font-family:"Roboto Mono",monospace;font-weight:700;background:var(--ai);color:#fff;border-radius:999px;padding:10px 20px;font-size:16px;letter-spacing:.06em}
+      @media(max-width:640px){.mfig{grid-template-columns:1fr}.mmid .arr{transform:rotate(90deg)}}
+      .mfcap{text-align:center;font-size:13.5px;margin-top:18px}
+      .mfcap b{font-family:var(--mincho,serif)}
+      .mfnote{text-align:center;font-size:11.5px;color:var(--ink-3);margin-top:8px;line-height:1.9}
+    </style>
+    <h2 class="sec mincho rv" style="text-align:center">お互いが「<em>気になる</em>」を<br>押したときだけ。</h2>
+    <div class="mfig rv">
+      <div class="mfp o"><span class="mo">店を渡したい人</span><b>匿名のまま掲載</b><span class="hb2">♥ 気になる</span></div>
+      <div class="mmid"><span class="arr">→</span><span class="mmatch">MATCH!</span><span class="arr">←</span></div>
+      <div class="mfp t"><span class="mo">店を継ぎたい人</span><b>希望条件で探す</b><span class="hb2">♥ 気になる</span></div>
     </div>
-    <p class="note rv">当社は相手を選びません。おすすめ順に並べ替えることも、成約しやすい相手を優先することもしません。押す・押さないは、すべてご本人の判断です。</p>
+    <p class="mfcap rv">お互いが押したときだけ、<b>メッセージが始まります。</b></p>
+    <p class="mfnote rv">片方だけでは何も起きません。実名・所在地・連絡先も、すぐには開示されません。</p>
+  </div>
+</section>
 
-    <!-- 対比表 -->
-    <h3 class="subh rv">名前も連絡先も、段階を踏んでしか開きません</h3>
-    <div class="mxwrap rv">
-      <div class="mx">
-        <div class="mxr mxh">
-          <div class="mxk" style="background:transparent"> </div>
-          <div>STEP 1<b>読む</b></div>
-          <div>STEP 2<b>話す</b></div>
-          <div>STEP 3<b>交換する</b></div>
-        </div>
-        <div class="mxr"><div class="mxk">申告シート・価格の根拠</div>
-          <div class="c y">見える</div><div class="c y">見える</div><div class="c y">見える</div></div>
-        <div class="mxr"><div class="mxk">画面内メッセージ</div>
-          <div class="c n">まだ開きません</div><div class="c y">開く</div><div class="c y">開く</div></div>
-        <div class="mxr"><div class="mxk">実名・所在地・連絡先</div>
-          <div class="c n">伏せたまま</div><div class="c n">伏せたまま</div><div class="c y">開く</div></div>
-      </div>
+<!-- 0円の線：マッチ後の分岐 -->
+<section id="decide">
+  <div class="narrow">
+    <style>
+      .br-top{max-width:460px;margin:22px auto 0;text-align:center;background:var(--ai);color:#fff;border-radius:14px;padding:15px 16px;font-size:13.5px}
+      .br-top b{font-family:"Roboto Mono",monospace;letter-spacing:.06em}
+      .br-top .z8{display:block;margin-top:4px;font-size:12px;color:#C6E5D2;font-weight:800}
+      .br-split{display:grid;grid-template-columns:1fr 1fr;height:26px;max-width:640px;margin:0 auto}
+      .br-split span{border-left:2px solid var(--rule-2);justify-self:center}
+      @media(max-width:640px){.br-split{display:none}}
+      .br2{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:720px;margin:0 auto}
+      @media(max-width:640px){.br2{grid-template-columns:1fr;margin-top:14px}}
+      .brc{border-radius:14px;padding:18px 16px;text-align:center;min-width:0}
+      .brc.f{background:var(--midori-pale,#E3EFE9);border:2px solid var(--midori,#2E6B4F)}
+      .brc.p{background:var(--kin-pale,#F5F0E0);border:1px solid #D9C98D}
+      .brc h4{font-size:15px;font-weight:800;margin:0}
+      .brc .stp{font-size:12.5px;color:var(--ink-2);margin-top:8px;line-height:2}
+      .brc.f .big9{font-family:var(--mincho,serif);font-weight:800;font-size:22px;color:var(--midori,#2E6B4F);margin-top:6px}
+      .brc.p .big9{font-family:"Roboto Mono",monospace;font-weight:700;font-size:16px;color:var(--kin,#8A6D1F);margin-top:6px;letter-spacing:.08em}
+      .opt4wrap{max-width:720px;margin:22px auto 0}
+      .opt4{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--card);border-radius:12px;overflow:hidden}
+      .opt4 th,.opt4 td{border:1px solid var(--rule);padding:10px 12px;text-align:left;line-height:1.7}
+      .opt4 thead th{background:var(--card-2,#F4F4F0);font-size:11.5px}
+      .opt4 td:last-child{font-weight:800;white-space:nowrap}
+      .opt4 tr:nth-child(-n+2) td:last-child{color:var(--shu)}
+      .allfree{max-width:720px;margin:24px auto 0;border:3px solid var(--midori,#2E6B4F);background:var(--midori-pale,#E3EFE9);border-radius:14px;padding:20px 22px;text-align:center;font-size:13.5px;line-height:2}
+      .allfree b{display:block;font-family:var(--mincho,serif);font-weight:800;font-size:clamp(16px,2.8vw,21px);color:var(--midori,#2E6B4F)}
+    </style>
+    <div class="eyebrow rv">0円の線</div>
+    <h2 class="sec mincho rv">マッチしたあとは、<em>2つにひとつ</em>。</h2>
+    <div class="br-top rv">双方が「気になる」 → <b>MATCH</b><span class="z8">ここまで0円</span></div>
+    <div class="br-split rv"><span></span><span></span></div>
+    <div class="br2 rv">
+      <div class="brc f"><h4>自分たちで進める</h4><div class="big9">0円のまま</div>
+        <p class="stp">メッセージで話す ↓ 条件を決める ↓ 承継する</p></div>
+      <div class="brc p"><h4>手伝ってほしい</h4><div class="big9">OPTION</div>
+        <p class="stp">必要なものだけ、そのつど依頼</p></div>
     </div>
-    <p class="mxhint rv">→ 表は横にスクロールしてご覧ください</p>
-    <p class="note rv">月額課金はありません。月額にすると、成約しないほど当社が儲かる形になり、店主の利益と逆を向くからです。</p>
 
-    <p class="note rv"><b>金銭が動く前に、3点を確かめていただきます。</b>リース契約の残存、貸主の承諾、原状回復義務の範囲。この3点が未確認のあいだ、当社は画面上で「金銭の授受に進まないでください」と表示し続けます。止める権限はありませんが、確認していただくための仕組みです。</p>
   </div>
 </section>
 
@@ -830,7 +921,9 @@ footer a{text-decoration:underline}
         </div>
       </figure>
 
-      <div class="pcon rv"><span>双方が同意</span><span class="ar">→</span><span>連絡先を<br>開示</span></div>
+      <details class="rv" style="grid-column:1/-1">
+        <summary style="cursor:pointer;list-style:none;text-align:center;font-size:13px;font-weight:800;color:var(--ai-mid);border:1px solid var(--rule-2);border-radius:999px;padding:9px 18px;background:var(--card);display:inline-block">③ 連絡先の交換まで、詳しく見る ▾</summary>
+        <div style="max-width:340px;margin:14px auto 0"><div class="pcon rv"><span>双方が同意</span><span class="ar">→</span><span>連絡先を<br>開示</span></div>
 
       <figure class="phone rv">
         <div class="ptitle"><i>3</i>双方が同意したら、連絡先交換</div>
@@ -848,7 +941,8 @@ footer a{text-decoration:underline}
             <div class="pmsg sys">以降の条件交渉・契約は、当事者間で行います</div>
           </div>
         </div>
-      </figure>
+      </figure></div>
+      </details>
 
     </div>
     <p class="note rv">画面は開発中のもので、実際の画面より簡略化しています。項目・文言・デザインは、開設時に変わることがあります。</p>
@@ -856,6 +950,316 @@ footer a{text-decoration:underline}
 </section>
 
 <!-- ご利用の流れ -->
+
+
+
+
+<!-- 対象 -->
+<section id="who" style="background:var(--card-2);border-block:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="eyebrow rv">02｜どなたに</div>
+    <h2 class="sec mincho rv">主役は、<em>この2人</em>です。</h2>
+    <div class="chk6 rv">
+      <div class="c6t">店主の方へ ── ひとつでも当てはまれば、この仕組みの対象です</div>
+      <ul>
+        <li>厨房設備を、捨てたくない</li>
+        <li>常連のお客さまがいる</li>
+        <li>原状回復費がいくらになるか、不安がある</li>
+        <li>家族・親族に、継ぐ人がいない</li>
+        <li>M&amp;Aの仲介に頼むほど、大きな店ではない</li>
+        <li>閉めるかどうか、まだ迷っている</li>
+      </ul>
+      <p class="c6f">大企業のM&amp;Aでもなく、ただの居抜き売買でもない。<b>小さな店の第三者承継</b>のための仕組みです。迷っている段階の登録が、いちばん選択肢が多く残っています。</p>
+      <p class="c6d">当社がいう「退店前承継」とは、営業中の店舗について、造作・什器・厨房設備等を次の事業者へ引き継ぎ、<b>同じ場所で新たな営業を始められる可能性をつなぐ</b>仕組みを指します。屋号・事業そのもの・賃貸借契約・許認可等が当然に引き継がれることを意味するものではありません。</p>
+    </div>
+    <div class="who">
+      <div class="wc a rv">
+        <div class="ph"><div class="fb" style="background:linear-gradient(140deg,#2A2318,#4A3C22)"></div>
+          <div class="im" data-ph="owner" role="img" aria-label="長く続いてきた小さな店の店内（イメージ）"></div></div>
+        <div class="inner"><div class="ic">🏠</div><h3>店を渡したい方</h3>
+        <ul>
+          <li>閉店を考えているが、設備を捨てたくない</li>
+          <li>原状回復の見積を見て、手が止まっている</li>
+          <li>常連や従業員のことが気がかり</li>
+          <li>価格をいくらにすればいいか分からない</li>
+        </ul>
+        <a class="btn pri" href="#entry" data-seg="owner">店主として登録</a></div></div>
+      <div class="wc b rv">
+        <div class="ph"><div class="fb" style="background:linear-gradient(140deg,#1F2A33,#3A4A55)"></div>
+          <div class="im" data-ph="taker" role="img" aria-label="これから始める店の店内（イメージ）"></div></div>
+        <div class="inner"><div class="ic">🍳</div><h3>店を継ぎたい方</h3>
+        <ul>
+          <li>ゼロから開業する資金が足りない</li>
+          <li>設備の整った店を、そのまま使いたい</li>
+          <li>続いている店を、続けたい</li>
+          <li>融資や許認可の段取りが分からない</li>
+        </ul>
+        <a class="btn" href="#entry" data-seg="taker" style="border:2px solid var(--ai);color:var(--ai)">継ぎ手として登録</a></div></div>
+    </div>
+    <p class="note rv">※ 写真はすべてイメージです。特定の店舗を撮影したものではありません。</p>
+  </div>
+</section>
+
+<!-- 仕組み -->
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow rv">03｜仕組み</div>
+    <h2 class="sec mincho rv">仕組みは、<em>婚活アプリ型</em>です。</h2>
+    <p class="lede rv">おたがいが「気になる」を押したときだけ、話が始まります。片方だけでは何も起こりません。<b>押したことも、押さなかったことも、相手には伝わりません。</b>閉店は、多くの店主にとって人に言いたいことではないからです。<br>この仕組みの新しさは、無料であることではありません。<b>閉店をまだ誰にも言えない段階から、安全に相手を探せる</b>ことです。</p>
+
+    <!-- 図1：相互マッチング -->
+    <div class="mtch">
+      <div class="mrow rv">
+        <div class="mlab">ケース A ── 片方だけが押した</div>
+        <div class="mline">
+          <div class="mcard"><span class="who">店を渡したい店主</span><span class="hb on">♥ 気になる</span></div>
+          <div class="op">＋</div>
+          <div class="mcard"><span class="who">店を継ぎたい人</span><span class="hb">♡ まだ押していない</span></div>
+          <div class="op">＝</div>
+          <div class="mres no"><b>何も起きません</b>
+            <span>相手に通知は届きません。押したことも、押さなかったことも伝わりません。</span></div>
+        </div>
+      </div>
+      <div class="mrow hit rv">
+        <div class="mlab">ケース B ── 両方が押した（マッチング成立）</div>
+        <div class="mline">
+          <div class="mcard"><span class="who">店を渡したい店主</span><span class="hb on">♥ 気になる</span></div>
+          <div class="op">＋</div>
+          <div class="mcard"><span class="who">店を継ぎたい人</span><span class="hb on">♥ 気になる</span></div>
+          <div class="op">＝</div>
+          <div class="mres yes"><b>メッセージが開きます</b>
+            <span>ここから先は当事者どうしの会話です。当社は同席も仲介もしません。</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="note rv">当社は相手を選びません。おすすめ順に並べ替えることも、成約しやすい相手を優先することもしません。押す・押さないは、すべてご本人の判断です。</p>
+
+    <!-- 対比表 -->
+    <details class="rv" style="margin-top:26px">
+      <summary style="cursor:pointer;list-style:none;font-size:14px;font-weight:800;color:var(--ai-mid)">名前も連絡先も、段階を踏んでしか開きません　<span style="font-size:12px">詳しく見る ▾</span></summary>
+    <div class="mxwrap" style="margin-top:12px">
+      <div class="mx">
+        <div class="mxr mxh">
+          <div class="mxk" style="background:transparent"> </div>
+          <div>STEP 1<b>読む</b></div>
+          <div>STEP 2<b>話す</b></div>
+          <div>STEP 3<b>交換する</b></div>
+        </div>
+        <div class="mxr"><div class="mxk">申告シート・価格の根拠</div>
+          <div class="c y">見える</div><div class="c y">見える</div><div class="c y">見える</div></div>
+        <div class="mxr"><div class="mxk">画面内メッセージ</div>
+          <div class="c n">まだ開きません</div><div class="c y">開く</div><div class="c y">開く</div></div>
+        <div class="mxr"><div class="mxk">実名・所在地・連絡先</div>
+          <div class="c n">伏せたまま</div><div class="c n">伏せたまま</div><div class="c y">開く</div></div>
+      </div>
+    </div>
+    <p class="mxhint">→ 表は横にスクロールしてご覧ください</p>
+    </details>
+    <p class="note rv">月額課金はありません。月額にすると、成約しないほど当社が儲かる形になり、店主の利益と逆を向くからです。</p>
+
+    <p class="note rv"><b>金銭が動く前に、3点を確かめていただきます。</b>リース契約の残存、貸主の承諾、原状回復義務の範囲。この3点が未確認のあいだ、当社は画面上で「金銭の授受に進まないでください」と表示し続けます。止める権限はありませんが、確認していただくための仕組みです。</p>
+  </div>
+</section>
+
+<section id="diff">
+  <div class="narrow">
+    <div class="eyebrow rv">BRIDGE CYCLEの違い</div>
+    <h2 class="sec mincho rv">ただ<em>マッチングするだけ</em>ではありません。</h2>
+<!-- 見本とメリット：「答えられない質問」→「紙の答え」→「変わること」の物語形式 -->
+      <style>
+        .story-lead{font-size:14px;line-height:2;margin:28px 0 0;padding-top:20px;border-top:1px dashed var(--rule)}
+        .story-lead b{color:var(--shu)}
+        .scene{margin-top:22px;min-width:0}
+        .scene+.scene{margin-top:36px;padding-top:28px;border-top:1px dashed var(--rule)}
+        .scene .top{display:grid;grid-template-columns:5fr 7fr;gap:28px;align-items:center;min-width:0}
+        @media(max-width:820px){.scene .top{grid-template-columns:1fr;gap:16px}}
+        .scenetag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;border-radius:999px;padding:3px 14px;margin-bottom:10px}
+        .scenetag.o{background:var(--shu-pale,#F6E7E4);color:var(--shu)}
+        .scenetag.t{background:var(--ai-pale);color:var(--ai)}
+        .qwhen{font-size:12.5px;color:var(--ink-3);margin:0 0 6px}
+        .bigq{font-family:var(--mincho,serif);font-weight:800;font-size:clamp(21px,3vw,28px);line-height:1.55;margin:0 0 10px;letter-spacing:.02em}
+        .qexp{font-size:13px;line-height:2;color:var(--ink-2);margin:0}
+        .ansline{margin-top:14px;font-size:13.5px;font-weight:800;color:var(--ai)}
+        .paper{position:relative;background:#fff;border:1px solid #E3E0DA;border-radius:4px;
+          box-shadow:0 14px 34px rgba(20,22,26,.16),0 2px 6px rgba(20,22,26,.08);
+          padding:22px 24px 18px;font-size:13px;line-height:1.85;min-width:0;transform:rotate(-.7deg)}
+        .scene.s2 .paper{transform:rotate(.7deg)}
+        .scene.s1 .paper::before{background:var(--shu)}
+        .paper::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:var(--ai);border-radius:4px 4px 0 0}
+        .paper::after{content:"見 本";position:absolute;top:32%;right:0;transform:rotate(-16deg);
+          font-family:var(--mincho,serif);font-size:54px;font-weight:800;color:rgba(168,56,44,.08);letter-spacing:.3em;pointer-events:none;white-space:nowrap}
+        .phead{display:flex;justify-content:space-between;gap:10px;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:14px}
+        .doc-t{display:block;font-family:var(--mincho,serif);font-weight:800;font-size:18px;letter-spacing:.06em}
+        .doc-s{display:block;font-size:10px;color:var(--ink-3);margin-top:2px}
+        .doc-meta{flex:none;font-size:9.5px;color:var(--ink-3);text-align:right;line-height:1.7}
+        @media(max-width:560px){.phead{flex-direction:column;align-items:flex-start;gap:4px}.doc-meta{text-align:left}}
+        .pcap{font-size:12.5px;font-weight:800;color:var(--ink-2);margin:0 0 4px}
+        .bignum{font-family:var(--mincho,serif);font-weight:800;font-size:46px;line-height:1.15;color:var(--ai)}
+        .bignum small{font-size:15px;font-weight:700;color:var(--ink-2);margin-left:4px}
+        .bigsub{font-size:12.5px;color:var(--ink-2);margin-top:2px}
+        .srcf{display:inline-block;font-size:9.5px;font-weight:700;border-radius:4px;padding:0 6px;margin-left:8px;vertical-align:4px;background:var(--midori-pale,#E3EFE9);color:var(--midori,#2E6B4F)}
+        .wkbar{display:flex;gap:6px;align-items:flex-end;height:74px;margin:20px 0 2px}
+        .wkbar i{flex:1;background:var(--ai-pale);border-radius:3px 3px 0 0;position:relative}
+        .wkbar i.hi{background:var(--ai)}
+        .wkbar i em{position:absolute;top:-17px;left:0;right:0;text-align:center;font-style:normal;font-size:10px;font-weight:700;color:var(--ink-3)}
+        .wklbl{display:flex;gap:6px;font-size:10px;color:var(--ink-3);text-align:center}
+        .wklbl span{flex:1}
+        .insight{border-left:3px solid var(--shu);background:var(--shu-pale,#F6E7E4);border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;margin-top:14px;line-height:1.9}
+        .insight b{color:var(--shu)}
+        .plbl{margin:12px 0 0;font-size:10.5px;color:var(--ink-3);line-height:1.8}
+        .versus{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin:8px 0 4px}
+        .versus .vn{text-align:center;background:var(--card-2,#F4F4F0);border-radius:10px;padding:12px 6px;min-width:0}
+        .versus .vn b{display:block;font-family:var(--mincho,serif);font-size:34px;line-height:1.15}
+        .versus .vn span{font-size:10.5px;color:var(--ink-3);line-height:1.6;display:block}
+        .versus .vn.need b{color:var(--ai)} .versus .vn.have b{color:var(--shu)}
+        .versus .vs{font-family:var(--mincho,serif);font-weight:800;color:var(--ink-3);font-size:14px}
+        .gapline{text-align:center;font-size:13.5px;margin:8px 0}
+        .gapline b{color:var(--shu)}
+        .fixchips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+        .fixchips span{font-size:11px;font-weight:700;background:var(--card-2,#F4F4F0);border:1px solid var(--rule-2);border-radius:999px;padding:4px 12px}
+        .fixchips span b{color:var(--midori,#2E6B4F)}
+        .arrowdn{text-align:center;color:var(--ink-3);font-size:14px;margin:8px 0 4px}
+        .result{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--midori-pale,#E3EFE9);border-radius:10px;padding:12px 16px;margin-top:6px;flex-wrap:wrap}
+        .result .r1{font-size:13px;color:var(--midori,#2E6B4F);min-width:0;line-height:1.9}
+        .result .r1 b{font-family:var(--mincho,serif);font-size:19px}
+        .stamp{flex:none;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+          width:72px;height:72px;border:3px double var(--shu);border-radius:8px;color:var(--shu);
+          font-family:var(--mincho,serif);transform:rotate(-7deg);background:rgba(255,255,255,.9)}
+        .stamp small{font-size:9px;letter-spacing:.25em;font-weight:700}
+        .stamp b{font-size:14.5px;letter-spacing:.04em;font-weight:800;margin-top:2px}
+        .mband{margin-top:18px;border-radius:12px;padding:18px 22px 16px;min-width:0}
+        .mband.o{background:var(--shu-pale,#F6E7E4)}
+        .mband.t{background:var(--ai-pale)}
+        .mband .ml{font-size:16px;font-weight:800;line-height:1.8;margin:0}
+        .mband.o .ml b{color:var(--shu);font-family:var(--mincho,serif);font-size:19px}
+        .mband.t .ml b{color:var(--ai);font-family:var(--mincho,serif);font-size:19px}
+        .mband .ms{font-size:12.5px;line-height:2;color:var(--ink-2);margin:8px 0 0}
+        .pricevs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+        @media(max-width:560px){.pricevs{grid-template-columns:1fr}}
+        .pricevs div{border-radius:10px;padding:12px 10px;text-align:center;font-size:11px;line-height:1.7;min-width:0;background:#fff}
+        .pricevs .bad{color:var(--ink-2)}
+        .pricevs .good{color:var(--ai);box-shadow:inset 0 0 0 2px var(--ai)}
+        .pricevs b{display:block;font-family:var(--mincho,serif);font-size:21px;margin:2px 0}
+        .pricevs .bad b{color:var(--ink)}
+      </style>
+
+      <p class="story-lead">承継が途中で流れる原因は、たいてい「わからない」が残ること。この2つは、決め手の「わからない」を消して、<b>承継が決まる確率を上げる</b>ためのオプションです。架空の一軒——営業32年、17時閉店の喫茶店でご覧ください。</p>
+
+      <div class="scene s1">
+        <div class="top">
+          <div>
+            <span class="scenetag o">店主の方に ─ 店舗価値カルテ</span>
+            <p class="qwhen">内覧まで進むと、継ぎたい方から必ず出る質問——</p>
+            <p class="bigq">「このあたり、<br>人は通りますか？」</p>
+            <p class="qexp">「多いほうやと思います…」——答えに詰まった瞬間、話は止まります。</p>
+            <p class="ansline">カルテが、この質問に紙で答えます</p>
+          </div>
+          <div class="paper" aria-label="店舗価値カルテの見本（数字は架空）">
+            <div class="phead">
+              <div><span class="doc-t">店舗価値カルテ</span><span class="doc-s">見本・数字はすべて架空</span></div>
+              <div class="doc-meta">発行：BRIDGE CYCLE株式会社<br>案件No.［見本］</div>
+            </div>
+            <p class="pcap">お店の前の通行量（7日間・実測）</p>
+            <div class="bignum">1日 934<small>人</small><span class="srcf">実測</span></div>
+            <div class="bigsub">土日、お店の前を通った人の数（平均）。平日の平均は712人。</div>
+            <div class="wkbar">
+              <i style="height:70%"></i><i style="height:73%"></i><i style="height:71%"></i><i style="height:76%"></i><i style="height:72%"></i><i class="hi" style="height:93%"><em>905</em></i><i class="hi" style="height:100%"><em>934</em></i>
+            </div>
+            <div class="wklbl"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
+            <div class="insight"><b>発見：</b>いまの閉店は17時。ですが人通りの山は<b>17〜19時</b>にありました。次の方は営業時間を2時間ずらすだけで、いちばん人が多い時間に店を開けられます。</div>
+            <p class="plbl">※売上・家賃など店主さまのご記入は「申告」、人流は「実測」と、全編でラベルを分けて記載します。</p>
+          </div>
+        </div>
+        <div class="mband o">
+          <p class="ml">「多いと思います」が、<b>「1日934人です」</b>に変わります。</p>
+          <p class="ms">継ぎ手が降りる理由を、先回りして一つ消す——不安が減った分だけ、承継は決まりやすくなります。決まらなくても、紙はお手元に残ります。</p>
+        </div>
+      </div>
+
+      <div class="scene s2">
+        <div class="top">
+          <div>
+            <span class="scenetag t">継ぎたい方に ─ 承継事業化診断</span>
+            <p class="qwhen">手付を打つ前、頭から離れない問い——</p>
+            <p class="bigq">「この店で、<br>食べていけるのか？」</p>
+            <p class="qexp">気に入った。でも、確かめる方法がない——多くの継ぎ手は、ここで引き返します。</p>
+            <p class="ansline">診断書が、開業する前に数字で答えます</p>
+          </div>
+          <div class="paper" aria-label="承継事業化診断書の見本（数字は架空）">
+            <div class="phead">
+              <div><span class="doc-t">承継事業化診断書</span><span class="doc-s">見本・数字はすべて架空</span></div>
+              <div class="doc-meta">発行：BRIDGE CYCLE株式会社<br>案件No.［見本］</div>
+            </div>
+            <p class="pcap">この場所 × ハンバーガー店で開業した場合——</p>
+            <div class="versus">
+              <div class="vn need"><b>38人</b><span>やっていくために<br>必要なお客さま／日</span></div>
+              <div class="vs">対</div>
+              <div class="vn have"><b>24人</b><span>同業態の実績から<br>見込めるお客さま／日</span></div>
+            </div>
+            <div class="gapline">毎日 <b>14人、足りません</b>。——ですが、</div>
+            <div class="fixchips">
+              <span>夕方の人流を、テイクアウトで拾う 0→<b>1日10食</b></span>
+              <span>客単価 1,300→<b>1,500円</b></span>
+              <span>決めて来る方 3割→<b>4割</b></span>
+            </div>
+            <div class="arrowdn">↓ 3つを同時に変えると</div>
+            <div class="result">
+              <div class="r1">必要は<b>33人</b>に下がり、見込みは<b>36人分</b>に増える<span style="font-size:10.5px;color:var(--ink-3)">（店内26人＋持ち帰り10食）</span>——<b>収まる</b></div>
+              <span class="stamp"><small>判　定</small><b>条件つき</b></span>
+            </div>
+            <p class="plbl">※「無理です」で終わらせず、何をどこまで変えれば届くかまで数字で返します。届かない場合は「おすすめしない」とはっきり書きます。</p>
+          </div>
+        </div>
+        <div class="mband t">
+          <p class="ml">「引き返す」が、<b>「条件を変えて、進む」</b>に変わります。</p>
+          <div class="pricevs">
+            <div class="bad">確かめずに開業して、<br>向かない場所だった場合<b>数百万円</b>初期投資＋撤退の費用</div>
+            <div class="good">開業する前に、<br>診断で確かめる<b>29,800円</b>届かない場合は代替案つき</div>
+          </div>
+          <p class="ms">「何を変えれば届くか」まで、数字でお返しします。材料がそろえば、進むか退くかは、ご自身で決められます。</p>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:14px"><span style="font-size:12px;color:var(--ink-2)">※<b>カルテのないお店でも、承継は成立します。</b>カルテ購入による表示順の優遇や紹介の優先といった仕組みはありません。増えるのは、相手が判断できる材料です。</span></p>
+
+      <!-- 差別化の核：貸主・金融機関という「拒否権者」を通る案件に整える -->
+      <style>
+        .pass{background:#16324F;border-radius:16px;padding:30px 28px 24px;margin-top:30px;color:#fff;min-width:0}
+        .pass .pk{font-size:12.5px;color:#9FBBD6;margin:0 0 8px;letter-spacing:.04em}
+        .pass h5{font-family:var(--mincho,serif);font-weight:800;font-size:clamp(17px,2.8vw,22px);line-height:1.8;margin:0}
+        .pass h5 em{font-style:normal;color:#F6D98A}
+        .pass3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:20px}
+        @media(max-width:720px){.pass3{grid-template-columns:1fr}}
+        .pass3>div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 16px 12px}
+        .pass3 .pl{display:block;font-size:10.5px;font-weight:800;letter-spacing:.18em;color:#9FBBD6;margin-bottom:3px}
+        .pass3 b{display:block;font-family:var(--mincho,serif);font-size:15.5px;color:#F6D98A;margin-bottom:5px}
+        .pass3 p{font-size:12px;line-height:1.9;margin:0;color:rgba(255,255,255,.88)}
+        .pass .pfin{margin:18px 0 0;text-align:center;font-size:14px;line-height:2}
+        .pass .pfin b{font-family:var(--mincho,serif);font-size:clamp(15px,2.4vw,18px);color:#F6D98A}
+        .pass .pnote{margin:10px 0 0;font-size:10.5px;color:rgba(255,255,255,.55);text-align:center}
+      </style>
+      <div class="pass">
+        <p class="pk">承継を止めるのは、ふたりの気持ちだけではありません。</p>
+        <h5>貸主の同意と、金融機関の審査。<br>この2つを<em>通る形</em>に整えて、お渡しします。</h5>
+        <div class="pass3">
+          <div><span class="pl">事業の裏付け</span><b>実測データ</b><p>「人が来るのか」を、申告ではなく7日間の実測で示す。貸主や金融機関への説明材料になる数字です。</p></div>
+          <div><span class="pl">人の裏付け</span><b>計画と資金</b><p>継ぎ手の事業計画・収支計画・資金計画を、審査に出せる形まで一緒に組み立てる（承継計画伴走・融資申込支援）。</p></div>
+          <div><span class="pl">条件の裏付け</span><b>価格の根拠</b><p>価格は店主が決めます。当社は査定をせず、実測データと造作の一覧という「相手が検証できる材料」を添えます。</p></div>
+        </div>
+        <p class="pfin">掲載して、終わりにしません。<br><b>貸主と金融機関への説明まで見すえて、案件を整える——ここまでが、当社の仕事です。</b></p>
+        <p class="pnote">※貸主の同意および金融機関の審査は相手方の判断であり、結果をお約束するものではありません。</p>
+      </div>
+    <!-- ★実証後に有効化：データバー（写真より強い証拠資産として育てる）
+    <div id="databar" style="display:flex;gap:10px 34px;flex-wrap:wrap;justify-content:center;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;margin-top:22px;font-size:12px;color:var(--ink-2)">
+      <b style="width:100%;text-align:center;letter-spacing:.2em;font-size:11px;color:var(--ink-3)">BRIDGE CYCLE DATA</b>
+      <span>測定店舗 <b style="font-family:var(--mincho,serif);font-size:20px">3</b></span>
+      <span>測定時間 <b style="font-family:var(--mincho,serif);font-size:20px">273</b>時間</span>
+      <span>診断件数 <b style="font-family:var(--mincho,serif);font-size:20px">5</b></span>
+      <span>「おすすめしない」判定 <b style="font-family:var(--mincho,serif);font-size:20px">2</b></span>
+    </div> -->
+  </div>
+</section>
+
 <section id="use">
   <div class="narrow">
     <div class="eyebrow rv">05｜ご利用の流れ</div>
@@ -864,9 +1268,11 @@ footer a{text-decoration:underline}
     <div class="useseg rv" role="group" aria-label="お立場">
       <button data-u="owner" class="on">店を渡したい方</button>
       <button data-u="taker">店を継ぎたい方</button>
-      <button data-u="partner">家主・支援機関の方</button>
-      <button data-u="expert">診断士・士業の方</button>
+      <button data-u="partner" class="minorseg" hidden>家主・支援機関の方</button>
+      <button data-u="expert" class="minorseg" hidden>診断士・士業の方</button>
     </div>
+    <p class="rv" style="margin-top:8px"><button type="button" id="minorOpen" style="background:none;border:none;cursor:pointer;font-size:11.5px;color:var(--ink-3);text-decoration:underline;padding:0">家主・管理会社・支援機関の方／専門家・士業の方はこちら</button></p>
+    <script>document.getElementById('minorOpen').addEventListener('click',function(){document.querySelectorAll('.minorseg').forEach(function(b){b.hidden=false});this.parentElement.remove()});</script>
     <div id="flowWrap"></div>
   </div>
 </section>
@@ -877,44 +1283,312 @@ footer a{text-decoration:underline}
 <section id="price" class="navyband">
   <div class="narrow">
     <div class="eyebrow rv" style="color:#9FBBD6">06｜料金</div>
-    <h2 class="sec mincho rv" style="color:#fff">出会うところまでは、<em style="color:#F6D98A">0円</em>。</h2>
-    <div class="nb-stats rv">
-      <span><b>登録</b>店主・継ぎ手とも 0円</span>
-      <span><b>マッチング</b>回数の制限なし 0円</span>
-      <span><b>成約料</b>成立しても 0円</span>
+    <div class="rv" style="text-align:center">
+      <div style="font-family:var(--mincho,serif);font-weight:800;font-size:clamp(64px,14vw,120px);line-height:1.1;color:#F6D98A">0円</div>
+      <p style="margin-top:14px;font-size:clamp(14px,2.4vw,17px);color:#fff;font-weight:700">登録 → マッチ → 成約　<span style="color:#C6E5D2">すべて0円</span></p>
+      <p style="margin-top:16px;font-family:var(--mincho,serif);font-weight:800;font-size:clamp(16px,2.8vw,21px);color:#fff">自分たちで進めるなら、ここで終わりです。</p>
     </div>
-    <p class="nb-sub rv">価格は店主が決めます。当社は査定をしません。</p>
+
+
   </div>
 </section>
 
-<section id="price2">
+<section id="price2" class="optional-zone">
   <div class="narrow">
+    <div class="option-boundary rv" style="border-top:none;box-shadow:none;background:transparent;border:none;padding:10px 0 0">
+      <div style="font-size:26px;color:var(--kin);line-height:1">↓</div>
+      <span class="ob-chip" style="margin-top:10px">OPTIONAL SUPPORT</span>
+      <h2 class="mincho" style="font-size:clamp(19px,3.2vw,26px)">ここから先は、<em>頼みたい方だけ</em>。</h2>
+    </div>
+
+    <!-- 困りごと4カード：商品名と価格は開いたときに初めて出す -->
+    <style>
+      .worry4{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+      @media(max-width:720px){.worry4{grid-template-columns:1fr}}
+      .wk{background:var(--card);border:1px solid var(--rule);border-radius:12px;min-width:0}
+      .wk summary{cursor:pointer;list-style:none;padding:16px 18px}
+      .wk summary::-webkit-details-marker{display:none}
+      .wk summary::marker{content:""}
+      .wk summary b{display:block;font-size:14.5px;line-height:1.7}
+      .wk summary span{display:block;font-size:11.5px;color:var(--ink-3);margin-top:3px}
+      .wk summary .op9{float:right;font-size:11px;font-weight:800;color:var(--kin)}
+      .wk[open] summary .op9{display:none}
+      .wk .wkin{border-top:1px dashed var(--rule);margin:0 18px;padding:12px 0 14px;font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+      .wk .wkin b{color:var(--ai);font-size:13.5px}
+      .wk .wkin .wp{font-family:var(--mincho,serif);font-weight:800;color:var(--ai)}
+    </style>
+    <div class="worry4 rv">
+      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>👀 この店、本当に人が来る？</b><span>人流を測って確かめる</span></summary>
+        <div class="wkin"><b>店舗価値カルテ</b>　<span class="wp">19,800円（税込）</span><br>店前の人流を7日間実測し、A4・5ページの一冊に。実証協力価格 9,900円（先着3件）。</div></details>
+      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>📊 この店で、自分の商売は成り立つ？</b><span>数字で事業性を診断</span></summary>
+        <div class="wkin"><b>承継事業化診断</b>　<span class="wp">29,800円（税込）</span><br>この場所×やりたい業態の成立性を判定。伴走に進む場合は全額充当。</div></details>
+      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>📝 事業計画を、どう作る？</b><span>計画づくりを伴走</span></summary>
+        <div class="wkin"><b>承継計画伴走</b>　<span class="wp">98,000円（税別）</span><br>事業計画・収支計画・資金計画・開業スケジュールを一緒に組み立てます。</div></details>
+      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>🏦 銀行に、どう説明する？</b><span>融資申込を支援</span></summary>
+        <div class="wkin"><b>融資申込支援</b>　<span class="wp">150,000円（税別）</span><br>資金計画、金融機関との面談準備、必要書類の整備。</div></details>
+    </div>
+    <p class="rv" style="font-size:11.5px;color:var(--ink-3);margin-top:10px">補助金のご相談は<a href="hojokin.html" style="text-decoration:underline">補助金サポート</a>へ。</p>
+
+    <!-- 実証運用メモ：カルテは実証協力価格9,900円・先着3件。実証記録シートで工数と精度を記録すること -->
+    <div class="rv">
+
+      <style>
+        /* 3段階 */
+        .fee3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px}
+        @media(max-width:720px){.fee3{grid-template-columns:1fr}}
+        .f3{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 16px 14px;position:relative}
+        .f3 .no{font-family:var(--mincho,serif);font-weight:800;font-size:13px;color:var(--ai-mid)}
+        .f3 h4{font-size:15.5px;font-weight:800;margin:2px 0 4px}
+        .f3 p{font-size:12px;color:var(--ink-2);line-height:1.75;margin:0}
+        .f3 .pr{margin-top:8px;font-family:var(--mincho,serif);font-weight:800;font-size:17px}
+        .f3.free{border-color:var(--midori)} .f3.free .pr{color:var(--midori)}
+        .f3.mid .pr{color:var(--ai)}
+        .f3.last .pr{color:var(--ink-2);font-size:13.5px}
+        /* 大コピー */
+        .fee-state{background:var(--ai-pale);border-radius:12px;padding:20px 22px;margin-top:16px;text-align:center}
+        .fee-state b{font-family:var(--mincho,serif);font-size:clamp(16px,2.6vw,19px);display:block;margin-bottom:6px}
+        .fee-state p{font-size:13px;color:var(--ink-2);margin:0;line-height:2}
+        /* 立場別 */
+        .fee2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+        @media(max-width:720px){.fee2{grid-template-columns:1fr}}
+        .fp{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 16px}
+        .fp .who3{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 12px;margin-bottom:8px}
+        .fp.o .who3{background:var(--shu-pale,#F6E7E4);color:var(--shu)}
+        .fp.t .who3{background:var(--ai-pale);color:var(--ai)}
+        .fp .fr{font-size:13.5px;font-weight:700}
+        .fp .fr .z{color:var(--midori);font-family:var(--mincho,serif)}
+        .fp .dn{ text-align:center;color:var(--ink-3);font-size:15px;line-height:1;margin:7px 0}
+        .fp .opt{background:var(--card-2,#F4F4F0);border-radius:10px;padding:12px 14px;font-size:12.5px;line-height:1.8}
+        .fp .opt b{display:block;font-size:13.5px}
+        .fp .opt .p2{font-family:var(--mincho,serif);font-weight:800;color:var(--ai)}
+        /* 詳細カード */
+        .svc{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 20px 16px;margin-top:16px}
+        .svc h4{font-size:16px;font-weight:800;margin:0 0 2px}
+        .svc h4 .pp{font-family:var(--mincho,serif);color:var(--ai);margin-left:8px}
+        .svc .cat{font-size:12.5px;color:var(--ink-2);margin:6px 0 0;line-height:1.9}
+        .svc ul{margin:8px 0 0 1.3em;padding:0;font-size:12.5px;color:var(--ink-2);line-height:1.9}
+        .svc .noeval{border-left:3px solid var(--kin);background:var(--kin-pale,#F5F0E0);border-radius:0 8px 8px 0;padding:8px 12px;font-size:12px;margin-top:10px}
+        .q3{display:grid;gap:8px;margin-top:10px}
+        .q3 .qi{display:flex;gap:10px;align-items:baseline;background:var(--card-2,#F4F4F0);border-radius:9px;padding:9px 12px;font-size:12.5px}
+        .q3 .qi b{flex:none;font-family:var(--mincho,serif);color:var(--ai-mid)}
+        .q3 .qi .ex{margin-left:auto;flex:none;font-size:11px;color:var(--ink-3);white-space:nowrap}
+        .vd3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+        @media(max-width:720px){.vd3{grid-template-columns:1fr}}
+        .vd{border-radius:9px;padding:9px 10px;font-size:11.5px;line-height:1.7;text-align:center}
+        .vd b{display:block;font-size:13px;font-family:var(--mincho,serif)}
+        .vd.go{background:var(--midori-pale,#E3EFE9);color:var(--midori)}
+        .vd.cd{background:var(--kin-pale,#F5F0E0);color:var(--kin)}
+        .vd.ng{background:var(--card-2,#F4F4F0);color:var(--ink-2);border:1px dashed var(--rule-2)}
+      </style>
+
+      <!-- 一言コピー（公開時は#priceの紺帯末尾へ移動） -->
+
+
+      <!-- 選び方ツリー：価格より先に「自分はどれか」 -->
+      <style>
+        .tq{font-family:var(--mincho,serif);font-weight:800;font-size:clamp(17px,2.8vw,21px);text-align:center;margin:26px 0 14px}
+        .tree{min-width:0}
+        .tnode{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:13px 16px;text-align:center;min-width:0}
+        .tnode b{font-size:14px}
+        .tnode .tp{display:block;font-family:var(--mincho,serif);font-weight:800;font-size:18px;margin-top:2px}
+        .tnode .tp i{font-style:normal;font-size:10px;font-weight:700;color:var(--ink-3);margin-left:4px}
+        .tnode .ts{display:block;font-size:11px;color:var(--ink-3);margin-top:3px;line-height:1.7}
+        .tnode.all{border:2px solid var(--midori,#2E6B4F);max-width:430px;margin:0 auto}
+        .tnode.all .tp{color:var(--midori,#2E6B4F)}
+        .tsplit{display:grid;grid-template-columns:1fr 1fr;height:26px;max-width:640px;margin:0 auto}
+        .tsplit span{border-left:2px solid var(--rule-2);justify-self:center;height:100%}
+        @media(max-width:640px){.tsplit{display:none}}
+        .tcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:0 auto}
+        @media(max-width:640px){.tcols{grid-template-columns:1fr;margin-top:14px}}
+        .tcol{display:flex;flex-direction:column;gap:0;min-width:0}
+        .twho{text-align:center;font-size:12px;font-weight:800;border-radius:999px;padding:3px 0;margin-bottom:10px}
+        .tcol.o .twho{background:var(--shu-pale,#F6E7E4);color:var(--shu)}
+        .tcol.t .twho{background:var(--ai-pale);color:var(--ai)}
+        .tcol.o .tnode{border-left:4px solid var(--shu)}
+        .tcol.t .tnode{border-left:4px solid var(--ai)}
+        .tcol.o .tp{color:var(--shu)} .tcol.t .tp{color:var(--ai)}
+        .tarr{text-align:center;font-size:11px;color:var(--ink-3);padding:7px 0}
+      </style>
+      <details class="treefold">
+        <summary style="cursor:pointer;list-style:none;display:block;text-align:center;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;font-weight:800;font-size:14px;margin-top:22px">料金を見る <span style="color:var(--ai-mid)">▾</span></summary>
+      <div class="tree">
+        <p class="tq">あなたに必要なのは、どこまでですか？</p>
+        <div class="tnode all"><b>出会う</b><span class="tp">0円</span><span class="ts">登録・閲覧・マッチング・メッセージ・成約料——ここまで全部0円</span></div>
+        <div class="tsplit"><span></span><span></span></div>
+        <div class="tcols">
+          <div class="tcol o">
+            <div class="twho">店主の方</div>
+            <div class="tnode"><b>店舗価値カルテ</b><span class="tp">19,800円<i>税込</i></span><span class="ts">店の「いま」を、7日間の実測で数字に</span></div>
+            <div class="tarr">↓ さらに手が要るなら</div>
+            <div class="tnode"><b>譲渡準備支援</b><span class="tp">60,000円<i>税別</i></span><span class="ts">造作価格の算定同席・貸主確認の伴走</span></div>
+          </div>
+          <div class="tcol t">
+            <div class="twho">継ぎたい方</div>
+            <div class="tnode"><b>承継事業化診断</b><span class="tp">29,800円<i>税込</i></span><span class="ts">この場所×やりたい業態で、成立するか</span></div>
+            <div class="tarr">↓ 診断料は全額充当</div>
+            <div class="tnode"><b>承継計画伴走</b><span class="tp">98,000円<i>税別</i></span><span class="ts">事業計画・収支・資金・スケジュール</span></div>
+            <div class="tarr">↓</div>
+            <div class="tnode"><b>融資申込支援</b><span class="tp">150,000円<i>税別</i></span><span class="ts">資金計画・金融機関との面談準備</span></div>
+          </div>
+        </div>
+      </div>
+      <style>
+        details.proc summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+        details.proc summary::-webkit-details-marker{display:none}
+        details.proc summary::marker{content:""}
+        details.proc summary h5{margin:0}
+        details.proc summary .flow5{font-size:12.5px;color:var(--ink-2)}
+        details.proc summary .tog5{margin-left:auto;font-size:12px;font-weight:700;color:var(--ai-mid);white-space:nowrap}
+        details.proc summary .tog5::before{content:"段取りと、映像の取扱い・削除方法を見る ▾"}
+        details.proc[open] summary .tog5::before{content:"閉じる ▴"}
+        details.proc .sub5{margin-top:10px}
+      </style>
+      <details class="proc">
+        <summary>
+          <h5>カルテの段取り</h5>
+          <span class="flow5">7日測る → AIで数える → カルテにする（全体でおよそ2週間）</span>
+          <span class="tog5"></span>
+        </summary>
+        <p class="sub5">店主さまにしていただくのは、最初のシート記入と書面の確認だけです。カメラの設置・回収・映像の削除まで、進め方は以下のとおりです。</p>
+        <ol class="tl">
+          <li data-n="1"><b>登録シートのご記入<span class="day">10分ほど</span></b>
+            <p>A4・1枚。月商・家賃・広さ・営業時間・ご自身の報酬・退店予定の6項目。おおよその数字で結構です。当社が帳簿を検査することはありません。</p></li>
+          <li data-n="2"><b>書面の確認と、貸主さまの同意<span class="day">設置の前に必ず</span></b>
+            <p>「人流測定および撮影映像の取扱いについて」の書面をお渡しし、内容をご確認のうえ署名をいただきます。賃借物件の場合は<b style="display:inline">建物所有者・管理者の同意</b>が必要です（同意が得られない場合、測定は実施しません）。<span class="trust">同意なしでは回しません</span></p></li>
+          <li data-n="3" class="cam"><b>AIカメラの設置<span class="day">1日・担当者が訪問</span></b>
+            <p>入口付近に小型カメラを1台設置します。工事は不要です。設置直後にテスト録画で画角と設定を確認し、店頭に「人流調査実施中」のお知らせを掲示します（掲示物は当社が用意）。</p></li>
+          <li data-n="4"><b>7日間、測る<span class="day">2〜8日目</span></b>
+            <p>営業はいつも通りで構いません。機器の操作は一切不要です。曜日ごとの違いを見るため、原則7日間置かせていただきます。</p></li>
+          <li data-n="5"><b>回収と解析<span class="day">＋1〜2日</span></b>
+            <p>記録媒体（SDカード）は担当者が直接回収します。郵送はしません。AIが通行人数・曜日別/時間帯別・通行方向を解析します。<span class="trust">手渡しのみ・施錠保管</span></p></li>
+          <li data-n="6"><b>カルテの納品<span class="day">A4・5ページ</span></b>
+            <p>実測の数字と、ご申告の数字をラベルで区別して記載します。数字についてのご質問には納品後もお答えします。</p></li>
+          <li data-n="7"><b>映像の削除<span class="day">納品後7日以内</span></b>
+            <p>SDカードと解析用端末から削除し、削除した記録を所定の記録簿に残します。顔認識などの個人識別は行わず、成果物に映像そのものを載せることもありません。<span class="trust">削除を記録簿で管理</span></p></li>
+        </ol>
+        <div class="aftr"><b style="font-size:12px">承継事業化診断の段取り：</b>カメラの設置はありません（人流はカルテの実測値を使います）。構想シート（業態・自己資金・希望報酬・営業時間の4項目）をご記入いただき、数日で診断書をお渡しします。</div>
+      </details>
+      </details>
+
+      <!-- カルテ詳細 -->
+      <div class="svc" style="border-left:4px solid var(--shu)">
+        <h4>店舗価値カルテ<span class="pp">19,800円（税込）</span></h4>
+        <p class="cat"><b>この店の「いま」を数字にします。</b>店主さまから伺った売上・家賃・客単価などに、7日間の店前人流データを加えて、次を1冊（A4・5ページ）にまとめます。</p>
+        <ul>
+          <li>何曜日に人が多いか</li>
+          <li>何時に人が多いか</li>
+          <li>どちらの方向へ人が流れているか</li>
+          <li>現在の営業時間と人流が合っているか</li>
+        </ul>
+        <div class="noeval"><b>査定ではありません。</b>「高く売れる店」と評価する資料ではなく、継ぎ手が判断しやすい材料を増やす資料です。承継が決まらなくても、お手元に残ります。</div>
+        <p class="cat" style="margin-top:8px;font-size:11.5px;color:var(--ink-3)">カメラの設置・回収は、原則として当社が行います。</p>
+      </div>
+
+      <!-- 診断詳細 -->
+      <div class="svc" style="border-left:4px solid var(--ai)">
+        <h4>承継事業化診断<span class="pp">29,800円（税込）</span></h4>
+        <p class="cat"><b>答えるのは、この3つです。</b></p>
+        <div class="q3">
+          <div class="qi"><b>①</b>この店で、何人のお客さんが必要か<span class="ex">例：1日38人</span></div>
+          <div class="qi"><b>②</b>この場所で、何人くらい見込めるか<span class="ex">例：1日24人</span></div>
+          <div class="qi"><b>③</b>足りないなら、何を変えれば届くか<span class="ex">例：客単価1,300円→1,500円</span></div>
+        </div>
+        <p class="cat" style="margin-top:14px"><b>お返しするのは、3つにひとつの「決断」です。</b></p>
+        <style>
+          .vd3.big .vd{padding:16px 12px 14px}
+          .vd3.big .act{display:block;font-family:var(--mincho,serif);font-weight:800;font-size:17px;line-height:1.5;margin-bottom:4px}
+          .vd3.big b{display:inline-block;font-size:10.5px;border:1.5px solid currentColor;border-radius:999px;padding:0 10px;margin-bottom:6px;font-family:inherit}
+        </style>
+        <div class="vd3 big">
+          <div class="vd go"><span class="act">進む</span><b>GO</b>現計画でも成立ライン</div>
+          <div class="vd cd"><span class="act">条件を変えて、進む</span><b>条件つき</b>条件を変えれば成立ライン</div>
+          <div class="vd ng"><span class="act">今回は、やめる</span><b>おすすめしない</b>現条件では必要客数に届かない</div>
+        </div>
+        <p class="cat" style="margin-top:10px">承継へ進み、③の「承継計画伴走（98,000円）」をご依頼の場合、この29,800円は全額を差し引きます。</p>
+      </div>
+
+
+
+      <!-- 段取り：AIカメラ設置から納品・映像削除まで -->
+      <style>
+        .proc{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 20px 16px;margin-top:18px;min-width:0}
+        .proc h5{font-size:14px;font-weight:800;margin:0 0 4px}
+        .proc .sub5{font-size:11.5px;color:var(--ink-3);margin:0 0 12px}
+        .tl{list-style:none;margin:0;padding:0}
+        .tl li{position:relative;padding:0 0 14px 40px;border-left:2px solid var(--rule-2);margin-left:13px}
+        .tl li:last-child{border-left-color:transparent;padding-bottom:2px}
+        .tl li::before{content:attr(data-n);position:absolute;left:-14px;top:0;width:26px;height:26px;border-radius:50%;
+          background:var(--ai);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--mincho,serif)}
+        .tl li.cam::before{background:var(--shu)}
+        .tl b{display:block;font-size:13px;margin-bottom:1px}
+        .tl b .day{font-size:10px;font-weight:700;color:var(--ink-3);margin-left:8px;background:var(--card-2,#F4F4F0);border-radius:999px;padding:1px 9px;vertical-align:1px}
+        .tl p{font-size:11.5px;color:var(--ink-2);line-height:1.8;margin:0}
+        .tl .trust{display:inline-block;font-size:9.5px;font-weight:700;background:var(--midori-pale,#E3EFE9);color:var(--midori,#2E6B4F);border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:1px}
+        .proc .aftr{border-top:1px dashed var(--rule);margin-top:10px;padding-top:10px;font-size:11.5px;color:var(--ink-2);line-height:1.8}
+      </style>
+
+
+      <p class="note" style="margin-top:12px">診断は、GO・条件つき・おすすめしない——いずれの判定でも返金いたしません。判定そのものが成果物であるためです。</p>
+
+      <!-- 実証開始時CTA（カルテ・診断の公開と同時に有効化） -->
+      <style>
+        .svcta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+        @media(max-width:640px){.svcta{grid-template-columns:1fr}}
+        .svcta a{display:block;text-align:center;border-radius:12px;padding:16px 14px;text-decoration:none;font-weight:800;font-size:15px;line-height:1.5}
+        .svcta a span{display:block;font-size:11px;font-weight:700;margin-top:3px;opacity:.85}
+        .svcta .co{background:var(--shu);color:#fff}
+        .svcta .ct2{background:var(--card);border:2px solid var(--ai);color:var(--ai)}
+      </style>
+      <div class="svcta">
+        <a class="co" href="#entry" data-seg="owner">店舗価値カルテを相談する（無料）<span>店主向け・実証3店舗</span></a>
+        <a class="ct2" href="#entry" data-seg="taker">承継事業化診断について聞く（無料）<span>継ぎたい方向け</span></a>
+      </div>
+
+    </div>
+    <!-- ★★★ 未公開ここまで ★★★ -->
+
     <p class="lede rv" style="max-width:none">承継そのものは、専門家に頼まなくても成立します。事業計画をご自身で作り、ご自身で金融機関に行かれてもかまいません。<b>まず無料の公的窓口をご検討ください。</b>日本政策金融公庫の創業サポートデスク、商工会議所、よろず支援拠点は、いずれも無料です。<br>
     そのうえで、それでも手が足りないときのために、下記の<b>任意の有料支援</b>を用意しています。</p>
-    <table class="otbl rv">
+    <style>
+      .feefold{margin-top:10px}
+      .feefold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+        background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;font-weight:800;font-size:14px}
+      .feefold>summary::-webkit-details-marker{display:none}
+      .feefold>summary::marker{content:""}
+      .feefold>summary .mini6{font-size:11.5px;font-weight:700;color:var(--ink-3)}
+      .feefold>summary .tog6{margin-left:auto;font-size:12px;font-weight:700;color:var(--ai-mid);white-space:nowrap}
+      .feefold>summary .tog6::before{content:"開く ▾"}
+      .feefold[open]>summary .tog6::before{content:"閉じる ▴"}
+    </style>
+    <details class="feefold rv">
+      <summary>料金表のすべてを見る<span class="mini6">カルテ・診断・伴走支援・補助金／いずれも任意</span><span class="tog6"></span></summary>
+    <table class="otbl">
       <caption class="skip">任意の有料支援の料金</caption>
       <thead><tr><th>任意の有料支援</th><th class="hidem">内容</th><th style="text-align:right">料金（税別）</th></tr></thead>
       <tbody>
         <tr><td><b>初回相談（60分）</b></td><td class="hidem">状況をうかがい、有料支援が必要かどうかをお伝えします</td><td class="n free">0円</td></tr>
+        <tr><td>店舗価値カルテ<span class="who2">店主向け</span></td><td class="hidem">店前の人流を7日間実測し、営業実態と立地の特徴をA4・5ページの一冊に。貸主・金融機関への説明資料としても活用できる実測資料です（実証協力価格 9,900円・先着3件）</td><td class="n" style="white-space:normal">19,800円<span style="display:block;font-size:11px;font-weight:400">（税込）</span></td></tr>
+        <tr><td>承継事業化診断<span class="who2">継ぎ手向け</span></td><td class="hidem">「この場所 × やりたい業態」の成立性を、人流・必要客数・収支から判定（GO／条件つき／おすすめしない）。承継計画伴走に進む場合は全額を差し引きます</td><td class="n" style="white-space:normal">29,800円<span style="display:block;font-size:11px;font-weight:400">（税込）</span></td></tr>
         <tr><td>譲渡準備支援<span class="who2">店主向け</span></td><td class="hidem">造作価格の算定同席、申告シートの整備、貸主・リース確認の伴走</td><td class="n">60,000円</td></tr>
-        <tr><td>承継判断支援<span class="who2">継ぎ手向け</span></td><td class="hidem">事業計画の壁打ち・添削、収支見通しの検証、GO／NO-GO判定</td><td class="n">98,000円</td></tr>
+        <tr><td>承継計画伴走<span class="who2">継ぎ手向け</span></td><td class="hidem">実際に継ぐための事業計画・収支計画・資金計画・開業スケジュールを一緒に組み立てます（承継事業化診断をご購入済みの場合、診断料29,800円〈税込〉を全額差し引きます）</td><td class="n">98,000円</td></tr>
         <tr><td>融資申込支援</td><td class="hidem">資金計画、金融機関との面談準備、必要書類の整備（面談2回・計画書の添削2往復まで。超える場合は事前にご相談）</td><td class="n">150,000円</td></tr>
-        <tr class="reco"><td><b>承継判断＋融資申込 セット</b><span class="rtag">よく一緒に進める支援</span></td><td class="hidem">同時に進むことがほとんどのため、まとめた場合の料金です（単品合計より3万円お得）</td><td class="n">218,000円</td></tr>
+        <tr class="reco"><td><b>承継計画伴走＋融資申込 セット</b><span class="rtag">よく一緒に進める支援</span></td><td class="hidem">同時に進むことがほとんどのため、まとめた場合の料金です（単品合計より3万円お得）</td><td class="n">218,000円</td></tr>
         <tr><td>補助金申請支援</td><td class="hidem">事業承継・M&amp;A補助金等の申請支援（詳細は<a href="hojokin.html" style="text-decoration:underline">補助金サポート</a>のページへ）</td><td class="n">補助額の10%<span style="display:block;font-size:11px;font-weight:400">着手金5万円・採択時に充当</span></td></tr>
       </tbody></table>
-    <p class="note rv"><b>初回相談で「有料支援は要りません」とお伝えすることがあります。</b>ご自身でできることに費用をいただく理由がないからです。</p>
+    </details>
+    <p class="note rv"><b>初回相談で「有料支援は要りません」とお伝えすることがあります。</b>ご自身でできる部分に、費用はいただきません。</p>
 
-    <div class="cav rv">
-      <div class="ct">補助金について、先にお伝えしておくべきこと</div>
+    <details class="cav rv">
+      <summary style="cursor:pointer;list-style:none" class="ct">補助金について、先にお伝えしておくべきこと　<span style="font-size:12px;color:var(--ai-mid)">開く ▾</span></summary>
       <ol>
         <li><b>誰でも使えるわけではありません。</b>補助金は公募ごとに対象者・対象事業の要件が定められており、審査で不採択になることもあります。要件に合わない場合は、その旨をお伝えし、<b>お申し込みをお断りします</b>。</li>
         <li><b>申請できる時期が決まっています。</b>公募期間（多くは年に数回、それぞれ数週間）を外れると、次回の公募まで申請できません。承継のスケジュールと公募の時期が合わないことは、珍しくありません。</li>
         <li><b>補助対象になる期間が決まっています。</b>原則として、<b>交付決定より前に発注・契約・支払いをした費用は、補助の対象になりません</b>。「先に進めて、後から申請」はできないものとお考えください。</li>
       </ol>
       <div class="cf">当社の料金は申請支援という役務の対価であり、採択をお約束するものではありません。不採択の場合も返金いたしかねます。だからこそ、要件・時期・対象期間が合わない場合は、初回相談（0円）の段階でそうお伝えします。</div>
-    </div>
+    </details>
 
-    <p class="lede rv" style="max-width:none"><b>譲渡準備・承継判断・融資申込の各支援は定額です。</b>譲渡価格・融資額に連動しません。補助金申請支援のみ、採択という成果に連動します（不採択の場合のご負担は着手金5万円のみ）。</p>
+    <p class="lede rv" style="max-width:none"><b>譲渡準備・承継計画伴走・融資申込の各支援は定額です。</b>譲渡価格・融資額に連動しません。補助金申請支援のみ、採択という成果に連動します（不採択の場合のご負担は着手金5万円のみ）。</p>
     <p class="note rv">なぜ融資支援を定額にしているのか。<b>融資額によって当社の報酬が増えると、「多く借りさせる」動機が生まれるからです。</b>借りすぎの重さは、返済が始まってから効いてきます。補助金は返済不要の給付で、採択額が大きいほどお客様の利益も大きいため、成果連動としています（例：補助額100万円→報酬計10万円、500万円→計50万円）。</p>
 
     <p class="note rv"><b>譲渡価格および融資額に連動する報酬はありません。</b><br>
@@ -931,6 +1605,17 @@ footer a{text-decoration:underline}
     <h2 class="sec mincho rv">開設のご案内を、<em>お送りします</em>。</h2>
     <p class="lede rv">現在、サービスの開設準備を進めています。ご登録いただいた方に、開設のご案内と、造作価格の自己算定シートをお送りします。<b>いまの段階では、費用は一切かかりません。</b></p>
 
+    <style>
+      .pledge{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:4px 0 16px}
+      @media(max-width:720px){.pledge{grid-template-columns:1fr}}
+      .pledge span{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:13px 15px;font-size:12.5px;line-height:1.8;color:var(--ink-2)}
+      .pledge b{display:block;font-family:var(--mincho,serif);font-size:14.5px;color:var(--ai);margin-bottom:2px}
+    </style>
+    <div class="pledge rv" aria-label="当社の三つの約束">
+      <span><b>急かしません。</b>決めるまでの時間も、決めない自由も、そのままに。</span>
+      <span><b>査定しません。</b>価格を決めるのは、店主ご本人です。</span>
+      <span><b>口外しません。</b>閉店のご検討が、ここから外に漏れることはありません。</span>
+    </div>
     <div class="ease rv">
       <b>まだ、閉めると決めていなくても大丈夫です。</b>
       <span>匿名掲載の準備だけでも構いません。迷っている段階のご登録が、いちばん選択肢が多く残っています。もちろん、途中でやめられます。</span>
@@ -1004,6 +1689,25 @@ footer a{text-decoration:underline}
 </section>
 
 <!-- FAQ -->
+<section id="partners" style="padding:56px 0">
+  <div class="narrow">
+    <style>
+      .pt2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+      @media(max-width:720px){.pt2{grid-template-columns:1fr}}
+      .ptc{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;font-size:12.5px;line-height:1.9;color:var(--ink-2);min-width:0}
+      .ptc b{display:block;font-size:13.5px;color:var(--ink);margin-bottom:4px}
+      .ptc .pn{font-size:10.5px;color:var(--ink-3)}
+    </style>
+    <div class="eyebrow rv">関係者・連携パートナーの方へ</div>
+    <div class="pt2 rv">
+      <div class="ptc"><b>🏢 家主・管理会社の方</b>退店予定の店舗について、次の担い手を探す仕組みとしてご活用いただけます。空室期間の短縮や、円滑な退去・承継につなげます。<span class="pn"><br>※当社は物件の客付け・賃貸借の媒介は行いません。</span></div>
+      <div class="ptc"><b>🤝 中小企業診断士・士業の方</b>承継計画・融資・補助金などを支援いただく地域パートナーを募集しています。対応地域・専門分野・連携方法は個別にご相談します。</div>
+    </div>
+    <p class="rv" style="margin-top:14px"><a class="btn" href="#entry" data-seg="partner">関係者・パートナーとして問い合わせる</a>
+      <span style="display:block;margin-top:8px;font-size:11px;color:var(--ink-3)">フォームのお立場で「家主・支援機関」または「診断士・士業（連携）」をお選びください。</span></p>
+  </div>
+</section>
+
 <section id="faq" style="background:var(--card-2);border-block:1px solid var(--rule)">
   <div class="narrow">
     <div class="eyebrow rv">08｜よくあるご質問</div>
@@ -1020,7 +1724,7 @@ footer a{text-decoration:underline}
       <details><summary>なぜ価格を査定しないのですか。</summary><div class="body">
         <p>査定した瞬間に、当社の判断が取引条件に組み込まれるからです。仲介手数料が譲渡価格に連動する仕組みでは、価格を上げたい側の都合が入り込みます。</p>
         <p>当社の収入は、<b>譲渡価格や承継の成立に連動しません。</b>成立を優先する動機が生じない形にしています。そのかわり、店主がご自身で計算するための算定シートをご用意しています。</p>
-        <p>なお、有料の承継判断支援などで行う収支の検討は、<b>ご本人の依頼に基づく別途の支援契約</b>によるもので、無料の掲載・マッチングで当社が評価を行うものではありません。</p></div></details>
+        <p>なお、有料の承継計画伴走などで行う収支の検討は、<b>ご本人の依頼に基づく別途の支援契約</b>によるもので、無料の掲載・マッチングで当社が評価を行うものではありません。</p></div></details>
       <details><summary>物件を紹介してもらえますか。</summary><div class="body">
         <p>いいえ。本サービスは<b>造作、什器、厨房機器その他の動産の譲渡</b>について、当事者が直接出会う機会を提供するものです。当社は宅地建物の売買、交換または貸借の代理または媒介を行いません。店舗の賃貸借契約は、貸主と利用者との間で締結されるものとし、当社はこれに関与しません。当社が受領する対価は、賃貸借契約の成立に連動しません。</p></div></details>
       <details><summary>「気になる」を押したら、相手に伝わりますか。</summary><div class="body">
@@ -1059,8 +1763,8 @@ footer a{text-decoration:underline}
           <tr><th>電話番号</th><td>お取引に関する電話番号は、ご請求をいただければ遅滞なく開示いたします。お問い合わせは下記メールアドレスへお願いします。</td></tr>
           <tr><th>メールアドレス</th><td>info@bridgecycleco.com</td></tr>
           <tr><th>ホームページ</th><td><a href="https://yujimansion-hub.github.io/bridge-cycle2026/" style="text-decoration:underline">https://yujimansion-hub.github.io/bridge-cycle2026/</a></td></tr>
-          <tr><th>販売価格</th><td>初回相談（60分）0円／譲渡準備支援 60,000円／承継判断支援 98,000円／融資申込支援 150,000円／承継判断＋融資申込セット 218,000円／補助金申請支援 着手金50,000円＋採択時に補助額の10%（着手金を報酬に充当します。不採択の場合、着手金の返金はいたしかねます）（無料のものを除き、いずれも税別。別途消費税を申し受けます）<br>
-            <b>譲渡準備支援・承継判断支援・融資申込支援は定額であり、譲渡価格および融資額に連動しません。補助金申請支援の報酬は上記のとおり補助額に連動します。</b></td></tr>
+          <tr><th>販売価格</th><td>店舗価値カルテ 19,800円（税込。実証協力価格9,900円・先着3件）／承継事業化診断 29,800円（税込。2回目以降14,900円、同一案件の2人目以降19,800円。判定の内容にかかわらず返金いたしかねます。承継計画伴走をご依頼の場合、お支払い済みの診断料29,800円を伴走料金から全額差し引きます）／初回相談（60分）0円／譲渡準備支援 60,000円／承継計画伴走 98,000円／融資申込支援 150,000円／承継計画伴走＋融資申込セット 218,000円／補助金申請支援 着手金50,000円＋採択時に補助額の10%（着手金を報酬に充当します。不採択の場合、着手金の返金はいたしかねます）（無料のものを除き、いずれも税別。別途消費税を申し受けます）<br>
+            <b>譲渡準備支援・承継計画伴走・融資申込支援は定額であり、譲渡価格および融資額に連動しません。補助金申請支援の報酬は上記のとおり補助額に連動します。</b></td></tr>
           <tr><th>商品代金以外の必要料金</th><td>なし。インターネット接続に必要な通信料はお客様のご負担となります。</td></tr>
           <tr><th>支払方法</th><td>銀行振込のみ（振込手数料はお客様のご負担となります）</td></tr>
           <tr><th>支払時期</th><td>業務の着手前に請求書を発行し、発行日から7日以内にお支払いいただきます。</td></tr>
@@ -1236,7 +1940,7 @@ footer a{text-decoration:underline}
 
 <!-- モバイル用・追従CTAバー（ヒーロー通過後に表示、フォーム到達で退避） -->
 <div class="mcta" id="mcta">
-  <a class="btn pri" href="#entry" data-seg="owner">店を渡したい方</a>
+  <a class="btn pri" href="#entry" data-seg="owner" style="background:var(--shu)">店を渡したい方</a>
   <a class="btn oc" href="#entry" data-seg="taker">店を継ぎたい方</a>
 </div>
 
@@ -1336,7 +2040,7 @@ $$('.tbtn').forEach(b=>b.onclick=()=>{
 
 /* ご利用の流れ */
 const FLOW={
- owner:{sum:['0円','<b>登録から引き渡しまで、基本機能はすべて0円です。</b>費用がかかるのは、譲渡準備などの専門支援をご希望の場合だけ。<br>掲載してから承継までは、おおむね<b>3〜6か月</b>を見ておいてください。'],
+ owner:{sum:['0円','<b>当社に支援を依頼しなければ、BRIDGE CYCLEへの支払いは0円です。</b>費用がかかるのは、譲渡準備などの専門支援をご希望の場合だけ。<br>掲載してから承継までは、おおむね<b>3〜6か月</b>を見ておいてください。'],
   steps:[
   {t:'事前登録する',time:'3分',cost:'free',
    d:'お名前と連絡先だけで結構です。この時点では、お店の情報も、資金のことも書きません。開設のご案内と、造作価格の算定シートをお送りします。',
@@ -1359,7 +2063,7 @@ const FLOW={
   {t:'3点を確かめて、渡す',time:'—',cost:'free',
    d:'リース契約の残存、貸主の承諾（書面）、原状回復義務の範囲。<b>この3点が済むまで、金銭を受け取らないでください。</b>画面上でも表示し続けます。ここから先の条件交渉は当事者どうしです。当社は同席しません。',
    trap:['手が足りないと感じたら、ここで有料支援を使えます。','譲渡準備支援 60,000円。使わなくても承継は成立します。']}]},
- taker:{sum:['0円','<b>登録から開業まで、基本機能はすべて0円です。</b>費用がかかるのは、経営判断や融資・補助金の専門支援をご希望の場合だけ。<br>探しはじめてから開業までは、おおむね<b>4〜8か月</b>を見ておいてください。'],
+ taker:{sum:['0円','<b>当社に支援を依頼しなければ、BRIDGE CYCLEへの支払いは0円です。</b>費用がかかるのは、経営判断や融資・補助金の専門支援をご希望の場合だけ。<br>探しはじめてから開業までは、おおむね<b>4〜8か月</b>を見ておいてください。'],
   steps:[
   {t:'事前登録する',time:'3分',cost:'free',
    d:'お名前と連絡先だけで結構です。<b>この段階では、資金や信用情報は入力しないでください。</b>それは登録後、ご本人の同意のうえで専用のシートに入力していただきます。',
@@ -1380,7 +2084,7 @@ const FLOW={
    d:'メッセージが開いたら、まず<b>設備が今も動くか</b>を聞いてください。「動きます」と書かれた機器が動かないことが、最も多い破談原因です。次にリースの残債、貸主の承諾。連絡先は、双方が交換に同意したときにだけ開きます。'},
   {t:'融資・許認可を段取りする',time:'2〜3か月',cost:'free',
    d:'創業融資の審査、保健所への営業許可の照会、賃貸借の承継。<b>ここが最も時間がかかります。</b>退去日が決まっているなら、そこから逆算してください。3点（リース・貸主承諾・原状回復）が済むまで、手付金を渡さないでください。<b>補助金をあてにした資金計画は組まないでください。</b>公募の時期が合わない・審査で不採択になることがあり、原則として交付決定前の発注・支払いは補助対象になりません。',
-   trap:['自分でできるなら、それで構いません。','公庫の創業サポートデスク、商工会議所、よろず支援拠点はいずれも無料です。それでも手が足りないときに、承継判断支援 98,000円／融資申込支援 150,000円をご用意しています。']}]},
+   trap:['自分でできるなら、それで構いません。','公庫の創業サポートデスク、商工会議所、よろず支援拠点はいずれも無料です。それでも手が足りないときに、承継計画伴走 98,000円／融資申込支援 150,000円をご用意しています。']}]},
  partner:{sum:['0円','<b>費用は一切いただきません。</b>当社が扱うのは造作の譲渡だけで、物件の客付けはしません。<br>いまは仕組みの設計中です。まずお話を聞かせてください。'],
   steps:[
   {t:'お問い合わせいただく',time:'3分',cost:'free',
@@ -1392,10 +2096,10 @@ const FLOW={
   {t:'当社は、造作の譲渡だけを扱います',time:'—',cost:'free',
    d:'<b>物件の客付けはしません。</b>賃貸借契約は、これまでどおり御社が依頼される宅地建物取引業者を通じて締結してください。当社は宅地建物の売買・交換・貸借の代理または媒介を行いません。当社が受領する対価は、賃貸借契約の成立に連動しません。',
    trap:['支援機関の方へ。','廃業相談の受け皿として、算定シートと申告シートの書式をお使いいただく形も検討しています。あわせてご相談ください。']}]},
- expert:{sum:['連携募集','<b>中小企業診断士・士業の先生との連携を募集しています。</b>店舗の所在地により、承継判断・融資・補助金の支援を地域の先生に担当いただく体制です。'],
+ expert:{sum:['連携募集','<b>中小企業診断士・士業の先生との連携を募集しています。</b>店舗の所在地により、承継計画・融資・補助金の支援を地域の先生に担当いただく体制です。'],
   steps:[
   {t:'フォームから連携希望を送る',time:'3分',cost:'free',
-   d:'下の事前登録フォームで「診断士・士業（連携）」を選び、活動エリアと、承継・融資・補助金など<b>お受けいただける分野</b>をご記入ください。'},
+   d:'下の事前登録フォームで「診断士・士業（連携）」を選び、活動エリアと、承継・融資・補助金など<b>お受けいただける分野</b>をご記入ください。ご依頼者との契約・料金設定は先生と直接で、当社は契約の当事者になりません。'},
   {t:'オンラインで30分ほどお話しする',time:'30分',cost:'free',
    d:'これまでのご支援の分野、稼働の目安、進め方の考え方をうかがいます。<b>当社の無料マッチング基盤・算定シート等の書式は、連携先の先生にもお使いいただけます。</b>'},
   {t:'担当エリアの案件をご紹介',time:'—',cost:'free',
