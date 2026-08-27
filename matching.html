@@ -718,6 +718,10 @@ footer a{text-decoration:underline}
     </div>
     <style>.chvs{flex-direction:column;gap:2px}</style>
     <p class="note rv" style="text-align:center">※モデルケース（38㎡・16席・営業8年のカフェ。原状回復見積114万円・造作譲渡代金180万円で試算した一例）です。原状回復の範囲・造作の状態・貸主の意向により結果は大きく変わります。当社は金額を算定しません。</p>
+    <p class="rv" style="text-align:center;margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn" href="shindan3.html" style="border:2px solid var(--midori,#2E6B4F);color:var(--midori,#2E6B4F);font-weight:800">この店、壊す前に渡せる？ 3分診断（無料・送信なし）</a>
+      <a class="btn" href="#entry" data-seg="owner" style="background:var(--shu);color:#fff">撤去見積を取る前に、相談する</a>
+    </p>
     <div class="rv" style="text-align:center;margin-top:6px"><details class="figfold rv" style="margin-top:16px">
       <summary style="cursor:pointer;list-style:none;display:inline-block;font-size:13px;font-weight:800;color:var(--ai-mid);border:1px solid var(--rule-2);border-radius:999px;padding:7px 18px;background:var(--card)">詳しい294万円の試算を見る ▾</summary>
     <div class="fig" style="margin-top:14px;text-align:left">
@@ -983,7 +987,7 @@ footer a{text-decoration:underline}
           <li>常連や従業員のことが気がかり</li>
           <li>価格をいくらにすればいいか分からない</li>
         </ul>
-        <a class="btn pri" href="#entry" data-seg="owner">店主として登録</a></div></div>
+        <a class="btn pri" href="#entry" data-seg="owner" style="background:var(--shu)">匿名で、渡せる可能性を確認する</a></div></div>
       <div class="wc b rv">
         <div class="ph"><div class="fb" style="background:linear-gradient(140deg,#1F2A33,#3A4A55)"></div>
           <div class="im" data-ph="taker" role="img" aria-label="これから始める店の店内（イメージ）"></div></div>
@@ -1648,6 +1652,11 @@ footer a{text-decoration:underline}
         <option value="滋賀県湖南市"></option><option value="滋賀県高島市"></option>
         <option value="滋賀県米原市"></option><option value="京都府京都市"></option>
       </datalist>
+      <div class="fld" id="fldOwn"><label for="fOwn">お店は賃貸ですか<span class="hint">承継のしやすさに関わるため。任意です。</span></label>
+        <select id="fOwn" name="chintai">
+          <option value="">選択してください（任意）</option>
+          <option>賃貸</option><option>自己所有</option><option>その他・わからない</option>
+        </select></div>
       <div class="fld" id="fldGyo"><label for="fGyo">業態</label>
         <select id="fGyo" name="gyo">
           <option value="">選択してください</option>
