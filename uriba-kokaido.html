@@ -172,7 +172,24 @@ window.FB_PIXEL_ID = "1370343645272166";
     .tf-num{font-family:var(--serif,serif);font-weight:800;font-size:1.85rem;color:var(--brand-dark,#143d3a);line-height:1.25}
     .tf-num em{font-style:normal;font-size:.88rem;font-weight:700}
     .tf-src{display:block;font-family:var(--sans,sans-serif);font-size:.76rem;font-weight:400;color:var(--muted,#5f6f69);margin-top:9px;line-height:1.65}
-    @media(max-width:680px){.tf-grid{grid-template-columns:1fr}}
+    /* 「人の流れ」詳細への導線（強調） */
+    .tf-more{display:flex;align-items:center;justify-content:space-between;gap:22px;text-decoration:none;
+      background:var(--surface,#fff);border:2px solid var(--brand,#2f6f6a);border-radius:16px;
+      padding:22px 24px;margin-top:26px;transition:transform .15s,box-shadow .15s;
+      box-shadow:0 4px 14px rgba(20,61,58,.07)}
+    .tf-more:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,61,58,.14)}
+    .tf-more-txt{display:block}
+    .tf-more-h{display:block;font-family:var(--serif,serif);font-weight:700;font-size:1.16rem;
+      color:var(--brand-dark,#143d3a);line-height:1.5;margin-bottom:6px}
+    .tf-more-s{display:block;font-size:.9rem;color:var(--muted,#5f6f69);line-height:1.8}
+    .tf-more-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+      background:var(--brand,#2f6f6a);color:#fff;font-family:var(--serif,serif);font-weight:700;
+      font-size:.98rem;padding:13px 24px;border-radius:999px}
+    .tf-more-ar{font-size:1.15rem;line-height:1}
+    .tf-more:hover .tf-more-btn{background:var(--brand-dark,#143d3a)}
+    @media(max-width:680px){.tf-grid{grid-template-columns:1fr}
+      .tf-more{flex-direction:column;align-items:flex-start;gap:16px}
+      .tf-more-btn{width:100%;justify-content:center}}
   </style>
   <div class="wrap">
     <p class="eyebrow">この場所を通る人</p>
@@ -197,7 +214,15 @@ window.FB_PIXEL_ID = "1370343645272166";
       <span class="vup-tag">キッチンカー</span>
       <span class="vup-tag">既存店の新商品・2号店テスト</span>
     </div>
-    <p style="font-size:.95rem;max-width:660px">持ち込みのテント・キッチンカーで、半日から。既にお店をお持ちの方も歓迎です。物件契約なし・保証金なしで、看板商品や試作中の新商品を新しい客層に出してみる——そんな使い方ができます。<a href="#more" style="color:var(--brand);font-weight:700">時間帯ごとの客層や、この立地の活かし方はページ下部へ ›</a></p>
+    <p style="font-size:.95rem;max-width:660px">持ち込みのテント・キッチンカーで、半日から。既にお店をお持ちの方も歓迎です。物件契約なし・保証金なしで、看板商品や試作中の新商品を新しい客層に出してみる——そんな使い方ができます。</p>
+
+    <a href="#more" class="tf-more">
+      <span class="tf-more-txt">
+        <span class="tf-more-h">朝・昼・夕方で、通る人が入れ替わります。</span>
+        <span class="tf-more-s">通勤、観光、街歩き、食事帰り——どの時間帯に、どんな人が前を通るのか。出店する時間帯を決める材料として、いちばん読んでいただきたい部分です。</span>
+      </span>
+      <span class="tf-more-btn">人の流れと客層を見る<span class="tf-more-ar">›</span></span>
+    </a>
   </div>
 </section>
 
