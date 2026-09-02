@@ -425,7 +425,7 @@ window.FB_PIXEL_ID = "1370343645272166";
       <b>テント等の出店：</b>申込 → そのままカード決済 → <b style="color:var(--brand)">予約確定</b><br>
       <b>キッチンカー・裸火の出店：</b>申込 → 運営が寸法・空きを確認 → 決済のご案内 → <b style="color:var(--brand)">予約確定</b>
     </div>
-    <div class="callout" style="margin:0 auto 4px;max-width:640px">本会場は<b>飲食のテイクアウト出店専用</b>です。お申し込みは、<b>必要な営業許可・届出を満たし、食品衛生責任者を配置でき、賠償責任保険にご加入の方</b>に限らせていただきます。下の「かんたん確認」を通過した方のみ、お申し込みフォームが開きます。<br><a href="bridge-cycle-kokaido-kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700;text-decoration:underline">▶ 出店規約を読む</a>（お申し込み前に必ずご確認ください）</div>
+    <div class="callout" style="margin:0 auto 4px;max-width:640px">本会場は<b>飲食のテイクアウト出店専用</b>です。お申し込みは、<b>必要な営業許可・届出を満たし、食品衛生責任者を配置でき、賠償責任保険にご加入の方</b>に限らせていただきます。下の「かんたん確認」を通過した方のみ、お申し込みフォームが開きます。<b>お申し込み時には営業許可証（届出書）の画像の添付が必要です</b>（スマホの写真で結構です）。<br><a href="bridge-cycle-kokaido-kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700;text-decoration:underline">▶ 出店規約を読む</a>（お申し込み前に必ずご確認ください）</div>
 <div class="callout" style="margin:8px auto 4px;max-width:640px;border-left-color:var(--accent)">びわ湖大花火大会など、施設周辺で大規模な交通規制が行われる日は出店できない場合があります。対象日は空きカレンダー上で「受付不可」と表示します。</div>
     <!-- ▼ 送信先(action)をFormspreeのエンドポイントに差し替えてください（手順は別途案内） ▼ -->
     <div id="eligGate" style="max-width:640px;margin:0 auto 14px;background:#fff;border:2px solid #2f6f6a;border-radius:14px;padding:20px 22px">
@@ -433,11 +433,11 @@ window.FB_PIXEL_ID = "1370343645272166";
       <div id="egProg" style="font-size:.78rem;color:#5f6f69;margin-bottom:10px"></div>
       <div id="egBody"></div>
     </div>
-    <form id="applyForm" class="formwrap" action="https://formsubmit.co/info@bridgecycleco.com" method="POST" style="display:none">
+    <form id="applyForm" class="formwrap" action="https://formsubmit.co/info@bridgecycleco.com" method="POST" enctype="multipart/form-data" style="display:none">
       <input type="hidden" name="_subject" value="旧大津公会堂 出店申込">
       <input type="hidden" name="_next" value="https://yujimansion-hub.github.io/bridge-cycle2026/thanks-kokaido.html">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_captcha" value="true">
       <input type="hidden" name="_replyto" value="">
       <input type="hidden" name="_autoresponse" value="【旧大津公会堂 売り場レンタル】お申し込みを受け付けました。
 
@@ -511,6 +511,16 @@ https://yujimansion-hub.github.io/bridge-cycle2026/matching.html
         </select>
         <div class="hint">※販売内容・出店形態に応じた許可・届出が必要です。テントでの現地調理やキッチンカーは、<b>大津市内で有効な</b>許可・届出をご確認ください（既存店舗の許可だけでは出店できない場合があります）。ご不明な場合はLINEで事前にご相談ください。</div>
       </div>
+      <div class="field" id="permitField">
+        <label>営業許可証・届出書の画像<span class="req">必須</span></label>
+        <input type="file" id="permitFile" name="営業許可証" accept="image/*,.pdf,application/pdf" required>
+        <div class="hint">上で選んだ営業許可証（許可書）または届出の受理書を、<b>スマホで撮影した写真</b>や画像・PDFで添付してください（1ファイル 8MBまで／大きな写真は自動で縮小します）。<b>添付がないとお申し込みは完了しません。</b><br>※許可証の画像は運営（BRIDGE CYCLE株式会社）が出店資格の確認にのみ使用し、確認後は本人確認以外の目的で利用・公開しません。</div>
+        <div id="permitPrev" style="display:none;margin-top:10px"><img id="permitImg" alt="添付した許可証のプレビュー" style="max-width:220px;max-height:160px;border:1px solid var(--line);border-radius:8px;display:block"><div id="permitMeta" class="hint" style="margin-top:4px"></div></div>
+        <div id="permitErr" style="display:none;color:#bf4429;font-weight:700;font-size:.88rem;margin-top:6px"></div>
+        <label style="margin-top:14px">追加の許可証・届出書（任意）</label>
+        <input type="file" id="permitFile2" name="営業許可証（追加）" accept="image/*,.pdf,application/pdf">
+        <div class="hint">複数の許可をお持ちの場合（例：飲食店営業許可＋露店等の許可）は、2枚目をこちらに。</div>
+      </div>
       <div class="field"><label>ご質問・ご要望</label><textarea name="備考" placeholder="牛肉以外の商品を予定／搬入・駐車の相談／許可の種類の補足 など"></textarea></div>
       <div class="field"><label>火気について、いずれかを選択してください<span class="req">必須</span></label>
         <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><input type="radio" name="火気の使用" value="使用しない（電気調理・完成品のみ）" required style="width:auto;margin-top:5px"><label style="margin:0;font-weight:400;font-size:.9rem">火気は使用しない（電気調理・完成品のみ）</label></div>
@@ -522,7 +532,7 @@ https://yujimansion-hub.github.io/bridge-cycle2026/matching.html
       <div class="field" style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" name="出店規約の同意" value="同意する" required style="width:auto;margin-top:6px"><label style="margin:0;font-weight:400;font-size:.9rem"><a href="bridge-cycle-kokaido-kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">出店規約</a>を読み、内容に同意します。<span class="req">必須</span></label></div>
       <button type="submit" class="btn">確認して申し込む</button>
       <p id="sendErr" style="display:none;color:#bf4429;font-weight:700;font-size:.9rem;margin-top:10px"></p>
-      <p class="form-note" style="margin-top:8px">※ <b>テント等の出店</b>：送信後、そのままカードでのお支払いに進み、<b>お支払いの完了をもって予約確定</b>です。<br>※ <b>キッチンカー・裸火の出店</b>：運営が確認のうえ、決済のご案内をお送りします。<br>※ カード番号はこのサイトに保存されません。</p>
+      <p class="form-note" style="margin-top:8px">※ 送信ボタンを押すと<b>ロボットでないことの確認（reCAPTCHA）</b>が1回表示されます。「私はロボットではありません」にチェックして進んでください。<br>※ <b>テント等の出店</b>：確認のあと、そのままカードでのお支払いに進み、<b>お支払いの完了をもって予約確定</b>です。<br>※ <b>キッチンカー・裸火の出店</b>：運営が確認のうえ、決済のご案内をお送りします。<br>※ カード番号はこのサイトに保存されません。</p>
       <p class="form-note">※ <b>確定はお支払いの完了順</b>です（お申し込みの順ではありません）。同じ日に複数のお申し込みがあった場合、先にお支払いが完了した方を優先します。お支払いが完了するまで会場は確保されません。</p>
       <p class="form-note">※ 裸火・ガスを使用する出店は、安全・保険上の条件の確認と、別途の費用をご案内する場合があります。詳しくは<a href="bridge-cycle-kokaido-kiyaku.html" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">出店規約</a>をご確認ください。</p>
       <!-- 固定の決済リンクを使う場合：Stripe Payment Link 等のURLを下のhrefに設定して有効化 → <a class="btn" href="（決済リンクURL）" target="_blank" rel="noopener" style="margin-top:8px">カードで支払う</a> -->
@@ -599,7 +609,7 @@ https://yujimansion-hub.github.io/bridge-cycle2026/matching.html
       <div class="row"><div class="k">2階事務所へのお声がけ</div><div class="v"><b style="color:var(--accent)">準備を始める前と、片付けを終えたあとに、建物2階の施設事務所へお声がけをお願いします。</b><span style="display:block;color:var(--muted);font-size:.88em;margin-top:3px">※当社スタッフは常駐しませんが、施設側が当日の出店状況を把握しておく必要があるためです（<a href="bridge-cycle-kokaido-kiyaku.html#a9-2">出店規約 第9条の2</a>）。</span></div></div>
       <div class="row"><div class="k">区画</div><div class="v">屋外・御影石舗装の前庭（歴史的建造物の正面）</div></div><div class="row"><div class="k">広さの目安</div><div class="v">御影石舗装の前庭。<b>テント等：各時間帯 最大2店舗／キッチンカー：各時間帯 1台まで</b>。キッチンカー出店時は2区画を使用するため、同時間帯に他の店舗は入りません。<span style="display:block;color:var(--muted);font-size:.88em;margin-top:3px">※おおよその目安です。配置はお申し込み後にご相談ください。</span></div></div>
       <div class="row"><div class="k">出店ジャンル</div><div class="v">飲食のテイクアウトのみ（雑貨・物販等は対象外）。<b style="color:var(--accent)">※隣に近江牛のお店があるため、牛肉を使った商品は不可。</b></div></div>
-      <div class="row"><div class="k">ご出店いただける方</div><div class="v">販売内容・出店形態に必要な営業許可・届出を満たしている方限定（飲食店営業・菓子製造業・特定簡易営業（露店等）・キッチンカー 等）。<span style="display:block;color:var(--muted);font-size:.88em;margin-top:3px">※テントでの現地調理やキッチンカーは、大津市内で有効な許可・届出が必要です。既存店舗の営業許可だけでは出店できない場合があります（<a href="https://www.city.otsu.lg.jp/soshiki/021/1441/g/sho_eisei/kyoka/57981.html" target="_blank" rel="noopener">大津市：露店等を始められる方へ</a>／<a href="https://www.city.otsu.lg.jp/soshiki/021/1441/g/sho_eisei/kyoka/74059.html" target="_blank" rel="noopener">キッチンカーによる営業を始められる方へ</a>）。</span></div></div>
+      <div class="row"><div class="k">ご出店いただける方</div><div class="v">販売内容・出店形態に必要な営業許可・届出を満たしている方限定（飲食店営業・菓子製造業・特定簡易営業（露店等）・キッチンカー 等）。お申し込み時に許可証・届出書の画像を添付していただきます。<span style="display:block;color:var(--muted);font-size:.88em;margin-top:3px">※テントでの現地調理やキッチンカーは、大津市内で有効な許可・届出が必要です。既存店舗の営業許可だけでは出店できない場合があります（<a href="https://www.city.otsu.lg.jp/soshiki/021/1441/g/sho_eisei/kyoka/57981.html" target="_blank" rel="noopener">大津市：露店等を始められる方へ</a>／<a href="https://www.city.otsu.lg.jp/soshiki/021/1441/g/sho_eisei/kyoka/74059.html" target="_blank" rel="noopener">キッチンカーによる営業を始められる方へ</a>）。</span></div></div>
       <div class="row"><div class="k">出店スタイル</div><div class="v">テント・キッチンカー等を持ち込んでの出店（マルシェ形式）</div></div>
       <div class="row"><div class="k">車の乗り入れ</div><div class="v">搬入は可（詳細はお申し込み後にご相談ください）</div></div>
       <div class="row"><div class="k">当日の運営</div><div class="v">BRIDGE CYCLEスタッフ非常駐のセルフ出店。当日の連絡はLINE公式アカウントが窓口で、設営完了時・撤収完了時に区画の写真をお送りいただきます（<a href="bridge-cycle-kokaido-kiyaku.html#a9-2">出店規約 第9条の2</a>）。あわせて、<b>準備の前と片付けのあとに2階の施設事務所へお声がけ</b>ください。手順は承認メールでお送りするセルフ出店マニュアルに沿って進められます</div></div>
@@ -886,7 +896,7 @@ https://yujimansion-hub.github.io/bridge-cycle2026/matching.html
   var qs=[
     {q:"出店するのは飲食のテイクアウトですか？（雑貨・物販は対象外）",yes:"はい",no:"いいえ（雑貨・物販）",fail:"本会場は飲食のテイクアウト専用です。雑貨など物販の出店は受け付けていません。"},
     {q:"牛肉を使った商品ではありませんか？（隣接の近江牛店への配慮）",yes:"牛肉は使わない",no:"牛肉を使う",fail:"恐れ入りますが、本会場では隣接の近江牛店への配慮から、牛肉を使った商品は出店いただけません。"},
-    {q:"販売内容・出店形態に必要な営業許可・届出を満たしていますか？（飲食店営業・菓子製造業・特定簡易営業（露店等）・キッチンカー 等）",yes:"満たしている",no:"満たしていない／分からない",fail:"出店には、販売内容・出店形態に応じた営業許可・届出が必要です（大津市内で有効なもの）。該当するかどうかの確認や取得の進め方は、LINEでご案内します。"},
+    {q:"販売内容・出店形態に必要な営業許可・届出を満たしていますか？（飲食店営業・菓子製造業・特定簡易営業（露店等）・キッチンカー 等）",yes:"満たしている",no:"満たしていない／分からない",fail:"出店には、販売内容・出店形態に応じた営業許可・届出が必要です（大津市内で有効なもの）。該当するかどうかの確認や取得の進め方は、LINEでご案内します。",note:"お申し込みフォームで許可証・届出書の画像（スマホ写真可）を添付していただきます。"},
     {q:"食品衛生責任者を配置できますか？",yes:"できる",no:"できない",fail:"出店には食品衛生責任者の配置が必要です。資格は1日の講習で取得できます。詳しくはLINEで。"},
     {q:"賠償責任保険（PL保険・イベント保険等）に加入していますか？",yes:"加入している",no:"未加入",fail:"万一に備え、賠償責任保険への加入を必須としています。加入後にあらためてお申し込みください。"},
     {q:"会場の利用条件・近隣配慮（搬入動線／ゴミ持ち帰り／騒音／火気は事前相談）に同意いただけますか？",yes:"同意する",no:"同意しない",fail:"恐れ入りますが、利用条件に同意いただけない場合はお申し込みいただけません。"},
@@ -894,6 +904,7 @@ https://yujimansion-hub.github.io/bridge-cycle2026/matching.html
   var i=0;function el(id){return document.getElementById(id);}
   function render(){el("egProg").textContent="確認 "+(i+1)+" / "+qs.length;var Q=qs[i];var b=el("egBody");b.innerHTML="";
     var q=document.createElement("div");q.style.cssText="background:rgba(47,111,106,.08);border-radius:10px;padding:14px 16px;font-weight:700;margin-bottom:12px";q.textContent=Q.q;b.appendChild(q);
+    if(Q.note){var nt=document.createElement("div");nt.style.cssText="font-size:.84rem;color:#5f6f69;margin:-4px 0 12px 2px";nt.textContent="※"+Q.note;b.appendChild(nt);}
     var w=document.createElement("div");w.style.cssText="display:flex;gap:10px;flex-wrap:wrap";
     var y=document.createElement("button");y.type="button";y.textContent=Q.yes;y.style.cssText="flex:1;min-width:130px;padding:12px;border:1.5px solid #2f6f6a;border-radius:10px;background:#fff;color:#143d3a;font-weight:700;cursor:pointer";y.addEventListener("click",function(){i++;if(i>=qs.length){pass();}else{render();}});
     var n=document.createElement("button");n.type="button";n.textContent=Q.no;n.style.cssText="flex:1;min-width:130px;padding:12px;border:1.5px solid #cdd6d1;border-radius:10px;background:#fff;color:#5f6f69;font-weight:700;cursor:pointer";n.addEventListener("click",function(){fail(Q.fail);});
@@ -1165,50 +1176,123 @@ https://yujimansion-hub.github.io/bridge-cycle2026/matching.html
         next.value = q.length ? (base + "?" + q.join("&")) : base;
       }
 
-      /* ---- 非同期送信（FormSubmit の AJAX 送信）---------------------------
-         申込者への受付確認メール（_autoresponse）を自動送信するため、
-         BRIDGE CYCLE LPと同じFormSubmit（info@bridgecycleco.com宛・
-         本番ドメインで有効化済み）に送信します。ここでは fetch で送信し、
-         遷移は自前で行います。JavaScript が動かない環境では、この下の
-         通常送信（formsubmit.co への直接POST）にそのまま落ちます。 */
+      /* ---- 許可証の添付チェック（添付がなければ送信させない）----------- */
+      if(window.permitCheck && !window.permitCheck(true)){
+        e.preventDefault(); e.stopPropagation();
+        return;
+      }
+
+      /* ---- 送信（FormSubmit へ multipart で直接POST）-----------------------
+         営業許可証の画像を添付して送るため、fetch(AJAX) ではなく通常の
+         フォーム送信を使います（FormSubmit の添付機能は通常送信のみ対応、
+         合計10MBまで）。_captcha=true のため送信後に FormSubmit の
+         reCAPTCHA 画面が1回入り、その後 _next（お支払いページ）へ遷移します。
+         ※ _autoresponse（申込者への自動返信）は _captcha=false や AJAX 送信では
+            送られない仕様のため、この構成が必須です。 */
       var reply = form.querySelector('input[name="_replyto"]');
       var mail  = form.querySelector('input[name="email"]');
       if(reply && mail) reply.value = mail.value;   // 返信先を申込者に
-      if(window.fetch && window.FormData && next){
-        e.preventDefault();
-        var thanksUrl = next.value;
-        var fd = new FormData(form);
-        fd.delete("_next");                       // AJAX送信では不要
-        fd.delete("_honey");                      // 迷惑対策の空欄項目は送らない
-        var btn = form.querySelector('button[type="submit"]');
-        var btnText = btn ? btn.textContent : "";
-        var sendErr = document.getElementById("sendErr");
-        function fail(msg){
-          if(btn){ btn.disabled = false; btn.textContent = btnText; }
-          if(sendErr){ sendErr.textContent = msg; sendErr.style.display = ""; }
-        }
-        if(btn){ btn.disabled = true; btn.textContent = "送信中…"; }
-        if(sendErr){ sendErr.style.display = "none"; }
-        fetch("https://formsubmit.co/ajax/info@bridgecycleco.com", {
-          method: "POST",
-          body: fd,
-          headers: { "Accept": "application/json" }
-        }).then(function(res){
-          return res.json().catch(function(){ return null; }).then(function(d){
-            var okFlag = d && (d.success === "true" || d.success === true);
-            if(res.ok && okFlag){
-              try{ if(window.fbq) fbq('track','Lead'); }catch(e){}  /* 申込送信＝Lead（決済完了=Purchaseとは別に数えます） */
-              location.href = thanksUrl; return;
-            }
-            var m = (d && d.message) ? d.message : ("送信できませんでした（" + res.status + "）");
-            fail("送信できませんでした：" + m + "　お手数ですがLINEからご連絡ください。");
-          });
-        }).catch(function(){
-          fail("送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。解決しない場合はLINEからご連絡ください。");
-        });
-      }
+      if(form.dataset.sending === "1"){ e.preventDefault(); return; }  // 二重送信防止
+      form.dataset.sending = "1";
+      var btn = form.querySelector('button[type="submit"]');
+      if(btn){ btn.textContent = "送信中…"; setTimeout(function(){ btn.disabled = true; }, 0); }
+      try{ if(window.fbq) fbq('track','Lead'); }catch(e2){}  /* 申込送信＝Lead（決済完了=Purchaseとは別に数えます） */
+      /* 送信が遷移せず戻ってきた場合（bfcache等）に備え、ボタンを復帰 */
+      window.addEventListener("pageshow", function(){ form.dataset.sending = ""; if(btn){ btn.disabled = false; btn.textContent = "確認して申し込む"; } });
     }, true);
   }
+})();
+</script>
+
+<script>
+/* ▼ 営業許可証の添付：必須チェック・画像の自動縮小（8MB以内）・プレビュー ▼ */
+(function(){
+  var f1 = document.getElementById("permitFile");
+  if(!f1) return;
+  var f2   = document.getElementById("permitFile2");
+  var err  = document.getElementById("permitErr");
+  var prev = document.getElementById("permitPrev");
+  var img  = document.getElementById("permitImg");
+  var meta = document.getElementById("permitMeta");
+  var MAX_ONE = 8 * 1024 * 1024;    // 1ファイルの上限
+  var MAX_ALL = 9.5 * 1024 * 1024;  // FormSubmit の合計上限(10MB)に余裕を持たせる
+  var MAX_PX  = 2000;               // 縮小後の長辺
+
+  function show(m){ if(err){ err.textContent = m; err.style.display = ""; } f1.setCustomValidity(m); }
+  function clear(){ if(err){ err.textContent = ""; err.style.display = "none"; } f1.setCustomValidity(""); }
+  function mb(n){ return (n/1024/1024).toFixed(1) + "MB"; }
+  function isImg(f){ return f && /^image\//.test(f.type); }
+  function isPdf(f){ return f && (f.type === "application/pdf" || /\.pdf$/i.test(f.name)); }
+
+  /* 大きな写真は canvas で縮小して JPEG に置き換える（対応ブラウザのみ） */
+  function shrink(file, cb){
+    if(!isImg(file) || file.size <= 1.5*1024*1024 || !window.DataTransfer || !window.URL){ cb(file); return; }
+    var url = URL.createObjectURL(file);
+    var im = new Image();
+    im.onload = function(){
+      try{
+        var w = im.naturalWidth, h = im.naturalHeight, r = Math.min(1, MAX_PX / Math.max(w, h));
+        var c = document.createElement("canvas"); c.width = Math.round(w*r); c.height = Math.round(h*r);
+        c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+        c.toBlob(function(b){
+          URL.revokeObjectURL(url);
+          if(!b || b.size >= file.size){ cb(file); return; }
+          cb(new File([b], file.name.replace(/\.[^.]+$/, "") + ".jpg", {type:"image/jpeg"}));
+        }, "image/jpeg", 0.85);
+      }catch(e){ URL.revokeObjectURL(url); cb(file); }
+    };
+    im.onerror = function(){ URL.revokeObjectURL(url); cb(file); };
+    im.src = url;
+  }
+  function replaceFile(input, file){
+    try{ var dt = new DataTransfer(); dt.items.add(file); input.files = dt.files; return true; }catch(e){ return false; }
+  }
+  function preview(file){
+    if(!prev) return;
+    if(isImg(file) && window.URL){
+      img.src = URL.createObjectURL(file); img.style.display = "block";
+      prev.style.display = "";
+    }else if(file){
+      img.style.display = "none"; prev.style.display = "";
+    }else{ prev.style.display = "none"; return; }
+    if(meta) meta.textContent = file.name + "（" + mb(file.size) + "）";
+  }
+
+  /* 送信時・変更時の検証。strict=true のときは未添付をエラーにする */
+  function check(strict){
+    var a = f1.files && f1.files[0];
+    var b = f2 && f2.files && f2.files[0];
+    if(!a){
+      if(strict){ show("営業許可証・届出書の画像を添付してください。添付がないとお申し込みは完了しません。"); f1.focus(); if(f1.reportValidity) f1.reportValidity(); }
+      return false;
+    }
+    var list = [a].concat(b ? [b] : []);
+    for(var i=0;i<list.length;i++){
+      var f = list[i];
+      if(!isImg(f) && !isPdf(f)){ show("画像（JPEG/PNG等）またはPDFを添付してください：" + f.name); return false; }
+      if(f.size > MAX_ONE){ show(f.name + " が大きすぎます（" + mb(f.size) + "）。8MB以下の画像にするか、スクリーンショット等でお試しください。"); return false; }
+    }
+    var total = 0; list.forEach(function(f){ total += f.size; });
+    if(total > MAX_ALL){ show("添付の合計が大きすぎます（" + mb(total) + "）。合計9MB以下にしてください。"); return false; }
+    clear();
+    return true;
+  }
+  window.permitCheck = check;
+
+  function onChange(input){
+    return function(){
+      var f = input.files && input.files[0];
+      if(!f){ if(input === f1) preview(null); check(false); return; }
+      shrink(f, function(out){
+        if(out !== f) replaceFile(input, out);
+        var now = input.files && input.files[0];
+        if(input === f1) preview(now || out);
+        check(false);
+      });
+    };
+  }
+  f1.addEventListener("change", onChange(f1));
+  if(f2) f2.addEventListener("change", onChange(f2));
 })();
 </script>
 
