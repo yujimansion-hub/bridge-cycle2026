@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>退去予告 登録ツール（β・無料）｜管理会社・オーナーの方へ｜BRIDGE CYCLE</title>
+<meta name="description" content="テナントから退去予告が出たら、3分で登録。BRIDGE CYCLEが継ぎ手の待機リストと照合し、3営業日以内に貴社へ報告します。費用なし・非独占・賃貸借の仲介は行いません。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F7F2EA;--cream-2:#FBF8F2;--cream-3:#EFE8DC;--ink:#2A2622;--ink-soft:#5A5148;--ink-muted:#8A8078;--vermillion:#BF4429;--vermillion-bg:rgba(191,68,41,.07);--teal:#2E5E5A;--teal-soft:#3d726d;--teal-bg:rgba(46,94,90,.08);--line:#E4DCCE;--green:#06C755;--gold:#B5860E;--gold-bg:rgba(181,134,14,.10);--shadow:0 1px 2px rgba(42,38,34,.04),0 8px 28px rgba(42,38,34,.10)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"Noto Sans JP",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;font-feature-settings:"palt"}
+.mincho{font-family:"Shippori Mincho",serif}.wrap{max-width:720px;margin:0 auto;padding:0 14px}
+header{padding:22px 0 4px}.brand{font-family:"Shippori Mincho",serif;font-weight:600;font-size:17px;letter-spacing:.14em;color:var(--teal)}.brand span{color:var(--vermillion)}
+.tag{display:inline-block;font-size:12px;letter-spacing:.18em;font-weight:700;color:var(--teal);background:var(--teal-bg);border:1px solid rgba(46,94,90,.18);padding:4px 12px;border-radius:1px;margin-bottom:18px}
+.hero{padding:44px 0 40px;border-bottom:1px solid var(--line)}.eyebrow{display:inline-block;font-size:13px;letter-spacing:.22em;color:var(--vermillion);font-weight:700;margin-bottom:20px}.eyebrow::before{content:"";display:inline-block;width:20px;height:1px;background:var(--vermillion);vertical-align:middle;margin-right:8px}
+h1{font-family:"Shippori Mincho",serif;font-weight:700;font-size:clamp(28px,7vw,40px);line-height:1.4;letter-spacing:.02em;color:var(--ink)}h1 em{font-style:normal;color:var(--teal)}
+.hero-lead{margin-top:18px;font-size:16px;color:var(--ink-soft);line-height:1.9;max-width:34em}
+section{padding:38px 0}.section-label{font-size:13px;letter-spacing:.2em;color:var(--teal);font-weight:700;margin-bottom:22px}
+.card-grid{display:grid;gap:16px}
+.card{background:var(--cream-2);border:1px solid var(--line);border-radius:3px;padding:22px 20px}
+.card-title{font-family:"Shippori Mincho",serif;font-weight:600;font-size:17px;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.card-title .icon{font-size:20px}
+.card-body{font-size:15px;color:var(--ink-soft);line-height:1.85}
+.card-body strong{color:var(--ink)}
+.flow-bg{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step{display:flex;gap:16px;padding:16px 0}.step:not(:last-child){border-bottom:1px solid var(--line)}
+.step-no{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--teal);color:#fff;font-family:"Shippori Mincho",serif;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center}
+.step-title{font-weight:700;font-size:16px;color:var(--ink)}.step-body{font-size:14.5px;color:var(--ink-soft);margin-top:3px;line-height:1.8}
+.merit{background:var(--teal-bg);border:1px solid rgba(46,94,90,.15);border-radius:3px;padding:24px 20px;margin-top:16px}
+.merit-title{font-family:"Shippori Mincho",serif;font-size:16px;font-weight:600;color:var(--teal);margin-bottom:14px}
+.merit-list{list-style:none}.merit-list li{font-size:15px;color:var(--ink-soft);padding:6px 0;border-bottom:1px solid rgba(46,94,90,.1);display:flex;gap:9px;align-items:flex-start;line-height:1.7}
+.merit-list li:last-child{border-bottom:none}.merit-list li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0;margin-top:2px}
+.form-section{padding:44px 0}.form-section h2{font-family:"Shippori Mincho",serif;font-weight:600;font-size:24px;color:var(--ink);margin-bottom:8px}
+.form-section .sub{font-size:15px;color:var(--ink-soft);margin-bottom:28px}
+form{display:flex;flex-direction:column;gap:16px}
+.field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink-soft);margin-bottom:5px;letter-spacing:.04em}
+.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:2px;padding:12px 14px;font-family:"Noto Sans JP",sans-serif;font-size:15px;color:var(--ink);background:#fff;outline:none;transition:border-color .2s}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--teal)}
+.field textarea{min-height:120px;resize:vertical}
+.submit-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--teal);color:#fff;font-weight:700;font-size:17px;padding:17px 32px;border:none;border-radius:2px;cursor:pointer;font-family:"Noto Sans JP",sans-serif;transition:filter .2s,transform .2s;box-shadow:0 4px 18px rgba(46,94,90,.25)}
+.submit-btn:hover{filter:brightness(.94);transform:translateY(-1px)}
+.fine{font-size:13px;color:var(--ink-muted);margin-top:16px;line-height:1.9}
+footer{padding:30px 0 36px;text-align:center;color:var(--ink-soft);font-size:14px;letter-spacing:.04em;border-top:1px solid var(--line)}
+footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:block;margin-bottom:8px}
+
+.tool-note{background:var(--teal-bg);border:1px solid rgba(46,94,90,.15);border-radius:3px;padding:14px 16px;font-size:14px;color:var(--ink-soft);margin-top:14px;line-height:1.8}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.field .hint{display:block;font-size:12px;color:var(--ink-muted);margin-top:4px;font-weight:400}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink);line-height:1.7;background:var(--cream-2);border:1px solid var(--line);padding:12px 14px;border-radius:2px}
+.chk input{margin-top:5px;width:18px;height:18px}
+.status{margin-top:14px;border:1px solid var(--line);border-radius:3px;padding:16px;background:var(--cream-2);font-size:15px;min-height:56px}
+.status b{color:var(--teal)}
+.badge2{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 12px;background:var(--vermillion-bg);color:var(--vermillion);margin-left:8px;vertical-align:2px}
+.print-card{background:#fff;border:1px solid var(--line);padding:26px 24px;margin-top:14px}
+.print-card h3{font-family:"Shippori Mincho",serif;font-size:22px;color:var(--ink);margin-bottom:4px}
+.print-card .sub{color:var(--vermillion);font-weight:700;margin-bottom:12px}
+.print-card p{font-size:14px;color:var(--ink-soft);line-height:1.9}
+.print-card .big{font-size:16px;color:var(--ink);font-weight:700;margin-top:12px}
+.pbtn{display:inline-block;margin-top:12px;border:1px solid var(--teal);color:var(--teal);background:#fff;border-radius:2px;padding:9px 18px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14px}
+@media print{body *{visibility:hidden}.print-card,.print-card *{visibility:visible}.print-card{position:absolute;left:0;top:0;width:100%;border:none}}
+</style>
+</head>
+<body>
+<div class="wrap"><header><div class="brand">BRIDGE <span>CYCLE</span></div></header></div>
+
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">管理会社・オーナーの方へ ／ 退去予告 登録ツール<span class="badge2">β・無料</span></span>
+  <h1>退去予告が出たら、<br><em>3分で登録。</em></h1>
+  <p class="hero-lead">店主の同意を得た物件を登録すると、当社が継ぎ手の待機リストと照合し、3営業日以内に貴社へ結果をご報告します。費用はかかりません。賃貸借の仲介は従来どおり貴社が行います。</p>
+  <div class="tool-note">貴社の作業は2つだけ。<strong>①退去予告のとき店主に案内を渡す　②同意があれば下のフォームに登録する。</strong>あとは当社が動きます。</div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-label">STEP 1｜店主に渡す案内（印刷してお使いください）</div>
+  <div class="print-card" id="printCard">
+    <h3>閉店をお考えの店主さまへ</h3>
+    <div class="sub">原状回復の前に、「次の店主に引き継ぐ」という選択肢があります。</div>
+    <p>厨房や内装をスケルトンに戻すには、費用も時間もかかります。BRIDGE CYCLE（滋賀県大津市・国の認定経営革新等支援機関）は、閉店前のお店の造作を、これから店を持ちたい人に適正な価格で引き継ぐお手伝いをしています。買い叩かれず、売り急がず、閉店の日まで営業を続けながら継ぎ手を探せます。</p>
+    <p>ご相談・掲載・お引き合わせは無料。有料の個別支援も着手金なしで、成約したときだけ譲渡代金から差し引きます。閉店まで、店主さまの持ち出しはありません。営業数値や退去時期は、継ぎ手候補との秘密保持契約後にのみ開示します。賃貸借契約は従来どおり管理会社が行います。</p>
+    <p class="big">まずは公式LINEでご相談ください（無料）　LINE ID：@907kxssd</p>
+    <p>BRIDGE CYCLE株式会社　代表取締役 中村 裕二（元 商工会経営指導員）　TEL 080-5309-9770　info@bridgecycleco.com<br>※この案内は管理会社さまを通じてお渡ししています。当社への連絡は、ご本人の同意がある場合のみ行われます。</p>
+  </div>
+  <button class="pbtn" onclick="window.print()">この案内を印刷する</button>
+</div></section>
+
+<section class="form-section" id="register" style="background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="section-label">STEP 2｜物件を登録する</div>
+  <h2>退去予告物件の登録</h2>
+  <p class="sub">店主の同意が得られた物件のみ登録してください。3営業日以内に、担当者へメールでご報告します。</p>
+  <form id="regForm" action="https://formsubmit.co/info@bridgecycleco.com" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_subject" value="【退去予告登録】管理会社ツール">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_next" value="https://yujimansion-hub.github.io/bridge-cycle2026/fudosan-tool.html#done">
+    <input type="hidden" name="_autoresponse" value="【BRIDGE CYCLE】退去予告物件のご登録を受け付けました。3営業日以内に担当者よりご連絡します。受付番号は追ってメールでお知らせします。">
+    <input type="text" name="_honey" style="display:none">
+    <div class="grid2">
+      <div class="field"><label>管理会社・オーナー名 *</label><input name="管理会社・オーナー名" required placeholder="例：〇〇不動産株式会社"></div>
+      <div class="field"><label>ご担当者名 *</label><input name="担当者名" required placeholder="例：山田 太郎"></div>
+      <div class="field"><label>メールアドレス *</label><input type="email" name="メール" required placeholder="例：info@example.co.jp"></div>
+      <div class="field"><label>電話番号</label><input name="電話" placeholder="例：077-000-0000"></div>
+    </div>
+    <div class="field"><label>物件の所在地（町名まで） *</label><input name="所在地" required placeholder="例：大津市膳所〇丁目"><span class="hint">番地・建物名は登録後、必要に応じてお伺いします。</span></div>
+    <div class="grid2">
+      <div class="field"><label>現テナントの屋号（任意）</label><input name="屋号" placeholder="例：カフェ〇〇"></div>
+      <div class="field"><label>業態 *</label><select name="業態" required><option value="">選択してください</option><option>飲食（カフェ・喫茶）</option><option>飲食（レストラン・居酒屋・バル）</option><option>飲食（テイクアウト・弁当）</option><option>物販</option><option>美容・サロン</option><option>その他</option></select></div>
+      <div class="field"><label>面積（坪・おおよそ）</label><input name="面積" placeholder="例：12"></div>
+      <div class="field"><label>退去予定月 *</label><input type="month" name="退去予定月" required></div>
+      <div class="field"><label>賃料（月額・任意）</label><input name="賃料" placeholder="例：90,000円"></div>
+      <div class="field"><label>造作・設備の状態</label><select name="造作の状態"><option>そのまま使える</option><option>一部は使える</option><option>分からない</option></select></div>
+    </div>
+    <div class="field"><label>店主への連絡方法 *</label><select name="店主への連絡方法" required><option value="">選択してください</option><option>当社から店主へ直接連絡してよい（店主の連絡先を備考に記入）</option><option>貴社を通して連絡してほしい</option></select></div>
+    <div class="field"><label>備考（店主の連絡先、内覧可能時期、原状回復の条件など）</label><textarea name="備考" placeholder="例：店主 〇〇様 090-0000-0000。退去は11月末、内覧は火曜定休日に可能。"></textarea></div>
+    <div class="field"><label>写真（任意・合計10MBまで）</label><input type="file" name="写真" accept="image/*" multiple><span class="hint">外観・厨房・客席など。なくても登録できます。</span></div>
+    <label class="chk"><input type="checkbox" name="店主の同意" value="あり" required><span><strong>店主本人に案内を渡し、BRIDGE CYCLEへの情報提供について同意を得ています。</strong>同意のない物件は登録しないでください。</span></label>
+    <label class="chk"><input type="checkbox" name="条件の確認" value="確認済み" required><span>費用は発生しないこと、非独占であること、賃貸借契約の仲介は当社が行わないこと、店主・継ぎ手の情報は本件の目的にのみ使うことを確認しました。</span></label>
+    <button type="submit" class="submit-btn">この物件を登録する</button>
+    <p class="fine">送信後、確認画面（reCAPTCHA）が表示されます。受付控えが自動で届き、3営業日以内に担当者がご連絡します。複数物件を管理される会社さまには、「退去前情報提供に関する覚書」を用意しています。</p>
+  </form>
+</div></section>
+
+<section id="done" style="display:none"><div class="wrap">
+  <div class="merit"><div class="merit-title">ご登録ありがとうございます</div><p style="font-size:15px;color:var(--ink-soft)">3営業日以内に担当者からご連絡します。受付番号は追ってメールでお知らせします。</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-label">STEP 3｜進捗を確認する</div>
+  <div class="field"><label>受付番号</label><div style="display:flex;gap:8px"><input id="rcpt" placeholder="例：F-2026-001" style="flex:1"><button class="pbtn" style="margin:0" onclick="lookup()">確認</button></div><span class="hint">受付番号は登録後にメールでお知らせします。個人情報は表示されません。</span></div>
+  <div class="status" id="statusBox">受付番号を入力してください。</div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="merit">
+    <div class="merit-title">当社の約束</div>
+    <ul class="merit-list">
+      <li>費用はかかりません。貴社・オーナー様から報酬をいただくことも、お支払いすることもありません</li>
+      <li>非独占です。他の事業者への相談も、いつでも解約も自由です</li>
+      <li>賃貸借契約の仲介・代理（宅地建物取引業）は行いません。賃貸条件は貴社と入居希望者で決めていただきます</li>
+      <li>店主・継ぎ手の情報は本件の目的にのみ使い、本人の求めがあれば削除します</li>
+    </ul>
+  </div>
+  <p class="fine" style="margin-top:14px">しくみの説明は <a href="partner-fudosan.html">管理会社・オーナーの方へ</a> をご覧ください。</p>
+</div></section>
+
+<script>
+(function(){
+  if(location.hash==='#done'){var d=document.getElementById('done');d.style.display='block';d.scrollIntoView();}
+})();
+/* 進捗照会：Googleスプレッドシート「退去予告_進捗管理」を gviz で読む。
+   列：A 受付番号 / B 状態 / C 更新日 / D 次のアクション（個人情報は入れない）。
+   公開設定「リンクを知っている全員が閲覧可」にし、SHEET を差し替える。 */
+var SHEET='SHEET_ID_TO_BE_SET';
+function lookup(){
+  var id=(document.getElementById('rcpt').value||'').trim();
+  var box=document.getElementById('statusBox');
+  if(!id){box.textContent='受付番号を入力してください。';return;}
+  if(SHEET==='SHEET_ID_TO_BE_SET'){box.innerHTML='進捗照会は準備中です。<b>お急ぎの場合は info@bridgecycleco.com へ受付番号を添えてご連絡ください。</b>';return;}
+  box.textContent='照会しています…';
+  var url='https://docs.google.com/spreadsheets/d/'+SHEET+'/gviz/tq?tqx=out:json&tq='+encodeURIComponent("select A,B,C,D where A='"+id.replace(/'/g,"")+"'");
+  fetch(url).then(function(r){return r.text();}).then(function(t){
+    var j=JSON.parse(t.substring(t.indexOf('(')+1,t.lastIndexOf(')')));
+    var rows=(j.table&&j.table.rows)||[];
+    if(!rows.length){box.textContent='該当する受付番号が見つかりません。番号をご確認ください。';return;}
+    var c=rows[0].c; function g(i){return c[i]&&(c[i].f||c[i].v)||'';}
+    box.innerHTML='<b>'+g(0)+'</b>　状態：<b>'+g(1)+'</b><br>更新日：'+g(2)+'<br>次のアクション：'+g(3);
+  }).catch(function(){box.textContent='照会に失敗しました。時間をおいて再度お試しください。';});
+}
+</script>
+<footer><div class="wrap">
+  <span class="mincho">店じまいを、まちのはじまりに。</span>
+  BRIDGE CYCLE株式会社　滋賀県大津市
+</div></footer>
+</body>
+</html>
