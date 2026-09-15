@@ -562,8 +562,8 @@ footer a{text-decoration:underline}
    <div class="hcopy">
     <span class="badge">事前登録 受付中｜滋賀県大津市</span>
     <h1 class="mincho">閉める前に、<br><u>渡す</u>。</h1>
-    <p class="subh1 mincho">お店版の、婚活マッチング。</p>
-    <p>店主と継ぎたい人が、<br>お互いに「気になる」を押したときだけマッチ。</p>
+    <p class="subh1 mincho">継ぎたい人は、もう待っています。</p>
+    <p>お店版の婚活マッチング。<br>お互いに「気になる」を押したときだけ、話が始まります。</p>
     <style>.hero .subh1{font-size:clamp(20px,3.6vw,27px);font-weight:800;margin-top:18px;color:var(--ink);line-height:1.6}
       .hero .subh1+p{margin-top:10px}</style>
     <p class="zeroline"><b>登録・マッチング・成約料</b><span class="z0">すべて0円</span></p>
@@ -571,7 +571,7 @@ footer a{text-decoration:underline}
       <a class="btn pri big" href="#entry" data-seg="owner" style="background:var(--shu)">店を渡したい</a>
       <a class="btn big" href="#entry" data-seg="taker" style="background:var(--card);border:2px solid var(--ai);color:var(--ai)">店を継ぎたい</a>
     </div>
-    <p class="optnote"><b>何も依頼しなければ、0円。</b>必要な方だけ、人流分析・事業性診断・融資支援などをオプションで利用できます。</p>
+    <p class="optnote"><b>何も頼まなければ、0円。</b>頼んでも、結果を出せなければ0円。</p>
     <style>
       .zeroline{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-top:26px;font-size:14px;color:var(--ink-2)}
       .zeroline .z0{font-family:var(--mincho,serif);font-weight:800;font-size:23px;color:var(--midori,#2E6B4F)}
@@ -741,8 +741,8 @@ footer a{text-decoration:underline}
         </tbody></table>
     </div>
     </details></div>
-    <p class="lede rv" style="margin-top:26px;max-width:none">厨房機器も、カウンターも、空調も、そのままなら次の人が使えます。ところが多くの賃貸借契約には原状回復義務があり、閉店する店主は<b>お金を払って、それらを撤去します</b>。使える設備を、費用をかけて価値ゼロにしている。この非合理が、毎年いたるところで起きています。</p>
-    <p class="lede rv" style="margin-top:26px"><b>閉店は、失敗ではありません。</b>長く続けてこられた商いの、閉じ方のひとつです。私たちが変えたいのは閉じるかどうかではなく、<b>「受け取って渡す」という閉じ方が、ほとんど知られていないこと</b>です。</p>
+    <p class="lede rv" style="margin-top:26px;max-width:none">使える厨房を、お金を払って壊す。<b>この非合理を、終わらせたい。</b></p>
+    <p class="lede rv" style="margin-top:14px"><b>閉店は、失敗ではありません。</b>閉じ方を、ひとつ増やすだけです。</p>
   </div>
 </section>
 
@@ -1218,7 +1218,7 @@ footer a{text-decoration:underline}
           <p class="ml">「引き返す」が、<b>「条件を変えて、進む」</b>に変わります。</p>
           <div class="pricevs">
             <div class="bad">確かめずに開業して、<br>向かない場所だった場合<b>数百万円</b>初期投資＋撤退の費用</div>
-            <div class="good">開業する前に、<br>診断で確かめる<b>29,800円</b>届かない場合は代替案つき</div>
+            <div class="good">開業する前に、<br>診断で確かめる<b>30,000円</b>届かない場合は代替案つき・伴走に進めば全額充当</div>
           </div>
           <p class="ms">「何を変えれば届くか」まで、数字でお返しします。材料がそろえば、進むか退くかは、ご自身で決められます。</p>
         </div>
@@ -1302,11 +1302,46 @@ footer a{text-decoration:underline}
     <div class="option-boundary rv" style="border-top:none;box-shadow:none;background:transparent;border:none;padding:10px 0 0">
       <div style="font-size:26px;color:var(--kin);line-height:1">↓</div>
       <span class="ob-chip" style="margin-top:10px">OPTIONAL SUPPORT</span>
-      <h2 class="mincho" style="font-size:clamp(19px,3.2vw,26px)">ここから先は、<em>頼みたい方だけ</em>。</h2>
+      <h2 class="mincho" style="font-size:clamp(19px,3.2vw,26px)">任せたい方だけ、<em>個別支援</em>。</h2>
     </div>
-
-    <!-- 困りごと4カード：商品名と価格は開いたときに初めて出す -->
     <style>
+      .p2lead{font-family:var(--mincho,serif);font-weight:800;font-size:clamp(18px,3vw,24px);text-align:center;margin:18px 0 6px;color:var(--ai)}
+      .p2sub{text-align:center;font-size:12.5px;color:var(--ink-3);margin:0 0 18px}
+      .p2grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+      @media(max-width:640px){.p2grid{grid-template-columns:1fr}}
+      .p2{background:var(--card);border:2px solid var(--rule);border-radius:16px;padding:22px 20px 18px;text-align:center}
+      .p2 .who{display:inline-block;font-size:12px;font-weight:800;border-radius:999px;padding:3px 14px}
+      .p2 .zero{font-family:var(--mincho,serif);font-weight:800;font-size:30px;line-height:1.2;margin:12px 0 0}
+      .p2 .zero small{display:block;font-size:11.5px;font-weight:700;color:var(--ink-3);font-family:inherit;margin-top:2px}
+      .p2 .rate{margin:14px 0 0;font-size:13px;color:var(--ink-2);line-height:1.8}
+      .p2 .rate b{font-family:var(--mincho,serif);font-size:16px}
+      .p2 .inc{margin:12px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.8;border-top:1px dashed var(--rule);padding-top:10px}
+      .p2.o{border-color:var(--shu)} .p2.o .who{background:var(--shu-pale,#F6E7E4);color:var(--shu)} .p2.o .zero,.p2.o .rate b{color:var(--shu)}
+      .p2.t{border-color:var(--ai)} .p2.t .who{background:var(--ai-pale);color:var(--ai)} .p2.t .zero,.p2.t .rate b{color:var(--ai)}
+      .p2opt{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--ink-2)}
+      .p2opt span{background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 14px}
+      .p2opt b{color:var(--ai)}
+      .p2note{text-align:center;font-size:11.5px;color:var(--ink-3);margin-top:12px}
+    </style>
+    <p class="p2lead rv">成約するまで、費用はかかりません。</p>
+    <p class="p2sub rv">着手金0円。払うのは、成約したときだけ。</p>
+    <div class="p2grid rv">
+      <div class="p2 o">
+        <span class="who">店主の方</span>
+        <div class="zero">着手金 0円</div>
+        <p class="rate">成約時に <b>造作譲渡額の12%</b><br><span style="font-size:11.5px;color:var(--ink-3)">最低12万円・税別／譲渡代金から差し引き</span></p>
+        <p class="inc">募集資料・継ぎ手候補への案内・内覧同席・大家との調整</p>
+      </div>
+      <div class="p2 t">
+        <span class="who">継ぎたい方</span>
+        <div class="zero">着手金 0円</div>
+        <p class="rate">成約時に <b>造作譲渡額の25%</b><br><span style="font-size:11.5px;color:var(--ink-3)">最低25万円・税別／融資実行後の支払い</span></p>
+        <p class="inc">事業計画・融資申込・価格の確認・契約・開業まで</p>
+      </div>
+    </div>
+    <div class="p2opt rv"><span>先に確かめたい方へ：</span><span>店舗価値カルテ <b>32,000円</b></span><span>承継事業化診断 <b>30,000円</b>（成約時に充当）</span></div>
+    <p class="p2note rv">報酬の基準は造作譲渡額のみ。融資額には連動しません。</p>
+<style>
       .worry4{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
       @media(max-width:720px){.worry4{grid-template-columns:1fr}}
       .wk{background:var(--card);border:1px solid var(--rule);border-radius:12px;min-width:0}
@@ -1320,23 +1355,7 @@ footer a{text-decoration:underline}
       .wk .wkin{border-top:1px dashed var(--rule);margin:0 18px;padding:12px 0 14px;font-size:12.5px;line-height:1.9;color:var(--ink-2)}
       .wk .wkin b{color:var(--ai);font-size:13.5px}
       .wk .wkin .wp{font-family:var(--mincho,serif);font-weight:800;color:var(--ai)}
-    </style>
-    <div class="worry4 rv">
-      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>👀 この店、本当に人が来る？</b><span>人流を測って確かめる</span></summary>
-        <div class="wkin"><b>店舗価値カルテ</b>　<span class="wp">19,800円（税込）</span><br>店前の人流を7日間実測し、A4・5ページの一冊に。実証協力価格 9,900円（先着3件）。</div></details>
-      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>📊 この店で、自分の商売は成り立つ？</b><span>数字で事業性を診断</span></summary>
-        <div class="wkin"><b>承継事業化診断</b>　<span class="wp">29,800円（税込）</span><br>この場所×やりたい業態の成立性を判定。伴走に進む場合は全額充当。</div></details>
-      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>📝 事業計画を、どう作る？</b><span>計画づくりを伴走</span></summary>
-        <div class="wkin"><b>承継計画伴走</b>　<span class="wp">98,000円（税別）</span><br>事業計画・収支計画・資金計画・開業スケジュールを一緒に組み立てます。</div></details>
-      <details class="wk"><summary><span class="op9">料金を開く ▾</span><b>🏦 銀行に、どう説明する？</b><span>融資申込を支援</span></summary>
-        <div class="wkin"><b>融資申込支援</b>　<span class="wp">150,000円（税別）</span><br>資金計画、金融機関との面談準備、必要書類の整備。</div></details>
-    </div>
-    <p class="rv" style="font-size:11.5px;color:var(--ink-3);margin-top:10px">補助金のご相談は<a href="hojokin.html" style="text-decoration:underline">補助金サポート</a>へ。</p>
-
-    <!-- 実証運用メモ：カルテは実証協力価格9,900円・先着3件。実証記録シートで工数と精度を記録すること -->
-    <div class="rv">
-
-      <style>
+    </style><style>
         /* 3段階 */
         .fee3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px}
         @media(max-width:720px){.fee3{grid-template-columns:1fr}}
@@ -1383,60 +1402,7 @@ footer a{text-decoration:underline}
         .vd.go{background:var(--midori-pale,#E3EFE9);color:var(--midori)}
         .vd.cd{background:var(--kin-pale,#F5F0E0);color:var(--kin)}
         .vd.ng{background:var(--card-2,#F4F4F0);color:var(--ink-2);border:1px dashed var(--rule-2)}
-      </style>
-
-      <!-- 一言コピー（公開時は#priceの紺帯末尾へ移動） -->
-
-
-      <!-- 選び方ツリー：価格より先に「自分はどれか」 -->
-      <style>
-        .tq{font-family:var(--mincho,serif);font-weight:800;font-size:clamp(17px,2.8vw,21px);text-align:center;margin:26px 0 14px}
-        .tree{min-width:0}
-        .tnode{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:13px 16px;text-align:center;min-width:0}
-        .tnode b{font-size:14px}
-        .tnode .tp{display:block;font-family:var(--mincho,serif);font-weight:800;font-size:18px;margin-top:2px}
-        .tnode .tp i{font-style:normal;font-size:10px;font-weight:700;color:var(--ink-3);margin-left:4px}
-        .tnode .ts{display:block;font-size:11px;color:var(--ink-3);margin-top:3px;line-height:1.7}
-        .tnode.all{border:2px solid var(--midori,#2E6B4F);max-width:430px;margin:0 auto}
-        .tnode.all .tp{color:var(--midori,#2E6B4F)}
-        .tsplit{display:grid;grid-template-columns:1fr 1fr;height:26px;max-width:640px;margin:0 auto}
-        .tsplit span{border-left:2px solid var(--rule-2);justify-self:center;height:100%}
-        @media(max-width:640px){.tsplit{display:none}}
-        .tcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:0 auto}
-        @media(max-width:640px){.tcols{grid-template-columns:1fr;margin-top:14px}}
-        .tcol{display:flex;flex-direction:column;gap:0;min-width:0}
-        .twho{text-align:center;font-size:12px;font-weight:800;border-radius:999px;padding:3px 0;margin-bottom:10px}
-        .tcol.o .twho{background:var(--shu-pale,#F6E7E4);color:var(--shu)}
-        .tcol.t .twho{background:var(--ai-pale);color:var(--ai)}
-        .tcol.o .tnode{border-left:4px solid var(--shu)}
-        .tcol.t .tnode{border-left:4px solid var(--ai)}
-        .tcol.o .tp{color:var(--shu)} .tcol.t .tp{color:var(--ai)}
-        .tarr{text-align:center;font-size:11px;color:var(--ink-3);padding:7px 0}
-      </style>
-      <details class="treefold">
-        <summary style="cursor:pointer;list-style:none;display:block;text-align:center;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;font-weight:800;font-size:14px;margin-top:22px">料金を見る <span style="color:var(--ai-mid)">▾</span></summary>
-      <div class="tree">
-        <p class="tq">あなたに必要なのは、どこまでですか？</p>
-        <div class="tnode all"><b>出会う</b><span class="tp">0円</span><span class="ts">登録・閲覧・マッチング・メッセージ・成約料——ここまで全部0円</span></div>
-        <div class="tsplit"><span></span><span></span></div>
-        <div class="tcols">
-          <div class="tcol o">
-            <div class="twho">店主の方</div>
-            <div class="tnode"><b>店舗価値カルテ</b><span class="tp">19,800円<i>税込</i></span><span class="ts">店の「いま」を、7日間の実測で数字に</span></div>
-            <div class="tarr">↓ さらに手が要るなら</div>
-            <div class="tnode"><b>譲渡準備支援</b><span class="tp">60,000円<i>税別</i></span><span class="ts">造作価格の算定同席・貸主確認の伴走</span></div>
-          </div>
-          <div class="tcol t">
-            <div class="twho">継ぎたい方</div>
-            <div class="tnode"><b>承継事業化診断</b><span class="tp">29,800円<i>税込</i></span><span class="ts">この場所×やりたい業態で、成立するか</span></div>
-            <div class="tarr">↓ 診断料は全額充当</div>
-            <div class="tnode"><b>承継計画伴走</b><span class="tp">98,000円<i>税別</i></span><span class="ts">事業計画・収支・資金・スケジュール</span></div>
-            <div class="tarr">↓</div>
-            <div class="tnode"><b>融資申込支援</b><span class="tp">150,000円<i>税別</i></span><span class="ts">資金計画・金融機関との面談準備</span></div>
-          </div>
-        </div>
-      </div>
-      <style>
+      </style><style>
         details.proc summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
         details.proc summary::-webkit-details-marker{display:none}
         details.proc summary::marker{content:""}
@@ -1446,8 +1412,110 @@ footer a{text-decoration:underline}
         details.proc summary .tog5::before{content:"段取りと、映像の取扱い・削除方法を見る ▾"}
         details.proc[open] summary .tog5::before{content:"閉じる ▴"}
         details.proc .sub5{margin-top:10px}
-      </style>
-      <details class="proc">
+      </style><style>
+        .proc{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 20px 16px;margin-top:18px;min-width:0}
+        .proc h5{font-size:14px;font-weight:800;margin:0 0 4px}
+        .proc .sub5{font-size:11.5px;color:var(--ink-3);margin:0 0 12px}
+        .tl{list-style:none;margin:0;padding:0}
+        .tl li{position:relative;padding:0 0 14px 40px;border-left:2px solid var(--rule-2);margin-left:13px}
+        .tl li:last-child{border-left-color:transparent;padding-bottom:2px}
+        .tl li::before{content:attr(data-n);position:absolute;left:-14px;top:0;width:26px;height:26px;border-radius:50%;
+          background:var(--ai);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--mincho,serif)}
+        .tl li.cam::before{background:var(--shu)}
+        .tl b{display:block;font-size:13px;margin-bottom:1px}
+        .tl b .day{font-size:10px;font-weight:700;color:var(--ink-3);margin-left:8px;background:var(--card-2,#F4F4F0);border-radius:999px;padding:1px 9px;vertical-align:1px}
+        .tl p{font-size:11.5px;color:var(--ink-2);line-height:1.8;margin:0}
+        .tl .trust{display:inline-block;font-size:9.5px;font-weight:700;background:var(--midori-pale,#E3EFE9);color:var(--midori,#2E6B4F);border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:1px}
+        .proc .aftr{border-top:1px dashed var(--rule);margin-top:10px;padding-top:10px;font-size:11.5px;color:var(--ink-2);line-height:1.8}
+      </style><style>
+        .svcta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+        @media(max-width:640px){.svcta{grid-template-columns:1fr}}
+        .svcta a{display:block;text-align:center;border-radius:12px;padding:16px 14px;text-decoration:none;font-weight:800;font-size:15px;line-height:1.5}
+        .svcta a span{display:block;font-size:11px;font-weight:700;margin-top:3px;opacity:.85}
+        .svcta .co{background:var(--shu);color:#fff}
+        .svcta .ct2{background:var(--card);border:2px solid var(--ai);color:var(--ai)}
+      </style><style>
+      .feefold{margin-top:10px}
+      .feefold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+        background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;font-weight:800;font-size:14px}
+      .feefold>summary::-webkit-details-marker{display:none}
+      .feefold>summary::marker{content:""}
+      .feefold>summary .mini6{font-size:11.5px;font-weight:700;color:var(--ink-3)}
+      .feefold>summary .tog6{margin-left:auto;font-size:12px;font-weight:700;color:var(--ai-mid);white-space:nowrap}
+      .feefold>summary .tog6::before{content:"開く ▾"}
+      .feefold[open]>summary .tog6::before{content:"閉じる ▴"}
+    </style>
+    <div class="svcta rv">
+      <a class="co" href="#entry" data-seg="owner">店主として相談する（無料）</a>
+      <a class="ct2" href="#entry" data-seg="taker">継ぎ手として相談する（無料）</a>
+    </div>
+
+    <details class="feefold rv" style="margin-top:22px">
+      <summary>くわしい条件を見る<span class="mini6">料金表・支払い方法・キャンセル料・カルテと診断の内容</span><span class="tog6"></span></summary>
+      <div style="margin-top:12px">
+<table class="otbl">
+      <caption class="skip">任意の有料支援の料金</caption>
+      <thead><tr><th>任意の有料支援</th><th class="hidem">内容</th><th style="text-align:right">料金（税別）</th></tr></thead>
+      <tbody>
+        <tr><td><b>初回相談（60分）</b></td><td class="hidem">状況をうかがい、有料支援が必要かどうかをお伝えします</td><td class="n free">0円</td></tr>
+        <tr><td>店舗価値カルテ<span class="who2">店主向け・任意</span></td><td class="hidem">店前の人流をAIカメラで実測し、営業実態と立地の特徴、造作譲渡額の目安レンジをA4・5ページの一冊に。貸主・金融機関への説明資料としても活用できます（設置・回収込み）</td><td class="n">32,000円</td></tr>
+        <tr><td>承継事業化診断<span class="who2">継ぎ手向け・任意</span></td><td class="hidem">「この場所 × やりたい業態」の成立性を、人流・必要客数・収支から判定（GO／条件つき／おすすめしない）。個別支援に進む場合は成約時報酬から全額を差し引きます</td><td class="n">30,000円</td></tr>
+        <tr class="reco"><td><b>個別支援（店主）</b><span class="rtag">着手金0円</span></td><td class="hidem">募集資料の作成、継ぎ手候補への案内、内覧同席、条件調整の助言、大家・管理会社との調整。成約時に造作譲渡額（税抜）の12%（最低120,000円）。譲渡代金の決済時に継ぎ手から当社へ直接支払う相殺払いのため、店主の持ち出しはありません。融資額・賃料には連動しません</td><td class="n" style="white-space:normal">成約時<br>造作譲渡額の12%<span style="display:block;font-size:11px;font-weight:400">最低120,000円</span></td></tr>
+        <tr class="reco"><td><b>個別支援（継ぎ手）</b><span class="rtag">着手金0円</span></td><td class="hidem">内覧同席、造作価格の妥当性確認、事業計画・資金計画の作成と融資申込の支援（認定経営革新等支援機関）、契約条件の確認、開業準備の伴走。成約時に造作譲渡額（税抜）の25%（最低250,000円）。報酬は開業経費として資金計画に計上し融資申込額に組み込むため、お支払いは融資実行後です。融資額・賃料には連動しません</td><td class="n" style="white-space:normal">成約時<br>造作譲渡額の25%<span style="display:block;font-size:11px;font-weight:400">最低250,000円</span></td></tr>
+        <tr><td>キャンセル料<span class="who2">個別支援</span></td><td class="hidem">継ぎ手候補の紹介・内覧の後に、依頼者のご都合で募集を取り下げ・辞退された場合のみ、それまでの実費相当としていただきます。融資否決・相手方都合・貸主都合・当社都合の場合は発生しません</td><td class="n" style="white-space:normal">30,000円<span style="display:block;font-size:11px;font-weight:400">上限</span></td></tr>
+        <tr><td>補助金申請支援</td><td class="hidem">事業承継・M&amp;A補助金等の申請支援。着手金0円、採択（交付決定）時のみ補助額の12%（持続化補助金は最低5万円）。不採択なら0円（詳細は<a href="hojokin.html" style="text-decoration:underline">補助金サポート</a>のページへ）</td><td class="n" style="white-space:normal">採択時<br>補助額の12%<span style="display:block;font-size:11px;font-weight:400">着手金0円</span></td></tr>
+      </tbody></table>
+      </div>
+<p class="lede rv" style="max-width:none"><b>個別支援は、着手金0円の完全成功報酬です。</b>成約するまで、当社への支払いはありません。報酬の基準は造作譲渡額だけで、<b>融資額・賃料には連動しません</b>。補助金申請支援も着手金0円で、採択されたときだけ補助額の12%です。</p>
+    <p class="note rv">なぜ着手金をいただかないのか。<b>継ぎ手は融資が実行されるまで手元に資金がなく、店主は「閉店する側が先に払う」ことに抵抗があるからです。</b>そこで支払いの時点を「お金が動く瞬間」にそろえました。店主の報酬は譲渡代金から差し引き、継ぎ手の報酬は開業経費として資金計画に組み込み、融資実行後にお支払いいただきます。<br>
+    なぜ融資額に連動させないのか。<b>融資額で当社の報酬が増えると、「多く借りさせる」動機が生まれるからです。</b>報酬の基準は造作譲渡額のみ、しかも当社は査定をせず、価格を決めるのは店主ご本人です。譲渡額の上限は300万円で、報酬もその範囲で計算します。</p>
+
+    <p class="note rv"><b>店主・継ぎ手の双方から報酬をいただく場合があります。</b>その場合は、契約前に双方へ書面でお伝えし、同意をいただきます。一方の利益を不当に損なう助言はしません。<br>
+    個別支援は専任契約ではありません。他の支援機関・専門家への相談や、公的な無料窓口との併用は自由です。当社が紹介・情報提供した相手と当社を通さずに取引された場合に限り、契約終了後2年間、成約時報酬と同額をいただきます。<br>
+    事業計画書・承継計画書の作成支援は、<b>ご本人による作成を支援するもの</b>であり、当社が代わって作成するものではありません。賃貸借契約の媒介（宅地建物取引業）、法律事務、行政書士法に定める書類の作成代理は行いません。<br>
+    店舗の所在地により、連携する中小企業診断士が担当する場合があります。この場合、料金は担当者が定めるため上記と異なることがあり、契約の相手方は当該診断士となります。<br>
+    支払方法・提供時期・キャンセルの取扱いは、<a href="#legal-tokusho" style="text-decoration:underline">特定商取引法に基づく表記</a>をご確認ください。
+<!-- カルテ詳細 -->
+      <div class="svc" style="border-left:4px solid var(--shu)">
+        <h4>店舗価値カルテ<span class="pp">32,000円（税別）</span></h4>
+        <p class="cat"><b>この店の「いま」を数字にします。</b>店主さまから伺った売上・家賃・客単価などに、AIカメラで実測した店前人流データを加えて、次を1冊（A4・5ページ）にまとめます（カメラの設置・回収費を含みます）。</p>
+        <ul>
+          <li>何曜日に人が多いか</li>
+          <li>何時に人が多いか</li>
+          <li>どちらの方向へ人が流れているか</li>
+          <li>現在の営業時間と人流が合っているか</li>
+        </ul>
+        <div class="noeval"><b>査定ではありません。</b>「高く売れる店」と評価する資料ではなく、継ぎ手が判断しやすい材料を増やす資料です。承継が決まらなくても、お手元に残ります。</div>
+        <p class="cat" style="margin-top:8px;font-size:11.5px;color:var(--ink-3)">カメラの設置・回収は、原則として当社が行います。</p>
+
+<!-- 診断詳細 -->
+      <div class="svc" style="border-left:4px solid var(--ai)">
+        <h4>承継事業化診断<span class="pp">30,000円（税別）</span></h4>
+        <p class="cat"><b>答えるのは、この3つです。</b></p>
+        <div class="q3">
+          <div class="qi"><b>①</b>この店で、何人のお客さんが必要か<span class="ex">例：1日38人</span></div>
+          <div class="qi"><b>②</b>この場所で、何人くらい見込めるか<span class="ex">例：1日24人</span></div>
+          <div class="qi"><b>③</b>足りないなら、何を変えれば届くか<span class="ex">例：客単価1,300円→1,500円</span></div>
+        </div>
+        <p class="cat" style="margin-top:14px"><b>お返しするのは、3つにひとつの「決断」です。</b></p>
+        <style>
+          .vd3.big .vd{padding:16px 12px 14px}
+          .vd3.big .act{display:block;font-family:var(--mincho,serif);font-weight:800;font-size:17px;line-height:1.5;margin-bottom:4px}
+          .vd3.big b{display:inline-block;font-size:10.5px;border:1.5px solid currentColor;border-radius:999px;padding:0 10px;margin-bottom:6px;font-family:inherit}
+        </style>
+        <div class="vd3 big">
+          <div class="vd go"><span class="act">進む</span><b>GO</b>現計画でも成立ライン</div>
+          <div class="vd cd"><span class="act">条件を変えて、進む</span><b>条件つき</b>条件を変えれば成立ライン</div>
+          <div class="vd ng"><span class="act">今回は、やめる</span><b>おすすめしない</b>現条件では必要客数に届かない</div>
+        </div>
+        <p class="cat" style="margin-top:10px">承継へ進み、個別支援（継ぎ手）をご依頼の場合、この30,000円は成約時報酬から全額を差し引きます。</p>
+      </div>
+
+
+
+
+      <div class="proc" style="margin-top:14px">
+<details class="proc">
         <summary>
           <h5>カルテの段取り</h5>
           <span class="flow5">7日測る → AIで数える → カルテにする（全体でおよそ2週間）</span>
@@ -1472,133 +1540,9 @@ footer a{text-decoration:underline}
         </ol>
         <div class="aftr"><b style="font-size:12px">承継事業化診断の段取り：</b>カメラの設置はありません（人流はカルテの実測値を使います）。構想シート（業態・自己資金・希望報酬・営業時間の4項目）をご記入いただき、数日で診断書をお渡しします。</div>
       </details>
-      </details>
 
-      <!-- カルテ詳細 -->
-      <div class="svc" style="border-left:4px solid var(--shu)">
-        <h4>店舗価値カルテ<span class="pp">19,800円（税込）</span></h4>
-        <p class="cat"><b>この店の「いま」を数字にします。</b>店主さまから伺った売上・家賃・客単価などに、7日間の店前人流データを加えて、次を1冊（A4・5ページ）にまとめます。</p>
-        <ul>
-          <li>何曜日に人が多いか</li>
-          <li>何時に人が多いか</li>
-          <li>どちらの方向へ人が流れているか</li>
-          <li>現在の営業時間と人流が合っているか</li>
-        </ul>
-        <div class="noeval"><b>査定ではありません。</b>「高く売れる店」と評価する資料ではなく、継ぎ手が判断しやすい材料を増やす資料です。承継が決まらなくても、お手元に残ります。</div>
-        <p class="cat" style="margin-top:8px;font-size:11.5px;color:var(--ink-3)">カメラの設置・回収は、原則として当社が行います。</p>
       </div>
-
-      <!-- 診断詳細 -->
-      <div class="svc" style="border-left:4px solid var(--ai)">
-        <h4>承継事業化診断<span class="pp">29,800円（税込）</span></h4>
-        <p class="cat"><b>答えるのは、この3つです。</b></p>
-        <div class="q3">
-          <div class="qi"><b>①</b>この店で、何人のお客さんが必要か<span class="ex">例：1日38人</span></div>
-          <div class="qi"><b>②</b>この場所で、何人くらい見込めるか<span class="ex">例：1日24人</span></div>
-          <div class="qi"><b>③</b>足りないなら、何を変えれば届くか<span class="ex">例：客単価1,300円→1,500円</span></div>
-        </div>
-        <p class="cat" style="margin-top:14px"><b>お返しするのは、3つにひとつの「決断」です。</b></p>
-        <style>
-          .vd3.big .vd{padding:16px 12px 14px}
-          .vd3.big .act{display:block;font-family:var(--mincho,serif);font-weight:800;font-size:17px;line-height:1.5;margin-bottom:4px}
-          .vd3.big b{display:inline-block;font-size:10.5px;border:1.5px solid currentColor;border-radius:999px;padding:0 10px;margin-bottom:6px;font-family:inherit}
-        </style>
-        <div class="vd3 big">
-          <div class="vd go"><span class="act">進む</span><b>GO</b>現計画でも成立ライン</div>
-          <div class="vd cd"><span class="act">条件を変えて、進む</span><b>条件つき</b>条件を変えれば成立ライン</div>
-          <div class="vd ng"><span class="act">今回は、やめる</span><b>おすすめしない</b>現条件では必要客数に届かない</div>
-        </div>
-        <p class="cat" style="margin-top:10px">承継へ進み、③の「承継計画伴走（98,000円）」をご依頼の場合、この29,800円は全額を差し引きます。</p>
-      </div>
-
-
-
-      <!-- 段取り：AIカメラ設置から納品・映像削除まで -->
-      <style>
-        .proc{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 20px 16px;margin-top:18px;min-width:0}
-        .proc h5{font-size:14px;font-weight:800;margin:0 0 4px}
-        .proc .sub5{font-size:11.5px;color:var(--ink-3);margin:0 0 12px}
-        .tl{list-style:none;margin:0;padding:0}
-        .tl li{position:relative;padding:0 0 14px 40px;border-left:2px solid var(--rule-2);margin-left:13px}
-        .tl li:last-child{border-left-color:transparent;padding-bottom:2px}
-        .tl li::before{content:attr(data-n);position:absolute;left:-14px;top:0;width:26px;height:26px;border-radius:50%;
-          background:var(--ai);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--mincho,serif)}
-        .tl li.cam::before{background:var(--shu)}
-        .tl b{display:block;font-size:13px;margin-bottom:1px}
-        .tl b .day{font-size:10px;font-weight:700;color:var(--ink-3);margin-left:8px;background:var(--card-2,#F4F4F0);border-radius:999px;padding:1px 9px;vertical-align:1px}
-        .tl p{font-size:11.5px;color:var(--ink-2);line-height:1.8;margin:0}
-        .tl .trust{display:inline-block;font-size:9.5px;font-weight:700;background:var(--midori-pale,#E3EFE9);color:var(--midori,#2E6B4F);border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:1px}
-        .proc .aftr{border-top:1px dashed var(--rule);margin-top:10px;padding-top:10px;font-size:11.5px;color:var(--ink-2);line-height:1.8}
-      </style>
-
-
-      <p class="note" style="margin-top:12px">診断は、GO・条件つき・おすすめしない——いずれの判定でも返金いたしません。判定そのものが成果物であるためです。</p>
-
-      <!-- 実証開始時CTA（カルテ・診断の公開と同時に有効化） -->
-      <style>
-        .svcta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-        @media(max-width:640px){.svcta{grid-template-columns:1fr}}
-        .svcta a{display:block;text-align:center;border-radius:12px;padding:16px 14px;text-decoration:none;font-weight:800;font-size:15px;line-height:1.5}
-        .svcta a span{display:block;font-size:11px;font-weight:700;margin-top:3px;opacity:.85}
-        .svcta .co{background:var(--shu);color:#fff}
-        .svcta .ct2{background:var(--card);border:2px solid var(--ai);color:var(--ai)}
-      </style>
-      <div class="svcta">
-        <a class="co" href="#entry" data-seg="owner">店舗価値カルテを相談する（無料）<span>店主向け・実証3店舗</span></a>
-        <a class="ct2" href="#entry" data-seg="taker">承継事業化診断について聞く（無料）<span>継ぎたい方向け</span></a>
-      </div>
-
-    </div>
-    <!-- ★★★ 未公開ここまで ★★★ -->
-
-    <p class="lede rv" style="max-width:none">承継そのものは、専門家に頼まなくても成立します。事業計画をご自身で作り、ご自身で金融機関に行かれてもかまいません。<b>まず無料の公的窓口をご検討ください。</b>日本政策金融公庫の創業サポートデスク、商工会議所、よろず支援拠点は、いずれも無料です。<br>
-    そのうえで、それでも手が足りないときのために、下記の<b>任意の有料支援</b>を用意しています。</p>
-    <style>
-      .feefold{margin-top:10px}
-      .feefold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-        background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;font-weight:800;font-size:14px}
-      .feefold>summary::-webkit-details-marker{display:none}
-      .feefold>summary::marker{content:""}
-      .feefold>summary .mini6{font-size:11.5px;font-weight:700;color:var(--ink-3)}
-      .feefold>summary .tog6{margin-left:auto;font-size:12px;font-weight:700;color:var(--ai-mid);white-space:nowrap}
-      .feefold>summary .tog6::before{content:"開く ▾"}
-      .feefold[open]>summary .tog6::before{content:"閉じる ▴"}
-    </style>
-    <details class="feefold rv">
-      <summary>料金表のすべてを見る<span class="mini6">カルテ・診断・伴走支援・補助金／いずれも任意</span><span class="tog6"></span></summary>
-    <table class="otbl">
-      <caption class="skip">任意の有料支援の料金</caption>
-      <thead><tr><th>任意の有料支援</th><th class="hidem">内容</th><th style="text-align:right">料金（税別）</th></tr></thead>
-      <tbody>
-        <tr><td><b>初回相談（60分）</b></td><td class="hidem">状況をうかがい、有料支援が必要かどうかをお伝えします</td><td class="n free">0円</td></tr>
-        <tr><td>店舗価値カルテ<span class="who2">店主向け</span></td><td class="hidem">店前の人流を7日間実測し、営業実態と立地の特徴をA4・5ページの一冊に。貸主・金融機関への説明資料としても活用できる実測資料です（実証協力価格 9,900円・先着3件）</td><td class="n" style="white-space:normal">19,800円<span style="display:block;font-size:11px;font-weight:400">（税込）</span></td></tr>
-        <tr><td>承継事業化診断<span class="who2">継ぎ手向け</span></td><td class="hidem">「この場所 × やりたい業態」の成立性を、人流・必要客数・収支から判定（GO／条件つき／おすすめしない）。承継計画伴走に進む場合は全額を差し引きます</td><td class="n" style="white-space:normal">29,800円<span style="display:block;font-size:11px;font-weight:400">（税込）</span></td></tr>
-        <tr><td>譲渡準備支援<span class="who2">店主向け</span></td><td class="hidem">造作価格の算定同席、申告シートの整備、貸主・リース確認の伴走</td><td class="n">60,000円</td></tr>
-        <tr><td>承継計画伴走<span class="who2">継ぎ手向け</span></td><td class="hidem">実際に継ぐための事業計画・収支計画・資金計画・開業スケジュールを一緒に組み立てます（承継事業化診断をご購入済みの場合、診断料29,800円〈税込〉を全額差し引きます）</td><td class="n">98,000円</td></tr>
-        <tr><td>融資申込支援</td><td class="hidem">資金計画、金融機関との面談準備、必要書類の整備（面談2回・計画書の添削2往復まで。超える場合は事前にご相談）</td><td class="n">150,000円</td></tr>
-        <tr class="reco"><td><b>承継計画伴走＋融資申込 セット</b><span class="rtag">よく一緒に進める支援</span></td><td class="hidem">同時に進むことがほとんどのため、まとめた場合の料金です（単品合計より3万円お得）</td><td class="n">218,000円</td></tr>
-        <tr><td>補助金申請支援</td><td class="hidem">事業承継・M&amp;A補助金等の申請支援（詳細は<a href="hojokin.html" style="text-decoration:underline">補助金サポート</a>のページへ）</td><td class="n">補助額の10%<span style="display:block;font-size:11px;font-weight:400">着手金5万円・採択時に充当</span></td></tr>
-      </tbody></table>
     </details>
-    <p class="note rv"><b>初回相談で「有料支援は要りません」とお伝えすることがあります。</b>ご自身でできる部分に、費用はいただきません。</p>
-
-    <details class="cav rv">
-      <summary style="cursor:pointer;list-style:none" class="ct">補助金について、先にお伝えしておくべきこと　<span style="font-size:12px;color:var(--ai-mid)">開く ▾</span></summary>
-      <ol>
-        <li><b>誰でも使えるわけではありません。</b>補助金は公募ごとに対象者・対象事業の要件が定められており、審査で不採択になることもあります。要件に合わない場合は、その旨をお伝えし、<b>お申し込みをお断りします</b>。</li>
-        <li><b>申請できる時期が決まっています。</b>公募期間（多くは年に数回、それぞれ数週間）を外れると、次回の公募まで申請できません。承継のスケジュールと公募の時期が合わないことは、珍しくありません。</li>
-        <li><b>補助対象になる期間が決まっています。</b>原則として、<b>交付決定より前に発注・契約・支払いをした費用は、補助の対象になりません</b>。「先に進めて、後から申請」はできないものとお考えください。</li>
-      </ol>
-      <div class="cf">当社の料金は申請支援という役務の対価であり、採択をお約束するものではありません。不採択の場合も返金いたしかねます。だからこそ、要件・時期・対象期間が合わない場合は、初回相談（0円）の段階でそうお伝えします。</div>
-    </details>
-
-    <p class="lede rv" style="max-width:none"><b>譲渡準備・承継計画伴走・融資申込の各支援は定額です。</b>譲渡価格・融資額に連動しません。補助金申請支援のみ、採択という成果に連動します（不採択の場合のご負担は着手金5万円のみ）。</p>
-    <p class="note rv">なぜ融資支援を定額にしているのか。<b>融資額によって当社の報酬が増えると、「多く借りさせる」動機が生まれるからです。</b>借りすぎの重さは、返済が始まってから効いてきます。補助金は返済不要の給付で、採択額が大きいほどお客様の利益も大きいため、成果連動としています（例：補助額100万円→報酬計10万円、500万円→計50万円）。</p>
-
-    <p class="note rv"><b>譲渡価格および融資額に連動する報酬はありません。</b><br>
-    事業計画書・承継計画書の作成支援は、<b>ご本人による作成を支援するもの</b>であり、当社が代わって作成するものではありません。<br>
-    店舗の所在地により、連携する中小企業診断士が担当する場合があります。この場合、料金は担当者が定めるため上記と異なることがあり、契約の相手方は当該診断士となります。<br>
-    支払方法・提供時期・キャンセルの取扱いは、<a href="#legal-tokusho" style="text-decoration:underline">特定商取引法に基づく表記</a>をご確認ください。</p>
   </div>
 </section>
 
@@ -1606,7 +1550,7 @@ footer a{text-decoration:underline}
 <section id="entry">
   <div class="narrow">
     <div class="eyebrow rv">07｜事前登録</div>
-    <h2 class="sec mincho rv">開設のご案内を、<em>お送りします</em>。</h2>
+    <h2 class="sec mincho rv">まだ決めていない今が、<em>いちばん自由</em>です。</h2>
     <p class="lede rv">現在、サービスの開設準備を進めています。ご登録いただいた方に、開設のご案内と、造作価格の自己算定シートをお送りします。<b>いまの段階では、費用は一切かかりません。</b></p>
 
     <style>
@@ -1743,11 +1687,12 @@ footer a{text-decoration:underline}
       <details><summary>いま登録すると、費用はかかりますか。</summary><div class="body">
         <p>かかりません。現在は開設準備中で、事前登録に費用は発生しません。開設後も、登録・マッチング・成約料はいずれも0円です。有料となるのは、ご希望があった場合の任意の支援のみで、料金は<a href="#legal-tokusho" style="text-decoration:underline">特定商取引法に基づく表記</a>のとおりです。</p></div></details>
       <details><summary>料金は、どういう考え方で決めていますか。</summary><div class="body">
-        <p>支援の性質で分けています。<b>融資支援は定額</b>です。融資額に報酬が連動すると、当社に「多く借りさせる」動機が生まれるからです。借りすぎの重さは、返済が始まってから効いてきます。当社が得をして、あなたが困る形は作りたくありません。</p>
-        <p><b>補助金申請支援は成果連動</b>（着手金5万円＋採択時に補助額の10%・着手金充当）です。補助金は返済不要の給付で、採択額が大きいほどお客様の利益も大きく、報酬と利益の方向が一致するためです。不採択の場合、着手金以外のご負担はありません。なお補助額を大きくするには投資額も大きくなり、ご自身の負担も増えます。当社は投資計画が資金繰りに合っているかを先に確認します。</p></div></details>
+        <p>支援の性質で分けています。<b>個別支援は着手金0円の成功報酬</b>です。成約するまで当社への支払いはなく、報酬の基準は造作譲渡額だけです。<b>融資額には連動させません</b>。融資額に報酬が連動すると、当社に「多く借りさせる」動機が生まれるからです。借りすぎの重さは、返済が始まってから効いてきます。当社が得をして、あなたが困る形は作りたくありません。継ぎ手の報酬は開業経費として資金計画に組み込み、融資実行後のお支払いです。店主の報酬は譲渡代金から差し引くので、持ち出しはありません。</p>
+        <p>造作譲渡額に連動させる以上、当社が価格を吊り上げる動機を持たないよう、<b>当社は査定をせず、価格を決めるのは店主ご本人</b>とし、譲渡額の上限を300万円に置いています。店主・継ぎ手の双方から報酬をいただく場合は、契約前に双方へ書面でお伝えします。</p>
+        <p><b>補助金申請支援も着手金0円の成果連動</b>（採択時に補助額の12%、持続化補助金は最低5万円）です。補助金は返済不要の給付で、採択額が大きいほどお客様の利益も大きく、報酬と利益の方向が一致するためです。不採択の場合、ご負担はありません。なお補助額を大きくするには投資額も大きくなり、ご自身の負担も増えます。当社は投資計画が資金繰りに合っているかを先に確認します。</p></div></details>
       <details><summary>補助金は、誰でも使えますか。</summary><div class="body">
         <p>いいえ。補助金には公募ごとの<b>要件と審査</b>があり、不採択になることもあります。申請できるのは<b>公募期間内</b>だけで、原則として<b>交付決定前に発注・契約・支払いをした費用は補助対象になりません</b>。</p>
-        <p>このため、補助金を前提にした資金計画はお勧めしません。要件・時期・対象期間が合わない場合は、初回相談（0円）の段階でその旨をお伝えし、補助金申請支援のお申し込みをお断りします。着手金は申請支援という役務の対価であり、採択をお約束するものではありません。</p></div></details>
+        <p>このため、補助金を前提にした資金計画はお勧めしません。要件・時期・対象期間が合わない場合は、初回相談（0円）の段階でその旨をお伝えし、補助金申請支援のお申し込みをお断りします。採択をお約束するものではなく、不採択の場合の費用はありません。</p></div></details>
       <details><summary>ほかに相談できるところはありますか。</summary><div class="body">
         <p>あります。まず無料の公的窓口をご検討ください。<b>事業承継・引継ぎ支援センター</b>（各都道府県）、<b>後継者人材バンク</b>、<b>よろず支援拠点</b>はいずれも無料でご相談いただけます。</p>
         <p>民間にも居抜き・造作譲渡の仲介サービスがあります。比較のうえ、ご判断ください。</p></div></details>
@@ -1772,15 +1717,15 @@ footer a{text-decoration:underline}
           <tr><th>電話番号</th><td>お取引に関する電話番号は、ご請求をいただければ遅滞なく開示いたします。お問い合わせは下記メールアドレスへお願いします。</td></tr>
           <tr><th>メールアドレス</th><td>info@bridgecycleco.com</td></tr>
           <tr><th>ホームページ</th><td><a href="https://yujimansion-hub.github.io/bridge-cycle2026/" style="text-decoration:underline">https://yujimansion-hub.github.io/bridge-cycle2026/</a></td></tr>
-          <tr><th>販売価格</th><td>店舗価値カルテ 19,800円（税込。実証協力価格9,900円・先着3件）／承継事業化診断 29,800円（税込。2回目以降14,900円、同一案件の2人目以降19,800円。判定の内容にかかわらず返金いたしかねます。承継計画伴走をご依頼の場合、お支払い済みの診断料29,800円を伴走料金から全額差し引きます）／初回相談（60分）0円／譲渡準備支援 60,000円／承継計画伴走 98,000円／融資申込支援 150,000円／承継計画伴走＋融資申込セット 218,000円／補助金申請支援 着手金50,000円＋採択時に補助額の10%（着手金を報酬に充当します。不採択の場合、着手金の返金はいたしかねます）（無料のものを除き、いずれも税別。別途消費税を申し受けます）<br>
-            <b>譲渡準備支援・承継計画伴走・融資申込支援は定額であり、譲渡価格および融資額に連動しません。補助金申請支援の報酬は上記のとおり補助額に連動します。</b></td></tr>
+          <tr><th>販売価格</th><td>店舗価値カルテ 32,000円（AIカメラの設置・回収を含む。判定・内容にかかわらず返金いたしかねます）／承継事業化診断 30,000円（判定の内容にかかわらず返金いたしかねます。個別支援（継ぎ手）をご依頼のうえ成約した場合、お支払い済みの診断料を成約時報酬から全額差し引きます）／初回相談（60分）0円／個別支援（店主）着手金0円・成約時報酬＝造作譲渡額（税抜）の12%（120,000円に満たない場合は120,000円）／個別支援（継ぎ手）着手金0円・成約時報酬＝造作譲渡額（税抜）の25%（250,000円に満たない場合は250,000円）／個別支援のキャンセル料（継ぎ手候補の紹介または内覧の後に、依頼者の都合で募集の取り下げ・辞退・解約をされた場合に限る）実費相当額・上限30,000円／補助金申請支援 着手金0円・採択（交付決定）時に補助額の12%（小規模事業者持続化補助金は50,000円に満たない場合は50,000円。不採択の場合は0円。採択後に辞退された場合も報酬は発生します）／補助金申請支援のキャンセル料（申請書の作成着手後に依頼者の都合で取り下げた場合に限る）実費相当額・上限30,000円／実績報告サポート（任意）30,000円（無料のものを除き、いずれも税別。別途消費税を申し受けます）<br>
+            <b>個別支援の成約時報酬は造作譲渡額のみを基準とし、融資額・賃料・保証金には連動しません。造作譲渡額300万円を上限として算定します。補助金申請支援の報酬は上記のとおり補助額に連動し、着手金はありません。</b></td></tr>
           <tr><th>商品代金以外の必要料金</th><td>なし。インターネット接続に必要な通信料はお客様のご負担となります。</td></tr>
-          <tr><th>支払方法</th><td>銀行振込のみ（振込手数料はお客様のご負担となります）</td></tr>
-          <tr><th>支払時期</th><td>業務の着手前に請求書を発行し、発行日から7日以内にお支払いいただきます。</td></tr>
-          <tr><th>役務の提供時期</th><td>お支払いの確認後、双方で合意した日程により開始します。</td></tr>
-          <tr><th>キャンセル・返金</th><td>業務着手前のお申し出は全額を返金します。着手後は、実施済みの範囲に応じた額を差し引いて返金します。<br>
+          <tr><th>支払方法</th><td>銀行振込のみ（振込手数料はお客様のご負担となります）。個別支援（店主）の成約時報酬は、造作譲渡代金の決済時に継ぎ手が譲渡代金のうち報酬相当額を当社へ直接振り込む方法（三者合意による支払指図）によります。</td></tr>
+          <tr><th>支払時期</th><td>店舗価値カルテ・承継事業化診断・実績報告サポート：業務の着手前に請求書を発行し、発行日から7日以内。補助金申請支援の報酬：交付決定日から14日以内（ご希望により補助金入金時までの分割に応じます）。個別支援（店主）の成約時報酬：造作譲渡代金の決済時。個別支援（継ぎ手）の成約時報酬：造作譲渡代金の決済日（融資を利用する場合はその実行後）から7日以内。キャンセル料：請求書発行日から7日以内。</td></tr>
+          <tr><th>役務の提供時期</th><td>カルテ・診断はお支払いの確認後、個別支援・補助金申請支援は契約締結後、双方で合意した日程により開始します。</td></tr>
+          <tr><th>キャンセル・返金</th><td>カルテ・診断：業務着手前のお申し出は全額を返金します。着手後は、実施済みの範囲に応じた額を差し引いて返金します。個別支援・補助金申請支援：着手金がないため返金は生じません。補助金申請支援は、申請書の作成着手後に依頼者の都合で取り下げた場合に限り上記のキャンセル料を申し受けます。継ぎ手候補の紹介または内覧の後に依頼者の都合で取り下げ・辞退・解約をされた場合に限り、上記のキャンセル料を申し受けます。<br>
             <b>なお、融資の実行、補助金の採択、承継の成立その他の結果は保証いたしません。</b>結果が得られなかったことを理由とする返金には応じかねます。</td></tr>
-          <tr><th>役務の内容</th><td>事業計画・資金計画の策定支援、融資申込みの支援、補助金申請の支援、譲渡資産に関する資料作成の支援。<b>いずれもご本人による作成を支援するものであり、当社が代わって作成するものではありません。</b></td></tr>
+          <tr><th>役務の内容</th><td>店前人流の実測と店舗価値カルテの作成、承継事業化診断、募集資料の作成と継ぎ手候補への案内、内覧同席、条件調整の助言、事業計画・資金計画の策定支援、融資申込みの支援、補助金申請の支援、譲渡資産に関する資料作成の支援。<b>いずれもご本人による作成を支援するものであり、当社が代わって作成するものではありません。</b></td></tr>
           <tr><th>動作環境</th><td>主要ブラウザの最新版（Chrome / Safari / Edge / Firefox）</td></tr>
         </table>
       </div></details>
@@ -1894,7 +1839,7 @@ footer a{text-decoration:underline}
           <li>任意の有料支援の内容および料金は、<a href="#legal-tokusho" style="text-decoration:underline">特定商取引法に基づく表記</a>のとおりです。</li>
           <li>有料支援の利用は、本サービスの利用条件ではありません。</li>
           <li>当社が無料の掲載・マッチングにおいて掲載内容の評価を行わないこと（第3条）は、有料支援の提供を妨げません。有料支援における事業計画・収支・資金計画の検討は、<b>ご本人の依頼を受け、別途の支援契約に基づき、ご本人から提供された資料をもとに</b>行うものです。</li>
-          <li>当社の報酬は、補助金申請支援を除き定額とし、譲渡価格および融資額に連動しません。補助金申請支援の報酬は、特定商取引法に基づく表記に定めるとおり、着手金および採択時の補助額に応じた額とします。</li>
+          <li>個別支援の報酬は、着手金を設けず、承継の成立時に造作譲渡額を基準として算定する成約時報酬とし、融資額および賃料には連動しません。店舗価値カルテおよび承継事業化診断は定額、補助金申請支援の報酬は着手金を設けず採択時の補助額に応じた額とします。いずれも特定商取引法に基づく表記に定めるとおりです。個別支援の詳細は別途締結する個別支援契約によります。</li>
           <li>店舗の所在地により、連携する中小企業診断士が担当する場合があります。この場合、業務に関する契約は利用者と当該診断士との間で直接締結され、当社は当事者となりません。当社は、当該業務の内容および結果について責任を負いません。</li>
         </ol>
 
@@ -2071,7 +2016,7 @@ const FLOW={
    d:'双方が押すと、画面内のメッセージが開きます。実名・所在地・連絡先は、<b>さらに双方が交換に同意したとき</b>にだけ開きます。設備の状態、引継ぎの期間、常連や従業員のこと。まずここで聞いてください。'},
   {t:'3点を確かめて、渡す',time:'—',cost:'free',
    d:'リース契約の残存、貸主の承諾（書面）、原状回復義務の範囲。<b>この3点が済むまで、金銭を受け取らないでください。</b>画面上でも表示し続けます。ここから先の条件交渉は当事者どうしです。当社は同席しません。',
-   trap:['手が足りないと感じたら、ここで有料支援を使えます。','譲渡準備支援 60,000円。使わなくても承継は成立します。']}]},
+   trap:['手が足りないと感じたら、ここで個別支援を使えます。','着手金0円・成約時に造作譲渡額の12%。使わなくても承継は成立します。']}]},
  taker:{sum:['0円','<b>当社に支援を依頼しなければ、BRIDGE CYCLEへの支払いは0円です。</b>費用がかかるのは、経営判断や融資・補助金の専門支援をご希望の場合だけ。<br>探しはじめてから開業までは、おおむね<b>4〜8か月</b>を見ておいてください。'],
   steps:[
   {t:'事前登録する',time:'3分',cost:'free',
@@ -2093,7 +2038,7 @@ const FLOW={
    d:'メッセージが開いたら、まず<b>設備が今も動くか</b>を聞いてください。「動きます」と書かれた機器が動かないことが、最も多い破談原因です。次にリースの残債、貸主の承諾。連絡先は、双方が交換に同意したときにだけ開きます。'},
   {t:'融資・許認可を段取りする',time:'2〜3か月',cost:'free',
    d:'創業融資の審査、保健所への営業許可の照会、賃貸借の承継。<b>ここが最も時間がかかります。</b>退去日が決まっているなら、そこから逆算してください。3点（リース・貸主承諾・原状回復）が済むまで、手付金を渡さないでください。<b>補助金をあてにした資金計画は組まないでください。</b>公募の時期が合わない・審査で不採択になることがあり、原則として交付決定前の発注・支払いは補助対象になりません。',
-   trap:['自分でできるなら、それで構いません。','公庫の創業サポートデスク、商工会議所、よろず支援拠点はいずれも無料です。それでも手が足りないときに、承継計画伴走 98,000円／融資申込支援 150,000円をご用意しています。']}]},
+   trap:['自分でできるなら、それで構いません。','公庫の創業サポートデスク、商工会議所、よろず支援拠点はいずれも無料です。それでも手が足りないときに、個別支援（着手金0円・成約時に造作譲渡額の25%・事業計画と融資申込を含む）をご用意しています。']}]},
  partner:{sum:['0円','<b>費用は一切いただきません。</b>当社が扱うのは造作の譲渡だけで、物件の客付けはしません。<br>いまは仕組みの設計中です。まずお話を聞かせてください。'],
   steps:[
   {t:'お問い合わせいただく',time:'3分',cost:'free',

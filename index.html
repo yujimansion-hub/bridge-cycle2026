@@ -129,6 +129,11 @@ h2{font-family:var(--serif);font-size:clamp(22px,4.2vw,31px);font-weight:800;mar
 .bz .ph2 .h+.h{border-left:2px solid var(--card)}
 .bz .ph2::after{content:none}
 .bz .ph2 .tag{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;background:rgba(21,23,28,.55);border-radius:999px;padding:4px 12px;backdrop-filter:blur(4px)}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+@media(max-width:720px){.why{grid-template-columns:1fr}}
+.wy{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:22px 22px 20px;box-shadow:var(--shadow)}
+.wy b{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--aimid);border:1px solid var(--aimid);border-radius:999px;padding:2px 12px;margin-bottom:10px}
+.wy p{font-size:13.5px;line-height:2;color:var(--ink2)}
 .venues{display:grid;gap:8px;margin-top:12px}
 .vn{display:flex;align-items:center;gap:10px;border:1.5px solid var(--rule);border-radius:11px;padding:10px 14px;text-decoration:none;color:var(--ink);background:var(--card2)}
 .vn:hover{border-color:var(--aimid);background:var(--aipale)}
@@ -282,15 +287,20 @@ footer .fl b{color:#9FBBD6}
         <div class="go">見る →</div>
       </div>
     </a>
-    <a class="bz rv" href="uriba-kokaido.html">
-      <div class="ph" style="background-image:url('kokaido-hero.jpg')"><span class="tag">試す</span></div>
+    <div class="bz rv">
+      <div class="ph2">
+        <div class="h" style="background-image:url('kokaido-hero.jpg')"><span class="tag">試す</span></div>
+        <div class="h" style="background-image:url('images/ginkobo-card.jpg')"></div>
+      </div>
       <div class="bd">
         <h3>売り場レンタル</h3>
-        <p>開業の前に、いちど売ってみる。外れても、失うのは半日。</p>
-        <div class="chips"><span class="chip g">半日 1,500円〜</span></div>
-        <div class="go">空き枠を見る →</div>
+        <p>開業の前に、いちど売ってみる。外れても、失うのは1日。</p>
+        <div class="venues">
+          <a class="vn" href="uriba-kokaido.html"><span><b>〈旧大津公会堂〉</b><span class="d">浜大津駅すぐ｜平日 半日1,500円〜</span></span><span class="ar">空き枠 →</span></a>
+          <a class="vn" href="uriba-ginkobo.html"><span><b>〈銀工房〉</b><span class="d">JR比良駅すぐ｜土日祝 1日1,000円</span></span><span class="ar">空き枠 →</span></a>
+        </div>
       </div>
-    </a>
+    </div>
     <a class="bz rv" href="hojokin.html">
       <div class="ph" style="background-image:url('images/partner.jpg')"><span class="tag">整える</span></div>
       <div class="bd">
@@ -345,11 +355,18 @@ footer .fl b{color:#9FBBD6}
 </div></section>
 
 <section id="company"><div class="wrap">
-  <p class="eyebrow">COMPANY</p>
+  <p class="eyebrow">WHY</p>
+  <h2>店じまいを、まちのはじまりに。</h2>
+  <div class="why">
+    <div class="wy rv"><b>理念</b><p>閉店は、失敗ではない。閉じ方を、ひとつ増やす。<br>使える厨房を、お金を払って壊す——この非合理を終わらせ、店主が磨いたものを次の人の舞台にする。まちに店が残り続けるための「入口」と「出口」を、ひとつの循環（CYCLE）にします。</p></div>
+    <div class="wy rv"><b>きっかけ</b><p>代表の中村は、商工会の経営指導員として20年、500社を超える創業・承継・閉店に立ち会ってきました。惜しまれながら閉める店の設備が、原状回復で廃棄されるのを何度も見た一方、開業したい人は「設備が高い」と一歩を踏み出せずにいる。この2人を、店がまだ生きているうちに出会わせたい。その一点から、2026年3月にBRIDGE CYCLEを設立しました。</p></div>
+  </div>
+  <p class="eyebrow" style="margin-top:44px">COMPANY</p>
   <h2>会社情報</h2>
   <dl class="co">
     <dt>社名</dt><dd>BRIDGE CYCLE株式会社</dd>
-    <dt>所在地</dt><dd>滋賀県大津市</dd>
+    <dt>代表</dt><dd>代表取締役　中村 裕二（国の認定経営革新等支援機関／商工会の経営指導員として20年・500社超の創業・承継・閉店に立ち会う）</dd>
+    <dt>所在地</dt><dd>滋賀県大津市におの浜2-1-28</dd>
     <dt>設立</dt><dd>2026年3月17日</dd>
     <dt>認定</dt><dd>国の認定経営革新等支援機関（認定番号 109825000112）</dd>
     <dt>事業内容</dt><dd>退店前承継（マッチング・個別支援・承継パートナー網）／段階型開業プログラム（売り場レンタル）／補助金サポート／見積のミカタ</dd>
@@ -367,7 +384,7 @@ footer .fl b{color:#9FBBD6}
 </div></section>
 
 <footer><div class="wrap">
-  <p><span class="fl">BRIDGE <b>CYCLE</b></span>　<span style="font-size:11px">株式会社｜滋賀県大津市｜国の認定経営革新等支援機関</span></p>
+  <p><span class="fl">BRIDGE <b>CYCLE</b></span>　<span style="font-size:11px">株式会社｜滋賀県大津市におの浜2-1-28｜代表取締役 中村裕二｜国の認定経営革新等支援機関</span></p>
   <p class="row">
     <a href="matching.html">退店前承継マッチング</a>｜
     <a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a>｜
