@@ -2138,7 +2138,11 @@ $('#fSend').onclick=async()=>{
   }
   data['ご状況・ご質問']=$('#fMsg').value.trim()||'（未記入）';
   data['同意']='プライバシーポリシーおよび利用規約に同意のうえ送信';
-  data['_subject']='【事前登録】'+SEGNAME[seg]+'／'+name;
+  /* 紹介コード（管理会社・オーナー配布のQR経由）。?ref= または yameru.html / soudan.html で保存した値を引き継ぐ */
+  var bcRef='';
+  try{var mm=location.search.match(/[?&]ref=([A-Za-z0-9_-]{2,20})/);bcRef=mm?mm[1].toUpperCase():(localStorage.getItem('bc_ref')||'');}catch(e){}
+  data['紹介コード']=bcRef||'（なし）';
+  data['_subject']='【事前登録】'+(bcRef?bcRef+'／':'')+SEGNAME[seg]+'／'+name;
   data['_replyto']=mail;
   data['_template']='table';
   /* 申込者への受付確認（自動返信）。控えが残ることで送信後の不安を減らします */
