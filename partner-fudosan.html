@@ -50,6 +50,50 @@ form{display:flex;flex-direction:column;gap:16px}
 footer{padding:30px 0 36px;text-align:center;color:var(--ink-soft);font-size:14px;letter-spacing:.04em;border-top:1px solid var(--line)}
 footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:block;margin-bottom:8px}
 @media(max-width:480px){.contrast-grid{grid-template-columns:1fr}.c-col.no{border-right:none;border-bottom:1px solid var(--line)}}
+/* 店主に渡す案内（紹介コード付きQR）を自分で作る */
+.kit{background:#fff;border:1.5px solid var(--vermillion);border-radius:6px;padding:22px 20px;box-shadow:var(--shadow)}
+.kit h3{font-family:"Shippori Mincho",serif;font-weight:600;font-size:19px;color:var(--ink);margin-bottom:6px}
+.kit p{font-size:14.5px;color:var(--ink-soft);line-height:1.8}
+.kit .row{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:14px}
+@media(max-width:520px){.kit .row{grid-template-columns:1fr}}
+.kit input{font:inherit;font-size:16px;padding:11px 12px;border:1.5px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);width:100%}
+.kit input:focus{outline:2px solid var(--teal)}
+.kit .mk{font:inherit;font-weight:700;font-size:15px;padding:11px 20px;border:none;border-radius:4px;background:var(--vermillion);color:#fff;cursor:pointer;white-space:nowrap}
+.kit .out{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.kit .out.on{display:block}
+.kit .code{font-size:13px;color:var(--ink-soft)}.kit .code b{font-family:"Shippori Mincho",serif;font-size:20px;color:var(--teal);letter-spacing:.06em;margin-left:6px}
+.kit .prev{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-top:12px;background:var(--cream-2);border:1px solid var(--line);border-radius:4px;padding:14px}
+@media(max-width:520px){.kit .prev{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.kit .prev #qr{width:132px;height:132px;background:#fff;padding:6px;border:1px solid var(--line)}
+.kit .prev #qr svg{width:120px;height:120px;display:block}
+.kit .prev .u{font-size:12px;color:var(--ink-muted);word-break:break-all;margin-top:4px}
+.kit .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.kit .acts button,.kit .acts a{font:inherit;font-weight:700;font-size:13.5px;padding:10px 16px;border-radius:4px;border:1.5px solid var(--teal);background:#fff;color:var(--teal);cursor:pointer;text-decoration:none}
+.kit .acts .pri{background:var(--teal);color:#fff}
+.kit .note{font-size:12.5px;color:var(--ink-muted);margin-top:10px;line-height:1.7}
+/* 印刷用：店主に渡す案内（A4・1枚） */
+#printsheet{display:none}
+@media print{
+  body>*:not(#printsheet){display:none!important}
+  body{background:#fff!important;padding:0!important;margin:0!important}
+  #printsheet{display:block;width:100%;font-family:"Noto Sans JP",sans-serif;color:#15171C}
+  @page{size:A4;margin:16mm}
+}
+#printsheet .ps{max-width:178mm;margin:0 auto}
+#printsheet .top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1.2mm solid #1B3B5F;padding-bottom:3mm}
+#printsheet .brand{font-weight:800;letter-spacing:.09em;font-size:12pt}#printsheet .brand b{color:#3D6389}
+#printsheet .tag{font-family:"Shippori Mincho",serif;font-size:9pt;color:#767870;background:none;border:none;padding:0;margin:0;display:inline}
+#printsheet .brand{font-family:"Noto Sans JP",sans-serif;color:#15171C;white-space:nowrap;letter-spacing:.09em}
+#printsheet h1{font-family:"Shippori Mincho",serif;font-size:22pt;line-height:1.4;margin:8mm 0 3mm;color:#15171C}
+#printsheet h1 u{text-decoration:none;border-bottom:1.2mm solid #A8382C}
+#printsheet .lead{font-size:11pt;line-height:1.8;color:#4A4C52}
+#printsheet .box{display:flex;gap:8mm;align-items:center;border:.4mm solid #A8382C;border-radius:3mm;padding:6mm 7mm;margin:7mm 0}
+#printsheet .box #pqr{width:38mm;height:38mm;flex:none}#printsheet .box #pqr svg{width:38mm;height:38mm;display:block}
+#printsheet .box .h{font-size:11pt;line-height:1.7}#printsheet .box .h b{display:block;font-family:"Shippori Mincho",serif;font-size:14pt;color:#A8382C;margin-bottom:2mm}
+#printsheet .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm;margin:5mm 0}
+#printsheet .t{border-left:1mm solid #1B3B5F;padding:1mm 3mm;font-size:9.5pt;line-height:1.6}#printsheet .t b{display:block;color:#1B3B5F}
+#printsheet .from{margin-top:6mm;font-size:10pt;color:#4A4C52;border-top:.2mm solid #D9DAD3;padding-top:3mm}
+#printsheet .from b{color:#15171C}
 </style>
 </head>
 <body>
@@ -138,6 +182,48 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
   </div>
 </div></section>
 
+<section><div class="wrap">
+  <div class="section-label">店主に渡す案内を、その場で作る</div>
+  <div class="kit">
+    <h3>貴社専用の紹介コード付き案内（無料）</h3>
+    <p>会社名（またはお名前）を入れると、貴社専用のQRコードが付いた「店主向け案内」ができます。退去の相談があったとき、原状回復の話をする前に、店主に渡してください。店主がQRを読むと「いくらで辞められるか」の匿名試算が開き、そこから60分無料相談を予約できます。<strong>貴社経由の相談件数は、この紹介コードで毎月ご報告します。</strong>店名・お名前は、店主が同意した場合にだけお伝えします。</p>
+    <div class="row">
+      <input id="kName" type="text" placeholder="例：山田不動産株式会社 ／ 山田 太郎" autocomplete="organization">
+      <button class="mk" id="kMake" type="button">案内を作る</button>
+    </div>
+    <div class="out" id="kOut">
+      <div class="code">貴社の紹介コード<b id="kCode">—</b></div>
+      <div class="prev">
+        <div id="qr"></div>
+        <div>
+          <div style="font-weight:700;font-size:15px" id="kWho">—</div>
+          <div style="font-size:13px;color:var(--ink-soft);margin-top:2px">店主がこのQRを読むと、貴社の紹介として記録されます。</div>
+          <div class="u" id="kUrl"></div>
+        </div>
+      </div>
+      <div class="acts">
+        <button class="pri" type="button" id="kPrint">案内（A4・1枚）を印刷する</button>
+        <button type="button" id="kCopy">QRのリンクをコピー</button>
+        <a id="kMail" href="#">この案内をメールで送る</a>
+      </div>
+      <div class="note">紹介コードは会社名から自動で決まるため、同じ会社名なら毎回同じコードになります。当社への登録は不要ですが、下のフォームか登録ツールで会社名を一度お知らせいただくと、月次のご報告を確実にお送りできます。印刷はブラウザの印刷画面で「背景のグラフィック」をオンにしてください。</div>
+    </div>
+  </div>
+</div></section>
+
+<div id="printsheet" aria-hidden="true"><div class="ps">
+  <div class="top"><div class="brand">BRIDGE <b>CYCLE</b><span style="font-weight:400;font-size:8pt;color:#767870;margin-left:2mm">株式会社｜滋賀県大津市｜国の認定経営革新等支援機関</span></div><div class="tag">店じまいを、まちのはじまりに。</div></div>
+  <h1>壊す前に、<u>ご相談</u>を。</h1>
+  <p class="lead">お店を閉めようか迷っているとき、原状回復の工事を発注する前に、造作（内装・厨房・什器）を次の店主へ渡せるかどうかを、60分・無料で確認できます。閉店を決めていなくても構いません。<b>相談したことは、このお知らせを渡した管理会社・オーナーにも、ご本人の同意なく伝わりません。</b></p>
+  <div class="box"><div id="pqr"></div><div class="h"><b>まず、いくらで辞められるか。30秒・匿名で試算</b>スマホでQRを読むと、名前も店名も入れずに、通常の閉店と「造作を次の店主へ渡す閉め方」で持ち出しがいくら違うかを試算できます。入力はどこにも送信されません。そのまま無料相談の予約もできます。<br><span style="font-size:9pt;color:#767870">QRが読めないとき：bridgecycle で検索 → 「いくらで辞められるか試算」→ 相談予約で紹介コード <b id="pCode" style="display:inline;color:#15171C;font-size:9pt"></b> を入力</span></div></div>
+  <div class="three">
+    <div class="t"><b>費用はかかりません</b>相談は60分無料。その場で何かを決める必要はなく、「今回はやめる」という結論でも費用はゼロです。</div>
+    <div class="t"><b>価格はご自身で決めます</b>当社は査定をしません。人流の実測や造作の一覧など、相手が判断できる材料をそろえるだけです。</div>
+    <div class="t"><b>賃貸借には関与しません</b>当社は宅地建物取引業者ではなく、賃貸借契約や賃料交渉は行いません。次の店主の契約は従来どおり管理会社・オーナー様と。</div>
+  </div>
+  <div class="from">このお知らせは <b id="pWho"></b> からお渡ししています。　BRIDGE CYCLE株式会社　代表取締役 中村 裕二（商工会経営指導員として約20年・500社超を支援）　TEL 080-5309-9770　info@bridgecycleco.com</div>
+</div></div>
+
 <section class="form-section"><div class="wrap">
   <h2>物件のご登録・ご相談</h2>
   <p class="sub">閉店予告のある物件の情報提供、または連携に関するご相談をお受けします。</p>
@@ -172,5 +258,37 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
   <span class="mincho">店じまいを、まちのはじまりに。</span>
   BRIDGE CYCLE株式会社　滋賀県大津市
 </div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+(function(){
+  var $=function(q){return document.querySelector(q);};
+  var BASE='https://yujimansion-hub.github.io/bridge-cycle2026/yameru.html?ref=';
+  function code(name){ /* 会社名から決まる6文字（同じ名前なら同じコード） */
+    var h=5381; for(var i=0;i<name.length;i++){h=((h<<5)+h+name.charCodeAt(i))>>>0;}
+    var al='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',out='';
+    for(var k=0;k<6;k++){out+=al[h%al.length];h=Math.floor(h/al.length)+((h*2654435761)>>>0)%997;}
+    return 'P-'+out;
+  }
+  var cur=null;
+  function make(){
+    var name=($('#kName').value||'').trim().replace(/\s+/g,' ');
+    if(!name){$('#kName').focus();return;}
+    var c=code(name), url=BASE+c; cur={name:name,code:c,url:url};
+    $('#kCode').textContent=c; $('#kWho').textContent=name; $('#kUrl').textContent=url; $('#pCode').textContent=c; $('#pWho').textContent=name;
+    $('#qr').innerHTML=''; $('#pqr').innerHTML='';
+    var q=qrcode(0,'M'); q.addData(url); q.make();
+    var svg=q.createSvgTag({cellSize:4,margin:2,scalable:true}).replace(/fill="black"|fill:black/g,'fill="#1B3B5F"');
+    $('#qr').innerHTML=svg; $('#pqr').innerHTML=svg;
+    $('#kMail').href='mailto:?subject='+encodeURIComponent('【BRIDGE CYCLE】店主向け案内（紹介コード '+c+'）')+'&body='+encodeURIComponent('閉店を迷っている店主の方へ。原状回復の前に、造作を次の店主へ渡せるか60分無料で確認できます。\n\nまず、いくらで辞められるか（匿名・30秒）：\n'+url+'\n\n相談したことは、ご本人の同意なく管理会社・オーナーには伝わりません。\nBRIDGE CYCLE株式会社（滋賀県大津市）TEL 080-5309-9770');
+    $('#kOut').classList.add('on');
+    try{localStorage.setItem('bc_partner_name',name);}catch(e){}
+  }
+  $('#kMake').onclick=make;
+  $('#kName').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();make();}});
+  $('#kPrint').onclick=function(){if(!cur)return;setTimeout(function(){window.print();},150);};
+  $('#kCopy').onclick=function(){if(!cur)return;var b=this;(navigator.clipboard?navigator.clipboard.writeText(cur.url):Promise.reject()).then(function(){b.textContent='コピーしました';setTimeout(function(){b.textContent='QRのリンクをコピー';},1800);},function(){prompt('このリンクをコピーしてください',cur.url);});};
+  try{var n=localStorage.getItem('bc_partner_name');if(n){$('#kName').value=n;}}catch(e){}
+})();
+</script>
 </body>
 </html>
