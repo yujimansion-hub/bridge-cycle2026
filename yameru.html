@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>いくらで辞められるか、30秒で試算｜飲食店の閉店費用（匿名・送信なし）｜BRIDGE CYCLE</title>
-<meta name="description" content="飲食店を閉めるといくらかかるか。原状回復・解約予告の賃料・敷金・リース残債・従業員の手当を、通常の閉店と退店前承継で比べて試算します。名前も店名も不要、入力はどこにも送信されません。滋賀県大津市・BRIDGE CYCLE株式会社。">
-<meta property="og:title" content="いくらで辞められるか、30秒で試算｜飲食店の閉店費用">
-<meta property="og:description" content="誰にも知られず、自分の店を閉めたらいくら持ち出しになるかが分かります。入力はどこにも送信されません。">
+<title>迷っている今、店の値打ちはいくらか。30秒で試算｜続ける・渡す・閉めるの比較（匿名・送信なし）｜BRIDGE CYCLE</title>
+<meta name="description" content="続けるか、渡すか、閉めるか。迷っている今のお店の値打ちと、決めるのを先延ばしした場合にいくら減るかを、匿名・30秒で試算します。名前も店名も不要、入力はどこにも送信されません。滋賀県大津市・BRIDGE CYCLE株式会社。">
+<meta property="og:title" content="迷っている今、店の値打ちはいくらか。30秒で試算">
+<meta property="og:description" content="続ける・渡す・閉めるを並べて、迷っている時間にいくら減るかが分かります。匿名・入力は送信されません。">
 <meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/yameru.html">
 <meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/ogp.png">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%231B3B5F"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="%239FBBD6" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round"/></svg>'>
@@ -48,8 +48,12 @@ b{color:var(--ai)}
 
 .res{margin-top:22px}
 .res h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:10px}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:560px){.cmp{grid-template-columns:1fr}}
+.cmp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.c.wait{border:1.5px dashed var(--kin);background:var(--kinpale)}
+.c.wait h3{color:var(--kin)}
+.c .wnote{margin-top:10px;font-size:12px;color:var(--ink2);background:#fff;border-radius:8px;padding:8px 10px;line-height:1.7}
+.c .wnote b{color:var(--kin)}
 .c{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
 .c.on{border:1.5px solid var(--shu);background:#fff}
 .c h3{font-size:12px;letter-spacing:.12em;font-weight:800;color:var(--ink3);margin-bottom:8px}
@@ -103,14 +107,14 @@ footer a{color:#C6D6E5}
 
 <header class="hero"><div class="wrap">
   <span class="badge">匿名・30秒・入力はどこにも送信されません</span>
-  <h1>いくらで、<u>辞められる</u>か。</h1>
-  <p class="lead">お店を閉めると決める前に、いちばん先に知りたいのは「自分の場合、いくらかかるのか」のはずです。原状回復、解約予告の賃料、敷金、リース、従業員の手当を、通常の閉店と「造作を次の店主へ渡す閉め方」で並べて試算します。</p>
+  <h1>迷っている今、<br>店の<u>値打ち</u>はいくらか。</h1>
+  <p class="lead">続けるか、渡すか、閉めるか。まだ決めなくて構いません。ただ、迷っている間にも、内装や厨房の値打ちは毎月少しずつ減り、原状回復の見積りを取った瞬間にゼロになります。いま渡した場合、いま閉めた場合、そして決めるのを先延ばしした場合を、同じ物差しで並べます。</p>
   <div class="anon"><span><b>名前も店名も連絡先も要りません。</b>計算はこの画面の中だけで行い、入力した数字は当社を含めどこにも送られません。</span></div>
 </div></header>
 
 <main><div class="wrap">
   <section class="calc" aria-label="入力">
-    <h2>7つの数字を入れてください</h2>
+    <h2>9つの数字を入れてください</h2>
     <p class="sub">おおよそで構いません。分からない項目は、初期値のままで結構です。</p>
     <div class="g">
       <div class="fld"><label for="tsubo">お店の広さ</label><div class="in"><input id="tsubo" type="number" inputmode="decimal" min="1" step="1" value="15"><span class="u">坪</span></div><div class="hint">1坪 ≒ 3.3㎡（㎡÷3.3）</div></div>
@@ -121,11 +125,14 @@ footer a{color:#C6D6E5}
       <div class="fld"><label for="inv">内装・設備にかけた金額</label><div class="in"><input id="inv" type="number" inputmode="numeric" min="0" step="1" value="600"><span class="u">万円</span></div><div class="hint">開業時＋その後の改装・入替の合計</div></div>
       <div class="fld"><label for="yrs">それから経った年数</label><div class="in"><input id="yrs" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="u">年</span></div></div>
       <div class="fld"><label for="staff">正社員の人数（自分以外）</label><div class="in"><input id="staff" type="number" inputmode="numeric" min="0" step="1" value="1"><span class="u">人</span></div><div class="hint">パート・アルバイトは含めない</div></div>
+      <div class="fld"><label for="profit">いまの月の手残り（自分の給料を引いた後）</label><div class="in"><input id="profit" type="number" inputmode="numeric" step="1" value="-5"><span class="u">万円/月</span></div><div class="hint">赤字なら「-5」のようにマイナスで。自分の生活費を先に引いた残りが目安</div></div>
+      <div class="fld"><label for="wait">決めるのを、あとどれくらい先延ばしにしそうか</label><div class="in"><select id="wait"><option value="6">半年</option><option value="12" selected>1年</option><option value="24">2年</option></select></div><div class="hint">「様子を見る」期間。この間の損益と、造作の値打ちの減りを計算します</div></div>
     </div>
   </section>
 
   <section class="res" id="res" aria-live="polite">
     <h2>試算の結果</h2>
+    <p class="sub" style="font-size:12.5px;color:var(--ink3);margin:-4px 0 10px">「いま」の2つの閉め方と、「先延ばししてから渡す」を並べています。数字はすべて幅のある目安です。</p>
     <div class="cmp">
       <div class="c">
         <h3>通常の閉店（原状回復して返す）</h3>
@@ -155,14 +162,28 @@ footer a{color:#C6D6E5}
           <tr class="sum"><td>差引</td><td id="bSum">—</td></tr>
         </table>
       </div>
+      <div class="c wait" id="cWait">
+        <h3><span id="wLbl">1年</span>先延ばしして、それから渡す</h3>
+        <div class="big" id="wBig">—</div><div class="lbl" id="wLbl2">手元に残る額（先延ばし期間の損益込み）</div>
+        <table>
+          <tr><td>先延ばし期間の手残りの累計<span class="s" id="wProfS"></span></td><td id="wProf">—</td></tr>
+          <tr><td>造作譲渡の収入（そのときの値打ち）<span class="s" id="wSaleS"></span></td><td id="wSale">—</td></tr>
+          <tr><td>値打ちの減り<span class="s">いま渡した場合との差</span></td><td id="wDrop">—</td></tr>
+          <tr><td>解約予告期間の賃料・手続き費用<span class="s">いま渡す場合と同じ</span></td><td id="wSame">—</td></tr>
+          <tr><td>戻ってくる敷金</td><td id="wDep">—</td></tr>
+          <tr class="sum"><td>差引</td><td id="wSum">—</td></tr>
+        </table>
+        <div class="wnote" id="wNote"></div>
+      </div>
     </div>
     <div class="diff">
-      <div class="t">閉め方でこれだけ変わる（目安）</div>
+      <div class="t" id="dT">閉め方でこれだけ変わる（目安）</div>
       <div class="n" id="dBig">—</div>
       <div class="d" id="dTxt">通常の閉店との差額。造作譲渡額の幅と、リース・従業員の引き継ぎの有無で変わります。</div>
+      <div class="d" id="dWait" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);color:#F3E7C6"></div>
     </div>
     <div class="cta">
-      <a class="btn shu" id="ctaSoudan" href="soudan.html">この差を、自分の店で確かめる<small>60分・無料・誰にも伝えません</small></a>
+      <a class="btn shu" id="ctaSoudan" href="soudan.html">続けるか渡すか、数字で一緒に考える<small>60分・無料・その場で決めなくてよい・誰にも伝えません</small></a>
       <a class="btn gh" href="tel:080-5309-9770">電話で聞く　080-5309-9770<small>代表・中村が出ます</small></a>
     </div>
     <div class="caut"><b>盛っていない数字にするために。</b>承継は、継ぎ手が見つかること、貸主が承諾すること、リース会社が名義変更に応じることが前提で、必ず成立するものではありません。造作の価格は当社が査定するのではなく、店主ご自身が決めます。ここで出る譲渡収入は「取得額×経過年数の残存率」の目安で、実際は立地と設備の状態、継ぎ手の業態で上下します。相談ではこの前提を一つずつ確かめます。</div>
@@ -183,8 +204,8 @@ footer a{color:#C6D6E5}
   </section>
 
   <section class="why">
-    <h2>なぜ「壊す前」でないと遅いのか</h2>
-    <p>原状回復の見積りを取り、工事を発注した時点で、造作の価値はゼロになります。次の店主が同じ業態で使えるはずだった厨房も、カウンターも、廃棄物になります。逆に、まだ営業しているうちに継ぎ手を探せば、造作は「売れるもの」のままです。</p>
+    <h2>決めるのは、今でなくていい。ただし「壊す前」に。</h2>
+    <p>迷うのは自然なことで、当社は「早く決めてください」とは言いません。ただ、原状回復の見積りを取り、工事を発注した時点で、造作の価値はゼロになります。次の店主が同じ業態で使えるはずだった厨房も、カウンターも、廃棄物になります。逆に、まだ営業しているうちに継ぎ手を探せば、造作は「売れるもの」のままです。</p>
     <p>ただし、貸主の承諾、リースの名義、原状回復義務の範囲という3点を先に確かめないと、造作を渡す話は進みません。この3点を60分で一緒に確認するのが、当社の無料相談です。閉店をまだ決めていなくても、迷っている段階でも構いません。</p>
     <p style="font-size:12.5px;color:var(--ink3)">当社は宅地建物取引業者ではなく、賃貸借契約の仲介・賃料交渉は行いません。扱うのは造作を次の店主へ渡す部分だけです。マッチング（店主と継ぎ手が出会う場）は0円、ご希望の方には有料の個別支援（<a href="matching.html#price2">内容と料金</a>）があります。</p>
   </section>
@@ -221,7 +242,7 @@ footer a{color:#C6D6E5}
   var rateTouched=false;
   $('#rate').addEventListener('input',function(){rateTouched=true;calc();});
   function calc(){
-    var tsubo=num('#tsubo'),rent=num('#rent'),dep=num('#dep'),notice=num('#notice'),lease=num('#lease'),inv=num('#inv'),yrs=num('#yrs'),staff=num('#staff');
+    var tsubo=num('#tsubo'),rent=num('#rent'),dep=num('#dep'),notice=num('#notice'),lease=num('#lease'),inv=num('#inv'),yrs=num('#yrs'),staff=num('#staff'),profit=num('#profit'),wait=num('#wait');
     var pLo=num('#pLo'),pHi=num('#pHi'),mTake=num('#mTake'),proc=num('#proc'),staffCost=num('#staffCost');
     if(!rateTouched){var y=Math.max(0,Math.min(6,Math.round(yrs)));$('#rate').value=RATE[y];}
     var rate=num('#rate')/100;
@@ -261,8 +282,30 @@ footer a{color:#C6D6E5}
     $('#bBig').className='big '+(bSumHi>=0?'plus':'minus');
     $('#bLbl').textContent=lbl(bSumLo,bSumHi,'手元に残る額（幅で表示）','持ち出し（幅で表示）');
 
+    /* 先延ばし：手残りの累計＋そのときの残存率で渡す */
+    var yrs2=yrs+wait/12, y2=Math.max(0,Math.min(6,Math.round(yrs2))), rate2=rateTouched?Math.max(0,rate-(RATE[Math.max(0,Math.min(6,Math.round(yrs)))]-RATE[y2])/100):RATE[y2]/100;
+    var prof=profit*wait;
+    var sale2Hi=inv*rate2, sale2Lo=inv*rate2/2;
+    var wSumHi=dep+sale2Hi-bNotice-proc+prof, wSumLo=dep+sale2Lo-bNotice-proc-lease-staffC+prof;
+    var dropMid=((saleLo+saleHi)/2)-((sale2Lo+sale2Hi)/2);
+    $('#wLbl').textContent=(wait>=12?(wait/12)+'年':wait+'か月'); 
+    $('#wProf').textContent=man(prof); $('#wProfS').textContent=profit+'万円/月 × '+wait+'か月';
+    $('#wSale').textContent=range(sale2Lo,sale2Hi); $('#wSaleS').textContent=inv+'万円 × 残存率'+Math.round(rate2*100)+'%（'+wait+'か月後）';
+    $('#wDrop').textContent=(dropMid>0?'▲':'')+Math.abs(Math.round(dropMid)).toLocaleString('ja-JP')+'万円';
+    $('#wSame').textContent=man(-(bNotice+proc));
+    $('#wDep').textContent=man(dep);
+    $('#wSum').textContent=range(wSumLo,wSumHi);
+    $('#wBig').textContent=range(wSumLo,wSumHi);
+    $('#wBig').className='big '+(wSumHi>=0?'plus':'minus');
+    $('#wLbl2').textContent=lbl(wSumLo,wSumHi,'手元に残る額（先延ばし期間の損益込み）','持ち出し（先延ばし期間の損益込み）');
+    var wMid=(wSumLo+wSumHi)/2, bMid0=(bSumLo+bSumHi)/2, costWait=bMid0-wMid;
+    $('#wNote').innerHTML=costWait>0
+      ? '<b>迷っている'+wait+'か月で、中央値で約'+Math.round(costWait).toLocaleString('ja-JP')+'万円減ります。</b>'+(profit<0?'赤字の累計と、造作の値打ちの減りの合計です。':'造作の値打ちが減る分が、月の手残りより大きい計算です。')+'継ぎ手が決まる前に原状回復の見積りを取ると、造作の値はその時点でゼロになります。'
+      : '<b>この条件では、'+wait+'か月続けても手元は減りません。</b>月の手残りが造作の値打ちの減りを上回っています。続ける選択に数字の裏付けがある状態です。';
+
     /* 差額：中央値どうし */
     var aMid=(aSumLo+aSumHi)/2, bMid=(bSumLo+bSumHi)/2, d=bMid-aMid;
+    $('#dWait').textContent=costWait>0?'先延ばしの'+wait+'か月では、さらに約'+Math.round(costWait).toLocaleString('ja-JP')+'万円（中央値）が減る計算です。決めるのは今でなくても、造作の値打ちが残っているうちに「渡せるか」だけは確かめておく価値があります。':'先延ばしの'+wait+'か月で手元は減らない計算です。焦る必要はありません。ただし貸主の承諾・リースの名義・原状回復の範囲は、早めに確かめておくと選択肢が残ります。';
     $('#dBig').textContent=(d>=0?'＋':'▲')+Math.abs(Math.round(d)).toLocaleString('ja-JP')+'万円';
     $('#dTxt').textContent=d>=0?'通常の閉店より、これだけ手元に残る計算です（両方の幅の中央値で比較）。造作譲渡額と、リース・従業員の引き継ぎの有無で変わります。':'この条件では承継しても差が出にくい計算です。前提を変えるか、相談で個別に確かめてください。';
   }
