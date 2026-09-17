@@ -221,6 +221,37 @@ footer .fl b{color:#9FBBD6}
 .others{margin-top:16px;max-width:600px;font-size:12.5px;color:var(--ink3);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
 .others a{color:var(--ink2);text-decoration:none;border:1px solid var(--rule2);border-radius:999px;padding:4px 12px;background:rgba(255,255,255,.7)}
 .others a:hover{border-color:var(--aimid);color:var(--ai)}
+/* スマホ：迷っている店主向けカードを最初に、大きく */
+@media(max-width:640px){
+  .hero{padding:22px 0 30px}
+  .hero .wrap>div:first-child{display:flex;flex-direction:column}
+  .hero .badge{display:none}
+  .hero h1{order:2;font-size:24px;line-height:1.4;margin-top:22px}
+  .hero .lead{order:3;font-size:14px;margin:8px 0 0}
+  .ask{order:1;margin-top:0;padding:20px 16px 16px;border-width:2px;border-radius:16px}
+  .ask-h{font-size:27px;line-height:1.3}
+  .ask-s{font-size:14px;margin-top:10px}
+  .ask-s b{font-size:18px}
+  .ask-s span{display:block;margin-top:2px}
+  .ask-list{gap:8px;margin:16px 0 14px}
+  .ask-list a{font-size:15px;padding:13px 14px;line-height:1.55;background:#fff;border:1.5px solid var(--rule2)}
+  .ask-list a i{font-size:17px}
+  .ask-btn{padding:17px 16px;font-size:18px}
+  .ask-btn small{font-size:11.5px}
+  .ask-alt{font-size:13px;margin-top:12px}
+  .ask-alt a{display:inline-block;margin:2px 10px 2px 0}
+  .others{order:4;margin-top:14px}
+  .hpanel{display:none}
+  .seal{display:none}
+  body{padding-bottom:70px}
+  .pick-sub{order:5}
+}
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(237,238,234,.96);backdrop-filter:blur(8px);border-top:1px solid var(--rule);padding:9px 12px;gap:8px}
+.mbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:999px;padding:10px 8px;font-weight:800;font-size:14px;text-decoration:none;line-height:1.2}
+.mbar a small{font-size:10.5px;font-weight:600;opacity:.85;margin-top:2px}
+.mbar .m1{background:var(--shu);color:#fff;flex:1.4}
+.mbar .m2{border:1.5px solid var(--rule2);background:#fff;color:var(--ink)}
+@media(max-width:640px){.mbar{display:flex}}
 .pick-sub{margin-top:14px;font-size:12.5px}
 .pick-sub a{color:var(--ink2);text-decoration:underline;margin-right:16px}
 /* しくみ */
@@ -454,6 +485,8 @@ footer .fl b{color:#9FBBD6}
     <a href="privacy.html">同（売り場レンタル）</a>
   </p>
 </div></footer>
+
+<div class="mbar" aria-label="スマホ用の導線"><a class="m1" href="yameru.html">自分の店の値打ちを見る<small>30秒・匿名・送信されません</small></a><a class="m2" href="tel:080-5309-9770">電話する<small>代表・中村が出ます</small></a></div>
 
 <script>
 (function(){
