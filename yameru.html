@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>いくらで辞められるか、30秒で試算｜飲食店の閉店費用（匿名・送信なし）｜BRIDGE CYCLE</title>
+<meta name="description" content="飲食店を閉めるといくらかかるか。原状回復・解約予告の賃料・敷金・リース残債・従業員の手当を、通常の閉店と退店前承継で比べて試算します。名前も店名も不要、入力はどこにも送信されません。滋賀県大津市・BRIDGE CYCLE株式会社。">
+<meta property="og:title" content="いくらで辞められるか、30秒で試算｜飲食店の閉店費用">
+<meta property="og:description" content="誰にも知られず、自分の店を閉めたらいくら持ち出しになるかが分かります。入力はどこにも送信されません。">
+<meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/yameru.html">
+<meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/ogp.png">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%231B3B5F"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="%239FBBD6" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round"/></svg>'>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--paper:#EDEEEA;--card:#fff;--card2:#F4F4F0;--ink:#15171C;--ink2:#4A4C52;--ink3:#767870;--rule:#D9DAD3;--rule2:#C3C4BC;--ai:#1B3B5F;--aimid:#3D6389;--aipale:#E7EEF5;--shu:#A8382C;--shupale:#F6E7E4;--mid:#2E6B4F;--midpale:#E3EFE9;--kin:#8A6D1F;--kinpale:#F5F0E0;--serif:"Shippori Mincho",serif;--shadow:0 1px 2px rgba(20,22,26,.06),0 10px 28px rgba(20,22,26,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:15px;line-height:1.85;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+a{color:var(--aimid)}
+b{color:var(--ai)}
+.nav{border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;padding:13px 18px}
+.logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}
+.logo b{color:var(--aimid)}
+.nav .sp{margin-left:auto;font-size:11px;color:var(--ink3)}
+.hero{padding:38px 0 22px}
+.hero .badge{display:inline-block;font-size:11px;letter-spacing:.14em;color:var(--mid);font-weight:700;border:1.5px solid var(--mid);background:#fff;border-radius:999px;padding:5px 14px;margin-bottom:14px}
+.hero h1{font-family:var(--serif);font-size:clamp(27px,7vw,38px);line-height:1.4;font-weight:800}
+.hero h1 u{text-decoration:none;border-bottom:5px solid var(--shu);padding-bottom:2px}
+.hero .lead{margin-top:12px;color:var(--ink2);font-size:14.5px}
+.anon{display:flex;gap:10px;align-items:flex-start;background:var(--midpale);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--mid);margin-top:14px;line-height:1.7}
+.anon::before{content:"🔒";flex:none}
+.anon b{color:var(--mid)}
+
+.calc{background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--ai);border-radius:18px;padding:22px 20px 18px;box-shadow:var(--shadow);margin-top:18px}
+.calc h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:4px}
+.calc .sub{font-size:12.5px;color:var(--ink3);margin-bottom:14px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.g{grid-template-columns:1fr}}
+.fld label{display:block;font-size:12.5px;font-weight:700;margin-bottom:4px}
+.fld .in{display:flex;align-items:center;border:1.5px solid var(--rule2);border-radius:10px;background:#fff;overflow:hidden}
+.fld .in:focus-within{outline:2px solid var(--aimid);border-color:var(--aimid)}
+.fld input,.fld select{flex:1;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border:none;background:transparent;color:var(--ink);text-align:right}
+.fld select{text-align:left;appearance:auto}
+.fld .u{font-size:12px;color:var(--ink3);padding:0 12px 0 4px;white-space:nowrap}
+.fld .hint{font-size:11px;color:var(--ink3);margin-top:3px;line-height:1.5}
+
+.res{margin-top:22px}
+.res h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:10px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.cmp{grid-template-columns:1fr}}
+.c{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.c.on{border:1.5px solid var(--shu);background:#fff}
+.c h3{font-size:12px;letter-spacing:.12em;font-weight:800;color:var(--ink3);margin-bottom:8px}
+.c.on h3{color:var(--shu)}
+.c .big{font-family:var(--serif);font-weight:800;font-size:clamp(22px,5.4vw,30px);line-height:1.2;color:var(--ink)}
+.c .big.minus{color:var(--shu)}.c .big.plus{color:var(--mid)}
+.c .lbl{font-size:12px;color:var(--ink3);margin-top:2px}
+.c table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12.5px}
+.c td{padding:5px 0;border-top:1px dashed var(--rule);vertical-align:top}
+.c td:last-child{text-align:right;white-space:nowrap;font-weight:700;color:var(--ink)}
+.c td .s{display:block;font-size:10.5px;color:var(--ink3);font-weight:400;line-height:1.4}
+.c tr.sum td{border-top:1.5px solid var(--rule2);font-weight:800}
+.diff{margin-top:14px;background:var(--ai);color:#fff;border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 12px 30px rgba(27,59,95,.25)}
+.diff .t{font-size:12px;letter-spacing:.12em;color:#C9D7E6;font-weight:700}
+.diff .n{font-family:var(--serif);font-weight:800;font-size:clamp(30px,8vw,44px);line-height:1.2;margin:4px 0 2px}
+.diff .d{font-size:12.5px;color:#C9D7E6;line-height:1.7}
+.cta{margin-top:14px;display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:15px 20px;font-weight:800;font-size:15.5px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+.btn.shu{background:var(--shu);color:#fff;box-shadow:0 6px 16px rgba(168,56,44,.28)}
+.btn.gh{border:1.5px solid var(--rule2);color:var(--ink2);background:#fff}
+.btn small{font-weight:600;font-size:11.5px;opacity:.85}
+.caut{margin-top:14px;font-size:12px;color:var(--ink2);background:var(--card2);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;line-height:1.75}
+.caut b{color:var(--shu)}
+
+details.asm{margin-top:14px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:0 16px}
+details.asm summary{cursor:pointer;list-style:none;padding:12px 0;font-weight:800;font-size:13.5px}
+details.asm summary::-webkit-details-marker{display:none}
+details.asm summary::after{content:"変える ＋";float:right;color:var(--aimid);font-size:12px}
+details.asm[open] summary::after{content:"閉じる －"}
+details.asm .body{padding:2px 0 14px}
+details.asm .g{gap:10px}
+details.asm .fld label{font-size:12px}
+details.asm .fld input{font-size:15px;padding:8px 10px}
+.why{margin-top:26px}
+.why h2{font-family:var(--serif);font-size:18px;font-weight:800;margin-bottom:8px}
+.why p{font-size:13.5px;color:var(--ink2);margin-bottom:8px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(237,238,234,.94);backdrop-filter:blur(8px);border-top:1px solid var(--rule);padding:9px 14px;display:flex;gap:8px;justify-content:center}
+.bar a{flex:1;max-width:340px;display:flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 12px;font-weight:800;font-size:13.5px;text-decoration:none}
+.bar .p{background:var(--shu);color:#fff}.bar .t{border:1.5px solid var(--rule2);background:#fff;color:var(--ink)}
+footer{background:#132B45;color:#9FB4C9;padding:28px 0 36px;font-size:12px;text-align:center;margin-top:36px}
+footer .fl{font-family:var(--serif);font-weight:800;letter-spacing:.09em;font-size:15px;color:#fff;display:block;margin-bottom:6px}
+footer a{color:#C6D6E5}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="./">BRIDGE <b>CYCLE</b></a>
+  <span class="sp">滋賀県大津市｜認定経営革新等支援機関</span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="badge">匿名・30秒・入力はどこにも送信されません</span>
+  <h1>いくらで、<u>辞められる</u>か。</h1>
+  <p class="lead">お店を閉めると決める前に、いちばん先に知りたいのは「自分の場合、いくらかかるのか」のはずです。原状回復、解約予告の賃料、敷金、リース、従業員の手当を、通常の閉店と「造作を次の店主へ渡す閉め方」で並べて試算します。</p>
+  <div class="anon"><span><b>名前も店名も連絡先も要りません。</b>計算はこの画面の中だけで行い、入力した数字は当社を含めどこにも送られません。</span></div>
+</div></header>
+
+<main><div class="wrap">
+  <section class="calc" aria-label="入力">
+    <h2>7つの数字を入れてください</h2>
+    <p class="sub">おおよそで構いません。分からない項目は、初期値のままで結構です。</p>
+    <div class="g">
+      <div class="fld"><label for="tsubo">お店の広さ</label><div class="in"><input id="tsubo" type="number" inputmode="decimal" min="1" step="1" value="15"><span class="u">坪</span></div><div class="hint">1坪 ≒ 3.3㎡（㎡÷3.3）</div></div>
+      <div class="fld"><label for="rent">月額賃料（共益費込み）</label><div class="in"><input id="rent" type="number" inputmode="numeric" min="0" step="1" value="15"><span class="u">万円</span></div></div>
+      <div class="fld"><label for="dep">敷金・保証金の預け額</label><div class="in"><input id="dep" type="number" inputmode="numeric" min="0" step="1" value="90"><span class="u">万円</span></div><div class="hint">償却分がある場合は差し引いた額</div></div>
+      <div class="fld"><label for="notice">解約予告の期間</label><div class="in"><select id="notice"><option value="1">1か月前</option><option value="2">2か月前</option><option value="3">3か月前</option><option value="4">4か月前</option><option value="5">5か月前</option><option value="6" selected>6か月前（分からない場合）</option></select></div><div class="hint">賃貸借契約書の「解約」の条に書かれています</div></div>
+      <div class="fld"><label for="lease">リース・割賦の残債</label><div class="in"><input id="lease" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="u">万円</span></div><div class="hint">厨房機器・食洗機・POSなど。なければ0</div></div>
+      <div class="fld"><label for="inv">内装・設備にかけた金額</label><div class="in"><input id="inv" type="number" inputmode="numeric" min="0" step="1" value="600"><span class="u">万円</span></div><div class="hint">開業時＋その後の改装・入替の合計</div></div>
+      <div class="fld"><label for="yrs">それから経った年数</label><div class="in"><input id="yrs" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="u">年</span></div></div>
+      <div class="fld"><label for="staff">正社員の人数（自分以外）</label><div class="in"><input id="staff" type="number" inputmode="numeric" min="0" step="1" value="1"><span class="u">人</span></div><div class="hint">パート・アルバイトは含めない</div></div>
+    </div>
+  </section>
+
+  <section class="res" id="res" aria-live="polite">
+    <h2>試算の結果</h2>
+    <div class="cmp">
+      <div class="c">
+        <h3>通常の閉店（原状回復して返す）</h3>
+        <div class="big minus" id="aBig">—</div><div class="lbl" id="aLbl">持ち出し（敷金を差し引いた後）</div>
+        <table>
+          <tr><td>原状回復工事<span class="s" id="aRestS">スケルトン戻し</span></td><td id="aRest">—</td></tr>
+          <tr><td>解約予告期間の賃料<span class="s" id="aNoticeS"></span></td><td id="aNotice">—</td></tr>
+          <tr><td>リース残債の一括精算</td><td id="aLease">—</td></tr>
+          <tr><td>従業員の解雇予告手当など<span class="s" id="aStaffS"></span></td><td id="aStaff">—</td></tr>
+          <tr><td>廃業の手続き費用<span class="s">税務・許認可・登記など</span></td><td id="aProc">—</td></tr>
+          <tr><td>造作の売却<span class="s">解体して廃棄。値はつかない</span></td><td>0円</td></tr>
+          <tr><td>戻ってくる敷金</td><td id="aDep">—</td></tr>
+          <tr class="sum"><td>差引</td><td id="aSum">—</td></tr>
+        </table>
+      </div>
+      <div class="c on">
+        <h3>退店前承継（造作を次の店主へ渡す）</h3>
+        <div class="big" id="bBig">—</div><div class="lbl" id="bLbl">手元に残る額（幅で表示）</div>
+        <table>
+          <tr><td>原状回復工事<span class="s">継ぎ手が造作ごと引き受ける</span></td><td>0円</td></tr>
+          <tr><td>解約予告期間の賃料<span class="s" id="bNoticeS"></span></td><td id="bNotice">—</td></tr>
+          <tr><td>リース残債<span class="s">継ぎ手が引き継げば0、精算なら同額</span></td><td id="bLease">—</td></tr>
+          <tr><td>従業員<span class="s">継ぎ手が雇用を続ければ0</span></td><td id="bStaff">—</td></tr>
+          <tr><td>廃業の手続き費用</td><td id="bProc">—</td></tr>
+          <tr><td>造作譲渡の収入<span class="s" id="bSaleS"></span></td><td id="bSale">—</td></tr>
+          <tr><td>戻ってくる敷金<span class="s">原状回復の差し引きなし</span></td><td id="bDep">—</td></tr>
+          <tr class="sum"><td>差引</td><td id="bSum">—</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="diff">
+      <div class="t">閉め方でこれだけ変わる（目安）</div>
+      <div class="n" id="dBig">—</div>
+      <div class="d" id="dTxt">通常の閉店との差額。造作譲渡額の幅と、リース・従業員の引き継ぎの有無で変わります。</div>
+    </div>
+    <div class="cta">
+      <a class="btn shu" id="ctaSoudan" href="soudan.html">この差を、自分の店で確かめる<small>60分・無料・誰にも伝えません</small></a>
+      <a class="btn gh" href="tel:080-5309-9770">電話で聞く　080-5309-9770<small>代表・中村が出ます</small></a>
+    </div>
+    <div class="caut"><b>盛っていない数字にするために。</b>承継は、継ぎ手が見つかること、貸主が承諾すること、リース会社が名義変更に応じることが前提で、必ず成立するものではありません。造作の価格は当社が査定するのではなく、店主ご自身が決めます。ここで出る譲渡収入は「取得額×経過年数の残存率」の目安で、実際は立地と設備の状態、継ぎ手の業態で上下します。相談ではこの前提を一つずつ確かめます。</div>
+
+    <details class="asm">
+      <summary>試算の前提（坪単価・残存率など）</summary>
+      <div class="body">
+        <div class="g">
+          <div class="fld"><label for="pLo">原状回復の坪単価（安い側）</label><div class="in"><input id="pLo" type="number" min="0" step="1" value="10"><span class="u">万円/坪</span></div></div>
+          <div class="fld"><label for="pHi">原状回復の坪単価（高い側）</label><div class="in"><input id="pHi" type="number" min="0" step="1" value="15"><span class="u">万円/坪</span></div><div class="hint">飲食のスケルトン戻しは10〜15万円/坪が目安。躯体まで戻す契約や重飲食はさらに高い</div></div>
+          <div class="fld"><label for="mTake">承継が決まるまでの期間</label><div class="in"><input id="mTake" type="number" min="0" step="1" value="3"><span class="u">か月</span></div><div class="hint">この期間分の賃料は承継でもかかる（予告期間より短ければ短縮）</div></div>
+          <div class="fld"><label for="proc">廃業の手続き費用</label><div class="in"><input id="proc" type="number" min="0" step="1" value="15"><span class="u">万円</span></div><div class="hint">廃業の届出・最終の決算申告・許認可の返納・法人なら解散登記など。個人なら5〜10万、法人なら20〜40万が目安</div></div>
+          <div class="fld"><label for="staffCost">正社員1人あたりの解雇関連費用</label><div class="in"><input id="staffCost" type="number" min="0" step="1" value="30"><span class="u">万円</span></div><div class="hint">解雇予告手当（平均賃金30日分）＋有給の買い取り・退職金があれば加算</div></div>
+          <div class="fld"><label for="rate">造作の残存率（経過年数から自動）</label><div class="in"><input id="rate" type="number" min="0" max="100" step="1"><span class="u">%</span></div><div class="hint">目安：1年70％・2年55％・3年45％・4年35％・5年28％・6年以上20％。安い側はこの半分</div></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="why">
+    <h2>なぜ「壊す前」でないと遅いのか</h2>
+    <p>原状回復の見積りを取り、工事を発注した時点で、造作の価値はゼロになります。次の店主が同じ業態で使えるはずだった厨房も、カウンターも、廃棄物になります。逆に、まだ営業しているうちに継ぎ手を探せば、造作は「売れるもの」のままです。</p>
+    <p>ただし、貸主の承諾、リースの名義、原状回復義務の範囲という3点を先に確かめないと、造作を渡す話は進みません。この3点を60分で一緒に確認するのが、当社の無料相談です。閉店をまだ決めていなくても、迷っている段階でも構いません。</p>
+    <p style="font-size:12.5px;color:var(--ink3)">当社は宅地建物取引業者ではなく、賃貸借契約の仲介・賃料交渉は行いません。扱うのは造作を次の店主へ渡す部分だけです。マッチング（店主と継ぎ手が出会う場）は0円、ご希望の方には有料の個別支援（<a href="matching.html#price2">内容と料金</a>）があります。</p>
+  </section>
+</div></main>
+
+<div class="bar"><a class="p" id="barSoudan" href="soudan.html">無料相談を予約する</a><a class="t" href="tel:080-5309-9770">電話する</a></div>
+
+<footer><div class="wrap">
+  <span class="fl">BRIDGE <b style="color:#9FBBD6">CYCLE</b></span>
+  株式会社｜滋賀県大津市｜国の認定経営革新等支援機関（認定番号 109825000112）<br>
+  <a href="./">トップ</a>｜<a href="matching.html#price2">個別支援の料金</a>｜<a href="matching.html">マッチング</a>｜<a href="matching.html#legal-privacy">プライバシーポリシー</a>
+</div></footer>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s);};
+  /* 紹介コードを引き継ぐ（?ref=BC-001 → localStorage → 相談予約へ） */
+  var ref='';
+  try{var m=location.search.match(/[?&]ref=([A-Za-z0-9_-]{2,20})/);if(m){ref=m[1].toUpperCase();localStorage.setItem('bc_ref',ref);localStorage.setItem('bc_ref_at',new Date().toISOString());}else{ref=localStorage.getItem('bc_ref')||'';}}catch(e){}
+  if(ref){$('#ctaSoudan').href='soudan.html?ref='+ref;$('#barSoudan').href='soudan.html?ref='+ref;}
+
+  var RATE=[100,70,55,45,35,28,20];
+  function num(id){var v=parseFloat($(id).value);return isNaN(v)?0:v;}
+  function man(v){v=Math.round(v);var s=(v<0?'▲':'')+Math.abs(v).toLocaleString('ja-JP')+'万円';return s;}
+  function range(lo,hi){
+    var a=Math.round(Math.min(lo,hi)),b=Math.round(Math.max(lo,hi));
+    var f=function(v){return Math.abs(v).toLocaleString('ja-JP');};
+    if(a===b)return man(a);
+    if(b<0)return '▲'+f(b)+'〜'+f(a)+'万円';          /* 両方マイナス：小さい持ち出しから */
+    if(a>=0)return f(a)+'〜'+f(b)+'万円';             /* 両方プラス */
+    return '▲'+f(a)+'万円〜＋'+f(b)+'万円';            /* 符号が分かれる */
+  }
+  function lbl(lo,hi,plusTxt,minusTxt){var a=Math.min(lo,hi),b=Math.max(lo,hi);if(b<0)return minusTxt;if(a>=0)return plusTxt;return '条件によって持ち出しにも、手元に残る側にもなります';}
+  var rateTouched=false;
+  $('#rate').addEventListener('input',function(){rateTouched=true;calc();});
+  function calc(){
+    var tsubo=num('#tsubo'),rent=num('#rent'),dep=num('#dep'),notice=num('#notice'),lease=num('#lease'),inv=num('#inv'),yrs=num('#yrs'),staff=num('#staff');
+    var pLo=num('#pLo'),pHi=num('#pHi'),mTake=num('#mTake'),proc=num('#proc'),staffCost=num('#staffCost');
+    if(!rateTouched){var y=Math.max(0,Math.min(6,Math.round(yrs)));$('#rate').value=RATE[y];}
+    var rate=num('#rate')/100;
+
+    /* 通常の閉店 */
+    var restLo=tsubo*pLo,restHi=tsubo*pHi;
+    var noticeCost=notice*rent;
+    var staffC=staff*staffCost;
+    var costLo=restLo+noticeCost+lease+staffC+proc, costHi=restHi+noticeCost+lease+staffC+proc;
+    var aSumHi=dep-costLo, aSumLo=dep-costHi; /* 手元に残る額（マイナス＝持ち出し） */
+    $('#aRest').textContent=range(restLo,restHi);
+    $('#aRestS').textContent='スケルトン戻し '+pLo+'〜'+pHi+'万円/坪 × '+tsubo+'坪';
+    $('#aNotice').textContent=man(noticeCost); $('#aNoticeS').textContent=notice+'か月 × '+rent+'万円';
+    $('#aLease').textContent=man(lease);
+    $('#aStaff').textContent=man(staffC); $('#aStaffS').textContent=staff+'人 × '+staffCost+'万円';
+    $('#aProc').textContent=man(proc);
+    $('#aDep').textContent=man(dep);
+    $('#aSum').textContent=range(aSumLo,aSumHi);
+    $('#aBig').textContent=range(aSumLo,aSumHi);
+    $('#aBig').className='big '+(aSumHi<0?'minus':'plus');
+    $('#aLbl').textContent=lbl(aSumLo,aSumHi,'手元に残る額（目安）','持ち出し（敷金を差し引いた後の目安）');
+
+    /* 退店前承継 */
+    var bNoticeM=Math.min(notice,mTake), bNotice=bNoticeM*rent;
+    var saleHi=inv*rate, saleLo=inv*rate/2;
+    /* 楽観側：リース・従業員を継ぎ手が引き継ぐ／慎重側：精算 */
+    var bSumHi=dep+saleHi-bNotice-proc;
+    var bSumLo=dep+saleLo-bNotice-proc-lease-staffC;
+    $('#bNotice').textContent=man(bNotice); $('#bNoticeS').textContent=bNoticeM+'か月 × '+rent+'万円（承継まで'+mTake+'か月の想定）';
+    $('#bLease').textContent=lease?('0〜'+man(lease)):'0円';
+    $('#bStaff').textContent=staffC?('0〜'+man(staffC)):'0円';
+    $('#bProc').textContent=man(proc);
+    $('#bSale').textContent=range(saleLo,saleHi); $('#bSaleS').textContent=inv+'万円 × 残存率'+Math.round(rate*100)+'%（安い側はその半分）';
+    $('#bDep').textContent=man(dep);
+    $('#bSum').textContent=range(bSumLo,bSumHi);
+    $('#bBig').textContent=range(bSumLo,bSumHi);
+    $('#bBig').className='big '+(bSumHi>=0?'plus':'minus');
+    $('#bLbl').textContent=lbl(bSumLo,bSumHi,'手元に残る額（幅で表示）','持ち出し（幅で表示）');
+
+    /* 差額：中央値どうし */
+    var aMid=(aSumLo+aSumHi)/2, bMid=(bSumLo+bSumHi)/2, d=bMid-aMid;
+    $('#dBig').textContent=(d>=0?'＋':'▲')+Math.abs(Math.round(d)).toLocaleString('ja-JP')+'万円';
+    $('#dTxt').textContent=d>=0?'通常の閉店より、これだけ手元に残る計算です（両方の幅の中央値で比較）。造作譲渡額と、リース・従業員の引き継ぎの有無で変わります。':'この条件では承継しても差が出にくい計算です。前提を変えるか、相談で個別に確かめてください。';
+  }
+  document.querySelectorAll('input,select').forEach(function(el){if(el.id!=='rate')el.addEventListener('input',calc);});
+  calc();
+})();
+</script>
+</body>
+</html>
