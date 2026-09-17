@@ -186,6 +186,19 @@ footer .fl b{color:#9FBBD6}
 .pk .pk-s{font-size:12px;opacity:.85}
 .pk .pk-b{font-family:var(--serif);font-weight:800;font-size:19px;line-height:1.3;white-space:nowrap}
 .pk.o{background:var(--shu)} .pk.t{background:var(--ai)} .pk.p{background:#4A4C46}
+/* 匿名試算・相談予約の目立つ導線 */
+.quick{margin-top:16px;max-width:600px;background:var(--card);border:1.5px solid var(--shu);border-radius:16px;padding:14px 16px 14px;box-shadow:var(--shadow)}
+.quick .qt{font-size:12px;letter-spacing:.1em;font-weight:800;color:var(--shu);margin-bottom:8px}
+.quick .qt b{font-family:var(--serif);font-size:15px;color:var(--ink);letter-spacing:0;margin-left:8px}
+.quick .qb{display:grid;grid-template-columns:1.3fr 1fr;gap:8px}
+@media(max-width:520px){.quick .qb{grid-template-columns:1fr}}
+.quick a.q1,.quick a.q2{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:999px;padding:12px 14px;font-weight:800;font-size:15px;text-decoration:none;line-height:1.3;transition:transform .13s}
+.quick a.q1{background:var(--shu);color:#fff;box-shadow:0 6px 16px rgba(168,56,44,.28)}
+.quick a.q2{border:1.5px solid var(--rule2);color:var(--ink);background:#fff}
+.quick a.q1:hover,.quick a.q2:hover{transform:translateY(-2px)}
+.quick a small{display:block;font-size:11px;font-weight:600;opacity:.85;margin-top:2px}
+.quick .qn{font-size:11.5px;color:var(--ink3);margin-top:8px}
+.quick .qn a{color:var(--ink2);font-weight:700}
 .pick-sub{margin-top:14px;font-size:12.5px}
 .pick-sub a{color:var(--ink2);text-decoration:underline;margin-right:16px}
 /* しくみ */
@@ -251,8 +264,15 @@ footer .fl b{color:#9FBBD6}
       <a class="pk t" href="matching.html#entry"><span class="pk-s">店を持ちたい</span><span class="pk-b">お店を、始める</span></a>
       <a class="pk p" href="#platform"><span class="pk-s">管理会社・診断士・自治体</span><span class="pk-b">お店を、支える</span></a>
     </div>
-    <p class="pick-sub" style="margin-top:14px"><a href="yameru.html" style="color:var(--shu);font-weight:800">いくらで辞められるか、30秒で試算（匿名・送信なし）→</a><a href="soudan.html">無料相談を予約（60分）</a></p>
-    <p class="pick-sub" style="margin-top:6px"><a href="hojokin.html">補助金の相談</a><a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">迷ったらLINE</a></p>
+    <div class="quick">
+      <div class="qt">閉店を迷っている方へ<b>まず、いくらで辞められるか。</b></div>
+      <div class="qb">
+        <a class="q1" href="yameru.html">30秒で試算する<small>匿名・名前も店名も不要・入力は送信されません</small></a>
+        <a class="q2" href="soudan.html">無料相談を予約する<small>60分・誰にも伝えません</small></a>
+      </div>
+      <div class="qn">お電話でも：<a href="tel:080-5309-9770">080-5309-9770</a>（代表・中村が出ます）</div>
+    </div>
+    <p class="pick-sub" style="margin-top:10px"><a href="hojokin.html">補助金の相談</a><a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">迷ったらLINE</a></p>
   </div>
   <div class="hpanel" aria-hidden="true">
     <div class="hp hp1" style="background-image:url('images/hero-cafe.jpg')"><span class="cap">場の価値は、次の人へ。</span></div>
