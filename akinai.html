@@ -477,7 +477,32 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 }
 
 /* ===== APP-LIKE FLOW ===== */
+.route-choose{max-width:820px;margin:22px auto 0}
+.route-choose .rq{font-family:var(--serif);font-size:17px;margin:0 0 10px;color:var(--ink)}
+.route-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.route-card{display:block;background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:16px 17px;transition:.16s}
+.route-card:hover{border-color:var(--rose);transform:translateY(-1px)}
+.route-card b{display:block;font-family:var(--serif);font-size:17px;font-weight:500;margin-bottom:3px}
+.route-card span{display:block;font-size:12.5px;line-height:1.65;color:var(--muted)}
+.route-card em{display:inline-block;margin-top:8px;font-style:normal;font-size:11.5px;color:var(--rose);font-weight:700}
+.idea-section{background:linear-gradient(180deg,#f3eee9,#f8f2ed);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.idea-name{max-width:640px;margin:0 auto 12px}
+.idea-name label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
+.idea-name input{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;color:var(--ink)}
+.idea-result{display:none;margin-top:16px;padding:20px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+.idea-result.show{display:block;animation:in .38s cubic-bezier(.2,.7,.2,1) both}
+.idea-result .irlab{font-size:10.5px;letter-spacing:.09em;color:var(--rose);font-weight:700}
+.idea-result h3{font-family:var(--serif);font-size:23px;font-weight:500;margin:5px 0 8px}
+.idea-result .prod{display:inline-block;background:var(--rose-pale);border-radius:999px;padding:4px 10px;font-size:11.5px;color:var(--rose);margin-bottom:10px}
+.idea-result .why{padding:13px 14px;border-radius:14px;background:#fffaf7;border:1px solid var(--line);font-size:13.5px;line-height:1.8;color:#544b45}
+.idea-result .next{margin-top:12px;padding:14px 15px;border-radius:14px;background:var(--ink);color:#fff}
+.idea-result .next b{display:block;font-size:11px;color:#f0c9c0;letter-spacing:.06em;margin-bottom:4px}
+.idea-result .next p{margin:0;font-family:var(--serif);font-size:15px;line-height:1.75}
+.idea-result .note{margin:10px 0 0;font-size:11.5px;line-height:1.65;color:var(--muted)}
+.idea-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.idea-actions .btn{min-height:44px;font-size:12.5px}
 .app-flow-wrap{padding:0 0 34px}
+@media(max-width:680px){.route-grid{grid-template-columns:1fr}}
 .app-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:820px;margin:auto}
 .app-flow .af{position:relative;background:rgba(255,250,245,.78);border:1px solid var(--line);border-radius:18px;padding:14px 15px;min-height:92px}
 .app-flow .af.active{background:var(--paper);border-color:#dcb8ae;box-shadow:0 9px 24px rgba(90,66,52,.06)}
@@ -534,7 +559,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   <div class="wrap nav-inner">
     <a class="brand" href="#"><span class="brand-mark">W</span><span>わたしの商い診断</span></a>
     <nav class="nav-links">
-      <a href="#fortune">無料診断</a>
+      <a href="#start">無料診断</a>
       <a href="#price">45分診断</a>
       <a class="btn booking-link" href="#booking">予約する</a>
     </nav>
@@ -548,10 +573,14 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         <div class="eyebrow">40代からの仕事づくり診断 <span class="en">Akinai Finder</span></div>
         <h1>「私にも、<br><span>売れるものがある？」</span></h1>
         <p class="lead">9問で、これまで人から頼られてきたことを「仕事の種」に変えます。<br>まずは無料3分。会社を辞めるかどうかは、まだ決めなくて大丈夫です。</p>
-        <div class="hero-actions">
-          <a class="btn main" href="#fortune">無料3分診断をはじめる</a>
+        <div class="route-choose" id="start">
+          <p class="rq">今、売ってみたいものはありますか？</p>
+          <div class="route-grid">
+            <a class="route-card" href="#fortune"><b>まだ決まっていない</b><span>これまでのキャリアから「売れるかもしれない経験」を見つけます。</span><em>→ 商い星診断へ</em></a>
+            <a class="route-card" href="#idea-check"><b>売りたいものがある</b><span>その案を「誰が買う・いくら・どう試す」で現実チェックします。</span><em>→ その商品でいける？診断へ</em></a>
+          </div>
         </div>
-        <p class="micro">登録なし・送信なし｜結果は保存・シェアできます</p>
+        <p class="micro">どちらも無料・登録なし・送信なし</p>
       </div>
       <div class="hero-ph">
         <img src="images/akinai-hero.jpg" alt="自宅のテーブルでノートを開き、自分の商いを考える40代の女性" width="706" height="1024" loading="eager" fetchpriority="high">
@@ -567,13 +596,72 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   <div class="app-flow-wrap">
     <div class="wrap">
       <div class="app-flow" aria-label="診断の流れ">
-        <div class="af active"><span class="n">STEP 1</span><b>商い星を知る</b><small>無料3分・9問<br>あなたの強みと仕事の種</small></div>
-        <div class="af"><span class="n">STEP 2</span><b>今の季節を知る</b><small>無料30秒・4問<br>今、何から始めるか</small></div>
-        <div class="af"><span class="n">STEP 3</span><b>必要なら具体化</b><small>45分・5,500円<br>商品・価格・最初の5人</small></div>
+        <div class="af active"><span class="n">FREE</span><b>入口は2つ</b><small>未定→商い星診断<br>決まっている→商品チェック</small></div>
+        <div class="af"><span class="n">NEXT</span><b>今やることを知る</b><small>無料30秒・4問<br>今の「商いの季節」</small></div>
+        <div class="af"><span class="n">PERSONAL</span><b>必要なら具体化</b><small>45分・5,500円<br>商品・価格・最初の5人</small></div>
       </div>
       <p class="quick-note">無料診断だけで終わっても大丈夫。STEP 3は、実際に試したくなった人だけ。</p>
     </div>
   </div>
+
+  <section id="idea-check" class="idea-section">
+    <div class="wrap">
+      <div class="fortune-simple">
+        <div class="kicker">FREE CHECK — 2 min.</div>
+        <h2>その商品で、いける？</h2>
+        <p>「好きだから」でも「向いていそうだから」でもなく、まず売れる条件が揃っているかを6問で確認します。</p>
+      </div>
+
+      <div class="idea-name">
+        <label for="ideaProd">売ってみたいものを一言で</label>
+        <input id="ideaProd" type="text" maxlength="60" placeholder="例：自宅で作る焼き菓子／整理収納サポート／SNS相談">
+      </div>
+
+      <div class="qz" id="ideaQz">
+        <div class="prog"><b id="ipNow">1</b><span>/ 6</span><div class="bar"><i id="ipBar"></i></div><span id="ipTxt">買う人</span></div>
+        <div class="scr on" data-i="0"><h3>その商品に、お金を払ってくれそうな人が具体的に浮かぶ？</h3><p class="sub">Q1 / 6</p><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>まだ「誰でも」くらい</button>
+          <button type="button" data-v="1"><span class="k">B</span>1人くらいは浮かぶ</button>
+          <button type="button" data-v="2"><span class="k">C</span>3人以上、顔が浮かぶ</button>
+        </div></div>
+        <div class="scr" data-i="1"><h3>その人が「なぜ買うか」を、その人の言葉で説明できる？</h3><p class="sub">Q2 / 6</p><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>まだ「喜びそう」くらい</button>
+          <button type="button" data-v="1"><span class="k">B</span>困りごとを1つ言える</button>
+          <button type="button" data-v="2"><span class="k">C</span>実際に聞いた言葉がある</button>
+        </div></div>
+        <div class="scr" data-i="2"><h3>その困りごとに、今すでにお金を払っているものはある？</h3><p class="sub">Q3 / 6</p><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>分からない</button>
+          <button type="button" data-v="1"><span class="k">B</span>無料や自己流で済ませている</button>
+          <button type="button" data-v="2"><span class="k">C</span>似た商品・サービスに払っている</button>
+        </div></div>
+        <div class="scr" data-i="3"><h3>「いくらで売るか」を、今すぐ言える？</h3><p class="sub">Q4 / 6</p><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>まだ決めていない</button>
+          <button type="button" data-v="1"><span class="k">B</span>だいたい決めている</button>
+          <button type="button" data-v="2"><span class="k">C</span>理由も含めて決めている</button>
+        </div></div>
+        <div class="scr" data-i="4"><h3>その価格で売れたとして、自分も続けたいと思える？</h3><p class="sub">Q5 / 6</p><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>手間を考えると自信がない</button>
+          <button type="button" data-v="1"><span class="k">B</span>月に数件なら続けられそう</button>
+          <button type="button" data-v="2"><span class="k">C</span>時間と利益のイメージがある</button>
+        </div></div>
+        <div class="scr" data-i="5"><h3>今月、3人に「有料で」試してもらえる？</h3><p class="sub">Q6 / 6</p><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>まだ声をかけにくい</button>
+          <button type="button" data-v="1"><span class="k">B</span>1人なら声をかけられる</button>
+          <button type="button" data-v="2"><span class="k">C</span>3人に声をかけられる</button>
+        </div></div>
+
+        <div class="idea-result" id="ideaResult" aria-live="polite">
+          <div class="irlab">YOUR NEXT TEST ｜ この商品で次に確かめること</div>
+          <h3 id="ideaResultTitle"></h3>
+          <div class="prod" id="ideaResultProd"></div>
+          <div class="why" id="ideaResultWhy"></div>
+          <div class="next"><b>今週の一歩</b><p id="ideaResultNext"></p></div>
+          <p class="note">※「売れる／売れない」を保証する診断ではありません。今の仮説で不足している確認項目を見つけるチェックです。</p>
+          <div class="idea-actions"><a class="btn" href="#mini">次に「商いの季節」を見る</a><a class="btn ghost booking-link" href="#booking">45分でこの案を詰める</a><button class="btn ghost sm" id="ideaAgain" type="button">やり直す</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="fortune" class="fortune-section">
     <div class="wrap">
@@ -812,13 +900,12 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div class="paid-compare">
         <div class="pc">
           <div class="lab">FREE｜ここまで無料</div>
-          <h3>自分の現在地がわかる</h3>
+          <h3>無料で、今の仮説まで</h3>
           <ul>
-            <li>商い星・商いキャラ</li>
-            <li>自分では気づきにくい価値</li>
-            <li>仮の商品候補3つ</li>
-            <li>今の「商いの季節」</li>
-            <li>今週の商いアクション</li>
+            <li>まだ未定なら：商い星・強み・商品候補3つ</li>
+            <li>売りたいものがあるなら：顧客・価格・有料テストをチェック</li>
+            <li>どちらの入口でも：今の「商いの季節」</li>
+            <li>今週、何を確かめるか</li>
           </ul>
         </div>
         <div class="arr">→</div>
@@ -851,7 +938,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
       <details class="method" id="about">
         <summary>診断のしくみを知りたい方へ</summary>
-        <div class="mi"><b>商い星</b>は、これまで人から頼られてきた行動から「価値の出し方」を見ます。<b>商いの季節</b>は、頼まれること・買い手の顔・有料経験・使える時間の4問で「今やること」を見ます。占いは自分を知る入口、創業判断はお客さん・価格・時間・お金で決めます。</div>
+        <div class="mi"><b>商い星</b>は、これまで人から頼られてきた行動から「価値の出し方」を見ます。すでに売りたいものがある場合は、<b>商品チェック</b>で「誰が買う・困りごと・代替への支払い・価格・続けやすさ・3人テスト」を確認します。<b>商いの季節</b>は、頼まれること・買い手の顔・有料経験・使える時間から「今やること」を見ます。最終判断は、お客さん・価格・時間・お金で決めます。</div>
       </details>
     </div>
   </section>
@@ -900,7 +987,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   </div>
 </footer>
 
-<div class="mbar"><a class="btn" href="#fortune">無料診断</a><a class="btn ghost" href="#price">45分を見る</a></div>
+<div class="mbar"><a class="btn" href="#start">無料診断</a><a class="btn ghost" href="#price">45分を見る</a></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -916,12 +1003,13 @@ if(BOOKING_URL){document.querySelectorAll(".booking-link").forEach(l=>{l.setAttr
 document.getElementById("lineAsk").href=LINE_URL;document.getElementById("lineAsk2").href=LINE_URL;
 
 // ===== 予約フォーム（formsubmit.co／既存の soudan.html と同じ受け口） =====
-let LAST_RESULT="",BASE_RESULT="",LAST_SEASON="",LAST_SEASON_TITLE="",LAST_PLAN="";
+let LAST_RESULT="",BASE_RESULT="",LAST_SEASON="",LAST_SEASON_TITLE="",LAST_PLAN="",LAST_IDEA_RESULT="";
 function syncBookingResult(){
   const parts=[];
   if(BASE_RESULT)parts.push(BASE_RESULT);
   if(LAST_SEASON)parts.push(LAST_SEASON);
   if(LAST_PLAN)parts.push(LAST_PLAN);
+  if(LAST_IDEA_RESULT)parts.push(LAST_IDEA_RESULT);
   LAST_RESULT=parts.join("／");
   const bt=document.getElementById("bresTxt");
   if(bt)bt.textContent=LAST_RESULT||"まだ診断していません";
@@ -1444,6 +1532,55 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   document.getElementById('btnThreadsTop').addEventListener('click',shareToThreads);
   document.getElementById('btnThreads').addEventListener('click',shareToThreads);
   document.getElementById('btnShareTop').addEventListener('click',()=>document.getElementById('btnShare').click());
+})();
+
+// ---- 売りたいものがある人向け：商品チェック ----
+(function(){
+  const qz=document.getElementById('ideaQz');if(!qz)return;
+  const scrs=[...qz.querySelectorAll('.scr')],pNow=document.getElementById('ipNow'),pBar=document.getElementById('ipBar'),pTxt=document.getElementById('ipTxt'),out=document.getElementById('ideaResult');
+  const labels=['買う人','困りごと','支払い','価格','続けやすさ','3人テスト'];
+  let i=0,v=[];
+  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',+s.dataset.i===n));pNow.textContent=n+1;pBar.style.width=((n+1)/6*100)+'%';pTxt.textContent=labels[n]||'';out.classList.remove('show');}
+  qz.querySelectorAll('.scr button').forEach(b=>b.addEventListener('click',()=>{v[i]=+b.dataset.v;if(i<5)setTimeout(()=>show(i+1),120);else fin();}));
+  document.getElementById('ideaAgain').addEventListener('click',()=>{v=[];LAST_IDEA_RESULT='';syncBookingResult();show(0);qz.scrollIntoView({behavior:'smooth',block:'start'});});
+  function fin(){
+    const prod=(document.getElementById('ideaProd').value||'').trim()||'いま考えている商品';
+    const total=v.reduce((a,b)=>a+b,0);
+    const weak=v.map((x,k)=>({x,k})).sort((a,b)=>a.x-b.x||a.k-b.k)[0];
+    let title,why,next;
+    if(v[0]===0||v[1]===0){
+      title='商品より先に、「誰の何を解決するか」を絞る';
+      why='今は商品そのものより、買う人と困りごとの輪郭がまだ広い状態です。商品を作り直す前に、「誰が、何に困って、今どうしているか」を3人に聞く方が早く確かめられます。';
+      next='商品説明をしないで、想定する3人に「最近、このことで何が一番困る？」だけ聞く。3人の言葉に共通点が出たら、その言葉を商品名より先にメモする。';
+    }else if(v[2]===0||v[2]===1){
+      title='「欲しい」より先に、「お金を払う理由」を確かめる';
+      why='困りごとは見えていますが、その困りごとが有料で解決したいほど強いかは、まだ確認余地があります。似たものにいくら払っているか、無料で済ませているならなぜか、を知る段階です。';
+      next='想定する3人に「今はこれに、時間かお金をどれくらい使っている？」と聞く。金額だけでなく、代わりに我慢していることも聞く。';
+    }else if(v[4]===0){
+      title='商品は悪くない。売り方・価格を軽くする';
+      why='買う理由は見えていますが、その価格や提供方法だと、あなた自身が続けにくい可能性があります。「売れるか」だけでなく、「売れた後も続けたいか」を先に整える方が安全です。';
+      next='提供時間・材料・移動・準備を全部書き出し、「ここまでならまたやりたい」と思える最小の形に削る。その形で価格を付け直す。';
+    }else if(v[3]===0||v[5]===0){
+      title='準備を増やすより、「値段をつけて1人に売る」';
+      why='商品と顧客の仮説はあります。今のボトルネックは、価格を外に出すことと、有料で反応を見ることです。ロゴやサイトより、最初の1件が判断材料になります。';
+      next='価格を1つだけ決めて、顔が浮かぶ1人に「この内容を○円で3人だけ試したい」と伝える。断られた理由も記録する。';
+    }else if(total>=10){
+      title='そのまま、小さく有料で試していい';
+      why='買う人・困りごと・支払い・価格・続けやすさ・声をかける相手が、かなり具体的です。ただし「売れる」と決める段階ではなく、同じ条件で3人に売って反応を取る段階です。';
+      next='商品と価格を変えずに3人へ提案する。買った理由・迷った理由・もう一度買うか、の3点だけ記録してから次を決める。';
+    }else{
+      title='商品は残して、1か所だけ確かめる';
+      const names=['買う人','困りごと','支払い実績','価格','続けやすさ','3人に売る準備'];
+      why='全部を作り直す必要はありません。今は「'+names[weak.k]+'」が一番弱いので、そこだけ確かめれば次の判断がしやすくなります。';
+      next='今週は「'+names[weak.k]+'」だけ確認する。確認できるまで、商品名・ロゴ・SNS投稿を増やさない。';
+    }
+    document.getElementById('ideaResultTitle').textContent=title;
+    document.getElementById('ideaResultProd').textContent=prod;
+    document.getElementById('ideaResultWhy').textContent=why;
+    document.getElementById('ideaResultNext').textContent=next;
+    LAST_IDEA_RESULT='商品チェック：'+prod+'／'+title;syncBookingResult();
+    scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='6';pBar.style.width='100%';pTxt.textContent='結果';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
 })();
 
 // ---- 30秒チェック（1問ずつ） ----
