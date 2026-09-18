@@ -1577,7 +1577,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       belly.style.display='';
       const warm=document.getElementById('rWarm');document.getElementById('rWarmText').textContent=WARM[w];warm.style.display='';
     }
-    else{document.getElementById('rQuote').textContent='';document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');document.getElementById('rInd').textContent='';const belly=document.getElementById('rBelly');if(belly)belly.style.display='none';const warm=document.getElementById('rWarm');if(warm)warm.style.display='none';}
+    else{document.getElementById('rQuote').textContent='';document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');document.getElementById('rInd').textContent='';const belly=document.getElementById('rBelly');if(belly)belly.style.display='none';const warm=document.getElementById('rWarm');if(warm){if(voiceMeta){document.getElementById('rWarmText').textContent=WARM[w];warm.style.display='';}else warm.style.display='none';}}
     // 3候補
     const cl=document.getElementById('cl'); cl.innerHTML='';
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='none');
@@ -1614,6 +1614,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='');
     document.getElementById('plan').scrollIntoView({behavior:'smooth',block:'start'});}
   window.runAkinaiFromVoice=function(w,w2,meta){
+    ans=[];
     window.AKINAI_VOICE_RESULT=meta||null;
     render(w,w2);
   };
