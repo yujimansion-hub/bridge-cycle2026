@@ -415,6 +415,24 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .season-title-box{margin:10px 0 0;padding:12px 14px;border-radius:14px;background:var(--rose-pale);border:1px solid #edd6cf;text-align:center}
 .season-title-box span{display:block;font-size:10.5px;color:var(--rose);font-weight:700;letter-spacing:.08em}
 .season-title-box b{display:block;margin-top:2px;font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink)}
+.belly{margin:14px 0 0;padding:16px 16px 15px;border-radius:18px;background:#fff;border:1px solid #edd6cf}
+.belly .blab{display:block;font-size:10.5px;letter-spacing:.09em;color:var(--rose);font-weight:700;margin-bottom:5px}
+.belly p{margin:0;font-size:14px;line-height:1.85;color:#4a413b}
+.belly p+p{margin-top:9px}
+.belly .bend{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.paid-peek{margin-top:4px;border:1px solid #e1c8bf;border-radius:16px;background:#fff;overflow:hidden}
+.paid-peek summary{cursor:pointer;padding:12px 14px;font-size:12.5px;font-weight:700;color:var(--rose);list-style:none}
+.paid-peek summary::-webkit-details-marker{display:none}
+.paid-peek summary:after{content:"＋";float:right}
+.paid-peek[open] summary:after{content:"－"}
+.paid-peek .pp-in{padding:0 14px 14px}
+.paid-peek .pp-head{font-family:var(--serif);font-size:15.5px;color:var(--ink);margin:0 0 10px}
+.paid-peek .pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.paid-peek .pp-cell{padding:10px 11px;border-radius:12px;background:#fffaf7;border:1px solid var(--line)}
+.paid-peek .pp-cell span{display:block;font-size:10.5px;color:var(--muted);margin-bottom:2px}
+.paid-peek .pp-cell b{display:block;font-family:var(--serif);font-size:13px;line-height:1.55;font-weight:500;color:var(--ink)}
+.paid-peek .pp-note{margin:10px 0 0;font-size:11.5px;line-height:1.7;color:var(--muted)}
+@media(max-width:640px){.paid-peek .pp-grid{grid-template-columns:1fr}}
 .result-alt{margin:8px 0 2px;padding:0;border-bottom:0}
 .result-alt summary{font-size:12.5px;color:var(--rose);font-weight:700;cursor:pointer}
 .result-alt .ol{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
@@ -587,6 +605,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
             <div class="letgo"><b>もう、しなくていいこと</b><p id="rLetgo"></p></div>
+            <div class="belly" id="rBelly" style="display:none">
+              <span class="blab">あなたの9つの答えを、つないで読むと</span>
+              <p id="rStory"></p>
+              <p class="bend" id="rStoryEnd"></p>
+            </div>
           </div>
           <div class="share-now">
             <b>この結果、あとで見返せるように残しておく。</b>
@@ -637,6 +660,21 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div class="cta45" id="cta45" style="display:none">
             <p class="q1" id="paidHook">この商いキャラを仕事にする前に、今の「商いの季節」を確かめる。</p>
             <p>無料診断でわかったのは、向き・仮の商品・今週の一歩。次の30秒で、「今は何をする時期か」を現実の4問から確認します。</p>
+            <details class="paid-peek">
+              <summary>有料45分では、ここから何をする？ 少しだけ見る</summary>
+              <div class="pp-in">
+                <p class="pp-head">無料の「これならできそう」を、45分で「この条件なら試せる」に変えます。</p>
+                <div class="pp-grid">
+                  <div class="pp-cell"><span>無料で出た仮の商品</span><b id="peekProd">—</b></div>
+                  <div class="pp-cell"><span>仮の価格</span><b id="peekPrice">—</b></div>
+                  <div class="pp-cell"><span>45分で決める</span><b>最初に声をかける5人</b></div>
+                  <div class="pp-cell"><span>45分で決める</span><b>週に使える時間</b></div>
+                  <div class="pp-cell"><span>45分で決める</span><b>月3万・5万円に必要な人数</b></div>
+                  <div class="pp-cell"><span>45分で決める</span><b>90日後の「続ける／やめる」基準</b></div>
+                </div>
+                <p class="pp-note">その場で話しながら、1枚の「わたしの商いカルテ」に埋めて持ち帰ります。占いの続きをするのではなく、あなたの時間・収入・生活条件を入れて現実に落とします。</p>
+              </div>
+            </details>
             <a class="btn" href="#mini">無料診断 STEP 2｜30秒で「商いの季節」を見る →</a>
           </div>
 
@@ -697,6 +735,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div class="season-title-box" id="seasonTitleBox" style="display:none"><span>今のあなたの称号</span><b id="seasonTitle"></b></div>
           <p class="season-combo" id="seasonCombo" style="display:none"></p>
           <p class="season-recheck">商いの季節は固定ではありません。売ってみた・時間が取れた・お客さんが見えたら変わります。1か月後に、また確認してください。</p>
+          <p style="margin:12px 0 8px;font-size:12.5px;color:var(--muted)">45分では、ここまでの結果を最初から説明し直さず、この続きから「商品・価格・最初の5人・週の時間・90日」を1枚にします。</p>
           <div class="cta-row"><a class="btn booking-link" href="#booking">45分で、この季節に合う90日を決める</a><button type="button" class="btn ghost sm" id="again2">やり直す</button></div>
         </div>
       </div>
@@ -876,6 +915,14 @@ const AFFIRM={
   bridge:"あなたの人脈が価値なのではありません。「この人には、これ」と選べる目が価値です。",
   boat:"あなたの身軽さは、無計画ではありません。小さく試して、本当の手応えを早く見つけられる力です。",
   tower:"あなたの几帳面さは、裏方仕事ではありません。相手の迷いとミスを減らして、安心をつくる力です。"
+};
+const BOTTOM_LINE={
+  light:"足りないのは、新しい資格ではなく、「聞いて整理する時間」に名前と値段をつけることです。",
+  hand:"足りないのは、もっと上手になることではなく、今の丁寧さに「作業時間の値段」をつけることです。",
+  garden:"足りないのは、もっと頑張って支えることではなく、回数・時間・休む日を決めて、続けられる形にすることです。",
+  bridge:"足りないのは、人脈を増やすことではなく、「なぜそれを選ぶのか」を見える形にして、判断そのものを商品にすることです。",
+  boat:"足りないのは、完璧な準備ではなく、条件をそろえて3回だけ試し、「何が売れたか」を比べられるようにすることです。",
+  tower:"足りないのは、もっと裏方を引き受けることではなく、相手が減らせる手間とミスまで含めて値段を決めることです。"
 };
 const LETGO={
   light:"全部わかってから話さなくていい。聞きながら整理すること自体が、もう価値です。",
@@ -1216,8 +1263,15 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
     if(labels.length){const pick=labels.filter(l=>l.v===w).slice(0,3);
       document.getElementById('rQuote').textContent='あなたが選んだ'+pick.length+'つの答え、'+pick.map(l=>'「'+l.t+'」').join('')+'には、共通点があります。';
       document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');
-      const i7=ans[6]&&IND7[ans[6]], i8=ans[7]&&IND8[ans[7]];document.getElementById('rInd').textContent=[i7,i8].filter(Boolean).join(' ');}
-    else{document.getElementById('rQuote').textContent='';document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');document.getElementById('rInd').textContent='';}
+      const i7=ans[6]&&IND7[ans[6]], i8=ans[7]&&IND8[ans[7]];document.getElementById('rInd').textContent=[i7,i8].filter(Boolean).join(' ');
+      const byK=k=>{const z=labels.find(x=>x.k===k);return z?z.t:'';};
+      const q1=byK(0),q4=byK(3),q5=byK(4),q8=byK(7),q9=byK(8);
+      const belly=document.getElementById('rBelly');
+      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ことで感謝され、普段は「<b>'+q4+'</b>」ことを頼られ、人が集まる場では「<b>'+q5+'</b>」役を任されてきました。<br>でも、自分のことになると、失敗したくないときは「<b>'+q8+'</b>」を選ぶ。そして10年後は「<b>'+q9+'</b>」と呼ばれていたい。';
+      document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、すでに周りから役割を渡されている人の答えです。'+BOTTOM_LINE[w];
+      belly.style.display='';
+    }
+    else{document.getElementById('rQuote').textContent='';document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');document.getElementById('rInd').textContent='';const belly=document.getElementById('rBelly');if(belly)belly.style.display='none';}
     // 3候補
     const cl=document.getElementById('cl'); cl.innerHTML='';
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='none');
@@ -1247,6 +1301,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
   function showPlan(w,idx,L){const c=CAND[w][idx];document.getElementById('planLab').textContent='では、'+L+'を選んだあなたなら';
     LAST_PLAN='選択案：'+c.t;syncBookingResult();
     document.getElementById('pProd').textContent=c.prod;document.getElementById('pWho').textContent=c.who;document.getElementById('pPrice').textContent=c.price;document.getElementById('pNum').textContent=c.num;document.getElementById('pPrep').textContent=c.prep;document.getElementById('pNo').textContent=c.no;
+    const pp=document.getElementById('peekProd'),pr=document.getElementById('peekPrice');if(pp)pp.textContent=c.prod;if(pr)pr.textContent=c.price;
     document.getElementById('wText').textContent=c.week+(sub?' '+SUBTWEAK[sub]:'');
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='');
     document.getElementById('plan').scrollIntoView({behavior:'smooth',block:'start'});}
