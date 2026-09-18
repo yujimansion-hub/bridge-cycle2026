@@ -183,9 +183,17 @@ h2{font-size:clamp(26px,3.6vw,42px);line-height:1.45;font-weight:500;margin:10px
 .cl button{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;color:var(--ink);transition:.15s;position:relative}
 .cl button:hover{border-color:var(--rose)}
 .cl button.on{border-color:var(--rose);background:var(--rose-pale)}
-.cl button .k{grid-row:1/3;width:30px;height:30px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--en);font-style:italic;font-size:17px;color:var(--rose)}
+.cl button .k{grid-row:1/4;width:30px;height:30px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--en);font-style:italic;font-size:17px;color:var(--rose)}
+.cl button .job{font-size:10.5px;color:var(--rose);font-weight:700;letter-spacing:.03em}
 .cl button .t{font-family:var(--serif);font-size:16px}
 .cl button .d{font-size:12.5px;color:var(--muted);line-height:1.5}
+.occupation-hint{margin:14px 0 0;padding:14px 16px;border-radius:16px;background:#fffaf7;border:1px solid var(--line)}
+.occupation-hint b{display:block;font-size:11px;color:var(--rose);letter-spacing:.08em;margin-bottom:4px}
+.occupation-hint p{margin:0;font-family:var(--serif);font-size:15px;line-height:1.75;color:var(--ink)}
+.occupation-hint small{display:block;margin-top:5px;font-size:10.5px;color:var(--muted);line-height:1.55}
+.biz-summary{margin:12px 0 8px;padding:14px 15px;border-radius:14px;background:var(--rose-pale);border:1px solid #edd6cf}
+.biz-summary span{display:block;font-size:10.5px;color:var(--rose);font-weight:700;letter-spacing:.08em;margin-bottom:3px}
+.biz-summary p{margin:0;font-family:var(--serif);font-size:15px;line-height:1.75;color:var(--ink)}
 .cl button.rec{border-color:var(--rose);background:#fff}
 .cl button .t em{font-style:normal;color:var(--rose);font-size:13px}
 .cands .pick{margin:10px 0 0;font-size:13px;color:var(--muted)}
@@ -572,7 +580,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
         <h1>あなたの経験、<br><span>何ならお金をもらえそう？</span></h1>
-        <p class="lead">占いとして「商い星」を楽しみながら、結果は具体的に。<br><b>商品候補・仮の価格・最初に声をかける相手・今週の一歩</b>まで出します。</p>
+        <p class="lead">占いとして「商い星」を楽しみながら、結果は具体的に。<br><b>職業イメージ・商いプラン3案・仮の価格・最初に声をかける相手・今週の一歩</b>まで出します。</p>
         <div class="route-choose" id="start">
           <p class="rq">今のあなたに近い方を選んでください。</p>
           <div class="route-grid">
@@ -712,14 +720,22 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             </div>
           </div>
 
+          <div class="occupation-hint">
+            <b>職業・仕事にすると近いのは</b>
+            <p id="rOccupation"></p>
+            <small>職業名を決める診断ではありません。あなたの経験を仕事にした場合の「近い形」です。実際に始める際は、業種ごとの資格・許認可を確認します。</small>
+          </div>
+
           <div class="cands">
-            <div class="lab">最初の商品候補 3つ</div>
+            <div class="lab">あなたの商いプラン 3案</div>
             <div class="cl" id="cl"></div>
-            <p class="pick">1つ選ぶと、「最初の商品・仮価格・最初に声をかける相手・今週の一歩」まで出ます。</p>
+            <p class="pick">気になる案を1つ選ぶと、「仕事イメージ・商品・相手・価格・売上目安・今週やること」まで1枚にします。</p>
           </div>
 
           <div class="plan" id="plan" style="display:none">
             <div class="lab" id="planLab"></div>
+            <div class="pl"><span>仕事イメージ</span><b id="pJob"></b></div>
+            <div class="pl"><span>商いの形</span><b id="pModel"></b></div>
             <div class="pl"><span>最初の商品</span><b id="pProd"></b></div>
             <div class="pl"><span>最初に声をかける人</span><b id="pWho"></b></div>
             <div class="pl"><span>まず試す価格</span><b id="pPrice"></b></div>
@@ -727,6 +743,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <div class="pl"><span>今週用意するもの</span><b id="pPrep"></b></div>
             <div class="pl"><span>今はやらないこと</span><b id="pNo"></b></div>
             <div class="pl brake"><span>先に決めること</span><b id="pRisk"></b></div>
+            <div class="biz-summary"><span>この案を一文で</span><p id="pSummary"></p></div>
           </div>
 
           <div class="week" id="week" style="display:none">
@@ -740,7 +757,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <details class="paid-peek">
               <summary>45分なら、ここから何を決める？ 少しだけ見る</summary>
               <div class="pp-in">
-                <p class="pp-head">無料の「これならできそう」を、45分で「この条件なら試せる」に変えます。</p>
+                <p class="pp-head">無料で出た3つの商いプランから1案を選び、45分で「実際に誰に売るか」まで決めます。</p>
                 <div class="pp-grid">
                   <div class="pp-cell"><span>無料で出た仮の商品</span><b id="peekProd">—</b></div>
                   <div class="pp-cell"><span>仮の価格</span><b id="peekPrice">—</b></div>
@@ -894,7 +911,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div class="lab">FREE｜無料診断</div>
           <h3>無料で、ここまで出ます</h3>
           <ul>
-            <li>まだ未定なら：商い星・強み・商品候補3つ</li>
+            <li>まだ未定なら：商い星・職業イメージ・商いプラン3案</li>
             <li>売りたいものがあるなら：顧客・価格・有料テストをチェック</li>
             <li>どちらの入口でも：今週どこまで動けるか</li>
             <li>今週、何を1つ確かめるか</li>
@@ -1272,6 +1289,30 @@ const CAND={
   {t:"ひな形・チェックリストを売る",d:"自分が使っている段取り表を、渡せる形にする",fit:["hand","bridge"],prod:"ひな形・チェックリスト（PDF）",who:"同じことで毎回困っている人",price:"1,500〜3,000円",num:"月5万円なら20部／月3万円なら12部",prep:"いま使っている表を、1枚に整える",no:"販売サイト／デザイン",week:"「これ、どうやってるの？」と聞いてきた人1人に、「表にしたから、1,500円で渡せるよ」と伝える。"},
   {t:"一人分だけの「整理お試し」",d:"1回だけ、1人だけ、整えてみる",fit:["boat"],prod:"1回だけの整理サポート（2時間）",who:"まず一度、片づいた状態を見たい人",price:"8,000円",num:"月5万円なら6件／月3万円なら4件",prep:"2時間と、チェックリスト",no:"契約書／継続プラン",week:"1人に、「一回だけ、2時間で整えるの試させて。8,000円で」と聞く。"}]
 };
+const JOB={
+  light:["個別相談・相談支援","聞き取り・整理支援","少人数講座・ファシリテーション"],
+  hand:["オーダー制作・加工","マルシェ・ポップアップ販売","オーダーメイド販売"],
+  garden:["伴走支援・継続サポート","少人数コミュニティ・教室運営","記録つき継続サポート"],
+  bridge:["比較・選定アドバイス","コーディネート・交流会運営","セレクト販売"],
+  boat:["出張サービス","イベント・間借り・ポップアップ","予約制サービス"],
+  tower:["小規模事業者向け事務支援","テンプレート・ひな形販売","整理・業務改善サポート"]
+};
+const MODEL={
+  light:["30分の単発相談型","相談＋成果物型","少人数グループ型"],
+  hand:["受注制作型","1日販売型","オーダー受注型"],
+  garden:["3回セット型","月1回コミュニティ型","月額サポート型"],
+  bridge:["個別提案型","少人数マッチング型","小ロット物販型"],
+  boat:["訪問・出張型","1日出店型","曜日固定の予約型"],
+  tower:["月額定額型","デジタル商品型","単発お試し型"]
+};
+const OCCUPATION={
+  light:"相談支援／聞き取り・編集／講師・ファシリテーション",
+  hand:"制作・加工／オーダー販売／マルシェ・ポップアップ販売",
+  garden:"伴走支援／少人数教室／継続サポート",
+  bridge:"比較・選定サポート／コーディネート／セレクト販売",
+  boat:"出張サービス／イベント・間借り／予約制サービス",
+  tower:"事務支援／業務整理／テンプレート販売"
+};
 const TWIST={light:"あなたは「聞き上手」ではなく、「聞いた後に、次の一歩まで作ってしまう人」かもしれません。",hand:"あなたは“慎重な人”ではなく、「自分の価値にだけ慎重な人」かもしれません。",garden:"あなたは“優しい人”というより、「続けられる形を、無意識に作っている人」かもしれません。",bridge:"あなたは“顔が広い人”ではなく、「合う・合わないを、先に見抜いている人」かもしれません。",boat:"あなたは“計画性がない人”ではなく、「試す前には決められないだけの、現実主義者」かもしれません。",tower:"あなたは“裏方”ではなく、「安心を売っているのに、自分だけ気づいていない人」かもしれません。"};
 const HEAD={light:["「相談」を売る人ではありません。","“整理して、次の一歩を作る”ことでお金になる人です。"],hand:["「器用さ」を売る人ではありません。","“この人に頼めば、ちゃんと仕上がる”という安心でお金になる人です。"],garden:["「優しさ」を売る人ではありません。","“この人となら、続けられる”という時間でお金になる人です。"],bridge:["「人脈」を売る人ではありません。","“あなたが選んだなら大丈夫”という判断でお金になる人です。"],boat:["「行動力」を売る人ではありません。","“まずやってみた人だけが持つ手応え”でお金になる人です。"],tower:["「事務作業」を売る人ではありません。","“任せておけば、抜けがない”という安心でお金になる人です。"]};
 const TSUMARI={light:"つまり、ただの「聞き上手」ではありません。相手の頭の中のごちゃごちゃを、“次に何をするか”まで整理できること。ここに、あなたの商いの種があります。",hand:"つまり、ただの「器用な人」ではありません。頼まれたものを、期待より少し上で仕上げて返せること。ここに、あなたの商いの種があります。",garden:"つまり、ただの「優しい人」ではありません。一度きりで終わらせず、相手が続けられる関係を作れること。ここに、あなたの商いの種があります。",bridge:"つまり、ただの「顔が広い人」ではありません。その人に合うものを、理由つきで選べること。ここに、あなたの商いの種があります。",boat:"つまり、ただの「フットワークが軽い人」ではありません。考える前に一回やって、手応えを持ち帰れること。ここに、あなたの商いの種があります。",tower:"つまり、ただの「しっかり者」ではありません。相手の抜けを先回りして、任せられる形に整えられること。ここに、あなたの商いの種があります。"};
@@ -1400,6 +1441,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       document.getElementById('rTwist').textContent=TWIST[w];
     }
     document.getElementById('rHead').innerHTML='あなたの場合は、<b>'+HEAD[w][0]+'</b><br>'+HEAD[w][1];
+    document.getElementById('rOccupation').textContent=OCCUPATION[w];
     const labels=[];scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>{const k=+sc.dataset.i;const v=ans[k];if(!v)return;const btn=[...sc.querySelectorAll('button')].find(b=>b.dataset.v===v);if(btn)labels.push({k,v,t:btn.textContent.replace(/^[A-D]/,'').trim()});});
     if(labels.length){const pick=labels.filter(l=>l.v===w).slice(0,3);
       document.getElementById('rQuote').textContent='あなたが選んだ'+pick.length+'つの答え、'+pick.map(l=>'「'+l.t+'」').join('')+'には、共通点があります。';
@@ -1418,7 +1460,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     const cl=document.getElementById('cl'); cl.innerHTML='';
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='none');
     const order=CAND[w].map((c,idx)=>({c,idx,rec:!!(w2&&c.fit.includes(w2))})).sort((a,b)=>(b.rec?1:0)-(a.rec?1:0));
-    order.forEach((o,pos)=>{const c=o.c;const b=document.createElement('button');b.type='button';if(o.rec)b.classList.add('rec');b.innerHTML='<span class="k">'+'ABC'[pos]+'</span><span class="t">'+(o.rec?'<em>おすすめ｜</em>':'')+c.t+'</span><span class="d">'+c.d+(o.rec?'　— 副星「'+d2.sym+'」のあなたに合いやすい':'')+'</span>';
+    order.forEach((o,pos)=>{const c=o.c;const b=document.createElement('button');b.type='button';if(o.rec)b.classList.add('rec');b.innerHTML='<span class="k">'+'ABC'[pos]+'</span><span class="job">仕事イメージ｜'+JOB[w][o.idx]+'</span><span class="t">'+(o.rec?'<em>おすすめ｜</em>':'')+c.t+'</span><span class="d">'+c.d+(o.rec?'　— 副星「'+d2.sym+'」のあなたに合いやすい':'')+'</span>';
       b.addEventListener('click',()=>{[...cl.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');showPlan(w,o.idx,'ABC'[pos]);});cl.appendChild(b);});
     document.getElementById('pRisk').textContent=d.risk;
     // もっと楽しむ
@@ -1440,9 +1482,11 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     res.classList.add('on'); res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
-  function showPlan(w,idx,L){const c=CAND[w][idx];document.getElementById('planLab').textContent='では、'+L+'を選んだあなたなら';
-    LAST_PLAN='選択案：'+c.t;syncBookingResult();
+  function showPlan(w,idx,L){const c=CAND[w][idx],job=JOB[w][idx],model=MODEL[w][idx];document.getElementById('planLab').textContent=L+'案｜最初の小さなビジネスプラン';
+    LAST_PLAN='選択案：'+job+'／'+c.t;syncBookingResult();
+    document.getElementById('pJob').textContent=job;document.getElementById('pModel').textContent=model;
     document.getElementById('pProd').textContent=c.prod;document.getElementById('pWho').textContent=c.who;document.getElementById('pPrice').textContent=c.price;document.getElementById('pNum').textContent=c.num;document.getElementById('pPrep').textContent=c.prep;document.getElementById('pNo').textContent=c.no;
+    document.getElementById('pSummary').textContent=c.who+'に、「'+c.prod+'」を'+c.price+'で。'+c.num+'を目安に、小さく試します。';
     const pp=document.getElementById('peekProd'),pr=document.getElementById('peekPrice');if(pp)pp.textContent=c.prod;if(pr)pr.textContent=c.price;
     document.getElementById('wText').textContent=c.week+(sub?' '+SUBTWEAK[sub]:'');
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='');
