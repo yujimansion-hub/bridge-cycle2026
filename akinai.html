@@ -405,6 +405,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .card-name small{display:block;margin-top:4px;font-size:10.5px;color:var(--muted)}
 .pair-quick{margin:9px 0 0;font-size:12.5px;color:#655b55}
 .pair-quick b{font-family:var(--serif);font-size:14px;color:var(--rose);font-weight:500}
+.star-art{--art:#c47f74;width:112px;height:112px;margin:8px auto 10px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff 0 18%,color-mix(in srgb,var(--art) 13%,#fffaf5) 55%,#fffaf5 100%);border:1px solid color-mix(in srgb,var(--art) 35%,#eadbd2);box-shadow:0 10px 24px rgba(90,66,52,.08)}
+.star-art svg{width:78px;height:78px;color:var(--art);overflow:visible}
+.star-art.light{--art:#c88770}.star-art.hand{--art:#a98270}.star-art.garden{--art:#879a7b}.star-art.bridge{--art:#8b829c}.star-art.boat{--art:#78949d}.star-art.tower{--art:#a69170}
+.star-art-sub{display:flex;justify-content:center;align-items:center;gap:7px;margin:-2px 0 8px;font-size:11px;color:var(--muted)}
+.star-art-sub i{font-style:normal;width:7px;height:7px;border-radius:50%;background:var(--rose);opacity:.65}
 .score-mix{margin:10px 0 2px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.72);border:1px solid #edd6cf}
 .score-mix .sm-title{font-size:10.5px;color:var(--muted);margin-bottom:7px}
 .score-mix .sm-row{display:grid;grid-template-columns:2.5em 1fr 5.5em;align-items:center;gap:8px;margin:6px 0}
@@ -600,6 +605,8 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <p class="result-basis">※ 性格を決めつける診断ではありません。この数年のあなたの「実際の行動」から組み立てています。</p>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
+            <div class="star-art" id="rArt" aria-hidden="true"></div>
+            <div class="star-art-sub" id="rArtSub" style="display:none"></div>
             <div class="score-mix" id="rMix" style="display:none"></div>
             <div class="affirm"><span>あなたが、もう持っているもの</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
@@ -909,6 +916,14 @@ function syncBookingResult(){
   const bt=document.getElementById("bresTxt");
   if(bt)bt.textContent=LAST_RESULT||"まだ診断していません";
 }
+const STAR_ART={
+  light:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M38 62h24"/><path d="M41 70h18"/><path d="M45 78h10"/><path d="M50 18c-12 9-18 19-18 30 0 11 8 19 18 19s18-8 18-19c0-11-6-21-18-30z"/><path d="M50 34c-5 5-8 10-8 15 0 5 3 9 8 11 5-2 8-6 8-11 0-5-3-10-8-15z"/><path d="M23 35l-7-5M77 35l7-5M50 10V3"/></svg>`,
+  hand:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M29 48V29c0-4 6-4 6 0v17"/><path d="M35 45V22c0-4 6-4 6 0v23"/><path d="M41 44V20c0-4 6-4 6 0v24"/><path d="M47 44V25c0-4 6-4 6 0v23"/><path d="M53 48l7-9c3-4 8 0 5 5L57 57"/><path d="M29 46c0 20 6 34 22 34 14 0 22-10 22-24"/><path d="M45 82c-5 3-9 7-11 12M57 82c5 3 9 7 11 12"/></svg>`,
+  garden:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M50 82V43"/><path d="M50 55c-16 0-25-8-28-21 15-1 25 6 28 21z"/><path d="M50 48c15 0 24-8 28-21-15-1-25 6-28 21z"/><path d="M39 83h22"/><path d="M31 90h38"/><circle cx="50" cy="22" r="5"/></svg>`,
+  bridge:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 64h68"/><path d="M22 64c5-24 16-36 28-36s23 12 28 36"/><path d="M30 64V48M70 64V48M50 64V28"/><path d="M17 73c8 5 14 5 22 0 8 5 14 5 22 0 8 5 14 5 22 0"/><circle cx="20" cy="24" r="4"/><circle cx="80" cy="24" r="4"/></svg>`,
+  boat:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M50 18v43"/><path d="M50 22L27 53h23"/><path d="M52 26l20 27H52"/><path d="M22 61h56c-4 14-14 21-28 21S26 75 22 61z"/><path d="M16 88c8-4 15-4 23 0 8-4 15-4 23 0 8-4 15-4 23 0"/></svg>`,
+  tower:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M31 82h38"/><path d="M36 82l4-50h20l4 50"/><path d="M42 32v-9h16v9"/><path d="M46 23V13h8v10"/><path d="M41 47h18M39 61h22"/><path d="M46 82V69h8v13"/><circle cx="50" cy="39" r="3"/></svg>`
+};
 const AFFIRM={
   light:"あなたは、話を聞くだけの人ではありません。相手の中にある答えを、言葉にして返せる人です。",
   hand:"あなたの丁寧さは、性格ではなく信用です。「この人に頼めば大丈夫」が、もう商品になり始めています。",
@@ -1264,6 +1279,8 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
     BASE_RESULT=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:d.sym+(d2?'×'+d2.sym:'')};
     document.getElementById('rStars').textContent=d.sym+(d2?' × '+d2.sym:'')+'　主星'+(d2?'・副星':'');
+    const art=document.getElementById('rArt');art.className='star-art '+w;art.innerHTML=STAR_ART[w];
+    const artSub=document.getElementById('rArtSub');if(d2){artSub.style.display='flex';artSub.innerHTML='<span>主星 '+d.sym+'</span><i></i><span>副星 '+d2.sym+'</span>';}else{artSub.style.display='none';artSub.innerHTML='';}
     document.getElementById('rAffirm').textContent=AFFIRM[w];
     document.getElementById('rLetgo').textContent=LETGO[w];
     const mix=document.getElementById('rMix'),mx=window.AKINAI_SCORE_MIX;
@@ -1352,6 +1369,18 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
   } else if(t&&D[t]){render(t,(t2&&D[t2]&&t2!==t)?t2:null);}
 
   // ---- 結果カード画像（1080×1920 ストーリーズ用） ----
+  function drawStarArt(ctx,key,cx,cy,s){
+    ctx.save();ctx.translate(cx,cy);ctx.scale(s/100,s/100);ctx.lineWidth=3;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle={light:'#c88770',hand:'#a98270',garden:'#879a7b',bridge:'#8b829c',boat:'#78949d',tower:'#a69170'}[key]||'#c47f74';ctx.fillStyle='transparent';
+    const L=(x1,y1,x2,y2)=>{ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();};
+    const C=(x,y,r)=>{ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.stroke();};
+    if(key==='light'){ctx.beginPath();ctx.moveTo(50,18);ctx.bezierCurveTo(38,27,32,37,32,48);ctx.bezierCurveTo(32,59,40,67,50,67);ctx.bezierCurveTo(60,67,68,59,68,48);ctx.bezierCurveTo(68,37,62,27,50,18);ctx.stroke();ctx.beginPath();ctx.moveTo(50,34);ctx.bezierCurveTo(45,39,42,44,42,49);ctx.bezierCurveTo(42,54,45,58,50,60);ctx.bezierCurveTo(55,58,58,54,58,49);ctx.bezierCurveTo(58,44,55,39,50,34);ctx.stroke();L(38,70,62,70);L(41,78,59,78);L(45,86,55,86);L(50,10,50,3);}
+    else if(key==='hand'){L(29,48,29,29);L(35,45,35,22);L(41,44,41,20);L(47,44,47,25);ctx.beginPath();ctx.moveTo(29,46);ctx.bezierCurveTo(29,66,35,80,51,80);ctx.bezierCurveTo(65,80,73,70,73,56);ctx.stroke();ctx.beginPath();ctx.moveTo(53,48);ctx.lineTo(60,39);ctx.bezierCurveTo(63,35,68,39,65,44);ctx.lineTo(57,57);ctx.stroke();L(45,82,34,94);L(57,82,68,94);}
+    else if(key==='garden'){L(50,82,50,43);ctx.beginPath();ctx.moveTo(50,55);ctx.bezierCurveTo(34,55,25,47,22,34);ctx.bezierCurveTo(37,33,47,40,50,55);ctx.stroke();ctx.beginPath();ctx.moveTo(50,48);ctx.bezierCurveTo(65,48,74,40,78,27);ctx.bezierCurveTo(63,26,53,33,50,48);ctx.stroke();L(39,83,61,83);L(31,90,69,90);C(50,22,5);}
+    else if(key==='bridge'){L(16,64,84,64);ctx.beginPath();ctx.moveTo(22,64);ctx.bezierCurveTo(27,40,38,28,50,28);ctx.bezierCurveTo(62,28,73,40,78,64);ctx.stroke();L(30,64,30,48);L(70,64,70,48);L(50,64,50,28);ctx.beginPath();ctx.moveTo(17,73);ctx.bezierCurveTo(25,78,31,78,39,73);ctx.bezierCurveTo(47,78,53,78,61,73);ctx.bezierCurveTo(69,78,75,78,83,73);ctx.stroke();C(20,24,4);C(80,24,4);}
+    else if(key==='boat'){L(50,18,50,61);ctx.beginPath();ctx.moveTo(50,22);ctx.lineTo(27,53);ctx.lineTo(50,53);ctx.stroke();ctx.beginPath();ctx.moveTo(52,26);ctx.lineTo(72,53);ctx.lineTo(52,53);ctx.stroke();ctx.beginPath();ctx.moveTo(22,61);ctx.lineTo(78,61);ctx.bezierCurveTo(74,75,64,82,50,82);ctx.bezierCurveTo(36,82,26,75,22,61);ctx.stroke();ctx.beginPath();ctx.moveTo(16,88);ctx.bezierCurveTo(24,84,31,84,39,88);ctx.bezierCurveTo(47,84,54,84,62,88);ctx.bezierCurveTo(70,84,77,84,85,88);ctx.stroke();}
+    else if(key==='tower'){L(31,82,69,82);L(36,82,40,32);L(64,82,60,32);L(40,32,60,32);L(42,32,42,23);L(58,32,58,23);L(42,23,58,23);L(46,23,46,13);L(54,23,54,13);L(46,13,54,13);L(41,47,59,47);L(39,61,61,61);L(46,82,46,69);L(54,82,54,69);L(46,69,54,69);C(50,39,3);}
+    ctx.restore();
+  }
   function drawCard(){
     const d=D[cur], d2=sub?D[sub]:null, c=document.getElementById('cv'), x=c.getContext('2d'), W=1080,H=1920;
     const serif='"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif', sans='"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif';
@@ -1366,10 +1395,11 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
     x.fillStyle='#c47f74';x.font='italic 500 36px "Cormorant Garamond",Georgia,serif';x.fillText('Your Akinai Character',540,360);
     const name=d2?NAME[cur][sub][0]:d.title.split('｜')[1];
     x.fillStyle='#3b332e';x.font='500 '+(name.length>11?56:68)+'px '+serif;wrap(x,name,540,470,900,80,'center');
-    x.fillStyle='#3b332e';x.font='500 150px '+serif;
-    if(d2){x.fillText(d.sym,410,760);x.fillStyle='#c47f74';x.font='400 80px '+serif;x.fillText('×',540,745);x.fillStyle='#8a7f77';x.font='500 150px '+serif;x.fillText(d2.sym,670,760);}else{x.fillText(d.sym,540,760);}
-    x.fillStyle='#c47f74';x.font='700 22px '+sans;if(d2){x.fillText('主星',410,800);x.fillText('副星',670,800);}
-    const mx=window.AKINAI_SCORE_MIX||[];let cy=845;if(mx.length){x.textAlign='left';x.fillStyle='#8a7f77';x.font='500 20px '+sans;x.fillText('今回の回答で強く出た力',170,835);mx.forEach((m,j)=>{const yy=875+j*34;x.fillStyle='#3b332e';x.font='500 23px '+serif;x.fillText(D[m.k].sym,170,yy);x.fillStyle='#eee4dd';rr(x,220,yy-16,330,14,7);x.fill();x.fillStyle='#c47f74';rr(x,220,yy-16,330*(m.pct/100),14,7);x.fill();x.fillStyle='#8a7f77';x.font='400 18px '+sans;x.fillText(CORE[m.k],570,yy);});cy=980;}
+    x.fillStyle='#fffaf5';x.beginPath();x.arc(540,650,118,0,Math.PI*2);x.fill();x.strokeStyle='rgba(196,127,116,.28)';x.lineWidth=2;x.stroke();drawStarArt(x,cur,540,650,150);
+    x.fillStyle='#3b332e';x.font='500 72px '+serif;
+    if(d2){x.fillText(d.sym,385,790);x.fillStyle='#c47f74';x.font='400 44px '+serif;x.fillText('×',540,782);x.fillStyle='#8a7f77';x.font='500 72px '+serif;x.fillText(d2.sym,695,790);}else{x.fillText(d.sym,540,790);}
+    x.fillStyle='#c47f74';x.font='700 20px '+sans;if(d2){x.fillText('主星',385,824);x.fillText('副星',695,824);}
+    const mx=window.AKINAI_SCORE_MIX||[];let cy=865;if(mx.length){x.textAlign='left';x.fillStyle='#8a7f77';x.font='500 20px '+sans;x.fillText('今回の回答で強く出た力',170,855);mx.forEach((m,j)=>{const yy=895+j*34;x.fillStyle='#3b332e';x.font='500 23px '+serif;x.fillText(D[m.k].sym,170,yy);x.fillStyle='#eee4dd';rr(x,220,yy-16,330,14,7);x.fill();x.fillStyle='#c47f74';rr(x,220,yy-16,330*(m.pct/100),14,7);x.fill();x.fillStyle='#8a7f77';x.font='400 18px '+sans;x.fillText(CORE[m.k],570,yy);});cy=1000;}
     x.textAlign='center';x.fillStyle='#3b332e';x.font='500 34px '+serif;wrap(x,sub?COMBO[cur][sub][0]:d.hookHead,540,cy,900,50,'center');
     let sy=cy+70;if(LAST_SEASON){x.fillStyle='#f7e4df';rr(x,230,sy,620,96,28);x.fill();x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('今のあなたの称号',540,sy+30);x.fillStyle='#3b332e';x.font='500 30px '+serif;x.fillText(LAST_SEASON_TITLE||LAST_SEASON,540,sy+70);sy+=130;}
     x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('あなたが、もう持っているもの',540,sy+20);
