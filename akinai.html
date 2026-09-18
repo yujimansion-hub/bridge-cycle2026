@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×仕事づくり診断。2分話すか9問に答えると、自分では気づきにくい価値と、具体的な仕事案3つが見つかります。">
+<meta name="description" content="40代女性のための、占い×仕事づくり診断。3つの質問に声で答えるか9問を選ぶと、自分では気づきにくい価値と、具体的な仕事案3つが見つかります。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
 <meta property="og:description" content="話してみたら、知らなかった「仕事になる私」が見えてくる。商い星と具体的な仕事案3つを無料で。">
 <meta property="og:type" content="website">
@@ -505,16 +505,23 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .route-card em{display:inline-block;margin-top:8px;font-style:normal;font-size:11.5px;color:var(--rose);font-weight:700}
 .voice-section{background:linear-gradient(180deg,#eee5de,#f7f0ea);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .voice-box{max-width:720px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
-.voice-prompts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px}
-.voice-prompts div{padding:11px 12px;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:12px;line-height:1.6;color:#655c56}
-.voice-prompts b{display:block;color:var(--rose);font-size:10px;letter-spacing:.07em;margin-bottom:2px}
-.voice-controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:11px}
-.voice-mic{min-height:54px;padding:0 22px}
+.voice-required-head{margin:0 0 15px;padding:14px 15px;border-radius:16px;background:var(--rose-pale);border:1px solid #ead2ca}
+.voice-required-head b{display:block;font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink)}
+.voice-required-head p{margin:4px 0 0;font-size:12px;line-height:1.65;color:#6b605a}
+.voice-steps{display:grid;gap:12px}
+.voice-step{padding:16px;border:1px solid var(--line);border-radius:18px;background:#fff}
+.voice-step.done{border-color:#cfd9c8;background:#fbfcf8}
+.vs-head{display:flex;gap:11px;align-items:flex-start;margin-bottom:11px}
+.vs-head>span{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:12px;font-weight:700}
+.vs-head b{display:block;font-family:var(--serif);font-size:15.5px;line-height:1.55;font-weight:500;color:var(--ink)}
+.vs-head small{display:block;margin-top:3px;font-size:11px;line-height:1.55;color:var(--muted)}
+.voice-mic{min-height:44px;padding:0 17px;font-size:12.5px}
 .voice-mic.listening{background:var(--ink);border-color:var(--ink)}
-.voice-status{font-size:12px;color:var(--muted)}
-.voice-text{width:100%;min-height:150px;resize:vertical;border:1.5px solid var(--line);border-radius:16px;background:#fff;padding:14px 15px;color:var(--ink);font:inherit;font-size:15px;line-height:1.8}
+.voice-status{display:block;margin:7px 0;font-size:11.5px;line-height:1.55;color:var(--muted)}
+.voice-text{width:100%;min-height:82px;resize:vertical;border:1.5px solid var(--line);border-radius:13px;background:#fff;padding:11px 12px;color:var(--ink);font:inherit;font-size:14px;line-height:1.7}
 .voice-text:focus{outline:2px solid var(--rose);border-color:var(--rose)}
-.voice-help{margin:8px 0 0;font-size:11px;line-height:1.65;color:var(--muted)}
+.voice-step.done .voice-text{border-color:#cfd9c8}
+.voice-help{margin:10px 0 0;font-size:11px;line-height:1.65;color:var(--muted)}
 .voice-analyze{width:100%;margin-top:13px;min-height:56px;font-size:15px}
 .voice-out{margin-top:10px;font-size:12.5px;line-height:1.7;color:var(--rose);min-height:1.5em}
 .voice-reveal{margin:12px 0 0;padding:18px 17px;border-radius:18px;background:#fff;border:1px solid #e4d4cb}
@@ -524,7 +531,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .voice-reveal p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.9;color:var(--ink)}
 .voice-reveal small{display:block;margin-top:8px;font-size:11px;line-height:1.65;color:var(--muted)}
 .idea-section{background:linear-gradient(180deg,#f3eee9,#f8f2ed);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-@media(max-width:680px){.voice-prompts{grid-template-columns:1fr}.voice-box{padding:20px 17px}}
+@media(max-width:680px){.voice-box{padding:20px 17px}.voice-step{padding:14px}.vs-head b{font-size:15px}}
 .idea-name{max-width:640px;margin:0 auto 12px}
 .idea-name label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
 .idea-name input{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;color:var(--ink)}
@@ -615,7 +622,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         <div class="route-choose" id="start">
           <p class="rq">いちばん気軽な方法からどうぞ。</p>
           <a class="voice-route" href="#voice-diagnosis">
-            <div class="vr-top"><span class="mic-dot">🎙</span><div><b>2分、話して診断する</b><span>「よく頼まれること」「仕事で任されること」「自分では普通だと思うこと」を、思いつくまま。</span></div></div>
+            <div class="vr-top"><span class="mic-dot">🎙</span><div><b>3つの質問に、話して答える</b><span>「よく頼まれること」「仕事で任されること」「自分では普通だと思うこと」を、順番に話します。</span></div></div>
             <em>→ 自分の知らない自分と、仕事案3つを見つける</em>
           </a>
           <div class="route-grid">
@@ -640,22 +647,40 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap">
       <div class="fortune-simple">
         <div class="kicker">無料｜話して診断</div>
-        <h2>2分だけ、これまでのことを聞かせてください。</h2>
-        <p>話し方や声質ではなく、<b>話した内容に出てくる経験</b>から見ます。きれいにまとめなくて大丈夫です。</p>
+        <h2>3つの質問に、声で答えてください。</h2>
+        <p>自由に話すだけではありません。診断に必要な<b>「頼まれたこと」「任された役」「自分では普通だと思うこと」</b>を、順番に必ず聞きます。</p>
       </div>
       <div class="voice-box">
-        <div class="voice-prompts">
-          <div><b>たとえば 01</b>人から、よく何を頼まれてきましたか？</div>
-          <div><b>たとえば 02</b>仕事で、気づくと任されていた役は？</div>
-          <div><b>たとえば 03</b>自分では「これくらい普通」と思っていることは？</div>
+        <div class="voice-required-head">
+          <b>3つとも、声に出して答えてください。</b>
+          <p>自由に話すだけではなく、診断に必要な3つの経験を順番に聞きます。各質問で、実際の場面を1つ以上話してください。</p>
         </div>
-        <div class="voice-controls">
-          <button class="btn voice-mic" id="voiceMic" type="button">🎙 話し始める</button>
-          <span class="voice-status" id="voiceStatus">マイクを押して、思いつくまま話してください。</span>
+
+        <div class="voice-steps">
+          <div class="voice-step" data-voice-step="0">
+            <div class="vs-head"><span>1</span><div><b>人から、よく何を頼まれてきましたか？</b><small>例：相談される／資料を整える／人を紹介する／料理を頼まれる など</small></div></div>
+            <button class="btn voice-mic" type="button" data-voice-btn="0">🎙 この質問に答える</button>
+            <span class="voice-status" id="voiceStatus0">20〜40秒くらいで、実際の場面を話してください。</span>
+            <textarea class="voice-text voice-answer" id="voiceText0" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+          </div>
+
+          <div class="voice-step" data-voice-step="1">
+            <div class="vs-head"><span>2</span><div><b>仕事で、気づくと任されていた役は何ですか？</b><small>例：取りまとめ／新人フォロー／会計／段取り／現場対応／説明役 など</small></div></div>
+            <button class="btn voice-mic" type="button" data-voice-btn="1">🎙 この質問に答える</button>
+            <span class="voice-status" id="voiceStatus1">職場や役割が変わっても繰り返していたことを話してください。</span>
+            <textarea class="voice-text voice-answer" id="voiceText1" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+          </div>
+
+          <div class="voice-step" data-voice-step="2">
+            <div class="vs-head"><span>3</span><div><b>自分では「これくらい普通」と思っていることは何ですか？</b><small>人から褒められたり、助かったと言われても、自分では特別だと思っていないことを話してください。</small></div></div>
+            <button class="btn voice-mic" type="button" data-voice-btn="2">🎙 この質問に答える</button>
+            <span class="voice-status" id="voiceStatus2">「こんなことが仕事になるとは思わない」ことほど大歓迎です。</span>
+            <textarea class="voice-text voice-answer" id="voiceText2" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+          </div>
         </div>
-        <textarea class="voice-text" id="voiceText" maxlength="1800" placeholder="ここに音声が文字になります。マイクを使わず、直接入力しても診断できます。"></textarea>
-        <p class="voice-help">※ 音声認識は端末・ブラウザの機能を利用します。音声処理の方法はブラウザやOSによって異なります。このページからBRIDGE CYCLEへ音声や入力内容を送信することはありません。</p>
-        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">この話から「知らなかった私」と仕事案を見つける</button>
+
+        <p class="voice-help">※ 3つの回答がそろうまで診断には進みません。音声認識は端末・ブラウザの機能を利用します。音声処理の方法はブラウザやOSによって異なります。このページからBRIDGE CYCLEへ音声や入力内容を送信することはありません。</p>
+        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">3つの話から「知らなかった私」と仕事案を見つける</button>
         <div class="voice-out" id="voiceOut" aria-live="polite"></div>
       </div>
     </div>
@@ -1707,28 +1732,76 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   document.getElementById('btnShareTop').addEventListener('click',()=>document.getElementById('btnShare').click());
 })();
 
-// ---- 話して診断：ブラウザ音声認識＋話した内容の言葉から商い星を読む ----
+// ---- 話して診断：3つの必須質問を順番に音声で回答 ----
 (function(){
-  const mic=document.getElementById('voiceMic'),status=document.getElementById('voiceStatus'),ta=document.getElementById('voiceText'),go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
-  if(!mic||!ta||!go)return;
+  const buttons=[...document.querySelectorAll('[data-voice-btn]')];
+  const answers=[0,1,2].map(i=>document.getElementById('voiceText'+i));
+  const statuses=[0,1,2].map(i=>document.getElementById('voiceStatus'+i));
+  const steps=[...document.querySelectorAll('[data-voice-step]')];
+  const go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
+  if(!buttons.length||!answers.every(Boolean)||!go)return;
+
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  let rec=null,listening=false,baseText="";
+  let rec=null,listening=false,active=-1,baseText="";
+
+  function markDone(i){
+    const ok=(answers[i].value||'').trim().length>=10;
+    steps[i]?.classList.toggle('done',ok);
+    return ok;
+  }
+  answers.forEach((ta,i)=>ta.addEventListener('input',()=>markDone(i)));
+
   if(SR){
     rec=new SR();rec.lang='ja-JP';rec.continuous=true;rec.interimResults=true;
-    rec.onstart=()=>{listening=true;baseText=ta.value.trim();mic.classList.add('listening');mic.textContent='■ 話すのを止める';status.textContent='聞いています。うまくまとめず、そのまま続けてください。';};
-    rec.onresult=e=>{
-      let finalText="",interim="";
-      for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=t;else interim+=t;}
-      if(finalText){baseText=(baseText+' '+finalText).trim();}
-      ta.value=(baseText+(interim?' '+interim:'')).trim();
+    rec.onstart=()=>{
+      listening=true;
+      if(active<0)return;
+      baseText=answers[active].value.trim();
+      buttons.forEach((b,i)=>{b.classList.toggle('listening',i===active);b.textContent=i===active?'■ 話すのを止める':'🎙 この質問に答える';b.disabled=i!==active;});
+      statuses[active].textContent='聞いています。実際の場面を1つ以上、そのまま話してください。';
     };
-    rec.onerror=e=>{listening=false;mic.classList.remove('listening');mic.textContent='🎙 もう一度話す';status.textContent=e.error==='not-allowed'?'マイクが許可されていません。下の欄に直接入力しても診断できます。':'音声認識をいったん止めました。直接入力しても診断できます。';};
-    rec.onend=()=>{listening=false;mic.classList.remove('listening');mic.textContent='🎙 続きを話す';baseText=ta.value.trim();status.textContent='必要なら続きを話せます。よければ、この内容から診断してください。';};
-    mic.addEventListener('click',()=>{if(listening){try{rec.stop();}catch(e){}}else{baseText=ta.value.trim();try{rec.start();}catch(e){}}});
+    rec.onresult=e=>{
+      if(active<0)return;
+      let finalText="",interim="";
+      for(let i=e.resultIndex;i<e.results.length;i++){
+        const t=e.results[i][0].transcript;
+        if(e.results[i].isFinal)finalText+=t;else interim+=t;
+      }
+      if(finalText)baseText=(baseText+' '+finalText).trim();
+      answers[active].value=(baseText+(interim?' '+interim:'')).trim();
+      markDone(active);
+    };
+    rec.onerror=e=>{
+      const i=active;
+      listening=false;
+      buttons.forEach((b,j)=>{b.classList.remove('listening');b.disabled=false;b.textContent='🎙 この質問に答える';});
+      if(i>=0)statuses[i].textContent=e.error==='not-allowed'?'マイクが許可されていません。ここに直接入力しても診断できます。':'音声認識をいったん止めました。もう一度押すか、直接入力してください。';
+      active=-1;
+    };
+    rec.onend=()=>{
+      const i=active;
+      listening=false;
+      buttons.forEach(b=>{b.classList.remove('listening');b.disabled=false;b.textContent='🎙 この質問に答える';});
+      if(i>=0){
+        baseText=answers[i].value.trim();
+        const done=markDone(i);
+        statuses[i].textContent=done?'回答できました。必要なら、もう少し話し足せます。':'もう少し具体的に、実際にあった場面を1つ話してください。';
+      }
+      active=-1;
+    };
+    buttons.forEach((b,i)=>b.addEventListener('click',()=>{
+      if(listening){
+        if(active===i){try{rec.stop();}catch(e){}}
+        return;
+      }
+      active=i;baseText=answers[i].value.trim();
+      try{rec.start();}catch(e){active=-1;}
+    }));
   }else{
-    mic.disabled=true;mic.textContent='マイク入力はこのブラウザでは未対応';
-    status.textContent='下の欄に、話すようにそのまま入力してください。';
+    buttons.forEach(b=>{b.disabled=true;b.textContent='マイク入力はこのブラウザでは未対応';});
+    statuses.forEach(s=>s.textContent='下の欄に、話すようにそのまま入力してください。');
   }
+
   function countTerm(text,term){
     let n=0,pos=0;while((pos=text.indexOf(term,pos))!==-1){n++;pos+=Math.max(term.length,1);}return n;
   }
@@ -1738,16 +1811,33 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     const order=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
     return {scores,hits,order};
   }
+
   go.addEventListener('click',()=>{
     if(listening&&rec){try{rec.stop();}catch(e){}}
-    const text=ta.value.trim();
-    if(text.length<25){out.textContent='もう少しだけ聞かせてください。目安は3〜4文。「よく頼まれること」「任されてきた役」「自分では普通だと思うこと」のどれか1つを足すと読みやすくなります。';return;}
-    const a=analyze(text),main=a.order[0],second=a.order[1],top=a.scores[main],sub=a.scores[second]>0&&a.scores[second]>=Math.max(2,top*.45)?second:null;
-    if(top===0){out.textContent='まだ「何を任されてきたか」が読み取りにくいようです。「相談される」「資料を整える」「人を紹介する」など、実際に人から頼まれた場面を1つ足してみてください。';return;}
+    const vals=answers.map(a=>(a.value||'').trim());
+    const missing=vals.map((v,i)=>v.length>=10?-1:i).filter(i=>i>=0);
+    if(missing.length){
+      const names=['①「人からよく頼まれてきたこと」','②「仕事で任されてきた役」','③「自分では普通だと思うこと」'];
+      out.textContent='あと'+missing.length+'つです。'+missing.map(i=>names[i]).join('、')+'にも、実際の場面を1つ話してください。';
+      const first=missing[0];steps[first]?.scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+
+    // 必須3回答を別々に重みづけして読む。Q1/Q2は実際の役割なので少し強め。
+    const combined=vals[0]+'。'+vals[0]+'。'+vals[1]+'。'+vals[1]+'。'+vals[2];
+    const a=analyze(combined),main=a.order[0],second=a.order[1],top=a.scores[main],sub=a.scores[second]>0&&a.scores[second]>=Math.max(2,top*.45)?second:null;
+
+    if(top===0){
+      out.textContent='3つの回答はそろいました。より具体的な仕事案にするため、①か②に「何をしたか」をもう一言だけ足してください。たとえば「相談を聞いた」「資料を作った」「新人を教えた」「人を紹介した」「段取りを整えた」のような行動です。';
+      steps[0]?.scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+
     const words=[...(a.hits[main]||[]),...(sub?(a.hits[sub]||[]):[])].filter((x,i,ar)=>ar.indexOf(x)===i).slice(0,5);
-    out.textContent='話の中から、あなたが何度も使ってきた力を拾いました。結果へ進みます。';
+    out.textContent='3つの経験がそろいました。あなた自身がまだ仕事として数えていなかった力を、結果にまとめます。';
     window.AKINAI_SCORE_MIX=[];
-    window.runAkinaiFromVoice(main,sub,{main,sub,words,text:text.slice(0,600)});
+    const originalText=vals.map((v,i)=>(i+1)+'：'+v).join('\n');
+    window.runAkinaiFromVoice(main,sub,{main,sub,words,text:originalText.slice(0,1200),answers:vals});
     BASE_RESULT='音声診断：'+(sub?NAME[main][sub][0]:D[main].title.split('｜')[1])+'（'+D[main].sym+(sub?'×'+D[sub].sym:'')+'）';LAST_PLAN="";syncBookingResult();
   });
 })();
