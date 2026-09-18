@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×仕事づくり。生年月日と1枚引きで商い星を占い、7つの入力から実際の経験と照らし合わせて、具体的な仕事案3つまで出します。">
+<meta name="description" content="40代女性のための、占い×仕事づくり。生年月日から1〜60の「商い命数」と商い星を出し、1枚引きと7つの入力から、実際の経験に重なる仕事案3つまで出します。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
-<meta property="og:description" content="話してみたら、知らなかった「仕事になる私」が見えてくる。商い星と具体的な仕事案3つを無料で。">
+<meta property="og:description" content="生年月日から1〜60の商い命数を占い、7つの実際の経験と照らし合わせて「仕事になる私」と商いプラン3案を見つけます。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#f4ece4">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,6 +169,7 @@ h2{font-size:clamp(26px,3.6vw,42px);line-height:1.45;font-weight:500;margin:10px
 .oracle-origin{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
 .oracle-origin>div{padding:12px 13px;border-radius:14px;background:#fff;border:1px solid #ead8d0}
 .oracle-origin span{display:block;font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.05em}
+.oracle-origin span i{font-style:normal;color:var(--rose)}
 .oracle-origin b{display:block;margin:2px 0;font-family:var(--serif);font-size:20px;font-weight:500;color:var(--rose)}
 .oracle-origin small{display:block;font-size:10.5px;line-height:1.5;color:#655c56}
 @media(max-width:620px){.oracle-origin{grid-template-columns:1fr}}
@@ -529,6 +530,15 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .fortune-result-mini span{display:block;font-size:10px;color:var(--rose);font-weight:700;letter-spacing:.08em}
 .fortune-result-mini b{display:block;margin:3px 0;font-family:var(--serif);font-size:22px;font-weight:500}
 .fortune-result-mini p{margin:0;font-size:12.5px;line-height:1.7;color:#655c56}
+.birth-star-line{display:flex;align-items:baseline;gap:8px;margin:4px 0 6px}
+.birth-star-line small{font-size:10px;color:var(--muted)}
+.birth-star-line strong{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink)}
+.fortune-phase{margin-top:7px!important;padding-top:7px;border-top:1px dashed #dfc8bf;color:#7b645c!important}
+.data-note{margin:18px 0 12px;padding:16px 17px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.data-note>span{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.05em}
+.data-note>b{display:block;margin:3px 0 6px;font-family:var(--serif);font-size:16px;font-weight:500}
+.data-note p{margin:0;font-size:12px;line-height:1.75;color:#655c56}
+.data-note small{display:block;margin-top:7px;font-size:10.5px;line-height:1.6;color:var(--muted)}
 .voice-required-head{margin:18px 0 15px;padding:14px 15px;border-radius:16px;background:var(--rose-pale);border:1px solid #ead2ca}
 .voice-required-head b{display:block;font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink)}
 .voice-required-head p{margin:4px 0 0;font-size:12px;line-height:1.65;color:#6b605a}
@@ -655,7 +665,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
         <h1>占って、書いてみたら、<br><span>知らなかった「仕事になる私」が見えてくる。</span></h1>
-        <p class="lead">まず、生年月日から「生まれ持った商い星」を見て、1枚だけ商いカードを引きます。<br>そのあと7つの質問に入力すると、<b>占いで出た星と、実際の人生に現れている力</b>を重ねて、具体的な仕事案3つまで出します。</p>
+        <p class="lead">まず、生年月日から1〜60の<b>「商い命数」</b>と商い星を出し、1枚だけ商いカードを引きます。<br>そのあと7つの質問に入力すると、<b>占いで出た星と、実際の人生に現れている力</b>を重ねて、具体的な仕事案3つまで出します。</p>
         <div class="route-choose" id="start">
           <p class="rq">いちばん気軽な方法からどうぞ。</p>
           <a class="voice-route" href="#voice-diagnosis">
@@ -693,9 +703,12 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div class="fortune-input-head"><span>FORTUNE 01</span><b>生まれ持った商い星</b></div>
           <label class="birth-label" for="birthDate">生年月日</label>
           <input class="birth-input" id="birthDate" type="date" autocomplete="bday">
-          <p class="voice-help">生年月日の数字を6つの商い星に対応させる、この診断独自の象徴的な占いです。心理検査や科学的な適性判定ではありません。</p>
+          <p class="voice-help">生年月日を独自の60周期に置き換え、「商い命数」1〜60と6つの商い星に対応させます。現時点では象徴的な占いで、統計学的な因果関係や科学的な適性を示すものではありません。</p>
           <div class="fortune-result-mini" id="birthFortune" style="display:none">
-            <span>生まれ持った星</span><b id="birthStar"></b><p id="birthStarText"></p>
+            <span>あなたの商い命数</span><b id="birthNumber"></b>
+            <div class="birth-star-line"><small>生まれ持った商い星</small><strong id="birthStar"></strong></div>
+            <p id="birthStarText"></p>
+            <p class="fortune-phase" id="birthPhaseText"></p>
           </div>
         </div>
 
@@ -753,7 +766,13 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
         </div>
 
-        <p class="voice-help">※ 生年月日と1枚引きは「占い」、7つの入力は「診断」として分けて扱います。結果では両者が重なる点・違う点を表示します。入力内容はこのページからBRIDGE CYCLEへ送信しません。</p>
+        <div class="data-note">
+          <span>AKINAI DATA｜この占いを、これから育てる</span>
+          <b>「統計に基づく」とは、まだ言いません。</b>
+          <p>現在の商い命数は、BRIDGE CYCLE独自の象徴的な占いです。将来、利用者の明確な同意を得た匿名データで、命数と「頼まれてきた役」「選んだ仕事案」「実際に試した結果」の傾向を検証し、十分な件数が集まり再現性を確認できた項目だけを公開する設計を目指します。</p>
+          <small>現在、このページの生年月日・7つの入力内容はBRIDGE CYCLEへ送信・蓄積していません。</small>
+        </div>
+        <p class="voice-help">※ 生年月日と1枚引きは「占い」、7つの入力は「診断」として分けて扱います。結果では両者が重なる点・違う点を表示します。</p>
         <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">占いと7つの入力から「仕事になる私」を見つける</button>
         <div class="voice-out" id="voiceOut" aria-live="polite"></div>
       </div>
@@ -834,13 +853,13 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         <div class="res" id="res">
           <div class="rcard" id="rcard">
             <div class="lab">AKINAI ORACLE｜あなたの商いカルテ</div>
-            <p class="result-basis">占いとして楽しみながら、あなたが話したこと・選んだことに現れた傾向を「商い星」として読んでいます。</p>
+            <p class="result-basis">生年月日から出す「商い命数」と1枚引きは占い、7つの入力は経験の診断として分けています。現在、商い命数と仕事適性の統計的関連は検証中ではなく、象徴的な読みとして提供しています。</p>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
             <div class="star-art-sub" id="rArtSub" style="display:none"></div>
             <div class="oracle-origin" id="rOracleOrigin" style="display:none">
-              <div><span>生まれ持った星</span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
+              <div><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
               <div><span>今日引いたカード</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
             </div>
             <div class="oracle-letter">
@@ -1271,6 +1290,18 @@ const SEASON_TITLE={
   tower:{"種を見つける季節":"見えない段取りを数える人","小さく試す季節":"一人分だけ整えてみる人","育てる季節":"繰り返せる形に整える人","形にする季節":"安心を仕事の形にする人"}
 };
 const FORTUNE_ORDER=["light","hand","garden","bridge","boat","tower"];
+const FORTUNE_PHASE=[
+  "種を見つける人｜まだ名前のない興味を拾う",
+  "磨く人｜ひとつを深くして、自分の型をつくる",
+  "渡す人｜自分の中にあるものを、人へ届ける",
+  "つながる人｜一人で完結せず、関係の中で価値を育てる",
+  "動かす人｜考えるだけでなく、現場で確かめる",
+  "整える人｜続くための順番・範囲・仕組みをつくる",
+  "広げる人｜一度できたものを、別の人・場所へ展開する",
+  "選び直す人｜合わないものを減らし、自分の軸を濃くする",
+  "試し直す人｜やり方を変えながら、手応えのある形を探す",
+  "残す人｜経験を言葉・型・仕組みにして次へ渡す"
+];
 const FORTUNE_BIRTH_TEXT={
   light:"生まれ持ったテーマは「言葉」。人の中にあるものを受け取り、意味を見つける星。",
   hand:"生まれ持ったテーマは「形」。手を動かし、見えるものとして残す星。",
@@ -1695,8 +1726,9 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       const wk=voiceMeta.work||w,lk=voiceMeta.life||w,ok=voiceMeta.other||w;
       const origin=document.getElementById('rOracleOrigin');
       if(origin&&voiceMeta.birth&&voiceMeta.draw){
+        document.getElementById('rBirthNumberResult').textContent=voiceMeta.birthNumber||'—';
         document.getElementById('rBirthStarResult').textContent=D[voiceMeta.birth].sym+'｜'+D[voiceMeta.birth].title.split('｜')[1];
-        document.getElementById('rBirthStarResultText').textContent=FORTUNE_BIRTH_TEXT[voiceMeta.birth];
+        document.getElementById('rBirthStarResultText').textContent=FORTUNE_BIRTH_TEXT[voiceMeta.birth]+(voiceMeta.birthNumber?'　'+FORTUNE_PHASE[Math.floor((voiceMeta.birthNumber-1)/6)]:'');
         document.getElementById('rDrawStarResult').textContent=D[voiceMeta.draw].sym+'｜'+D[voiceMeta.draw].title.split('｜')[1];
         document.getElementById('rDrawStarResultText').textContent=FORTUNE_CARD_TEXT[voiceMeta.draw];
         origin.style.display='';
@@ -1879,12 +1911,12 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   const steps=[...document.querySelectorAll('[data-voice-step]')];
   const go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
   const birth=document.getElementById('birthDate'),birthBox=document.getElementById('birthFortune');
-  const birthStar=document.getElementById('birthStar'),birthText=document.getElementById('birthStarText');
+  const birthNumberEl=document.getElementById('birthNumber'),birthStar=document.getElementById('birthStar'),birthText=document.getElementById('birthStarText'),birthPhaseText=document.getElementById('birthPhaseText');
   const drawBtn=document.getElementById('drawAkinaiCard'),drawBox=document.getElementById('drawFortune');
   const drawStar=document.getElementById('drawStar'),drawText=document.getElementById('drawStarText');
   if(!answers.every(Boolean)||!go||!out||!birth||!drawBtn)return;
 
-  let birthType=null,drawType=null;
+  let birthType=null,birthNumber=null,drawType=null;
 
   function markDone(i){
     const ok=(answers[i].value||'').trim().length>=8;
@@ -1893,17 +1925,22 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   }
   answers.forEach((ta,i)=>ta.addEventListener('input',()=>markDone(i)));
 
-  function calcBirthType(v){
-    const digits=(v||'').replace(/\D/g,'').split('').map(Number);
-    if(!digits.length)return null;
-    const sum=digits.reduce((a,b)=>a+b,0);
-    return FORTUNE_ORDER[(sum-1)%FORTUNE_ORDER.length];
+  function calcBirthNumber(v){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(v||''))return null;
+    const [y,m,d]=v.split('-').map(Number);
+    const t=Date.UTC(y,m-1,d);
+    if(!Number.isFinite(t))return null;
+    const day=Math.floor(t/86400000);
+    return ((day%60)+60)%60+1;
   }
   function showBirth(){
-    birthType=calcBirthType(birth.value);
+    birthNumber=calcBirthNumber(birth.value);
+    birthType=birthNumber?FORTUNE_ORDER[(birthNumber-1)%FORTUNE_ORDER.length]:null;
     if(!birthType){birthBox.style.display='none';return;}
+    birthNumberEl.textContent='商い命数 '+birthNumber;
     birthStar.textContent=D[birthType].sym+'｜'+D[birthType].title.split('｜')[1];
     birthText.textContent=FORTUNE_BIRTH_TEXT[birthType];
+    birthPhaseText.textContent='命数'+birthNumber+'の読み：'+FORTUNE_PHASE[Math.floor((birthNumber-1)/6)];
     birthBox.style.display='';
   }
   birth.addEventListener('change',showBirth);
@@ -2009,11 +2046,11 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       window.runAkinaiFromVoice(main,null,{
         main,sub:null,words,cross,
         work:workType,life:lifeType,other:otherType,
-        birth:birthType,draw:drawType,
+        birth:birthType,birthNumber,draw:drawType,
         text:originalText.slice(0,2400),answers:vals
       });
 
-      BASE_RESULT='占い：生まれ持った星 '+D[birthType].sym+'／今日のカード '+D[drawType].sym
+      BASE_RESULT='占い：商い命数 '+birthNumber+'・生まれ持った星 '+D[birthType].sym+'／今日のカード '+D[drawType].sym
         +'｜入力診断：'+D[main].title.split('｜')[1]+'（'+D[main].sym+'）'
         +'／仕事:'+D[workType].sym+'・暮らし:'+D[lifeType].sym+'・周り:'+D[otherType].sym;
       LAST_PLAN="";
