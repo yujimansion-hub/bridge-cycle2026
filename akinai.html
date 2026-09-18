@@ -392,6 +392,14 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .oracle-map .om p{margin:5px 0 0;font-size:12.5px;color:var(--muted);line-height:1.7}
 .oracle-map .omx{display:grid;place-items:center;font-family:var(--serif);font-size:28px;color:var(--rose)}
 .result-basis{margin:4px 0 10px;font-size:11.5px;line-height:1.65;color:var(--muted)}
+.affirm{margin:12px 0 14px;padding:13px 15px;border-radius:14px;background:rgba(255,255,255,.82);border:1px solid #edd6cf}
+.affirm span{display:block;font-size:10.5px;letter-spacing:.09em;color:var(--rose);font-weight:700;margin-bottom:3px}
+.affirm p{margin:0;font-family:var(--serif);font-size:15.5px;line-height:1.75;color:var(--ink)}
+.share-now{margin:12px 0 6px;padding:15px 16px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.share-now b{display:block;font-family:var(--serif);font-size:15px;font-weight:500;margin-bottom:3px}
+.share-now p{margin:0 0 10px;font-size:11.5px;line-height:1.65;color:var(--muted)}
+.share-now .share{margin-top:0}
+.share-now .share .btn{min-height:42px;font-size:12.5px}
 .result-alt{margin:8px 0 2px;padding:0;border-bottom:0}
 .result-alt summary{font-size:12.5px;color:var(--rose);font-weight:700;cursor:pointer}
 .result-alt .ol{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
@@ -559,9 +567,15 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <p class="result-basis">※ 性格を決めつける診断ではありません。この数年のあなたの「実際の行動」から組み立てています。</p>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
+            <div class="affirm"><span>あなたが、もう持っているもの</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
             <div class="letgo"><b>もう、しなくていいこと</b><p id="rLetgo"></p></div>
+          </div>
+          <div class="share-now">
+            <b>この結果、あとで見返せるように残しておく。</b>
+            <p>画像にすると「商いキャラ・あなたの価値・もうしなくていいこと」が1枚になります。STEP 2まで進むと「今の商いの季節」も入ります。</p>
+            <div class="share"><button class="btn" type="button" id="btnSaveTop">結果カードを保存</button><button class="btn ghost" type="button" id="btnShareTop">この結果をシェア</button></div>
           </div>
           <details class="result-alt">
             <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
@@ -609,7 +623,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
 
           <details class="more" id="more">
-            <summary>結果を、もっと楽しむ（カード保存・あるある・相性・他己診断）</summary>
+            <summary>結果を、もっと楽しむ（あるある・相性・他己診断）</summary>
             <div class="mcard">
               <div class="lab">SNS用カード</div>
               <div class="chara" id="rChara2"></div>
@@ -836,6 +850,14 @@ function syncBookingResult(){
   const bt=document.getElementById("bresTxt");
   if(bt)bt.textContent=LAST_RESULT||"まだ診断していません";
 }
+const AFFIRM={
+  light:"あなたは、話を聞くだけの人ではありません。相手の中にある答えを、言葉にして返せる人です。",
+  hand:"あなたの丁寧さは、性格ではなく信用です。「この人に頼めば大丈夫」が、もう商品になり始めています。",
+  garden:"あなたの優しさは、ただの気づかいではありません。人が続けられる空気をつくる力です。",
+  bridge:"あなたの人脈が価値なのではありません。「この人には、これ」と選べる目が価値です。",
+  boat:"あなたの身軽さは、無計画ではありません。小さく試して、本当の手応えを早く見つけられる力です。",
+  tower:"あなたの几帳面さは、裏方仕事ではありません。相手の迷いとミスを減らして、安心をつくる力です。"
+};
 const LETGO={
   light:"全部わかってから話さなくていい。聞きながら整理すること自体が、もう価値です。",
   hand:"もっと上手くなってから売らなくていい。今の丁寧さに、小さく値段をつければ十分です。",
@@ -843,6 +865,12 @@ const LETGO={
   bridge:"自分で全部やらなくていい。選んで、つないで、理由を伝えること自体が仕事です。",
   boat:"完璧に準備してから始めなくていい。一度試して、直す。その順番で大丈夫です。",
   tower:"全部自分で抱えなくていい。整えたものを仕組みにして渡すところまでが、あなたの仕事です。"
+};
+const SEASON_AFFIRM={
+  "種を見つける季節":"まだ答えが出ていなくて大丈夫。今は、集めることが前進です。",
+  "小さく試す季節":"大きく始めなくて大丈夫。まず3人で十分です。",
+  "育てる季節":"もっと頑張らなくて大丈夫。続く価格と時間に変える時です。",
+  "形にする季節":"勢いで辞めなくて大丈夫。数字がそろってから決めればいい。"
 };
 const SEASON_SHARE={
   "種を見つける季節":"今は、答えを出すより、頼まれてきたことを集める時期。",
@@ -855,8 +883,8 @@ function sharePayload(){
   if(!r)return null;
   const url=PAGE_URL+"?t="+r.main+(r.sub?"&s="+r.sub:"");
   const season=LAST_SEASON?("／"+LAST_SEASON):"";
-  const line=LAST_SEASON?(SEASON_SHARE[LAST_SEASON]||"今やることが見えてきた。"):"自分では普通だと思っていたことが、仕事の種かも。";
-  return {url,text:"私の商いキャラは《"+r.name+"》 "+r.stars+season+"。\n"+line+"\n#わたしの商い診断 #40代からの仕事づくり"};
+  const second=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||SEASON_SHARE[LAST_SEASON]):LETGO[r.main];
+  return {url,text:"私の商いキャラは《"+r.name+"》 "+r.stars+season+"。\n「"+AFFIRM[r.main]+"」\n"+second+"\n#わたしの商い診断 #40代からの仕事づくり"};
 }
 function refreshShareLinks(){
   const p=sharePayload();if(!p)return;
@@ -1133,6 +1161,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
     BASE_RESULT=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:d.sym+(d2?'×'+d2.sym:'')};
     document.getElementById('rStars').textContent=d.sym+(d2?' × '+d2.sym:'')+'　主星'+(d2?'・副星':'');
+    document.getElementById('rAffirm').textContent=AFFIRM[w];
     document.getElementById('rLetgo').textContent=LETGO[w];
     const ph=document.getElementById('paidHook');if(ph)ph.textContent='「'+cname+'」を仕事にする前に、今の「商いの季節」を確かめる。';
     const hasAns=ans.filter(Boolean).length>=9;
@@ -1226,11 +1255,12 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
     if(d2){x.fillText(d.sym,410,760);x.fillStyle='#c47f74';x.font='400 80px '+serif;x.fillText('×',540,745);x.fillStyle='#8a7f77';x.font='500 150px '+serif;x.fillText(d2.sym,670,760);}else{x.fillText(d.sym,540,760);}
     x.fillStyle='#c47f74';x.font='700 22px '+sans;if(d2){x.fillText('主星',410,800);x.fillText('副星',670,800);}
     x.fillStyle='#3b332e';x.font='500 36px '+serif;wrap(x,sub?COMBO[cur][sub][0]:d.hookHead,540,890,900,54,'center');
-    if(LAST_SEASON){x.fillStyle='#f7e4df';rr(x,290,955,500,70,35);x.fill();x.fillStyle='#c47f74';x.font='700 28px '+sans;x.textAlign='center';x.fillText('今の商いの季節｜'+LAST_SEASON,540,1000);}
-    const aru=d2?NAME[cur][sub][1]:d.hook.slice(0,3);
-    x.textAlign='left';let yy=LAST_SEASON?1090:1040;aru.forEach(t=>{x.fillStyle='#c47f74';x.font='700 30px '+sans;x.fillText('✔',150,yy);x.fillStyle='#4a413b';x.font='400 32px '+sans;x.fillText(t,205,yy);yy+=64;});
-    x.fillStyle='#fff';rr(x,140,1270,800,250,28);x.fill();x.strokeStyle='#edd6cf';x.lineWidth=2;rr(x,140,1270,800,250,28);x.stroke();
-    x.fillStyle='#3b332e';x.font='500 32px '+serif;wrap(x,TWIST[cur],540,1345,720,50,'center');
+    if(LAST_SEASON){x.fillStyle='#f7e4df';rr(x,270,945,540,70,35);x.fill();x.fillStyle='#c47f74';x.font='700 27px '+sans;x.textAlign='center';x.fillText('今の商いの季節｜'+LAST_SEASON,540,990);}
+    x.textAlign='center';x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('あなたが、もう持っているもの',540,LAST_SEASON?1080:1035);
+    x.fillStyle='#3b332e';x.font='500 31px '+serif;wrap(x,AFFIRM[cur],540,LAST_SEASON?1130:1085,760,46,'center');
+    x.fillStyle='#fff';rr(x,140,1290,800,230,28);x.fill();x.strokeStyle='#edd6cf';x.lineWidth=2;rr(x,140,1290,800,230,28);x.stroke();
+    x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('もう、しなくていいこと',540,1350);
+    x.fillStyle='#3b332e';x.font='500 29px '+serif;wrap(x,LETGO[cur],540,1400,720,43,'center');
     x.fillStyle='#c47f74';x.font='700 34px '+sans;x.textAlign='center';x.fillText('#わたしの商い診断',540,1600);
     x.fillStyle='#8a7f77';x.font='400 26px '+sans;x.fillText('占い × 創業相談（無料・3分）',540,1730);
     x.fillStyle='#c47f74';x.font='700 28px '+sans;x.fillText(PAGE_URL.replace(/^https?:\/\//,''),540,1780);
@@ -1244,6 +1274,8 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
     const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;a.click();showToast('画像を保存しました。ストーリーズに貼ってみてください');});
   document.getElementById('btnShare').addEventListener('click',async()=>{const p=sharePayload();if(!p)return;const data={title:'わたしの商い診断',text:p.text,url:p.url};
     if(navigator.share){try{await navigator.share(data);}catch(e){}}else{try{await navigator.clipboard.writeText(data.text+' '+data.url);showToast('リンクをコピーしました');}catch(e){showToast('この端末ではシェアできませんでした');}}});
+  document.getElementById('btnSaveTop').addEventListener('click',()=>document.getElementById('btnSave').click());
+  document.getElementById('btnShareTop').addEventListener('click',()=>document.getElementById('btnShare').click());
 })();
 
 // ---- 30秒チェック（1問ずつ） ----
@@ -1265,7 +1297,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
       '形にする季節':'次に決めるのは、必要な手取り・週の時間・投資上限。独立するかより先に、続けられる条件を数字にすること。'
     };
     LAST_SEASON=T.textContent;window.AKINAI_SEASON=LAST_SEASON;syncBookingResult();refreshShareLinks();
-    const combo=document.getElementById('seasonCombo');if(combo){combo.style.display='';const p=window.AKINAI_RESULT?('あなたの商い星は「<b>'+window.AKINAI_RESULT.stars+'</b>」。'):"";combo.innerHTML=p+'今は「<b>'+T.textContent+'</b>」。<br>'+NEXT_BY_SEASON[T.textContent];}
+    const combo=document.getElementById('seasonCombo');if(combo){combo.style.display='';const p=window.AKINAI_RESULT?('あなたの商い星は「<b>'+window.AKINAI_RESULT.stars+'</b>」。'):"";combo.innerHTML=p+'今は「<b>'+T.textContent+'</b>」。<br><strong>'+SEASON_AFFIRM[T.textContent]+'</strong><br>'+NEXT_BY_SEASON[T.textContent];}
     scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='4';pBar.style.width='100%';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});}
 })();
 </script>
