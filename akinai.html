@@ -166,6 +166,11 @@ h2{font-size:clamp(26px,3.6vw,42px);line-height:1.45;font-weight:500;margin:10px
 .rbox p.lines{white-space:pre-line}
 .rcard .chara{font-family:var(--serif);font-size:clamp(24px,3.4vw,30px);line-height:1.35;font-weight:500;margin:8px 0 4px}
 .rcard .stars2{font-size:13px;color:var(--rose);margin-bottom:12px}
+.oracle-letter{margin:14px 0 12px;padding:18px 18px 17px;border-radius:18px;background:rgba(255,255,255,.78);border:1px solid #ead8d0;position:relative}
+.oracle-letter:before{content:"✦";position:absolute;right:16px;top:12px;color:var(--gold);font-size:13px}
+.oracle-letter .olabel{display:block;font-family:var(--en);font-style:italic;font-size:14px;color:var(--rose);letter-spacing:.06em;margin-bottom:4px}
+.oracle-letter p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.95;color:var(--ink)}
+.oracle-letter small{display:block;margin-top:7px;font-size:10.5px;line-height:1.55;color:var(--muted)}
 .turn{margin:18px 0 10px;text-align:center}
 .turn span{display:inline-block;font-family:var(--serif);font-size:20px;color:var(--ink);padding:6px 18px;border-bottom:2px solid var(--rose)}
 .value{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
@@ -538,7 +543,9 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .voice-face b{display:block;margin:3px 0 1px;font-family:var(--serif);font-size:18px;font-weight:500;color:var(--rose)}
 .voice-face small{display:block;font-size:10.5px;line-height:1.5;color:#655c56}
 .voice-cross{margin:10px 0 0;padding:12px 13px;border-left:3px solid var(--rose);background:#fffaf7;font-family:var(--serif);font-size:15px;line-height:1.85;color:var(--ink)}
-.voice-reveal p{margin:10px 0 0;font-family:var(--serif);font-size:15.5px;line-height:1.9;color:var(--ink)}
+.voice-cross .vclab{display:block;font-family:var(--en);font-style:italic;font-size:13px;color:var(--rose);margin-bottom:3px}
+.voice-hidden-label{display:block;margin-top:12px;font-size:10.5px;letter-spacing:.08em;color:var(--rose);font-weight:700}
+.voice-reveal p{margin:5px 0 0;font-family:var(--serif);font-size:15.5px;line-height:1.9;color:var(--ink)}
 .voice-reveal small{display:block;margin-top:8px;font-size:11px;line-height:1.65;color:var(--muted)}
 @media(max-width:620px){.voice-faces{grid-template-columns:1fr}.voice-face{text-align:left}}
 .idea-section{background:linear-gradient(180deg,#f3eee9,#f8f2ed);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -802,31 +809,37 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         <div class="res" id="res">
           <div class="rcard" id="rcard">
             <div class="lab">AKINAI ORACLE｜あなたの商いカルテ</div>
-            <p class="result-basis">占いとして楽しみながら、結果はあなたが実際に選んだ9つの答えから組み立てています。</p>
+            <p class="result-basis">占いとして楽しみながら、あなたが話したこと・選んだことに現れた傾向を「商い星」として読んでいます。</p>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
             <div class="star-art-sub" id="rArtSub" style="display:none"></div>
+            <div class="oracle-letter">
+              <span class="olabel">A LETTER FROM YOUR AKINAI STAR｜商い星からの便り</span>
+              <p id="rOracleLetter"></p>
+              <small>未来を予言するものではなく、今までの経験を別の角度から見直すための言葉です。</small>
+            </div>
             <div class="status-direction" id="rCompass">
               <span class="direction-label">今の自分に置いておきたい3つのこと</span>
               <div class="direction-tags" id="rDirectionTags"></div>
             </div>
             <div class="voice-reveal" id="rVoiceReveal" style="display:none">
-              <span class="vrlab">あなたの中にいた、3つの自分</span>
+              <span class="vrlab">あなたに現れた、3つの星</span>
               <div class="voice-faces">
-                <div class="voice-face"><span>仕事で見える私</span><b id="rVoiceWorkStar"></b><small id="rVoiceWorkText"></small></div>
-                <div class="voice-face"><span>暮らしで出る私</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
-                <div class="voice-face"><span>周りから見える私</span><b id="rVoiceOtherStar"></b><small id="rVoiceOtherText"></small></div>
+                <div class="voice-face"><span>表の星｜仕事</span><b id="rVoiceWorkStar"></b><small id="rVoiceWorkText"></small></div>
+                <div class="voice-face"><span>素の星｜暮らし</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
+                <div class="voice-face"><span>鏡の星｜周りの目</span><b id="rVoiceOtherStar"></b><small id="rVoiceOtherText"></small></div>
               </div>
-              <div class="voice-cross" id="rVoiceCross"></div>
+              <div class="voice-cross"><span class="vclab">THREE STARS｜3つの星を重ねると</span><div id="rVoiceCross"></div></div>
               <div class="vrwords" id="rVoiceWords"></div>
+              <span class="voice-hidden-label">まだ名前のなかった、あなた</span>
               <p id="rVoiceInsight"></p>
               <small>話した内容に出てきた行動や言葉から見ています。声質・話し方・感情から判断しているわけではありません。</small>
             </div>
             <div class="affirm"><span>これが、あなたの「売れるかもしれない経験」</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
-            <div class="letgo"><b>今日、手放していいこと</b><p id="rLetgo"></p></div>
+            <div class="letgo"><b>✦ 今日のお守り言葉</b><p id="rLetgo"></p></div>
             <div class="insight-box">
               <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
               <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
@@ -844,7 +857,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
           <div class="share-now">
             <b>この言葉を、今の自分への小さなメモに。</b>
-            <p>カードにすると「商い星・大切にしたい価値観・今日手放していいこと」が1枚になります。商いの季節まで見ると、今の現在地も加わります。</p>
+            <p>カードにすると「商い星・大切にしたい価値観・今日のお守り言葉」が1枚になります。商いの季節まで見ると、今の現在地も加わります。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
             <div class="share"><button class="btn" type="button" id="btnSaveTop">お守りカルテを保存</button><button class="btn ghost" type="button" id="btnThreadsTop">Threadsに残す</button><button class="btn ghost" type="button" id="btnShareTop">その他でシェア</button></div>
           </div>
@@ -853,7 +866,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <div class="ol" id="olTop"></div>
           </details>
 
-          <div class="turn"><span>この経験を売るなら、最初はこの3案</span></div>
+          <div class="turn"><span>では、この星を仕事にすると？</span></div>
 
           <div class="value">
             <h3 class="head" id="rHead"></h3>
@@ -872,7 +885,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
 
           <div class="cands">
-            <div class="lab">あなたの商いプラン 3案</div>
+            <div class="lab">星を現実にする｜あなたの商いプラン 3案</div>
             <div class="cl" id="cl"></div>
             <p class="pick">気になる案を1つ選ぶと、「仕事イメージ・商品・相手・価格・売上目安・今週やること」まで1枚にします。</p>
           </div>
@@ -1228,6 +1241,14 @@ const SEASON_TITLE={
   boat:{"種を見つける季節":"これまでの一歩を振り返る人","小さく試す季節":"小さく試して手応えを見る人","育てる季節":"手応えのある形を育てる人","形にする季節":"動きながら続く形をつくる人"},
   tower:{"種を見つける季節":"見えない段取りを数える人","小さく試す季節":"一人分だけ整えてみる人","育てる季節":"繰り返せる形に整える人","形にする季節":"安心を仕事の形にする人"}
 };
+const ORACLE_LETTER={
+  light:"答えをもっと増やすより、これまで何度も聞いてきた人の言葉を思い出してみて。あなたの次の仕事の種は、誰かが「話してよかった」と帰った時間の中にあります。",
+  hand:"新しい技術を足すより、もう何度も丁寧に仕上げてきたものを見直してみて。あなたが「これくらい普通」と思っている手間に、まだ名前と値段がついていないだけかもしれません。",
+  garden:"急いで広げるより、誰かがあなたのそばで続けられた時間を思い出してみて。あなたの商いは、一度の成果より「また会いたい」と思われる関係から育ちます。",
+  bridge:"新しい人脈を増やすより、これまで誰と誰を、なぜつないできたかを振り返ってみて。あなたの価値は人の数ではなく、「この人にはこれ」と選べる目の中にあります。",
+  boat:"完璧な準備を待つより、これまで小さく動いて確かめてきた自分を信じてみて。あなたの次の仕事は、完成してから始まるのではなく、一度試したところから輪郭が見えてきます。",
+  tower:"もっと背負うより、これまで誰かが困る前に整えてきたことを数えてみて。何も起きなかった日こそ、あなたがつくった安心の証かもしれません。"
+};
 const ORACLE_VALUE={
   light:"急がずに聞き、相手の中にある言葉を一緒に見つけること。",
   hand:"丁寧に仕上げる時間を、きちんと価値として数えること。",
@@ -1354,12 +1375,12 @@ const VOICE_LEXICON={
   tower:[["整理",3],["段取り",3],["会計",3],["数字",2],["書類",3],["管理",3],["記録",2],["予定",2],["事務",3],["Excel",3],["エクセル",3],["チェック",2],["抜け",2],["ミス",2],["仕組み",2]]
 };
 const VOICE_FACE_LABEL={
-  light:"話を聞き、言葉にする",
-  hand:"丁寧に形にする",
-  garden:"続けて支える",
-  bridge:"選んで、つなぐ",
-  boat:"まず試して動く",
-  tower:"先回りして整える"
+  light:"人の迷いを、言葉に変える",
+  hand:"丁寧さを、形にして渡す",
+  garden:"人が続けられる時間を育てる",
+  bridge:"その人に合うものを選び、つなぐ",
+  boat:"小さく動いて、手応えをつかむ",
+  tower:"困る前に整え、安心をつくる"
 };
 const VOICE_REFRAME={
   light:"あなたは「人の話を聞く人」だと思っているかもしれません。でも、話から見えてくるのは、聞いたあとに相手の考えを整理し、次に何をするかまで言葉にしてきた人です。価値があるのは、聞くことそのものより「迷いを言葉に変えるところ」かもしれません。",
@@ -1613,9 +1634,10 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     document.getElementById('rChara').textContent=cname;
     BASE_RESULT=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:d.sym+(d2?'×'+d2.sym:'')};
-    document.getElementById('rStars').textContent=d.sym+(d2?' × '+d2.sym:'')+'　主星'+(d2?'・副星':'');
+    document.getElementById('rStars').textContent='今回の商い星　'+d.sym+(d2?' × '+d2.sym:'')+(d2?'　主星・副星':'');
     const art=document.getElementById('rArt');art.className='star-art '+w;art.innerHTML=STAR_ART[w];
     const artSub=document.getElementById('rArtSub');if(d2){artSub.style.display='flex';artSub.innerHTML='<span>主星 '+d.sym+'</span><i></i><span>副星 '+d2.sym+'</span>';}else{artSub.style.display='none';artSub.innerHTML='';}
+    document.getElementById('rOracleLetter').textContent=ORACLE_LETTER[w];
     document.getElementById('rAffirm').textContent=AFFIRM[w];
     document.getElementById('rLetgo').textContent=LETGO[w];
     document.getElementById('rValue').textContent=ORACLE_VALUE[w];
