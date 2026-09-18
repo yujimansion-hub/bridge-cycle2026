@@ -425,6 +425,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .belly p{margin:0;font-size:14px;line-height:1.85;color:#4a413b}
 .belly p+p{margin-top:9px}
 .belly .bend{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.warm-note{margin:14px 0 0;padding:18px 17px;border-radius:18px;background:linear-gradient(145deg,#fffaf5,#f8e8e2);border:1px solid #e8cec5;position:relative}
+.warm-note:before{content:"“";position:absolute;right:14px;top:2px;font-family:var(--serif);font-size:52px;line-height:1;color:#ead0c8}
+.warm-note .wlab{display:block;font-size:10.5px;letter-spacing:.09em;color:var(--rose);font-weight:700;margin-bottom:5px}
+.warm-note p{margin:0;font-family:var(--serif);font-size:15.5px;line-height:1.9;color:var(--ink)}
+.warm-note small{display:block;margin-top:9px;font-size:11.5px;line-height:1.7;color:#756963}
 .paid-peek{margin-top:4px;border:1px solid #e1c8bf;border-radius:16px;background:#fff;overflow:hidden}
 .paid-peek summary{cursor:pointer;padding:12px 14px;font-size:12.5px;font-weight:700;color:var(--rose);list-style:none}
 .paid-peek summary::-webkit-details-marker{display:none}
@@ -575,7 +580,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div class="fortune-simple">
         <div class="kicker">STEP 1 — FREE / 3 min.</div>
         <h2>あなたの「商い星」は？</h2>
-        <p>考え込まず、近いものを選んでください。9問の答えから結果を組み立てます。</p>
+        <p>これまでの仕事で何を任されてきたかを中心に聞きます。家族関係などの個人的なことは聞きません。</p>
       </div>
 
       <div class="qz" id="qz">
@@ -596,16 +601,16 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <button type="button" data-v="tower"><span class="k">B</span>段取りを全部決めてから</button>
           <button type="button" data-v="bridge"><span class="k">C</span>詳しい人に聞きに行く</button>
           <button type="button" data-v="light"><span class="k">D</span>自分で調べて、言葉にしてみる</button></div></div>
-        <div class="scr" data-i="3"><h3>仕事や暮らしの中で、一番頼られているのは？</h3><p class="sub">Q4 / 9</p><div class="ch">
-          <button type="button" data-v="light"><span class="k">A</span>話を聞くこと</button>
-          <button type="button" data-v="hand"><span class="k">B</span>料理・手仕事・修理</button>
-          <button type="button" data-v="tower"><span class="k">C</span>予定・お金・書類の管理</button>
-          <button type="button" data-v="garden"><span class="k">D</span>相手の変化に、気づくこと</button></div></div>
-        <div class="scr" data-i="4"><h3>職場や地域、人が集まる場で、自然と任されてきた役は？</h3><p class="sub">Q5 / 9</p><div class="ch">
-          <button type="button" data-v="light"><span class="k">A</span>取りまとめ・司会</button>
-          <button type="button" data-v="boat"><span class="k">B</span>当日の売り子・出店・現場</button>
-          <button type="button" data-v="tower"><span class="k">C</span>会計・段取り・記録</button>
-          <button type="button" data-v="bridge"><span class="k">D</span>人と人の橋渡し</button></div></div>
+        <div class="scr" data-i="3"><h3>これまでの仕事で、職場や役割が変わっても、なぜか任されてきたことは？</h3><p class="sub">Q4 / 9</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>人の話を聞いて、考えを整理する</button>
+          <button type="button" data-v="hand"><span class="k">B</span>資料・料理・ものを、きちんと形にする</button>
+          <button type="button" data-v="tower"><span class="k">C</span>予定・数字・書類を、整える</button>
+          <button type="button" data-v="garden"><span class="k">D</span>新人・お客さん・仲間を、続けて支える</button></div></div>
+        <div class="scr" data-i="4"><h3>これまでの仕事で、気づくと引き受けていた役は？</h3><p class="sub">Q5 / 9</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>取りまとめ・説明・進行役</button>
+          <button type="button" data-v="boat"><span class="k">B</span>まず現場に出て、動かす役</button>
+          <button type="button" data-v="tower"><span class="k">C</span>会計・段取り・記録を整える役</button>
+          <button type="button" data-v="bridge"><span class="k">D</span>人と人・部署と部署をつなぐ役</button></div></div>
         <div class="scr" data-i="5"><h3>休みの日、気づくとやっているのは？</h3><p class="sub">Q6 / 9</p><div class="ch">
           <button type="button" data-v="hand"><span class="k">A</span>お菓子や小物を、作っている</button>
           <button type="button" data-v="tower"><span class="k">B</span>部屋や書類を、整えている</button>
@@ -657,6 +662,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
               <span class="blab">あなたの9つの答えを、つないで読むと</span>
               <p id="rStory"></p>
               <p class="bend" id="rStoryEnd"></p>
+            </div>
+            <div class="warm-note" id="rWarm" style="display:none">
+              <span class="wlab">ここまでやってきた、あなたへ</span>
+              <p id="rWarmText"></p>
+              <small>新しく何かにならなくていい。これまでの中に、もう仕事の種があります。</small>
             </div>
           </div>
           <div class="share-now">
@@ -821,6 +831,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <li>月3万・5万円に必要な人数を出す</li>
             <li>最初に声をかける5人を決める</li>
             <li>週に使う時間を決める</li>
+            <li>必要なら、家族との時間・家計から出せる上限も確認する</li>
             <li>90日後の続ける／やめる基準を決める</li>
           </ul>
         </div>
@@ -938,6 +949,14 @@ const BOTTOM_LINE={
   bridge:"足りないのは、人脈を増やすことではなく、「なぜそれを選ぶのか」を見える形にして、判断そのものを商品にすることです。",
   boat:"足りないのは、完璧な準備ではなく、条件をそろえて3回だけ試し、「何が売れたか」を比べられるようにすることです。",
   tower:"足りないのは、もっと裏方を引き受けることではなく、相手が減らせる手間とミスまで含めて値段を決めることです。"
+};
+const WARM={
+  light:"きっと、誰かの話を聞いて「そういうことだったんだ」と言われたことが、何度もあったはずです。あなたはそれを、仕事だから、友達だから、たまたま自分が聞いただけ、と数えずにきたのかもしれません。でも、何度も頼られてきたことは、偶然ではありません。あなたが人の気持ちを受け止め、言葉にして返してきた時間は、ちゃんと積み重なっています。",
+  hand:"きっと、頼まれたものを「これくらい普通」と言いながら、最後までちゃんと仕上げてきたのだと思います。誰かが安心してあなたに任せた回数を、自分では実績として数えてこなかっただけ。丁寧に手を動かしてきた時間は、もう十分にあなたの仕事の土台です。",
+  garden:"人が続けられない時に、そばにいたこと。少し元気がない時に気づいたこと。あなたはそれを、優しさや気づかいとして片づけてきたのかもしれません。でも「あなたがいると続けられる」と感じた人がいたから、何度も支える役があなたに戻ってきたのだと思います。その時間は、見えにくいけれど確かな経験です。",
+  bridge:"『それなら、この人に聞いてみたら』と何気なくつないできたこと。あなたにとってはただの紹介でも、相手にとっては迷う時間を減らしてくれた大事な判断だったのかもしれません。人と人の間に立ってきた回数を、実績と呼んでこなかっただけ。選ぶ目とつなぐ力は、もうあなたの中にあります。",
+  boat:"誰かが迷っている時に、まず動いてみたこと。現場に出て、やってみて、そこから直してきたこと。あなたはそれを『深く考えていないだけ』と思ってきたかもしれません。でも、動いた人にしか分からない手応えを、あなたは何度も持ち帰っています。その経験は、これから始める人には大きな価値になります。",
+  tower:"誰にも気づかれないうちに、抜けや漏れを埋めてきたこと。予定、数字、書類、段取り。問題が起きなかったからこそ、あなた自身も『何もしていない』ように感じていたかもしれません。でも安心して任せてもらえた回数は、あなたが積み上げてきた信用そのものです。"
 };
 const LETGO={
   light:"全部わかってから話さなくていい。聞きながら整理すること自体が、もう価値です。",
@@ -1124,8 +1143,8 @@ const FRAG=[
  {light:"話を聞いて整理したことで感謝されて",hand:"何かを作ったり直したりしたことで感謝されて",garden:"続けて支えたことで感謝されて",bridge:"人や店を紹介したことで感謝されて"},
  {light:"相談や知識を売る",hand:"商品や技術を売る",garden:"続けて通ってもらう",bridge:"人と人をつないで価値をつくる"},
  {boat:"新しいことは、まず小さくやってみる",tower:"新しいことは、段取りを決めてから始める",bridge:"新しいことは、詳しい人に聞きに行く",light:"新しいことは、自分で調べて言葉にしてみる"},
- {light:"暮らしの中でも「話を聞くこと」を頼られ",hand:"暮らしの中でも料理や手仕事を頼られ",tower:"暮らしの中でも予定やお金や書類の管理を頼られ",garden:"暮らしの中でも「相手の変化に気づく役」を頼られ"},
- {light:"人が集まる場では取りまとめや司会を任され",boat:"人が集まる場では当日の現場を任され",tower:"人が集まる場では会計や段取りを任され",bridge:"人が集まる場では橋渡し役を任され"},
+ {light:"職場や役割が変わっても、人の話を聞いて整理する役を任され",hand:"職場や役割が変わっても、資料やものをきちんと形にする役を任され",tower:"職場や役割が変わっても、予定・数字・書類を整える役を任され",garden:"職場や役割が変わっても、新人やお客さんを続けて支える役を任され"},
+ {light:"仕事では取りまとめ・説明・進行役を引き受け",boat:"仕事ではまず現場に出て動かす役を引き受け",tower:"仕事では会計・段取り・記録を整える役を引き受け",bridge:"仕事では人と人・部署と部署をつなぐ役を引き受け"},
  {hand:"休みの日にも、気づけばお菓子や小物を作っている",tower:"休みの日にも、気づけば部屋や書類を整えている",boat:"休みの日にも、気になる店や場所に出かけている",garden:"休みの日にも、友だちの悩みを聞いている"},
  {hand:"一回の仕上がりごと",garden:"月ごと・回数券",bridge:"紹介や仲介の手数料",boat:"一日で売り切る形"},
  {tower:"数字を出して、安心してから動く",boat:"まず小さく試して、確かめる",bridge:"経験者に、相談する",light:"一度、自分の言葉で書き出す"},
@@ -1137,7 +1156,7 @@ const CONTRA={light:"人の話は整理できるのに、自分のことにな�
 const Q9DIR={tower:"基準や流れまで仕組みにする",hand:"目に見える形に残す",garden:"続けてもらう関係にする",boat:"あちこちで見せて回る"};
 const Q1L={light:"話を聞いて整理すること",hand:"何かを作ったり直したりすること",garden:"続けて支えること",bridge:"人や店を紹介すること"};
 const Q2L={light:"相談や知識を売ること",hand:"商品や技術を売ること",garden:"続けて通ってもらうこと",bridge:"人と人をつなぐこと"};
-const Q4L={light:"話を聞くこと",hand:"料理や手仕事",tower:"予定・お金・書類の管理",garden:"相手の変化に気づくこと"};
+const Q4L={light:"人の話を聞いて整理すること",hand:"資料やものをきちんと形にすること",tower:"予定・数字・書類を整えること",garden:"新人やお客さんを続けて支えること"};
 const Q9L={tower:"「任せれば安心」と言われたい",hand:"「あの人の手仕事、好き」と言われたい",garden:"「ずっと通ってる、あの場所の人」でいたい",boat:"「あちこちで見かける、あの人」でいたい"};
 const Q9NEXT={tower:{h:"整理した結果を、“仕組み”として残せる人になりたい。",ex:"「相談＋整理シート」「相談＋次の行動表」のように、話したあとに何かが残る仕事"},hand:{h:"それを、目に見える形にして手渡せる人になりたい。",ex:"作品、一枚のシート、写真。相手の手元に「もの」が残る仕事"},garden:{h:"一度きりではなく、続けて関わる人になりたい。",ex:"回数券、月1回、3回セット。「また次も」が前提の仕事"},boat:{h:"ひとつの場所にとどまらず、あちこちで見せて回る人になりたい。",ex:"出張、出店、月替わりの場所。身軽に動ける仕事"}};
 function gaps(ans){const g=[];const q1=ans[0],q2=ans[1],q4=ans[3],q8=ans[7],q9=ans[8];
@@ -1252,7 +1271,7 @@ const COMBO={
         bridge:["整えられる。そして、必要な人を呼べる人。","自分でできない部分は、詳しい人につなげられる。窓口として、信頼される。"],
         boat:["整えられる。でも、完璧を待たなくていい人。","段取りが決まる前に、一人分だけ試してみる。動きながら整えるほうが、あなたには早い。"]}
 };
-const LBL=["感謝されたこと","月5万円なら","始め方","頼られること","任される役","休みの日","お金のもらい方","不安なとき","10年後"];
+const LBL=["感謝されたこと","月5万円なら","始め方","キャリアで任されたこと","引き受けてきた役","休みの日","お金のもらい方","不安なとき","10年後"];
 
 // ---- 9問・4択の占い（4問で速報→9問でキャラ）＋他己診断 ----
 (function(){
@@ -1309,11 +1328,12 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
       const byK=k=>{const z=labels.find(x=>x.k===k);return z?z.t:'';};
       const q1=byK(0),q4=byK(3),q5=byK(4),q8=byK(7),q9=byK(8);
       const belly=document.getElementById('rBelly');
-      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ことで感謝され、普段は「<b>'+q4+'</b>」ことを頼られ、人が集まる場では「<b>'+q5+'</b>」役を任されてきました。<br>でも、自分のことになると、失敗したくないときは「<b>'+q8+'</b>」を選ぶ。そして10年後は「<b>'+q9+'</b>」と呼ばれていたい。';
-      document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、すでに周りから役割を渡されている人の答えです。'+BOTTOM_LINE[w];
+      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ことで感謝されてきました。仕事では、職場や役割が変わっても「<b>'+q4+'</b>」ことを任され、気づくと「<b>'+q5+'</b>」役を引き受けてきた。<br>でも、自分のことになると、失敗したくないときは「<b>'+q8+'</b>」を選ぶ。そして10年後は「<b>'+q9+'</b>」と呼ばれていたい。';
+      document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、これまでのキャリアの中で、同じ種類の役割を何度も任されてきた人の答えです。'+BOTTOM_LINE[w];
       belly.style.display='';
+      const warm=document.getElementById('rWarm');document.getElementById('rWarmText').textContent=WARM[w];warm.style.display='';
     }
-    else{document.getElementById('rQuote').textContent='';document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');document.getElementById('rInd').textContent='';const belly=document.getElementById('rBelly');if(belly)belly.style.display='none';}
+    else{document.getElementById('rQuote').textContent='';document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');document.getElementById('rInd').textContent='';const belly=document.getElementById('rBelly');if(belly)belly.style.display='none';const warm=document.getElementById('rWarm');if(warm)warm.style.display='none';}
     // 3候補
     const cl=document.getElementById('cl'); cl.innerHTML='';
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='none');
