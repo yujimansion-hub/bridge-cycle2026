@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×仕事づくり診断。仕事・暮らし・周りから見た自分について7つの質問に声で答えると、自分では気づきにくい価値と具体的な仕事案3つが見つかります。">
+<meta name="description" content="40代女性のための、占い×仕事づくり。生年月日と1枚引きで商い星を占い、7つの入力から実際の経験と照らし合わせて、具体的な仕事案3つまで出します。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
 <meta property="og:description" content="話してみたら、知らなかった「仕事になる私」が見えてくる。商い星と具体的な仕事案3つを無料で。">
 <meta property="og:type" content="website">
@@ -166,6 +166,12 @@ h2{font-size:clamp(26px,3.6vw,42px);line-height:1.45;font-weight:500;margin:10px
 .rbox p.lines{white-space:pre-line}
 .rcard .chara{font-family:var(--serif);font-size:clamp(24px,3.4vw,30px);line-height:1.35;font-weight:500;margin:8px 0 4px}
 .rcard .stars2{font-size:13px;color:var(--rose);margin-bottom:12px}
+.oracle-origin{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.oracle-origin>div{padding:12px 13px;border-radius:14px;background:#fff;border:1px solid #ead8d0}
+.oracle-origin span{display:block;font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.05em}
+.oracle-origin b{display:block;margin:2px 0;font-family:var(--serif);font-size:20px;font-weight:500;color:var(--rose)}
+.oracle-origin small{display:block;font-size:10.5px;line-height:1.5;color:#655c56}
+@media(max-width:620px){.oracle-origin{grid-template-columns:1fr}}
 .oracle-letter{margin:14px 0 12px;padding:18px 18px 17px;border-radius:18px;background:rgba(255,255,255,.78);border:1px solid #ead8d0;position:relative}
 .oracle-letter:before{content:"✦";position:absolute;right:16px;top:12px;color:var(--gold);font-size:13px}
 .oracle-letter .olabel{display:block;font-family:var(--en);font-style:italic;font-size:14px;color:var(--rose);letter-spacing:.06em;margin-bottom:4px}
@@ -510,7 +516,20 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .route-card em{display:inline-block;margin-top:8px;font-style:normal;font-size:11.5px;color:var(--rose);font-weight:700}
 .voice-section{background:linear-gradient(180deg,#eee5de,#f7f0ea);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .voice-box{max-width:720px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
-.voice-required-head{margin:0 0 15px;padding:14px 15px;border-radius:16px;background:var(--rose-pale);border:1px solid #ead2ca}
+.fortune-input{margin:0 0 14px;padding:18px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.fortune-input-head{display:flex;align-items:baseline;gap:9px;margin-bottom:11px}
+.fortune-input-head span{font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px}
+.fortune-input-head b{font-family:var(--serif);font-size:17px;font-weight:500}
+.birth-label{display:block;font-size:12px;font-weight:700;margin-bottom:5px}
+.birth-input{width:100%;min-height:50px;border:1.5px solid var(--line);border-radius:13px;background:#fff;padding:10px 12px;color:var(--ink);font:inherit}
+.birth-input:focus{outline:2px solid var(--rose);border-color:var(--rose)}
+.fortune-card-lead{margin:0 0 10px;font-size:12.5px;color:var(--muted)}
+.fortune-draw{width:100%}
+.fortune-result-mini{margin-top:12px;padding:13px 14px;border-radius:14px;background:var(--rose-pale);border:1px solid #ead2ca}
+.fortune-result-mini span{display:block;font-size:10px;color:var(--rose);font-weight:700;letter-spacing:.08em}
+.fortune-result-mini b{display:block;margin:3px 0;font-family:var(--serif);font-size:22px;font-weight:500}
+.fortune-result-mini p{margin:0;font-size:12.5px;line-height:1.7;color:#655c56}
+.voice-required-head{margin:18px 0 15px;padding:14px 15px;border-radius:16px;background:var(--rose-pale);border:1px solid #ead2ca}
 .voice-required-head b{display:block;font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink)}
 .voice-required-head p{margin:4px 0 0;font-size:12px;line-height:1.65;color:#6b605a}
 .voice-group-label{display:flex;align-items:baseline;gap:9px;margin:20px 2px 9px;padding-top:4px}
@@ -635,20 +654,20 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
-        <h1>話してみたら、<br><span>知らなかった「仕事になる私」が見えてくる。</span></h1>
-        <p class="lead">うまく話さなくて大丈夫。これまで頼まれてきたこと、自然と任されてきたことを少し話してください。<br>そこから<b>商い星・自分では気づきにくい価値・具体的な仕事案3つ</b>を出します。</p>
+        <h1>占って、書いてみたら、<br><span>知らなかった「仕事になる私」が見えてくる。</span></h1>
+        <p class="lead">まず、生年月日から「生まれ持った商い星」を見て、1枚だけ商いカードを引きます。<br>そのあと7つの質問に入力すると、<b>占いで出た星と、実際の人生に現れている力</b>を重ねて、具体的な仕事案3つまで出します。</p>
         <div class="route-choose" id="start">
           <p class="rq">いちばん気軽な方法からどうぞ。</p>
           <a class="voice-route" href="#voice-diagnosis">
-            <div class="vr-top"><span class="mic-dot">🎙</span><div><b>7つの質問に、話して答える</b><span>仕事の私、暮らしで出る私、周りから見える私。3つの角度から見つけます。</span></div></div>
-            <em>→ 自分の知らない自分と、仕事案3つを見つける</em>
+            <div class="vr-top"><span class="mic-dot">✦</span><div><b>占ってから、7つの質問に入力する</b><span>生年月日＋1枚引きの占いと、仕事・暮らし・周りから見た自分を重ねます。</span></div></div>
+            <em>→ 占い × 実際の経験から、仕事案3つを見つける</em>
           </a>
           <div class="route-grid">
             <a class="route-card" href="#fortune"><b>話すのは少し苦手</b><span>9問から選ぶだけでも、同じ「商い星」と仕事案3つが出ます。</span><em>→ 選んで診断する</em></a>
             <a class="route-card" href="#idea-check"><b>売りたいものは、もう決まっている</b><span>その商品を「誰に・いくらで・まず何人に売るか」で確かめます。</span><em>→ 商品を確かめる</em></a>
           </div>
         </div>
-        <p class="micro">無料・登録なし。音声はブラウザの音声認識機能を使います。</p>
+        <p class="micro">無料・登録なし。生年月日や入力内容は、このページからBRIDGE CYCLEへ送信しません。</p>
       </div>
       <div class="hero-ph">
         <img src="images/akinai-hero.jpg" alt="自宅のテーブルでノートを開き、自分の商いを考える40代の女性" width="706" height="1024" loading="eager" fetchpriority="high">
@@ -664,72 +683,78 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   <section id="voice-diagnosis" class="voice-section">
     <div class="wrap">
       <div class="fortune-simple">
-        <div class="kicker">無料｜話して診断</div>
-        <h2>仕事だけでは見えない「あなた」を、7つの話から見つけます。</h2>
-        <p><b>仕事で見える私 × 暮らしで出る私 × 周りから見える私</b>。家族関係や個人的な悩みではなく、日常で自然に出ている行動を聞きます。</p>
+        <div class="kicker">無料｜占い × 仕事づくり</div>
+        <h2>まず占う。そのあと、あなたの人生と照らし合わせます。</h2>
+        <p><b>占いで出た星</b>と、<b>あなたが実際に書いた経験</b>は別々に見ます。「当たっているところ」と「意外に違うところ」の両方から、仕事の種を探します。</p>
       </div>
+
       <div class="voice-box">
+        <div class="fortune-input">
+          <div class="fortune-input-head"><span>FORTUNE 01</span><b>生まれ持った商い星</b></div>
+          <label class="birth-label" for="birthDate">生年月日</label>
+          <input class="birth-input" id="birthDate" type="date" autocomplete="bday">
+          <p class="voice-help">生年月日の数字を6つの商い星に対応させる、この診断独自の象徴的な占いです。心理検査や科学的な適性判定ではありません。</p>
+          <div class="fortune-result-mini" id="birthFortune" style="display:none">
+            <span>生まれ持った星</span><b id="birthStar"></b><p id="birthStarText"></p>
+          </div>
+        </div>
+
+        <div class="fortune-input">
+          <div class="fortune-input-head"><span>FORTUNE 02</span><b>今のあなたへの1枚</b></div>
+          <p class="fortune-card-lead">6枚の商いカードから、今のテーマを1枚だけ引きます。</p>
+          <button class="btn ghost fortune-draw" id="drawAkinaiCard" type="button">✦ 商いカードを1枚引く</button>
+          <div class="fortune-result-mini card-drawn" id="drawFortune" style="display:none">
+            <span>今日の商いカード</span><b id="drawStar"></b><p id="drawStarText"></p>
+          </div>
+        </div>
+
         <div class="voice-required-head">
-          <b>7つとも、声に出して答えてください。</b>
-          <p>各質問は20〜40秒ほど。きれいにまとめず、実際にあった場面を1つ話すだけで大丈夫です。</p>
+          <b>ここからは「診断」。7つの質問に入力してください。</b>
+          <p>占い結果に合わせて答える必要はありません。実際の経験を、そのまま書いてください。1〜3文程度で十分です。</p>
         </div>
 
         <div class="voice-group-label"><span>WORK</span><b>仕事で見える私</b></div>
         <div class="voice-steps">
           <div class="voice-step" data-voice-step="0">
             <div class="vs-head"><span>1</span><div><b>人から、よく何を頼まれてきましたか？</b><small>例：相談される／資料を整える／人を紹介する／料理を頼まれる など</small></div></div>
-            <button class="btn voice-mic" type="button" data-voice-btn="0">🎙 この質問に答える</button>
-            <span class="voice-status" id="voiceStatus0">実際に頼まれた場面を1つ話してください。</span>
-            <textarea class="voice-text voice-answer" id="voiceText0" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+            <textarea class="voice-text voice-answer" id="voiceText0" maxlength="700" placeholder="例：職場では、説明が分かりにくい資料を整理してほしいとよく頼まれます。"></textarea>
           </div>
           <div class="voice-step" data-voice-step="1">
             <div class="vs-head"><span>2</span><div><b>仕事で、気づくと任されていた役は何ですか？</b><small>例：取りまとめ／新人フォロー／会計／段取り／現場対応／説明役 など</small></div></div>
-            <button class="btn voice-mic" type="button" data-voice-btn="1">🎙 この質問に答える</button>
-            <span class="voice-status" id="voiceStatus1">職場や役割が変わっても、繰り返していたことを話してください。</span>
-            <textarea class="voice-text voice-answer" id="voiceText1" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+            <textarea class="voice-text voice-answer" id="voiceText1" maxlength="700" placeholder="職場や役割が変わっても、なぜか自分がやっていたことを書いてください。"></textarea>
           </div>
           <div class="voice-step" data-voice-step="2">
             <div class="vs-head"><span>3</span><div><b>仕事で、自分では「これくらい普通」と思っていることは？</b><small>人には褒められるけれど、自分では特別だと思っていないこと。</small></div></div>
-            <button class="btn voice-mic" type="button" data-voice-btn="2">🎙 この質問に答える</button>
-            <span class="voice-status" id="voiceStatus2">「こんなことが仕事になるとは思わない」ことほど大歓迎です。</span>
-            <textarea class="voice-text voice-answer" id="voiceText2" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+            <textarea class="voice-text voice-answer" id="voiceText2" maxlength="700" placeholder="例：予定を見て先に必要なものを準備しておくのは、普通だと思っています。"></textarea>
           </div>
         </div>
 
         <div class="voice-group-label"><span>LIFE</span><b>暮らしで出る私</b></div>
         <div class="voice-steps">
           <div class="voice-step" data-voice-step="3">
-            <div class="vs-head"><span>4</span><div><b>休日、気づくと何をしていることが多いですか？</b><small>作る、整える、出かける、調べる、人の話を聞くなど。予定のない日の自分を思い出してください。</small></div></div>
-            <button class="btn voice-mic" type="button" data-voice-btn="3">🎙 この質問に答える</button>
-            <span class="voice-status" id="voiceStatus3">仕事ではなく、自然にやっていることを話してください。</span>
-            <textarea class="voice-text voice-answer" id="voiceText3" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+            <div class="vs-head"><span>4</span><div><b>休日、気づくと何をしていることが多いですか？</b><small>予定のない日の自分を思い出してください。</small></div></div>
+            <textarea class="voice-text voice-answer" id="voiceText3" maxlength="700" placeholder="例：気になる店を見つけると、予定がなくても見に行ってしまいます。"></textarea>
           </div>
           <div class="voice-step" data-voice-step="4">
-            <div class="vs-head"><span>5</span><div><b>友人や知人と集まると、自然とどんな役になりますか？</b><small>話を聞く／店を選ぶ／日程を決める／人をつなぐ／まず動く／場を整える など</small></div></div>
-            <button class="btn voice-mic" type="button" data-voice-btn="4">🎙 この質問に答える</button>
-            <span class="voice-status" id="voiceStatus4">「いつも結局、自分がやっていること」を話してください。</span>
-            <textarea class="voice-text voice-answer" id="voiceText4" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+            <div class="vs-head"><span>5</span><div><b>友人や知人と集まると、自然とどんな役になりますか？</b><small>店を選ぶ、日程を決める、話を聞く、人をつなぐ、場を整えるなど。</small></div></div>
+            <textarea class="voice-text voice-answer" id="voiceText4" maxlength="700" placeholder="例：いつも店を探して、みんなの日程をまとめる役になります。"></textarea>
           </div>
           <div class="voice-step" data-voice-step="5">
-            <div class="vs-head"><span>6</span><div><b>最近、時間を忘れて調べたり、作ったり、試したりしたことは？</b><small>役に立つかどうかは考えず、つい夢中になることを話してください。</small></div></div>
-            <button class="btn voice-mic" type="button" data-voice-btn="5">🎙 この質問に答える</button>
-            <span class="voice-status" id="voiceStatus5">小さなことでも構いません。最近の具体例を1つ。</span>
-            <textarea class="voice-text voice-answer" id="voiceText5" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+            <div class="vs-head"><span>6</span><div><b>最近、時間を忘れて調べたり、作ったり、試したりしたことは？</b><small>役に立つかどうかは考えず、つい夢中になること。</small></div></div>
+            <textarea class="voice-text voice-answer" id="voiceText5" maxlength="700" placeholder="例：旅行先の店やルートを比較していると、気づくと何時間も経っています。"></textarea>
           </div>
         </div>
 
         <div class="voice-group-label"><span>OTHERS</span><b>周りから見える私</b></div>
         <div class="voice-steps">
           <div class="voice-step" data-voice-step="6">
-            <div class="vs-head"><span>7</span><div><b>周りの人から、どんな人だと言われることが多いですか？</b><small>例：「話しやすい」「しっかりしてる」「行動が早い」「顔が広い」「面倒見がいい」「器用」など。実際に言われた言葉をそのまま。</small></div></div>
-            <button class="btn voice-mic" type="button" data-voice-btn="6">🎙 この質問に答える</button>
-            <span class="voice-status" id="voiceStatus6">仕事でも友人関係でも構いません。言われた言葉を思い出してください。</span>
-            <textarea class="voice-text voice-answer" id="voiceText6" maxlength="700" placeholder="音声がここに文字になります。"></textarea>
+            <div class="vs-head"><span>7</span><div><b>周りの人から、どんな人だと言われることが多いですか？</b><small>「話しやすい」「しっかりしてる」「行動が早い」「顔が広い」「面倒見がいい」「器用」など、実際に言われた言葉を。</small></div></div>
+            <textarea class="voice-text voice-answer" id="voiceText6" maxlength="700" placeholder="実際に言われた言葉を、そのまま入力してください。"></textarea>
           </div>
         </div>
 
-        <p class="voice-help">※ 7つの回答がそろうまで診断には進みません。家族関係・健康・家計などの個人的な事情を聞く診断ではありません。音声認識は端末・ブラウザの機能を利用します。このページからBRIDGE CYCLEへ音声や入力内容を送信することはありません。</p>
-        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">7つの話から「知らなかった私」と仕事案を見つける</button>
+        <p class="voice-help">※ 生年月日と1枚引きは「占い」、7つの入力は「診断」として分けて扱います。結果では両者が重なる点・違う点を表示します。入力内容はこのページからBRIDGE CYCLEへ送信しません。</p>
+        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">占いと7つの入力から「仕事になる私」を見つける</button>
         <div class="voice-out" id="voiceOut" aria-live="polite"></div>
       </div>
     </div>
@@ -741,7 +766,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         <div class="kicker">無料3分｜選んで診断</div>
         <h2>話すのが苦手なら、9問から選ぶだけ。</h2>
         <p>これまで何を任されてきたかを中心に聞きます。結果は、商い星・知らなかった自分・仕事案3つまで。同じところまで見られます。</p>
-        <p style="margin-top:8px"><a href="#voice-diagnosis" style="color:var(--rose);font-weight:700">← 話して診断する</a>　／　<a href="#idea-check" style="color:var(--rose);font-weight:700">売りたいものがある人はこちら →</a></p>
+        <p style="margin-top:8px"><a href="#voice-diagnosis" style="color:var(--rose);font-weight:700">← 占い＋入力で見る</a>　／　<a href="#idea-check" style="color:var(--rose);font-weight:700">売りたいものがある人はこちら →</a></p>
       </div>
 
       <div class="qz" id="qz">
@@ -814,6 +839,10 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
             <div class="star-art-sub" id="rArtSub" style="display:none"></div>
+            <div class="oracle-origin" id="rOracleOrigin" style="display:none">
+              <div><span>生まれ持った星</span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
+              <div><span>今日引いたカード</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
+            </div>
             <div class="oracle-letter">
               <span class="olabel">A LETTER FROM YOUR AKINAI STAR｜商い星からの便り</span>
               <p id="rOracleLetter"></p>
@@ -824,17 +853,17 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
               <div class="direction-tags" id="rDirectionTags"></div>
             </div>
             <div class="voice-reveal" id="rVoiceReveal" style="display:none">
-              <span class="vrlab">あなたに現れた、3つの星</span>
+              <span class="vrlab">7つの入力から見えた、3つの自分</span>
               <div class="voice-faces">
-                <div class="voice-face"><span>表の星｜仕事</span><b id="rVoiceWorkStar"></b><small id="rVoiceWorkText"></small></div>
-                <div class="voice-face"><span>素の星｜暮らし</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
-                <div class="voice-face"><span>鏡の星｜周りの目</span><b id="rVoiceOtherStar"></b><small id="rVoiceOtherText"></small></div>
+                <div class="voice-face"><span>仕事で見える私</span><b id="rVoiceWorkStar"></b><small id="rVoiceWorkText"></small></div>
+                <div class="voice-face"><span>暮らしで出る私</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
+                <div class="voice-face"><span>周りから見える私</span><b id="rVoiceOtherStar"></b><small id="rVoiceOtherText"></small></div>
               </div>
-              <div class="voice-cross"><span class="vclab">THREE STARS｜3つの星を重ねると</span><div id="rVoiceCross"></div></div>
+              <div class="voice-cross"><span class="vclab">CHECK｜占いと実際の経験を照らし合わせると</span><div id="rVoiceCross"></div></div>
               <div class="vrwords" id="rVoiceWords"></div>
-              <span class="voice-hidden-label">まだ名前のなかった、あなた</span>
+              <span class="voice-hidden-label">診断から見えた、まだ名前のなかったあなた</span>
               <p id="rVoiceInsight"></p>
-              <small>話した内容に出てきた行動や言葉から見ています。声質・話し方・感情から判断しているわけではありません。</small>
+              <small>入力した内容に出てきた行動や言葉から見ています。占い部分と診断部分は別に扱っています。</small>
             </div>
             <div class="affirm"><span>これが、あなたの「売れるかもしれない経験」</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
@@ -1127,7 +1156,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap">
       <div class="section-head"><div class="kicker">Booking — 45 min.</div><h2>45分診断を、予約する</h2><p>2分で終わります。折り返しは1営業日以内に、メールで日程をご相談します。お支払い方法も、そのメールでご案内します（事前決済は不要です）。</p></div>
       <form class="bform" id="bform" autocomplete="on" novalidate>
-        <div class="bres" id="bres"><span class="lab">診断結果（自動で添えます）</span><b id="bresTxt">まだ診断していません</b><span class="hint">先に<a href="#start">無料診断</a>を受けておくと、当日は結果の続きから始められます。話して診断・9問診断・商品チェックのどれでも大丈夫です。受けていなくても予約できます。</span></div>
+        <div class="bres" id="bres"><span class="lab">診断結果（自動で添えます）</span><b id="bresTxt">まだ診断していません</b><span class="hint">先に<a href="#start">無料診断</a>を受けておくと、当日は結果の続きから始められます。入力して診断・9問診断・商品チェックのどれでも大丈夫です。受けていなくても予約できます。</span></div>
         <div class="fld"><label for="bname">お名前<span class="req">必須</span></label><input id="bname" name="お名前" type="text" autocomplete="name" placeholder="例：山田 花子" required></div>
         <div class="fld"><label for="bmail">メールアドレス<span class="req">必須</span></label><input id="bmail" name="メール" type="email" autocomplete="email" inputmode="email" placeholder="例：you@example.com" required><div class="hint">日程のご相談と、当日のURL（オンラインの場合）をお送りします。</div></div>
         <div class="fld"><label>希望の形式<span class="req">必須</span></label>
@@ -1240,6 +1269,23 @@ const SEASON_TITLE={
   bridge:{"種を見つける季節":"選んできた理由を集める人","小さく試す季節":"3人に提案を試す人","育てる季節":"紹介の輪を静かに育てる人","形にする季節":"選ぶ力を仕事にする人"},
   boat:{"種を見つける季節":"これまでの一歩を振り返る人","小さく試す季節":"小さく試して手応えを見る人","育てる季節":"手応えのある形を育てる人","形にする季節":"動きながら続く形をつくる人"},
   tower:{"種を見つける季節":"見えない段取りを数える人","小さく試す季節":"一人分だけ整えてみる人","育てる季節":"繰り返せる形に整える人","形にする季節":"安心を仕事の形にする人"}
+};
+const FORTUNE_ORDER=["light","hand","garden","bridge","boat","tower"];
+const FORTUNE_BIRTH_TEXT={
+  light:"生まれ持ったテーマは「言葉」。人の中にあるものを受け取り、意味を見つける星。",
+  hand:"生まれ持ったテーマは「形」。手を動かし、見えるものとして残す星。",
+  garden:"生まれ持ったテーマは「育む」。一度で終わらず、時間をかけて関係を育てる星。",
+  bridge:"生まれ持ったテーマは「つなぐ」。人・もの・情報の間に道をつくる星。",
+  boat:"生まれ持ったテーマは「試す」。動きながら、自分に合う航路を見つける星。",
+  tower:"生まれ持ったテーマは「整える」。混ざったものに順番を与え、安心をつくる星。"
+};
+const FORTUNE_CARD_TEXT={
+  light:"今日のカードは「聞く」。答えを急がず、まだ言葉になっていないものを拾う日。",
+  hand:"今日のカードは「形にする」。頭の中だけに置かず、小さく見える形にしてみる日。",
+  garden:"今日のカードは「育てる」。一度の成果より、続けられる関係を選ぶ日。",
+  bridge:"今日のカードは「選ぶ・つなぐ」。全部自分で抱えず、合うもの同士を結ぶ日。",
+  boat:"今日のカードは「試す」。準備を増やすより、一度小さく出して手応えを見る日。",
+  tower:"今日のカードは「整える」。増やすより、今あるものに順番と範囲を与える日。"
 };
 const ORACLE_LETTER={
   light:"答えをもっと増やすより、これまで何度も聞いてきた人の言葉を思い出してみて。あなたの次の仕事の種は、誰かが「話してよかった」と帰った時間の中にあります。",
@@ -1647,6 +1693,14 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     if(voiceReveal&&voiceMeta&&voiceMeta.main===w){
       const words=(voiceMeta.words||[]).slice(0,6);
       const wk=voiceMeta.work||w,lk=voiceMeta.life||w,ok=voiceMeta.other||w;
+      const origin=document.getElementById('rOracleOrigin');
+      if(origin&&voiceMeta.birth&&voiceMeta.draw){
+        document.getElementById('rBirthStarResult').textContent=D[voiceMeta.birth].sym+'｜'+D[voiceMeta.birth].title.split('｜')[1];
+        document.getElementById('rBirthStarResultText').textContent=FORTUNE_BIRTH_TEXT[voiceMeta.birth];
+        document.getElementById('rDrawStarResult').textContent=D[voiceMeta.draw].sym+'｜'+D[voiceMeta.draw].title.split('｜')[1];
+        document.getElementById('rDrawStarResultText').textContent=FORTUNE_CARD_TEXT[voiceMeta.draw];
+        origin.style.display='';
+      }else if(origin){origin.style.display='none';}
       document.getElementById('rVoiceWorkStar').textContent=D[wk].sym;
       document.getElementById('rVoiceLifeStar').textContent=D[lk].sym;
       document.getElementById('rVoiceOtherStar').textContent=D[ok].sym;
@@ -1657,7 +1711,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       document.getElementById('rVoiceWords').innerHTML=words.length?'話の中で拾った言葉：'+words.map(x=>'<b>「'+x+'」</b>').join('　'):'7つの話に繰り返し出てきた役割から読みました。';
       document.getElementById('rVoiceInsight').textContent=VOICE_REFRAME[w];
       voiceReveal.style.display='';
-    }else if(voiceReveal){voiceReveal.style.display='none';}
+    }else if(voiceReveal){voiceReveal.style.display='none';const origin=document.getElementById('rOracleOrigin');if(origin)origin.style.display='none';}
     const ph=document.getElementById('paidHook');if(ph)ph.textContent='「'+cname+'」を仕事にするなら、次は「今週どこまで動けるか」を30秒で確認。';
     const hasAns=ans.filter(Boolean).length>=9;
     if(hasAns){
@@ -1818,18 +1872,19 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   document.getElementById('btnShareTop').addEventListener('click',()=>document.getElementById('btnShare').click());
 })();
 
-// ---- 話して診断：7つの必須質問を順番に音声で回答 ----
+// ---- 占い＋入力診断：生年月日・1枚引きと7つの自由入力を分けて扱う ----
 (function(){
   const N=7;
-  const buttons=[...document.querySelectorAll('[data-voice-btn]')];
   const answers=Array.from({length:N},(_,i)=>document.getElementById('voiceText'+i));
-  const statuses=Array.from({length:N},(_,i)=>document.getElementById('voiceStatus'+i));
   const steps=[...document.querySelectorAll('[data-voice-step]')];
   const go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
-  if(buttons.length!==N||!answers.every(Boolean)||!go||!out)return;
+  const birth=document.getElementById('birthDate'),birthBox=document.getElementById('birthFortune');
+  const birthStar=document.getElementById('birthStar'),birthText=document.getElementById('birthStarText');
+  const drawBtn=document.getElementById('drawAkinaiCard'),drawBox=document.getElementById('drawFortune');
+  const drawStar=document.getElementById('drawStar'),drawText=document.getElementById('drawStarText');
+  if(!answers.every(Boolean)||!go||!out||!birth||!drawBtn)return;
 
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  let rec=null,listening=false,active=-1,baseText="",pendingAnalyze=false;
+  let birthType=null,drawType=null;
 
   function markDone(i){
     const ok=(answers[i].value||'').trim().length>=8;
@@ -1837,6 +1892,36 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     return ok;
   }
   answers.forEach((ta,i)=>ta.addEventListener('input',()=>markDone(i)));
+
+  function calcBirthType(v){
+    const digits=(v||'').replace(/\D/g,'').split('').map(Number);
+    if(!digits.length)return null;
+    const sum=digits.reduce((a,b)=>a+b,0);
+    return FORTUNE_ORDER[(sum-1)%FORTUNE_ORDER.length];
+  }
+  function showBirth(){
+    birthType=calcBirthType(birth.value);
+    if(!birthType){birthBox.style.display='none';return;}
+    birthStar.textContent=D[birthType].sym+'｜'+D[birthType].title.split('｜')[1];
+    birthText.textContent=FORTUNE_BIRTH_TEXT[birthType];
+    birthBox.style.display='';
+  }
+  birth.addEventListener('change',showBirth);
+  birth.addEventListener('input',showBirth);
+
+  function randomIndex(max){
+    if(window.crypto&&crypto.getRandomValues){
+      const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%max;
+    }
+    return Math.floor(Math.random()*max);
+  }
+  drawBtn.addEventListener('click',()=>{
+    drawType=FORTUNE_ORDER[randomIndex(FORTUNE_ORDER.length)];
+    drawStar.textContent=D[drawType].sym+'｜'+D[drawType].title.split('｜')[1];
+    drawText.textContent=FORTUNE_CARD_TEXT[drawType];
+    drawBox.style.display='';
+    drawBtn.textContent='✦ もう一度引く';
+  });
 
   function countTerm(text,term){
     let n=0,pos=0;
@@ -1855,28 +1940,34 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   }
   function mergeScores(work,life,other){
     const scores={};
-    Object.keys(work.scores).forEach(k=>{
-      scores[k]=(work.scores[k]||0)*2+(life.scores[k]||0)+(other.scores[k]||0)*1.4;
-    });
+    Object.keys(work.scores).forEach(k=>scores[k]=(work.scores[k]||0)*2+(life.scores[k]||0)+(other.scores[k]||0)*1.4);
     return Object.keys(scores).sort((a,b)=>scores[b]-scores[a])[0];
   }
-  function crossText(work,life,other){
+  function crossText(work,life,other,born,drawn){
     const a=VOICE_FACE_LABEL[work],b=VOICE_FACE_LABEL[life],c=VOICE_FACE_LABEL[other];
-    if(work===life&&life===other){
-      return '仕事でも暮らしでも、周りから見た姿でも「'+a+'」力が繰り返し出ています。自分では普通すぎて数えてこなかった力が、場面を変えても自然に出ているのが今回の特徴です。';
-    }
-    if(work===life&&other!==work){
-      return '仕事でも暮らしでも、あなたは「'+a+'」力を自然に使っています。一方、周りからは「'+c+'」人としても見られています。自分が思う以上に、外から見えている価値がもう一つありそうです。';
-    }
-    if(work!==life&&other===work){
-      return '仕事では「'+a+'」。暮らしでは「'+b+'」。そして周りからは、仕事で使っている「'+c+'」力がしっかり見えています。仕事の顔だけでは分からない、もう一つの動き方を暮らしの中に持っている人です。';
-    }
-    return '仕事では「'+a+'」。暮らしでは「'+b+'」。周りからは「'+c+'」人と見られています。ひとつの性格に収まるのではなく、場面によって違う力を使い分けていることが、今回いちばん面白いところです。';
+    const diag=(work===life&&life===other)
+      ?'7つの入力では、仕事・暮らし・周りから見た姿のすべてに「'+a+'」力が繰り返し出ています。'
+      :(work===life?'仕事と暮らしには「'+a+'」が共通し、周りからは「'+c+'」人として見られています。'
+      :'仕事では「'+a+'」、暮らしでは「'+b+'」、周りからは「'+c+'」人として見られています。');
+    const fortune='占いでは、生まれ持った星が「'+D[born].sym+'」、今日のカードが「'+D[drawn].sym+'」。';
+    const overlap=[work,life,other].includes(born)||[work,life,other].includes(drawn);
+    return fortune+diag+(overlap?' 占いの星と、実際の経験に重なる部分があります。':' 占いと実際の経験は少し違う方向を示しています。そのズレも、まだ使っていない自分を見るヒントです。');
   }
 
-  function runDiagnosis(){
-    pendingAnalyze=false;
+  go.addEventListener('click',()=>{
     try{
+      showBirth();
+      if(!birthType){
+        out.textContent='最初に、生年月日を入力してください。';
+        birth.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+      if(!drawType){
+        out.textContent='次に、「商いカードを1枚引く」を押してください。';
+        drawBtn.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+
       const vals=answers.map(a=>(a.value||'').trim());
       const missing=vals.map((v,i)=>v.length>=8?-1:i).filter(i=>i>=0);
       if(missing.length){
@@ -1884,26 +1975,22 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
           '①「よく頼まれてきたこと」','②「仕事で任されてきた役」','③「仕事で普通だと思うこと」',
           '④「休日に自然としていること」','⑤「友人との場での役」','⑥「夢中になること」','⑦「周りから言われること」'
         ];
-        out.textContent='あと'+missing.length+'つです。'+missing.map(i=>names[i]).join('、')+'にも答えてください。';
+        out.textContent='あと'+missing.length+'つです。'+missing.map(i=>names[i]).join('、')+'にも入力してください。';
         steps[missing[0]]?.scrollIntoView({behavior:'smooth',block:'center'});
         return;
       }
 
-      out.textContent='7つの話を、仕事・暮らし・周りから見た姿に分けて読んでいます…';
+      out.textContent='占いの星と、7つの実際の経験を照らし合わせています…';
 
       const work=analyze(vals.slice(0,3).join('。'));
       const life=analyze(vals.slice(3,6).join('。'));
       const other=analyze(vals[6]);
       const all=analyze(vals.join('。'));
-
-      // 仕事は実際に頼まれてきた経験なので最も強く、
-      // 暮らしと他者視点は「知らなかった自分」を見つける補助として重ねる。
       let main=mergeScores(work,life,other);
-      if(!main||((work.topScore||0)+(life.topScore||0)+(other.topScore||0)===0)){
-        main=all.top;
-      }
+      if(!main||((work.topScore||0)+(life.topScore||0)+(other.topScore||0)===0))main=all.top;
+
       if(!main||(all.topScore||0)===0){
-        out.textContent='7つとも回答できています。もう少し具体的な結果にするため、①か②に「実際にした行動」を一言だけ足してください。例：相談を聞いた／資料を作った／新人を教えた／人を紹介した／段取りを整えた。';
+        out.textContent='入力はそろっています。仕事案を具体化するため、①か②に「実際にした行動」を一言だけ足してください。例：相談を聞いた／資料を作った／新人を教えた／人を紹介した／段取りを整えた。';
         steps[0]?.scrollIntoView({behavior:'smooth',block:'center'});
         return;
       }
@@ -1913,70 +2000,29 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       const otherType=other.topScore>0?other.top:main;
       const hitPool=[...(work.hits[workType]||[]),...(life.hits[lifeType]||[]),...(other.hits[otherType]||[])];
       const words=hitPool.filter((x,i,ar)=>ar.indexOf(x)===i).slice(0,6);
-      const cross=crossText(workType,lifeType,otherType);
+      const cross=crossText(workType,lifeType,otherType,birthType,drawType);
       const originalText=vals.map((v,i)=>(i+1)+'：'+v).join('\n');
 
-      if(typeof window.runAkinaiFromVoice!=='function')throw new Error('voice renderer unavailable');
+      if(typeof window.runAkinaiFromVoice!=='function')throw new Error('renderer unavailable');
 
       window.AKINAI_SCORE_MIX=[];
       window.runAkinaiFromVoice(main,null,{
         main,sub:null,words,cross,
         work:workType,life:lifeType,other:otherType,
+        birth:birthType,draw:drawType,
         text:originalText.slice(0,2400),answers:vals
       });
 
-      BASE_RESULT='音声診断：'+D[main].title.split('｜')[1]+'（'+D[main].sym+'）'
+      BASE_RESULT='占い：生まれ持った星 '+D[birthType].sym+'／今日のカード '+D[drawType].sym
+        +'｜入力診断：'+D[main].title.split('｜')[1]+'（'+D[main].sym+'）'
         +'／仕事:'+D[workType].sym+'・暮らし:'+D[lifeType].sym+'・周り:'+D[otherType].sym;
       LAST_PLAN="";
       syncBookingResult();
-      out.textContent='診断できました。仕事・暮らし・周りから見たあなたを重ねて、結果に移動しました。';
+      out.textContent='結果を出しました。占いと実際の経験が重なる点・違う点まで表示しています。';
     }catch(err){
-      console.error('voice diagnosis error',err);
-      out.textContent='診断結果の表示でエラーが起きました。ページを再読み込みして、もう一度「7つの話から見つける」を押してください。';
+      console.error('fortune input diagnosis error',err);
+      out.textContent='結果の表示でエラーが起きました。ページを再読み込みして、もう一度お試しください。';
     }
-  }
-
-  if(SR){
-    rec=new SR();rec.lang='ja-JP';rec.continuous=true;rec.interimResults=true;
-    rec.onstart=()=>{
-      listening=true;if(active<0)return;baseText=answers[active].value.trim();
-      buttons.forEach((b,i)=>{b.classList.toggle('listening',i===active);b.textContent=i===active?'■ 話すのを止める':'🎙 この質問に答える';b.disabled=i!==active;});
-      statuses[active].textContent='聞いています。実際の場面を、そのまま話してください。';
-    };
-    rec.onresult=e=>{
-      if(active<0)return;
-      let finalText="",interim="";
-      for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=t;else interim+=t;}
-      if(finalText)baseText=(baseText+' '+finalText).trim();
-      answers[active].value=(baseText+(interim?' '+interim:'')).trim();
-      markDone(active);
-    };
-    rec.onerror=e=>{
-      const i=active;listening=false;
-      buttons.forEach(b=>{b.classList.remove('listening');b.disabled=false;b.textContent='🎙 この質問に答える';});
-      if(i>=0)statuses[i].textContent=e.error==='not-allowed'?'マイクが許可されていません。ここに直接入力しても診断できます。':'音声認識をいったん止めました。もう一度押すか、直接入力してください。';
-      active=-1;if(pendingAnalyze)runDiagnosis();
-    };
-    rec.onend=()=>{
-      const i=active;listening=false;
-      buttons.forEach(b=>{b.classList.remove('listening');b.disabled=false;b.textContent='🎙 この質問に答える';});
-      if(i>=0){baseText=answers[i].value.trim();const done=markDone(i);statuses[i].textContent=done?'回答できました。必要なら、もう少し話し足せます。':'もう少しだけ具体的に話してください。';}
-      active=-1;if(pendingAnalyze)runDiagnosis();
-    };
-    buttons.forEach((b,i)=>b.addEventListener('click',()=>{
-      if(listening){if(active===i){try{rec.stop();}catch(e){}}return;}
-      active=i;baseText=answers[i].value.trim();
-      try{rec.start();}catch(e){active=-1;statuses[i].textContent='音声入力を開始できませんでした。直接入力しても診断できます。';}
-    }));
-  }else{
-    buttons.forEach(b=>{b.disabled=true;b.textContent='マイク入力はこのブラウザでは未対応';});
-    statuses.forEach(s=>s.textContent='下の欄に、話すようにそのまま入力してください。');
-  }
-
-  go.addEventListener('click',()=>{
-    out.textContent='';
-    if(listening&&rec){pendingAnalyze=true;out.textContent='最後の音声を文字にしてから診断します…';try{rec.stop();}catch(e){runDiagnosis();}return;}
-    runDiagnosis();
   });
 })();
 
