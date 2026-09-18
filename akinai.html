@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>わたしの商い診断｜占い×創業相談（40代女性・3分・無料）</title>
+<meta name="description" content="会社を辞めたいわけじゃない。でも、このままでいいのかは、わからない。40代女性のための、占い×創業相談。3分・無料。結果カードは保存・シェアできます。無料・登録なし。">
+<meta property="og:title" content="わたしの商い診断｜3分で、わたしの「商いキャラ」がわかる">
+<meta property="og:description" content="9問で、「私の場合、何を・誰に・いくらで試せばいいか」まで出ます。仮の商品と価格、今週やること1つ。無料・登録なし。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4ece4">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4ece4;--paper:#fffaf5;--ink:#3b332e;--muted:#8a7f77;--line:#e6d9cf;
+  --olive:#8a6a5e;--olive-dark:#6f5349;--terracotta:#c47f74;--soft-olive:#ece3dc;--soft-clay:#f5e6e0;
+  --rose:#c47f74;--rose-pale:#f7e4df;--sage:#9aa78f;--sage-pale:#e9ede3;--gold:#c9a774;
+  --radius:26px;--shadow:0 18px 44px rgba(90,66,52,.09);--max:1040px;
+  --serif:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  --en:"Cormorant Garamond",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",system-ui,sans-serif;line-height:1.9;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+h1,h2,h3.serif,.serif{font-family:var(--serif)}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(244,236,228,.9);border-bottom:1px solid rgba(221,214,202,.8)}
+.nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:15px}
+.brand-mark{width:34px;height:34px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--en);font-style:italic;color:var(--rose)}
+.nav-links{display:flex;align-items:center;gap:22px;font-size:13px}
+.nav-links>a:not(.btn){color:#4f524d}
+.btn{border:1px solid var(--rose);background:var(--rose);color:#fff;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;font-size:14px;font-weight:700;cursor:pointer;transition:.18s ease;text-align:center}
+.btn:hover{transform:translateY(-1px);background:#b06e63}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.light{background:var(--paper);border-color:var(--paper);color:var(--rose)}
+.btn.terra{background:var(--ink);border-color:var(--ink)}
+.btn.terra:hover{background:#2a2420}
+.btn.sm{min-height:42px;padding:0 16px;font-size:13px}
+.btn:disabled{opacity:.5;cursor:default;transform:none}
+
+/* ===== BOOKING ===== */
+.bform{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:28px 26px 24px;box-shadow:var(--shadow);max-width:680px}
+.bres{background:var(--rose-pale);border-radius:16px;padding:12px 16px;margin-bottom:18px;display:grid;gap:4px}
+.bres .lab{font-size:11px;color:var(--rose);font-weight:700;letter-spacing:.08em}
+.bres b{font-family:var(--serif);font-size:17px;font-weight:500}
+.bres .hint{font-size:12px;color:#6b605a}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.fld .req,.chk .req{white-space:nowrap;font-size:10px;color:#fff;background:var(--rose);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px;font-style:normal;font-weight:700}
+.fld .opt{font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--rose);border-color:var(--rose)}
+.fld textarea{min-height:90px;resize:vertical}
+.fld .hint{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.6}
+.fld.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{margin:0;font-weight:500;cursor:pointer}
+.seg input{position:absolute;opacity:0;width:0;height:0}
+.seg span{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;font-size:14px;background:#fff}
+.seg input:checked+span{border-color:var(--rose);background:var(--rose-pale);color:var(--rose);font-weight:700}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.7;margin:6px 0 16px;cursor:pointer}
+.chk input{margin-top:5px;accent-color:var(--rose)}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.bform .btn.main{width:100%;min-height:56px;font-size:15px}
+.out{font-size:13px;margin-top:10px;min-height:1.5em;line-height:1.7;color:var(--rose)}
+.bdone{text-align:center;padding:24px 6px}
+.bdone .mk{font-size:40px;line-height:1;color:var(--rose)}
+.bdone h3{font-family:var(--serif);font-size:20px;font-weight:500;margin:12px 0 10px}
+.bdone p{font-size:13.5px;color:#6b605a;line-height:1.9;margin:0}
+
+/* ===== HERO ===== */
+.hero{padding:44px 0 34px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--rose);font-size:12.5px;font-weight:700;letter-spacing:.12em}
+.eyebrow:before{content:"✦";font-size:11px}
+.en{font-family:var(--en);font-style:italic;font-weight:500;letter-spacing:.04em}
+h1{font-size:clamp(32px,4.6vw,54px);line-height:1.36;letter-spacing:.02em;font-weight:500;margin:14px 0 14px}
+h1 span{display:inline;color:var(--rose);background:linear-gradient(transparent 62%,var(--rose-pale) 62%);padding:0 .06em}
+.lead{font-size:16px;color:#4a4e47;max-width:600px;margin:0 0 22px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-actions .btn.main{min-height:58px;padding:0 30px;font-size:16px;box-shadow:0 12px 30px rgba(196,127,116,.32)}
+.micro{font-size:12px;color:var(--muted);margin-top:14px}
+.honne{margin:26px 0 0;display:grid;gap:6px;max-width:560px}
+.honne a{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#4a4e47;padding:8px 0;border-top:1px solid var(--line)}
+.honne a:first-child{border-top:0}
+.honne a i{font-style:normal;color:var(--rose);flex:none}
+.honne a:hover{color:var(--ink)}
+/* サンプルカード（結果のイメージ） */
+.hero-ph{position:relative;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5;transform:rotate(1.2deg)}
+.hero-ph img{width:100%;height:100%;object-fit:cover;object-position:35% 30%;display:block}
+.hero-ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(59,51,46,.28));pointer-events:none}
+.ph-card{position:absolute;left:16px;bottom:16px;z-index:2;background:rgba(255,250,245,.94);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:18px;padding:14px 16px;max-width:230px;transform:rotate(-2deg)}
+.ph-card .lab{font-size:11px;color:var(--rose);font-weight:700;letter-spacing:.08em}
+.ph-card .sym{font-family:var(--serif);font-size:30px;line-height:1;margin:5px 0 3px}
+.ph-card .sym span{font-size:.45em;color:var(--rose)}
+.ph-card .sym small{font-size:.6em;color:#8a7f77}
+.ph-card p{font-size:12.5px;color:#6b605a;margin:0}
+.ph-card .arrow{color:var(--rose);font-size:14px;line-height:1;margin:6px 0 6px 2px}
+.ph-card .pr{font-family:var(--serif);font-size:14px;color:var(--ink);margin-top:4px}
+.ph-card .pr b{font-size:18px;color:var(--rose)}
+.hero-actions .btn small{font-size:.8em;font-weight:500;opacity:.75;margin-left:2px}
+.ph-card .tag{display:inline-block;margin-top:8px;font-size:10.5px;background:var(--rose-pale);padding:3px 9px;border-radius:999px;color:var(--rose);font-weight:700}
+.sample{position:relative;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:30px;padding:30px 28px;box-shadow:var(--shadow);overflow:hidden;transform:rotate(-1.2deg)}
+.sample:before{content:"";position:absolute;inset:10px;border:1px solid var(--rose-pale);border-radius:22px;pointer-events:none}
+.sample:after{content:"";position:absolute;width:220px;height:220px;background:radial-gradient(circle at 30% 30%,var(--rose-pale),transparent 70%);border-radius:50%;right:-70px;top:-70px}
+.sample .lab{font-family:var(--en);font-style:italic;font-size:15px;color:var(--rose)}
+.sample .sym{font-family:var(--serif);font-size:78px;line-height:1;margin:14px 0 6px;color:var(--ink)}
+.sample h3{font-family:var(--serif);font-size:23px;margin:0 0 6px;font-weight:500}
+.sample p{font-size:13px;color:#6b605a;margin:0}
+.sample .tag{display:inline-block;margin-top:16px;font-size:11px;background:var(--rose-pale);padding:4px 10px;border-radius:999px;color:var(--rose);font-weight:700}
+.sample .hint{position:absolute;right:18px;bottom:16px;font-size:11px;color:var(--muted)}
+
+/* ===== QUIZ (1問ずつ) ===== */
+section{padding:64px 0}
+.section-head{max-width:760px;margin-bottom:30px}
+.kicker{font-family:var(--en);font-style:italic;font-size:17px;color:var(--rose);font-weight:500;letter-spacing:.06em}
+h2{font-size:clamp(26px,3.6vw,42px);line-height:1.45;font-weight:500;margin:10px 0 12px}
+.section-head p{margin:0;color:#5c6059}
+.fortune-section{background:linear-gradient(180deg,#f7ebe6,#f4ece4);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fortune-note{font-size:12px;color:var(--muted);max-width:740px;margin-top:10px}
+.qz{max-width:640px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}
+.prog{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--muted);margin-bottom:18px}
+.prog .bar{flex:1;height:6px;background:#e7e1d6;border-radius:999px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--rose);border-radius:999px;transition:width .35s cubic-bezier(.2,.7,.2,1)}
+.prog b{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:500}
+.scr{display:none;animation:in .38s cubic-bezier(.2,.7,.2,1) both}
+.scr.on{display:block}
+@keyframes in{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.scr h3{font-family:var(--serif);font-size:clamp(20px,2.6vw,26px);line-height:1.5;font-weight:500;margin:0 0 6px}
+.scr .sub{font-size:13px;color:var(--muted);margin:0 0 18px}
+.ch{display:grid;gap:10px}
+.ch button{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fffdfa;border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;font-size:15px;line-height:1.5;cursor:pointer;transition:.15s;color:var(--ink)}
+.ch button:hover{border-color:var(--rose);background:var(--rose-pale)}
+.ch button:active{transform:scale(.99)}
+.ch button .k{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-size:12px;color:var(--rose);font-weight:800}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cards button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:118px;background:#fffdfa;border:1.5px solid var(--line);border-radius:18px;cursor:pointer;transition:.15s;padding:12px 6px}
+.cards button:hover{border-color:var(--rose);background:var(--rose-pale);transform:translateY(-2px)}
+.cards .sym{font-family:var(--serif);font-size:38px;line-height:1;color:var(--ink)}
+.cards .nm{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:12px;color:var(--muted)}
+.qnav button{background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 0;font-size:12px;text-decoration:underline}
+
+/* ===== RESULT ===== */
+.res{display:none}
+.res.on{display:block;animation:in .5s cubic-bezier(.2,.7,.2,1) both}
+.rcard{position:relative;background:linear-gradient(160deg,#fff8f3,#f7e6e0);color:var(--ink);border:1px solid #edd6cf;border-radius:26px;padding:28px 26px;overflow:hidden}
+.rcard:before{content:"";position:absolute;inset:9px;border:1px solid rgba(196,127,116,.35);border-radius:20px;pointer-events:none}
+.rcard:after{content:"✦";position:absolute;right:22px;top:14px;color:var(--gold);font-size:18px}
+.rcard .lab{font-family:var(--en);font-style:italic;font-size:15px;color:var(--rose)}
+.rcard .hook{margin:14px 0 18px;padding-bottom:18px;border-bottom:1px dashed rgba(196,127,116,.45)}
+.rcard .hh{font-family:var(--serif);font-size:clamp(19px,2.6vw,23px);line-height:1.6;font-weight:500;margin:0 0 12px}
+.rcard .hl p{margin:0 0 8px;font-size:14.5px;line-height:1.85;color:#4a413b}
+.rcard .hl p b{color:var(--ink);font-family:var(--serif)}
+.rcard .hq{margin:12px 0 0;font-family:var(--serif);font-size:16px;color:var(--rose)}
+.rcard .diag{margin:10px 0 0;font-size:14.5px;line-height:1.85;color:var(--ink)}
+.rcard .diag b{color:var(--rose);font-family:var(--serif);font-size:17px}
+.rcard .combo{margin:16px 0 0;padding:16px 18px;border-radius:16px;background:#fff;border:1px solid #edd6cf}
+.rcard .combo .cn{font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);margin-bottom:6px}
+.rcard .combo .cn small{display:block;font-family:var(--en);font-style:italic;font-size:15px;color:var(--rose);margin-bottom:2px}
+.rcard .combo p{margin:0;font-size:14px;line-height:1.85;color:#4a413b}
+.rbox p.lines{white-space:pre-line}
+.rcard .chara{font-family:var(--serif);font-size:clamp(24px,3.4vw,30px);line-height:1.35;font-weight:500;margin:8px 0 4px}
+.rcard .stars2{font-size:13px;color:var(--rose);margin-bottom:12px}
+.turn{margin:18px 0 10px;text-align:center}
+.turn span{display:inline-block;font-family:var(--serif);font-size:20px;color:var(--ink);padding:6px 18px;border-bottom:2px solid var(--rose)}
+.value{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+.value .head{font-family:var(--serif);font-size:clamp(19px,2.6vw,23px);line-height:1.6;font-weight:500;margin:0 0 12px}
+.value .head b{color:var(--rose);font-weight:500}
+.value .why{padding:14px 16px;border-radius:14px;background:var(--rose-pale);border:1px solid #edd6cf}
+.value .why b{display:block;font-size:12px;letter-spacing:.1em;color:var(--rose);margin-bottom:6px}
+.value .why p{margin:0 0 8px;font-size:14px;line-height:1.85;color:#4a413b}
+.value .why p:last-child{margin:0}
+.value .why .q{font-family:var(--serif);color:var(--ink)}
+.value .why .ind{color:#6b605a;font-size:13.5px}
+.cands{margin-top:14px}
+.cands .lab{font-family:var(--en);font-style:italic;font-size:16px;color:var(--rose);margin-bottom:8px}
+.cl{display:grid;gap:8px}
+.cl button{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;color:var(--ink);transition:.15s;position:relative}
+.cl button:hover{border-color:var(--rose)}
+.cl button.on{border-color:var(--rose);background:var(--rose-pale)}
+.cl button .k{grid-row:1/3;width:30px;height:30px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--en);font-style:italic;font-size:17px;color:var(--rose)}
+.cl button .t{font-family:var(--serif);font-size:16px}
+.cl button .d{font-size:12.5px;color:var(--muted);line-height:1.5}
+.cl button.rec{border-color:var(--rose);background:#fff}
+.cl button .t em{font-style:normal;color:var(--rose);font-size:13px}
+.cands .pick{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.rcard .head{font-family:var(--serif);font-size:clamp(20px,2.8vw,25px);line-height:1.6;font-weight:500;margin:10px 0 12px}
+.rcard .head b{color:var(--rose);font-weight:500}
+.rcard .twist{margin:12px 0 0;padding:12px 14px;border-left:3px solid var(--rose);background:#fff;font-size:14px;line-height:1.8;color:var(--ink)}
+.rcard .twist b{display:block;font-family:var(--serif);font-size:16px;font-weight:500;color:var(--rose);margin:10px 0 4px}
+.rcard .twist b:first-child{margin-top:0}
+.rcard .twist span{display:block}
+.rcard .twist .c2{margin-top:10px;font-family:var(--serif);color:var(--ink)}
+.rcard .twist .gmore{margin-top:12px;border-top:1px dashed var(--line);padding-top:6px}
+.rcard .twist .gmore summary{cursor:pointer;font-size:12.5px;color:var(--rose);font-weight:700;padding:4px 0}
+.rcard .twist .gmore b{font-size:14.5px}
+.rcard .why{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.7);border:1px solid #edd6cf}
+.rcard .why b{display:block;font-size:12px;letter-spacing:.1em;color:var(--rose);margin-bottom:6px}
+.rcard .why p{margin:0 0 8px;font-size:14px;line-height:1.85;color:#4a413b}
+.rcard .why p:last-child{margin:0}
+.rcard .why .q{font-family:var(--serif);color:var(--ink)}
+.rcard .why .ind{color:#6b605a;font-size:13.5px}
+.rcard .chline{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin-top:14px;font-size:12px;color:var(--muted)}
+.rcard .chline b{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:500}
+.rcard .chline i{font-style:normal;color:var(--rose)}
+.plan{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 18px 10px}
+.plan .lab,.week .lab,.mcard .lab{font-family:var(--en);font-style:italic;font-size:16px;color:var(--rose);margin-bottom:8px}
+.plan .pl{display:grid;grid-template-columns:7.5em 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.7}
+.plan .pl:first-of-type{border-top:0}
+.plan .pl span{font-size:12px;color:var(--muted);padding-top:3px}
+.plan .pl b{font-weight:500;color:var(--ink);font-family:var(--serif);font-size:15px}
+.plan .pl.brake b{color:#6b605a;font-family:inherit;font-size:13.5px;font-weight:400}
+.week{margin-top:12px;background:var(--ink);color:#fff;border-radius:20px;padding:18px 20px}
+.week .lab{color:#f0c9c0}
+.week p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.8}
+.cta45{margin-top:12px;padding:18px;border-radius:20px;background:var(--rose-pale);border:1px solid #edd6cf;display:grid;gap:10px}
+.cta45 .q1{margin:0;font-family:var(--serif);font-size:19px;color:var(--ink)}
+.cta45 p{margin:0;font-size:13.5px;line-height:1.8;color:#4a413b}
+.cta45 .btn{min-height:54px;font-size:15px}
+.more{margin-top:14px;border-top:1px dashed var(--line);padding-top:10px}
+.more summary{cursor:pointer;font-size:14px;color:var(--rose);font-weight:700;padding:8px 0}
+.mcard{margin-top:10px;padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.mcard .chara{font-family:var(--serif);font-size:22px;margin:2px 0 2px}
+.mcard .cn{font-size:12.5px;color:var(--rose);margin-bottom:8px}
+.mcard .msg{margin-top:10px;padding:12px 14px;border-radius:12px;background:var(--rose-pale);font-family:var(--serif);font-size:14.5px;line-height:1.7}
+@media(max-width:640px){.plan .pl{grid-template-columns:1fr;gap:2px}.plan .pl span{padding-top:0}}
+.rcard .chara{font-family:var(--serif);font-size:clamp(22px,3vw,27px);line-height:1.4;color:var(--ink);margin:0 0 4px}
+.rcard .combo .cn{font-size:13px;color:var(--rose);margin-bottom:8px}
+.aru{list-style:none;margin:0 0 10px;padding:0}
+.aru li{font-size:14px;line-height:1.7;color:#4a413b;padding-left:1.4em;position:relative}
+.aru li:before{content:"✔";position:absolute;left:0;color:var(--rose);font-size:12px}
+.pair{margin-top:16px;padding:16px 18px;border-radius:17px;background:var(--sage-pale);border:1px solid #d3dccb}
+.pair b{display:block;font-family:var(--serif);font-size:15px;color:#5f7052;margin-bottom:6px;font-weight:500}
+.pair .ps{display:flex;align-items:center;gap:12px;font-size:13.5px;line-height:1.75;color:#3f463a}
+.pair .ps .sym{font-family:var(--serif);font-size:40px;line-height:1;color:#5f7052;flex:none}
+.pair small{display:block;font-size:11.5px;color:#6f7f63;margin-top:8px}
+.tako{margin-top:14px;padding:18px;border-radius:17px;background:#fff;border:1.5px dashed var(--rose)}
+.tako>b{display:block;font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:6px}
+.tako>p{margin:0 0 12px;font-size:13.5px;line-height:1.75;color:#4a413b}
+.tako .share{margin-top:0}
+.fview{margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px;color:var(--muted)}
+.fview b{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:500}
+.fview p{grid-column:1/3;margin:4px 0 0;font-size:13.5px;color:var(--ink);line-height:1.7}
+.midbox{text-align:center;padding:10px 0}
+.midbox .lab{font-family:var(--en);font-style:italic;color:var(--rose);font-size:16px}
+.midbox h3{margin:8px 0 6px;font-size:24px}
+.midbox h3 b{font-size:40px;color:var(--ink);font-weight:500;vertical-align:-4px}
+.midbox h3 span{font-size:18px;color:var(--rose)}
+.midbox .sub{margin-bottom:16px}
+.tk{display:none}.tk.on{display:block}
+.tkh{margin-bottom:8px}.tkh .lab{font-family:var(--en);font-style:italic;color:var(--rose);font-size:16px}
+.tkh h3{font-family:var(--serif);font-size:20px;margin:4px 0 4px;font-weight:500}
+.tkres{display:none;margin-top:8px}.tkres.on{display:block}
+.tkres .lab{font-family:var(--en);font-style:italic;color:var(--rose);font-size:16px}
+.tkres .chara{font-family:var(--serif);font-size:24px;margin:6px 0}
+.rcard .stars,.tkres .stars{display:flex;align-items:flex-end;gap:18px;margin:4px 0 6px}
+.tkres .sym{font-family:var(--serif);font-size:64px;line-height:1;color:var(--ink)}
+.tkres .subst .sym{font-size:34px;color:#8a7f77}
+.tkres .rl{font-size:10.5px;letter-spacing:.14em;color:var(--rose);font-weight:700;margin-top:4px}
+.rcard .sym{font-family:var(--serif);font-size:64px;line-height:1;color:var(--ink)}
+.rcard .subst .sym{font-size:34px;color:#8a7f77}
+.rcard .rl{font-size:10.5px;letter-spacing:.14em;color:var(--rose);font-weight:700;margin-top:4px}
+.rcard h3{font-family:var(--serif);font-size:clamp(24px,3vw,30px);margin:0 0 6px;font-weight:500;line-height:1.35}
+.rcard .tl{font-size:15px;color:#6b605a;margin:0}
+.rcard .msg{margin-top:16px;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid #edd6cf;color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.7}
+.share{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.share .btn{min-height:44px;padding:0 16px;font-size:13px}
+.share .btn svg{width:16px;height:16px}
+.share-note{font-size:11.5px;color:var(--muted);margin-top:8px}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.rbox{border:1px solid var(--line);border-radius:17px;padding:16px;background:#fffdfa}
+.rbox b{display:block;font-family:var(--serif);font-size:15px;color:var(--rose);margin-bottom:6px;font-weight:500}
+.rbox p{font-size:13.5px;line-height:1.85;margin:0;color:#4a413b}
+.next{margin-top:20px;display:grid;gap:10px}
+.next .btn{min-height:54px;font-size:15px}
+.others{margin-top:18px}
+.others summary{cursor:pointer;font-size:13px;color:var(--rose);font-weight:700}
+.others .ol{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.others .ol button{background:#fffdfa;border:1px solid var(--line);border-radius:14px;padding:10px 6px;font-size:12px;cursor:pointer;color:var(--ink)}
+.others .ol button .s{font-family:var(--serif);font-size:22px;display:block;color:var(--ink)}
+canvas.hid{position:absolute;left:-9999px;top:-9999px}
+
+/* ===== 30秒チェック ===== */
+.diagnosis{background:#efe6de;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qz.mini .ch button{font-size:14px}
+.result{display:none;margin-top:8px;padding:22px;border-radius:20px;background:var(--sage-pale);border:1px solid #d3dccb}
+.result.show{display:block;animation:in .4s both}
+.result-label{font-family:var(--en);font-style:italic;font-size:15px;color:#6f7f63}
+.result h3{font-family:var(--serif);font-size:24px;margin:5px 0;font-weight:500}
+.result p{font-size:13px;color:#51564e;margin:4px 0 0}
+
+/* ===== 説明・料金・FAQ ===== */
+.worries{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.worry{min-height:150px;padding:24px;background:rgba(255,253,248,.72);border:1px solid var(--line);border-radius:var(--radius)}
+.worry b{display:block;font-size:16.5px;margin-bottom:8px}
+.worry p{margin:0;color:var(--muted);font-size:13px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{border-radius:28px;padding:30px;border:1px solid var(--line);background:var(--paper)}
+.panel.fortune{background:var(--rose-pale)}.panel.business{background:var(--sage-pale)}
+.panel h3{font-size:20px;margin:0 0 8px}.panel small{color:var(--muted)}
+.clean-list{list-style:none;padding:0;margin:20px 0 0}
+.clean-list li{display:flex;gap:12px;padding:11px 0;border-top:1px solid rgba(90,90,80,.15);font-size:14px}
+.clean-list li:before{content:"✦";color:var(--rose);font-size:11px;padding-top:4px}
+.statement{margin:26px 0 0;background:var(--rose);color:#fff;border-radius:28px;padding:26px 30px;font-size:clamp(20px,2.8vw,30px);line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{padding:22px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}
+.num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--rose);font-family:var(--en);font-style:italic;font-size:15px;color:var(--rose);margin-bottom:20px}
+.step h3{font-size:17px;margin:0 0 8px}.step p{font-size:13px;color:var(--muted);margin:0}
+.types{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.type{padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);display:grid;grid-template-columns:auto 1fr;gap:18px}
+.type-icon{font-size:26px}.type h3{font-size:17px;margin:0 0 2px}
+.decision{font-size:13px;color:var(--rose);font-weight:800;margin-bottom:7px}.type p{font-size:13px;color:var(--muted);margin:0}
+.price-box{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;background:var(--ink);color:#fff;border-radius:34px;padding:40px}
+.price-box h2{margin-top:0}
+.price{font-family:var(--serif);font-size:56px;line-height:1;margin:14px 0 9px}.price small{font-size:16px}
+.price-detail{padding:22px;border:1px solid rgba(255,255,255,.24);border-radius:22px;background:rgba(255,255,255,.1)}
+.price-detail p{margin:0 0 8px;font-size:14px}.price-detail p:last-child{margin-bottom:0}
+.cta-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:22px}
+.faq{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line);padding:18px 0}summary{font-weight:700;cursor:pointer}
+details p{font-size:14px;color:var(--muted);margin:10px 0 0}
+.closing{text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:34px;padding:44px 28px}
+.closing h2{margin-top:0}.closing p{color:var(--muted)}
+footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:20px}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:99}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* スマホ固定バー */
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(244,236,228,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:9px 12px;gap:8px}
+.mbar a{flex:1;min-height:46px;font-size:14px}
+@media(max-width:900px){
+  .nav-links>a:not(.btn){display:none}
+  .hero{padding-top:28px}
+  .hero-grid,.price-box{grid-template-columns:1fr}
+  .worries,.split,.types{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .sample{transform:none;padding:24px 22px}
+  .hero-ph{transform:none;aspect-ratio:4/3}
+  .hero-ph img{object-position:35% 20%}
+  .sample .sym{font-size:58px}
+}
+@media(max-width:640px){
+  .wrap{width:min(100% - 26px,var(--max))}
+  .nav-inner{min-height:60px}
+  .brand span:last-child{display:none}
+  .hero-actions .btn{width:100%}
+  .fld.two{grid-template-columns:1fr}
+  .bform{padding:22px 18px 20px;border-radius:22px}
+  .hero-grid{gap:24px}
+  .sample{padding:20px 20px 18px;border-radius:22px}
+  .sample .sym{font-size:44px;margin:8px 0 2px}
+  .sample h3{font-size:18px}
+  .sample p{font-size:12px}
+  .sample .hint{position:static;display:block;margin-top:10px}
+  .nav-links .btn{display:none}
+  section{padding:48px 0}
+  .steps,.rgrid{grid-template-columns:1fr}
+  .qz{padding:22px 18px;border-radius:24px}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .cards button{min-height:104px}
+  .cards .sym{font-size:32px}
+  .ch button{font-size:15px;padding:15px 16px}
+  .rcard{padding:24px 20px}
+  .others .ol{grid-template-columns:repeat(3,1fr)}
+  .panel,.price-box,.closing{padding:24px}
+  .footer-row{display:block}
+  .mbar{display:flex}
+  body{padding-bottom:70px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#"><span class="brand-mark">W</span><span>わたしの商い診断</span></a>
+    <nav class="nav-links">
+      <a href="#fortune">3分・商い星占い</a>
+      <a href="#about">診断について</a>
+      <a href="#price">45分診断</a>
+      <a class="btn booking-link" href="#booking">45分診断を予約する</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">占い × 創業相談 <span class="en">for women in their 40s</span></div>
+        <h1>この先10年、<br><span>わたしはどう働く？</span></h1>
+        <p class="lead">会社を辞めたいわけじゃない。<br>でも、このままでいいのかは、わからない。<br><b>占い</b>で「わたしの商いの種」を見つけて、<br><b>創業相談</b>で「何を・誰に・いくらで売るか」に変える。<br>まずは3分、無料で。</p>
+        <div class="hero-actions">
+          <a class="btn main" href="#fortune">3分で、わたしの商い星を見る</a>
+          <a class="btn ghost booking-link" href="#booking">45分で、商いカルテを作る<small>｜創業相談</small></a>
+        </div>
+        <p class="micro">無料。登録なし。入力はどこにも送られません。</p>
+        <div class="honne">
+          <a href="#fortune"><i>→</i>パートの帰り道に、ふと「あと10年、これ？」</a>
+          <a href="#fortune"><i>→</i>資格より先に、いまの自分で何ができるか知りたい</a>
+          <a href="#fortune"><i>→</i>大きくは賭けない。家計を守って、小さく試したい</a>
+        </div>
+      </div>
+      <div class="hero-ph">
+        <img src="images/akinai-hero.jpg" alt="自宅のテーブルでノートを開き、自分の商いを考える40代の女性" width="706" height="1024" loading="eager" fetchpriority="high">
+        <div class="ph-card" aria-hidden="true">
+          <div class="step"><div class="lab">占いで見つける</div><div class="sym">灯<span> × </span><small>塔</small></div><p>「聞いて整える力」</p></div>
+          <div class="arrow">↓</div>
+          <div class="step"><div class="lab">創業相談で形にする</div><p class="pr">相談＋整理シート</p><p class="pr"><b>5,000円</b>から試す</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fortune" class="fortune-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Akinai Oracle — 3 min.</div>
+        <h2>私の場合、何を・誰に・いくらで<br>試せばいい？ 9問で出ます。</h2>
+        <p>9問、4択。性格ではなく、この数年のあなたの「実際」を聞きます。結果は、あなたの回答から組み立てます。</p>
+      </div>
+
+      <div class="qz" id="qz">
+        <div class="prog"><b id="pNow">1</b><span>/ 9</span><div class="bar"><i id="pBar"></i></div><span id="pTxt">感謝されたこと</span></div>
+
+        <div class="scr on" data-i="0"><h3>最近3年で、人から一番感謝されたのは？</h3><p class="sub">Q1 / 9</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>話を聞いて、考えを整理してあげた</button>
+          <button type="button" data-v="hand"><span class="k">B</span>何かを作った、直した</button>
+          <button type="button" data-v="garden"><span class="k">C</span>続けて支えた、見守った</button>
+          <button type="button" data-v="bridge"><span class="k">D</span>いい人・店・情報を紹介した</button></div></div>
+        <div class="scr" data-i="1"><h3>もし月5万円だけ、自分の力で増やすなら？</h3><p class="sub">Q2 / 9</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>相談や知識を売る</button>
+          <button type="button" data-v="hand"><span class="k">B</span>商品や技術を売る</button>
+          <button type="button" data-v="garden"><span class="k">C</span>続けて通ってもらう</button>
+          <button type="button" data-v="bridge"><span class="k">D</span>人と人をつないで、価値をつくる</button></div></div>
+        <div class="scr" data-i="2"><h3>新しいことを始めるとき、あなたは？</h3><p class="sub">Q3 / 9</p><div class="ch">
+          <button type="button" data-v="boat"><span class="k">A</span>まず小さくやってみる</button>
+          <button type="button" data-v="tower"><span class="k">B</span>段取りを全部決めてから</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>詳しい人に聞きに行く</button>
+          <button type="button" data-v="light"><span class="k">D</span>自分で調べて、言葉にしてみる</button></div></div>
+        <div class="scr" data-i="3"><h3>仕事や暮らしの中で、一番頼られているのは？</h3><p class="sub">Q4 / 9</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>話を聞くこと</button>
+          <button type="button" data-v="hand"><span class="k">B</span>料理・手仕事・修理</button>
+          <button type="button" data-v="tower"><span class="k">C</span>予定・お金・書類の管理</button>
+          <button type="button" data-v="garden"><span class="k">D</span>相手の変化に、気づくこと</button></div></div>
+        <div class="scr" data-i="4"><h3>職場や地域、人が集まる場で、自然と任されてきた役は？</h3><p class="sub">Q5 / 9</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>取りまとめ・司会</button>
+          <button type="button" data-v="boat"><span class="k">B</span>当日の売り子・出店・現場</button>
+          <button type="button" data-v="tower"><span class="k">C</span>会計・段取り・記録</button>
+          <button type="button" data-v="bridge"><span class="k">D</span>人と人の橋渡し</button></div></div>
+        <div class="scr" data-i="5"><h3>休みの日、気づくとやっているのは？</h3><p class="sub">Q6 / 9</p><div class="ch">
+          <button type="button" data-v="hand"><span class="k">A</span>お菓子や小物を、作っている</button>
+          <button type="button" data-v="tower"><span class="k">B</span>部屋や書類を、整えている</button>
+          <button type="button" data-v="boat"><span class="k">C</span>気になる店や場所に、行ってみる</button>
+          <button type="button" data-v="garden"><span class="k">D</span>友だちの悩みを、聞いている</button></div></div>
+        <div class="scr" data-i="6"><h3>「お金をもらう」と考えて、一番しっくりくるのは？</h3><p class="sub">Q7 / 9</p><div class="ch">
+          <button type="button" data-v="hand"><span class="k">A</span>一回の作品・仕上がりに対して</button>
+          <button type="button" data-v="garden"><span class="k">B</span>月ごと・回数券で、続けてもらう</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>紹介や仲介の、手数料</button>
+          <button type="button" data-v="boat"><span class="k">D</span>一日・一回の出店で、売り切る</button></div></div>
+        <div class="scr" data-i="7"><h3>失敗したくない気持ちが強いとき、どう動く？</h3><p class="sub">Q8 / 9</p><div class="ch">
+          <button type="button" data-v="tower"><span class="k">A</span>数字を出して、安心してから</button>
+          <button type="button" data-v="boat"><span class="k">B</span>小さく試して、確かめる</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>経験者に、相談する</button>
+          <button type="button" data-v="light"><span class="k">D</span>一度、自分の言葉で書き出す</button></div></div>
+        <div class="scr" data-i="8"><h3>10年後、こう呼ばれていたい。</h3><p class="sub">Q9 / 9</p><div class="ch">
+          <button type="button" data-v="tower"><span class="k">A</span>「あの人に任せれば、安心」</button>
+          <button type="button" data-v="hand"><span class="k">B</span>「あの人の手仕事、好き」</button>
+          <button type="button" data-v="garden"><span class="k">C</span>「ずっと通ってる、あの場所の人」</button>
+          <button type="button" data-v="boat"><span class="k">D</span>「あちこちで見かける、あの人」</button></div></div>
+
+        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり</div><h3>いまのところ、<b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">あと5問で、<b>副星</b>と<b>あなたの商いキャラ</b>がわかります。</p><button type="button" class="btn" id="midGo">あと5問、答える →</button></div></div>
+
+        <div class="tk" id="tk">
+          <div class="tkh"><div class="lab">友達からの、他己診断</div><h3>この人のこと、4問だけ教えてください。</h3><p class="sub">名前は要りません。答えは送信されず、結果だけをこの人に送れます。</p></div>
+          <div class="scr" data-i="t0"><h3>この人に、頼みがちなのは？</h3><div class="ch"><button type="button" data-v="light"><span class="k">A</span>相談にのってもらう</button><button type="button" data-v="hand"><span class="k">B</span>作ってもらう、直してもらう</button><button type="button" data-v="garden"><span class="k">C</span>続けて見てもらう、付き合ってもらう</button><button type="button" data-v="bridge"><span class="k">D</span>人や店を、紹介してもらう</button></div></div>
+          <div class="scr" data-i="t1"><h3>この人の、すごいところは？</h3><div class="ch"><button type="button" data-v="light"><span class="k">A</span>言葉にするのが、うまい</button><button type="button" data-v="hand"><span class="k">B</span>仕上がりが、丁寧</button><button type="button" data-v="boat"><span class="k">C</span>とにかく、まず動く</button><button type="button" data-v="tower"><span class="k">D</span>段取りが、完璧</button></div></div>
+          <div class="scr" data-i="t2"><h3>一緒に何かするなら、任せるのは？</h3><div class="ch"><button type="button" data-v="boat"><span class="k">A</span>当日の現場</button><button type="button" data-v="tower"><span class="k">B</span>会計と段取り</button><button type="button" data-v="bridge"><span class="k">C</span>人集めと声かけ</button><button type="button" data-v="garden"><span class="k">D</span>参加者のケア</button></div></div>
+          <div class="scr" data-i="t3"><h3>この人が、お金を取ってもいいと思うことは？</h3><div class="ch"><button type="button" data-v="light"><span class="k">A</span>相談にのること、教えること</button><button type="button" data-v="hand"><span class="k">B</span>作るもの、技術</button><button type="button" data-v="garden"><span class="k">C</span>続けて支えること</button><button type="button" data-v="bridge"><span class="k">D</span>紹介、コーディネート</button></div></div>
+          <div class="tkres" id="tkres"><div class="lab">あなたから見た、この人</div><div class="stars"><div class="main"><div class="sym" id="tkSym"></div><div class="rl">主星</div></div><div class="subst"><div class="sym" id="tkSym2"></div><div class="rl">副星</div></div></div><div class="chara" id="tkChara"></div><p class="sub" id="tkSelf"></p><div class="share"><a class="btn" id="tkLine" href="#" target="_blank" rel="noopener">この結果を、本人にLINEで送る</a><button class="btn ghost" type="button" id="tkCopy">リンクをコピー</button></div><div class="next" style="margin-top:14px"><a class="btn terra" href="akinai.html">わたしも、診断してみる →</a></div></div>
+        </div>
+
+        <div class="qnav"><button type="button" id="back" style="visibility:hidden">← ひとつ戻る</button><span>登録なし・送信なし</span></div>
+
+        <div class="res" id="res">
+          <div class="rcard" id="rcard">
+            <div class="lab">Your Akinai Character ｜ わたしの商いキャラ</div>
+            <h3 class="chara" id="rChara"></h3>
+            <div class="stars2" id="rStars"></div>
+            <div class="hl" id="rHook"></div>
+            <p class="twist" id="rTwist"></p>
+          </div>
+
+          <div class="turn"><span>で、これを仕事にすると？</span></div>
+
+          <div class="value">
+            <h3 class="head" id="rHead"></h3>
+            <div class="why" id="rWhy">
+              <b>なぜ、そう言えるか</b>
+              <p class="q" id="rQuote"></p>
+              <p id="rCommon"></p>
+              <p class="ind" id="rInd"></p>
+            </div>
+          </div>
+
+          <div class="cands">
+            <div class="lab">あなたが最初に試しやすいのは、この3つ</div>
+            <div class="cl" id="cl"></div>
+            <p class="pick">一番「これなら、できそう」と思うものを、選んでください。</p>
+          </div>
+
+          <div class="plan" id="plan" style="display:none">
+            <div class="lab" id="planLab"></div>
+            <div class="pl"><span>商品</span><b id="pProd"></b></div>
+            <div class="pl"><span>最初の顧客</span><b id="pWho"></b></div>
+            <div class="pl"><span>最初の価格</span><b id="pPrice"></b></div>
+            <div class="pl"><span>必要人数</span><b id="pNum"></b></div>
+            <div class="pl"><span>必要な準備</span><b id="pPrep"></b></div>
+            <div class="pl"><span>まだ要らないもの</span><b id="pNo"></b></div>
+            <div class="pl brake"><span>つまずきやすい所</span><b id="pRisk"></b></div>
+          </div>
+
+          <div class="week" id="week" style="display:none">
+            <div class="lab">今週、やることは1つ</div>
+            <p id="wText"></p>
+          </div>
+
+          <div class="cta45" id="cta45" style="display:none">
+            <p class="q1">でも、本当にあなたの場合、これでいい？</p>
+            <p>45分で、あなた自身の経験・使える時間・必要な収入を入れて、「商品・価格・最初の5人」まで作ります。それが「わたしの商いカルテ」です。</p>
+            <a class="btn booking-link" href="#booking">45分で、わたしの商いカルテを作る</a>
+            <a class="btn ghost" href="#mini">先に、30秒チェック →</a>
+          </div>
+
+          <details class="more" id="more">
+            <summary>結果を、もっと楽しむ（カード保存・あるある・相性・他己診断）</summary>
+            <div class="mcard">
+              <div class="lab">SNS用カード</div>
+              <div class="chara" id="rChara2"></div>
+              <div class="cn" id="rComboName"></div>
+              <ul class="aru" id="rAru"></ul>
+              <div class="msg" id="rMsg"></div>
+              <div class="share">
+                <button class="btn" type="button" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>カードを保存</button>
+                <button class="btn ghost" type="button" id="btnShare">シェア</button>
+                <a class="btn ghost" id="btnLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+                <a class="btn ghost" id="btnX" href="#" target="_blank" rel="noopener">Xに投稿</a>
+              </div>
+              <p class="share-note">保存して、ストーリーズに貼るだけ。「#わたしの商い診断」で、同じキャラの人に会えます。</p>
+            </div>
+            <div class="pair" id="rPair"><b>一緒にやると、補い合いやすい星</b><div class="ps"><span class="sym" id="pSym"></span><span id="pTxt2"></span></div><small>「相性が良い・悪い」ではなく、役割が分かれやすい組み合わせです。夫、友人、相方。誰か浮かびますか？</small></div>
+            <div class="tako" id="rTako">
+              <b>私って、本当に「<span id="tSym"></span>」？</b>
+              <p>自分では「普通」と思っていることほど、周りは頼りにしています。友達に4問だけ答えてもらうと、「友達から見た私」が出ます。</p>
+              <div class="share"><a class="btn" id="btnTakoLine" href="#" target="_blank" rel="noopener">LINEで友達に頼む</a><button class="btn ghost" type="button" id="btnTakoCopy">リンクをコピー</button></div>
+              <div class="fview" id="fview" style="display:none"><span>自分から見た私</span><b id="fvSelf"></b><span>友達から見た私</span><b id="fvFriend"></b><p id="fvNote"></p></div>
+            </div>
+            <details class="others"><summary>ほかの型も見る</summary><div class="ol" id="ol"></div></details>
+          </details>
+          <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
+        </div>
+      </div>
+      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※当たる・外れるの占いではありません。自分を知る入口です。実際に始めるかどうかは、お客さん・値段・お金の話を別に見て決めます。</p>
+      <canvas class="hid" id="cv" width="1080" height="1920"></canvas>
+    </div>
+  </section>
+
+  <section id="mini" class="diagnosis">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">30 seconds check</div>
+        <h2>いま、どの段階？<br>「辞める・辞めない」の前に。</h2>
+        <p>こちらは占いではなく、現実のチェック。4問で、いまの立ち位置がわかります。送信されません。</p>
+      </div>
+      <div class="qz mini" id="qz2">
+        <div class="prog"><b id="p2Now">1</b><span>/ 4</span><div class="bar"><i id="p2Bar"></i></div><span>4問</span></div>
+        <div class="scr on" data-i="0"><h3>「人に頼まれること」を、3つ言える？</h3><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>すぐには出てこない</button><button type="button" data-v="1"><span class="k">B</span>3つは言える</button></div></div>
+        <div class="scr" data-i="1"><h3>それに、お金を払ってくれそうな人の顔が浮かぶ？</h3><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>まだ浮かばない</button><button type="button" data-v="1"><span class="k">B</span>浮かぶ</button></div></div>
+        <div class="scr" data-i="2"><h3>自分の商品やサービスで、お金をもらったことは？</h3><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>まだない</button><button type="button" data-v="1"><span class="k">B</span>ある</button></div></div>
+        <div class="scr" data-i="3"><h3>週に5時間、自分のために使えそう？</h3><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>いまは難しい</button><button type="button" data-v="1"><span class="k">B</span>なんとかなる</button></div></div>
+        <div class="result" id="quizResult" aria-live="polite">
+          <div class="result-label">Your start type ｜ いまの段階</div>
+          <h3 id="resultTitle"></h3>
+          <p id="resultBody"></p>
+          <div class="cta-row"><a class="btn booking-link" href="#booking">45分で、具体的にする</a><button type="button" class="btn ghost sm" id="again2">やり直す</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Four start types</div>
+        <h2>「起業する・しない」の<br>2択じゃない。</h2>
+        <p>始め方は4つ。どれも、家計を崩さない前提です。</p>
+      </div>
+      <div class="types">
+        <article class="type"><div class="type-icon">🌱</div><div><h3>辞めずに、月3万円</h3><div class="decision">副業から。</div><p>仕事も家族の時間もそのまま。まず、自分で3万円を作ってみる。</p></div></article>
+        <article class="type"><div class="type-icon">🪴</div><div><h3>お店を持つ前に、売ってみる</h3><div class="decision">間借り・イベント・予約制。</div><p>家賃を払う前に、「週に何時間で、いくら売れるか」を確かめる。</p></div></article>
+        <article class="type"><div class="type-icon">🚀</div><div><h3>独立の準備</h3><div class="decision">生活費まで、数字にする。</div><p>売上だけでなく、必要な手取り・使える時間・投資の上限まで決める。</p></div></article>
+        <article class="type"><div class="type-icon">↺</div><div><h3>まだ、決めなくていい</h3><div class="decision">経験の棚卸しから。</div><p>資格を探す前に、「これまで人に頼まれてきたこと」を書き出す。</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Two lenses</div>
+        <h2>「本当はどうしたい？」は、占いで。<br>「できる？」は、数字で。</h2>
+        <p>気持ちと現実、両方ないと続きません。だから、2つのレンズで見ます。</p>
+      </div>
+      <div class="split">
+        <div class="panel fortune"><h3>01｜占いで、ほどく</h3><small>当たる・外れるより、自分を言葉にする時間。</small>
+          <ul class="clean-list"><li>いつもの役割を外したら、何がしたい？</li><li>これまで、何を人に頼まれてきた？</li><li>増やしたい時間、減らしたい負担は？</li><li>動けないのは、何が不安だから？</li></ul></div>
+        <div class="panel business"><h3>02｜数字で、たしかめる</h3><small>商売として、本当に成り立つか。</small>
+          <ul class="clean-list"><li>経験の、どこが商品になる？</li><li>週に何時間なら、無理がない？</li><li>月3万・5万・10万円に、お客さんは何人いる？</li><li>副業・小さく売る・独立、いまはどれ？</li></ul></div>
+      </div>
+      <div class="statement serif">家族を守ることと、自分の仕事を持つこと。<br>どちらかを、選ばなくていい。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">45 minutes</div><h2>45分で、「できそう」を<br>1枚の「商いカルテ」に。</h2></div>
+      <div class="steps">
+        <article class="step"><div class="num">01</div><h3>経験を、棚卸し</h3><p>仕事、暮らし、人づきあい。「普通にできること」を全部拾う。</p></article>
+        <article class="step"><div class="num">02</div><h3>本音を、言葉に</h3><p>商い星を使って、「本当はどう働きたい？」を言葉にする。</p></article>
+        <article class="step"><div class="num">03</div><h3>暮らしと、数字</h3><p>使える時間、必要なお金、値段、お客さんの数。現実に落とす。</p></article>
+        <article class="step"><div class="num">04</div><h3>カルテに、まとめる</h3><p>売れる経験・最初の商品・値段・人数・時間・声をかける5人・90日の一歩。1枚に。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <div class="price-box">
+        <div>
+          <div class="kicker" style="color:#f0c9c0">First session</div>
+          <h2>わたしの商い診断</h2>
+          <div class="price">5,500<small>円（税込）</small></div>
+          <p>45分｜商い星占い＋創業相談｜オンラインOK</p>
+          <div class="cta-row"><a class="btn light booking-link" href="#booking">45分診断を予約する</a><a class="btn ghost" id="lineAsk" href="#" style="color:#fff;border-color:rgba(255,255,255,.5)">まずLINEで聞いてみる</a></div>
+        </div>
+        <div class="price-detail">
+          <p style="font-family:var(--en);font-style:italic;font-size:17px;color:#f0c9c0;margin-bottom:4px">45 minutes later, you take home</p>
+          <p style="font-family:var(--serif);font-size:20px;margin-bottom:12px">「わたしの商いカルテ」1枚</p>
+          <p>✓ わたしが売れる経験</p>
+          <p>✓ 最初の商品</p>
+          <p>✓ 想定価格</p>
+          <p>✓ 月5万円に必要なお客さんの数</p>
+          <p>✓ 週に使う時間</p>
+          <p>✓ 最初に声をかける5人</p>
+          <p>✓ 90日以内にやること</p>
+          <p style="margin-top:12px;font-size:12.5px;color:#d7ded3">相談料ではなく、あなた専用の「仕事の設計書」を作る45分です。「辞めるべき」とは言いません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Q &amp; A</div><h2>よくある質問</h2></div>
+      <div class="faq">
+        <details><summary>40代からって、遅くない？</summary><p>遅くありません。20年分の経験と、人のつながりと、生活者の目。この3つは、20代にはないものです。そのかわり、大きく賭けず小さく試します。</p></details>
+        <details><summary>やりたいことが、まだ決まっていなくても？</summary><p>大丈夫。むしろその段階の人のための診断です。資格を探す前に、「頼まれてきたこと」を一緒に書き出します。</p></details>
+        <details><summary>占いで「向いてない」と言われる？</summary><p>言いません。占いは自分を知る材料。始めるかどうかは、お客さん・値段・お金の話で決めます。</p></details>
+        <details><summary>会社員・パートのままでも？</summary><p>そのままで。辞めずに試す方法（副業・週末・予約制）から一緒に考えます。</p></details>
+        <details><summary>あとで高い契約をすすめられない？</summary><p>ありません。診断だけで終われます。必要な人にだけ、次の選択肢をお伝えします。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Booking — 45 min.</div><h2>45分診断を、予約する</h2><p>2分で終わります。折り返しは1営業日以内に、メールで日程をご相談します。お支払い方法も、そのメールでご案内します（事前決済は不要です）。</p></div>
+      <form class="bform" id="bform" autocomplete="on" novalidate>
+        <div class="bres" id="bres"><span class="lab">診断結果（自動で添えます）</span><b id="bresTxt">まだ診断していません</b><span class="hint">先に<a href="#fortune">3分診断</a>を受けておくと、当日の45分がまるごと「形にする時間」になります。受けていなくても予約できます。</span></div>
+        <div class="fld"><label for="bname">お名前<span class="req">必須</span></label><input id="bname" name="お名前" type="text" autocomplete="name" placeholder="例：山田 花子" required></div>
+        <div class="fld"><label for="bmail">メールアドレス<span class="req">必須</span></label><input id="bmail" name="メール" type="email" autocomplete="email" inputmode="email" placeholder="例：you@example.com" required><div class="hint">日程のご相談と、当日のURL（オンラインの場合）をお送りします。</div></div>
+        <div class="fld"><label>希望の形式<span class="req">必須</span></label>
+          <div class="seg"><label><input type="radio" name="形式" value="オンライン（Zoom）" checked><span>オンライン（Zoom）</span></label><label><input type="radio" name="形式" value="対面（大津市内）"><span>対面（大津市内）</span></label></div></div>
+        <div class="fld two"><div><label for="bd1">希望日時 第1候補<span class="req">必須</span></label><input id="bd1" name="第1候補" type="datetime-local" step="1800"></div><div><label for="bd2">第2候補<span class="opt">任意</span></label><input id="bd2" name="第2候補" type="datetime-local" step="1800"></div></div>
+        <div class="fld"><label for="bnow">今の働き方<span class="opt">任意</span></label>
+          <select id="bnow" name="今の働き方"><option value="">選択してください</option><option>会社員（正社員）</option><option>パート・アルバイト</option><option>専業で家のこと</option><option>個人事業・副業をすでに少し</option><option>その他</option></select></div>
+        <div class="fld"><label for="bmsg">聞いてみたいこと<span class="opt">任意</span></label><textarea id="bmsg" name="聞いてみたいこと" placeholder="例：人から頼まれることはあるけれど、お金をもらっていいのか分からない。"></textarea></div>
+        <label class="chk"><input type="checkbox" id="bagree"><span><a href="matching.html#legal-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します。いただいた情報は、この診断のご連絡にのみ使います。<em class="req">必須</em></span></label>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        <button class="btn main" id="bsend" type="button">この内容で予約を申し込む（5,500円・税込）</button>
+        <div class="out" id="bout" aria-live="polite"></div>
+        <p class="micro">申し込みの時点では料金は発生しません。日程が決まってからのお支払いです。フォームが苦手な方は <a id="lineAsk2" href="#" target="_blank" rel="noopener">公式LINE</a> か <a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a> へ。</p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="closing">
+        <div class="kicker">Your first step</div>
+        <h2>この10年に、<br>「わたしの名前の仕事」をひとつ。</h2>
+        <p>会社を辞めなくていい。家族の暮らしを守ったまま、小さく始める形を、45分で。</p>
+        <a class="btn booking-link" href="#booking">わたしの商い診断を予約する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>© <span id="year"></span> わたしの商い診断</div>
+    <div>運営：BRIDGE CYCLE株式会社（滋賀県大津市・国の認定経営革新等支援機関）</div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn" href="#fortune">3分で商い星を見る</a><a class="btn ghost booking-link" href="#booking">45分診断</a></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== 公開前設定 =====
+const BOOKING_URL = "";                                   // Googleフォーム／STORES予約／Calendly等
+const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
+const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // シェア用URL（本番はここに固定URLを）
+// ====================
+document.getElementById("year").textContent = new Date().getFullYear();
+const toast=document.getElementById("toast");
+function showToast(m){toast.textContent=m;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2400);}
+if(BOOKING_URL){document.querySelectorAll(".booking-link").forEach(l=>{l.setAttribute("href",BOOKING_URL);l.setAttribute("target","_blank");l.setAttribute("rel","noopener");});}
+document.getElementById("lineAsk").href=LINE_URL;document.getElementById("lineAsk2").href=LINE_URL;
+
+// ===== 予約フォーム（formsubmit.co／既存の soudan.html と同じ受け口） =====
+let LAST_RESULT="";
+(function(){
+  const $=s=>document.querySelector(s);
+  const ENDPOINT='https://formsubmit.co/ajax/info@bridgecycleco.com';
+  const fmt=v=>{if(!v)return '';const d=new Date(v);if(isNaN(d))return v;const w='日月火水木金土'[d.getDay()];return d.getMonth()+1+'月'+d.getDate()+'日（'+w+'）'+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');};
+  const d1=$('#bd1');if(d1){const t=new Date();t.setDate(t.getDate()+3);t.setHours(10,0,0,0);d1.min=t.toISOString().slice(0,16);$('#bd2').min=d1.min;}
+  $('#bsend').onclick=async function(){
+    const out=$('#bout'),btn=$('#bsend');
+    const name=$('#bname').value.trim(),mail=$('#bmail').value.trim();
+    const miss=[];
+    if(!name)miss.push('お名前');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail))miss.push('メールアドレス');
+    if(!$('#bd1').value)miss.push('希望日時（第1候補）');
+    if(!$('#bagree').checked)miss.push('プライバシーポリシーへの同意');
+    if(miss.length){out.textContent='未入力：'+miss.join('／');return;}
+    if(document.querySelector('[name=_honey]').value)return;
+    const kata=(document.querySelector('[name=形式]:checked')||{}).value||'';
+    const data={
+      '種別':'45分診断の予約（わたしの商い診断）',
+      'お名前':name,'メール':mail,'形式':kata,
+      '第1候補':fmt($('#bd1').value)||'（未記入）','第2候補':fmt($('#bd2').value)||'（未記入）',
+      '今の働き方':$('#bnow').value||'（未選択）',
+      '聞いてみたいこと':$('#bmsg').value.trim()||'（未記入）',
+      '診断結果':LAST_RESULT||'（未診断）',
+      '送信ページ':location.href,
+      '_subject':'【45分診断予約】'+name+(LAST_RESULT?'／'+LAST_RESULT:''),
+      '_template':'table','_replyto':mail,
+      '_autoresponse':'【わたしの商い診断】45分診断のお申し込みを受け付けました。\n\n'+name+' 様\n\n1営業日以内に、このメールアドレスへ日程のご相談をお送りします。\n'
+        +'ご希望：'+kata+'／第1候補 '+(fmt($('#bd1').value)||'未記入')+(($('#bd2').value)?'／第2候補 '+fmt($('#bd2').value):'')+'\n'
+        +(LAST_RESULT?'診断結果：'+LAST_RESULT+'\n':'')
+        +'\n料金は5,500円（税込）です。お支払い方法は、日程が決まった際にご案内します。この時点で料金は発生しません。\n\n'
+        +'当日は「辞めるべき」とは言いません。あなたの経験のどこが商品になるか、誰に、いくらで、を一枚のカルテにします。\n\n'
+        +'ご質問はこのメールに返信いただくか、公式LINE（'+LINE_URL+'）へ。\n\n'
+        +'BRIDGE CYCLE株式会社（滋賀県大津市・国の認定経営革新等支援機関）'
+    };
+    btn.disabled=true;btn.textContent='送信しています…';out.textContent='';
+    try{
+      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      const j=await r.json().catch(()=>({}));
+      if(String(j.success)!=='true')throw new Error('not delivered');
+      $('#bform').innerHTML='<div class="bdone"><div class="mk">✓</div><h3>受け付けました。</h3><p>1営業日以内に、ご記入のメールアドレスへ日程のご相談をお送りします。<br>受付メールが届かない場合は、迷惑メールフォルダをご確認ください。</p></div>';
+    }catch(e){
+      btn.disabled=false;btn.textContent='この内容で予約を申し込む（5,500円・税込）';
+      out.textContent=location.protocol==='file:'?'このファイルをPCで直接開いているため送信テストはできません。公開URLでお試しください。':'送信できませんでした。お手数ですが公式LINEかメールで直接ご連絡ください。';
+    }
+  };
+})();
+
+const D={
+ light:{sym:"灯",title:"灯｜経験を、ことばにする人",tagline:"あなたの経験は、誰かの迷いを軽くする。",
+  hookHead:"気づけば、誰かの「話を聞く側」に、いつもいた人。",
+  hook:["相談されると、つい真剣に聞いてしまう。","頭の中を一緒に整理して、「そういうことか」と言われると、少しうれしい。","「話しやすいね」「まとめるのうまいね」と言われても、自分では、ただ聞いているだけだと思っている。","でも、お金をもらうとなると、「話を聞くだけで、いいのかな」と迷う。"],
+  diag:"新しい知識を仕入れる人というより、これまで何度も人に渡してきた言葉を、誰かの迷いを軽くする形にする人です。",
+  subAs:"作るだけ、支えるだけで終わらせず、「なぜそうしたか」を言葉にできる。その言葉が、あなたの仕事の説明書になります。",
+  fit:"相談にのる。\n話を整理してあげる。\n人前で、わかりやすく説明する。\nどれも自分には「普通」。\nだから、仕事になるとは考えてこなかった。",
+  strength:"あなたの価値は、話しやすさだけではありません。相手の気持ちをくみ取って、本人が言えなかったことを言葉にする力。40代まで積み重ねてきた「聞いてきた時間」が、そのまま信頼になっています。",
+  risk:"ただ、頼られるのに慣れている人ほど、無料で抱え込みます。「ここから先は有料」「ここまでが範囲」を先に決めないと、家族の時間まで削れていきます。",
+  action:"今週、3回以上相談されたテーマを1つ決める。3人だけに、30分3,000円で聞いてみる。終わったら「またこの値段で話したい？」と聞く。",
+  message:"あなたが売るのは、“話しやすさ”ではありません。「この人に話すと、整理される」という時間です。"},
+ hand:{sym:"手",title:"手｜積み重ねを、形にする人",tagline:"丁寧さが、そのまま商品になる。",
+  hookHead:"気づけば、誰かのために「ちゃんと形にして返してきた」人。",
+  hook:["頼まれると、つい丁寧にやってしまう。","雑に終わらせるくらいなら、自分でやった方が早い。","「器用だね」「ちゃんとしてるね」と言われても、自分では特別なことだと思っていない。","でも、お金をもらうとなると、「こんなことで、お金をもらっていいのかな」と少し迷う。"],
+  diag:"新しい何かを身につけるというより、これまで普通にやってきたことを、誰かの役に立つ形にする人です。",
+  subAs:"考えたことを、目に見える形に仕上げられる。試作品でも、手書きの一枚でも。「形にして見せる」ことが、あなたの説得力になります。",
+  fit:"料理を頼まれる。\n資料を整えてあげる。\n壊れたものを直す。\nちょっとした飾りを作る。\nどれも自分には「普通」。\nだから、仕事になるとは考えてこなかった。",
+  strength:"あなたの価値は、器用さだけではありません。「最後までちゃんと仕上げる」「細かいところに気づく」こと。40代まで積み重ねてきた丁寧さは、安心して任せられる、という信用になっています。",
+  risk:"ただし、丁寧な人ほど、自分の時間を無料にしがちです。材料費が1,000円だから1,500円、ではなく、そこにかかった2時間にも値段があります。",
+  action:"今週、一番作りやすいものを1つ決める。3人だけに、3,000〜5,000円で売る。「またこの値段で頼みたい？」と聞く。",
+  message:"あなたが売るのは、“器用さ”ではありません。「この人に頼めば、ちゃんと仕上がる」という安心です。"},
+ garden:{sym:"庭",title:"庭｜人を、長く支える人",tagline:"一度きりじゃなく、変化を見守る関係が商いになる。",
+  hookHead:"気づけば、誰かの「変化」を、そばでずっと見てきた人。",
+  hook:["一度きりで終わるより、続けて会う方が落ち着く。","相手の顔色や声の調子で、「今日はちょっと違うな」に気づく。","「あなたがいると安心する」と言われても、自分では何もしていないと思っている。","でも、お金をもらうとなると、「そばにいるだけで、いいのかな」と迷う。"],
+  diag:"一度で何かを売る人というより、相手が続けたくなる関係そのものを、仕事にする人です。",
+  subAs:"一回で終わらせず、続けてもらう関係が作れる。リピートと紹介で、静かに広がっていくのが、あなたのやり方です。",
+  fit:"通院に付き添う。\n習い事や練習を、見守る。\n同じ人の話を、何年も聞いている。\nどれも自分には「普通」。\nだから、仕事になるとは考えてこなかった。",
+  strength:"あなたの価値は、優しさだけではありません。「気づく」「待つ」「相手に合わせる」こと。40代まで続けてきた見守りは、「この人なら続けられる」という安心になっています。",
+  risk:"ただし、面倒見のいい人ほど、自分の時間が消えていきます。返信する時間、会う時間、休む日。線を先に引かないと、暮らしが仕事に飲み込まれます。",
+  action:"今週、「3回セット」を1つ決める。5人だけに声をかける。終わったら「続けたい理由」と「続けにくい理由」の両方を聞く。",
+  message:"あなたが売るのは、“優しさ”ではありません。「この人なら、続けられる」という時間です。"},
+ bridge:{sym:"橋",title:"橋｜人と人を、つなぐ人",tagline:"選ぶ目と、人のつながりが商いになる。",
+  hookHead:"気づけば、「あの人に聞けば、誰か知ってる」と言われてきた人。",
+  hook:["困っている人がいると、「それなら、あの人」と顔が浮かぶ。","いい店、いい先生、いい情報を、つい教えたくなる。","「顔が広いね」と言われても、自分では、ただ紹介しただけだと思っている。","でも、お金をもらうとなると、「つないだだけで、いいのかな」と迷う。"],
+  diag:"自分で全部作る人というより、人と人、人とものを「ちょうどよく」引き合わせることを仕事にする人です。",
+  subAs:"ひとりで抱え込まず、必要な人を引き合わせられる。あなたの仕事は、あなた一人の手で終わらなくていい。",
+  fit:"いい病院や店を教える。\n人と人を、引き合わせる。\n「誰か知らない？」と聞かれる。\nどれも自分には「普通」。\nだから、仕事になるとは考えてこなかった。",
+  strength:"あなたの価値は、顔の広さだけではありません。「この人には、これが合う」を見抜く目。40代までにできたつながりと、生活者としての選ぶ目は、そのまま資産です。",
+  risk:"ただし、「紹介しただけ」に見えると、お金になりません。何を基準に選び、何を比べて、どう調整したか。見えない仕事を、見える形にする必要があります。",
+  action:"今週、身近な1人の困りごとを1つ選ぶ。理由つきで3つ、選択肢を渡す。「選んでもらえて、助かった？」と聞く。",
+  message:"あなたが売るのは、人脈そのものではありません。「あなたが選んだなら大丈夫」という判断です。"},
+ boat:{sym:"舟",title:"舟｜小さく出て、試す人",tagline:"大きく構えない。反応を見ながら、進む。",
+  hookHead:"気づけば、「とりあえず、やってみよう」で動いてきた人。",
+  hook:["迷うより、一度やって、様子を見た方が早い。","イベントの手伝い、フリマ、体験会。声がかかると、まず行ってみる。","「フットワーク軽いね」と言われても、自分では計画性がないだけだと思っている。","でも、お金をもらうとなると、「ちゃんと準備してからじゃないと」と急に慎重になる。"],
+  diag:"大きく構えて始める人というより、小さく出て、反応を見ながら進路を直していく人です。",
+  subAs:"本当は、何年も準備してから始めるより、一度やってみて、反応を見て、少し直す。そんな始め方の方が、あなたには合っています。",
+  fit:"一日だけ、手伝いに出る。\nフリマで、売ってみる。\n頼まれて、一回だけ教える。\nどれも自分には「一回きり」。\nだから、仕事になるとは考えてこなかった。",
+  strength:"あなたの価値は、身軽さだけではありません。現場で気づいて、すぐ直せること。「失敗できない」と思いがちな40代で、いちばんリスクの低い始め方を、あなたはもう知っています。",
+  risk:"ただし、空いた時間だけでやると、毎回条件が違って、何がよかったのか分かりません。家族の予定も含めて、「毎週この時間」を先に確保してください。",
+  action:"今週、「毎週この時間」を1枠決める。商品と値段を1つに固定して、場所だけ変えて3回売る。どこで反応があったかを見る。",
+  message:"あなたが売るのは、“行動力”ではありません。「まずやってみた人だけが持つ、本当の手応え」です。"},
+ tower:{sym:"塔",title:"塔｜整える力を、価値にする人",tagline:"ごちゃごちゃを整理して、相手の時間と迷いを減らす。",
+  hookHead:"気づけば、「あなたに任せておけば安心」と言われてきた人。",
+  hook:["予定、お金、書類。誰も見ていないところを、先回りして整えている。","抜けや漏れに気づくと、放っておけない。","「しっかりしてるね」と言われても、自分では当たり前のことをしているだけだと思っている。","でも、お金をもらうとなると、「事務くらいで、お金をもらっていいのかな」と迷う。"],
+  diag:"表に立つ人というより、ごちゃごちゃを整理して、相手の時間と迷いを減らすことを仕事にする人です。",
+  subAs:"思いつきで終わらせず、相手が続けられる仕組みまで整えられる。あなたの丁寧さは、「この人なら安心」という信用になります。",
+  fit:"会計や名簿を作る。\n予定表を整える。\n段取り表を、いつも自分が作っている。\nどれも自分には「普通」。\nだから、仕事になるとは考えてこなかった。",
+  strength:"あなたの価値は、几帳面さだけではありません。「抜け漏れを防ぐ」「先回りする」「整える」こと。40代まで積み重ねてきた段取りは、「任せれば安心」という信用になっています。",
+  risk:"ただし、「これくらい普通」と思っている人ほど、安く引き受けてしまいます。作業時間ではなく、相手が減らせる手間とミスまで含めて、値段を考えてください。",
+  action:"今週、よく頼まれる作業を1つ決める。「ここからここまで、定額」で書き出す。1人か1社に、提案する。",
+  message:"あなたが売るのは、“事務作業”ではありません。「この人に任せておけば、抜けがない」という安心です。"}
+};
+const CORE={light:"言葉にする",hand:"形にする",garden:"支え続ける",bridge:"つなぐ",boat:"まず動く",tower:"整える"};
+const FRAG=[
+ {light:"話を聞いて整理したことで感謝されて",hand:"何かを作ったり直したりしたことで感謝されて",garden:"続けて支えたことで感謝されて",bridge:"人や店を紹介したことで感謝されて"},
+ {light:"相談や知識を売る",hand:"商品や技術を売る",garden:"続けて通ってもらう",bridge:"人と人をつないで価値をつくる"},
+ {boat:"新しいことは、まず小さくやってみる",tower:"新しいことは、段取りを決めてから始める",bridge:"新しいことは、詳しい人に聞きに行く",light:"新しいことは、自分で調べて言葉にしてみる"},
+ {light:"暮らしの中でも「話を聞くこと」を頼られ",hand:"暮らしの中でも料理や手仕事を頼られ",tower:"暮らしの中でも予定やお金や書類の管理を頼られ",garden:"暮らしの中でも「相手の変化に気づく役」を頼られ"},
+ {light:"人が集まる場では取りまとめや司会を任され",boat:"人が集まる場では当日の現場を任され",tower:"人が集まる場では会計や段取りを任され",bridge:"人が集まる場では橋渡し役を任され"},
+ {hand:"休みの日にも、気づけばお菓子や小物を作っている",tower:"休みの日にも、気づけば部屋や書類を整えている",boat:"休みの日にも、気になる店や場所に出かけている",garden:"休みの日にも、友だちの悩みを聞いている"},
+ {hand:"一回の仕上がりごと",garden:"月ごと・回数券",bridge:"紹介や仲介の手数料",boat:"一日で売り切る形"},
+ {tower:"数字を出して、安心してから動く",boat:"まず小さく試して、確かめる",bridge:"経験者に、相談する",light:"一度、自分の言葉で書き出す"},
+ {tower:"「任せれば安心」と呼ばれていたい",hand:"「あの人の手仕事、好き」と言われていたい",garden:"「ずっと通ってる、あの場所の人」でいたい",boat:"「あちこちで見かける、あの人」でいたい"}
+];
+const SYNTH={light:"話を聞くのが得意な",hand:"作ることが好きな",garden:"面倒見がいい",bridge:"顔が広い",boat:"フットワークが軽い",tower:"几帳面な"};
+const Q8C={boat:"実際に誰かの反応を見ながら、完成させたい",tower:"数字で確かめてから、安心して進めたい",bridge:"誰かに聞いてから、確かめたい",light:"一度言葉にしてから、納得したい"};
+const CONTRA={light:"人の話は整理できるのに、自分のことになると「聞いてもらうほどじゃない」と黙っていませんか？",hand:"人のためならすぐ作れるのに、自分の商品になると急に「まだ売るほどじゃない」と思いませんか？",garden:"人の「続き」は見守れるのに、自分の続けたいことは「余裕ができたら」と後回しにしていませんか？",bridge:"人には「この人がいいよ」と言えるのに、自分のことは誰にも紹介してもらえていない、と思いませんか？",boat:"人のイベントにはすぐ出るのに、自分の名前でやるとなると「もう少し準備してから」と言っていませんか？",tower:"人の抜けは埋められるのに、自分の仕事の値段だけは「あとで決める」のままになっていませんか？"};
+const Q9DIR={tower:"基準や流れまで仕組みにする",hand:"目に見える形に残す",garden:"続けてもらう関係にする",boat:"あちこちで見せて回る"};
+const Q1L={light:"話を聞いて整理すること",hand:"何かを作ったり直したりすること",garden:"続けて支えること",bridge:"人や店を紹介すること"};
+const Q2L={light:"相談や知識を売ること",hand:"商品や技術を売ること",garden:"続けて通ってもらうこと",bridge:"人と人をつなぐこと"};
+const Q4L={light:"話を聞くこと",hand:"料理や手仕事",tower:"予定・お金・書類の管理",garden:"相手の変化に気づくこと"};
+const Q9L={tower:"「任せれば安心」と言われたい",hand:"「あの人の手仕事、好き」と言われたい",garden:"「ずっと通ってる、あの場所の人」でいたい",boat:"「あちこちで見かける、あの人」でいたい"};
+const Q9NEXT={tower:{h:"整理した結果を、“仕組み”として残せる人になりたい。",ex:"「相談＋整理シート」「相談＋次の行動表」のように、話したあとに何かが残る仕事"},hand:{h:"それを、目に見える形にして手渡せる人になりたい。",ex:"作品、一枚のシート、写真。相手の手元に「もの」が残る仕事"},garden:{h:"一度きりではなく、続けて関わる人になりたい。",ex:"回数券、月1回、3回セット。「また次も」が前提の仕事"},boat:{h:"ひとつの場所にとどまらず、あちこちで見せて回る人になりたい。",ex:"出張、出店、月替わりの場所。身軽に動ける仕事"}};
+function gaps(ans){const g=[];const q1=ans[0],q2=ans[1],q4=ans[3],q8=ans[7],q9=ans[8];
+  if(q1&&q2&&q1!==q2) g.push({k:'gap12',h:'ここ、少し面白いです',t:'周りがすでに価値を感じているのは、あなたの「'+CORE[q1]+'」力。人から感謝されたのは、'+Q1L[q1]+'でした。一方であなた自身は、「お金にするなら」'+Q2L[q2]+'を選んでいます。人から評価されていることと、自分がやってみたいことが、少し違う。だったら、どちらかを捨てなくていい。「'+CORE[q1]+'」＋「'+CORE[q2]+'」。この組み合わせが、あなたらしい仕事になるかもしれません。'});
+  if(q1&&q9&&q1!==q9) g.push({k:'gap19',h:'今の強みの先に、なりたい姿があります',t:'今は'+Q1L[q1]+'で感謝されています。でも10年後は、'+Q9L[q9]+'。つまりあなたは、'+CORE[q1]+'だけでなく、'+Q9NEXT[q9].h+' '+Q9NEXT[q9].ex+'が、あなたの次の形かもしれません。'});
+  if(q4&&q8&&(q4==='tower'||q4==='light')&&q4!==q8) g.push({k:'gap48',h:'人には自然にできることを、自分のことになると別のやり方で考えるようです',t:'人の'+(q4==='tower'?'予定やお金は整えられる':'話は聞いて言葉にできる')+'。でも自分が不安になると、「'+FRAG[7][q8]+'」。つまりあなたは「'+(q4==='tower'?'慎重に準備する人':'聞き役の人')+'」ではなく、人には'+CORE[q4]+'力、自分には'+(q8==='boat'?'試す':q8==='bridge'?'聞く':q8==='light'?'書き出す':'確かめる')+'力を、使い分けている人。'});
+  if(q1&&q2&&q1===q2) g.push({k:'match',h:'強みと、売りたいものが一致しています',t:'人から感謝されていることと、あなたがお金にしたいことが、同じです。ゼロから仕事を探す必要はありません。すでに頼まれていることに、値段をつけるところからです。'});
+  return g;}
+const COMMON={light:"この3つに共通しているのは、“曖昧な状態を、そのままにしない”こと。だからあなたは、相談に乗る人というより、相手の迷いを整理して、次の一歩まで決める人です。",hand:"この3つに共通しているのは、“頼まれたら、期待より少し上で返す”こと。だからあなたは、器用な人というより、任せた側が安心する仕上がりを作る人です。",garden:"この3つに共通しているのは、“一度きりにしない”こと。だからあなたは、優しい人というより、相手が続けられる形を先に作っている人です。",bridge:"この3つに共通しているのは、“誰に何が合うかを、先に見ている”こと。だからあなたは、顔が広い人というより、選ぶ理由を持っている人です。",boat:"この3つに共通しているのは、“考える前に、一回動く”こと。だからあなたは、無計画な人というより、手応えを見てから決める人です。",tower:"この3つに共通しているのは、“抜けを、先回りして埋める”こと。だからあなたは、裏方というより、安心を作っている人です。"};
+const CAND={
+ light:[
+  {t:"相談を、有料にする",d:"人からよく相談されるテーマを1つ選び、30分の整理セッションにする",fit:["garden","light"],prod:"30分・頭の中整理セッション",who:"やりたいことはあるけれど、何から始めればいいか分からない人",price:"3,000円",num:"月5万円なら17人／月3万円なら10人",prep:"Zoomかカフェ",no:"ホームページ／資格／事務所",week:"身近な3人に、「30分3,000円で、頭の中を整理するのを試してるんだけど、やってみない？」と聞く。"},
+  {t:"整理シートを、つけて渡す",d:"聞くだけで終わらせず、A4一枚の「まとめ」を成果物にする",fit:["tower","hand"],prod:"相談＋整理シート（A4一枚つき）",who:"話しても、あとで何をすればいいか忘れてしまう人",price:"5,000円",num:"月5万円なら10人／月3万円なら6人",prep:"A4の整理シートの型を1枚",no:"資格／ロゴ／予約システム",week:"相談されたことのある3人に、「話を聞いて、次にやることを一枚にまとめて渡すの、5,000円で試させて」と聞く。"},
+  {t:"少人数の「話す会」を開く",d:"同じ悩みの人を3〜5人集めて、1時間の会にする",fit:["bridge","boat"],prod:"3〜5人の「話す会」（1時間）",who:"一人で考えていると、堂々巡りになる人",price:"1人2,000円",num:"月5万円なら5回（5人）／月3万円なら3回",prep:"カフェの席と、テーマ1つ",no:"会場／チラシ／肩書き",week:"「同じことで悩んでる人、周りにいる？」と3人に聞いて、日程を1つ決める。"}],
+ hand:[
+  {t:"頼まれものを、有料にする",d:"これまで人から頼まれたものを、3人限定で売る",fit:["tower","light"],prod:"「頼まれ品」を、3人限定で",who:"これまで頼んでくれた人と、その紹介",price:"材料費＋作業時間×1,000円（例：3,500円）",num:"月5万円なら15個／月3万円なら9個",prep:"材料と、値札1枚",no:"ネットショップ／屋号／包装",week:"過去に頼んでくれた3人に、「今回から値段をつけて受けることにした。○○円で、また頼んでもらえる？」と聞く。"},
+  {t:"一日だけ、出店する",d:"イベント・間借り・マルシェで、反応を見る",fit:["boat","bridge"],prod:"一日だけの出店（10〜20個）",who:"その日、その場所に来る人",price:"1点1,500〜3,000円",num:"月5万円なら出店2回／月3万円なら1回",prep:"出店先1つと、当日の20個",no:"店／在庫の作り置き／看板",week:"近くのマルシェか、知り合いの店に「一日だけ置かせて」と1件、連絡する。"},
+  {t:"オーダー商品にする",d:"「こうしてほしい」を聞いてから作る",fit:["garden"],prod:"オーダーメイド（聞いてから作る）",who:"既製品では、しっくりこなかった人",price:"5,000〜10,000円",num:"月5万円なら7件／月3万円なら4件",prep:"聞き取りの質問5つ",no:"カタログ／サンプル一式",week:"「こういうの欲しいんだけど」と言われたことのある人1人に、「今度ちゃんと作らせて。○○円で」と聞く。"}],
+ garden:[
+  {t:"3回セットの伴走にする",d:"単発ではなく、続くまで見る形にする",fit:["tower","light"],prod:"月2回・30分の「続ける伴走」3回セット",who:"一人だと続かないことがある人",price:"3回で9,000円",num:"月5万円なら6人／月3万円なら4人",prep:"LINEと、カレンダー",no:"教室／サロン／資格",week:"「続けたいのに続かない」と言っていた3人に、「月2回30分、続くまで一緒に見るのを試してる。3回9,000円でどう？」と聞く。"},
+  {t:"月1回の集まりを、主催する",d:"同じことを続けたい人を、月1回集める",fit:["bridge","boat"],prod:"月1回の「続ける会」（5人まで）",who:"仲間がいれば続く人",price:"1人1,500円",num:"月5万円なら7回／月3万円なら4回",prep:"場所1つと、日程",no:"会場契約／会員制度",week:"「一緒にやらない？」と3人に声をかけて、初回の日を決める。"},
+  {t:"記録つきの、継続サポート",d:"関わった時間を、記録して渡す",fit:["hand"],prod:"記録シートつき・月4回の見守り",who:"変化を形に残したい人",price:"月8,000円",num:"月5万円なら6人／月3万円なら4人",prep:"記録シートの型1枚",no:"アプリ／システム",week:"いま無料で見ている人1人に、「記録をつけて月に一度渡す形にしたい。月8,000円でどう？」と聞く。"}],
+ bridge:[
+  {t:"「あなた向け3択」を提案する",d:"迷っている人に、理由つきで3つに絞って渡す",fit:["tower","light"],prod:"「あなた向け3択」提案",who:"店、先生、道具、サービス。選ぶのに迷っている人",price:"1回5,000円",num:"月5万円なら10人／月3万円なら6人",prep:"A4の比較シート1枚",no:"会社名／サイト／契約書",week:"「どれがいいか分からない」と言っていた3人に、「理由つきで3つに絞るの、5,000円で試させて」と聞く。"},
+  {t:"小さな引き合わせ会を開く",d:"会わせたい人同士を、3〜5人で集める",fit:["boat","garden"],prod:"3〜5人の引き合わせ会",who:"「誰か紹介して」とよく言う人",price:"1人3,000円",num:"月5万円なら4回／月3万円なら3回",prep:"カフェの席と、声をかける5人",no:"イベントサイト／集客",week:"「この人とこの人、合いそう」と思う2組に、日程を1つ提案する。"},
+  {t:"選んだものを、売る",d:"目利きした商品を、少しだけ仕入れて売る",fit:["hand"],prod:"セレクト販売（5〜10点）",who:"「あなたが選んだなら」と言ってくれる人",price:"仕入れ×1.5〜2倍",num:"月5万円なら粗利5,000円×10点／月3万円なら6点",prep:"仕入れ先1つと、5点",no:"店舗／在庫の山",week:"「これ、いいよ」と勧めたことのあるもの1つを、3人に「取り寄せるけど要る？」と聞く。"}],
+ boat:[
+  {t:"一日だけの出張にする",d:"相手の家や職場に、行ってやる",fit:["garden","light"],prod:"一日だけの「出張○○」",who:"自分の家や職場に、来てほしい人",price:"1回5,000円＋交通費",num:"月5万円なら10回／月3万円なら6回",prep:"道具一式と、日程3枠",no:"店／在庫／看板",week:"3人に、「今月、3日だけ出張でやるんだけど、1回5,000円で行ってもいい？」と聞く。"},
+  {t:"イベント出店・間借りをする",d:"場所を借りて、一日だけ売る",fit:["hand","bridge"],prod:"一日出店・間借り",who:"その日、その場所に来る人",price:"1点1,500〜3,000円",num:"月5万円なら出店2回／月3万円なら1回",prep:"出店先1つと、当日分",no:"店舗契約／作り置き",week:"近くのマルシェか、知り合いの店に「一日だけ」と1件、連絡する。"},
+  {t:"「毎週この時間」の枠を売る",d:"曜日と時間を固定して、予約制にする",fit:["tower"],prod:"毎週○曜○時の予約枠（1時間）",who:"決まった時間なら来られる人",price:"1枠4,000円",num:"月5万円なら13枠／月3万円なら8枠",prep:"カレンダーと、場所1つ",no:"店／予約システム",week:"「毎週○曜日の○時、1枠4,000円でやる」と決めて、3人に伝える。"}],
+ tower:[
+  {t:"定額の月次整理にする",d:"「ここからここまで」を決めて、毎月受ける",fit:["garden","light"],prod:"「ここからここまで、定額」の月次整理",who:"書類・お金・予定がごちゃごちゃな、個人事業主や小さな店",price:"月10,000円",num:"月5万円なら5件／月3万円なら3件",prep:"チェックリスト1枚",no:"資格／事務所／システム",week:"個人でやっている知人3人に、「月1回、書類とお金の整理を定額でやってみようと思ってる。月1万円で試させてもらえる？」と聞く。"},
+  {t:"ひな形・チェックリストを売る",d:"自分が使っている段取り表を、渡せる形にする",fit:["hand","bridge"],prod:"ひな形・チェックリスト（PDF）",who:"同じことで毎回困っている人",price:"1,500〜3,000円",num:"月5万円なら20部／月3万円なら12部",prep:"いま使っている表を、1枚に整える",no:"販売サイト／デザイン",week:"「これ、どうやってるの？」と聞いてきた人1人に、「表にしたから、1,500円で渡せるよ」と伝える。"},
+  {t:"一人分だけの「整理お試し」",d:"1回だけ、1人だけ、整えてみる",fit:["boat"],prod:"1回だけの整理サポート（2時間）",who:"まず一度、片づいた状態を見たい人",price:"8,000円",num:"月5万円なら6件／月3万円なら4件",prep:"2時間と、チェックリスト",no:"契約書／継続プラン",week:"1人に、「一回だけ、2時間で整えるの試させて。8,000円で」と聞く。"}]
+};
+const TWIST={light:"あなたは「聞き上手」ではなく、「聞いた後に、次の一歩まで作ってしまう人」かもしれません。",hand:"あなたは“慎重な人”ではなく、「自分の価値にだけ慎重な人」かもしれません。",garden:"あなたは“優しい人”というより、「続けられる形を、無意識に作っている人」かもしれません。",bridge:"あなたは“顔が広い人”ではなく、「合う・合わないを、先に見抜いている人」かもしれません。",boat:"あなたは“計画性がない人”ではなく、「試す前には決められないだけの、現実主義者」かもしれません。",tower:"あなたは“裏方”ではなく、「安心を売っているのに、自分だけ気づいていない人」かもしれません。"};
+const HEAD={light:["「相談」を売る人ではありません。","“整理して、次の一歩を作る”ことでお金になる人です。"],hand:["「器用さ」を売る人ではありません。","“この人に頼めば、ちゃんと仕上がる”という安心でお金になる人です。"],garden:["「優しさ」を売る人ではありません。","“この人となら、続けられる”という時間でお金になる人です。"],bridge:["「人脈」を売る人ではありません。","“あなたが選んだなら大丈夫”という判断でお金になる人です。"],boat:["「行動力」を売る人ではありません。","“まずやってみた人だけが持つ手応え”でお金になる人です。"],tower:["「事務作業」を売る人ではありません。","“任せておけば、抜けがない”という安心でお金になる人です。"]};
+const TSUMARI={light:"つまり、ただの「聞き上手」ではありません。相手の頭の中のごちゃごちゃを、“次に何をするか”まで整理できること。ここに、あなたの商いの種があります。",hand:"つまり、ただの「器用な人」ではありません。頼まれたものを、期待より少し上で仕上げて返せること。ここに、あなたの商いの種があります。",garden:"つまり、ただの「優しい人」ではありません。一度きりで終わらせず、相手が続けられる関係を作れること。ここに、あなたの商いの種があります。",bridge:"つまり、ただの「顔が広い人」ではありません。その人に合うものを、理由つきで選べること。ここに、あなたの商いの種があります。",boat:"つまり、ただの「フットワークが軽い人」ではありません。考える前に一回やって、手応えを持ち帰れること。ここに、あなたの商いの種があります。",tower:"つまり、ただの「しっかり者」ではありません。相手の抜けを先回りして、任せられる形に整えられること。ここに、あなたの商いの種があります。"};
+const IND7={hand:"お金は「一回の仕上がり」ごとに受け取りたいタイプ。値段も一回分でつけるのが、あなたには自然です。",garden:"月ごと・回数券で受け取る形が納得しやすいタイプ。だから最初の商品も「セット」にしています。",bridge:"紹介や仲介の手数料に抵抗がないタイプ。「選んだ理由」を見せれば、それがそのまま値段になります。",boat:"一日で売り切る形が合うタイプ。在庫より先に、日程を決めることが大事です。"};
+const IND8={tower:"不安なときは数字で安心するタイプなので、最初の商品にも「必要人数」を添えました。",boat:"不安なときほど小さく試して確かめるタイプ。準備より、最初の1回を早く。",bridge:"不安なときは経験者に聞くタイプ。最初の3人に、遠慮なく感想を聞いてください。",light:"不安なときは書き出して整理するタイプ。今週やることを、まず紙に書いてから動くと進みます。"};
+const PLAN={
+ light:{prod:"30分・頭の中整理セッション",who:"やりたいことはあるけれど、何から始めればいいか分からない人",price:"3,000円",num:"月5万円なら17人／月3万円なら10人",prep:"Zoomかカフェ。A4の整理シート1枚",no:"ホームページ／資格／事務所／ロゴ",week:"身近な3人に、「30分3,000円で、頭の中を整理するのを試してるんだけど、やってみない？」と聞く。"},
+ hand:{prod:"「頼まれ品」を1つ、10個限定で",who:"これまで頼んでくれた人と、その人の紹介",price:"材料費＋作業時間×1,000円（例：3,500円）",num:"月5万円なら15個／月3万円なら9個",prep:"材料と、値札1枚",no:"ネットショップ／屋号／ロゴ／包装",week:"過去に頼んでくれた3人に、「今回から値段をつけて受けることにした。○○円で、また頼んでもらえる？」と聞く。"},
+ garden:{prod:"月2回・30分の「続ける伴走」3回セット",who:"一人だと続かないことがある人（片づけ、運動、勉強、発信）",price:"3回で9,000円",num:"月5万円なら6人／月3万円なら4人",prep:"LINEと、カレンダー",no:"教室／サロン／資格",week:"「続けたいのに続かない」と言っていた3人に、「月2回30分、続くまで一緒に見るのを試してる。3回9,000円でどう？」と聞く。"},
+ bridge:{prod:"「あなた向け3択」提案",who:"店、先生、道具、サービス。選ぶのに迷っている人",price:"1回5,000円",num:"月5万円なら10人／月3万円なら6人",prep:"A4の比較シート1枚",no:"会社名／サイト／契約書",week:"「どれがいいか分からない」と言っていた3人に、「理由つきで3つに絞るの、5,000円で試させて」と聞く。"},
+ boat:{prod:"一日だけの「出張○○」",who:"自分の家や職場に、来てほしい人",price:"1回5,000円＋交通費",num:"月5万円なら10回／月3万円なら6回",prep:"道具一式と、日程3枠",no:"店／在庫／看板",week:"3人に、「今月、3日だけ出張でやるんだけど、1回5,000円で行ってもいい？」と聞く。"},
+ tower:{prod:"「ここからここまで、定額」の月次整理",who:"書類・お金・予定がごちゃごちゃな、個人事業主や小さな店",price:"月10,000円",num:"月5万円なら5件／月3万円なら3件",prep:"チェックリスト1枚と、表計算シート",no:"資格／事務所／システム",week:"個人でやっている知人3人に、「月1回、書類とお金の整理を定額でやってみようと思ってる。月1万円で試させてもらえる？」と聞く。"}
+};
+const SUBTWEAK={light:"副星が「灯」なので、やった後に「なぜそうしたか」を一言添えると、次の人につながります。",hand:"副星が「手」なので、成果物を一枚の形（シート・写真・メモ）にして渡すと、値段に納得してもらいやすくなります。",garden:"副星が「庭」なので、単発で終わらせず「次回は？」と聞く。2回目から、あなたの商いになります。",bridge:"副星が「橋」なので、最初の3人には「合いそうな人がいたら教えて」と一言。紹介で回り始めます。",boat:"副星が「舟」なので、完璧に準備しない。最初の1回は、いまある道具と場所で。",tower:"副星が「塔」なので、最初から「ここからここまで」を紙に書いておく。範囲が決まると、あなたは動けます。"};
+const NAME={
+ light:{hand:["聞いて、作っちゃう人",["相談されると、つい資料まで作る","「そこまでしなくても」と言われがち","自分のことは、いつも後回し"]],
+        garden:["長話を引き受ける相談窓口",["「ちょっといい？」が2時間になる","同じ人から、何年も相談される","聞いた話を、ちゃんと覚えている"]],
+        bridge:["相談されがちな案内人",["「それならこの人」とすぐ浮かぶ","相談の途中で、紹介が始まる","自分より、人を推すのがうまい"]],
+        boat:["立ち話で解決する人",["会議より、廊下の3分で片づける","看板なしで、もう相談されている","「ちゃんと聞くね」と言いつつ、もう答えている"]],
+        tower:["聞いて整える編集長",["人の話は整理できるのに、自分のことは迷う","話した相手から「まとめ、ありがとう」と言われる","メモを取りながら聞くのがクセ"]]},
+ hand:{light:["作りながら説明する職人",["作ったものに、つい解説がつく","「なぜこうしたか」を語れる","説明した方が、高く売れると知らない"]],
+       garden:["「また作って」と言われる人",["同じ人に、何度も頼まれる","定期便にした方が早いのに、毎回受ける","作った相手の顔が、全部浮かぶ"]],
+       bridge:["口コミで回る職人",["自分で売り込めないのに、人が紹介してくれる","「あの人に頼むといいよ」で仕事が来る","置いてくれる店を、選ぶ目がある"]],
+       boat:["とりあえず売ってみる職人",["頼まれると、必要以上にちゃんとやる","「こんなの売れない」と本人だけ思っている","3か月考えるより、一回出店した方が早い"]],
+       tower:["ちゃんとしすぎ職人",["作るだけでなく、段取りまで気になる","納品の袋まで、こだわってしまう","「ここまでやって、この値段？」と自分で驚く"]]},
+ garden:{light:["見守り上手の聞き役",["変化に気づいて、言葉にして返す","「あなたに言われて気づいた」と言われる","続けてもらう理由を、本人より先に言える"]],
+         hand:["差し入れしがちな伴走者",["会うたびに、何か持っていく","続けた記録を、形にして渡したくなる","「手ぶらで来て」と言われても、来られない"]],
+         bridge:["世話焼きコーディネーター",["放っておけないし、いい人も紹介したくなる","一人で抱えず、次の人に渡せる","気づけば、周りに小さな輪ができている"]],
+         boat:["出張してでも会いに行く人",["場所がなくても、会いに行けばいいと思っている","月1回の集まりを、いつの間にか主催している","教室より、訪問の方が向いている"]],
+         tower:["気づきすぎる伴走者",["他人の変化には気づく、自分の疲れには気づかない","続けられる仕組みを、そっと作っている","「回数と期限」を決めた瞬間、楽になる"]]},
+ bridge:{light:["理由まで語る紹介屋",["「なぜこの人か」を、ちゃんと説明する","紹介に、解説がついてくる","人を推す言葉に、説得力がある"]],
+         hand:["セットにして渡す目利き",["選んだものを、一枚にまとめて見せる","「これとこれ、合うよ」が得意","選んだ結果が、目に見える形で残る"]],
+         garden:["紹介した後も見守る人",["つないで終わりにできない","「その後どう？」を必ず聞く","だから、次も頼まれる"]],
+         boat:["まず引き合わせる人",["会議より、先に会わせてしまう","小さな会を、思いつきで開ける","「一回やってみよう」で場ができる"]],
+         tower:["頼まれてないのに段取りする人",["人と人をつないだ後まで気になる","紹介に、基準と手順がある","「あなたが選んだなら大丈夫」と言われる"]]},
+ boat:{light:["やってから語る人",["試したことを、つい発信してしまう","「やってみたら、こうだった」が口癖","失敗談の方が、人に喜ばれる"]],
+       hand:["その場で作って売る人",["出店先で、作りながら売っている","準備より、当日の方が強い","「見てたら欲しくなった」と言われる"]],
+       garden:["「また来てね」が口癖の人",["一回のイベントで、常連ができる","来た人の顔と名前を、覚えている","場所より、人が資産になっている"]],
+       bridge:["話が早い仕掛け人",["会議するより、一回やってみたい","「誰かと組む」がすぐ決まる","声をかける相手が、もう何人か浮かんでいる"]],
+       tower:["走りながら整える人",["完璧を待たないけど、二回目はちゃんと改善する","試したことを、記録している","三回目には、自分の型ができている"]]},
+ tower:{light:["説明できるしっかり者",["「これ、どうしたらいい？」とよく聞かれる","仕組みの理由まで、話せる","任せた側が、安心して帰る"]],
+        hand:["ひな形を作りたがる人",["段取りを、テンプレートにして渡す","「これ使って」と書類を配る","自分の仕事が、相手の手元に残る"]],
+        garden:["そっと整え続ける人",["一度整えて終わりにできない","月に一度、様子を見に来る","続くように、静かに付き添う"]],
+        bridge:["窓口にされがちな人",["「とりあえずあの人に聞こう」と言われる","できないことは、詳しい人につなぐ","気づけば、連絡が全部自分に来る"]],
+        boat:["一人分だけ試す慎重派",["完璧を待たないと決めた瞬間、動ける","段取りが決まる前に、一人分だけやってみる","動きながら整える方が、実は早い"]]}
+};
+const PAIR={light:["tower","あなたが聞いて、塔が残す。相談のあとに「まとめの一枚」ができる組み合わせ。"],hand:["bridge","あなたが作って、橋が届ける。売り込みが苦手でも、仕事が回る組み合わせ。"],garden:["boat","あなたが育てて、舟が場所を広げる。常連が、外にも増える組み合わせ。"],bridge:["hand","あなたが選んで、手が形にする。目利きが、商品になる組み合わせ。"],boat:["tower","あなたがまず試して、塔が数字と段取りを整える。二回目から強くなる組み合わせ。"],tower:["boat","あなたが整えて、舟が一歩目を出す。「準備だけで終わる」がなくなる組み合わせ。"]};
+const COMBO={
+ light:{hand:["話を聞ける。そして、形にして渡せる人。","聞いた話を、資料や手書きの一枚にして返せる。あなたの場合、話すだけのサービスより、「聞いて、まとめて、渡す」までを商品にすると、値段がつきやすい。"],
+        garden:["話を聞ける。そして、そのあとも見ていられる人。","一回の相談で終わらず、変化を追える。単発の相談より、月1回の継続相談のほうが、あなたらしい。"],
+        bridge:["話を聞ける。そして、次の人につなげられる人。","聞いて整理して、「それなら、この人」と渡せる。相談に、紹介という出口があるのがあなたの強み。"],
+        boat:["話を聞ける。でも、構えなくていい人。","看板を作る前に、お茶を飲みながらの30分から。まず3人に、有料で聞いてみる。それで十分に始まる。"],
+        tower:["話を聞ける。そして、整理して残せる人。","聞いた話を、相手が見返せる形に整えられる。相談のあとに「まとめの一枚」を渡すと、あなたの価値が伝わる。"]},
+ hand:{light:["ちゃんと作れる。そして、理由を語れる人。","なぜこう作ったかを、言葉にできる。作品に、あなたの言葉を添える。それだけで、値段が上がる。"],
+       garden:["ちゃんと作れる。そして、続けて届けられる人。","一回売って終わりではなく、毎月届ける・定期で作る形が向いている。「また今月も」が、あなたの商い。"],
+       bridge:["ちゃんと作れる。そして、いい相手を見つけられる人。","自分で全部売らなくていい。置いてくれる店、紹介してくれる人を選ぶ目がある。"],
+       boat:["ちゃんと作れる。でも、重く始めなくていい人。","丁寧に作れる「手」と、まず小さく試せる「舟」。店を構えたり資格を増やしたりするより、今ある技術を3人だけに売ってみる方が、前に進む。"],
+       tower:["ちゃんと作れる。そして、段取りまで整えられる人。","作るだけでなく、注文から納品までの流れを作れる。「ここからここまで、いくら」が決められる人。"]},
+ garden:{light:["人を支えられる。そして、言葉にして返せる人。","見守るだけでなく、相手の変化を言葉で伝えられる。続ける理由を、本人より先に言える。"],
+         hand:["人を支えられる。そして、形に残せる人。","関わった時間を、記録やものにして渡せる。続けた証が手元に残るサービスが、向いている。"],
+         bridge:["人を支えながら、必要な人につなげられる人。","一人で抱えず、必要なときに次の人へ渡せる。あなたの周りに、小さな輪ができる。"],
+         boat:["人を支えられる。でも、場所に縛られなくていい人。","教室やサロンを構える前に、出張・訪問・月1回の集まりから。場所は、あとでいい。"],
+         tower:["人を支えられる。そして、続く仕組みにできる人。","優しさに、回数と期限と値段の線を引ける。だから、続く。"]},
+ bridge:{light:["つなげられる。そして、その理由を伝えられる人。","なぜこの人を選んだかを、言葉で渡せる。紹介に、あなたの解説がつく。"],
+         hand:["つなげられる。そして、形にして見せられる人。","選んだものを、一枚の提案や小さなセットにして見せられる。「選んだ結果」が、目に見える。"],
+         garden:["つなげられる。そして、その後も見ていられる人。","紹介して終わりではなく、うまくいったかを確かめる。だから、次も頼まれる。"],
+         boat:["つなげられる。そして、まず動ける人。","会議より、まず引き合わせてみる。小さな会や、一日だけの企画から始めるのが合う。"],
+         tower:["つなげられる。そして、仕組みにできる人。","紹介を、基準と手順のある「サービス」にできる。「あなたが選んだなら大丈夫」が、商品になる。"]},
+ boat:{light:["まず動ける。そして、伝えられる人。","やってみたことを、言葉で発信できる。試すたびに、あなたの経験が誰かの参考になる。"],
+       hand:["まず動ける。そして、手で作れる人。","出店や体験会で、その場で作って見せられる。作りながら売る、が向いている。"],
+       garden:["まず動ける。そして、人を残せる人。","一回のイベントで終わらず、来た人と続く関係が作れる。「また来る人」が、あなたの資産。"],
+       bridge:["まず動ける。そして、人を巻き込める人。","一人で出るより、誰かと組んで場を作るのが合う。声をかける相手が、もう何人か浮かんでいる。"],
+       tower:["まず動ける。そして、次に活かせる人。","試したことを記録して、次に直せる。三回目には、あなたなりの型ができている。"]},
+ tower:{light:["整えられる。そして、説明できる人。","仕組みを作るだけでなく、なぜそうするかを相手に伝えられる。任せる側が、安心する。"],
+        hand:["整えられる。そして、形にできる人。","段取りを、書類やテンプレートという「もの」にして渡せる。あなたの仕事が、相手の手元に残る。"],
+        garden:["整えられる。そして、そばで見ていられる人。","一度整えて終わりではなく、続くように付き添える。月次で関わる仕事が、向いている。"],
+        bridge:["整えられる。そして、必要な人を呼べる人。","自分でできない部分は、詳しい人につなげられる。窓口として、信頼される。"],
+        boat:["整えられる。でも、完璧を待たなくていい人。","段取りが決まる前に、一人分だけ試してみる。動きながら整えるほうが、あなたには早い。"]}
+};
+const LBL=["感謝されたこと","月5万円なら","始め方","頼られること","任される役","休みの日","お金のもらい方","不安なとき","10年後"];
+
+// ---- 9問・4択の占い（4問で速報→9問でキャラ）＋他己診断 ----
+(function(){
+  const qz=document.getElementById('qz'), scrs=[...qz.querySelectorAll('.scr')], res=document.getElementById('res'), tk=document.getElementById('tk');
+  const pNow=document.getElementById('pNow'), pBar=document.getElementById('pBar'), pTxt=document.getElementById('pTxt'), back=document.getElementById('back');
+  const N=9; let i=0, ans=[], cur=null, sub=null;
+  const qp=new URLSearchParams(location.search);
+  const W=[2,1,1,2,2,1,1,1,1];function scoreOf(arr){const sc={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},first={};arr.forEach((v,k)=>{if(!v)return;sc[v]+=(W[k]||1);if(first[v]===undefined)first[v]=k;});const order=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||(first[a]??99)-(first[b]??99));return {sc,order};}
+  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',s.dataset.i===String(n)));pNow.textContent=n+1;pBar.style.width=((n+1)/N*100)+'%';pTxt.textContent=LBL[n]||'';back.style.visibility=n>0?'visible':'hidden';res.classList.remove('on');qz.querySelector('.qnav').style.display='';}
+  function showMid(){const {sc,order}=scoreOf(ans);const w=order[0];const tot=ans.slice(0,4).reduce((a,v,k)=>a+(v?(W[k]||1):0),0);const pct=Math.round(sc[w]/tot*100);document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent=pct+'%';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='仮の星';}
+  scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
+  document.getElementById('midGo').addEventListener('click',()=>show(4));
+  back.addEventListener('click',()=>{if(i>0)show(i-1);});
+  document.getElementById('again').addEventListener('click',()=>{ans=[];show(0);qz.scrollIntoView({behavior:'smooth',block:'start'});});
+  function finish(){const {sc,order}=scoreOf(ans);render(order[0], sc[order[1]]>0?order[1]:null);}
+  function nm(w,w2){return w2?NAME[w][w2][0]:D[w].title.split('｜')[1];}
+  function render(w,w2){
+    cur=w; sub=w2; const d=D[w], d2=w2?D[w2]:null;
+    scrs.forEach(s=>s.classList.remove('on')); qz.querySelector('.qnav').style.display='none';
+    pNow.textContent=N;pBar.style.width='100%';pTxt.textContent='結果';back.style.visibility='hidden';
+    const cname=w2?NAME[w][w2][0]:d.title.split('｜')[1];
+    document.getElementById('rChara').textContent=cname;
+    LAST_RESULT=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';const bt=document.getElementById('bresTxt');if(bt)bt.textContent=LAST_RESULT;
+    document.getElementById('rStars').textContent=d.sym+(d2?' × '+d2.sym:'')+'　主星'+(d2?'・副星':'');
+    const hasAns=ans.filter(Boolean).length>=9;
+    if(hasAns){
+      const f=(k)=>FRAG[k][ans[k]]||'';
+      const s1=[f(0),f(3),f(4),f(5)].filter(Boolean);
+      let html='<p>あなたは今回、'+s1.join('、')+'。</p>';
+      if(f(7))html+='<p>一方で、失敗が怖くなると、あなたは<b>「'+f(7)+'」</b>を選びました。</p>';
+      html+='<p>つまりあなたは、'+SYNTH[w]+'だけではなく、'+(Q8C[ans[7]]||'自分のやり方で確かめたい')+'人。</p>';
+      document.getElementById('rHook').innerHTML=html;
+      const G=gaps(ans);const g0=G[0],rest=G.slice(1);
+      document.getElementById('rTwist').innerHTML=(g0?('<b>'+g0.h+'</b><span>'+g0.t+'</span>'):('<b>ただし——</b><span>'+CONTRA[w]+'</span>'))+(rest.length?('<details class="gmore"><summary>もう1つ、あなたに出ている特徴を見る</summary>'+rest.map(g=>'<b>'+g.h+'</b><span>'+g.t+'</span>').join('')+'</details>'):'');
+    }else{
+      document.getElementById('rHook').innerHTML=(w2?NAME[w][w2][1].concat([d.hook[2]]):d.hook).map(t=>'<p>'+t+'</p>').join('');
+      document.getElementById('rTwist').textContent=TWIST[w];
+    }
+    document.getElementById('rHead').innerHTML='あなたの場合は、<b>'+HEAD[w][0]+'</b><br>'+HEAD[w][1];
+    const labels=[];scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>{const k=+sc.dataset.i;const v=ans[k];if(!v)return;const btn=[...sc.querySelectorAll('button')].find(b=>b.dataset.v===v);if(btn)labels.push({k,v,t:btn.textContent.replace(/^[A-D]/,'').trim()});});
+    if(labels.length){const pick=labels.filter(l=>l.v===w).slice(0,3);
+      document.getElementById('rQuote').textContent='あなたが選んだ'+pick.length+'つの答え、'+pick.map(l=>'「'+l.t+'」').join('')+'には、共通点があります。';
+      document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');
+      const i7=ans[6]&&IND7[ans[6]], i8=ans[7]&&IND8[ans[7]];document.getElementById('rInd').textContent=[i7,i8].filter(Boolean).join(' ');}
+    else{document.getElementById('rQuote').textContent='';document.getElementById('rCommon').textContent=COMMON[w]+(w2?' '+COMBO[w][w2][1]:'');document.getElementById('rInd').textContent='';}
+    // 3候補
+    const cl=document.getElementById('cl'); cl.innerHTML='';
+    ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='none');
+    const order=CAND[w].map((c,idx)=>({c,idx,rec:!!(w2&&c.fit.includes(w2))})).sort((a,b)=>(b.rec?1:0)-(a.rec?1:0));
+    order.forEach((o,pos)=>{const c=o.c;const b=document.createElement('button');b.type='button';if(o.rec)b.classList.add('rec');b.innerHTML='<span class="k">'+'ABC'[pos]+'</span><span class="t">'+(o.rec?'<em>おすすめ｜</em>':'')+c.t+'</span><span class="d">'+c.d+(o.rec?'　— 副星「'+d2.sym+'」のあなたに合いやすい':'')+'</span>';
+      b.addEventListener('click',()=>{[...cl.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');showPlan(w,o.idx,'ABC'[pos]);});cl.appendChild(b);});
+    document.getElementById('pRisk').textContent=d.risk;
+    // もっと楽しむ
+    document.getElementById('rChara2').textContent=cname;document.getElementById('rComboName').textContent=d.sym+(d2?' × '+d2.sym+'　「'+COMBO[w][w2][0]+'」':'');
+    document.getElementById('rAru').innerHTML=(w2?NAME[w][w2][1]:d.hook.slice(0,3)).map(t=>'<li>'+t+'</li>').join('');
+    document.getElementById('rMsg').textContent=d.message;
+    const pr=PAIR[w];document.getElementById('pSym').textContent=D[pr[0]].sym;document.getElementById('pTxt2').textContent=pr[1];
+    document.getElementById('tSym').textContent=d.sym;
+    const u=PAGE_URL+'?t='+w+(w2?'&s='+w2:'');
+    const txt='わたしの商い診断、結果は「'+cname+'」（'+d.sym+(d2?'×'+d2.sym:'')+'）。'+TWIST[w]+' #わたしの商い診断';
+    document.getElementById('btnX').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent(u);
+    document.getElementById('btnLine').href='https://line.me/R/share?text='+encodeURIComponent(txt+' '+u);
+    const fu=PAGE_URL+'?f=1&t='+w+(w2?'&s='+w2:'');
+    const ft='4問だけ答えて！「わたしの商い診断」で、私は「'+cname+'」って出たんだけど、友達から見たらどう見える？ '+fu;
+    document.getElementById('btnTakoLine').href='https://line.me/R/share?text='+encodeURIComponent(ft);
+    document.getElementById('btnTakoCopy').onclick=async()=>{try{await navigator.clipboard.writeText(ft);showToast('リンクをコピーしました');}catch(e){showToast('コピーできませんでした');}};
+    const fv=document.getElementById('fview'); const f2=qp.get('f2'); if(f2&&/^[a-z]+-[a-z]*$/.test(f2)){const [a,b2]=f2.split('-');if(D[a]){fv.style.display='';document.getElementById('more').open=true;document.getElementById('fvSelf').textContent=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';document.getElementById('fvFriend').textContent=(b2&&D[b2]&&b2!==a?NAME[a][b2][0]:D[a].title.split('｜')[1])+'（'+D[a].sym+(b2&&D[b2]?'×'+D[b2].sym:'')+'）';document.getElementById('fvNote').textContent=(a===w)?'自分の見立てと、友達の見立てが一致。「'+D[a].sym+'」は、周りにもそう見えています。':'友達には「'+D[a].sym+'」が見えています。あなたが「普通」だと思っていた「'+CORE[a]+'」力は、外からは仕事に見えているのかもしれません。';}}else fv.style.display='none';
+    const ol=document.getElementById('ol'); ol.innerHTML='';
+    Object.keys(D).filter(k=>k!==w).forEach(k=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span class="s">'+D[k].sym+'</span>'+D[k].title.split('｜')[1];b.addEventListener('click',()=>{render(k,null);document.getElementById('res').scrollIntoView({behavior:'smooth',block:'start'});});ol.appendChild(b);});
+    res.classList.add('on'); res.scrollIntoView({behavior:'smooth',block:'start'});
+    try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
+  }
+  function showPlan(w,idx,L){const c=CAND[w][idx];document.getElementById('planLab').textContent='では、'+L+'を選んだあなたなら';
+    document.getElementById('pProd').textContent=c.prod;document.getElementById('pWho').textContent=c.who;document.getElementById('pPrice').textContent=c.price;document.getElementById('pNum').textContent=c.num;document.getElementById('pPrep').textContent=c.prep;document.getElementById('pNo').textContent=c.no;
+    document.getElementById('wText').textContent=c.week+(sub?' '+SUBTWEAK[sub]:'');
+    ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='');
+    document.getElementById('plan').scrollIntoView({behavior:'smooth',block:'start'});}
+  // ---- 他己診断モード ----
+  const t=qp.get('t'), t2=qp.get('s');
+  if(qp.get('f')==='1'&&t&&D[t]){
+    scrs.forEach(s=>s.classList.remove('on')); qz.querySelector('.prog').style.display='none'; qz.querySelector('.qnav').style.display='none'; tk.classList.add('on');
+    const tks=[...tk.querySelectorAll('.scr')]; let ti=0, ta=[];
+    function tshow(n){ti=n;tks.forEach(s=>s.classList.toggle('on',s.dataset.i==='t'+n));}
+    tshow(0);
+    tks.forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ta[+sc.dataset.i.slice(1)]=b.dataset.v;if(ti<3)setTimeout(()=>tshow(ti+1),140);else tfin();})));
+    function tfin(){const {sc,order}=scoreOf(ta);const a=order[0],b2=sc[order[1]]>0?order[1]:null;tks.forEach(s=>s.classList.remove('on'));
+      document.getElementById('tkSym').textContent=D[a].sym;document.querySelector('#tkres .subst').style.display=b2?'':'none';if(b2)document.getElementById('tkSym2').textContent=D[b2].sym;
+      document.getElementById('tkChara').textContent=b2?NAME[a][b2][0]:D[a].title.split('｜')[1];
+      document.getElementById('tkSelf').textContent='本人の自己診断は「'+nm(t,(t2&&D[t2]&&t2!==t)?t2:null)+'」。'+(a===t?'あなたの見立てと一致しています。':'あなたには、本人が気づいていない「'+D[a].sym+'」が見えています。');
+      const bu=PAGE_URL+'?t='+t+(t2?'&s='+t2:'')+'&f2='+a+'-'+(b2||'');
+      const bt='他己診断やったよ。友達から見たあなたは「'+(b2?NAME[a][b2][0]:D[a].title.split('｜')[1])+'」。 '+bu;
+      document.getElementById('tkLine').href='https://line.me/R/share?text='+encodeURIComponent(bt);
+      document.getElementById('tkCopy').onclick=async()=>{try{await navigator.clipboard.writeText(bt);showToast('リンクをコピーしました');}catch(e){}};
+      document.getElementById('tkres').classList.add('on');}
+    document.querySelector('.tkh h3').textContent='この人のこと、4問だけ教えてください。';
+  } else if(t&&D[t]){render(t,(t2&&D[t2]&&t2!==t)?t2:null);}
+
+  // ---- 結果カード画像（1080×1920 ストーリーズ用） ----
+  function drawCard(){
+    const d=D[cur], d2=sub?D[sub]:null, c=document.getElementById('cv'), x=c.getContext('2d'), W=1080,H=1920;
+    const serif='"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif', sans='"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif';
+    x.fillStyle='#f4ece4';x.fillRect(0,0,W,H);
+    x.fillStyle='#fffaf5';rr(x,70,230,940,1440,48);x.fill();
+    x.strokeStyle='rgba(196,127,116,.45)';x.lineWidth=2;rr(x,100,260,880,1380,36);x.stroke();
+    const g=x.createRadialGradient(900,320,10,900,320,320);g.addColorStop(0,'rgba(247,228,223,1)');g.addColorStop(1,'rgba(247,228,223,0)');x.fillStyle=g;x.beginPath();x.arc(900,320,320,0,Math.PI*2);x.fill();
+    x.textAlign='center';
+    x.fillStyle='#3b332e';x.font='500 54px '+serif;x.fillText('わたしの商い診断',540,150);
+    x.fillStyle='#c47f74';x.font='italic 500 28px "Cormorant Garamond",Georgia,serif';x.fillText('for women in their 40s',540,196);
+    x.fillStyle='#c47f74';x.font='italic 500 36px "Cormorant Garamond",Georgia,serif';x.fillText('Your Akinai Character',540,360);
+    const name=d2?NAME[cur][sub][0]:d.title.split('｜')[1];
+    x.fillStyle='#3b332e';x.font='500 '+(name.length>11?56:68)+'px '+serif;wrap(x,name,540,470,900,80,'center');
+    x.fillStyle='#3b332e';x.font='500 150px '+serif;
+    if(d2){x.fillText(d.sym,410,760);x.fillStyle='#c47f74';x.font='400 80px '+serif;x.fillText('×',540,745);x.fillStyle='#8a7f77';x.font='500 150px '+serif;x.fillText(d2.sym,670,760);}else{x.fillText(d.sym,540,760);}
+    x.fillStyle='#c47f74';x.font='700 22px '+sans;if(d2){x.fillText('主星',410,800);x.fillText('副星',670,800);}
+    x.fillStyle='#3b332e';x.font='500 36px '+serif;wrap(x,sub?COMBO[cur][sub][0]:d.hookHead,540,890,900,54,'center');
+    const aru=d2?NAME[cur][sub][1]:d.hook.slice(0,3);
+    x.textAlign='left';let yy=1040;aru.forEach(t=>{x.fillStyle='#c47f74';x.font='700 30px '+sans;x.fillText('✔',150,yy);x.fillStyle='#4a413b';x.font='400 32px '+sans;x.fillText(t,205,yy);yy+=64;});
+    x.fillStyle='#fff';rr(x,140,1270,800,250,28);x.fill();x.strokeStyle='#edd6cf';x.lineWidth=2;rr(x,140,1270,800,250,28);x.stroke();
+    x.fillStyle='#3b332e';x.font='500 32px '+serif;wrap(x,TWIST[cur],540,1345,720,50,'center');
+    x.fillStyle='#c47f74';x.font='700 34px '+sans;x.textAlign='center';x.fillText('#わたしの商い診断',540,1600);
+    x.fillStyle='#8a7f77';x.font='400 26px '+sans;x.fillText('占い × 創業相談（無料・3分）',540,1730);
+    x.fillStyle='#c47f74';x.font='700 28px '+sans;x.fillText(PAGE_URL.replace(/^https?:\/\//,''),540,1780);
+    return c;
+  }
+  function rr(x,X,Y,w,h,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+h,r);x.arcTo(X+w,Y+h,X,Y+h,r);x.arcTo(X,Y+h,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath();}
+  function wrap(x,t,cx,y,mw,lh,al){x.textAlign=al;let line='',yy=y;for(const ch of t){const test=line+ch;if(x.measureText(test).width>mw&&line){x.fillText(line,cx,yy);line=ch;yy+=lh;}else line=test;}if(line)x.fillText(line,cx,yy);}
+  async function blob(){return new Promise(r=>drawCard().toBlob(r,'image/png'));}
+  document.getElementById('btnSave').addEventListener('click',async()=>{const b=await blob();const f=new File([b],'akinai-'+cur+'.png',{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'わたしの商い診断'});return;}catch(e){}}
+    const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;a.click();showToast('画像を保存しました。ストーリーズに貼ってみてください');});
+  document.getElementById('btnShare').addEventListener('click',async()=>{const d=D[cur];const data={title:'わたしの商い診断',text:'わたしの商い星は「'+d.title+'」でした。#わたしの商い診断',url:PAGE_URL+'?t='+cur};
+    if(navigator.share){try{await navigator.share(data);}catch(e){}}else{try{await navigator.clipboard.writeText(data.text+' '+data.url);showToast('リンクをコピーしました');}catch(e){showToast('この端末ではシェアできませんでした');}}});
+})();
+
+// ---- 30秒チェック（1問ずつ） ----
+(function(){
+  const qz=document.getElementById('qz2'), scrs=[...qz.querySelectorAll('.scr')], pNow=document.getElementById('p2Now'), pBar=document.getElementById('p2Bar'), out=document.getElementById('quizResult');
+  let i=0, v=[];
+  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',+s.dataset.i===n));pNow.textContent=n+1;pBar.style.width=((n+1)/4*100)+'%';out.classList.remove('show');}
+  qz.querySelectorAll('.scr button').forEach(b=>b.addEventListener('click',()=>{v[i]=+b.dataset.v;if(i<3)setTimeout(()=>show(i+1),140);else fin();}));
+  document.getElementById('again2').addEventListener('click',()=>{v=[];show(0);});
+  function fin(){const s=v.reduce((a,b)=>a+b,0);const T=document.getElementById('resultTitle'),B=document.getElementById('resultBody');
+    if(s<=1){T.textContent='まだ、決めなくていい';B.textContent='商品を決めるのは、まだ先。まず「人に頼まれてきたこと」を10個、書き出すところから。資格探しは、その後で。';}
+    else if(s===2){T.textContent='辞めずに、月3万円';B.textContent='いまの仕事はそのまま。まず自分で3万円を作ってみる段階です。最初の5人に、どう売るかを考えましょう。';}
+    else if(s===3){T.textContent='お店の前に、売ってみる';B.textContent='商品とお客さんの輪郭は見えています。家賃を払う前に、予約制・イベント・間借りで「週何時間で、いくら売れるか」を確かめる段階です。';}
+    else{T.textContent='独立の、準備へ';B.textContent='条件はかなり揃っています。次は売上だけでなく、必要な手取り・家計・週の時間・投資の上限まで、数字にする段階です。';}
+    scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='4';pBar.style.width='100%';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});}
+})();
+</script>
+</body>
+</html>
