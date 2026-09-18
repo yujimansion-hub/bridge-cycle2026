@@ -455,6 +455,8 @@ footer .fl b{color:#9FBBD6}
 (function(){
   var cards=document.querySelectorAll('.hero2 .ch'),done=false;
   function countUp(el){var n=+el.getAttribute('data-n'),t0=null,d=900;
+    if(document.hidden){el.textContent=n;return;}
+    setTimeout(function(){el.textContent=n;},d+200);
     function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/d);k=1-Math.pow(1-k,3);el.textContent=Math.round(n*k);if(k<1)requestAnimationFrame(step);}
     requestAnimationFrame(step);}
   function show(){if(done)return;done=true;cards.forEach(function(c){c.classList.add('in')});
