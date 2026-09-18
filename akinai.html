@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×仕事づくり。生年月日から1〜60の「商い命数」と商い星を出し、1枚引きと7つの入力から、実際の経験に重なる仕事案3つまで出します。">
+<meta name="description" content="40代女性のための、占い×仕事づくり。生年月日から1〜60の「商い命数」と商い星を出し、1枚引きと5つの選択から、実際の経験に重なる仕事案3つまで出します。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
 <meta property="og:description" content="生年月日から1〜60の商い命数を占い、7つの実際の経験と照らし合わせて「仕事になる私」と商いプラン3案を見つけます。">
 <meta property="og:type" content="website">
@@ -546,7 +546,18 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .voice-group-label:first-of-type{margin-top:6px}
 .voice-group-label span{font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px}
 .voice-group-label b{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink)}
-.voice-steps{display:grid;gap:12px}
+.voice-steps,.quick-steps{display:grid;gap:12px}
+.quick-choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.quick-choices button{border:1.5px solid var(--line);background:#fffdfa;color:var(--ink);border-radius:999px;padding:9px 13px;font:inherit;font-size:12.5px;cursor:pointer;transition:.15s}
+.quick-choices button:hover{border-color:var(--rose);background:var(--rose-pale)}
+.quick-choices button.on{border-color:var(--rose);background:var(--rose);color:#fff;font-weight:700}
+.quick-hidden{display:none!important}
+.quick-note{margin:16px 0 4px;padding:14px 15px;border:1px dashed var(--line);border-radius:16px;background:#fffaf7}
+.quick-note label{display:flex;align-items:center;gap:7px;font-size:12px;margin-bottom:7px}
+.quick-note label span{font-size:9px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 6px}
+.quick-note input{width:100%;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;font:inherit;font-size:14px;color:var(--ink)}
+.quick-note input:focus{outline:2px solid var(--rose);border-color:var(--rose)}
+.quick-note small{display:block;margin-top:4px;font-size:10.5px;color:var(--muted)}
 .voice-step{padding:16px;border:1px solid var(--line);border-radius:18px;background:#fff}
 .voice-step.done{border-color:#cfd9c8;background:#fbfcf8}
 .vs-head{display:flex;gap:11px;align-items:flex-start;margin-bottom:11px}
@@ -625,6 +636,14 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .paid-compare .pc li:first-child{border-top:0}
 .paid-compare .pc.paid li{border-color:rgba(255,255,255,.14)}
 .paid-compare .arr{display:grid;place-items:center;color:var(--rose);font-family:var(--serif);font-size:28px}
+.grant-option{margin:20px 0;padding:22px 22px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.grant-tag{font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px;letter-spacing:.05em}
+.grant-option h3{font-family:var(--serif);font-size:20px;line-height:1.6;font-weight:500;margin:5px 0 8px}
+.grant-option p{margin:0;font-size:13px;line-height:1.8;color:#5f5650}
+.grant-flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0}
+.grant-flow span{padding:7px 10px;border-radius:999px;background:var(--rose-pale);font-size:11px;color:#76564d;font-weight:700}
+.grant-flow i{font-style:normal;color:var(--rose)}
+.grant-law{margin-top:10px!important;padding-top:10px;border-top:1px dashed var(--line);font-size:11.5px!important;color:var(--muted)!important}
 .paid-bottom{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:20px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
 .paid-bottom .price{font-family:var(--serif);font-size:34px;line-height:1;color:var(--ink)}
 .paid-bottom .price small{font-size:12px;color:var(--muted)}
@@ -665,11 +684,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
         <h1>占って、書いてみたら、<br><span>知らなかった「仕事になる私」が見えてくる。</span></h1>
-        <p class="lead">まず、生年月日から1〜60の<b>「商い命数」</b>と商い星を出し、1枚だけ商いカードを引きます。<br>そのあと7つの質問に入力すると、<b>占いで出た星と、実際の人生に現れている力</b>を重ねて、具体的な仕事案3つまで出します。</p>
+        <p class="lead">まず、生年月日から1〜60の<b>「商い命数」</b>と商い星を出し、1枚だけ商いカードを引きます。<br>そのあと<b>5問をタップ</b>すると、占いで出た星と、実際の人生に現れている力を重ねて、具体的な仕事案3つまで出します。文章入力は任意です。</p>
         <div class="route-choose" id="start">
           <p class="rq">いちばん気軽な方法からどうぞ。</p>
           <a class="voice-route" href="#voice-diagnosis">
-            <div class="vr-top"><span class="mic-dot">✦</span><div><b>占ってから、7つの質問に入力する</b><span>生年月日＋1枚引きの占いと、仕事・暮らし・周りから見た自分を重ねます。</span></div></div>
+            <div class="vr-top"><span class="mic-dot">✦</span><div><b>占ってから、5問をタップする</b><span>長文入力なし。仕事・暮らし・周りから見た自分を、選ぶだけで重ねます。</span></div></div>
             <em>→ 占い × 実際の経験から、仕事案3つを見つける</em>
           </a>
           <div class="route-grid">
@@ -722,58 +741,98 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         </div>
 
         <div class="voice-required-head">
-          <b>ここからは「診断」。7つの質問に入力してください。</b>
-          <p>占い結果に合わせて答える必要はありません。実際の経験を、そのまま書いてください。1〜3文程度で十分です。</p>
+          <b>ここからは「診断」。5問、近いものをタップするだけ。</b>
+          <p>文章を7つ書く方式はやめました。迷ったら「一番近い」で大丈夫。最後のひとこと入力だけ任意です。</p>
         </div>
 
         <div class="voice-group-label"><span>WORK</span><b>仕事で見える私</b></div>
-        <div class="voice-steps">
-          <div class="voice-step" data-voice-step="0">
-            <div class="vs-head"><span>1</span><div><b>人から、よく何を頼まれてきましたか？</b><small>例：相談される／資料を整える／人を紹介する／料理を頼まれる など</small></div></div>
-            <textarea class="voice-text voice-answer" id="voiceText0" maxlength="700" placeholder="例：職場では、説明が分かりにくい資料を整理してほしいとよく頼まれます。"></textarea>
+        <div class="quick-steps">
+          <div class="voice-step quick-question" data-quick="0">
+            <div class="vs-head"><span>1</span><div><b>人から、よく頼まれてきたのは？</b><small>一番近いものを1つ</small></div></div>
+            <div class="quick-choices">
+              <button type="button" data-fill="相談を聞いて、考えを整理してほしいと頼まれる">相談・説明</button>
+              <button type="button" data-fill="資料や料理、ものを作ったり整えたりしてほしいと頼まれる">作る・整える</button>
+              <button type="button" data-fill="新人や仲間、お客さんを支えたりフォローしてほしいと頼まれる">支える</button>
+              <button type="button" data-fill="人や店、情報を紹介してほしいと頼まれる">紹介する</button>
+              <button type="button" data-fill="まず現場に出て動いてほしいと頼まれる">まず動く</button>
+              <button type="button" data-fill="予定、数字、書類、段取りを管理してほしいと頼まれる">段取り・管理</button>
+            </div>
+            <textarea class="voice-answer quick-hidden" id="voiceText0" aria-hidden="true"></textarea>
           </div>
-          <div class="voice-step" data-voice-step="1">
-            <div class="vs-head"><span>2</span><div><b>仕事で、気づくと任されていた役は何ですか？</b><small>例：取りまとめ／新人フォロー／会計／段取り／現場対応／説明役 など</small></div></div>
-            <textarea class="voice-text voice-answer" id="voiceText1" maxlength="700" placeholder="職場や役割が変わっても、なぜか自分がやっていたことを書いてください。"></textarea>
-          </div>
-          <div class="voice-step" data-voice-step="2">
-            <div class="vs-head"><span>3</span><div><b>仕事で、自分では「これくらい普通」と思っていることは？</b><small>人には褒められるけれど、自分では特別だと思っていないこと。</small></div></div>
-            <textarea class="voice-text voice-answer" id="voiceText2" maxlength="700" placeholder="例：予定を見て先に必要なものを準備しておくのは、普通だと思っています。"></textarea>
+
+          <div class="voice-step quick-question" data-quick="1">
+            <div class="vs-head"><span>2</span><div><b>仕事で、気づくと任されていた役は？</b><small>職場が変わっても繰り返してきたもの</small></div></div>
+            <div class="quick-choices">
+              <button type="button" data-fill="取りまとめ、説明、進行役を任されてきた">取りまとめ・説明</button>
+              <button type="button" data-fill="制作、仕上げ、資料作成を任されてきた">制作・仕上げ</button>
+              <button type="button" data-fill="新人育成、フォロー、見守りを任されてきた">育成・フォロー</button>
+              <button type="button" data-fill="人と人、部署と部署をつなぐ調整役を任されてきた">つなぐ・調整</button>
+              <button type="button" data-fill="現場対応、営業、イベントなどまず動く役を任されてきた">現場・行動</button>
+              <button type="button" data-fill="会計、段取り、記録、チェックを任されてきた">会計・段取り</button>
+            </div>
+            <textarea class="voice-answer quick-hidden" id="voiceText1" aria-hidden="true"></textarea>
           </div>
         </div>
 
         <div class="voice-group-label"><span>LIFE</span><b>暮らしで出る私</b></div>
-        <div class="voice-steps">
-          <div class="voice-step" data-voice-step="3">
-            <div class="vs-head"><span>4</span><div><b>休日、気づくと何をしていることが多いですか？</b><small>予定のない日の自分を思い出してください。</small></div></div>
-            <textarea class="voice-text voice-answer" id="voiceText3" maxlength="700" placeholder="例：気になる店を見つけると、予定がなくても見に行ってしまいます。"></textarea>
+        <div class="quick-steps">
+          <div class="voice-step quick-question" data-quick="2">
+            <div class="vs-head"><span>3</span><div><b>休日、気づくとやっているのは？</b><small>予定のない日の自分に近いもの</small></div></div>
+            <div class="quick-choices">
+              <button type="button" data-fill="人の話を聞いたり、気になることを調べて言葉にしている">話す・調べる</button>
+              <button type="button" data-fill="料理、お菓子、小物、デザインなど何かを作っている">何かを作る</button>
+              <button type="button" data-fill="友人の悩みを聞いたり、誰かの面倒を見たりしている">誰かを支える</button>
+              <button type="button" data-fill="店、サービス、人を比較しておすすめを探している">比べて選ぶ</button>
+              <button type="button" data-fill="気になる店や場所、イベントにすぐ出かけて試している">出かけて試す</button>
+              <button type="button" data-fill="部屋、予定、家計、書類などを整理している">整理する</button>
+            </div>
+            <textarea class="voice-answer quick-hidden" id="voiceText2" aria-hidden="true"></textarea>
           </div>
-          <div class="voice-step" data-voice-step="4">
-            <div class="vs-head"><span>5</span><div><b>友人や知人と集まると、自然とどんな役になりますか？</b><small>店を選ぶ、日程を決める、話を聞く、人をつなぐ、場を整えるなど。</small></div></div>
-            <textarea class="voice-text voice-answer" id="voiceText4" maxlength="700" placeholder="例：いつも店を探して、みんなの日程をまとめる役になります。"></textarea>
-          </div>
-          <div class="voice-step" data-voice-step="5">
-            <div class="vs-head"><span>6</span><div><b>最近、時間を忘れて調べたり、作ったり、試したりしたことは？</b><small>役に立つかどうかは考えず、つい夢中になること。</small></div></div>
-            <textarea class="voice-text voice-answer" id="voiceText5" maxlength="700" placeholder="例：旅行先の店やルートを比較していると、気づくと何時間も経っています。"></textarea>
+
+          <div class="voice-step quick-question" data-quick="3">
+            <div class="vs-head"><span>4</span><div><b>友人や知人と集まると、自然とどの役？</b><small>「結局いつも自分がやる」に近いもの</small></div></div>
+            <div class="quick-choices">
+              <button type="button" data-fill="みんなの話を聞いて、意見をまとめる">話をまとめる</button>
+              <button type="button" data-fill="必要なものを用意したり、見た目や形を整える">用意・仕上げ</button>
+              <button type="button" data-fill="遅れている人や困っている人をフォローする">フォロー</button>
+              <button type="button" data-fill="店を選んだり、人を紹介したり、みんなをつなぐ">店選び・紹介</button>
+              <button type="button" data-fill="まず予約したり、現地に行ったり、動き出す">まず動く</button>
+              <button type="button" data-fill="日程、会計、予約、持ち物など段取りを整える">日程・段取り</button>
+            </div>
+            <textarea class="voice-answer quick-hidden" id="voiceText3" aria-hidden="true"></textarea>
           </div>
         </div>
 
         <div class="voice-group-label"><span>OTHERS</span><b>周りから見える私</b></div>
-        <div class="voice-steps">
-          <div class="voice-step" data-voice-step="6">
-            <div class="vs-head"><span>7</span><div><b>周りの人から、どんな人だと言われることが多いですか？</b><small>「話しやすい」「しっかりしてる」「行動が早い」「顔が広い」「面倒見がいい」「器用」など、実際に言われた言葉を。</small></div></div>
-            <textarea class="voice-text voice-answer" id="voiceText6" maxlength="700" placeholder="実際に言われた言葉を、そのまま入力してください。"></textarea>
+        <div class="quick-steps">
+          <div class="voice-step quick-question" data-quick="4">
+            <div class="vs-head"><span>5</span><div><b>周りの人から、どんな人だと言われる？</b><small>よく言われる言葉に近いもの</small></div></div>
+            <div class="quick-choices">
+              <button type="button" data-fill="話しやすい、説明が分かりやすい、相談しやすいと言われる">話しやすい</button>
+              <button type="button" data-fill="器用、丁寧、センスがあると言われる">器用・丁寧</button>
+              <button type="button" data-fill="面倒見がいい、優しい、よく気づくと言われる">面倒見がいい</button>
+              <button type="button" data-fill="顔が広い、情報通、いい人を知っていると言われる">顔が広い</button>
+              <button type="button" data-fill="行動が早い、フットワークが軽いと言われる">行動が早い</button>
+              <button type="button" data-fill="しっかりしている、抜けがない、安心して任せられると言われる">しっかりしている</button>
+            </div>
+            <textarea class="voice-answer quick-hidden" id="voiceText4" aria-hidden="true"></textarea>
           </div>
+        </div>
+
+        <div class="quick-note">
+          <label for="quickNote"><b>もしあれば、最後にひとことだけ</b><span>任意</span></label>
+          <input id="quickNote" type="text" maxlength="180" placeholder="例：昔から、人の相談に乗ることだけは多かった">
+          <small>書かなくても結果は出ます。</small>
         </div>
 
         <div class="data-note">
           <span>AKINAI DATA｜この占いを、これから育てる</span>
           <b>「統計に基づく」とは、まだ言いません。</b>
           <p>現在の商い命数は、BRIDGE CYCLE独自の象徴的な占いです。将来、利用者の明確な同意を得た匿名データで、命数と「頼まれてきた役」「選んだ仕事案」「実際に試した結果」の傾向を検証し、十分な件数が集まり再現性を確認できた項目だけを公開する設計を目指します。</p>
-          <small>現在、このページの生年月日・7つの入力内容はBRIDGE CYCLEへ送信・蓄積していません。</small>
+          <small>現在、このページの生年月日・5問の選択・任意入力はBRIDGE CYCLEへ送信・蓄積していません。</small>
         </div>
-        <p class="voice-help">※ 生年月日と1枚引きは「占い」、7つの入力は「診断」として分けて扱います。結果では両者が重なる点・違う点を表示します。</p>
-        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">占いと7つの入力から「仕事になる私」を見つける</button>
+        <p class="voice-help">※ 生年月日と1枚引きは「占い」、5問の選択は「診断」として分けて扱います。結果では両者が重なる点・違う点を表示します。</p>
+        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">占いと5問から「仕事になる私」を見つける</button>
         <div class="voice-out" id="voiceOut" aria-live="polite"></div>
       </div>
     </div>
@@ -853,7 +912,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         <div class="res" id="res">
           <div class="rcard" id="rcard">
             <div class="lab">AKINAI ORACLE｜あなたの商いカルテ</div>
-            <p class="result-basis">生年月日から出す「商い命数」と1枚引きは占い、7つの入力は経験の診断として分けています。現在、商い命数と仕事適性の統計的関連は検証中ではなく、象徴的な読みとして提供しています。</p>
+            <p class="result-basis">生年月日から出す「商い命数」と1枚引きは占い、5つの選択は経験の診断として分けています。現在、商い命数と仕事適性の統計的関連は検証中ではなく、象徴的な読みとして提供しています。</p>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
@@ -872,7 +931,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
               <div class="direction-tags" id="rDirectionTags"></div>
             </div>
             <div class="voice-reveal" id="rVoiceReveal" style="display:none">
-              <span class="vrlab">7つの入力から見えた、3つの自分</span>
+              <span class="vrlab">5つの選択から見えた、3つの自分</span>
               <div class="voice-faces">
                 <div class="voice-face"><span>仕事で見える私</span><b id="rVoiceWorkStar"></b><small id="rVoiceWorkText"></small></div>
                 <div class="voice-face"><span>暮らしで出る私</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
@@ -1135,6 +1194,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <li>週に使う時間を決める</li>
             <li>必要なら、家族との時間・家計から出せる上限も確認する</li>
             <li>90日後の続ける／やめる基準を決める</li>
+            <li>希望者は、補助金準備モードへ進む</li>
           </ul>
         </div>
       </div>
@@ -1149,6 +1209,16 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <a class="btn booking-link" href="#booking">45分診断を予約する</a>
           <a class="btn ghost" id="lineAsk" href="#" target="_blank" rel="noopener" style="margin-top:8px">予約前にLINEで聞く</a>
         </div>
+      </div>
+
+      <div class="grant-option">
+        <div class="grant-tag">PAID OPTION｜補助金準備モード</div>
+        <h3>事業が見えてきたら、その内容を「持続化補助金の申請材料」に変える。</h3>
+        <p>追加の質問に順番に答えると、<b>自社の現状／顧客ニーズ／強み／今後の方針／補助事業の内容／期待効果／経費の考え方</b>まで整理できます。</p>
+        <div class="grant-flow">
+          <span>商い診断</span><i>→</i><span>事業計画の材料整理</span><i>→</i><span>本人確認・修正</span><i>→</i><span>申請に使えるたたき台</span>
+        </div>
+        <p class="grant-law"><b>重要：</b>小規模事業者持続化補助金の申請書類そのものを有償で作成する業務は、改正行政書士法との関係を確認して運用します。BRIDGE CYCLE単独で「申請書作成代行」として提供せず、正式な申請書類の作成が必要な場合は行政書士連携で対応する設計にします。</p>
       </div>
 
       <details class="method" id="about">
@@ -1906,8 +1976,9 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
 
 // ---- 占い＋入力診断：生年月日・1枚引きと7つの自由入力を分けて扱う ----
 (function(){
-  const N=7;
+  const N=5;
   const answers=Array.from({length:N},(_,i)=>document.getElementById('voiceText'+i));
+  const quickNote=document.getElementById('quickNote');
   const steps=[...document.querySelectorAll('[data-voice-step]')];
   const go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
   const birth=document.getElementById('birthDate'),birthBox=document.getElementById('birthFortune');
@@ -1919,11 +1990,18 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   let birthType=null,birthNumber=null,drawType=null;
 
   function markDone(i){
-    const ok=(answers[i].value||'').trim().length>=8;
+    const ok=(answers[i].value||'').trim().length>=3;
     if(steps[i])steps[i].classList.toggle('done',ok);
     return ok;
   }
-  answers.forEach((ta,i)=>ta.addEventListener('input',()=>markDone(i)));
+  document.querySelectorAll('.quick-question').forEach((q,i)=>{
+    q.querySelectorAll('.quick-choices button').forEach(btn=>btn.addEventListener('click',()=>{
+      q.querySelectorAll('.quick-choices button').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      answers[i].value=btn.dataset.fill||btn.textContent.trim();
+      markDone(i);
+    }));
+  });
 
   function calcBirthNumber(v){
     if(!/^\d{4}-\d{2}-\d{2}$/.test(v||''))return null;
@@ -1983,7 +2061,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   function crossText(work,life,other,born,drawn){
     const a=VOICE_FACE_LABEL[work],b=VOICE_FACE_LABEL[life],c=VOICE_FACE_LABEL[other];
     const diag=(work===life&&life===other)
-      ?'7つの入力では、仕事・暮らし・周りから見た姿のすべてに「'+a+'」力が繰り返し出ています。'
+      ?'5つの選択では、仕事・暮らし・周りから見た姿のすべてに「'+a+'」力が繰り返し出ています。'
       :(work===life?'仕事と暮らしには「'+a+'」が共通し、周りからは「'+c+'」人として見られています。'
       :'仕事では「'+a+'」、暮らしでは「'+b+'」、周りからは「'+c+'」人として見られています。');
     const fortune='占いでは、生まれ持った星が「'+D[born].sym+'」、今日のカードが「'+D[drawn].sym+'」。';
@@ -2006,29 +2084,27 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       }
 
       const vals=answers.map(a=>(a.value||'').trim());
-      const missing=vals.map((v,i)=>v.length>=8?-1:i).filter(i=>i>=0);
+      const missing=vals.map((v,i)=>v.length>=3?-1:i).filter(i=>i>=0);
       if(missing.length){
-        const names=[
-          '①「よく頼まれてきたこと」','②「仕事で任されてきた役」','③「仕事で普通だと思うこと」',
-          '④「休日に自然としていること」','⑤「友人との場での役」','⑥「夢中になること」','⑦「周りから言われること」'
-        ];
-        out.textContent='あと'+missing.length+'つです。'+missing.map(i=>names[i]).join('、')+'にも入力してください。';
+        const names=['①「よく頼まれてきたこと」','②「仕事で任されてきた役」','③「休日の自分」','④「友人との場での役」','⑤「周りから言われること」'];
+        out.textContent='あと'+missing.length+'問です。'+missing.map(i=>names[i]).join('、')+'をタップしてください。';
         steps[missing[0]]?.scrollIntoView({behavior:'smooth',block:'center'});
         return;
       }
 
-      out.textContent='占いの星と、7つの実際の経験を照らし合わせています…';
+      out.textContent='占いの星と、5つの選択を照らし合わせています…';
 
-      const work=analyze(vals.slice(0,3).join('。'));
-      const life=analyze(vals.slice(3,6).join('。'));
-      const other=analyze(vals[6]);
-      const all=analyze(vals.join('。'));
+      const note=(quickNote?.value||'').trim();
+      const work=analyze(vals.slice(0,2).join('。')+(note?'。'+note:''));
+      const life=analyze(vals.slice(2,4).join('。')+(note?'。'+note:''));
+      const other=analyze(vals[4]+(note?'。'+note:''));
+      const all=analyze(vals.join('。')+(note?'。'+note:''));
       let main=mergeScores(work,life,other);
       if(!main||((work.topScore||0)+(life.topScore||0)+(other.topScore||0)===0))main=all.top;
 
       if(!main||(all.topScore||0)===0){
-        out.textContent='入力はそろっています。仕事案を具体化するため、①か②に「実際にした行動」を一言だけ足してください。例：相談を聞いた／資料を作った／新人を教えた／人を紹介した／段取りを整えた。';
-        steps[0]?.scrollIntoView({behavior:'smooth',block:'center'});
+        out.textContent='選択はそろっています。より具体的にしたい場合だけ、最後の「ひとこと」に実際の出来事を足してください。';
+        document.getElementById('quickNote')?.scrollIntoView({behavior:'smooth',block:'center'});
         return;
       }
 
@@ -2038,7 +2114,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       const hitPool=[...(work.hits[workType]||[]),...(life.hits[lifeType]||[]),...(other.hits[otherType]||[])];
       const words=hitPool.filter((x,i,ar)=>ar.indexOf(x)===i).slice(0,6);
       const cross=crossText(workType,lifeType,otherType,birthType,drawType);
-      const originalText=vals.map((v,i)=>(i+1)+'：'+v).join('\n');
+      const originalText=vals.map((v,i)=>(i+1)+'：'+v).join('\n')+(note?'\nひとこと：'+note:'');
 
       if(typeof window.runAkinaiFromVoice!=='function')throw new Error('renderer unavailable');
 
@@ -2055,7 +2131,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
         +'／仕事:'+D[workType].sym+'・暮らし:'+D[lifeType].sym+'・周り:'+D[otherType].sym;
       LAST_PLAN="";
       syncBookingResult();
-      out.textContent='結果を出しました。占いと実際の経験が重なる点・違う点まで表示しています。';
+      out.textContent='結果を出しました。5問だけでも、占いと実際の経験が重なる点・違う点まで表示しています。';
     }catch(err){
       console.error('fortune input diagnosis error',err);
       out.textContent='結果の表示でエラーが起きました。ページを再読み込みして、もう一度お試しください。';
