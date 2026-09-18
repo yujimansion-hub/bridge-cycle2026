@@ -1739,27 +1739,97 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   const statuses=[0,1,2].map(i=>document.getElementById('voiceStatus'+i));
   const steps=[...document.querySelectorAll('[data-voice-step]')];
   const go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
-  if(!buttons.length||!answers.every(Boolean)||!go)return;
+  if(!buttons.length||!answers.every(Boolean)||!go||!out)return;
 
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  let rec=null,listening=false,active=-1,baseText="";
+  let rec=null,listening=false,active=-1,baseText="",pendingAnalyze=false;
 
   function markDone(i){
     const ok=(answers[i].value||'').trim().length>=10;
-    steps[i]?.classList.toggle('done',ok);
+    if(steps[i])steps[i].classList.toggle('done',ok);
     return ok;
   }
   answers.forEach((ta,i)=>ta.addEventListener('input',()=>markDone(i)));
 
+  function countTerm(text,term){
+    let n=0,pos=0;
+    while((pos=text.indexOf(term,pos))!==-1){n++;pos+=Math.max(term.length,1);}
+    return n;
+  }
+  function analyze(text){
+    const scores={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},
+          hits={light:[],hand:[],garden:[],bridge:[],boat:[],tower:[]};
+    Object.entries(VOICE_LEXICON).forEach(([k,list])=>list.forEach(([term,w])=>{
+      const n=countTerm(text,term);
+      if(n){scores[k]+=n*w;if(!hits[k].includes(term))hits[k].push(term);}
+    }));
+    const order=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
+    return {scores,hits,order};
+  }
+
+  function runDiagnosis(){
+    pendingAnalyze=false;
+    try{
+      const vals=answers.map(a=>(a.value||'').trim());
+      const missing=vals.map((v,i)=>v.length>=10?-1:i).filter(i=>i>=0);
+      if(missing.length){
+        const names=['①「人からよく頼まれてきたこと」','②「仕事で任されてきた役」','③「自分では普通だと思うこと」'];
+        out.textContent='あと'+missing.length+'つです。'+missing.map(i=>names[i]).join('、')+'にも、実際の場面を1つ話してください。';
+        steps[missing[0]]?.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+
+      out.textContent='3つの回答を読み取っています…';
+      const combined=vals[0]+'。'+vals[0]+'。'+vals[1]+'。'+vals[1]+'。'+vals[2];
+      const a=analyze(combined);
+      const main=a.order[0];
+      const top=a.scores[main];
+
+      if(!main||top===0){
+        out.textContent='3つとも回答できています。①か②に「実際にした行動」を一言だけ足してください。例：相談を聞いた／資料を作った／新人を教えた／人を紹介した／段取りを整えた。';
+        steps[0]?.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+
+      // 音声ルートはまず主星1つで確実に結果表示。
+      // 副星は自由記述の語彙揺れで誤判定しやすいため、ここでは付けない。
+      const words=(a.hits[main]||[]).slice(0,5);
+      window.AKINAI_SCORE_MIX=[];
+      const originalText=vals.map((v,i)=>(i+1)+'：'+v).join('\n');
+
+      if(typeof window.runAkinaiFromVoice!=='function'){
+        throw new Error('voice renderer unavailable');
+      }
+
+      window.runAkinaiFromVoice(main,null,{main,sub:null,words,text:originalText.slice(0,1200),answers:vals});
+      BASE_RESULT='音声診断：'+D[main].title.split('｜')[1]+'（'+D[main].sym+'）';
+      LAST_PLAN="";
+      syncBookingResult();
+      out.textContent='診断できました。結果に移動しました。';
+    }catch(err){
+      console.error('voice diagnosis error',err);
+      out.textContent='診断結果の表示でエラーが起きました。ページを再読み込みして、もう一度「3つの話から見つける」を押してください。';
+    }
+  }
+
   if(SR){
-    rec=new SR();rec.lang='ja-JP';rec.continuous=true;rec.interimResults=true;
+    rec=new SR();
+    rec.lang='ja-JP';
+    rec.continuous=true;
+    rec.interimResults=true;
+
     rec.onstart=()=>{
       listening=true;
       if(active<0)return;
       baseText=answers[active].value.trim();
-      buttons.forEach((b,i)=>{b.classList.toggle('listening',i===active);b.textContent=i===active?'■ 話すのを止める':'🎙 この質問に答える';b.disabled=i!==active;});
+      buttons.forEach((b,i)=>{
+        b.classList.toggle('listening',i===active);
+        b.textContent=i===active?'■ 話すのを止める':'🎙 この質問に答える';
+        b.disabled=i!==active;
+      });
       statuses[active].textContent='聞いています。実際の場面を1つ以上、そのまま話してください。';
     };
+
     rec.onresult=e=>{
       if(active<0)return;
       let finalText="",interim="";
@@ -1771,13 +1841,18 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       answers[active].value=(baseText+(interim?' '+interim:'')).trim();
       markDone(active);
     };
+
     rec.onerror=e=>{
       const i=active;
       listening=false;
-      buttons.forEach((b,j)=>{b.classList.remove('listening');b.disabled=false;b.textContent='🎙 この質問に答える';});
-      if(i>=0)statuses[i].textContent=e.error==='not-allowed'?'マイクが許可されていません。ここに直接入力しても診断できます。':'音声認識をいったん止めました。もう一度押すか、直接入力してください。';
+      buttons.forEach(b=>{b.classList.remove('listening');b.disabled=false;b.textContent='🎙 この質問に答える';});
+      if(i>=0)statuses[i].textContent=e.error==='not-allowed'
+        ?'マイクが許可されていません。ここに直接入力しても診断できます。'
+        :'音声認識をいったん止めました。もう一度押すか、直接入力してください。';
       active=-1;
+      if(pendingAnalyze)runDiagnosis();
     };
+
     rec.onend=()=>{
       const i=active;
       listening=false;
@@ -1785,60 +1860,40 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       if(i>=0){
         baseText=answers[i].value.trim();
         const done=markDone(i);
-        statuses[i].textContent=done?'回答できました。必要なら、もう少し話し足せます。':'もう少し具体的に、実際にあった場面を1つ話してください。';
+        statuses[i].textContent=done
+          ?'回答できました。必要なら、もう少し話し足せます。'
+          :'もう少し具体的に、実際にあった場面を1つ話してください。';
       }
       active=-1;
+      if(pendingAnalyze)runDiagnosis();
     };
+
     buttons.forEach((b,i)=>b.addEventListener('click',()=>{
       if(listening){
         if(active===i){try{rec.stop();}catch(e){}}
         return;
       }
-      active=i;baseText=answers[i].value.trim();
-      try{rec.start();}catch(e){active=-1;}
+      active=i;
+      baseText=answers[i].value.trim();
+      try{rec.start();}catch(e){
+        active=-1;
+        statuses[i].textContent='音声入力を開始できませんでした。直接入力しても診断できます。';
+      }
     }));
   }else{
     buttons.forEach(b=>{b.disabled=true;b.textContent='マイク入力はこのブラウザでは未対応';});
     statuses.forEach(s=>s.textContent='下の欄に、話すようにそのまま入力してください。');
   }
 
-  function countTerm(text,term){
-    let n=0,pos=0;while((pos=text.indexOf(term,pos))!==-1){n++;pos+=Math.max(term.length,1);}return n;
-  }
-  function analyze(text){
-    const scores={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},hits={light:[],hand:[],garden:[],bridge:[],boat:[],tower:[]};
-    Object.entries(VOICE_LEXICON).forEach(([k,list])=>list.forEach(([term,w])=>{const n=countTerm(text,term);if(n){scores[k]+=n*w;if(!hits[k].includes(term))hits[k].push(term);}}));
-    const order=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
-    return {scores,hits,order};
-  }
-
   go.addEventListener('click',()=>{
-    if(listening&&rec){try{rec.stop();}catch(e){}}
-    const vals=answers.map(a=>(a.value||'').trim());
-    const missing=vals.map((v,i)=>v.length>=10?-1:i).filter(i=>i>=0);
-    if(missing.length){
-      const names=['①「人からよく頼まれてきたこと」','②「仕事で任されてきた役」','③「自分では普通だと思うこと」'];
-      out.textContent='あと'+missing.length+'つです。'+missing.map(i=>names[i]).join('、')+'にも、実際の場面を1つ話してください。';
-      const first=missing[0];steps[first]?.scrollIntoView({behavior:'smooth',block:'center'});
+    out.textContent='';
+    if(listening&&rec){
+      pendingAnalyze=true;
+      out.textContent='最後の音声を文字にしてから診断します…';
+      try{rec.stop();}catch(e){runDiagnosis();}
       return;
     }
-
-    // 必須3回答を別々に重みづけして読む。Q1/Q2は実際の役割なので少し強め。
-    const combined=vals[0]+'。'+vals[0]+'。'+vals[1]+'。'+vals[1]+'。'+vals[2];
-    const a=analyze(combined),main=a.order[0],second=a.order[1],top=a.scores[main],sub=a.scores[second]>0&&a.scores[second]>=Math.max(2,top*.45)?second:null;
-
-    if(top===0){
-      out.textContent='3つの回答はそろいました。より具体的な仕事案にするため、①か②に「何をしたか」をもう一言だけ足してください。たとえば「相談を聞いた」「資料を作った」「新人を教えた」「人を紹介した」「段取りを整えた」のような行動です。';
-      steps[0]?.scrollIntoView({behavior:'smooth',block:'center'});
-      return;
-    }
-
-    const words=[...(a.hits[main]||[]),...(sub?(a.hits[sub]||[]):[])].filter((x,i,ar)=>ar.indexOf(x)===i).slice(0,5);
-    out.textContent='3つの経験がそろいました。あなた自身がまだ仕事として数えていなかった力を、結果にまとめます。';
-    window.AKINAI_SCORE_MIX=[];
-    const originalText=vals.map((v,i)=>(i+1)+'：'+v).join('\n');
-    window.runAkinaiFromVoice(main,sub,{main,sub,words,text:originalText.slice(0,1200),answers:vals});
-    BASE_RESULT='音声診断：'+(sub?NAME[main][sub][0]:D[main].title.split('｜')[1])+'（'+D[main].sym+(sub?'×'+D[sub].sym:'')+'）';LAST_PLAN="";syncBookingResult();
+    runDiagnosis();
   });
 })();
 
