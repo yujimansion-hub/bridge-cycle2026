@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×創業相談。6つの「商い星」で自分の価値の出し方を知り、4つの「商いの季節」で今やることを確認。無料3分から、45分の個別相談へ。">
+<meta name="description" content="40代女性のための、占い×仕事づくり診断。2分話すか9問に答えると、自分では気づきにくい価値と、具体的な仕事案3つが見つかります。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
-<meta property="og:description" content="私は何が向いている？だけでなく、今、何から始める？まで。商い星・仮の商品・商いの季節・今週の一歩が無料でわかります。">
+<meta property="og:description" content="話してみたら、知らなかった「仕事になる私」が見えてくる。商い星と具体的な仕事案3つを無料で。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#f4ece4">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -490,13 +490,41 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 /* ===== APP-LIKE FLOW ===== */
 .route-choose{max-width:820px;margin:22px auto 0}
 .route-choose .rq{font-family:var(--serif);font-size:17px;margin:0 0 10px;color:var(--ink)}
+.voice-route{display:block;margin-bottom:10px;padding:20px 20px 18px;border-radius:22px;background:linear-gradient(145deg,#3b332e,#55473f);color:#fff;border:1px solid #3b332e;box-shadow:0 12px 28px rgba(59,51,46,.12)}
+.voice-route:hover{transform:translateY(-1px)}
+.voice-route .vr-top{display:flex;align-items:center;gap:12px}
+.voice-route .mic-dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--rose);font-size:21px;flex:none}
+.voice-route b{display:block;font-family:var(--serif);font-size:19px;font-weight:500}
+.voice-route span{display:block;margin-top:3px;font-size:12.5px;line-height:1.65;color:#e8ded8}
+.voice-route em{display:inline-block;margin-top:9px;font-style:normal;color:#f1c7bd;font-size:12px;font-weight:700}
 .route-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .route-card{display:block;background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:16px 17px;transition:.16s}
 .route-card:hover{border-color:var(--rose);transform:translateY(-1px)}
 .route-card b{display:block;font-family:var(--serif);font-size:17px;font-weight:500;margin-bottom:3px}
 .route-card span{display:block;font-size:12.5px;line-height:1.65;color:var(--muted)}
 .route-card em{display:inline-block;margin-top:8px;font-style:normal;font-size:11.5px;color:var(--rose);font-weight:700}
+.voice-section{background:linear-gradient(180deg,#eee5de,#f7f0ea);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.voice-box{max-width:720px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
+.voice-prompts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px}
+.voice-prompts div{padding:11px 12px;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:12px;line-height:1.6;color:#655c56}
+.voice-prompts b{display:block;color:var(--rose);font-size:10px;letter-spacing:.07em;margin-bottom:2px}
+.voice-controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:11px}
+.voice-mic{min-height:54px;padding:0 22px}
+.voice-mic.listening{background:var(--ink);border-color:var(--ink)}
+.voice-status{font-size:12px;color:var(--muted)}
+.voice-text{width:100%;min-height:150px;resize:vertical;border:1.5px solid var(--line);border-radius:16px;background:#fff;padding:14px 15px;color:var(--ink);font:inherit;font-size:15px;line-height:1.8}
+.voice-text:focus{outline:2px solid var(--rose);border-color:var(--rose)}
+.voice-help{margin:8px 0 0;font-size:11px;line-height:1.65;color:var(--muted)}
+.voice-analyze{width:100%;margin-top:13px;min-height:56px;font-size:15px}
+.voice-out{margin-top:10px;font-size:12.5px;line-height:1.7;color:var(--rose);min-height:1.5em}
+.voice-reveal{margin:12px 0 0;padding:18px 17px;border-radius:18px;background:#fff;border:1px solid #e4d4cb}
+.voice-reveal .vrlab{display:block;font-size:10.5px;letter-spacing:.08em;color:var(--rose);font-weight:700;margin-bottom:5px}
+.voice-reveal .vrwords{font-size:12px;color:var(--muted);margin-bottom:7px}
+.voice-reveal .vrwords b{color:var(--ink);font-weight:500}
+.voice-reveal p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.9;color:var(--ink)}
+.voice-reveal small{display:block;margin-top:8px;font-size:11px;line-height:1.65;color:var(--muted)}
 .idea-section{background:linear-gradient(180deg,#f3eee9,#f8f2ed);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:680px){.voice-prompts{grid-template-columns:1fr}.voice-box{padding:20px 17px}}
 .idea-name{max-width:640px;margin:0 auto 12px}
 .idea-name label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
 .idea-name input{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;color:var(--ink)}
@@ -582,16 +610,20 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
-        <h1>あなたの経験、<br><span>何ならお金をもらえそう？</span></h1>
-        <p class="lead">占いとして「商い星」を楽しみながら、結果は具体的に。<br><b>職業イメージ・商いプラン3案・仮の価格・最初に声をかける相手・今週の一歩</b>まで出します。</p>
+        <h1>話してみたら、<br><span>知らなかった「仕事になる私」が見えてくる。</span></h1>
+        <p class="lead">うまく話さなくて大丈夫。これまで頼まれてきたこと、自然と任されてきたことを少し話してください。<br>そこから<b>商い星・自分では気づきにくい価値・具体的な仕事案3つ</b>を出します。</p>
         <div class="route-choose" id="start">
-          <p class="rq">今のあなたに近い方を選んでください。</p>
+          <p class="rq">いちばん気軽な方法からどうぞ。</p>
+          <a class="voice-route" href="#voice-diagnosis">
+            <div class="vr-top"><span class="mic-dot">🎙</span><div><b>2分、話して診断する</b><span>「よく頼まれること」「仕事で任されること」「自分では普通だと思うこと」を、思いつくまま。</span></div></div>
+            <em>→ 自分の知らない自分と、仕事案3つを見つける</em>
+          </a>
           <div class="route-grid">
-            <a class="route-card" href="#fortune"><b>何を売るか、まだ決まっていない</b><span>これまで何度も頼まれてきたことから、最初の商品候補を3つ出します。</span><em>→ 9問で見つける</em></a>
-            <a class="route-card" href="#idea-check"><b>売りたいものは、もう決まっている</b><span>その商品を「誰に・いくらで・まず何人に売るか」で確かめます。</span><em>→ 6問で確かめる</em></a>
+            <a class="route-card" href="#fortune"><b>話すのは少し苦手</b><span>9問から選ぶだけでも、同じ「商い星」と仕事案3つが出ます。</span><em>→ 選んで診断する</em></a>
+            <a class="route-card" href="#idea-check"><b>売りたいものは、もう決まっている</b><span>その商品を「誰に・いくらで・まず何人に売るか」で確かめます。</span><em>→ 商品を確かめる</em></a>
           </div>
         </div>
-        <p class="micro">どちらも無料・登録なし・送信なし</p>
+        <p class="micro">無料・登録なし。音声はブラウザの音声認識機能を使います。</p>
       </div>
       <div class="hero-ph">
         <img src="images/akinai-hero.jpg" alt="自宅のテーブルでノートを開き、自分の商いを考える40代の女性" width="706" height="1024" loading="eager" fetchpriority="high">
@@ -604,13 +636,38 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     </div>
   </section>
 
+  <section id="voice-diagnosis" class="voice-section">
+    <div class="wrap">
+      <div class="fortune-simple">
+        <div class="kicker">無料｜話して診断</div>
+        <h2>2分だけ、これまでのことを聞かせてください。</h2>
+        <p>話し方や声質ではなく、<b>話した内容に出てくる経験</b>から見ます。きれいにまとめなくて大丈夫です。</p>
+      </div>
+      <div class="voice-box">
+        <div class="voice-prompts">
+          <div><b>たとえば 01</b>人から、よく何を頼まれてきましたか？</div>
+          <div><b>たとえば 02</b>仕事で、気づくと任されていた役は？</div>
+          <div><b>たとえば 03</b>自分では「これくらい普通」と思っていることは？</div>
+        </div>
+        <div class="voice-controls">
+          <button class="btn voice-mic" id="voiceMic" type="button">🎙 話し始める</button>
+          <span class="voice-status" id="voiceStatus">マイクを押して、思いつくまま話してください。</span>
+        </div>
+        <textarea class="voice-text" id="voiceText" maxlength="1800" placeholder="ここに音声が文字になります。マイクを使わず、直接入力しても診断できます。"></textarea>
+        <p class="voice-help">※ 音声認識は端末・ブラウザの機能を利用します。音声処理の方法はブラウザやOSによって異なります。このページからBRIDGE CYCLEへ音声や入力内容を送信することはありません。</p>
+        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">この話から「知らなかった私」と仕事案を見つける</button>
+        <div class="voice-out" id="voiceOut" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="fortune" class="fortune-section">
     <div class="wrap">
       <div class="fortune-simple">
-        <div class="kicker">無料3分｜何を売るか、まだ決まっていない人</div>
-        <h2>9問で、「最初に売れそうなもの」を3つ出します。</h2>
-        <p>占いでは、あなたの「商い星」を見ます。そこから、これまでのキャリアを商品候補・仮価格・最初の顧客まで具体化します。家族関係などは聞きません。</p>
-        <p style="margin-top:8px"><a href="#idea-check" style="color:var(--rose);font-weight:700">すでに売りたいものがある人はこちら →</a></p>
+        <div class="kicker">無料3分｜選んで診断</div>
+        <h2>話すのが苦手なら、9問から選ぶだけ。</h2>
+        <p>これまで何を任されてきたかを中心に聞きます。結果は、商い星・知らなかった自分・仕事案3つまで。同じところまで見られます。</p>
+        <p style="margin-top:8px"><a href="#voice-diagnosis" style="color:var(--rose);font-weight:700">← 話して診断する</a>　／　<a href="#idea-check" style="color:var(--rose);font-weight:700">売りたいものがある人はこちら →</a></p>
       </div>
 
       <div class="qz" id="qz">
@@ -686,6 +743,12 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <div class="status-direction" id="rCompass">
               <span class="direction-label">今の自分に置いておきたい3つのこと</span>
               <div class="direction-tags" id="rDirectionTags"></div>
+            </div>
+            <div class="voice-reveal" id="rVoiceReveal" style="display:none">
+              <span class="vrlab">あなた自身も、まだ気づいていなかったかもしれないこと</span>
+              <div class="vrwords" id="rVoiceWords"></div>
+              <p id="rVoiceInsight"></p>
+              <small>話した内容の言葉から見つけた傾向です。声質・話し方・感情から判断しているわけではありません。</small>
             </div>
             <div class="affirm"><span>これが、あなたの「売れるかもしれない経験」</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
@@ -978,7 +1041,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap">
       <div class="section-head"><div class="kicker">Booking — 45 min.</div><h2>45分診断を、予約する</h2><p>2分で終わります。折り返しは1営業日以内に、メールで日程をご相談します。お支払い方法も、そのメールでご案内します（事前決済は不要です）。</p></div>
       <form class="bform" id="bform" autocomplete="on" novalidate>
-        <div class="bres" id="bres"><span class="lab">診断結果（自動で添えます）</span><b id="bresTxt">まだ診断していません</b><span class="hint">先に<a href="#start">無料診断</a>を受けておくと、当日は結果の続きから始められます。3分診断でも、商品チェックでも大丈夫です。受けていなくても予約できます。</span></div>
+        <div class="bres" id="bres"><span class="lab">診断結果（自動で添えます）</span><b id="bresTxt">まだ診断していません</b><span class="hint">先に<a href="#start">無料診断</a>を受けておくと、当日は結果の続きから始められます。話して診断・9問診断・商品チェックのどれでも大丈夫です。受けていなくても予約できます。</span></div>
         <div class="fld"><label for="bname">お名前<span class="req">必須</span></label><input id="bname" name="お名前" type="text" autocomplete="name" placeholder="例：山田 花子" required></div>
         <div class="fld"><label for="bmail">メールアドレス<span class="req">必須</span></label><input id="bmail" name="メール" type="email" autocomplete="email" inputmode="email" placeholder="例：you@example.com" required><div class="hint">日程のご相談と、当日のURL（オンラインの場合）をお送りします。</div></div>
         <div class="fld"><label>希望の形式<span class="req">必須</span></label>
@@ -1209,6 +1272,22 @@ function shareToThreads(){
   };
 })();
 
+const VOICE_LEXICON={
+  light:[["相談",3],["話を聞",3],["聞く",2],["説明",2],["まとめ",2],["整理して伝",3],["教える",2],["文章",2],["言葉",2],["司会",2],["進行",2],["資料",1]],
+  hand:[["作る",3],["制作",3],["料理",3],["お菓子",3],["手作り",3],["ハンドメイド",3],["修理",3],["デザイン",2],["仕上げ",2],["丁寧",2],["加工",3],["縫",2]],
+  garden:[["支える",3],["サポート",3],["フォロー",3],["見守",3],["新人",2],["育成",3],["寄り添",3],["続け",2],["ケア",3],["面倒",2],["付き添",3],["教え続",3]],
+  bridge:[["紹介",3],["つな",3],["仲介",3],["コーディネ",3],["人脈",2],["選ぶ",2],["比較",2],["調整",2],["マッチング",3],["おすすめ",2],["橋渡",3]],
+  boat:[["まずや",3],["やってみ",3],["動く",2],["現場",3],["イベント",3],["出店",3],["試す",3],["営業",2],["行動",2],["フットワーク",3],["すぐ",1],["体験会",3]],
+  tower:[["整理",3],["段取り",3],["会計",3],["数字",2],["書類",3],["管理",3],["記録",2],["予定",2],["事務",3],["Excel",3],["エクセル",3],["チェック",2],["抜け",2],["ミス",2],["仕組み",2]]
+};
+const VOICE_REFRAME={
+  light:"あなたは「人の話を聞く人」だと思っているかもしれません。でも、話から見えてくるのは、聞いたあとに相手の考えを整理し、次に何をするかまで言葉にしてきた人です。価値があるのは、聞くことそのものより「迷いを言葉に変えるところ」かもしれません。",
+  hand:"あなたは「器用だから頼まれる」と思っているかもしれません。でも、話から見えるのは、頼まれたものを最後まできちんと仕上げ、相手が安心して受け取れる状態にしてきた人です。技術だけでなく、その丁寧さと安心までが仕事になります。",
+  garden:"あなたは「面倒見がいいだけ」と思っているかもしれません。でも、話から見えるのは、人が途中でやめそうな時にも変化を見守り、続けられるように関わってきた人です。優しさではなく「続けられる関係をつくる力」が仕事になるかもしれません。",
+  bridge:"あなたは「人を知っているだけ」と思っているかもしれません。でも、話から見えるのは、その人に何が合うかを考え、理由を持って選び、ちょうどいい相手につないできた人です。人脈そのものではなく「選ぶ目」が仕事になります。",
+  boat:"あなたは「深く考える前に動いてしまう」と思っているかもしれません。でも、話から見えるのは、小さく試して現場の反応を持ち帰り、次を直してきた人です。その経験は、準備だけでは得られない「本当の手応え」として仕事になります。",
+  tower:"あなたは「しっかりしているだけ」「事務が苦にならないだけ」と思っているかもしれません。でも、話から見えるのは、誰かが困る前に抜けを見つけ、安心して動ける状態をつくってきた人です。あなたが積み重ねてきたのは、事務作業より「安心をつくる経験」です。"
+};
 const D={
  light:{sym:"灯",title:"灯｜経験を、ことばにする人",tagline:"あなたの経験は、誰かの迷いを軽くする。",
   hookHead:"気づけば、誰かの「話を聞く側」に、いつもいた人。",
@@ -1443,7 +1522,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   document.getElementById('midGo').addEventListener('click',()=>show(4));
   back.addEventListener('click',()=>{if(i>0)show(i-1);});
   document.getElementById('again').addEventListener('click',()=>{ans=[];show(0);qz.scrollIntoView({behavior:'smooth',block:'start'});});
-  function finish(){const {sc,order}=scoreOf(ans);const top=Math.max(...Object.values(sc),1);window.AKINAI_SCORE_MIX=order.filter(k=>sc[k]>0).slice(0,3).map(k=>({k,score:sc[k],pct:Math.round(sc[k]/top*100)}));render(order[0], sc[order[1]]>0?order[1]:null);}
+  function finish(){window.AKINAI_VOICE_RESULT=null;const {sc,order}=scoreOf(ans);const top=Math.max(...Object.values(sc),1);window.AKINAI_SCORE_MIX=order.filter(k=>sc[k]>0).slice(0,3).map(k=>({k,score:sc[k],pct:Math.round(sc[k]/top*100)}));render(order[0], sc[order[1]]>0?order[1]:null);}
   function nm(w,w2){return w2?NAME[w][w2][0]:D[w].title.split('｜')[1];}
   function render(w,w2){
     cur=w; sub=w2; const d=D[w], d2=w2?D[w2]:null;
@@ -1461,6 +1540,13 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     document.getElementById('rValue').textContent=ORACLE_VALUE[w];
     document.getElementById('rKeyword').textContent=ORACLE_KEYWORD[w];
     renderCompass(w,LAST_SEASON);
+    const voiceReveal=document.getElementById('rVoiceReveal'),voiceMeta=window.AKINAI_VOICE_RESULT;
+    if(voiceReveal&&voiceMeta&&voiceMeta.main===w){
+      const words=(voiceMeta.words||[]).slice(0,5);
+      document.getElementById('rVoiceWords').innerHTML=words.length?'話の中で拾った言葉：'+words.map(x=>'<b>「'+x+'」</b>').join('　'):'話の中で繰り返し出てきた役割から読みました。';
+      document.getElementById('rVoiceInsight').textContent=VOICE_REFRAME[w];
+      voiceReveal.style.display='';
+    }else if(voiceReveal){voiceReveal.style.display='none';}
     const ph=document.getElementById('paidHook');if(ph)ph.textContent='「'+cname+'」を仕事にするなら、次は「今週どこまで動けるか」を30秒で確認。';
     const hasAns=ans.filter(Boolean).length>=9;
     if(hasAns){
@@ -1527,6 +1613,11 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     document.getElementById('wText').textContent=c.week+(sub?' '+SUBTWEAK[sub]:'');
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='');
     document.getElementById('plan').scrollIntoView({behavior:'smooth',block:'start'});}
+  window.runAkinaiFromVoice=function(w,w2,meta){
+    window.AKINAI_VOICE_RESULT=meta||null;
+    render(w,w2);
+  };
+
   // ---- 他己診断モード ----
   const t=qp.get('t'), t2=qp.get('s');
   if(qp.get('f')==='1'&&t&&D[t]){
@@ -1613,6 +1704,51 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   document.getElementById('btnThreadsTop').addEventListener('click',shareToThreads);
   document.getElementById('btnThreads').addEventListener('click',shareToThreads);
   document.getElementById('btnShareTop').addEventListener('click',()=>document.getElementById('btnShare').click());
+})();
+
+// ---- 話して診断：ブラウザ音声認識＋話した内容の言葉から商い星を読む ----
+(function(){
+  const mic=document.getElementById('voiceMic'),status=document.getElementById('voiceStatus'),ta=document.getElementById('voiceText'),go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
+  if(!mic||!ta||!go)return;
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  let rec=null,listening=false,baseText="";
+  if(SR){
+    rec=new SR();rec.lang='ja-JP';rec.continuous=true;rec.interimResults=true;
+    rec.onstart=()=>{listening=true;baseText=ta.value.trim();mic.classList.add('listening');mic.textContent='■ 話すのを止める';status.textContent='聞いています。うまくまとめず、そのまま続けてください。';};
+    rec.onresult=e=>{
+      let finalText="",interim="";
+      for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=t;else interim+=t;}
+      if(finalText){baseText=(baseText+' '+finalText).trim();}
+      ta.value=(baseText+(interim?' '+interim:'')).trim();
+    };
+    rec.onerror=e=>{listening=false;mic.classList.remove('listening');mic.textContent='🎙 もう一度話す';status.textContent=e.error==='not-allowed'?'マイクが許可されていません。下の欄に直接入力しても診断できます。':'音声認識をいったん止めました。直接入力しても診断できます。';};
+    rec.onend=()=>{listening=false;mic.classList.remove('listening');mic.textContent='🎙 続きを話す';baseText=ta.value.trim();status.textContent='必要なら続きを話せます。よければ、この内容から診断してください。';};
+    mic.addEventListener('click',()=>{if(listening){try{rec.stop();}catch(e){}}else{baseText=ta.value.trim();try{rec.start();}catch(e){}}});
+  }else{
+    mic.disabled=true;mic.textContent='マイク入力はこのブラウザでは未対応';
+    status.textContent='下の欄に、話すようにそのまま入力してください。';
+  }
+  function countTerm(text,term){
+    let n=0,pos=0;while((pos=text.indexOf(term,pos))!==-1){n++;pos+=Math.max(term.length,1);}return n;
+  }
+  function analyze(text){
+    const scores={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},hits={light:[],hand:[],garden:[],bridge:[],boat:[],tower:[]};
+    Object.entries(VOICE_LEXICON).forEach(([k,list])=>list.forEach(([term,w])=>{const n=countTerm(text,term);if(n){scores[k]+=n*w;if(!hits[k].includes(term))hits[k].push(term);}}));
+    const order=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
+    return {scores,hits,order};
+  }
+  go.addEventListener('click',()=>{
+    if(listening&&rec){try{rec.stop();}catch(e){}}
+    const text=ta.value.trim();
+    if(text.length<25){out.textContent='もう少しだけ聞かせてください。目安は3〜4文。「よく頼まれること」「任されてきた役」「自分では普通だと思うこと」のどれか1つを足すと読みやすくなります。';return;}
+    const a=analyze(text),main=a.order[0],second=a.order[1],top=a.scores[main],sub=a.scores[second]>0&&a.scores[second]>=Math.max(2,top*.45)?second:null;
+    if(top===0){out.textContent='まだ「何を任されてきたか」が読み取りにくいようです。「相談される」「資料を整える」「人を紹介する」など、実際に人から頼まれた場面を1つ足してみてください。';return;}
+    const words=[...(a.hits[main]||[]),...(sub?(a.hits[sub]||[]):[])].filter((x,i,ar)=>ar.indexOf(x)===i).slice(0,5);
+    out.textContent='話の中から、あなたが何度も使ってきた力を拾いました。結果へ進みます。';
+    window.AKINAI_SCORE_MIX=[];
+    window.runAkinaiFromVoice(main,sub,{main,sub,words,text:text.slice(0,600)});
+    BASE_RESULT='音声診断：'+(sub?NAME[main][sub][0]:D[main].title.split('｜')[1])+'（'+D[main].sym+(sub?'×'+D[sub].sym:'')+'）';LAST_PLAN="";syncBookingResult();
+  });
 })();
 
 // ---- 売りたいものがある人向け：商品チェック ----
