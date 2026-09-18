@@ -471,6 +471,56 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   .before-after .ba-arrow{text-align:center;transform:rotate(90deg)}
 }
 
+/* ===== APP-LIKE FLOW ===== */
+.app-flow-wrap{padding:0 0 34px}
+.app-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:820px;margin:auto}
+.app-flow .af{position:relative;background:rgba(255,250,245,.78);border:1px solid var(--line);border-radius:18px;padding:14px 15px;min-height:92px}
+.app-flow .af.active{background:var(--paper);border-color:#dcb8ae;box-shadow:0 9px 24px rgba(90,66,52,.06)}
+.app-flow .af .n{font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px}
+.app-flow .af b{display:block;font-family:var(--serif);font-size:15px;font-weight:500;margin:2px 0 1px}
+.app-flow .af small{display:block;color:var(--muted);font-size:11px;line-height:1.55}
+.app-flow .af:not(:last-child):after{content:"›";position:absolute;right:-10px;top:31px;z-index:2;color:#b89e94;font-size:24px}
+.quick-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:10px}
+.fortune-simple{max-width:640px;margin:0 auto 22px;text-align:center}
+.fortune-simple .kicker{font-size:15px}
+.fortune-simple h2{font-size:clamp(24px,3.2vw,36px);margin:7px 0 7px}
+.fortune-simple p{font-size:13.5px;color:var(--muted);margin:0}
+.paid-app{background:linear-gradient(180deg,#eee5de,#f4ece4);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.paid-shell{max-width:820px;margin:auto}
+.paid-head{text-align:center;max-width:680px;margin:0 auto 24px}
+.paid-head .step-pill{display:inline-block;border-radius:999px;background:var(--ink);color:#fff;padding:5px 11px;font-size:11px;font-weight:700;letter-spacing:.08em}
+.paid-head h2{margin:11px 0 8px}
+.paid-head p{margin:0;color:#5c6059}
+.paid-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch;margin:20px 0}
+.paid-compare .pc{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:20px}
+.paid-compare .pc.paid{background:var(--ink);color:#fff;border-color:var(--ink)}
+.paid-compare .pc .lab{font-size:10.5px;letter-spacing:.08em;color:var(--rose);font-weight:700}
+.paid-compare .pc.paid .lab{color:#f0c9c0}
+.paid-compare .pc h3{font-family:var(--serif);font-size:18px;font-weight:500;margin:5px 0 10px}
+.paid-compare .pc ul{list-style:none;margin:0;padding:0}
+.paid-compare .pc li{font-size:13px;line-height:1.65;padding:5px 0;border-top:1px solid var(--line)}
+.paid-compare .pc li:first-child{border-top:0}
+.paid-compare .pc.paid li{border-color:rgba(255,255,255,.14)}
+.paid-compare .arr{display:grid;place-items:center;color:var(--rose);font-family:var(--serif);font-size:28px}
+.paid-bottom{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:20px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.paid-bottom .price{font-family:var(--serif);font-size:34px;line-height:1;color:var(--ink)}
+.paid-bottom .price small{font-size:12px;color:var(--muted)}
+.paid-bottom p{margin:7px 0 0;font-size:12.5px;color:#5c6059}
+.paid-bottom .btn{min-width:250px}
+.method{max-width:820px;margin:16px auto 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.method summary{cursor:pointer;padding:15px 2px;font-size:13px;font-weight:700;color:#6a5b54}
+.method .mi{padding:0 2px 16px;color:#5c6059;font-size:13px;line-height:1.8}
+.method .mi b{color:var(--ink)}
+@media(max-width:760px){
+  .app-flow{grid-template-columns:1fr;gap:7px}
+  .app-flow .af{min-height:auto}
+  .app-flow .af:not(:last-child):after{content:"↓";right:18px;top:auto;bottom:-18px;font-size:18px}
+  .paid-compare{grid-template-columns:1fr}
+  .paid-compare .arr{transform:rotate(90deg);min-height:12px}
+  .paid-bottom{grid-template-columns:1fr}
+  .paid-bottom .btn{width:100%;min-width:0}
+}
+
 </style>
 </head>
 <body>
@@ -479,10 +529,9 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   <div class="wrap nav-inner">
     <a class="brand" href="#"><span class="brand-mark">W</span><span>わたしの商い診断</span></a>
     <nav class="nav-links">
-      <a href="#fortune">無料3分診断</a>
-      <a href="#about">診断について</a>
+      <a href="#fortune">無料診断</a>
       <a href="#price">45分診断</a>
-      <a class="btn booking-link" href="#booking">45分診断を予約する</a>
+      <a class="btn booking-link" href="#booking">予約する</a>
     </nav>
   </div>
 </header>
@@ -491,20 +540,13 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">占い × 創業相談 <span class="en">for women in their 40s</span></div>
-        <h1>この先10年、<br><span>わたしはどう働く？</span></h1>
-        <p class="lead">会社を辞めたいわけじゃない。<br>でも、このままでいいのかは、わからない。<br><b>占い</b>で「わたしの商いの種」を見つけて、<br><b>創業相談</b>で「何を・誰に・いくらで売るか」に変える。<br>まずは3分、無料で。</p>
+        <div class="eyebrow">40代からの仕事づくり診断 <span class="en">Akinai Finder</span></div>
+        <h1>「私にも、<br><span>売れるものがある？」</span></h1>
+        <p class="lead">9問で、これまで人から頼られてきたことを「仕事の種」に変えます。<br>まずは無料3分。会社を辞めるかどうかは、まだ決めなくて大丈夫です。</p>
         <div class="hero-actions">
           <a class="btn main" href="#fortune">無料3分診断をはじめる</a>
-          <a class="btn ghost booking-link" href="#booking">45分で、商いカルテを作る<small>｜創業相談</small></a>
         </div>
-        <p class="micro">9問で「商い星」と「仕事の種」がわかります｜登録なし・送信なし</p>
-        <p class="hero-path"><b>無料診断</b>＝STEP 1 商い星（3分）＋ STEP 2 商いの季節（30秒） <span>→</span> <b>有料45分</b>で個別に具体化</p>
-        <div class="honne">
-          <a href="#fortune"><i>→</i>パートの帰り道に、ふと「あと10年、これ？」</a>
-          <a href="#fortune"><i>→</i>資格より先に、いまの自分で何ができるか知りたい</a>
-          <a href="#fortune"><i>→</i>大きくは賭けない。今の暮らしを守って、小さく試したい</a>
-        </div>
+        <p class="micro">登録なし・送信なし｜結果は保存・シェアできます</p>
       </div>
       <div class="hero-ph">
         <img src="images/akinai-hero.jpg" alt="自宅のテーブルでノートを開き、自分の商いを考える40代の女性" width="706" height="1024" loading="eager" fetchpriority="high">
@@ -517,24 +559,23 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     </div>
   </section>
 
+  <div class="app-flow-wrap">
+    <div class="wrap">
+      <div class="app-flow" aria-label="診断の流れ">
+        <div class="af active"><span class="n">STEP 1</span><b>商い星を知る</b><small>無料3分・9問<br>あなたの強みと仕事の種</small></div>
+        <div class="af"><span class="n">STEP 2</span><b>今の季節を知る</b><small>無料30秒・4問<br>今、何から始めるか</small></div>
+        <div class="af"><span class="n">STEP 3</span><b>必要なら具体化</b><small>45分・5,500円<br>商品・価格・最初の5人</small></div>
+      </div>
+      <p class="quick-note">無料診断だけで終わっても大丈夫。STEP 3は、実際に試したくなった人だけ。</p>
+    </div>
+  </div>
+
   <section id="fortune" class="fortune-section">
     <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">FREE DIAGNOSIS — STEP 1 / 3 min.</div>
-        <h2>無料診断 STEP 1｜<br>まず、「わたしの商い星」を知る。</h2>
-        <p>9問、4択。性格ではなく、この数年のあなたの「実際」を聞きます。結果は、あなたの回答から組み立てます。</p>
-      </div>
-      <div class="macro-map" aria-label="商い星の3つの大きな傾向">
-        <span class="macro-lab">大きく見ると、3つの傾向。</span>
-        <div><b>形にして売る</b><i>手・舟</i></div>
-        <div><b>伝えてつなぐ</b><i>灯・橋</i></div>
-        <div><b>支えて整える</b><i>庭・塔</i></div>
-        <small>そこから6つの主星、さらに主星×副星の「商いキャラ」へ細かく見ていきます。</small>
-      </div>
-      <div class="oracle-map" aria-label="わたしの商い診断の2つの軸">
-        <div class="om"><b>6つの商い星</b><span>灯・手・庭・橋・舟・塔</span><p>変わりにくい「価値の出し方」。これまで人から頼られてきたことから見つけます。</p></div>
-        <div class="omx">×</div>
-        <div class="om"><b>4つの商いの季節</b><span>種を見つける・小さく試す・育てる・形にする</span><p>今やること。商い星のあと、30秒の現実チェックで確認します。</p></div>
+      <div class="fortune-simple">
+        <div class="kicker">STEP 1 — FREE / 3 min.</div>
+        <h2>あなたの「商い星」は？</h2>
+        <p>考え込まず、近いものを選んでください。9問の答えから結果を組み立てます。</p>
       </div>
 
       <div class="qz" id="qz">
@@ -721,10 +762,10 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
   <section id="mini" class="diagnosis">
     <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">FREE DIAGNOSIS — STEP 2 / 30 sec.</div>
-        <h2>無料診断 STEP 2｜<br>いま、どの「商いの季節」？</h2>
-        <p>商い星は「何が向いているか」。商いの季節は「今、何をするか」。こちらは占いではなく、4問の現実チェックです。送信されません。</p>
+      <div class="fortune-simple">
+        <div class="kicker">STEP 2 — FREE / 30 sec.</div>
+        <h2>今は、何から始める？</h2>
+        <p>4問の現実チェックで、今の「商いの季節」を確認します。</p>
       </div>
       <div class="qz mini" id="qz2">
         <div class="prog"><b id="p2Now">1</b><span>/ 4</span><div class="bar"><i id="p2Bar"></i></div><span>4問</span></div>
@@ -750,95 +791,63 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Four Akinai Seasons</div>
-        <h2>商いには、<br>今の自分に合う「季節」がある。</h2>
-        <p>良い・悪いではなく、今どこにいるか。季節が変われば、やることも変わります。</p>
+  <section id="price" class="paid-app">
+    <div class="wrap paid-shell">
+      <div class="paid-head">
+        <span class="step-pill">STEP 3｜必要な人だけ</span>
+        <h2>無料で「気づく」。<br>45分で「試せる形」にする。</h2>
+        <p>無料診断の続きを、そのまま使います。最初から説明し直す必要はありません。</p>
       </div>
-      <div class="types">
-        <article class="type"><div class="type-icon">🌱</div><div><h3>種を見つける季節</h3><div class="decision">頼まれてきたことを拾う。</div><p>商品を決める前に、「これまで人に頼まれてきたこと」を10個書き出す。</p></div></article>
-        <article class="type"><div class="type-icon">🪴</div><div><h3>小さく試す季節</h3><div class="decision">まず3人に、有料で。</div><p>今の仕事や暮らしはそのまま。商品候補を小さく売って、反応を確かめる。</p></div></article>
-        <article class="type"><div class="type-icon">🌿</div><div><h3>育てる季節</h3><div class="decision">値段・リピート・時間を見る。</div><p>予約制・イベント・間借りなどで、「週に何時間で、いくら売れるか」を確かめる。</p></div></article>
-        <article class="type"><div class="type-icon">🌾</div><div><h3>形にする季節</h3><div class="decision">暮らしまで、数字にする。</div><p>必要な手取り・使える時間・投資の上限まで決め、独立や本格展開を具体化する。</p></div></article>
-      </div>
-    </div>
-  </section>
 
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Two lenses</div>
-        <h2>「私は何を持っている？」は、商い星で。<br>「今、何をする？」は、商いの季節で。</h2>
-        <p>占いは自分を知る入口。創業判断は、数字と現実で決めます。だから、2つのレンズで見ます。</p>
+      <div class="paid-compare">
+        <div class="pc">
+          <div class="lab">FREE｜ここまで無料</div>
+          <h3>自分の現在地がわかる</h3>
+          <ul>
+            <li>商い星・商いキャラ</li>
+            <li>自分では気づきにくい価値</li>
+            <li>仮の商品候補3つ</li>
+            <li>今の「商いの季節」</li>
+            <li>今週の商いアクション</li>
+          </ul>
+        </div>
+        <div class="arr">→</div>
+        <div class="pc paid">
+          <div class="lab">PERSONAL｜45分</div>
+          <h3>「私の場合」を決める</h3>
+          <ul>
+            <li>売る商品を1つに絞る</li>
+            <li>無理のない価格を決める</li>
+            <li>月3万・5万円に必要な人数を出す</li>
+            <li>最初に声をかける5人を決める</li>
+            <li>週に使う時間を決める</li>
+            <li>90日後の続ける／やめる基準を決める</li>
+          </ul>
+        </div>
       </div>
-      <div class="split">
-        <div class="panel fortune"><h3>01｜占いで、ほどく</h3><small>当たる・外れるより、自分を言葉にする時間。</small>
-          <ul class="clean-list"><li>いつもの役割を外したら、何がしたい？</li><li>これまで、何を人に頼まれてきた？</li><li>増やしたい時間、減らしたい負担は？</li><li>動けないのは、何が不安だから？</li></ul></div>
-        <div class="panel business"><h3>02｜数字で、たしかめる</h3><small>商売として、本当に成り立つか。</small>
-          <ul class="clean-list"><li>経験の、どこが商品になる？</li><li>週に何時間なら、無理がない？</li><li>月3万・5万・10万円に、お客さんは何人いる？</li><li>副業・小さく売る・独立、いまはどれ？</li></ul></div>
-      </div>
-      <div class="statement serif">今の暮らしを守ることと、自分の仕事を持つこと。<br>どちらかを、選ばなくていい。</div>
-    </div>
-  </section>
 
-  <section class="upgrade" id="personal">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Free → Personal</div>
-        <h2>無料で「わかる」。<br>45分で「決める」。</h2>
-        <p>無料では、自分の価値の出し方と「今やること」まで。45分では、経験・使える時間・必要な収入を入れて、実際に試す1案まで決めます。</p>
-      </div>
-      <div class="upgrade-grid">
-        <article class="upgrade-card"><div class="ulab">無料診断｜3分＋30秒</div><h3>まず、自分を知る</h3><ul><li>✓ 商い星と副星</li><li>✓ いまの商いの季節</li><li>✓ 自分では気づきにくい価値</li><li>✓ 仮の商品候補 3つ</li><li>✓ 今週の商いアクション</li></ul></article>
-        <article class="upgrade-card paid"><div class="ulab">有料診断｜45分</div><h3>次に、1つに決める</h3><ul><li>✓ 売るものを1つに絞る</li><li>✓ 無理のない価格を決める</li><li>✓ 月3万・5万に必要な人数を出す</li><li>✓ 週に使える時間へ落とす</li><li>✓ 最初に声をかける5人を決める</li><li>✓ 90日以内の試し方を1枚にする</li></ul></article>
-      </div>
-      <p class="upgrade-note">無料結果だけでも十分です。45分診断は「やってみたい。でも、私の場合どうする？」まで来た人のための個別相談です。</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head"><div class="kicker">45 minutes</div><h2>結果を見て終わらせない。<br>45分で「最初の1件」まで逆算する。</h2><p>無料診断の結果をそのまま持ってきてください。そこから先だけ、一緒に決めます。</p></div>
-      <div class="steps">
-        <article class="step"><div class="num">01</div><h3>経験を、棚卸し</h3><p>仕事、暮らし、人づきあい。「普通にできること」を全部拾う。</p></article>
-        <article class="step"><div class="num">02</div><h3>重なりを、読む</h3><p>「人から評価されていること」と「自分がやりたいこと」の重なりを見つけて、商いの軸を絞る。</p></article>
-        <article class="step"><div class="num">03</div><h3>季節と、数字</h3><p>今の商いの季節に合わせて、使える時間・必要収入・値段・お客さんの数を現実に落とす。</p></article>
-        <article class="step"><div class="num">04</div><h3>カルテに、まとめる</h3><p>売れる経験・最初の商品・値段・人数・時間・声をかける5人・90日の一歩。1枚に。</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="price">
-    <div class="wrap">
-      <div class="price-box">
+      <div class="paid-bottom">
         <div>
-          <div class="kicker" style="color:#f0c9c0">First session</div>
-          <h2>わたしの商い診断</h2>
-          <div class="price">5,500<small>円（税込）</small></div>
-          <p>45分｜商い星＋商いの季節＋創業相談｜オンラインOK</p>
-          <div class="cta-row"><a class="btn light booking-link" href="#booking">「商品・価格・最初の5人」を決める</a><a class="btn ghost" id="lineAsk" href="#" style="color:#fff;border-color:rgba(255,255,255,.5)">予約前にLINEで聞く</a></div>
+          <div class="price">5,500<small>円（税込）／45分</small></div>
+          <p>オンライン（Zoom）または大津市内で対面。1枚の「わたしの商いカルテ」にして持ち帰ります。</p>
+          <p>創業相談はBRIDGE CYCLE株式会社（認定経営革新等支援機関）が担当。占いで起業判断はしません。</p>
         </div>
-        <div class="price-detail">
-          <p style="font-family:var(--en);font-style:italic;font-size:17px;color:#f0c9c0;margin-bottom:4px">45 minutes later, you take home</p>
-          <p style="font-family:var(--serif);font-size:20px;margin-bottom:12px">「わたしの商いカルテ」1枚</p><div class="before-after"><div><b>BEFORE</b><br>「何かしたい。でも何を売れば？」</div><div class="ba-arrow">→</div><div><b>AFTER</b><br>「誰に・何を・いくらで、今週どう声をかけるか」</div></div>
-          <p>✓ わたしが売れる経験</p>
-          <p>✓ 最初の商品</p>
-          <p>✓ 想定価格</p>
-          <p>✓ 月5万円に必要なお客さんの数</p>
-          <p>✓ 週に使う時間</p>
-          <p>✓ 最初に声をかける5人</p>
-          <p>✓ 90日以内にやること</p>
-          <p style="margin-top:12px;font-size:12.5px;color:#d7ded3">相談料ではなく、あなた専用の「仕事の設計書」を作る45分です。「辞めるべき」とは言いません。</p><div class="trust-strip"><b>創業相談はBRIDGE CYCLE株式会社（認定経営革新等支援機関）が担当。</b><br>占いで「起業すべき」とは決めません。最終判断は、お客さん・価格・時間・お金の条件で確認します。</div>
+        <div>
+          <a class="btn booking-link" href="#booking">45分診断を予約する</a>
+          <a class="btn ghost" id="lineAsk" href="#" target="_blank" rel="noopener" style="margin-top:8px">予約前にLINEで聞く</a>
         </div>
       </div>
+
+      <details class="method" id="about">
+        <summary>診断のしくみを知りたい方へ</summary>
+        <div class="mi"><b>商い星</b>は、これまで人から頼られてきた行動から「価値の出し方」を見ます。<b>商いの季節</b>は、頼まれること・買い手の顔・有料経験・使える時間の4問で「今やること」を見ます。占いは自分を知る入口、創業判断はお客さん・価格・時間・お金で決めます。</div>
+      </details>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <div class="section-head"><div class="kicker">Q &amp; A</div><h2>よくある質問</h2></div>
+      <div class="section-head"><div class="kicker">Before you book</div><h2>予約前によくある質問</h2></div>
       <div class="faq">
         <details><summary>40代からって、遅くない？</summary><p>遅くありません。20年分の経験と、人のつながりと、生活者の目。この3つは、20代にはないものです。そのかわり、大きく賭けず小さく試します。</p></details>
         <details><summary>やりたいことが、まだ決まっていなくても？</summary><p>大丈夫。むしろその段階の人のための診断です。資格を探す前に、「頼まれてきたこと」を一緒に書き出します。</p></details>
@@ -871,16 +880,6 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="closing">
-        <div class="kicker">Your first step</div>
-        <h2>この10年に、<br>「わたしの名前の仕事」をひとつ。</h2>
-        <p>会社を辞めなくていい。今の暮らしを守ったまま、小さく始める形を、45分で。</p>
-        <a class="btn booking-link" href="#booking">わたしの商い診断を予約する</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -890,7 +889,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   </div>
 </footer>
 
-<div class="mbar"><a class="btn" href="#fortune">無料3分診断</a><a class="btn ghost booking-link" href="#booking">45分診断</a></div>
+<div class="mbar"><a class="btn" href="#fortune">無料診断</a><a class="btn ghost" href="#price">45分を見る</a></div>
 <div class="toast" id="toast"></div>
 
 <script>
