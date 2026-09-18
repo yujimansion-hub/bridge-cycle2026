@@ -616,7 +616,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <p>画像にすると「商いキャラ・あなたの価値・もうしなくていいこと」が1枚になります。STEP 2まで進むと「今の商いの季節」と今の称号も入ります。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
             <p class="pair-quick">一緒にやるなら、<b id="rPairQuick"></b></p>
-            <div class="share"><button class="btn" type="button" id="btnSaveTop">結果カードを保存</button><button class="btn ghost" type="button" id="btnShareTop">この結果をシェア</button></div>
+            <div class="share"><button class="btn" type="button" id="btnSaveTop">結果カードを保存</button><button class="btn ghost" type="button" id="btnThreadsTop">Threadsでシェア</button><button class="btn ghost" type="button" id="btnShareTop">その他でシェア</button></div>
           </div>
           <details class="result-alt">
             <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
@@ -690,9 +690,10 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
                 <button class="btn" type="button" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>カードを保存</button>
                 <button class="btn ghost" type="button" id="btnShare">シェア</button>
                 <a class="btn ghost" id="btnLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+                <button class="btn ghost" type="button" id="btnThreads">Threadsに投稿</button>
                 <a class="btn ghost" id="btnX" href="#" target="_blank" rel="noopener">Xに投稿</a>
               </div>
-              <p class="share-note">保存して、ストーリーズに貼るだけ。「#わたしの商い診断」で、同じキャラの人に会えます。</p>
+              <p class="share-note">Instagramはカードを保存してストーリーズへ。Threadsでは「一緒にやるなら○タイプ。○の人いますか？」まで自動で入ります。</p>
             </div>
             <div class="pair" id="rPair"><b>一緒にやると、補い合いやすい星</b><div class="ps"><span class="sym" id="pSym"></span><span id="pTxt2"></span></div><small>「相性が良い・悪い」ではなく、役割が分かれやすい組み合わせです。夫、友人、相方。誰か浮かびますか？</small></div>
             <div class="tako" id="rTako">
@@ -968,6 +969,31 @@ function refreshShareLinks(){
   const x=document.getElementById("btnX"),ln=document.getElementById("btnLine");
   if(x)x.href="https://twitter.com/intent/tweet?text="+encodeURIComponent(p.text)+"&url="+encodeURIComponent(p.url);
   if(ln)ln.href="https://line.me/R/share?text="+encodeURIComponent(p.text+" "+p.url);
+}
+function threadsShareText(){
+  const r=window.AKINAI_RESULT;
+  if(!r)return "";
+  const rawName=(document.getElementById("cardName")?.value||"").trim().slice(0,20);
+  const who=rawName||"私";
+  const pairKey=PAIR[r.main]?.[0],pairSym=pairKey&&D[pairKey]?D[pairKey].sym:"";
+  const title=LAST_SEASON_TITLE||r.name;
+  const timing=LAST_SEASON?("｜"+LAST_SEASON):"";
+  const release=LETGO[r.main]||"";
+  const pairLine=pairSym?("一緒にやるなら「"+pairSym+"」タイプ。\n"+pairSym+"の人、いますか？"):"";
+  return who+"の商い診断は…\n"+
+    "【"+title+"】\n"+
+    r.stars+timing+"\n\n"+
+    "✦ もう、しなくていいこと\n「"+release+"」\n\n"+
+    pairLine+"\n\n"+
+    "無料3分で診断できます\n"+
+    PAGE_URL+"\n\n"+
+    "#わたしの商い診断 #商い星 #40代からの仕事づくり";
+}
+function shareToThreads(){
+  if(!window.AKINAI_RESULT){showToast("先に無料診断をすると、Threads用の投稿文を作れます");return;}
+  const text=threadsShareText();
+  const url="https://www.threads.com/intent/post?text="+encodeURIComponent(text);
+  window.open(url,"_blank","noopener,noreferrer");
 }
 (function(){
   const $=s=>document.querySelector(s);
@@ -1366,6 +1392,8 @@ const LBL=["感謝されたこと","月5万円なら","始め方","頼られる�
   document.getElementById('btnShare').addEventListener('click',async()=>{const p=sharePayload();if(!p)return;const data={title:'わたしの商い診断',text:p.text,url:p.url};
     if(navigator.share){try{await navigator.share(data);}catch(e){}}else{try{await navigator.clipboard.writeText(data.text+' '+data.url);showToast('リンクをコピーしました');}catch(e){showToast('この端末ではシェアできませんでした');}}});
   document.getElementById('btnSaveTop').addEventListener('click',()=>document.getElementById('btnSave').click());
+  document.getElementById('btnThreadsTop').addEventListener('click',shareToThreads);
+  document.getElementById('btnThreads').addEventListener('click',shareToThreads);
   document.getElementById('btnShareTop').addEventListener('click',()=>document.getElementById('btnShare').click());
 })();
 
