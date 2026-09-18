@@ -418,13 +418,16 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .star-art.light{--art:#c88770}.star-art.hand{--art:#a98270}.star-art.garden{--art:#879a7b}.star-art.bridge{--art:#8b829c}.star-art.boat{--art:#78949d}.star-art.tower{--art:#a69170}
 .star-art-sub{display:flex;justify-content:center;align-items:center;gap:7px;margin:-2px 0 8px;font-size:11px;color:var(--muted)}
 .star-art-sub i{font-style:normal;width:7px;height:7px;border-radius:50%;background:var(--rose);opacity:.65}
-.score-mix{margin:10px 0 2px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.72);border:1px solid #edd6cf}
-.score-mix .sm-title{font-size:10.5px;color:var(--muted);margin-bottom:7px}
-.score-mix .sm-row{display:grid;grid-template-columns:2.5em 1fr 5.5em;align-items:center;gap:8px;margin:6px 0}
-.score-mix .sm-sym{font-family:var(--serif);font-size:15px;color:var(--ink)}
-.score-mix .sm-track{height:7px;background:#eee4dd;border-radius:999px;overflow:hidden}
-.score-mix .sm-track i{display:block;height:100%;background:var(--rose);border-radius:999px}
-.score-mix .sm-core{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.status-direction{margin:12px 0 2px;padding:13px 14px;border-radius:16px;background:rgba(255,255,255,.78);border:1px solid #edd6cf}
+.status-direction .direction-label{display:block;font-size:10.5px;letter-spacing:.06em;color:var(--muted);font-weight:700;margin-bottom:7px}
+.direction-tags{display:flex;gap:7px;flex-wrap:wrap}
+.direction-tags .tag{font-size:11.5px;padding:4px 10px;border-radius:999px;background:#f3ece6;color:#6f655f;border:1px solid transparent}
+.direction-tags .tag.active{background:var(--rose-pale);border-color:#edd6cf;color:var(--rose);font-weight:700}
+.insight-box{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0 0}
+.insight-item{background:#fff;border:1px solid #edd6cf;border-radius:14px;padding:11px 12px}
+.insight-label{display:block;font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.04em;margin-bottom:4px}
+.insight-text{margin:0;font-family:var(--serif);font-size:13.5px;line-height:1.65;color:var(--ink)}
+@media(max-width:560px){.insight-box{grid-template-columns:1fr}}
 .season-title-box{margin:10px 0 0;padding:12px 14px;border-radius:14px;background:var(--rose-pale);border:1px solid #edd6cf;text-align:center}
 .season-title-box span{display:block;font-size:10.5px;color:var(--rose);font-weight:700;letter-spacing:.08em}
 .season-title-box b{display:block;margin-top:2px;font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink)}
@@ -674,17 +677,24 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
         <div class="res" id="res">
           <div class="rcard" id="rcard">
-            <div class="lab">RESULT｜あなたが何度も任されてきた力</div>
-            <p class="result-basis">占い名は「商い星」。でも結果は、あなたが実際に選んだ9つの答えから組み立てています。</p>
+            <div class="lab">AKINAI ORACLE｜あなたの商いカルテ</div>
+            <p class="result-basis">占いとして楽しみながら、結果はあなたが実際に選んだ9つの答えから組み立てています。</p>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
             <div class="star-art-sub" id="rArtSub" style="display:none"></div>
-            <div class="score-mix" id="rMix" style="display:none"></div>
+            <div class="status-direction" id="rCompass">
+              <span class="direction-label">今の自分に置いておきたい3つのこと</span>
+              <div class="direction-tags" id="rDirectionTags"></div>
+            </div>
             <div class="affirm"><span>これが、あなたの「売れるかもしれない経験」</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
-            <div class="letgo"><b>もう、しなくていいこと</b><p id="rLetgo"></p></div>
+            <div class="letgo"><b>今日、手放していいこと</b><p id="rLetgo"></p></div>
+            <div class="insight-box">
+              <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
+              <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
+            </div>
             <div class="belly" id="rBelly" style="display:none">
               <span class="blab">9つの答えを「仕事の言葉」にすると</span>
               <p id="rStory"></p>
@@ -697,11 +707,10 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             </div>
           </div>
           <div class="share-now">
-            <b>この結果、あとで見返せるように残しておく。</b>
-            <p>画像にすると「商いキャラ・あなたの価値・もうしなくていいこと」が1枚になります。STEP 2まで進むと「今の商いの季節」と今の称号も入ります。</p>
+            <b>この言葉を、今の自分への小さなメモに。</b>
+            <p>カードにすると「商い星・大切にしたい価値観・今日手放していいこと」が1枚になります。商いの季節まで見ると、今の現在地も加わります。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
-            <p class="pair-quick">一緒にやるなら、<b id="rPairQuick"></b></p>
-            <div class="share"><button class="btn" type="button" id="btnSaveTop">結果カードを保存</button><button class="btn ghost" type="button" id="btnThreadsTop">Threadsでシェア</button><button class="btn ghost" type="button" id="btnShareTop">その他でシェア</button></div>
+            <div class="share"><button class="btn" type="button" id="btnSaveTop">お守りカルテを保存</button><button class="btn ghost" type="button" id="btnThreadsTop">Threadsに残す</button><button class="btn ghost" type="button" id="btnShareTop">その他でシェア</button></div>
           </div>
           <details class="result-alt">
             <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
@@ -773,7 +782,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
 
           <details class="more" id="more">
-            <summary>結果を、もっと楽しむ（あるある・相性・他己診断）</summary>
+            <summary>結果を、もう少し味わう（あるある・他己診断）</summary>
             <div class="mcard">
               <div class="lab">SNS用カード</div>
               <div class="chara" id="rChara2"></div>
@@ -781,15 +790,15 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
               <ul class="aru" id="rAru"></ul>
               <div class="msg" id="rMsg"></div>
               <div class="share">
-                <button class="btn" type="button" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>カードを保存</button>
+                <button class="btn" type="button" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>お守りカルテを保存</button>
                 <button class="btn ghost" type="button" id="btnShare">シェア</button>
                 <a class="btn ghost" id="btnLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
                 <button class="btn ghost" type="button" id="btnThreads">Threadsに投稿</button>
                 <a class="btn ghost" id="btnX" href="#" target="_blank" rel="noopener">Xに投稿</a>
               </div>
-              <p class="share-note">Instagramはカードを保存してストーリーズへ。Threadsでは「一緒にやるなら○タイプ。○の人いますか？」まで自動で入ります。</p>
+              <p class="share-note">Instagramはカードを保存してストーリーズへ。Threadsは、結果を静かに書き留めるような文章が自動で入ります。投稿前に自由に書き換えられます。</p>
             </div>
-            <div class="pair" id="rPair"><b>一緒にやると、補い合いやすい星</b><div class="ps"><span class="sym" id="pSym"></span><span id="pTxt2"></span></div><small>「相性が良い・悪い」ではなく、役割が分かれやすい組み合わせです。夫、友人、相方。誰か浮かびますか？</small></div>
+            <div class="pair" id="rPair"><b>この結果と一緒に、残しておきたい言葉</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>誰かと比べるためではなく、迷った日に戻ってこられる言葉として。</small></div>
             <div class="tako" id="rTako">
               <b>私って、本当に「<span id="tSym"></span>」？</b>
               <p>自分では「普通」と思っていることほど、周りは頼りにしています。友達に4問だけ答えてもらうと、「友達から見た私」が出ます。</p>
@@ -1064,10 +1073,10 @@ const LETGO={
   tower:"全部自分で抱えなくていい。整えたものを仕組みにして渡すところまでが、あなたの仕事です。"
 };
 const SEASON_AFFIRM={
-  "種を見つける季節":"まだ答えが出ていなくて大丈夫。今は、集めることが前進です。",
-  "小さく試す季節":"大きく始めなくて大丈夫。まず3人で十分です。",
-  "育てる季節":"もっと頑張らなくて大丈夫。続く価格と時間に変える時です。",
-  "形にする季節":"勢いで辞めなくて大丈夫。数字がそろってから決めればいい。"
+  "種を見つける季節":"まだ答えを急がなくて大丈夫。これまで頼まれてきたことを、ひとつずつ拾い直す時間です。",
+  "小さく試す季節":"大きく始めなくて大丈夫。今の暮らしを守ったまま、まず3人に試せば十分です。",
+  "育てる季節":"広げるより先に、続けられる価格と時間を整えるときです。",
+  "形にする季節":"勢いで決めなくて大丈夫。暮らしと数字の両方がそろってから、次を選べます。"
 };
 const SEASON_SHARE={
   "種を見つける季節":"今は、答えを出すより、頼まれてきたことを集める時期。",
@@ -1076,48 +1085,75 @@ const SEASON_SHARE={
   "形にする季節":"今は、勢いより、暮らしまで含めて数字にする時期。"
 };
 const SEASON_TITLE={
-  light:{"種を見つける季節":"まだ名札のない編集者","小さく試す季節":"3人だけの聞き上手編集長","育てる季節":"口コミで育つ言葉の店主","形にする季節":"迷いを言葉に変える設計者"},
-  hand:{"種を見つける季節":"値札のない小さな職人","小さく試す季節":"3人限定の試作職人","育てる季節":"リピートで育つ手仕事店主","形にする季節":"丁寧さを仕組みにする職人"},
-  garden:{"種を見つける季節":"まだ看板のない伴走者","小さく試す季節":"3人を育てる小さな庭番","育てる季節":"常連を育てる庭の人","形にする季節":"続く関係を仕事にする人"},
-  bridge:{"種を見つける季節":"まだ手数料のない目利き","小さく試す季節":"3人をつなぐ小さな案内人","育てる季節":"紹介で輪を育てる橋渡し役","形にする季節":"選ぶ力を仕組みにする人"},
-  boat:{"種を見つける季節":"次の港を探す冒険家","小さく試す季節":"まず3回やる実験店主","育てる季節":"当たりを育てる移動店主","形にする季節":"動きながら仕組む開拓者"},
-  tower:{"種を見つける季節":"まだ名前のない整え役","小さく試す季節":"1人分だけ試す段取り名人","育てる季節":"繰り返せる形を育てる人","形にする季節":"安心を仕組みにする設計者"}
+  light:{"種を見つける季節":"言葉になる前の経験を集める人","小さく試す季節":"3人にそっと試す聞き手","育てる季節":"言葉の仕事を育てる人","形にする季節":"迷いを仕事に変える人"},
+  hand:{"種を見つける季節":"まだ値札のない丁寧さ","小さく試す季節":"小さく値段をつける人","育てる季節":"繰り返し頼まれる手仕事","形にする季節":"丁寧さを続く仕事にする人"},
+  garden:{"種を見つける季節":"支えてきた時間を数える人","小さく試す季節":"3人と小さく始める伴走者","育てる季節":"続く関係を育てる人","形にする季節":"支える力を仕事にする人"},
+  bridge:{"種を見つける季節":"選んできた理由を集める人","小さく試す季節":"3人に提案を試す人","育てる季節":"紹介の輪を静かに育てる人","形にする季節":"選ぶ力を仕事にする人"},
+  boat:{"種を見つける季節":"これまでの一歩を振り返る人","小さく試す季節":"小さく試して手応えを見る人","育てる季節":"手応えのある形を育てる人","形にする季節":"動きながら続く形をつくる人"},
+  tower:{"種を見つける季節":"見えない段取りを数える人","小さく試す季節":"一人分だけ整えてみる人","育てる季節":"繰り返せる形に整える人","形にする季節":"安心を仕事の形にする人"}
 };
+const ORACLE_VALUE={
+  light:"急がずに聞き、相手の中にある言葉を一緒に見つけること。",
+  hand:"丁寧に仕上げる時間を、きちんと価値として数えること。",
+  garden:"相手を支えることと、自分も無理なく続けることの両方。",
+  bridge:"人の数より、「なぜこの人・これなのか」という選ぶ理由。",
+  boat:"完璧さより、まず小さく試して手応えを受け取ること。",
+  tower:"見えない段取りや安心も、ちゃんと仕事として数えること。"
+};
+const ORACLE_KEYWORD={
+  light:"余白・聞く・言葉にする",
+  hand:"手ざわり・仕上げる・信用",
+  garden:"育む・見守る・境界線",
+  bridge:"選ぶ・つなぐ・委ねる",
+  boat:"試す・動く・軽やかさ",
+  tower:"整える・余白・安心"
+};
+const ORACLE_DIRECTION={
+  light:["聞く","言葉にする","急がない"],
+  hand:["手を動かす","丁寧に仕上げる","値段をつける"],
+  garden:["見守る","続ける","抱えすぎない"],
+  bridge:["選ぶ","理由を伝える","つなぐ"],
+  boat:["小さく試す","反応を見る","直して進む"],
+  tower:["整える","範囲を決める","安心を残す"]
+};
+const SEASON_DIRECTION={
+  "種を見つける季節":["振り返る","集める","まだ決めない"],
+  "小さく試す季節":["小さく出す","3人に試す","反応を見る"],
+  "育てる季節":["続ける","価格を整える","繰り返す"],
+  "形にする季節":["数字にする","条件を決める","形にする"]
+};
+function renderCompass(main,season){
+  const box=document.getElementById("rDirectionTags");if(!box||!main)return;
+  const tags=(season&&SEASON_DIRECTION[season])||ORACLE_DIRECTION[main]||[];
+  box.innerHTML=tags.map((t,i)=>'<span class="tag '+(i===0?'active':'')+'">'+t+'</span>').join('');
+}
 function sharePayload(){
   const r=window.AKINAI_RESULT;
   if(!r)return null;
   const url=PAGE_URL+"?t="+r.main+(r.sub?"&s="+r.sub:"");
-  const pair=D[PAIR[r.main][0]].sym;
-  if(LAST_SEASON){
-    const title=LAST_SEASON_TITLE||SEASON_TITLE[r.main][LAST_SEASON];
-    return {url,text:"私の今の商い称号は《"+title+"》。\n"+r.stars+"／"+LAST_SEASON+"\n「"+LETGO[r.main]+"」\n一緒にやるなら《"+pair+"》タイプ。\n#わたしの商い診断 #40代からの仕事づくり"};
-  }
-  return {url,text:"私の商いキャラは《"+r.name+"》 "+r.stars+"。\n「"+LETGO[r.main]+"」\n一緒にやるなら《"+pair+"》タイプ。\n#わたしの商い診断 #40代からの仕事づくり"};
+  const title=LAST_SEASON_TITLE||r.name;
+  const seasonLine=LAST_SEASON?("\n"+r.stars+"／"+LAST_SEASON):("\n"+r.stars);
+  const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||""):AFFIRM[r.main];
+  const text="『わたしの商い診断』をやってみました。\n\n"+
+    "私の商いカルテは【"+title+"】。"+seasonLine+"\n\n"+
+    "✦ 今の自分に残しておきたい言葉\n"+now+"\n\n"+
+    "✦ 今日、手放していいこと\n"+LETGO[r.main]+"\n\n"+
+    "これまで「普通」と思っていたことの中にも、仕事にできる経験があるのかもしれない。\n"+
+    "今の自分のために、そっと残しておきます。\n\n"+
+    "#わたしの商い診断 #自分らしい働き方 #40代からの仕事づくり";
+  return {url,text};
 }
 function refreshShareLinks(){
   const p=sharePayload();if(!p)return;
   const x=document.getElementById("btnX"),ln=document.getElementById("btnLine");
   if(x)x.href="https://twitter.com/intent/tweet?text="+encodeURIComponent(p.text)+"&url="+encodeURIComponent(p.url);
-  if(ln)ln.href="https://line.me/R/share?text="+encodeURIComponent(p.text+" "+p.url);
+  if(ln)ln.href="https://line.me/R/share?text="+encodeURIComponent(p.text+"\n"+p.url);
 }
 function threadsShareText(){
-  const r=window.AKINAI_RESULT;
-  if(!r)return "";
+  const p=sharePayload();if(!p)return "";
   const rawName=(document.getElementById("cardName")?.value||"").trim().slice(0,20);
-  const who=rawName||"私";
-  const pairKey=PAIR[r.main]?.[0],pairSym=pairKey&&D[pairKey]?D[pairKey].sym:"";
-  const title=LAST_SEASON_TITLE||r.name;
-  const timing=LAST_SEASON?("｜"+LAST_SEASON):"";
-  const release=LETGO[r.main]||"";
-  const pairLine=pairSym?("一緒にやるなら「"+pairSym+"」タイプ。\n"+pairSym+"の人、いますか？"):"";
-  return who+"の商い診断は…\n"+
-    "【"+title+"】\n"+
-    r.stars+timing+"\n\n"+
-    "✦ もう、しなくていいこと\n「"+release+"」\n\n"+
-    pairLine+"\n\n"+
-    "無料3分で診断できます\n"+
-    PAGE_URL+"\n\n"+
-    "#わたしの商い診断 #商い星 #40代からの仕事づくり";
+  const prefix=rawName?rawName+"さんの記録として。\n\n":"";
+  return prefix+p.text+"\n"+p.url;
 }
 function shareToThreads(){
   if(!window.AKINAI_RESULT){showToast("先に無料診断をすると、Threads用の投稿文を作れます");return;}
@@ -1402,7 +1438,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   const qp=new URLSearchParams(location.search);
   const W=[2,1,1,2,2,1,1,1,1];function scoreOf(arr){const sc={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},first={};arr.forEach((v,k)=>{if(!v)return;sc[v]+=(W[k]||1);if(first[v]===undefined)first[v]=k;});const order=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||(first[a]??99)-(first[b]??99));return {sc,order};}
   function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',s.dataset.i===String(n)));pNow.textContent=n+1;pBar.style.width=((n+1)/N*100)+'%';pTxt.textContent=LBL[n]||'';back.style.visibility=n>0?'visible':'hidden';res.classList.remove('on');qz.querySelector('.qnav').style.display='';}
-  function showMid(){const {sc,order}=scoreOf(ans);const w=order[0];const tot=ans.slice(0,4).reduce((a,v,k)=>a+(v?(W[k]||1):0),0);const pct=Math.round(sc[w]/tot*100);document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent=pct+'%';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='仮の星';}
+  function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='仮の星';}
   scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
   document.getElementById('midGo').addEventListener('click',()=>show(4));
   back.addEventListener('click',()=>{if(i>0)show(i-1);});
@@ -1422,9 +1458,9 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     const artSub=document.getElementById('rArtSub');if(d2){artSub.style.display='flex';artSub.innerHTML='<span>主星 '+d.sym+'</span><i></i><span>副星 '+d2.sym+'</span>';}else{artSub.style.display='none';artSub.innerHTML='';}
     document.getElementById('rAffirm').textContent=AFFIRM[w];
     document.getElementById('rLetgo').textContent=LETGO[w];
-    const mix=document.getElementById('rMix'),mx=window.AKINAI_SCORE_MIX;
-    if(mix&&mx&&mx.length){mix.style.display='';mix.innerHTML='<div class="sm-title">今回の9問で強く出た3つの力（この診断内での相対的な出方）</div>'+mx.map(m=>'<div class="sm-row"><span class="sm-sym">'+D[m.k].sym+'</span><span class="sm-track"><i style="width:'+m.pct+'%"></i></span><span class="sm-core">'+CORE[m.k]+'</span></div>').join('');}else if(mix){mix.style.display='none';}
-    const pq=document.getElementById('rPairQuick');if(pq){const pk=PAIR[w][0];pq.textContent='「'+D[pk].sym+'」タイプ｜'+PAIR[w][1];}
+    document.getElementById('rValue').textContent=ORACLE_VALUE[w];
+    document.getElementById('rKeyword').textContent=ORACLE_KEYWORD[w];
+    renderCompass(w,LAST_SEASON);
     const ph=document.getElementById('paidHook');if(ph)ph.textContent='「'+cname+'」を仕事にするなら、次は「今週どこまで動けるか」を30秒で確認。';
     const hasAns=ans.filter(Boolean).length>=9;
     if(hasAns){
@@ -1467,7 +1503,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     document.getElementById('rChara2').textContent=cname;document.getElementById('rComboName').textContent=d.sym+(d2?' × '+d2.sym+'　「'+COMBO[w][w2][0]+'」':'');
     document.getElementById('rAru').innerHTML=(w2?NAME[w][w2][1]:d.hook.slice(0,3)).map(t=>'<li>'+t+'</li>').join('');
     document.getElementById('rMsg').textContent=d.message;
-    const pr=PAIR[w];document.getElementById('pSym').textContent=D[pr[0]].sym;document.getElementById('pTxt2').textContent=pr[1];
+    document.getElementById('pSym').textContent='✦';document.getElementById('pTxt2').textContent=ORACLE_VALUE[w]+'　キーワード：'+ORACLE_KEYWORD[w];
     document.getElementById('tSym').textContent=d.sym;
     const u=PAGE_URL+'?t='+w+(w2?'&s='+w2:'');
     refreshShareLinks();
@@ -1542,18 +1578,27 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     x.fillStyle='#3b332e';x.font='500 72px '+serif;
     if(d2){x.fillText(d.sym,385,790);x.fillStyle='#c47f74';x.font='400 44px '+serif;x.fillText('×',540,782);x.fillStyle='#8a7f77';x.font='500 72px '+serif;x.fillText(d2.sym,695,790);}else{x.fillText(d.sym,540,790);}
     x.fillStyle='#c47f74';x.font='700 20px '+sans;if(d2){x.fillText('主星',385,824);x.fillText('副星',695,824);}
-    const mx=window.AKINAI_SCORE_MIX||[];let cy=865;if(mx.length){x.textAlign='left';x.fillStyle='#8a7f77';x.font='500 20px '+sans;x.fillText('今回の回答で強く出た力',170,855);mx.forEach((m,j)=>{const yy=895+j*34;x.fillStyle='#3b332e';x.font='500 23px '+serif;x.fillText(D[m.k].sym,170,yy);x.fillStyle='#eee4dd';rr(x,220,yy-16,330,14,7);x.fill();x.fillStyle='#c47f74';rr(x,220,yy-16,330*(m.pct/100),14,7);x.fill();x.fillStyle='#8a7f77';x.font='400 18px '+sans;x.fillText(CORE[m.k],570,yy);});cy=1000;}
-    x.textAlign='center';x.fillStyle='#3b332e';x.font='500 34px '+serif;wrap(x,sub?COMBO[cur][sub][0]:d.hookHead,540,cy,900,50,'center');
-    let sy=cy+70;if(LAST_SEASON){x.fillStyle='#f7e4df';rr(x,230,sy,620,96,28);x.fill();x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('今のあなたの称号',540,sy+30);x.fillStyle='#3b332e';x.font='500 30px '+serif;x.fillText(LAST_SEASON_TITLE||LAST_SEASON,540,sy+70);sy+=130;}
-    x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('あなたが、もう持っているもの',540,sy+20);
-    x.fillStyle='#3b332e';x.font='500 29px '+serif;wrap(x,AFFIRM[cur],540,sy+66,760,43,'center');
-    const boxY=sy+210;x.fillStyle='#fff';rr(x,140,boxY,800,210,28);x.fill();x.strokeStyle='#edd6cf';x.lineWidth=2;rr(x,140,boxY,800,210,28);x.stroke();
-    x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('もう、しなくていいこと',540,boxY+50);
-    x.fillStyle='#3b332e';x.font='500 28px '+serif;wrap(x,LETGO[cur],540,boxY+100,720,41,'center');
-    const pk=PAIR[cur][0];x.fillStyle='#6b605a';x.font='500 24px '+sans;x.fillText('一緒にやるなら「'+D[pk].sym+'」タイプ',540,boxY+265);
-    x.fillStyle='#c47f74';x.font='700 34px '+sans;x.textAlign='center';x.fillText('#わたしの商い診断',540,boxY+335);
-    x.fillStyle='#8a7f77';x.font='400 26px '+sans;x.fillText('占い × 仕事づくり（無料・3分）',540,1730);
-    x.fillStyle='#c47f74';x.font='700 28px '+sans;x.fillText(PAGE_URL.replace(/^https?:\/\//,''),540,1780);
+    let cy=875;
+    x.textAlign='center';x.fillStyle='#8a7f77';x.font='700 20px '+sans;x.fillText('今の自分に置いておきたいこと',540,cy);
+    const dirs=(LAST_SEASON&&SEASON_DIRECTION[LAST_SEASON])||ORACLE_DIRECTION[cur]||[];
+    x.fillStyle='#f7e4df';dirs.forEach((t,j)=>{const xx=300+j*240;rr(x,xx-95,cy+24,190,54,27);x.fill();x.fillStyle='#8b5e55';x.font='700 20px '+sans;x.fillText(t,xx,cy+58);x.fillStyle='#f7e4df';});
+    cy+=120;
+    if(LAST_SEASON){x.fillStyle='#f7e4df';rr(x,210,cy,660,105,28);x.fill();x.fillStyle='#c47f74';x.font='700 20px '+sans;x.fillText('いまの商いの季節',540,cy+32);x.fillStyle='#3b332e';x.font='500 30px '+serif;x.fillText(LAST_SEASON_TITLE||LAST_SEASON,540,cy+76);cy+=135;}
+    x.fillStyle='#c47f74';x.font='700 21px '+sans;x.fillText('あなたが、もう持っているもの',540,cy+18);
+    x.fillStyle='#3b332e';x.font='500 28px '+serif;wrap(x,AFFIRM[cur],540,cy+62,760,42,'center');
+    cy+=190;
+    x.fillStyle='#fff';rr(x,140,cy,800,205,28);x.fill();x.strokeStyle='#edd6cf';x.lineWidth=2;rr(x,140,cy,800,205,28);x.stroke();
+    x.fillStyle='#c47f74';x.font='700 21px '+sans;x.fillText('今日、手放していいこと',540,cy+46);
+    x.fillStyle='#3b332e';x.font='500 27px '+serif;wrap(x,LETGO[cur],540,cy+94,720,40,'center');
+    cy+=245;
+    x.fillStyle='#8a7f77';x.font='700 19px '+sans;x.fillText('大切にしたい価値観',540,cy);
+    x.fillStyle='#3b332e';x.font='500 25px '+serif;wrap(x,ORACLE_VALUE[cur],540,cy+40,760,38,'center');
+    cy+=110;
+    x.fillStyle='#8a7f77';x.font='700 19px '+sans;x.fillText('心を緩めるキーワード',540,cy);
+    x.fillStyle='#c47f74';x.font='500 25px '+serif;x.fillText(ORACLE_KEYWORD[cur],540,cy+40);
+    x.fillStyle='#c47f74';x.font='700 30px '+sans;x.fillText('#わたしの商い診断',540,1640);
+    x.fillStyle='#8a7f77';x.font='400 23px '+sans;x.fillText('今の自分への、小さなお守りカルテ',540,1700);
+    x.fillStyle='#c47f74';x.font='700 24px '+sans;x.fillText(PAGE_URL.replace(/^https?:\/\//,''),540,1750);
     return c;
   }
   function rr(x,X,Y,w,h,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+h,r);x.arcTo(X+w,Y+h,X,Y+h,r);x.arcTo(X,Y+h,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath();}
@@ -1641,6 +1686,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     LAST_SEASON_TITLE=window.AKINAI_RESULT?(SEASON_TITLE[window.AKINAI_RESULT.main][LAST_SEASON]||""):"";
     const stb=document.getElementById('seasonTitleBox'),st=document.getElementById('seasonTitle');if(stb&&st&&LAST_SEASON_TITLE){st.textContent=LAST_SEASON_TITLE;stb.style.display='';}else if(stb){stb.style.display='none';}
     syncBookingResult();refreshShareLinks();
+    if(window.AKINAI_RESULT)renderCompass(window.AKINAI_RESULT.main,LAST_SEASON);
     const combo=document.getElementById('seasonCombo');if(combo){combo.style.display='';const p=window.AKINAI_RESULT?('あなたの商い星は「<b>'+window.AKINAI_RESULT.stars+'</b>」。'):"";combo.innerHTML=p+'今は「<b>'+T.textContent+'</b>」。<br><strong>'+SEASON_AFFIRM[T.textContent]+'</strong><br>'+NEXT_BY_SEASON[T.textContent];}
     scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='4';pBar.style.width='100%';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});}
 })();
