@@ -945,7 +945,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
         <div class="fortune-input">
           <div class="fortune-input-head"><span>FORTUNE</span><b>今のあなたへの1枚</b></div>
-          <p class="fortune-card-lead">6枚の商いカードから、今のテーマを1枚だけ引きます。</p>
+          <p class="fortune-card-lead">6枚の商いカードから1枚。答えを決めるためではなく、<b>自分では見落としているかもしれない視点</b>を1つ置きます。</p>
           <button class="btn ghost fortune-draw" id="drawAkinaiCard" type="button">✦ 商いカードを1枚引く</button>
           <div class="fortune-result-mini card-drawn" id="drawFortune" style="display:none">
             <span>今日の商いカード</span><b id="drawStar"></b><p id="drawStarText"></p>
@@ -968,14 +968,14 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         </details>
 
         <div class="voice-required-head">
-          <b>最後に5問。近いものをタップするだけ。</b>
-          <p>ここまでの経験・売りたいものに、仕事・暮らし・周りから見える自分を重ねます。迷ったら「一番近い」で大丈夫。</p>
+          <b>最後に5問。「自分から見た私」だけで決めません。</b>
+          <p>自分の記憶だけでなく、<b>人から頼まれたこと・任されたこと・周りから言われたこと</b>を重ねます。自分では普通だと思っていることほど、仕事の種になっていることがあります。</p>
         </div>
 
-        <div class="voice-group-label"><span>WORK</span><b>仕事で見える私</b></div>
+        <div class="voice-group-label"><span>OTHERS AT WORK</span><b>仕事で「周りが見ていた私」</b></div>
         <div class="quick-steps">
           <div class="voice-step quick-question" data-quick="0">
-            <div class="vs-head"><span>1</span><div><b>人から、よく頼まれてきたのは？</b><small>一番近いものを1つ</small></div></div>
+            <div class="vs-head"><span>1</span><div><b>自分では普通でも、人から何度も頼まれてきたのは？</b><small>「できると思っていなかったけど、よく頼まれる」に近いもの</small></div></div>
             <div class="quick-choices">
               <button type="button" data-fill="相談を聞いて、考えを整理してほしいと頼まれる">相談・説明</button>
               <button type="button" data-fill="資料や料理、ものを作ったり整えたりしてほしいと頼まれる">作る・整える</button>
@@ -988,7 +988,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
 
           <div class="voice-step quick-question" data-quick="1">
-            <div class="vs-head"><span>2</span><div><b>仕事で、気づくと任されていた役は？</b><small>職場が変わっても繰り返してきたもの</small></div></div>
+            <div class="vs-head"><span>2</span><div><b>職場が変わっても、なぜか任されてきた役は？</b><small>自分が選んだというより、周りから任されたもの</small></div></div>
             <div class="quick-choices">
               <button type="button" data-fill="取りまとめ、説明、進行役を任されてきた">取りまとめ・説明</button>
               <button type="button" data-fill="制作、仕上げ、資料作成を任されてきた">制作・仕上げ</button>
@@ -1001,10 +1001,10 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
         </div>
 
-        <div class="voice-group-label"><span>LIFE</span><b>暮らしで出る私</b></div>
+        <div class="voice-group-label"><span>WITHOUT A TITLE</span><b>肩書きを外したときの私</b></div>
         <div class="quick-steps">
           <div class="voice-step quick-question" data-quick="2">
-            <div class="vs-head"><span>3</span><div><b>休日、気づくとやっているのは？</b><small>予定のない日の自分に近いもの</small></div></div>
+            <div class="vs-head"><span>3</span><div><b>誰にも頼まれていないのに、気づくとやっているのは？</b><small>仕事の肩書きを外したときに出る自分</small></div></div>
             <div class="quick-choices">
               <button type="button" data-fill="人の話を聞いたり、気になることを調べて言葉にしている">話す・調べる</button>
               <button type="button" data-fill="料理、お菓子、小物、デザインなど何かを作っている">何かを作る</button>
@@ -1017,7 +1017,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
 
           <div class="voice-step quick-question" data-quick="3">
-            <div class="vs-head"><span>4</span><div><b>友人や知人と集まると、自然とどの役？</b><small>「結局いつも自分がやる」に近いもの</small></div></div>
+            <div class="vs-head"><span>4</span><div><b>友人や知人の中で、「結局あなたがやるよね」となるのは？</b><small>自分の自己評価より、周りの扱い方を思い出してください</small></div></div>
             <div class="quick-choices">
               <button type="button" data-fill="みんなの話を聞いて、意見をまとめる">話をまとめる</button>
               <button type="button" data-fill="必要なものを用意したり、見た目や形を整える">用意・仕上げ</button>
@@ -1030,10 +1030,10 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
         </div>
 
-        <div class="voice-group-label"><span>OTHERS</span><b>周りから見える私</b></div>
+        <div class="voice-group-label"><span>OUTSIDE VIEW</span><b>他人から見た私</b></div>
         <div class="quick-steps">
           <div class="voice-step quick-question" data-quick="4">
-            <div class="vs-head"><span>5</span><div><b>周りの人から、どんな人だと言われる？</b><small>よく言われる言葉に近いもの</small></div></div>
+            <div class="vs-head"><span>5</span><div><b>もし3人に聞いたら、あなたを何が得意な人だと言いそう？</b><small>自分が思う長所ではなく、実際によく言われる言葉に近いもの</small></div></div>
             <div class="quick-choices">
               <button type="button" data-fill="話しやすい、説明が分かりやすい、相談しやすいと言われる">話しやすい</button>
               <button type="button" data-fill="器用、丁寧、センスがあると言われる">器用・丁寧</button>
@@ -1082,8 +1082,8 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <p>商い命数は、希望する人だけが使えるBRIDGE CYCLE独自の象徴的な占いです。将来、利用者の明確な同意を得た匿名データで、「これまでの経験」「選んだ仕事案」「実際に試した結果」の傾向を検証し、十分な件数が集まり再現性を確認できた項目だけを公開する設計を目指します。</p>
           <small>現在、このページの経験・売りたいもの・使える時間・目標額・5問の選択・任意の生年月日はBRIDGE CYCLEへ送信・蓄積していません。</small>
         </div>
-        <p class="voice-help">※ 1枚引きと任意の商い命数は「占い」、経験・売りたいもの・5問は「仕事づくりの診断」として分けて扱います。</p>
-        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">経験・売りたいもの・占いから「仕事になる私」を見つける</button>
+        <p class="voice-help">※ 1枚引きと任意の商い命数は「占い」。5問は、自己評価ではなく「頼まれた・任された・言われた」という外からの事実も使う仕事づくりの診断です。</p>
+        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">自分と周りの視点を重ねて「仕事になる私」を見つける</button>
         <div class="voice-out" id="voiceOut" aria-live="polite"></div>
       </div>
     </div>
@@ -1094,7 +1094,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div class="fortune-simple">
         <div class="kicker">無料3分｜選んで診断</div>
         <h2>話すのが苦手なら、9問から選ぶだけ。</h2>
-        <p>これまで何を任されてきたかを中心に聞きます。結果は、商い星・知らなかった自分・仕事案3つまで。同じところまで見られます。</p>
+        <p>「自分は何が得意？」ではなく、<b>人から感謝されたこと・任されたこと・相談したい相手</b>から見ていきます。自分だけでは見えにくい仕事の種を探します。</p>
         <p style="margin-top:8px"><a href="#voice-diagnosis" style="color:var(--rose);font-weight:700">← 占い＋入力で見る</a>　／　<a href="#idea-check" style="color:var(--rose);font-weight:700">売りたいものがある人はこちら →</a></p>
       </div>
 
@@ -1111,11 +1111,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <button type="button" data-v="hand"><span class="k">B</span>商品や技術を売る</button>
           <button type="button" data-v="garden"><span class="k">C</span>続けて通ってもらう</button>
           <button type="button" data-v="bridge"><span class="k">D</span>人と人をつないで、価値をつくる</button></div></div>
-        <div class="scr" data-i="2"><h3>新しいことを始めるとき、あなたは？</h3><p class="sub">Q3 / 9</p><div class="ch">
-          <button type="button" data-v="boat"><span class="k">A</span>まず小さくやってみる</button>
-          <button type="button" data-v="tower"><span class="k">B</span>段取りを全部決めてから</button>
-          <button type="button" data-v="bridge"><span class="k">C</span>詳しい人に聞きに行く</button>
-          <button type="button" data-v="light"><span class="k">D</span>自分で調べて、言葉にしてみる</button></div></div>
+        <div class="scr" data-i="2"><h3>「私にもできるかな」と迷ったとき、最初に話したい相手は？</h3><p class="sub">Q3 / 9</p><div class="ch">
+          <button type="button" data-v="boat"><span class="k">A</span>一緒に小さく試してくれる人</button>
+          <button type="button" data-v="tower"><span class="k">B</span>数字や条件を一緒に整理してくれる人</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>その業界や支援先に詳しい人</button>
+          <button type="button" data-v="light"><span class="k">D</span>話を聞いて、考えを言葉にしてくれる人</button></div></div>
         <div class="scr" data-i="3"><h3>これまでの仕事で、職場や役割が変わっても、なぜか任されてきたことは？</h3><p class="sub">Q4 / 9</p><div class="ch">
           <button type="button" data-v="light"><span class="k">A</span>人の話を聞いて、考えを整理する</button>
           <button type="button" data-v="hand"><span class="k">B</span>資料・料理・ものを、きちんと形にする</button>
@@ -1136,11 +1136,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <button type="button" data-v="garden"><span class="k">B</span>月ごと・回数券で、続けてもらう</button>
           <button type="button" data-v="bridge"><span class="k">C</span>紹介や仲介の、手数料</button>
           <button type="button" data-v="boat"><span class="k">D</span>一日・一回の出店で、売り切る</button></div></div>
-        <div class="scr" data-i="7"><h3>失敗したくない気持ちが強いとき、どう動く？</h3><p class="sub">Q8 / 9</p><div class="ch">
-          <button type="button" data-v="tower"><span class="k">A</span>数字を出して、安心してから</button>
-          <button type="button" data-v="boat"><span class="k">B</span>小さく試して、確かめる</button>
-          <button type="button" data-v="bridge"><span class="k">C</span>経験者に、相談する</button>
-          <button type="button" data-v="light"><span class="k">D</span>一度、自分の言葉で書き出す</button></div></div>
+        <div class="scr" data-i="7"><h3>相談するなら、「分かってくれそう」以外に何を重視する？</h3><p class="sub">Q8 / 9</p><div class="ch">
+          <button type="button" data-v="tower"><span class="k">A</span>数字や制度まで具体的に見てくれる</button>
+          <button type="button" data-v="boat"><span class="k">B</span>小さく試す方法まで一緒に考えてくれる</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>必要な人や支援先につないでくれる</button>
+          <button type="button" data-v="light"><span class="k">D</span>話を整理して、自分でも気づかない点を返してくれる</button></div></div>
         <div class="scr" data-i="8"><h3>10年後、こう呼ばれていたい。</h3><p class="sub">Q9 / 9</p><div class="ch">
           <button type="button" data-v="tower"><span class="k">A</span>「あの人に任せれば、安心」</button>
           <button type="button" data-v="hand"><span class="k">B</span>「あの人の手仕事、好き」</button>
@@ -1196,11 +1196,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
               <div class="direction-tags" id="rDirectionTags"></div>
             </div>
             <div class="voice-reveal" id="rVoiceReveal" style="display:none">
-              <span class="vrlab">5つの選択から見えた、3つの自分</span>
+              <span class="vrlab">自分の記憶と、周りから見た事実を重ねた3つの自分</span>
               <div class="voice-faces">
-                <div class="voice-face"><span>仕事で見える私</span><b id="rVoiceWorkStar"></b><small id="rVoiceWorkText"></small></div>
-                <div class="voice-face"><span>暮らしで出る私</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
-                <div class="voice-face"><span>周りから見える私</span><b id="rVoiceOtherStar"></b><small id="rVoiceOtherText"></small></div>
+                <div class="voice-face"><span>仕事で周りが見ていた私</span><b id="rVoiceWorkStar"></b><small id="rVoiceWorkText"></small></div>
+                <div class="voice-face"><span>肩書きを外した私</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
+                <div class="voice-face"><span>他人から見た私</span><b id="rVoiceOtherStar"></b><small id="rVoiceOtherText"></small></div>
               </div>
               <div class="voice-cross"><span class="vclab">CHECK｜占いと実際の経験を照らし合わせると</span><div id="rVoiceCross"></div></div>
               <div class="vrwords" id="rVoiceWords"></div>
@@ -1283,7 +1283,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
           <div class="cta45" id="cta45" style="display:none">
             <p class="q1" id="paidHook">次は、「今週どこまで動けるか」を30秒で確認。</p>
-            <p>買う人・有料経験・使える時間を4問で確認します。占いでは、この現在地を「商いの季節」と呼びます。</p>
+            <p>買う人・有料経験・使える時間を4問で確認します。自分だけで答えにくいときは、家族ではなくても、元同僚や友人など<b>「あなたが何をしてきたか知っている人」</b>に聞くのも有効です。</p>
             <details class="paid-peek">
               <summary>45分なら、ここから何を決める？ 少しだけ見る</summary>
               <div class="pp-in">
@@ -1406,8 +1406,8 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       </div>
       <div class="qz mini" id="qz2">
         <div class="prog"><b id="p2Now">1</b><span>/ 4</span><div class="bar"><i id="p2Bar"></i></div><span>4問</span></div>
-        <div class="scr on" data-i="0"><h3>「人に頼まれること」を、3つ言える？</h3><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>すぐには出てこない</button><button type="button" data-v="1"><span class="k">B</span>3つは言える</button></div></div>
+        <div class="scr on" data-i="0"><h3>「人から頼まれたこと・褒められたこと」を、3つ言える？</h3><div class="ch">
+          <button type="button" data-v="0"><span class="k">A</span>自分では、すぐには出てこない</button><button type="button" data-v="1"><span class="k">B</span>3つは思い出せる</button></div></div>
         <div class="scr" data-i="1"><h3>それに、お金を払ってくれそうな人の顔が浮かぶ？</h3><div class="ch">
           <button type="button" data-v="0"><span class="k">A</span>まだ浮かばない</button><button type="button" data-v="1"><span class="k">B</span>浮かぶ</button></div></div>
         <div class="scr" data-i="2"><h3>自分の商品やサービスで、お金をもらったことは？</h3><div class="ch">
