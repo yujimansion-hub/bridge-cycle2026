@@ -528,6 +528,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .letgo{margin:12px 0 0;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.78);border:1px solid #edd6cf}
 .letgo b{display:block;font-size:11px;letter-spacing:.08em;color:var(--rose);margin-bottom:4px}
 .letgo p{margin:0;font-family:var(--serif);font-size:14.5px;line-height:1.75;color:var(--ink)}
+.result-section-label,.result-step-label{display:block;margin:10px 0 5px;font-size:10.5px;font-weight:800;letter-spacing:.08em;color:var(--rose)}
+.result-nogo{margin:14px 0 18px;padding:16px 17px;border-radius:17px;background:#fffaf7;border:1px dashed #d9c7bd}
+.result-nogo span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.08em;color:var(--rose);margin-bottom:5px}
+.result-nogo p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.75;color:var(--ink)}
+.result-nogo small{display:block;margin-top:6px;font-size:10.5px;line-height:1.6;color:var(--muted)}
 .season-combo{margin:10px 0 0;padding:13px 14px;border-radius:12px;background:#fff;border:1px solid #d3dccb;font-family:var(--serif);font-size:14px;line-height:1.75;color:#3f463a}
 .season-recheck{margin-top:10px;font-size:11.5px;color:#6f7f63}
 .upgrade{background:#efe6de;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -2745,8 +2750,9 @@ h3{letter-spacing:-.02em!important}
 
         <div class="res" id="res">
           <div class="rcard" id="rcard">
-            <div class="lab">AKINAI ORACLE｜あなたの商いカルテ</div>
-            <p class="result-basis">生年月日から出す「商い命数」と1枚引きは占い、5つの選択は経験の診断として分けています。現在、商い命数と仕事適性の統計的関連は検証中ではなく、象徴的な読みとして提供しています。</p>
+            <div class="lab">EXPERIENCE ASSET｜あなたの経験資産カルテ</div>
+            <p class="result-basis">9つの回答から、これまでの経験に繰り返し現れている「価値の出し方」を整理します。占い要素を使う場合も、経験診断とは分けて表示します。</p>
+            <span class="result-section-label">まず見えた｜あなたの経験資産の型</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
@@ -2791,10 +2797,10 @@ h3{letter-spacing:-.02em!important}
               <p id="rVoiceInsight"></p>
               <small>入力した内容に出てきた行動や言葉から見ています。占い部分と診断部分は別に扱っています。</small>
             </div>
-            <div class="affirm"><span>これが、あなたの「売れるかもしれない経験」</span><p id="rAffirm"></p></div>
+            <div class="affirm"><span>01｜あなたの経験資産</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
-            <div class="letgo"><b>✦ 今日のお守り言葉</b><p id="rLetgo"></p></div>
+            <div class="letgo"><b>今、手放していい思い込み</b><p id="rLetgo"></p></div>
             <div class="insight-box">
               <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
               <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
@@ -2821,9 +2827,10 @@ h3{letter-spacing:-.02em!important}
             <div class="ol" id="olTop"></div>
           </details>
 
-          <div class="turn"><span>では、この星を仕事にすると？</span></div>
+          <div class="turn"><span>ここから、経験を商いに変えると？</span></div>
 
           <div class="value">
+            <span class="result-step-label">02｜売れそうな部分</span>
             <h3 class="head" id="rHead"></h3>
             <div class="why" id="rWhy">
               <b>なぜ、そう言えるか</b>
@@ -2834,13 +2841,19 @@ h3{letter-spacing:-.02em!important}
           </div>
 
           <div class="occupation-hint">
-            <b>職業・仕事にすると近いのは</b>
+            <b>仕事の形にすると近いのは</b>
             <p id="rOccupation"></p>
             <small>職業名を決める診断ではありません。あなたの経験を仕事にした場合の「近い形」です。実際に始める際は、業種ごとの資格・許認可を確認します。</small>
           </div>
 
+          <div class="result-nogo">
+            <span>04｜今はやらない方がいいこと</span>
+            <p id="rNoGo"></p>
+            <small>最初から大きく始めないためのブレーキです。必要になった段階で足せば十分です。</small>
+          </div>
+
           <div class="cands">
-            <div class="lab">星を現実にする｜あなたの商いプラン 3案</div>
+            <div class="lab">03｜最初に試す商い 3案</div>
             <div class="cl" id="cl"></div>
             <p class="pick">気になる案を1つ選ぶと、「仕事イメージ・商品・相手・価格・売上目安・今週やること」まで1枚にします。</p>
           </div>
@@ -2860,7 +2873,7 @@ h3{letter-spacing:-.02em!important}
           </div>
 
           <div class="week" id="week" style="display:none">
-            <div class="lab">今週の商いアクション</div>
+            <div class="lab">まず7日で試すこと</div>
             <p id="wText"></p>
           </div>
 
@@ -3853,6 +3866,8 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     }
     document.getElementById('rHead').innerHTML='あなたの場合は、<b>'+HEAD[w][0]+'</b><br>'+HEAD[w][1];
     document.getElementById('rOccupation').textContent=OCCUPATION[w];
+    const noGo=document.getElementById('rNoGo');
+    if(noGo) noGo.textContent=(PLAN[w]&&PLAN[w].no)?PLAN[w].no.split('／').join('・'):'最初から大きな設備、肩書き、完璧な準備をそろえること';
     const labels=[];scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>{const k=+sc.dataset.i;const v=ans[k];if(!v)return;const btn=[...sc.querySelectorAll('button')].find(b=>b.dataset.v===v);if(btn)labels.push({k,v,t:btn.textContent.replace(/^[A-D]/,'').trim()});});
     if(labels.length){const pick=labels.filter(l=>l.v===w).slice(0,3);
       document.getElementById('rQuote').textContent='あなたが選んだ'+pick.length+'つの答え、'+pick.map(l=>'「'+l.t+'」').join('')+'には、共通点があります。';
@@ -3861,7 +3876,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       const byK=k=>{const z=labels.find(x=>x.k===k);return z?z.t:'';};
       const q1=byK(0),q4=byK(3),q5=byK(4),q8=byK(7),q9=byK(8);
       const belly=document.getElementById('rBelly');
-      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ことで感謝されてきました。仕事では、職場や役割が変わっても「<b>'+q4+'</b>」ことを任され、気づくと「<b>'+q5+'</b>」役を引き受けてきた。<br>でも、自分のことになると、失敗したくないときは「<b>'+q8+'</b>」を選ぶ。そして10年後は「<b>'+q9+'</b>」と呼ばれていたい。';
+      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ところを、自分では普通だと思ってきた。仕事や暮らしが変わっても「<b>'+q4+'</b>」ことは繰り返し任されてきました。大きな決断では「<b>'+q5+'</b>」を選び、誰かが困っていると「<b>'+q8+'</b>」ことを自然にしてしまう。<br>そして10年後は、「<b>'+q9+'</b>」と相談される自分でいたい。';
       document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、これまでのキャリアの中で、同じ種類の役割を何度も任されてきた人の答えです。'+BOTTOM_LINE[w];
       belly.style.display='';
       const warm=document.getElementById('rWarm');document.getElementById('rWarmText').textContent=WARM[w];warm.style.display='';
