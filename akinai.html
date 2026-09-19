@@ -8,7 +8,7 @@
 <meta property="og:title" content="わたしの商い診断｜私にも何かできる？から始める">
 <meta property="og:description" content="独立するかは、まだ決めなくて大丈夫。経験→仕事案→小さく試す→必要なら事業計画→商工会相談までつなげます。">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#f4ece4">
+<meta name="theme-color" content="#f6f5f2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <style>
@@ -930,6 +930,308 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   .paid-bottom{grid-template-columns:1fr}
   .paid-bottom .btn{width:100%;min-width:0}
 }
+
+
+/* ===== 2026 MODERN REFRESH ===== */
+:root{
+  --bg:#f6f5f2;
+  --paper:#ffffff;
+  --ink:#202320;
+  --muted:#73766f;
+  --line:#e7e5df;
+  --rose:#9a6257;
+  --rose-pale:#f2e9e5;
+  --sage:#7f8a7b;
+  --sage-pale:#eef1eb;
+  --gold:#b99a6d;
+  --radius:22px;
+  --shadow:0 18px 55px rgba(34,38,34,.07);
+  --max:1120px;
+}
+html{scroll-padding-top:78px}
+body{
+  background:
+    radial-gradient(circle at 8% 0%,rgba(154,98,87,.055),transparent 28rem),
+    linear-gradient(180deg,#faf9f7 0,#f6f5f2 48rem,#f6f5f2 100%);
+  color:var(--ink);
+  line-height:1.8;
+  letter-spacing:.005em;
+}
+.wrap{width:min(var(--max),calc(100% - 48px))}
+section{padding:88px 0}
+h1,h2,h3,h4{letter-spacing:-.025em}
+h1{font-size:clamp(38px,5.2vw,66px);line-height:1.2;margin:18px 0 20px;font-weight:600}
+h1 span{color:var(--rose);background:none;padding:0}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.35}
+.section-head{max-width:760px;margin-bottom:38px}
+.section-head p{font-size:15px;line-height:1.9;color:#62665f}
+.kicker,.eyebrow{font-family:"Zen Kaku Gothic New",sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.eyebrow:before{content:"";width:24px;height:1px;background:currentColor}
+.en{font-family:"Zen Kaku Gothic New",sans-serif;font-style:normal;letter-spacing:.08em}
+
+/* navigation */
+.nav{
+  top:10px;
+  width:min(calc(100% - 24px),1180px);
+  margin:0 auto;
+  border:1px solid rgba(225,223,216,.92);
+  border-radius:18px;
+  background:rgba(255,255,255,.82);
+  box-shadow:0 8px 30px rgba(30,34,30,.055);
+  backdrop-filter:blur(18px) saturate(140%);
+}
+.nav-inner{min-height:62px;padding:0 10px}
+.brand{font-size:14px}
+.brand-mark{
+  width:32px;height:32px;
+  background:var(--ink);
+  color:#fff;
+  border:0;
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  font-style:normal;
+  font-size:12px;
+}
+.brand small{font-size:9px;letter-spacing:.04em}
+.nav-links{gap:18px;font-size:12px}
+.nav-links>a:not(.btn){color:#555a54}
+
+/* buttons */
+.btn{
+  min-height:50px;
+  padding:0 22px;
+  border-radius:14px;
+  border-color:var(--ink);
+  background:var(--ink);
+  color:#fff;
+  box-shadow:none;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.btn:hover{background:#303530;transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,35,31,.12)}
+.btn.ghost{background:#fff;color:var(--ink);border-color:#dcdad4}
+.btn.light{background:#fff;color:var(--ink);border-color:#fff}
+.btn.terra{background:var(--rose);border-color:var(--rose)}
+.btn.terra:hover{background:#87554c}
+.btn.sm{min-height:40px;border-radius:12px}
+.hero-primary .btn,.hero-actions .btn.main{box-shadow:none}
+
+/* hero */
+.hero{padding:76px 0 54px;position:relative;overflow:hidden}
+.hero:before{
+  content:"";position:absolute;z-index:-1;
+  width:520px;height:520px;border-radius:50%;
+  right:-220px;top:-220px;
+  background:radial-gradient(circle,rgba(154,98,87,.11),rgba(154,98,87,0) 68%);
+}
+.hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:64px}
+.hero-short{font-size:17px;line-height:1.9;color:#50544f}
+.hero-proof{
+  width:max-content;max-width:100%;
+  margin-top:22px;
+  padding:9px 12px 9px 9px;
+  border-radius:999px;
+  border-color:#e3e1dc;
+  box-shadow:none;
+  background:rgba(255,255,255,.78);
+}
+.hero-proof:before{
+  width:34px;height:34px;
+  background:var(--ink);color:#fff;
+  font-size:11px;font-family:"Zen Kaku Gothic New",sans-serif;font-style:normal
+}
+.hero-primary{margin-top:24px}
+.hero-map{
+  padding:16px;
+  border-radius:26px;
+  background:rgba(255,255,255,.9);
+  border-color:#e4e2dc;
+  box-shadow:0 26px 70px rgba(31,35,31,.09);
+}
+.hero-map .hm-label{font-family:"Zen Kaku Gothic New",sans-serif;font-style:normal;font-size:10px;letter-spacing:.12em}
+.hm-stage{border-radius:16px;border-color:#e7e5df;padding:17px 18px}
+.hm-stage.before,.hm-stage.middle,.hm-stage.after{background:#fff}
+.hm-stage.middle{border-color:#d9cec9;box-shadow:inset 3px 0 0 var(--rose)}
+.hm-stage .tag{font-size:9px;letter-spacing:.1em}
+.hm-stage b{font-size:19px}
+.hm-arrow{font-size:17px;color:#a5a8a2;margin:7px 0}
+.hm-after-quote{border-left:0;border-radius:12px;background:#f7f5f1;padding:12px 14px}
+.hm-foot{border-top:1px solid #ece9e3}
+
+/* content blocks */
+.outside-view-card,.before-consult-card,.voice-box,.midbox,.web-consult,.report-bundle,.qz,.bform{
+  background:#fff;
+  border:1px solid #e6e4de;
+  box-shadow:0 14px 46px rgba(31,35,31,.055);
+}
+.outside-view-card,.before-consult-card{border-radius:24px;padding:32px}
+.outside-view-card{background:#fff}
+.ov-grid{gap:12px;margin-top:22px}
+.ov-item,.before-checks>div{
+  border-radius:16px;
+  border-color:#e8e6e0;
+  background:#faf9f7;
+  padding:16px;
+}
+.ov-message{
+  margin-top:20px;
+  border-left:0;
+  border-radius:14px;
+  background:#f2efeb;
+  padding:15px 18px;
+}
+.before-note{border-top:1px solid #eceae5}
+
+/* form / diagnosis */
+.fortune-section{background:transparent;border:0}
+.qz{max-width:700px;border-radius:24px;padding:30px}
+.prog .bar{height:4px;background:#eeece7}
+.prog .bar i{background:var(--ink)}
+.scr h3{font-size:clamp(22px,2.8vw,28px)}
+.ch{gap:9px}
+.ch button{
+  border-radius:14px;
+  border:1px solid #e4e2dc;
+  background:#fff;
+  padding:15px 16px;
+}
+.ch button:hover{border-color:#aaa8a1;background:#f8f7f4;transform:translateY(-1px)}
+.ch button .k{
+  width:26px;height:26px;
+  border-color:#d4d1ca;color:#666a64;background:#f8f7f4
+}
+.cards{gap:10px}
+.cards button{border-radius:15px;background:#fff;border-color:#e5e3dd}
+.cards button:hover{background:#f8f7f4;border-color:#aaa8a1}
+.fld input,.fld select,.fld textarea,.pe-field input,.pe-field select,.pe-field textarea{
+  border:1px solid #dcdad4!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus,.pe-field input:focus,.pe-field select:focus,.pe-field textarea:focus{
+  outline:3px solid rgba(154,98,87,.12)!important;
+  border-color:var(--rose)!important;
+}
+.seg span{border:1px solid #ddd9d2;background:#fff}
+.seg input:checked+span{border-color:var(--ink);background:var(--ink);color:#fff}
+
+/* results */
+.rcard{
+  border-radius:24px;
+  border:1px solid #e2ddd7;
+  background:#fff;
+  box-shadow:0 18px 48px rgba(31,35,31,.06);
+}
+.rcard:before,.rcard:after{display:none}
+.rcard .combo{border-color:#e7e4df;background:#f8f7f4}
+.rcard .hq,.rcard .diag b{color:var(--rose)}
+
+/* paid section */
+.web-consult{
+  border-radius:30px;
+  padding:34px;
+  overflow:hidden;
+}
+.web-consult-head{
+  padding-bottom:28px;
+  margin-bottom:28px;
+  border-bottom:1px solid #eceae5;
+}
+.web-consult-price{
+  color:var(--ink)!important;
+  font-family:"Zen Kaku Gothic New",sans-serif!important;
+  letter-spacing:-.04em;
+}
+.report-bundle{
+  border-radius:24px;
+  padding:26px;
+  margin-top:24px;
+  background:#f8f7f4;
+  box-shadow:none;
+}
+.report-bundle-head h4{font-size:clamp(24px,3vw,34px)}
+.report-hero-image{margin:22px auto 28px;max-width:980px}
+.report-hero-image a{
+  border-radius:16px;
+  border:1px solid #dfddd7;
+  box-shadow:0 16px 44px rgba(31,35,31,.08);
+  background:#fff;
+}
+.report-hero-image img{display:block;width:100%;height:auto}
+.report-bundle-flow{gap:8px}
+.report-bundle-flow>div{
+  border-radius:14px!important;
+  background:#fff!important;
+  border:1px solid #e5e2dc!important;
+  box-shadow:none!important;
+}
+.report-overview-grid{gap:12px}
+.overview-plan{
+  border-radius:16px!important;
+  border:1px solid #e3e0da!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+.overview-plan:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(31,35,31,.06)!important}
+.op-tag{letter-spacing:.04em}
+.report-volume,.report-detail{
+  border-radius:16px!important;
+  background:#fff!important;
+  border:1px solid #e4e1db!important;
+}
+.plan-card{
+  border-radius:18px!important;
+  border:1px solid #e3e0da!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+
+/* small UI details */
+.experience-chips button,.product-state button,.quick-choices button,.reality-choices button{
+  border-radius:999px!important;
+  box-shadow:none!important;
+}
+.data-note,.fortune-note,.mini-help,.web-consult-note{color:#7a7e77}
+hr{border:0;border-top:1px solid #e8e6e1}
+
+/* footer */
+footer{
+  border-top:1px solid #e3e1db;
+  background:#efeee9;
+}
+footer .wrap{padding-top:42px;padding-bottom:42px}
+
+/* motion + responsive */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+@media(max-width:900px){
+  .wrap{width:min(100% - 32px,var(--max))}
+  section{padding:70px 0}
+  .hero{padding-top:54px}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-map{max-width:none}
+  .web-consult{padding:24px}
+}
+@media(max-width:760px){
+  .nav{top:6px;width:calc(100% - 12px);border-radius:14px}
+  .nav-inner{min-height:56px}
+  .nav-links>a:not(.btn){display:none}
+  .nav-links{gap:8px}
+  .nav .btn{min-height:38px;padding:0 12px;border-radius:10px;font-size:11px}
+  .wrap{width:calc(100% - 24px)}
+  section{padding:58px 0}
+  h1{font-size:clamp(34px,11vw,48px)}
+  .hero{padding:46px 0 36px}
+  .hero-short{font-size:15px}
+  .hero-proof{width:100%;border-radius:14px}
+  .outside-view-card,.before-consult-card{padding:22px 18px;border-radius:20px}
+  .qz{padding:22px 17px;border-radius:20px}
+  .web-consult{padding:20px 14px;border-radius:22px}
+  .report-bundle{margin-left:-2px;margin-right:-2px;padding:16px 10px;border-radius:18px}
+  .report-hero-image{margin:18px 0 22px}
+  .report-hero-image a{border-radius:12px}
+}
+/* ===== /2026 MODERN REFRESH ===== */
 
 </style>
 </head>
