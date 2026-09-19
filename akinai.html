@@ -750,6 +750,39 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .plan3-grid>div{padding:13px;border-radius:14px;background:#fff;border:1px solid var(--line)}
 .plan3-grid b{display:block;font-size:13px;margin-bottom:4px}
 .plan3-grid p{margin:0;font-size:10.8px;line-height:1.6;color:#655b55}
+
+.paid-engine{margin-top:22px;padding:22px;border:1px solid var(--line);border-radius:22px;background:#fff}
+.pe-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.pe-head h4{font-family:var(--serif);font-size:22px;margin:2px 0 5px;font-weight:500}
+.pe-head p{margin:0;font-size:12.5px;line-height:1.8;color:#645a54;max-width:700px}
+.pe-status{padding:7px 10px;border-radius:999px;background:var(--rose-pale);color:var(--rose);font-size:11px;font-weight:700}
+.pe-stage{display:none;margin-top:18px}
+.pe-stage.on{display:block}
+.pe-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pe-field{padding:14px;border:1px solid var(--line);border-radius:15px;background:var(--paper)}
+.pe-field.full{grid-column:1/-1}
+.pe-field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
+.pe-field small{display:block;font-size:10.5px;color:var(--muted);line-height:1.55;margin-top:4px}
+.pe-field input,.pe-field select,.pe-field textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 11px;background:#fff;color:var(--ink);font:inherit;font-size:14px}
+.pe-field textarea{min-height:78px;resize:vertical}
+.pe-checks{display:flex;gap:6px;flex-wrap:wrap}
+.pe-checks label{margin:0}
+.pe-checks input{position:absolute;opacity:0;width:0;height:0}
+.pe-checks span{display:inline-block;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:11px;cursor:pointer}
+.pe-checks input:checked+span{background:var(--rose-pale);border-color:var(--rose);color:var(--rose);font-weight:700}
+.pe-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.pe-message{font-size:12px;color:var(--rose);margin-top:9px;min-height:1.6em}
+.plan-results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.plan-card{padding:16px;border-radius:17px;border:1px solid var(--line);background:var(--paper)}
+.plan-card .ptag{font-size:10px;color:var(--rose);font-weight:700;letter-spacing:.06em}
+.plan-card h5{font-family:var(--serif);font-size:17px;line-height:1.5;margin:4px 0 8px}
+.plan-card dl{margin:0}
+.plan-card dt{font-size:9.5px;color:var(--muted);font-weight:700;margin-top:8px}
+.plan-card dd{margin:1px 0 0;font-size:11.5px;line-height:1.65;color:#514842}
+.plan-card .hypo{font-size:10px;color:var(--muted);margin-top:9px;padding-top:8px;border-top:1px dashed var(--line)}
+.pe-result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+@media(max-width:760px){.pe-grid,.plan-results{grid-template-columns:1fr}.pe-field.full{grid-column:auto}}
+
 .web-consult-note{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:11.5px;line-height:1.75;color:var(--muted)}
 @media(max-width:820px){.web-qgrid,.plan3-grid{grid-template-columns:1fr}.web-consult{padding:22px 18px}}
 
@@ -1516,6 +1549,59 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div class="web-qcard"><span>09｜デジタル環境</span><b>PC・ネット・AIは使える？</b><p>PC、スマホ、Zoom、Excel、Canva、SNS、生成AIなど。能力判定ではなく、実行方法を合わせるために聞きます。</p></div>
         </div>
 
+        <div class="paid-engine" id="paidEngine">
+          <div class="pe-head">
+            <div>
+              <span class="tag">START HERE｜3,300円 Web完結</span>
+              <h4>決済後、そのまま質問へ。</h4>
+              <p>決済が確認できたらこのページ内で質問に回答し、最後に3つの事業計画案を自動生成します。回答途中の内容はこの端末内に一時保存できます。</p>
+            </div>
+            <span class="pe-status" id="paidStatus">決済前</span>
+          </div>
+
+          <div class="pe-stage on" id="payStage">
+            <div class="pe-actions">
+              <button class="btn" type="button" id="paidCheckoutBtn">3,300円を決済して始める</button>
+            </div>
+            <p class="pe-message" id="payMessage"></p>
+            <p class="web-consult-note">安全な決済確認のため、決済会社のチェックアウトから戻った後に質問画面が開く設計です。</p>
+          </div>
+
+          <div class="pe-stage" id="questionStage">
+            <div class="pe-grid">
+              <div class="pe-field full"><label>1｜提供したい商品・サービスは？</label><textarea id="peProduct" placeholder="例：職場への差し入れに使いやすい個包装の焼き菓子セット"></textarea></div>
+              <div class="pe-field"><label>誰に提供したい？</label><input id="peCustomer" type="text" placeholder="例：近隣の30〜50代の働く女性"></div>
+              <div class="pe-field"><label>どんな困りごと・欲求に応える？</label><input id="peNeed" type="text" placeholder="例：手土産を選ぶ時間がない"></div>
+              <div class="pe-field full"><label>2｜お客さん・周りの人から、実際に何と言われた？</label><textarea id="peVoice" placeholder="褒められたこと、喜ばれたこと、意外な反応など"></textarea></div>
+              <div class="pe-field"><label>繰り返し言われたことは？</label><input id="peRepeat" type="text" placeholder="例：甘すぎなくて食べやすい"></div>
+              <div class="pe-field"><label>不満・買わなかった理由は？</label><input id="peNegative" type="text" placeholder="分からなければ「まだ分からない」でOK"></div>
+              <div class="pe-field"><label>3｜事業の目的は？</label><select id="pePurpose"><option>収入を少し増やしたい</option><option>会社以外の自分の仕事を持ちたい</option><option>将来の独立に備えたい</option><option>これまでの経験を生かしたい</option><option>好きなことを仕事にしたい</option><option>人・地域の役に立ちたい</option><option>まだ分からない</option></select></div>
+              <div class="pe-field"><label>3年後、どうなっていたら「始めてよかった」？</label><input id="peThreeYears" type="text" placeholder="例：月5万円を安定して得たい"></div>
+              <div class="pe-field full"><label>4｜これだけは、やりたくないことは？</label><div class="pe-checks" id="peAvoid"><label><input type="checkbox" value="飛び込み・電話営業"><span>飛び込み・電話営業</span></label><label><input type="checkbox" value="SNS発信"><span>SNS発信</span></label><label><input type="checkbox" value="顔出し"><span>顔出し</span></label><label><input type="checkbox" value="在庫を持つ"><span>在庫</span></label><label><input type="checkbox" value="夜・土日"><span>夜・土日</span></label><label><input type="checkbox" value="大きな固定費"><span>固定費</span></label><label><input type="checkbox" value="人を雇う"><span>雇用</span></label><label><input type="checkbox" value="納期に追われる"><span>納期</span></label></div></div>
+              <div class="pe-field"><label>5｜事業に使える時間</label><select id="peHours"><option value="1.5">週1〜2時間</option><option value="4">週3〜5時間</option><option value="8">週6〜10時間</option><option value="12">週10時間以上</option></select></div>
+              <div class="pe-field"><label>目標にしたい月売上</label><select id="peIncome"><option value="10000">月1万円</option><option value="30000">月3万円</option><option value="50000">月5万円</option><option value="100000">月10万円</option><option value="0">まだ決めていない</option></select></div>
+              <div class="pe-field"><label>6｜事業をするエリア</label><input id="peArea" type="text" placeholder="例：大津市膳所／京都市左京区／オンライン"></div>
+              <div class="pe-field"><label>商圏のイメージ</label><select id="peRange"><option>自宅周辺</option><option>市内</option><option>近隣市まで</option><option>県内</option><option>オンライン中心</option><option>全国</option><option>まだ未定</option></select></div>
+              <div class="pe-field"><label>7｜家族・身近な人の理解</label><select id="peFamily"><option>応援してくれている</option><option>おおむね理解している</option><option>応援はあるが不安もある</option><option>まだ話していない</option><option>反対されている</option><option>相談する必要はない</option></select></div>
+              <div class="pe-field"><label>家庭への負担で気になること</label><input id="peFamilyRisk" type="text" placeholder="例：休日の時間、家事分担、初期費用"></div>
+              <div class="pe-field"><label>8｜無理なく使える自己資金</label><select id="peFunds"><option>ほとんど使いたくない</option><option>5万円未満</option><option>5〜10万円</option><option>10〜30万円</option><option>30〜50万円</option><option>50〜100万円</option><option>100万円以上</option><option>まだ決めていない</option></select></div>
+              <div class="pe-field"><label>自己資金を使った後の不安</label><select id="peFundsRisk"><option>影響しない</option><option>少し不安がある</option><option>かなり不安がある</option><option>家族との相談が必要</option><option>まだ分からない</option></select></div>
+              <div class="pe-field full"><label>9｜使えるデジタル環境</label><div class="pe-checks" id="peDigital"><label><input type="checkbox" value="PC"><span>PC</span></label><label><input type="checkbox" value="安定したネット"><span>安定したネット</span></label><label><input type="checkbox" value="Zoom"><span>Zoom</span></label><label><input type="checkbox" value="Excel・スプレッドシート"><span>Excel等</span></label><label><input type="checkbox" value="Canva"><span>Canva</span></label><label><input type="checkbox" value="SNS"><span>SNS</span></label><label><input type="checkbox" value="生成AI"><span>生成AI</span></label></div></div>
+              <div class="pe-field"><label>AIの利用状況</label><select id="peAI"><option>まだ使ったことがない</option><option>調べ物や文章作成に少し使う</option><option>SNS・資料・企画に使っている</option><option>日常的に仕事で使っている</option><option>業務効率化まで考えられる</option></select></div>
+              <div class="pe-field"><label>似た商品・競合として思い浮かぶもの</label><input id="peCompetitor" type="text" placeholder="分からなければ「未確認」でOK"></div>
+              <div class="pe-field full"><label>今、お客さんはその困りごとをどう解決している？</label><textarea id="peAlternative" placeholder="例：スーパーで買う／知人に頼む／自分で調べる／何もしない"></textarea></div>
+            </div>
+            <div class="pe-actions"><button class="btn" type="button" id="generate3Btn">3つの事業計画案を作る</button><button class="btn ghost sm" type="button" id="savePaidDraft">途中保存</button></div>
+            <p class="pe-message" id="questionMessage"></p>
+          </div>
+
+          <div class="pe-stage" id="result3Stage">
+            <div class="plan-results" id="planResults"></div>
+            <div class="pe-result-actions"><button class="btn" type="button" id="copy3Plans">3案をまとめてコピー</button><button class="btn ghost" type="button" id="print3Plans">印刷・PDF保存</button><button class="btn ghost" type="button" id="redo3Plans">回答を見直す</button></div>
+            <p class="web-consult-note">市場・競合・売上は、入力情報からつくる仮説です。実際の出店・投資・申請前には、地域の市場データ、競合、原価、許認可、制度要件を確認してください。</p>
+          </div>
+        </div>
+
         <div class="plan3">
           <span>OUTPUT｜答えは1つに決めません</span>
           <h4>同じ条件で比べられる「事業計画案」を3つ。</h4>
@@ -1526,7 +1612,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
           <p class="web-consult-note">各案は、顧客／提供価値／商品・サービス／価格／売り方／地域／競合／強み／必要時間／必要資金／家族への影響／月売上の目安／最初の3人／90日で確認すること、を同じ形式で比較できるようにします。最後に選ぶのは本人です。</p>
           <p class="web-consult-note"><b>3案は「見るだけ」の結果ではありません。</b>選んだ案は、その後のAI相談・文章作成、補助金申請の準備、融資相談、商工会・商工会議所での相談などに使える「事業の基礎データ」として整理します。</p>
-          <p class="web-consult-note"><b>現在、Web完結プランの決済・回答・3案表示機能は準備中です。</b>公開後は、申込みから結果確認までこのサイト内だけで完結します。有料サービスは3,300円のこのプランだけです。</p>
+          <p class="web-consult-note"><b>質問回答・3案自動生成は実装済みです。</b>決済は安全な外部チェックアウトと接続する設計です。決済事業者の本番URLを設定すると、決済完了後に質問画面が開きます。</p>
         </div>
       </div>
 
@@ -1578,7 +1664,9 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
 <script>
 // ===== 公開前設定 =====
-const BOOKING_URL = "";                                   // Googleフォーム／STORES予約／Calendly等
+const BOOKING_URL = "";                                   // 旧予約導線（現在は未使用）
+const PAID_CHECKOUT_URL = "";                              // Stripe等の3,300円チェックアウトURL
+const PAID_RETURN_PARAM = "paid";                          // 決済完了後の戻りURLにつけるパラメータ
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
 const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // シェア用URL（本番はここに固定URLを）
 // ====================
@@ -2522,6 +2610,161 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       out.textContent='結果の表示でエラーが起きました。ページを再読み込みして、もう一度お試しください。';
     }
   });
+})();
+
+// ---- 3,300円 Web完結プラン：決済ゲート → 質問 → 3案自動生成 ----
+(function(){
+  const $=id=>document.getElementById(id);
+  const engine=$('paidEngine'); if(!engine)return;
+  const payStage=$('payStage'),questionStage=$('questionStage'),resultStage=$('result3Stage');
+  const status=$('paidStatus'),payMsg=$('payMessage'),qMsg=$('questionMessage');
+  const fields=['peProduct','peCustomer','peNeed','peVoice','peRepeat','peNegative','pePurpose','peThreeYears','peHours','peIncome','peArea','peRange','peFamily','peFamilyRisk','peFunds','peFundsRisk','peAI','peCompetitor','peAlternative'];
+  const key='akinai_paid_draft_v1';
+  let lastPlans=[];
+
+  function vals(){
+    const o={}; fields.forEach(id=>o[id]=($(id)?.value||'').trim());
+    o.avoid=[...document.querySelectorAll('#peAvoid input:checked')].map(x=>x.value);
+    o.digital=[...document.querySelectorAll('#peDigital input:checked')].map(x=>x.value);
+    return o;
+  }
+  function restore(){
+    try{
+      const o=JSON.parse(localStorage.getItem(key)||'{}');
+      fields.forEach(id=>{if(o[id]!=null&&$(id))$(id).value=o[id]});
+      document.querySelectorAll('#peAvoid input').forEach(x=>x.checked=(o.avoid||[]).includes(x.value));
+      document.querySelectorAll('#peDigital input').forEach(x=>x.checked=(o.digital||[]).includes(x.value));
+    }catch(e){}
+  }
+  function save(){
+    localStorage.setItem(key,JSON.stringify(vals()));
+    if(qMsg)qMsg.textContent='この端末に途中保存しました。';
+  }
+  function setStage(name){
+    [payStage,questionStage,resultStage].forEach(x=>x&&x.classList.remove('on'));
+    if(name==='pay')payStage.classList.add('on');
+    if(name==='q')questionStage.classList.add('on');
+    if(name==='r')resultStage.classList.add('on');
+  }
+  function paidFlag(){
+    const u=new URL(location.href);
+    return u.searchParams.get(PAID_RETURN_PARAM)==='1' && sessionStorage.getItem('akinai_checkout_started')==='1';
+  }
+  if(paidFlag()){
+    status.textContent='決済後｜質問入力';
+    setStage('q'); restore();
+  }
+
+  $('paidCheckoutBtn')?.addEventListener('click',()=>{
+    if(!PAID_CHECKOUT_URL){
+      payMsg.textContent='決済会社の本番チェックアウトURLがまだ未設定です。URLを設定すると、このボタンから3,300円決済へ進めます。';
+      return;
+    }
+    sessionStorage.setItem('akinai_checkout_started','1');
+    const ret=location.origin+location.pathname+'?'+PAID_RETURN_PARAM+'=1#paidEngine';
+    const sep=PAID_CHECKOUT_URL.includes('?')?'&':'?';
+    location.href=PAID_CHECKOUT_URL+sep+'return_url='+encodeURIComponent(ret);
+  });
+  $('savePaidDraft')?.addEventListener('click',save);
+
+  function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+  function money(n){return Number(n||0).toLocaleString('ja-JP')+'円';}
+  function planHtml(p){
+    const rows=[
+      ['顧客',p.customer],['提供価値',p.value],['商品・サービス',p.product],['価格・売り方',p.offer],
+      ['地域・商圏',p.area],['顧客ニーズ・市場仮説',p.market],['競合',p.comp],['強み',p.strength],
+      ['時間',p.time],['必要資金',p.funds],['家族・生活条件',p.family],['月売上の目安',p.sales],
+      ['最初の3人',p.first3],['90日で確認すること',p.test]
+    ];
+    return '<article class="plan-card"><span class="ptag">'+esc(p.tag)+'</span><h5>'+esc(p.title)+'</h5><dl>'+
+      rows.map(r=>'<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>').join('')+
+      '</dl><p class="hypo">※市場・競合・売上は現時点の仮説。実行前に確認が必要です。</p></article>';
+  }
+  function makePlans(o){
+    const product=o.peProduct||'これまでの経験を生かした小さな商品・サービス';
+    const customer=o.peCustomer||'まず身近にいる、困りごとが具体的な3人';
+    const need=o.peNeed||'まだ言語化できていない困りごと';
+    const voice=o.peRepeat||o.peVoice||'周りから繰り返し評価されてきたこと';
+    const negative=o.peNegative||'未確認';
+    const purpose=o.pePurpose||'自分の仕事を小さく持つこと';
+    const years=o.peThreeYears||'無理なく継続できる状態';
+    const hours=Number(o.peHours||4), monthlyHours=Math.round(hours*4.3);
+    const target=Number(o.peIncome||0);
+    const pace=target?Math.ceil((target/monthlyHours)/100)*100:0;
+    const area=(o.peArea||'地域未定')+'／'+(o.peRange||'商圏未定');
+    const avoids=(o.avoid||[]).length?o.avoid.join('・'):'特になし';
+    const digital=(o.digital||[]).length?o.digital.join('・'):'スマホ中心を想定';
+    const comp=o.peCompetitor||'未確認。地域・オンラインで類似商品を3つ確認する';
+    const alt=o.peAlternative||'未確認。想定顧客3人に現在の代替手段を聞く';
+    const family=o.peFamily||'未確認';
+    const famRisk=o.peFamilyRisk||'大きな負担はまだ未確認';
+    const funds=o.peFunds||'まだ決めていない';
+    const fundsRisk=o.peFundsRisk||'未確認';
+    const ai=o.peAI||'未確認';
+    const baseSales=target?money(target)+'を仮目標（約'+monthlyHours+'時間/月なら売上ペース約'+money(pace)+'/時間）':'まず3件の有料テスト後に目標設定';
+    const market='「'+need+'」を感じる'+customer+'が対象。現在の代替は「'+alt+'」。まず3人への聞き取りで需要の強さを確認。';
+    const strength='顧客・周囲の声「'+voice+'」を価値として見せる。買わない理由・不満「'+negative+'」も改善材料にする。';
+    const common={
+      customer, area, market, comp, strength,
+      time:'週約'+hours+'時間（約'+monthlyHours+'時間/月）',
+      family:family+'。注意点：'+famRisk,
+      first3:'顔が浮かぶ3人に、同じ内容・同じ価格で提案し、買う／買わない理由を記録',
+      sales:baseSales
+    };
+    const lowFunds=/ほとんど|5万円未満/.test(funds);
+    const pA={
+      tag:'PLAN A｜暮らし優先',title:'固定費を持たず、小さく試す',
+      ...common, value:'「'+need+'」を、今ある時間と環境で小さく解決する。',
+      product:product+'を、最小単位の商品に絞る。',
+      offer:'予約制・受注後提供を基本にする。まず3人だけ有料で試し、在庫・店舗・大きな広告費は持たない。',
+      funds:lowFunds?funds+'。新規投資は極力せず、既存の道具・場所・無料ツールを優先。':funds+'のうち、最初は一部だけをテスト費に使う。',
+      test:'3人に有料提供し、再購入意向・実作業時間・原価を記録。家族や生活に無理が出ないかも確認。'
+    };
+    const pB={
+      tag:'PLAN B｜強み優先',title:'人から評価されていることを商品価値にする',
+      ...common, value:'「'+voice+'」を、顧客が買う理由として明確にする。',
+      product:product+'に、あなたならではの説明・選定・仕上げ・伴走などを加えて差をつくる。',
+      offer:'価格だけで比べられないよう、顧客の声・提供プロセス・成果物を見える化して販売。',
+      funds:funds+'。強みを伝える最低限の写真・資料・サンプルに優先配分。',
+      test:'3人に「なぜあなたから買うのか」を聞き、同じ言葉が2人以上から出るか確認。競合3者と価格・提供内容も比較。'
+    };
+    const pC={
+      tag:'PLAN C｜3年後優先',title:'小さく始めて、育てられる形にする',
+      ...common, value:purpose+'を実現し、3年後に「'+years+'」を目指す。',
+      product:product+'を入口商品にし、反応が良ければ継続・高単価・法人向け・オンライン等へ段階展開。',
+      offer:(digital.includes('生成AI')||/仕事で使っている|業務効率化/.test(ai))?'AI・デジタルを使って発信・資料作成・定型業務を省力化し、少人数でも回せる形にする。':'まず手作業で検証し、売れ方が見えた部分からデジタル化する。',
+      funds:funds+'。最初の90日は検証費に限定し、売上確認後に設備・広告等を判断。',
+      test:'90日で有料顧客数、リピート、粗利、必要時間を確認。続ける条件を満たせば次の販路・設備投資を検討。'
+    };
+    [pA,pB,pC].forEach(p=>p.avoid='避ける条件：'+avoids);
+    return [pA,pB,pC];
+  }
+  function plansText(plans){
+    return plans.map(p=>[
+      p.tag+'｜'+p.title,'顧客：'+p.customer,'提供価値：'+p.value,'商品・サービス：'+p.product,'価格・売り方：'+p.offer,
+      '地域・商圏：'+p.area,'顧客ニーズ・市場仮説：'+p.market,'競合：'+p.comp,'強み：'+p.strength,'時間：'+p.time,
+      '必要資金：'+p.funds,'家族・生活条件：'+p.family,'月売上の目安：'+p.sales,'最初の3人：'+p.first3,'90日で確認：'+p.test
+    ].join('\n')).join('\n\n----------------\n\n');
+  }
+  $('generate3Btn')?.addEventListener('click',()=>{
+    const o=vals();
+    if(!o.peProduct && !o.peVoice){
+      qMsg.textContent='「提供したい商品・サービス」か「人から言われたこと」のどちらかは入力してください。';
+      return;
+    }
+    save();
+    lastPlans=makePlans(o);
+    $('planResults').innerHTML=lastPlans.map(planHtml).join('');
+    status.textContent='3案できました';
+    setStage('r');
+    resultStage.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  $('redo3Plans')?.addEventListener('click',()=>{setStage('q');status.textContent='回答を見直し中';});
+  $('copy3Plans')?.addEventListener('click',async()=>{
+    if(!lastPlans.length)return;
+    try{await navigator.clipboard.writeText(plansText(lastPlans));$('copy3Plans').textContent='コピーしました';setTimeout(()=>$('copy3Plans').textContent='3案をまとめてコピー',1800);}catch(e){}
+  });
+  $('print3Plans')?.addEventListener('click',()=>window.print());
 })();
 
 // ---- 売りたいものがある人向け：商品チェック ----
