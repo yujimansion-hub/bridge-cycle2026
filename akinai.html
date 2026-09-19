@@ -2948,6 +2948,46 @@ h3{letter-spacing:-.02em!important}
   max-width:58ch!important;
 }
 
+
+.maker-failures{
+  margin:30px 0 28px;
+}
+.maker-failures-label{
+  display:block;
+  margin-bottom:14px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  color:var(--accent);
+}
+.maker-failure-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.maker-failure-grid article{
+  padding:18px 18px 16px;
+  border:1px solid #d7d1c7;
+  border-radius:16px;
+  background:#fff;
+}
+.maker-failure-grid b{
+  display:block;
+  margin-bottom:7px;
+  color:var(--deep);
+  font-size:15px;
+  line-height:1.6;
+}
+.maker-failure-grid p{
+  margin:0!important;
+  color:var(--muted)!important;
+  font-size:13.5px!important;
+  line-height:1.75!important;
+}
+@media(max-width:700px){
+  .maker-failure-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -3069,6 +3109,15 @@ h3{letter-spacing:-.02em!important}
           <small>私が、いちばん見ているところ</small>
           <b>ビジネスに向いているのは、<br>失敗してこなかった人ではない。</b>
           <p>失敗したときに、どう考え、どう立て直し、どう次へ進んできたか。私は、そこを見ます。</p>
+        </div>
+        <div class="maker-failures">
+          <span class="maker-failures-label">順調ではなかったから、見えることがあります。</span>
+          <div class="maker-failure-grid">
+            <article><b>研究の道に進んだけれど、研究者にはならなかった。</b><p>遠回りに見えましたが、物事を構造で見る力は、その後の経営支援にそのまま残りました。</p></article>
+            <article><b>仕事も暮らしも、何度か大きく選び直した。</b><p>一度決めたことに固執せず、条件を見直して組み替える癖がつきました。</p></article>
+            <article><b>投資や住まいの判断でも、迷ったことがある。</b><p>感覚だけで決めず、数字と条件を比べてから動くようになりました。</p></article>
+            <article><b>人間関係でも、うまくいかなかった時期がある。</b><p>だから「こうすべき」と急がず、その人の事情やタイミングを見るようになりました。</p></article>
+          </div>
         </div>
         <p>やめたこと、迷ったこと、うまくいかなかったこと、選び直したこと。そこには、その人なりの判断力や工夫があります。むしろ、<b>そこに誰かの役に立つ「商いの種」</b>が残っていることがあります。</p>
         <div class="maker-links">
