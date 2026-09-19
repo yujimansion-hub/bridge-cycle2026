@@ -2309,6 +2309,49 @@ h3{letter-spacing:-.02em!important}
 }
 /* ===== /CREATOR STORY ===== */
 
+
+/* ===== HUMAN TOUCH CREATOR ===== */
+.creator-story{
+  position:relative;
+  overflow:hidden;
+}
+.creator-story:before{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  right:-90px;top:-80px;
+  border-radius:50%;
+  background:rgba(143,85,75,.06);
+}
+.creator-lead{
+  font-family:var(--serif);
+  font-size:18px!important;
+  line-height:1.9!important;
+  color:#2e352f!important;
+}
+.creator-quote span{
+  display:block;
+  margin-top:5px;
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  font-size:12px;
+  color:#6b716b;
+}
+.creator-fact-group>small{
+  color:#6f514b!important;
+  font-size:11px!important;
+  letter-spacing:.06em!important;
+}
+.creator-fact-list span{
+  background:#fffaf7!important;
+}
+.creator-fact-group.work .creator-fact-list span{
+  background:#edf1ec!important;
+}
+@media(max-width:560px){
+  .creator-lead{font-size:16px!important}
+}
+/* ===== /HUMAN TOUCH CREATOR ===== */
+
 </style>
 </head>
 <body>
@@ -2422,35 +2465,36 @@ h3{letter-spacing:-.02em!important}
       <div class="creator-story-grid">
         <div class="creator-story-copy">
           <span class="creator-kicker">THE PERSON BEHIND THIS｜この診断をつくった人</span>
-          <h2>仕事も人生も、<br>一度で決めなくていいと思っています。</h2>
-          <p>結婚3回、マンション購入4回。婚活パーティーには10年参加し、3年間は運営側も経験。離婚後の調停も経験しました。マンション売買による収益は約1,500万円です。</p>
-          <p>一方、本業では20年以上、中小・小規模事業者の経営相談に携わり、創業、補助金、資金調達、行政・金融機関との連携、事業承継など、<b>「やりたい」を現実に動かせる形にする仕事</b>を続けてきました。</p>
-          <div class="creator-quote">失敗を避けることより、<br><b>失敗しても組み直せる始め方を。</b></div>
+          <h2>失敗しない人生は、<br>ちょっと無理でした。</h2>
+          <p class="creator-lead">結婚は3回。マンションは4回買いました。婚活パーティーには10年参加して、気づけば3年は運営側。離婚後の調停も経験しています。マンション売買による収益は約1,500万円。</p>
+          <p>まあまあ、いろいろありました。でもそのたびに、<b>「で、次どうする？」</b>を考えてきました。</p>
+          <p>本業では20年以上、中小・小規模事業者の経営相談に携わり、創業、補助金、資金調達、行政・金融機関との連携、事業承継など、<b>「やりたい」を現実に動かせる形にする仕事</b>を続けてきました。</p>
+          <div class="creator-quote">最初から正解を当てるより、<br><b>やってみて、違ったら組み直す。</b><br><span>この診断も、そんな考え方でつくっています。</span></div>
         </div>
 
         <div class="creator-facts" aria-label="経験と実績">
           <div class="creator-fact-group">
-            <small>LIFE</small>
+            <small>人生いろいろ</small>
             <div class="creator-fact-list">
-              <span><b>3回</b> 結婚</span>
-              <span><b>4回</b> マンション購入</span>
-              <span><b>約1,500万円</b> 売買収益</span>
-              <span><b>10年</b> 婚活パーティー参加</span>
-              <span><b>3年</b> 婚活パーティー運営</span>
+              <span>結婚 <b>3回</b></span>
+              <span>マンション購入 <b>4回</b></span>
+              <span>売買収益 <b>約1,500万円</b></span>
+              <span>婚活参加 <b>10年</b></span>
+              <span>婚活運営 <b>3年</b></span>
               <span>離婚後の<b>調停経験</b></span>
             </div>
           </div>
           <div class="creator-fact-group work">
-            <small>WORK</small>
+            <small>仕事はちゃんと</small>
             <div class="creator-fact-list">
-              <span><b>20年以上</b> 経営支援</span>
+              <span>経営支援 <b>20年以上</b></span>
               <span>創業・補助金</span>
               <span>資金調達</span>
               <span>行政・金融機関連携</span>
               <span>事業承継</span>
             </div>
           </div>
-          <p class="creator-note">成功談だけでなく、選び直した経験も、この診断の考え方に入っています。</p>
+          <p class="creator-note">きれいな経歴だけではありません。だからこそ、ひとつの正解より「今の自分に合う次の一手」を大事にしています。</p>
         </div>
       </div>
     </div>
