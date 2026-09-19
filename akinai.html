@@ -758,6 +758,12 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .report-bundle-head .tag{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px;letter-spacing:.07em}
 .report-bundle-head h4{font-family:var(--serif);font-size:clamp(24px,3.3vw,34px);font-weight:500;line-height:1.45;margin:4px 0 7px}
 .report-bundle-head p{margin:0;font-size:13px;color:#645a54;line-height:1.8}
+.report-hero-image{margin:18px auto 20px;max-width:960px}
+.report-hero-image a{display:block;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 12px 30px rgba(90,66,52,.08)}
+.report-hero-image img{display:block;width:100%;height:auto}
+.report-hero-image figcaption{margin-top:8px;text-align:center;font-size:10.5px;line-height:1.7;color:var(--muted)}
+@media(max-width:760px){.report-hero-image{margin:14px -6px 18px}.report-hero-image a{border-radius:14px}}
+
 .report-bundle-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch;margin:18px 0}
 .report-bundle-flow>div{position:relative;padding:13px 9px;border:1px solid var(--line);border-radius:15px;background:#fff;text-align:center}
 .report-bundle-flow>div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);z-index:2;color:var(--rose);font-size:16px}
@@ -1619,6 +1625,13 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <h4>3案の概要 ＋ それぞれの詳細レポート</h4>
             <p>まず3つの方向性を横並びで比較。そのあと、各案について文章と数字で具体化した詳細レポートを確認できます。</p>
           </div>
+
+          <figure class="report-hero-image">
+            <a href="assets/report-sample-3plans.webp" target="_blank" rel="noopener" aria-label="3案の概要と詳細レポートのサンプル画像を拡大して見る">
+              <img src="assets/report-sample-3plans.webp" alt="3,300円で届く3案の概要と詳細レポートの完成イメージ" loading="lazy" decoding="async">
+            </a>
+            <figcaption>画像をクリックすると大きく表示できます。詳細レポートは1案あたり約3ページ、3案で合計約9ページ相当が目安です。</figcaption>
+          </figure>
 
           <div class="report-bundle-flow">
             <div><span>FREE</span><b>無料診断</b></div>
