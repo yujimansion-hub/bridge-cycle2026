@@ -751,6 +751,31 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .plan3-grid b{display:block;font-size:13px;margin-bottom:4px}
 .plan3-grid p{margin:0;font-size:10.8px;line-height:1.6;color:#655b55}
 
+
+.report-showcase{margin:22px 0 26px;padding:24px;border-radius:24px;background:#fff;border:1px solid var(--line)}
+.report-showcase-head{max-width:760px;margin-bottom:16px}
+.report-showcase-head .tag{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.07em}
+.report-showcase-head h4{font-family:var(--serif);font-size:clamp(22px,3vw,30px);font-weight:500;line-height:1.5;margin:4px 0 8px}
+.report-showcase-head p{margin:0;font-size:13px;line-height:1.85;color:#625852}
+.report-sample-tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.report-sample{border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}
+.report-sample summary{cursor:pointer;list-style:none;padding:16px 18px;background:#fff;font-weight:700;font-size:13px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.report-sample summary::-webkit-details-marker{display:none}
+.report-sample summary:after{content:"＋";font-size:18px;color:var(--rose)}
+.report-sample[open] summary:after{content:"−"}
+.report-sample .sample-body{padding:18px;border-top:1px solid var(--line)}
+.report-sample .sample-kicker{font-size:10px;color:var(--rose);font-weight:700;letter-spacing:.08em}
+.report-sample h5{font-family:var(--serif);font-size:19px;line-height:1.55;margin:4px 0 12px}
+.report-sample p{font-size:12px;line-height:1.9;color:#514943;margin:0 0 12px}
+.report-sample dl{display:grid;grid-template-columns:110px 1fr;margin:12px 0;border-top:1px solid var(--line)}
+.report-sample dt,.report-sample dd{padding:7px 8px;border-bottom:1px solid var(--line);font-size:11px;line-height:1.55}
+.report-sample dt{font-weight:700;color:#6c5f58;background:#fff}
+.report-sample dd{margin:0}
+.report-next{margin-top:12px;padding:13px 14px;border-radius:14px;background:var(--rose-pale)}
+.report-next b{display:block;font-size:11px;color:var(--rose);margin-bottom:3px}
+.report-next p{margin:0;font-size:11.5px;line-height:1.7}
+.report-use{margin-top:16px;padding:15px 16px;border-left:3px solid var(--rose);background:#fffaf7;font-size:12px;line-height:1.8}
+@media(max-width:760px){.report-sample-tabs{grid-template-columns:1fr}.report-showcase{padding:19px 16px}.report-sample dl{grid-template-columns:94px 1fr}}
 .paid-engine{margin-top:22px;padding:22px;border:1px solid var(--line);border-radius:22px;background:#fff}
 .pe-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
 .pe-head h4{font-family:var(--serif);font-size:22px;margin:2px 0 5px;font-weight:500}
@@ -1518,11 +1543,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div class="lab">WEB完結プラン｜3,300円（税込）</div>
           <h3>面談なしで、「今の私にできる事業」を3案にする</h3>
           <ul>
-            <li>中村が設計した質問に、サイト上で順番に回答</li>
-            <li>顧客・地域・時間・家族・資金・デジタル環境まで確認</li>
-            <li>「やりたくないこと」も条件に入れて無理な案を除外</li>
-            <li>回答内容から、同じ項目で比較できる事業計画案を3つ提示</li>
-            <li>Zoom・電話・対面ヒアリングは不要。申込みから結果確認までWeb上で完結</li>
+            <li>あなたの条件に合わせた事業計画案を3つ提示</li>
+            <li>各案を、顧客・価格・競合・強み・地域・時間・資金まで文章で整理</li>
+            <li>「最初の3人」と「90日で確認すること」まで具体化</li>
+            <li>AI・補助金・融資・商工会相談に使える形で持ち帰れる</li>
+            <li>Zoom・電話・対面ヒアリングなし。申込みから結果確認までWeb上で完結</li>
           </ul>
         </div>
       </div>
@@ -1532,21 +1557,63 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div>
             <span class="tag">WEB COMPLETE｜申込みから3案提示まで、Webだけ</span>
             <h3>人と話さなくても、事業の可能性を3案まで整理できる。</h3>
-            <p>商工会で20年以上、事業者相談に携わってきた経験をもとに、<b>「何を、どの順番で聞けば、その人に合う事業の形が見えてくるか」</b>を質問にしました。決済 → 質問回答 → 3案確認までWeb上で完結する設計です。Zoom・電話・対面でのヒアリングはありません。</p>
+            <p>商工会で20年以上、事業者相談に携わってきた経験をもとに、回答内容を<b>「実際に試せる事業の形」</b>まで整理します。決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。</p>
           </div>
           <div class="web-consult-price">3,300<small>円（税込）</small></div>
         </div>
 
-        <div class="web-qgrid">
-          <div class="web-qcard"><span>01｜商品・サービス</span><b>何を提供したい？</b><p>商品・サービス、誰に、どんな困りごとを、どんな形で解決するか。まだ未定でも回答できます。</p></div>
-          <div class="web-qcard"><span>02｜顧客の声</span><b>お客さんは何と言っている？</b><p>喜ばれたこと、繰り返し言われたこと、不満、買わなかった人の反応まで見ます。</p></div>
-          <div class="web-qcard"><span>03｜目的</span><b>何を変えたくて始める？</b><p>収入、会社以外の仕事、将来の独立、経験活用など。3年後どうなっていたいかも確認します。</p></div>
-          <div class="web-qcard"><span>04｜やらないこと</span><b>これだけは、やりたくない？</b><p>営業、SNS、顔出し、在庫、夜・休日、固定費、人を雇うことなど、続けたくない条件を先に外します。</p></div>
-          <div class="web-qcard"><span>05｜時間</span><b>週に何時間使える？</b><p>理想ではなく、仕事・家事・育児などを含めた現実の可処分時間から考えます。</p></div>
-          <div class="web-qcard"><span>06｜地域</span><b>どのエリアでやる？</b><p>市町村、商圏、自宅周辺、オンライン、近隣市など。対面型ならお客さんが来る範囲も確認します。</p></div>
-          <div class="web-qcard"><span>07｜家族</span><b>家庭との両立はできそう？</b><p>家族は知っているか、応援・不安・反対、必要な協力、家庭への負担、安心して相談できるかを見ます。</p></div>
-          <div class="web-qcard"><span>08｜自己資金</span><b>無理なく使える金額は？</b><p>生活費とは別に使える範囲と、使った後の不安、家族との確認が必要かを見ます。</p></div>
-          <div class="web-qcard"><span>09｜デジタル環境</span><b>PC・ネット・AIは使える？</b><p>PC、スマホ、Zoom、Excel、Canva、SNS、生成AIなど。能力判定ではなく、実行方法を合わせるために聞きます。</p></div>
+        <div class="report-showcase">
+          <div class="report-showcase-head">
+            <span class="tag">REPORT SAMPLE｜実際に届く内容のイメージ</span>
+            <h4>質問ではなく、「答えたあとに何が手に入るか」を見てください。</h4>
+            <p>3,300円で届くのは、診断名だけではありません。3つの事業計画案に加えて、各案を文章で整理したレポートです。下記はサンプルです。</p>
+          </div>
+
+          <div class="report-sample-tabs">
+            <details class="report-sample" open>
+              <summary>サンプル①｜焼き菓子を仕事にしたい場合</summary>
+              <div class="sample-body">
+                <span class="sample-kicker">PLAN A｜今の暮らしを変えずに始める</span>
+                <h5>予約制・月2回の焼き菓子販売</h5>
+                <p>この案は、本業や家庭の時間を大きく変えずに、小さく販売を始めたい場合の事業計画です。想定する顧客は、近隣で働く30〜50代の女性。職場への差し入れや手土産を選ぶ時間がなく、「少量で、きちんとしていて、配りやすいものが欲しい」という需要を狙います。</p>
+                <p>商品は個包装の焼き菓子6個セット。価格は1,800円から試し、Instagramや知人への案内で予約を受け、月2回だけ受け渡します。店舗を持たず、作り置きも増やさないことで、固定費と在庫リスクを抑えます。</p>
+                <dl>
+                  <dt>顧客</dt><dd>大津市周辺の30〜50代の働く女性</dd>
+                  <dt>顧客ニーズ</dt><dd>手土産を選ぶ時間を減らしたい／職場で配りやすいものが欲しい</dd>
+                  <dt>競合</dt><dd>スーパー、洋菓子店、個人の焼き菓子ブランド</dd>
+                  <dt>強み</dt><dd>「甘すぎない」「個包装で配りやすい」「丁寧」という実際の反応</dd>
+                  <dt>使える時間</dt><dd>週5時間程度</dd>
+                  <dt>自己資金</dt><dd>5万円以内を想定。材料・包装・試作費を優先</dd>
+                  <dt>家族との両立</dt><dd>休日2時間程度の製造時間を確保できるか確認</dd>
+                  <dt>月売上目安</dt><dd>20セットなら36,000円。まずは売上より継続可能性を確認</dd>
+                </dl>
+                <div class="report-next"><b>最初の90日でやること</b><p>まず10セットだけ有料販売し、「なぜ買ったか」「また買いたいか」「1,800円をどう感じたか」を確認。実作業時間と原価も記録し、続ける・価格を変える・やめるを判断します。</p></div>
+              </div>
+            </details>
+
+            <details class="report-sample">
+              <summary>サンプル②｜自分の経験をサービスにしたい場合</summary>
+              <div class="sample-body">
+                <span class="sample-kicker">PLAN B｜強みを最も生かす</span>
+                <h5>「話を聞いて、次にやることを1枚にする」整理サービス</h5>
+                <p>この案は、人から相談されることが多く、「話すと頭が整理できる」「説明が分かりやすい」と言われてきた人向けです。単に相談に乗るのではなく、30分話を聞き、最後に「次にやること」をA4一枚に整理して渡すサービスにします。</p>
+                <p>顧客は、やりたいことはあるのに考えがまとまらない会社員、副業希望者、小規模事業者など。既存のコーチングや相談サービスとの差は、会話だけで終わらず、具体的な次の行動を成果物として残すことです。</p>
+                <dl>
+                  <dt>顧客</dt><dd>考えがまとまらず、次の行動が決められない人</dd>
+                  <dt>商品</dt><dd>30分ヒアリング＋A4一枚の整理シート</dd>
+                  <dt>価格</dt><dd>まず3,000〜5,000円で3人に有料テスト</dd>
+                  <dt>売り方</dt><dd>知人紹介、SNS、既存の人間関係から小さく開始</dd>
+                  <dt>競合</dt><dd>コーチング、キャリア相談、各種専門家相談</dd>
+                  <dt>強み</dt><dd>「話を整理する」「相手の言葉を要約する」「次の一歩まで具体化する」</dd>
+                  <dt>必要資金</dt><dd>ほぼ不要。Zoom、文書作成ツール、既存PCで開始可能</dd>
+                  <dt>デジタル活用</dt><dd>生成AIで議事メモ整理、Canvaで成果物テンプレート化</dd>
+                </dl>
+                <div class="report-next"><b>最初の90日でやること</b><p>過去に相談されたことのある3人へ有料で提供し、「何に価値を感じたか」「また使うなら何の場面か」を確認。3人中2人以上から同じ評価が出れば、そこをサービスの中心価値にします。</p></div>
+              </div>
+            </details>
+          </div>
+
+          <div class="report-use"><b>この文章レポートは、そのまま次に使えます。</b><br>ChatGPTなどのAIへの追加相談、補助金申請の前提整理、金融機関への融資相談、商工会・商工会議所や専門家への相談、家族への説明資料として活用できます。</div>
         </div>
 
         <div class="paid-engine" id="paidEngine">
@@ -1631,7 +1698,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
       <details class="method" id="about">
         <summary>診断のしくみを知りたい方へ</summary>
-        <div class="mi"><b>無料診断</b>では、占いを入口に「仕事の種」を見つけます。有料は<b>Web完結プラン 3,300円</b>の1つだけ。中村が設計した質問にサイト上で答え、顧客・地域・時間・家族・資金・デジタル環境・目的・制約まで重ねて、比較できる<b>事業計画案を3つ</b>出します。Zoom・電話・対面相談はありません。結果はAIでの追加検討、補助金申請の準備、融資、商工会・専門家への相談などに自分で活用できます。</div>
+        <div class="mi"><b>無料診断</b>では、占いを入口に「仕事の種」を見つけます。有料は<b>Web完結プラン 3,300円</b>の1つだけ。回答内容から、比較できる<b>事業計画案を3つ</b>と、それぞれを文章で整理したレポートを作ります。Zoom・電話・対面相談はありません。結果はAIでの追加検討、補助金申請の準備、融資、商工会・専門家への相談などに自分で活用できます。</div>
       </details>
     </div>
   </section>
