@@ -2154,6 +2154,39 @@ h3{letter-spacing:-.02em!important}
   .free-paid-clarity>div{padding:20px}
 }
 
+
+/* ===== EARNING MODES ===== */
+.earning-modes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+.earning-modes span{
+  display:inline-flex;
+  align-items:center;
+  min-height:32px;
+  padding:5px 11px;
+  border:1px solid #d7d4cd;
+  border-radius:999px;
+  background:#fff;
+  color:#4a504a;
+  font-size:11.5px;
+  font-weight:700;
+}
+@media(max-width:560px){
+  .earning-modes{
+    gap:6px;
+    margin-top:14px;
+  }
+  .earning-modes span{
+    min-height:30px;
+    padding:4px 9px;
+    font-size:10.5px;
+  }
+}
+/* ===== /EARNING MODES ===== */
+
 </style>
 </head>
 <body>
@@ -2176,7 +2209,7 @@ h3{letter-spacing:-.02em!important}
         <div class="eyebrow">自分らしい働き方を、ここから。 <span class="en">Akinai Finder</span></div>
         <h1>自分でも気づいていない<br><span>“商いの種”を見つける診断</span></h1>
 
-        <p class="hero-short">得意なことが、はっきりしていなくても大丈夫。<br><b>人から喜ばれたこと・任されてきたこと</b>から、あなたに合う仕事の方向性を探します。</p>
+        <p class="hero-short">得意なことが、はっきりしていなくても大丈夫。<br><b>人から喜ばれたこと・任されてきたこと</b>から、あなたに合う仕事の方向性を探します。<br>副業・自宅開業・オンライン・間借り・マルシェ出店・テナント開業など、<b>働き方を最初から一つに決めません。</b></p>
 
         <div class="hero-primary" id="start">
           <a class="btn" href="#fortune">無料で診断してみる →</a>
@@ -2185,7 +2218,15 @@ h3{letter-spacing:-.02em!important}
 
         <div class="hero-proof">
           <span>無料では<b>「向いていそうな方向」</b>まで。必要なら3,300円で<b>「どう始めるか」</b>まで具体化できます。</span>
+                <div class="earning-modes" aria-label="想定する稼ぎ方">
+          <span>副業</span>
+          <span>自宅開業</span>
+          <span>オンライン</span>
+          <span>間借り</span>
+          <span>マルシェ</span>
+          <span>テナント</span>
         </div>
+</div>
       </div>
 
       <div class="hero-map" aria-label="診断から事業プランまでのイメージ">
@@ -2229,7 +2270,7 @@ h3{letter-spacing:-.02em!important}
         <article>
           <i>02</i>
           <b>3つの事業案を受け取る</b>
-          <p>必要なら3,300円で、今の条件に合う事業プランを3案に整理します。</p>
+          <p>必要なら3,300円で、副業・自宅開業・オンライン・出店・テナントなども含め、今の条件に合う事業プランを3案に整理します。</p>
         </article>
         <article>
           <i>03</i>
@@ -2248,7 +2289,7 @@ h3{letter-spacing:-.02em!important}
         <div class="paid">
           <small>3,300円</small>
           <b>有料では<br><em>“始め方”まで。</em></b>
-          <p>顧客・価格・売り方・時間・資金まで、3つの事業案に具体化。</p>
+          <p>顧客・価格・売り方・時間・資金に加え、<b>どこで・どう稼ぐか</b>まで3つの事業案に具体化。</p>
         </div>
       </div>
     </div>
@@ -2309,7 +2350,7 @@ h3{letter-spacing:-.02em!important}
       <div class="fortune-simple">
         <div class="kicker">無料3分｜選んで診断</div>
         <h2>まずは9問。今の自分から、仕事の種を探します。</h2>
-        <p>「何が向いている？」を考え込むより、<b>人から感謝されたこと・任されたこと・相談したい相手</b>を選んでいきます。9問の回答から、自分では見えにくい仕事の種を探します。</p>
+        <p>「何が向いている？」を考え込むより、<b>人から感謝されたこと・任されたこと・相談したい相手</b>を選んでいきます。9問の回答から、自分では見えにくい仕事の種を探します。副業でも、自宅でも、オンラインでも、店舗でも構いません。</p>
         <p style="margin-top:8px"><a href="#idea-check" style="color:var(--rose);font-weight:700">売りたいものがある人はこちら →</a></p>
       </div>
 
@@ -2648,7 +2689,7 @@ h3{letter-spacing:-.02em!important}
       <div class="paid-head">
         <span class="step-pill">有料は、これ1つだけ</span>
         <h2>3,300円で、<br>事業計画案を3つ。</h2>
-        <p>人との面談はありません。無料診断の結果を引き継ぎ、質問に答えるだけで、申込みから結果確認までWeb上で完結します。</p>
+        <p>人との面談はありません。無料診断の結果を引き継ぎ、質問に答えるだけで、申込みから結果確認までWeb上で完結します。副業・自宅開業・オンライン・間借り・マルシェ・テナントなど、<b>複数の稼ぎ方を比較して3案にします。</b></p>
       </div>
 
       <div class="journey-4">
@@ -2677,8 +2718,8 @@ h3{letter-spacing:-.02em!important}
           <div class="lab">WEB完結プラン｜3,300円（税込）</div>
           <h3>面談なしで、「今の私にできる事業」を3案にする</h3>
           <ul>
-            <li>あなたの条件に合わせた事業計画案を3つ提示</li>
-            <li>各案を、顧客・価格・競合・強み・地域・時間・資金まで文章で整理</li>
+            <li>副業・自宅開業・オンライン・出店・テナントなども含め、あなたの条件に合う事業計画案を3つ提示</li>
+            <li>各案を、顧客・価格・競合・強み・地域・時間・資金・販売場所まで文章で整理</li>
             <li>「最初の3人」と「90日で確認すること」まで具体化</li>
             <li>AI・補助金・融資・商工会相談に使える形で持ち帰れる</li>
             <li>Zoom・電話・対面ヒアリングなし。申込みから結果確認までWeb上で完結</li>
@@ -2691,7 +2732,7 @@ h3{letter-spacing:-.02em!important}
           <div>
             <span class="tag">WEB COMPLETE｜申込みから3案提示まで、Webだけ</span>
             <h3>人と話さなくても、事業の可能性を3案まで整理できる。</h3>
-            <p>商工会で20年以上、事業者相談に携わってきた経験をもとに、回答内容を<b>「実際に試せる事業の形」</b>まで整理します。決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。</p>
+            <p>商工会で20年以上、事業者相談に携わってきた経験をもとに、回答内容を<b>「実際に試せる事業の形」</b>まで整理します。副業、自宅開業、オンライン販売、間借り、マルシェ、テナントなどを固定せず、今の時間・資金・家族・地域条件に合う始め方を比較します。決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。</p>
           </div>
           <div class="web-consult-price">3,300<small>円（税込）</small></div>
         </div>
