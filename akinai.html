@@ -4532,8 +4532,10 @@ function shareToThreads(){
   const $=s=>document.querySelector(s);
   const ENDPOINT='https://formsubmit.co/ajax/info@bridgecycleco.com';
   const fmt=v=>{if(!v)return '';const d=new Date(v);if(isNaN(d))return v;const w='日月火水木金土'[d.getDay()];return d.getMonth()+1+'月'+d.getDate()+'日（'+w+'）'+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');};
-  const d1=$('#bd1');if(d1){const t=new Date();t.setDate(t.getDate()+3);t.setHours(10,0,0,0);d1.min=t.toISOString().slice(0,16);$('#bd2').min=d1.min;}
-  $('#bsend').onclick=async function(){
+  const d1=$('#bd1');if(d1){const t=new Date();t.setDate(t.getDate()+3);t.setHours(10,0,0,0);d1.min=t.toISOString().slice(0,16);const d2=$('#bd2');if(d2)d2.min=d1.min;}
+  const bookingSend=$('#bsend');
+  if(!bookingSend)return;
+  bookingSend.onclick=async function(){
     const out=$('#bout'),btn=$('#bsend');
     const name=$('#bname').value.trim(),mail=$('#bmail').value.trim();
     const miss=[];
