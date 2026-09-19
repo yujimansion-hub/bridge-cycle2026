@@ -6,7 +6,7 @@
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
 <meta name="description" content="40代女性のための、占い×仕事づくり。生年月日から1〜60の「商い命数」と商い星を出し、1枚引きと5つの選択から、実際の経験に重なる仕事案3つまで出します。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
-<meta property="og:description" content="生年月日から1〜60の商い命数を占い、7つの実際の経験と照らし合わせて「仕事になる私」と商いプラン3案を見つけます。">
+<meta property="og:description" content="生年月日から商い命数を占い、5問をタップして仕事案3つへ。必要なら5,500円で具体化、16,500円で事業計画化し、商工会相談までつなげます。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#f4ece4">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -636,8 +636,26 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .paid-compare .pc li:first-child{border-top:0}
 .paid-compare .pc.paid li{border-color:rgba(255,255,255,.14)}
 .paid-compare .arr{display:grid;place-items:center;color:var(--rose);font-family:var(--serif);font-size:28px}
+.journey-4{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:8px;margin:22px 0 26px}
+.journey-4>div{min-height:112px;padding:14px 12px;border-radius:18px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.journey-4>div:nth-of-type(2),.journey-4>div:nth-of-type(3){background:var(--rose-pale);border-color:#e8c9c0}
+.journey-4 span{font-family:var(--en);font-style:italic;font-size:12px;color:var(--rose)}
+.journey-4 b{font-family:var(--serif);font-size:15px;font-weight:500;line-height:1.5;margin:2px 0}
+.journey-4 small{font-size:10.5px;color:var(--muted)}
+.journey-4 i{font-style:normal;color:var(--rose);font-size:18px}
+@media(max-width:760px){.journey-4{grid-template-columns:1fr}.journey-4 i{transform:rotate(90deg);text-align:center;line-height:1}.journey-4>div{min-height:auto}}
 .grant-option{margin:20px 0;padding:22px 22px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
 .grant-tag{font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px;letter-spacing:.05em}
+.grant-price{font-family:var(--serif);font-size:34px;line-height:1.2;color:var(--ink);margin:4px 0 6px}
+.grant-price small{font-family:"Zen Kaku Gothic New",sans-serif;font-size:12px;color:var(--muted);margin-left:5px}
+.grant-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.grant-grid>div{padding:13px 14px;border-radius:14px;background:#fffaf7;border:1px solid var(--line)}
+.grant-grid b{display:block;font-size:11.5px;color:var(--rose);margin-bottom:3px}
+.grant-grid p{font-size:11.5px!important;line-height:1.7!important}
+.grant-handoff{margin:14px 0 6px;padding:15px 16px;border-left:3px solid var(--rose);background:var(--rose-pale)}
+.grant-handoff b{display:block;font-family:var(--serif);font-size:16px;font-weight:500;margin-bottom:3px}
+.grant-handoff p{font-size:12px!important}
+@media(max-width:680px){.grant-grid{grid-template-columns:1fr}}
 .grant-option h3{font-family:var(--serif);font-size:20px;line-height:1.6;font-weight:500;margin:5px 0 8px}
 .grant-option p{margin:0;font-size:13px;line-height:1.8;color:#5f5650}
 .grant-flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0}
@@ -672,7 +690,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <a class="brand" href="#"><span class="brand-mark">W</span><span>わたしの商い診断</span></a>
     <nav class="nav-links">
       <a href="#start">無料診断</a>
-      <a href="#price">45分診断</a>
+      <a href="#price">有料プラン</a>
       <a class="btn booking-link" href="#booking">予約する</a>
     </nav>
   </div>
@@ -1166,9 +1184,19 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   <section id="price" class="paid-app">
     <div class="wrap paid-shell">
       <div class="paid-head">
-        <span class="step-pill">必要な人だけ｜45分</span>
-        <h2>無料で仮説まで。<br>45分で「誰に・何を・いくらで」を決める。</h2>
-        <p>無料診断の結果をそのまま使うので、最初から説明し直す必要はありません。</p>
+        <span class="step-pill">必要なところまで、段階的に</span>
+        <h2>占いで見つけた「仕事の種」を、<br>事業計画まで育てる。</h2>
+        <p>無料診断の結果をそのまま引き継ぎます。最初から説明し直す必要はありません。</p>
+      </div>
+
+      <div class="journey-4">
+        <div><span>FREE</span><b>占い → 仕事案</b><small>無料</small></div>
+        <i>→</i>
+        <div><span>STEP 1</span><b>売る形を具体化</b><small>5,500円</small></div>
+        <i>→</i>
+        <div><span>STEP 2</span><b>事業計画にする</b><small>16,500円</small></div>
+        <i>→</i>
+        <div><span>NEXT</span><b>商工会へ相談</b><small>資料を持って確認</small></div>
       </div>
 
       <div class="paid-compare">
@@ -1184,8 +1212,8 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         </div>
         <div class="arr">→</div>
         <div class="pc paid">
-          <div class="lab">45 MIN｜個別相談</div>
-          <h3>45分で、ここまで決めます</h3>
+          <div class="lab">STEP 1｜45分・5,500円（税込）</div>
+          <h3>まず「売る形」を決めます</h3>
           <ul>
             <li>売る商品を1つに絞る</li>
             <li>無理のない価格を決める</li>
@@ -1194,7 +1222,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <li>週に使う時間を決める</li>
             <li>必要なら、家族との時間・家計から出せる上限も確認する</li>
             <li>90日後の続ける／やめる基準を決める</li>
-            <li>希望者は、補助金準備モードへ進む</li>
+            <li>必要なら、次の「事業計画化パック」へ進む</li>
           </ul>
         </div>
       </div>
@@ -1202,28 +1230,47 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div class="paid-bottom">
         <div>
           <div class="price">5,500<small>円（税込）／45分</small></div>
-          <p>オンライン（Zoom）または大津市内で対面。1枚の「わたしの商いカルテ」にして持ち帰ります。</p>
-          <p>創業相談はBRIDGE CYCLE株式会社（認定経営革新等支援機関）が担当。占いで起業判断はしません。</p>
+          <p><b>STEP 1｜商い具体化</b>　オンライン（Zoom）または大津市内で対面。商品・顧客・価格・最初の5人・90日を「わたしの商いカルテ」にして持ち帰ります。</p>
+          <p>その後、事業計画まで進めたい方だけ、16,500円の「事業計画化パック」へ。創業相談はBRIDGE CYCLE株式会社（認定経営革新等支援機関）が担当。占いで起業判断はしません。</p>
         </div>
         <div>
-          <a class="btn booking-link" href="#booking">45分診断を予約する</a>
+          <a class="btn booking-link" href="#booking">まず5,500円の45分診断を予約する</a>
           <a class="btn ghost" id="lineAsk" href="#" target="_blank" rel="noopener" style="margin-top:8px">予約前にLINEで聞く</a>
         </div>
       </div>
 
       <div class="grant-option">
-        <div class="grant-tag">PAID OPTION｜補助金準備モード</div>
-        <h3>事業が見えてきたら、その内容を「持続化補助金の申請材料」に変える。</h3>
-        <p>追加の質問に順番に答えると、<b>自社の現状／顧客ニーズ／強み／今後の方針／補助事業の内容／期待効果／経費の考え方</b>まで整理できます。</p>
+        <div class="grant-tag">STEP 2｜事業計画化パック</div>
+        <div class="grant-price">16,500<small>円（税込）</small></div>
+        <h3>質問に答える → オンラインで補足 → 後日、事業計画のたたき台が届く。</h3>
+        <p>5,500円の具体化で方向が見えた人向けです。まずWeb上で、小規模事業者持続化補助金の経営計画・補助事業計画を意識した質問に順番に回答。その内容をもとにオンラインで不足部分を補足し、後日「商工会へ持って相談できる状態」の事業計画整理資料をお送りします。</p>
+
         <div class="grant-flow">
-          <span>商い診断</span><i>→</i><span>事業計画の材料整理</span><i>→</i><span>本人確認・修正</span><i>→</i><span>申請に使えるたたき台</span>
+          <span>① 事前質問に回答</span><i>→</i>
+          <span>② オンラインヒアリング</span><i>→</i>
+          <span>③ 事業計画を整理</span><i>→</i>
+          <span>④ 後日、たたき台を受取</span><i>→</i>
+          <span>⑤ 商工会へ相談</span>
         </div>
-        <p class="grant-law"><b>重要：</b>小規模事業者持続化補助金の申請書類そのものを有償で作成する業務は、改正行政書士法との関係を確認して運用します。BRIDGE CYCLE単独で「申請書作成代行」として提供せず、正式な申請書類の作成が必要な場合は行政書士連携で対応する設計にします。</p>
+
+        <div class="grant-grid">
+          <div><b>事前質問で整理すること</b><p>これまでの経験／売りたい商品・サービス／顧客／顧客ニーズ／自分の強み／今後の方針／販路開拓策／必要経費／売上目標</p></div>
+          <div><b>オンラインで補うこと</b><p>数字の根拠、競合との差、なぜ今取り組むのか、経費と取組のつながりなど、文章だけでは不足する部分を確認します。</p></div>
+          <div><b>後日お渡しするもの</b><p>事業計画整理シート＋商工会相談用メモ。小規模事業者持続化補助金を検討する場合に、何を確認すべきかも整理します。</p></div>
+          <div><b>その次</b><p>資料を持って、地域の商工会・商工会議所へ。「この計画で持続化補助金の活用が可能か」を相談してください。</p></div>
+        </div>
+
+        <div class="grant-handoff">
+          <b>商工会に行く前に、事業を言葉にする。</b>
+          <p>「補助金を使いたい」だけで相談に行くのではなく、誰に・何を・いくらで・何にお金を使うかまで整理してから相談できる状態をつくります。</p>
+        </div>
+
+        <p class="grant-law"><b>ご注意：</b>このパックは、事業の整理・事業計画の材料化を行うサービスです。補助金の採択を保証するものではなく、正式な補助金申請書類の作成代行ではありません。申請書類の作成が必要な場合は、制度・法令に沿って行政書士等との連携を含めてご案内します。</p>
       </div>
 
       <details class="method" id="about">
         <summary>診断のしくみを知りたい方へ</summary>
-        <div class="mi"><b>商い星</b>は、これまで人から頼られてきた行動から「価値の出し方」を見ます。すでに売りたいものがある場合は、<b>商品チェック</b>で「誰が買う・困りごと・代替への支払い・価格・続けやすさ・3人テスト」を確認します。<b>商いの季節</b>は、頼まれること・買い手の顔・有料経験・使える時間から「今やること」を見ます。最終判断は、お客さん・価格・時間・お金で決めます。</div>
+        <div class="mi"><b>無料診断</b>では、占いを入口に「仕事の種」と商いプラン3案を見つけます。<b>5,500円の45分診断</b>では、商品・顧客・価格・最初の5人・90日を具体化。さらに必要な方だけ、<b>16,500円の事業計画化パック</b>で、事前質問→オンライン補足→後日の事業計画整理資料まで進みます。持続化補助金を検討する場合は、その資料を持って地域の商工会・商工会議所へ相談する流れです。最終判断は、お客さん・価格・時間・お金・制度要件で決めます。</div>
       </details>
     </div>
   </section>
