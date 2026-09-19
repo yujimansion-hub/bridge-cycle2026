@@ -220,7 +220,10 @@ h2{font-size:clamp(26px,3.6vw,42px);line-height:1.45;font-weight:500;margin:10px
 .rbox p.lines{white-space:pre-line}
 .rcard .chara{font-family:var(--serif);font-size:clamp(24px,3.4vw,30px);line-height:1.35;font-weight:500;margin:8px 0 4px}
 .rcard .stars2{font-size:13px;color:var(--rose);margin-bottom:12px}
-.oracle-origin{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.oracle-optional{margin:14px 0 12px;border:1px solid var(--line);border-radius:16px;background:#fffaf7;padding:0 14px}
+.oracle-optional summary{cursor:pointer;padding:12px 0;font-size:12px;color:var(--muted);font-weight:700}
+.oracle-optional[open] summary{color:var(--rose)}
+.oracle-origin{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
 .oracle-origin>div{padding:12px 13px;border-radius:14px;background:#fff;border:1px solid #ead8d0}
 .oracle-origin span{display:block;font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.05em}
 .oracle-origin span i{font-style:normal;color:var(--rose)}
@@ -2751,7 +2754,7 @@ h3{letter-spacing:-.02em!important}
         <div class="res" id="res">
           <div class="rcard" id="rcard">
             <div class="lab">EXPERIENCE ASSET｜あなたの経験資産カルテ</div>
-            <p class="result-basis">9つの回答から、これまでの経験に繰り返し現れている「価値の出し方」を整理します。占い要素を使う場合も、経験診断とは分けて表示します。</p>
+            <p class="result-basis">9つの回答から、これまでの経験に繰り返し現れている「価値の出し方」を整理します。診断の本体は、あなた自身の回答と経験です。占い要素は任意の読み物として分けています。</p>
             <span class="result-section-label">まず見えた｜あなたの経験資産の型</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
@@ -2771,14 +2774,14 @@ h3{letter-spacing:-.02em!important}
               <p id="rRealityCalc"></p>
               <small class="rrnote">売上・収入を保証するものではありません。最初は「目標額」より、3人に有料で試して反応を見ることを優先します。</small>
             </div>
-            <div class="oracle-origin" id="rOracleOrigin" style="display:none">
+            <details class="oracle-optional" id="rOracleOptional"><summary>遊び要素として占いも見る（任意）</summary><div class="oracle-origin" id="rOracleOrigin" style="display:none">
               <div id="rBirthOrigin"><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
               <div><span>今日引いたカード</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
-            </div>
+            </div></details>
             <div class="oracle-letter">
-              <span class="olabel">A LETTER FROM YOUR AKINAI STAR｜商い星からの便り</span>
+              <span class="olabel">A LETTER FROM YOUR AKINAI STAR｜経験を別の角度から見るヒント</span>
               <p id="rOracleLetter"></p>
-              <small>未来を予言するものではなく、今までの経験を別の角度から見直すための言葉です。</small>
+              <small>診断結果とは別の、読み物としての補助要素です。未来予測や適性判定には使っていません。</small>
             </div>
             <div class="status-direction" id="rCompass">
               <span class="direction-label">今の自分に置いておきたい3つのこと</span>
@@ -2818,9 +2821,9 @@ h3{letter-spacing:-.02em!important}
           </div>
           <div class="share-now">
             <b>この言葉を、今の自分への小さなメモに。</b>
-            <p>カードにすると「商い星・大切にしたい価値観・今日のお守り言葉」が1枚になります。商いの季節まで見ると、今の現在地も加わります。</p>
+            <p>カードにすると「経験資産・大切にしたい価値観・今の自分への一言」が1枚になります。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
-            <div class="share"><button class="btn" type="button" id="btnSaveTop">お守りカルテを保存</button><button class="btn ghost" type="button" id="btnThreadsTop">Threadsに残す</button><button class="btn ghost" type="button" id="btnShareTop">その他でシェア</button></div>
+            <div class="share"><button class="btn" type="button" id="btnSaveTop">経験資産カルテを保存</button><button class="btn ghost" type="button" id="btnThreadsTop">Threadsに残す</button><button class="btn ghost" type="button" id="btnShareTop">その他でシェア</button></div>
           </div>
           <details class="result-alt">
             <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
@@ -2907,7 +2910,7 @@ h3{letter-spacing:-.02em!important}
               <ul class="aru" id="rAru"></ul>
               <div class="msg" id="rMsg"></div>
               <div class="share">
-                <button class="btn" type="button" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>お守りカルテを保存</button>
+                <button class="btn" type="button" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>経験資産カルテを保存</button>
                 <button class="btn ghost" type="button" id="btnShare">シェア</button>
                 <a class="btn ghost" id="btnLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
                 <button class="btn ghost" type="button" id="btnThreads">Threadsに投稿</button>
@@ -2927,7 +2930,7 @@ h3{letter-spacing:-.02em!important}
           <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
         </div>
       </div>
-      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※当たる・外れるの占いではありません。自分を知る入口です。実際に始めるかどうかは、お客さん・値段・お金の話を別に見て決めます。</p>
+      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※診断の中心は、あなた自身の経験と回答です。占い要素は任意の読み物です。実際に始めるかどうかは、お客さん・価格・使える時間・資金を別に確認して決めます。</p>
       <canvas class="hid" id="cv" width="1080" height="1920"></canvas>
     </div>
   </section>
@@ -3450,12 +3453,12 @@ function sharePayload(){
   const seasonLine=LAST_SEASON?("\n"+r.stars+"／"+LAST_SEASON):("\n"+r.stars);
   const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||""):AFFIRM[r.main];
   const text="『わたしの商い診断』をやってみました。\n\n"+
-    "私の商いカルテは【"+title+"】。"+seasonLine+"\n\n"+
+    "私の経験資産カルテは【"+title+"】。"+seasonLine+"\n\n"+
     "✦ 今の自分に残しておきたい言葉\n"+now+"\n\n"+
     "✦ 今日、手放していいこと\n"+LETGO[r.main]+"\n\n"+
     "これまで「普通」と思っていたことの中にも、仕事にできる経験があるのかもしれない。\n"+
     "今の自分のために、そっと残しておきます。\n\n"+
-    "#わたしの商い診断 #自分らしい働き方 #40代からの仕事づくり";
+    "#わたしの商い診断 #経験を仕事に #自分らしい働き方";
   return {url,text};
 }
 function refreshShareLinks(){
@@ -3792,7 +3795,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     document.getElementById('rChara').textContent=cname;
     BASE_RESULT=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:d.sym+(d2?'×'+d2.sym:'')};
-    document.getElementById('rStars').textContent='今回の商い星　'+d.sym+(d2?' × '+d2.sym:'')+(d2?'　主星・副星':'');
+    document.getElementById('rStars').textContent='参考タイプ　'+d.sym+(d2?' × '+d2.sym:'')+(d2?'　主星・副星':'');
     const art=document.getElementById('rArt');art.className='star-art '+w;art.innerHTML=STAR_ART[w];
     const artSub=document.getElementById('rArtSub');if(d2){artSub.style.display='flex';artSub.innerHTML='<span>主星 '+d.sym+'</span><i></i><span>副星 '+d2.sym+'</span>';}else{artSub.style.display='none';artSub.innerHTML='';}
     document.getElementById('rOracleLetter').textContent=ORACLE_LETTER[w];
@@ -3844,7 +3847,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       document.getElementById('rVoiceWorkText').textContent=VOICE_FACE_LABEL[wk];
       document.getElementById('rVoiceLifeText').textContent=VOICE_FACE_LABEL[lk];
       document.getElementById('rVoiceOtherText').textContent=VOICE_FACE_LABEL[ok];
-      document.getElementById('rVoiceCross').textContent=voiceMeta.cross||'仕事・暮らし・周りから見える姿を重ねて、今回の商い星を出しました。';
+      document.getElementById('rVoiceCross').textContent=voiceMeta.cross||'仕事・暮らし・周りから見える姿を重ねて、参考タイプを出しました。';
       document.getElementById('rVoiceWords').innerHTML=words.length?'回答から拾った言葉：'+words.map(x=>'<b>「'+x+'」</b>').join('　'):'これまでの経験と5問に繰り返し出てきた役割から読みました。';
       document.getElementById('rVoiceInsight').textContent=VOICE_REFRAME[w];
       voiceReveal.style.display='';
