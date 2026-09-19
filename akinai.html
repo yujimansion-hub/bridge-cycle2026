@@ -3508,6 +3508,62 @@ h3{letter-spacing:-.02em!important}
   .hero-photo img{min-height:360px}
 }
 
+
+/* ===== PAID FLOW COMPLETE 2026-09-19 ===== */
+.paid-path{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin:34px 0 38px;
+}
+.paid-path article{
+  padding:26px;
+  border:1px solid #ded7cf;
+  border-radius:22px;
+  background:#fff;
+}
+.paid-path article.deep{
+  background:#2f3931;
+  border-color:#2f3931;
+  color:#fff;
+}
+.paid-path small{
+  display:block;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  color:#8b5f54;
+  margin-bottom:10px;
+}
+.paid-path .deep small{color:#e2b5aa}
+.paid-path h3{margin:0 0 12px!important;font-size:24px!important}
+.paid-path .deep h3,.paid-path .deep p{color:#fff!important}
+.paid-path-price{display:flex;align-items:baseline;gap:6px;margin:8px 0 14px}
+.paid-path-price b{font-size:40px;line-height:1;color:#8b5f54}
+.paid-path .deep .paid-path-price b{color:#f0b9ad}
+.paid-path-price span{font-size:13px}
+.paid-path p{font-size:14px!important;line-height:1.8!important}
+.paid-path a{display:inline-block;margin-top:8px;font-weight:800;color:#8b5f54}
+.paid-path .deep a{color:#f6c7bc}
+.companion-fit{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:18px 0;
+}
+.companion-fit>div{
+  padding:18px;
+  border:1px solid #e0d7d0;
+  border-radius:14px;
+  background:#fff;
+}
+.companion-fit b{display:block;margin-bottom:7px;color:#2f3931}
+.companion-fit p{margin:0!important;font-size:13.5px!important;line-height:1.75!important;color:#6d706b!important}
+#payMessage a{font-weight:800;text-decoration:underline;color:#8b5f54}
+@media(max-width:760px){
+  .paid-path,.companion-fit{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -3547,7 +3603,7 @@ h3{letter-spacing:-.02em!important}
       </div>
 
       <div class="hero-photo" aria-label="ここなら少し話してもいいと思える、やさしい時間">
-        <img id="heroMoodImage" alt="あたたかな室内で、こちらの話をやさしく受け止めてくれそうな女性">
+        <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="あたたかな室内で、こちらの話をやさしく受け止めてくれそうな女性" loading="eager" decoding="async">
         <div class="hero-photo-caption">
           <small>YOU DON'T HAVE TO HAVE THE ANSWER YET.</small>
           <b>まだ答えがなくても、大丈夫です。</b>
@@ -4123,9 +4179,26 @@ h3{letter-spacing:-.02em!important}
   <section id="price" class="paid-app">
     <div class="wrap paid-shell">
       <div class="paid-head">
-        <span class="step-pill">有料は、これ1つだけ</span>
+        <span class="step-pill">必要になったところから、有料へ</span>
         <h2>あなた自身を、<br>仕事として表現する3つの形。</h2>
-        <p>人との面談はありません。無料診断の結果を引き継ぎ、質問に答えるだけで、申込みから結果確認までWeb上で完結します。<b>「始める・変える・今はやらない」を自分で考えるための、現実的な3案</b>に整理します。</p>
+        <p>まずは3,300円で、あなた自身を仕事として表現する<b>3つの事業案</b>をつくります。そこで十分なら、そこで終わり。もし「1つを実際に試したい」と思ったら、希望者だけ30日伴走へ進めます。</p>
+      </div>
+
+      <div class="paid-path">
+        <article>
+          <small>STEP 1｜自分で考えたい人</small>
+          <h3>3つの事業案</h3>
+          <div class="paid-path-price"><b>3,300</b><span>円（税込）</span></div>
+          <p>Webで質問に答え、今の暮らし・時間・お金を崩しにくい3案を比較します。</p>
+          <a href="#paidEngine">3案をつくる →</a>
+        </article>
+        <article class="deep">
+          <small>STEP 2｜実際に試したい人だけ</small>
+          <h3>わたしの商い 30日伴走</h3>
+          <div class="paid-path-price"><b>29,800</b><span>円（税込）</span></div>
+          <p>3案から1案を選び、最初の商品・価格・声かけを決め、最初の1回を売るところまで一緒に進みます。</p>
+          <a href="#companion">伴走を見る →</a>
+        </article>
       </div>
 
       <div class="journey-4">
@@ -4266,7 +4339,7 @@ h3{letter-spacing:-.02em!important}
           <p class="report-volume-note">※上記はサンプルです。実際のレポートは回答内容に応じて個別に作成されます。市場・競合・売上は仮説を含み、実行前の確認が必要です。</p>
         </div>
 
-        <div class="paid-engine" id="paidEngine">        <div class="paid-engine" id="paidEngine">
+        <div class="paid-engine" id="paidEngine">
           <div class="pe-head">
             <div>
               <span class="tag">START HERE｜3,300円 Web完結</span>
@@ -4278,10 +4351,10 @@ h3{letter-spacing:-.02em!important}
 
           <div class="pe-stage on" id="payStage">
             <div class="pe-actions">
-              <button class="btn" type="button" id="paidCheckoutBtn">3,300円を決済して始める</button>
+              <button class="btn" type="button" id="paidCheckoutBtn">3,300円で3案をつくる →</button>
             </div>
             <p class="pe-message" id="payMessage"></p>
-            <p class="web-consult-note">安全な決済確認のため、決済会社のチェックアウトから戻った後に質問画面が開く設計です。</p>
+            <p class="web-consult-note">オンライン決済が利用できる場合はそのまま決済へ進みます。未接続の場合は、LINEから申込みできます。</p>
           </div>
 
           <div class="pe-stage" id="questionStage">
@@ -4329,7 +4402,7 @@ h3{letter-spacing:-.02em!important}
           </div>
           <p class="web-consult-note">まず3案の概要を同じ形式で比較。その後、各案について顧客／提供価値／商品・サービス／価格／売り方／地域／競合／強み／必要時間／必要資金／家族への影響／月売上の目安／最初の3人／90日で確認することまで文章で整理します。詳細レポートはA4換算で1案約3ページ、3案合計約9ページ相当が目安です（回答内容により前後します）。</p>
           <p class="web-consult-note"><b>3案は「見るだけ」の結果ではありません。</b>選んだ案は、その後のAI相談・文章作成、補助金申請の準備、融資相談、商工会・商工会議所での相談などに使える「事業の基礎データ」として整理します。</p>
-          <p class="web-consult-note"><b>質問回答・3案自動生成は実装済みです。</b>決済は安全な外部チェックアウトと接続する設計です。決済事業者の本番URLを設定すると、決済完了後に質問画面が開きます。</p>
+          <p class="web-consult-note"><b>質問回答・3案生成の画面は実装済みです。</b>オンライン決済の接続前はLINEで申込みを受け付けます。決済URL接続後は、このページからそのまま購入できる設計です。</p>
         </div>
       </div>
 
@@ -4354,7 +4427,7 @@ h3{letter-spacing:-.02em!important}
   </section>
 
   
-  <section class="companion-offer" aria-label="30日伴走">
+  <section class="companion-offer" id="companion" aria-label="30日伴走">
     <div class="wrap companion-grid">
       <div class="companion-intro">
         <span class="companion-kicker">NEXT STEP｜3つの案を見た、その先へ</span>
@@ -4386,13 +4459,18 @@ h3{letter-spacing:-.02em!important}
           </ul>
         </div>
 
+        <div class="companion-fit">
+          <div><b>こんな人に向いています</b><p>3案のうち1つが気になる／ひとりだと先延ばししそう／最初の販売まで一緒に整理してほしい</p></div>
+          <div><b>ここまでは含みません</b><p>広告運用代行、制作物の大量作成、許認可申請代行、補助金申請書の代理作成などは別サービスです。</p></div>
+        </div>
+
         <div class="companion-message">
           <p>私は、あなたを無理に起業させたいわけではありません。</p>
           <p><b>一度、自分の名前で、自分の仕事を外に出してみる。</b><br>その経験が、次の決断に少しでも影響を与えれば十分だと思っています。</p>
         </div>
 
-        <a class="btn companion-btn" href="mailto:">30日伴走について相談する →</a>
-        <small class="companion-note">※申込み方法は準備中です。3,300円の3案を見た方を対象にしています。</small>
+        <a class="btn companion-btn" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">30日伴走についてLINEで相談する →</a>
+        <small class="companion-note">3,300円の3案を見た方が対象です。申込み前の相談だけでも大丈夫です。</small>
       </div>
     </div>
   </section>
@@ -4405,7 +4483,7 @@ h3{letter-spacing:-.02em!important}
         <details><summary>やりたいことが、まだ決まっていなくても？</summary><p>大丈夫。むしろその段階の人のための診断です。資格を探す前に、「頼まれてきたこと」を一緒に書き出します。</p></details>
         <details><summary>占いで「向いてない」と言われる？</summary><p>言いません。占いは自分を知る材料。始めるかどうかは、お客さん・値段・お金の話で決めます。</p></details>
         <details><summary>会社員・パートのままでも？</summary><p>そのままで。辞めずに試す方法（副業・週末・予約制）から一緒に考えます。</p></details>
-        <details><summary>あとで別の有料相談をすすめられない？</summary><p>ありません。有料サービスは3,300円のWeb完結プランだけです。Zoom・電話・対面相談への追加料金はありません。</p></details>
+        <details><summary>あとで高額な契約を勧められませんか？</summary><p>3,300円の3案だけで終えて大丈夫です。その先に進みたい方だけ、29,800円の30日伴走を選べます。自動継続や月額課金はありません。</p></details>
       </div>
     </div>
   </section>
@@ -5198,7 +5276,9 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
 
   $('paidCheckoutBtn')?.addEventListener('click',()=>{
     if(!PAID_CHECKOUT_URL){
-      payMsg.textContent='決済会社の本番チェックアウトURLがまだ未設定です。URLを設定すると、このボタンから3,300円決済へ進めます。';
+      const msg='「わたしの商い診断」3,300円の3案プランを申し込みたいです。';
+      payMsg.innerHTML='現在はLINE申込みで受付しています。<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINEを開く →</a>';
+      window.open(LINE_URL,'_blank','noopener,noreferrer');
       return;
     }
     sessionStorage.setItem('akinai_checkout_started','1');
@@ -5385,15 +5465,6 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
 })();
 </script>
 
-<script>
-fetch('assets/akinai-host-hero.b64')
-  .then(r=>r.ok?r.text():Promise.reject(new Error('hero image')))
-  .then(b=>{
-    const img=document.getElementById('heroMoodImage');
-    if(img) img.src='data:image/webp;base64,'+b.trim();
-  })
-  .catch(()=>{});
-</script>
 
 </body>
 </html>
