@@ -3087,6 +3087,26 @@ h3{letter-spacing:-.02em!important}
   .sns-thought-close{align-items:flex-start;flex-direction:column}
 }
 
+
+.decision-lines{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:20px 0 22px;
+}
+.decision-lines span{
+  display:inline-block;
+  padding:9px 12px;
+  border:1px solid #5b685e;
+  border-radius:999px;
+  color:#edf1ed;
+  font-size:12px;
+  line-height:1.3;
+}
+@media(max-width:560px){
+  .decision-lines{flex-direction:column;align-items:flex-start}
+}
+
 </style>
 </head>
 <body>
@@ -3565,15 +3585,20 @@ h3{letter-spacing:-.02em!important}
           </details>
           <div class="result-upgrade">
             <span class="result-upgrade-label">ここまでは、私からの見立てです。</span>
-            <h3>次は、「あなたならどう始めるか」まで<br>一緒に具体化できます。</h3>
-            <p>3,300円のWeb完結版では、無料診断の結果を引き継いで、<b>誰に・何を・いくらで売るか</b>を3つの事業案にします。</p>
+            <h3>3つの事業案が、<br>あなたの決断に少しでも影響を与えられたら。</h3>
+            <p>始める。少し変える。今はやらない。どれも立派な決断です。3,300円のWeb完結版では、無料診断の結果を引き継ぎ、<b>あなたの経験・使える時間・お金・地域・今の暮らし</b>をもとに、現実的に考えられる3つの事業案をつくります。</p>
             <div class="result-upgrade-grid">
               <div><small>FREE</small><b>経験・強み・方向性</b></div>
               <span>→</span>
               <div class="paid"><small>3,300円</small><b>顧客・商品・価格・90日</b></div>
             </div>
-            <a class="btn" href="#price">3つの事業計画案を見る →</a>
-            <p class="result-upgrade-note">面談なし・Web完結。起業や購入を勧めるものではなく、3案を比較して「やる・変える・やめる」を判断するための材料です。</p>
+            <div class="decision-lines">
+              <span>「これは違う」</span>
+              <span>「これは少しやってみたい」</span>
+              <span>「今はまだ動かない」</span>
+            </div>
+            <a class="btn" href="#price">3つの案を見て、考えてみる →</a>
+            <p class="result-upgrade-note">正解を決めるためではありません。3つを並べることで、自分の気持ちが少し見えれば十分だと思っています。</p>
           </div>
 
           <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
@@ -3680,8 +3705,8 @@ h3{letter-spacing:-.02em!important}
     <div class="wrap paid-shell">
       <div class="paid-head">
         <span class="step-pill">有料は、これ1つだけ</span>
-        <h2>3,300円で、<br>事業計画案を3つ。</h2>
-        <p>人との面談はありません。無料診断の結果を引き継ぎ、質問に答えるだけで、申込みから結果確認までWeb上で完結します。<b>最初から働き方を決めず、今ある時間・資金・場所・経験の範囲で試せる3案</b>に整理します。</p>
+        <h2>3つの案を見て、<br>自分で決める。</h2>
+        <p>人との面談はありません。無料診断の結果を引き継ぎ、質問に答えるだけで、申込みから結果確認までWeb上で完結します。<b>「始める・変える・今はやらない」を自分で考えるための、現実的な3案</b>に整理します。</p>
       </div>
 
       <div class="journey-4">
