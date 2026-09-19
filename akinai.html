@@ -762,6 +762,24 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .report-hero-image a{display:block;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 12px 30px rgba(90,66,52,.08)}
 .report-hero-image img{display:block;width:100%;height:auto}
 .report-hero-image figcaption{margin-top:8px;text-align:center;font-size:10.5px;line-height:1.7;color:var(--muted)}
+.report-inline-poster{margin:18px auto 22px;padding:22px;border:1px solid #eadbd2;border-radius:24px;background:linear-gradient(180deg,#fffdfb,#fff7f2);box-shadow:0 12px 30px rgba(90,66,52,.08)}
+.rip-title{text-align:center;font-family:var(--serif);line-height:1.25;margin-bottom:16px}
+.rip-title b{display:block;color:var(--rose);font-size:clamp(22px,3vw,34px);font-weight:500}
+.rip-title span{display:block;font-size:clamp(20px,2.8vw,31px);font-weight:500}
+.rip-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr;gap:6px;align-items:center;margin:0 0 18px}
+.rip-flow span{padding:9px 7px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center;font-size:10.5px;font-weight:700}
+.rip-flow i{font-style:normal;color:var(--rose)}
+.rip-sub{margin:14px 0 10px;padding:8px 12px;border-left:4px solid var(--rose);background:var(--rose-pale);font-family:var(--serif);font-size:16px}
+.rip-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rip-plans article{padding:14px;border:1px solid var(--line);border-radius:15px;background:#fff}
+.rip-plans article:nth-child(2){background:#f7faf4}.rip-plans article:nth-child(3){background:#fffaf4}
+.rip-plans b{display:block;color:var(--rose);font-family:var(--en);font-size:15px}.rip-plans strong{display:block;font-family:var(--serif);font-size:14px;margin:2px 0 6px}.rip-plans small{display:block;font-weight:700;font-size:11px;line-height:1.5}.rip-plans p{font-size:10px;line-height:1.65;color:#6b605a;margin:7px 0 0}
+.rip-detail{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.rip-pages{display:flex;justify-content:center;align-items:center;min-height:150px;position:relative}.rip-pages span{position:absolute;width:110px;height:145px;padding:14px 8px;border:1px solid #dfd1c7;border-radius:8px;background:#fff;box-shadow:0 8px 18px rgba(80,60,50,.08);font-size:10px;text-align:center}.rip-pages span:nth-child(1){transform:translateX(-18px) rotate(-5deg);z-index:3;color:var(--rose);font-weight:700}.rip-pages span:nth-child(2){transform:translateX(0) rotate(0);z-index:2}.rip-pages span:nth-child(3){transform:translateX(18px) rotate(5deg);z-index:1}
+.rip-copy>b{font-family:var(--serif);font-size:17px}.rip-copy p{font-size:11px;line-height:1.8;color:#5e554f}.rip-copy div{display:flex;gap:8px;flex-wrap:wrap}.rip-copy strong{padding:7px 10px;border-radius:999px;background:var(--rose-pale);color:var(--rose);font-size:11px}
+.rip-use{margin-top:12px;padding:10px;border-radius:12px;background:#eef3e9;text-align:center;font-size:10.5px;line-height:1.6}
+@media(max-width:760px){.rip-flow{grid-template-columns:1fr}.rip-flow i{transform:rotate(90deg);text-align:center}.rip-plans{grid-template-columns:1fr}.rip-detail{grid-template-columns:1fr}.rip-pages{min-height:165px}.report-inline-poster{padding:15px}}
+
 @media(max-width:760px){.report-hero-image{margin:14px -6px 18px}.report-hero-image a{border-radius:14px}}
 
 .report-bundle-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch;margin:18px 0}
@@ -1626,12 +1644,31 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <p>まず3つの方向性を横並びで比較。そのあと、各案について文章と数字で具体化した詳細レポートを確認できます。</p>
           </div>
 
-          <figure class="report-hero-image">
-            <a href="assets/report-sample-3plans.webp?v=442f6efe81ce" target="_blank" rel="noopener" aria-label="3案の概要と詳細レポートのサンプル画像を拡大して見る">
-              <img src="assets/report-sample-3plans.webp?v=442f6efe81ce" alt="3,300円で届く3案の概要と詳細レポートの完成イメージ" loading="lazy" decoding="async">
-            </a>
-            <figcaption>画像をクリックすると大きく表示できます。詳細レポートは1案あたり約3ページ、3案で合計約9ページ相当が目安です。</figcaption>
-          </figure>
+          
+          <div class="report-inline-poster" role="img" aria-label="3,300円で届く3案の概要と詳細レポートのサンプル">
+            <div class="rip-title"><b>3,300円で届く</b><span>3案の概要と詳細レポート</span></div>
+            <div class="rip-flow">
+              <span>無料診断</span><i>→</i><span>3,300円決済</span><i>→</i><span>Web回答</span><i>→</i><span>3案を比較</span><i>→</i><span>詳細レポート</span>
+            </div>
+            <div class="rip-sub">まず届くもの①｜3案の概要</div>
+            <div class="rip-plans">
+              <article><b>PLAN A</b><strong>暮らしを変えずに始める</strong><small>予約制・月2回の焼き菓子販売</small><p>本業・家庭と両立しながら、小さく有料テスト。</p></article>
+              <article><b>PLAN B</b><strong>強みを生かして始める</strong><small>手土産に特化した焼き菓子セット</small><p>「丁寧」「配りやすい」を買う理由に変える。</p></article>
+              <article><b>PLAN C</b><strong>3年後まで育てる</strong><small>予約販売 → マルシェ → 法人ギフト</small><p>売れ方を確認しながら段階的に広げる。</p></article>
+            </div>
+            <div class="rip-sub">次に届くもの②｜詳細レポートのサンプル</div>
+            <div class="rip-detail">
+              <div class="rip-pages">
+                <span>PLAN A<br>詳細レポート</span><span>2/3</span><span>3/3</span>
+              </div>
+              <div class="rip-copy">
+                <b>予約制・月2回の焼き菓子販売</b>
+                <p>顧客・顧客ニーズ・商品・価格・競合・強み・使える時間・自己資金・家族との両立・月売上目安・最初の90日まで文章で整理します。</p>
+                <div><strong>1案 約3ページ</strong><strong>3案で合計 約9ページ相当</strong></div>
+              </div>
+            </div>
+            <div class="rip-use">AIへの追加相談　｜　補助金の前提整理　｜　融資相談　｜　商工会・専門家への相談　｜　家族への説明</div>
+          </div>
 
           <div class="report-bundle-flow">
             <div><span>FREE</span><b>無料診断</b></div>
