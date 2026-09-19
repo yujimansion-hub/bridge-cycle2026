@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×仕事づくり。これまでの経験・売ってみたいもの・使える時間・目標収入を整理し、1枚引きと5問から具体的な仕事案3つと現実的な売上目安を出します。">
+<title>わたしの商い診断｜これまでの経験を「自分の仕事」に変える｜占い×創業相談</title>
+<meta name="description" content="会社を辞めなくても、自分の名前の仕事は持てる。これまでの経験を、占いを入口に小さな商いへ。仕事案・使える時間・目標収入を整理し、必要なら事業計画化と商工会相談までつなげます。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
 <meta property="og:description" content="これまでの経験と売ってみたいものから仕事の種を見つけ、1枚引き＋5問で仕事案3つへ。5,500円で具体化、16,500円で事業計画化し、商工会相談までつなげます。">
 <meta property="og:type" content="website">
@@ -81,6 +81,16 @@ h1,h2,h3.serif,.serif{font-family:var(--serif)}
 h1{font-size:clamp(32px,4.6vw,54px);line-height:1.36;letter-spacing:.02em;font-weight:500;margin:14px 0 14px}
 h1 span{display:inline;color:var(--rose);background:linear-gradient(transparent 62%,var(--rose-pale) 62%);padding:0 .06em}
 .lead{font-size:16px;color:#4a4e47;max-width:600px;margin:0 0 22px}
+.concept-purpose{max-width:620px;margin:18px 0 20px;padding:19px 20px 17px;border-left:3px solid var(--rose);border-radius:0 18px 18px 0;background:rgba(255,250,245,.72)}
+.concept-purpose .cp-label{display:block;font-family:var(--en);font-style:italic;font-size:13px;letter-spacing:.06em;color:var(--rose);margin-bottom:6px}
+.concept-purpose p{margin:6px 0;font-size:13.5px;line-height:1.85;color:#554b45}
+.concept-purpose .cp-main{font-family:var(--serif);font-size:17px;line-height:1.75;color:var(--ink);margin-bottom:9px}
+.concept-purpose .cp-main b{font-weight:500;color:var(--rose)}
+.concept-purpose p b{color:var(--ink)}
+.cp-flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px}
+.cp-flow span{padding:5px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:10.5px;font-weight:700;color:#6c5c55}
+.cp-flow i{font-style:normal;color:var(--rose);font-size:11px}
+@media(max-width:620px){.concept-purpose{padding:16px 16px 15px}.concept-purpose .cp-main{font-size:16px}.cp-flow{gap:5px}.cp-flow span{font-size:10px;padding:4px 8px}}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .hero-actions .btn.main{min-height:58px;padding:0 30px;font-size:16px;box-shadow:0 12px 30px rgba(196,127,116,.32)}
 .micro{font-size:12px;color:var(--muted);margin-top:14px}
@@ -746,10 +756,21 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
-        <h1>これまでを少し振り返ると、<br><span>「仕事になる私」が見えてくる。</span></h1>
-        <p class="lead">まず、<b>これまでの経験</b>と<b>売ってみたいもの</b>を軽く答えます。次に商いカードを1枚引き、5問をタップ。<br>あなたがすでに持っているものから、具体的な仕事案3つと<b>「週何時間で、月いくらを目指すか」</b>まで出します。生年月日の商い命数は任意です。</p>
+        <h1>会社を辞めたいわけじゃない。<br><span>でも、この先10年、わたしはどう働く？</span></h1>
+
+        <div class="concept-purpose">
+          <span class="cp-label">WHY THIS EXISTS｜この診断の目的</span>
+          <p class="cp-main">新しく何かになるためではなく、<br><b>これまでやってきたことに「仕事の名前」をつけるため。</b></p>
+          <p>家事、育児、仕事、地域活動。自分では「普通」と思ってきた経験の中にも、誰かがお金を払う価値が眠っているかもしれません。</p>
+          <p><b>「今の暮らしを守る」ことと、「自分の仕事を持つ」ことは、どちらかを選ばなくていい。</b>占いを入口に、あなたの経験を小さな商いに変え、必要なら事業計画に整え、商工会へ相談できるところまでつなげます。</p>
+          <div class="cp-flow">
+            <span>自分を知る</span><i>→</i><span>仕事案にする</span><i>→</i><span>小さく試す</span><i>→</i><span>事業計画にする</span>
+          </div>
+        </div>
+
+        <p class="lead"><b>まずは無料。</b>これまでの経験と売ってみたいものを軽く答え、商いカードを1枚引き、5問をタップ。あなたがすでに持っているものから、具体的な仕事案3つと<b>「週何時間で、月いくらを目指すか」</b>まで出します。生年月日の商い命数は任意です。</p>
         <div class="route-choose" id="start">
-          <p class="rq">いちばん気軽な方法からどうぞ。</p>
+          <p class="rq">「私にも何かできるかも」を、仕事の形にしてみるところから。</p>
           <a class="voice-route" href="#voice-diagnosis">
             <div class="vr-top"><span class="mic-dot">✦</span><div><b>経験 → 売りたいもの → 1枚引き → 5問</b><span>長文入力なし。生年月日は入れなくても結果まで進めます。</span></div></div>
             <em>→ もう持っている経験から、仕事案3つを見つける</em>
