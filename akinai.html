@@ -2352,6 +2352,42 @@ h3{letter-spacing:-.02em!important}
 }
 /* ===== /HUMAN TOUCH CREATOR ===== */
 
+
+/* ===== CREATOR INSIGHT ===== */
+.creator-insight{
+  margin:26px 0;
+  padding:22px 24px;
+  border-radius:16px;
+  background:var(--deep);
+  color:#fff;
+}
+.creator-insight small{
+  display:block;
+  margin-bottom:8px;
+  color:#e7b0a6;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+.creator-insight b{
+  display:block;
+  color:#fff!important;
+  font-family:var(--serif);
+  font-size:clamp(21px,2.5vw,28px);
+  line-height:1.6;
+  font-weight:500;
+}
+@media(max-width:560px){
+  .creator-insight{
+    margin:22px 0;
+    padding:18px 16px;
+  }
+  .creator-insight b{
+    font-size:20px;
+  }
+}
+/* ===== /CREATOR INSIGHT ===== */
+
 </style>
 </head>
 <body>
@@ -2465,16 +2501,43 @@ h3{letter-spacing:-.02em!important}
       <div class="creator-story-grid">
         <div class="creator-story-copy">
           <span class="creator-kicker">THE PERSON BEHIND THIS｜この診断をつくった人</span>
-          <h2>失敗しない人生は、<br>ちょっと無理でした。</h2>
-          <p class="creator-lead">結婚は3回。マンションは4回買いました。婚活パーティーには10年参加して、気づけば3年は運営側。離婚後の調停も経験しています。マンション売買による収益は約1,500万円。</p>
-          <p>まあまあ、いろいろありました。でもそのたびに、<b>「で、次どうする？」</b>を考えてきました。</p>
-          <p>本業では20年以上、中小・小規模事業者の経営相談に携わり、創業、補助金、資金調達、行政・金融機関との連携、事業承継など、<b>「やりたい」を現実に動かせる形にする仕事</b>を続けてきました。</p>
-          <div class="creator-quote">最初から正解を当てるより、<br><b>やってみて、違ったら組み直す。</b><br><span>この診断も、そんな考え方でつくっています。</span></div>
+          <h2>自分のこと、意外と自分が<br>いちばん分かっていませんでした。</h2>
+
+          <p class="creator-lead">大学院の博士後期課程まで進み、イタリアのファッション産業を研究。その後は商工会に約20年在籍し、経営指導員として多くの事業者と向き合い、管理職まで経験しました。</p>
+
+          <p>私生活も、わりと一直線ではありません。結婚は3回。マンションは4回購入。婚活パーティーには10年参加して、3年間は運営側。離婚後の調停も経験しました。マンション売買による収益は約1,500万円です。</p>
+
+          <p>研究も、経営相談も、投資も、結婚も婚活も。かなり違う世界を歩いてきましたが、その中で同じことに何度も気づきました。</p>
+
+          <div class="creator-insight">
+            <small>気づいたこと</small>
+            <b>自分の真の姿も、真の思いも、<br>自分だけではなかなか見つけられない。</b>
+          </div>
+
+          <p>商工会で相談を受けていてもそうでした。本人が「こんなの普通です」と話すことが、外から見ると立派な商売の種だったりする。逆に、「これをやりたい」と思っていても、話していくうちに本当に大切にしたいことが別のところから出てくることもあります。</p>
+
+          <p>私自身も同じでした。まあまあ遠回りしました。でも、そのたびに誰かとの対話や、外からの視点で、<b>「あ、自分は本当はこっちだったのか」</b>と気づいてきました。</p>
+
+          <div class="creator-quote">だから、この診断は答えを当てるためではありません。<br><b>自分では見えていない自分を、少し外から見てみる。</b><br><span>そこから、今の自分に合う商いを考えるためにつくりました。</span></div>
         </div>
 
         <div class="creator-facts" aria-label="経験と実績">
           <div class="creator-fact-group">
-            <small>人生いろいろ</small>
+            <small>まずは、研究と仕事</small>
+            <div class="creator-fact-list">
+              <span>大学院 <b>博士後期課程</b></span>
+              <span>イタリアの<b>ファッション産業研究</b></span>
+              <span>商工会 <b>約20年</b></span>
+              <span><b>管理職</b>を経験</span>
+              <span>創業・補助金</span>
+              <span>資金調達</span>
+              <span>行政・金融機関連携</span>
+              <span>事業承継</span>
+            </div>
+          </div>
+
+          <div class="creator-fact-group">
+            <small>人生も、いろいろ</small>
             <div class="creator-fact-list">
               <span>結婚 <b>3回</b></span>
               <span>マンション購入 <b>4回</b></span>
@@ -2484,17 +2547,8 @@ h3{letter-spacing:-.02em!important}
               <span>離婚後の<b>調停経験</b></span>
             </div>
           </div>
-          <div class="creator-fact-group work">
-            <small>仕事はちゃんと</small>
-            <div class="creator-fact-list">
-              <span>経営支援 <b>20年以上</b></span>
-              <span>創業・補助金</span>
-              <span>資金調達</span>
-              <span>行政・金融機関連携</span>
-              <span>事業承継</span>
-            </div>
-          </div>
-          <p class="creator-note">きれいな経歴だけではありません。だからこそ、ひとつの正解より「今の自分に合う次の一手」を大事にしています。</p>
+
+          <p class="creator-note">きれいな成功談だけではありません。研究して、支援して、迷って、失敗して、選び直してきました。だから、ひとつの正解を押しつける診断にはしていません。</p>
         </div>
       </div>
     </div>
