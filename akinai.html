@@ -2891,6 +2891,66 @@ h3{letter-spacing:-.02em!important}
   .maker-quote b{font-size:25px}
 }
 
+
+/* ===== GUIDED CONVERSATION 2026-09-19 ===== */
+.guide-chip{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:24px 0 6px;
+  max-width:650px;
+}
+.guide-avatar{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:58px;height:58px;
+  border-radius:50%;
+  background:var(--deep);
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.05em;
+}
+.guide-chip div{display:flex;flex-direction:column;gap:3px}
+.guide-chip b{font-size:15px;color:var(--deep)}
+.guide-chip small{font-size:12px;color:var(--muted);line-height:1.5}
+#fortune .fortune-simple{
+  position:relative;
+}
+#fortune .fortune-simple:before{
+  content:"私から質問します";
+  display:inline-block;
+  margin-bottom:10px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#eef1eb;
+  color:#58655a;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+#fortune .scr h3{
+  font-family:var(--serif);
+  font-size:clamp(24px,3vw,32px)!important;
+  line-height:1.55!important;
+}
+#fortune .scr .sub{
+  font-size:13px!important;
+  color:#7a756f!important;
+  margin-top:8px!important;
+}
+#res .rcard>.lab{
+  text-transform:none!important;
+  letter-spacing:.04em!important;
+}
+@media(max-width:560px){
+  .guide-chip{align-items:flex-start}
+  .guide-avatar{width:50px;height:50px;font-size:10px}
+  .guide-chip b{font-size:14px}
+}
+
 </style>
 </head>
 <body>
@@ -2912,12 +2972,17 @@ h3{letter-spacing:-.02em!important}
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <div class="eyebrow">わたしの商い診断 <span class="en">AKINAI FINDER</span></div>
-        <h1>私にも、<br><span>何かできるかも。</span></h1>
-        <p class="hero-short">仕事、子育て、趣味、家族のこと、遠回りした経験。<b>あなたが「普通」と思ってきたこと</b>の中から、これからの小さな仕事の種を見つけます。</p>
-        <p class="hero-maker-line">まずは、<b>自分の中に何があるか</b>を見てみるところから。</p>
+        <h1>「私にも、何かできるかも。」<br><span>そう思ったら、少しだけ話を聞かせてください。</span></h1>
+        <p class="hero-short">20年以上、いろいろな人の商売相談をしてきました。私が見るのは、資格や肩書きだけではありません。<b>何を頼まれてきたか、どこで遠回りしたか、何を「普通」と思っているか。</b>そこに仕事の種があることがあります。</p>
+        <p class="hero-maker-line">9問、<b>一緒に見ていきます。</b></p>
+
+        <div class="guide-chip">
+          <span class="guide-avatar">案内役</span>
+          <div><b>20年以上、経営相談の現場にいました。</b><small>答えを決めるのではなく、一緒に見つけます。</small></div>
+        </div>
 
         <div class="hero-primary" id="start">
-          <a class="btn" href="#fortune">3分で、自分の中を見てみる →</a>
+          <a class="btn" href="#fortune">9問、私と一緒に見てみる →</a>
           <small>9問・登録なし・無料</small>
         </div>
 
@@ -2984,8 +3049,8 @@ h3{letter-spacing:-.02em!important}
 
       <div class="top-cta">
         <span>READY?</span>
-        <h2>「私にも何かあるかも」と思ったら、<br>9問だけ答えてみてください。</h2>
-        <a class="btn" href="#fortune">自分の中を見てみる →</a>
+        <h2>「少し話してみようかな」と思ったら、<br>9問だけ付き合ってください。</h2>
+        <a class="btn" href="#fortune">9問、話してみる →</a>
       </div>
     </div>
   </section>
@@ -3131,70 +3196,70 @@ h3{letter-spacing:-.02em!important}
   <section id="fortune" class="fortune-section">
     <div class="wrap">
       <div class="fortune-simple">
-        <div class="kicker">無料3分｜選んで診断</div>
-        <h2>9問で、これまでの人生を「商いの材料」として見直します。</h2>
-        <p>得意なことを当てるテストではありません。<b>人から言われたこと、遠回りした経験、繰り返し任されてきたこと、決断するときの癖</b>をたどりながら、自分では普通だと思っていた経験を仕事の種として見直します。</p>
+        <div class="kicker">無料3分｜私から9つだけ質問します</div>
+        <h2>正解を当てる診断ではありません。<br>あなたの話を、少し聞かせてください。</h2>
+        <p>人から言われたこと、遠回りした経験、繰り返し任されてきたこと、決断するときの癖。<b>私ならどこを見るか</b>という順番で、9つ質問します。</p>
         <p style="margin-top:10px;font-size:14px;color:var(--muted)">売りたいものがすでに決まっている人も、まず9問で「なぜ自分がそれを売るのか」を確認できます。</p>
       </div>
 
       <div class="qz" id="qz">
         <div class="prog"><b id="pNow">1</b><span>/ 9</span><div class="bar"><i id="pBar"></i></div><span id="pTxt">自分では普通だと思っていること</span></div>
 
-        <div class="scr on" data-i="0"><h3>人から「それ、普通にできることじゃないよ」と言われた経験に、一番近いのは？</h3><p class="sub">Q1 / 9｜自分では気づきにくい価値</p><div class="ch">
+        <div class="scr on" data-i="0"><h3>人から「それ、普通にできることじゃないよ」と言われた経験に、一番近いのは？</h3><p class="sub">Q1 / 9｜まず、ひとつ思い出してみてください。</p><div class="ch">
           <button type="button" data-v="light"><span class="k">A</span>話を聞くと、相手の考えが整理される</button>
           <button type="button" data-v="hand"><span class="k">B</span>作る・直す・仕上げるのが妙にうまい</button>
           <button type="button" data-v="garden"><span class="k">C</span>気づけば長く人を支えている</button>
           <button type="button" data-v="bridge"><span class="k">D</span>人・店・情報をよく紹介している</button></div></div>
 
-        <div class="scr" data-i="1"><h3>あなたの経験の中で、誰かがお金を払ってでも頼みそうなのは？</h3><p class="sub">Q2 / 9｜経験を「価値」に置き換える</p><div class="ch">
+        <div class="scr" data-i="1"><h3>あなたの経験の中で、誰かがお金を払ってでも頼みそうなのは？</h3><p class="sub">Q2 / 9｜次は、「頼まれたら何ができるか」です。</p><div class="ch">
           <button type="button" data-v="light"><span class="k">A</span>相談にのる・教える・一緒に考える</button>
           <button type="button" data-v="hand"><span class="k">B</span>商品・料理・資料などを形にする</button>
           <button type="button" data-v="garden"><span class="k">C</span>定期的に支える・付き合う</button>
           <button type="button" data-v="bridge"><span class="k">D</span>必要な人や情報をつなぐ</button></div></div>
 
-        <div class="scr" data-i="2"><h3>「やめた・離れた・やり直した」経験から、一番身についたものは？</h3><p class="sub">Q3 / 9｜遠回りも、経験資産にする</p><div class="ch">
+        <div class="scr" data-i="2"><h3>「やめた・離れた・やり直した」経験から、一番身についたものは？</h3><p class="sub">Q3 / 9｜遠回りした経験も、私は見ます。</p><div class="ch">
           <button type="button" data-v="boat"><span class="k">A</span>まず小さくやってみる力</button>
           <button type="button" data-v="tower"><span class="k">B</span>条件や数字を冷静に見る力</button>
           <button type="button" data-v="bridge"><span class="k">C</span>一人で抱えず、詳しい人につなぐ力</button>
           <button type="button" data-v="light"><span class="k">D</span>経験を言葉にして整理する力</button></div></div>
 
-        <div class="scr" data-i="3"><h3>仕事や暮らしが変わっても、なぜか繰り返し任されてきたことは？</h3><p class="sub">Q4 / 9｜肩書きが変わっても残る強み</p><div class="ch">
+        <div class="scr" data-i="3"><h3>仕事や暮らしが変わっても、なぜか繰り返し任されてきたことは？</h3><p class="sub">Q4 / 9｜ここまでで、少し輪郭が見えてきました。</p><div class="ch">
           <button type="button" data-v="light"><span class="k">A</span>人の話を聞いて、考えを整理する</button>
           <button type="button" data-v="hand"><span class="k">B</span>資料・料理・ものを、きちんと形にする</button>
           <button type="button" data-v="tower"><span class="k">C</span>予定・数字・書類を、整える</button>
           <button type="button" data-v="garden"><span class="k">D</span>新人・お客さん・仲間を、続けて支える</button></div></div>
 
-        <div class="scr" data-i="4"><h3>大きな買い物や決断をするとき、あなたがついやっていることは？</h3><p class="sub">Q5 / 9｜判断のクセにも、仕事の種がある</p><div class="ch">
+        <div class="scr" data-i="4"><h3>大きな買い物や決断をするとき、あなたがついやっていることは？</h3><p class="sub">Q5 / 9｜普段の決め方にも、その人らしさが出ます。</p><div class="ch">
           <button type="button" data-v="light"><span class="k">A</span>人に説明しながら、自分の考えを固める</button>
           <button type="button" data-v="boat"><span class="k">B</span>まず現地へ行く・試す・確かめる</button>
           <button type="button" data-v="tower"><span class="k">C</span>価格・条件・リスクを比較表にする</button>
           <button type="button" data-v="bridge"><span class="k">D</span>経験者や詳しい人に話を聞く</button></div></div>
 
-        <div class="scr" data-i="5"><h3>あなたの「遠回りした経験」を誰かに渡すなら、どんな形が一番しっくりくる？</h3><p class="sub">Q6 / 9｜失敗や寄り道を、誰かの近道にする</p><div class="ch">
+        <div class="scr" data-i="5"><h3>あなたの「遠回りした経験」を誰かに渡すなら、どんな形が一番しっくりくる？</h3><p class="sub">Q6 / 9｜その経験を、誰かに渡すならどうしますか。</p><div class="ch">
           <button type="button" data-v="hand"><span class="k">A</span>使えるもの・見本・テンプレートにする</button>
           <button type="button" data-v="tower"><span class="k">B</span>手順や注意点を整理して渡す</button>
           <button type="button" data-v="boat"><span class="k">C</span>一緒に一度やってみる</button>
           <button type="button" data-v="garden"><span class="k">D</span>しばらく伴走して、続くように支える</button></div></div>
 
-        <div class="scr" data-i="6"><h3>自分の経験がお金になるとしたら、どの受け取り方が一番自然？</h3><p class="sub">Q7 / 9｜「売る」より、しっくりくる稼ぎ方</p><div class="ch">
+        <div class="scr" data-i="6"><h3>自分の経験がお金になるとしたら、どの受け取り方が一番自然？</h3><p class="sub">Q7 / 9｜お金の受け取り方にも、相性があります。</p><div class="ch">
           <button type="button" data-v="hand"><span class="k">A</span>一回の作品・仕上がりに対して</button>
           <button type="button" data-v="garden"><span class="k">B</span>月ごと・回数ごとに、続けてもらう</button>
           <button type="button" data-v="bridge"><span class="k">C</span>紹介・仲介・コーディネートの対価</button>
           <button type="button" data-v="boat"><span class="k">D</span>一日・一回の出店や体験で受け取る</button></div></div>
 
-        <div class="scr" data-i="7"><h3>誰かの困りごとを聞いたとき、頼まれていなくても自然にしてしまうのは？</h3><p class="sub">Q8 / 9｜無意識に出る「商いの癖」</p><div class="ch">
+        <div class="scr" data-i="7"><h3>誰かの困りごとを聞いたとき、頼まれていなくても自然にしてしまうのは？</h3><p class="sub">Q8 / 9｜頼まれていなくても、ついやることを教えてください。</p><div class="ch">
           <button type="button" data-v="tower"><span class="k">A</span>条件や数字を整理して、現実的に考える</button>
           <button type="button" data-v="boat"><span class="k">B</span>まず試せる方法を考える</button>
           <button type="button" data-v="bridge"><span class="k">C</span>「この人に聞けば？」とつなぐ</button>
           <button type="button" data-v="light"><span class="k">D</span>話を聞いて、本人も気づいていない点を言葉にする</button></div></div>
 
-        <div class="scr" data-i="8"><h3>10年後、誰かから「あなたに相談したい」と言われるなら、何についてがうれしい？</h3><p class="sub">Q9 / 9｜未来から、今の商いを見る</p><div class="ch">
+        <div class="scr" data-i="8"><h3>10年後、誰かから「あなたに相談したい」と言われるなら、何についてがうれしい？</h3><p class="sub">Q9 / 9｜最後に、未来のことをひとつだけ聞かせてください。</p><div class="ch">
           <button type="button" data-v="tower"><span class="k">A</span>「複雑なことを、きちんと整えてほしい」</button>
           <button type="button" data-v="hand"><span class="k">B</span>「あなたに作ってほしい」</button>
           <button type="button" data-v="garden"><span class="k">C</span>「長く付き合って、支えてほしい」</button>
           <button type="button" data-v="boat"><span class="k">D</span>「一緒に新しいことを試したい」</button></div></div>
 
-        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜経験の輪郭</div><h3>いま見えている、あなたの経験資産 <b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">あと5問で、<b>どう価値に変えやすいか</b>と<b>小さな商いの方向</b>まで見ていきます。</p><button type="button" class="btn" id="midGo">人生の続きを、あと5問 →</button></div></div>
+        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜ここまで見て</div><h3>少し輪郭が見えてきました。 <b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">ここからは、<b>どう価値に変えやすいか</b>と<b>どんな小さな仕事にしやすいか</b>を見ます。あと5問だけ、付き合ってください。</p><button type="button" class="btn" id="midGo">続きを一緒に見る →</button></div></div>
 
         <div class="tk" id="tk">
           <div class="tkh"><div class="lab">友達からの、他己診断</div><h3>この人のこと、4問だけ教えてください。</h3><p class="sub">名前は要りません。答えは送信されず、結果だけをこの人に送れます。</p></div>
@@ -3209,9 +3274,9 @@ h3{letter-spacing:-.02em!important}
 
         <div class="res" id="res">
           <div class="rcard" id="rcard">
-            <div class="lab">EXPERIENCE ASSET｜あなたの経験資産カルテ</div>
+            <div class="lab">9問を見て、私が気になったところ</div>
             <p class="result-basis">9つの回答から、これまでの経験に繰り返し現れている「価値の出し方」を整理します。診断の本体は、あなた自身の回答と経験です。占い要素は任意の読み物として分けています。</p>
-            <span class="result-section-label">まず見えた｜あなたの経験資産の型</span>
+            <span class="result-section-label">まず、ここがあなたらしいと思いました</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
@@ -3384,8 +3449,8 @@ h3{letter-spacing:-.02em!important}
             <details class="others"><summary>ほかの型も見る</summary><div class="ol" id="ol"></div></details>
           </details>
           <div class="result-upgrade">
-            <span class="result-upgrade-label">無料診断は、ここまで。</span>
-            <h3>「向いていそう」から、<br>「どう始めるか」へ。</h3>
+            <span class="result-upgrade-label">ここまでは、私からの見立てです。</span>
+            <h3>次は、「あなたならどう始めるか」まで<br>一緒に具体化できます。</h3>
             <p>3,300円のWeb完結版では、無料診断の結果を引き継いで、<b>誰に・何を・いくらで売るか</b>を3つの事業案にします。</p>
             <div class="result-upgrade-grid">
               <div><small>FREE</small><b>経験・強み・方向性</b></div>
