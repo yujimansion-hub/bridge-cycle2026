@@ -3746,6 +3746,39 @@ p,
 }
 /* ===== /FULL CREATOR PHOTO FIX ===== */
 
+
+/* ===== CREATOR PHOTO HARD RESET 2026-09-20 ===== */
+.maker-photo-placeholder.full-photo-v2{
+  width:100%!important;
+  aspect-ratio:4/5!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  padding:0!important;
+  margin:0!important;
+  display:block!important;
+  overflow:hidden!important;
+  border-radius:24px!important;
+  background:#e9e2da!important;
+  box-shadow:0 24px 60px rgba(29,38,31,.08)!important;
+}
+.maker-photo-placeholder.full-photo-v2:before,
+.maker-photo-placeholder.full-photo-v2:after{display:none!important}
+.maker-photo-placeholder.full-photo-v2 img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:0!important;
+  background:#e9e2da!important;
+}
+/* ===== /CREATOR PHOTO HARD RESET ===== */
+
 </style>
 </head>
 <body>
@@ -3891,8 +3924,8 @@ p,
   <section class="maker-spotlight" aria-label="この診断をつくった人">
     <div class="wrap maker-spotlight-grid">
       <div class="maker-photo-col">
-        <div class="maker-photo-placeholder has-photo full-photo" aria-label="この診断をつくった人のプロフィール写真">
-          <img src="assets/akinai-profile-yuji-wide.jpg?v=20260920-0025" alt="この診断をつくった人の横顔プロフィール写真" loading="lazy" decoding="async">
+        <div class="maker-photo-placeholder has-photo full-photo full-photo-v2" aria-label="この診断をつくった人のプロフィール写真">
+          <img src="assets/akinai-profile-yuji-wide-v2.jpg?v=20260920-0040" alt="この診断をつくった人の横顔プロフィール写真" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="maker-copy">
