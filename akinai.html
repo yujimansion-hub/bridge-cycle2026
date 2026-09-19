@@ -3304,11 +3304,25 @@ h3{letter-spacing:-.02em!important}
   display:block;
   color:#d9deda;
 }
-.companion-price strong{
+.companion-price-main{
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+  margin:8px 0 7px;
+  white-space:nowrap;
+}
+.companion-price-main strong{
   display:block;
-  margin:5px 0;
-  font-size:42px;
-  line-height:1.1;
+  font-size:48px;
+  line-height:1;
+  letter-spacing:.015em;
+  font-variant-numeric:tabular-nums;
+}
+.companion-price-main em{
+  font-style:normal;
+  font-size:20px;
+  font-weight:800;
+  color:#fff;
 }
 .companion-steps{
   display:grid;
@@ -3387,7 +3401,8 @@ h3{letter-spacing:-.02em!important}
 @media(max-width:620px){
   .companion-steps{grid-template-columns:1fr}
   .companion-intro h2{font-size:34px!important}
-  .companion-price strong{font-size:36px}
+  .companion-price-main strong{font-size:42px}
+  .companion-price-main em{font-size:18px}
 }
 
 </style>
@@ -4254,8 +4269,8 @@ h3{letter-spacing:-.02em!important}
         <p>3つの事業案を見て、「これを少しやってみたい」と思った人へ。相談だけで終わらず、<b>最初の1回を実際に売ってみるところまで</b>一緒に進めます。</p>
         <div class="companion-price">
           <small>わたしの商い 30日伴走</small>
-          <strong>29,800円</strong>
-          <span>税込・30日</span>
+          <div class="companion-price-main"><strong>29,800</strong><em>円</em></div>
+          <span>税込 ／ 30日間</span>
         </div>
       </div>
 
