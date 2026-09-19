@@ -2187,6 +2187,128 @@ h3{letter-spacing:-.02em!important}
 }
 /* ===== /EARNING MODES ===== */
 
+
+/* ===== CREATOR STORY ===== */
+.creator-story{
+  padding:76px 0!important;
+  background:#f6f2ed!important;
+  border-bottom:1px solid var(--line);
+}
+.creator-story-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
+  gap:64px;
+  align-items:start;
+}
+.creator-kicker{
+  display:inline-block;
+  color:var(--accent);
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.13em;
+  margin-bottom:14px;
+}
+.creator-story h2{
+  margin:0 0 22px;
+  max-width:760px;
+  font-size:clamp(32px,4vw,48px)!important;
+  line-height:1.28!important;
+}
+.creator-story-copy>p{
+  max-width:66ch;
+  margin:0 0 15px;
+  font-size:16px;
+  line-height:1.9;
+  color:#3d443e!important;
+}
+.creator-quote{
+  margin-top:26px;
+  padding:20px 22px;
+  border-left:4px solid var(--accent);
+  background:#fff;
+  border-radius:0 14px 14px 0;
+  font-family:var(--serif);
+  font-size:20px;
+  line-height:1.7;
+  color:#2c332d;
+}
+.creator-quote b{
+  font-size:23px;
+  color:var(--accent)!important;
+}
+.creator-facts{
+  padding:24px;
+  background:#fff;
+  border:1px solid #dad6cf;
+  border-radius:20px;
+  box-shadow:0 18px 50px rgba(30,35,30,.05);
+}
+.creator-fact-group+ .creator-fact-group{
+  margin-top:22px;
+  padding-top:22px;
+  border-top:1px solid #ece9e3;
+}
+.creator-fact-group>small{
+  display:block;
+  margin-bottom:11px;
+  color:var(--accent);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.creator-fact-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.creator-fact-list span{
+  display:inline-flex;
+  align-items:baseline;
+  min-height:34px;
+  padding:6px 10px;
+  border:1px solid #ddd9d2;
+  border-radius:999px;
+  background:#f8f6f2;
+  color:#4b514c;
+  font-size:11.5px;
+  line-height:1.35;
+}
+.creator-fact-list b{
+  margin-right:3px;
+  font-size:13px;
+  color:#252c26!important;
+}
+.creator-fact-group.work .creator-fact-list span{
+  background:#edf1ec;
+  border-color:#d5ddd4;
+}
+.creator-note{
+  margin:22px 0 0!important;
+  padding-top:18px;
+  border-top:1px solid #ece9e3;
+  font-size:12px!important;
+  line-height:1.7!important;
+  color:#687069!important;
+}
+@media(max-width:820px){
+  .creator-story{padding:58px 0!important}
+  .creator-story-grid{grid-template-columns:1fr;gap:30px}
+  .creator-facts{padding:20px}
+}
+@media(max-width:560px){
+  .creator-story{padding:48px 0!important}
+  .creator-story h2{font-size:31px!important}
+  .creator-story-copy>p{font-size:15px}
+  .creator-quote{font-size:18px;padding:17px 16px}
+  .creator-quote b{font-size:20px}
+  .creator-fact-list span{
+    font-size:10.5px;
+    min-height:30px;
+    padding:5px 8px;
+  }
+}
+/* ===== /CREATOR STORY ===== */
+
 </style>
 </head>
 <body>
@@ -2290,6 +2412,45 @@ h3{letter-spacing:-.02em!important}
           <small>3,300円</small>
           <b>有料では<br><em>“始め方”まで。</em></b>
           <p>顧客・価格・売り方・時間・資金に加え、<b>どこで・どう稼ぐか</b>まで3つの事業案に具体化。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="creator-story" aria-label="この診断をつくった人">
+    <div class="wrap">
+      <div class="creator-story-grid">
+        <div class="creator-story-copy">
+          <span class="creator-kicker">THE PERSON BEHIND THIS｜この診断をつくった人</span>
+          <h2>仕事も人生も、<br>一度で決めなくていいと思っています。</h2>
+          <p>結婚3回、マンション購入4回。婚活パーティーには10年参加し、3年間は運営側も経験。離婚後の調停も経験しました。マンション売買による収益は約1,500万円です。</p>
+          <p>一方、本業では20年以上、中小・小規模事業者の経営相談に携わり、創業、補助金、資金調達、行政・金融機関との連携、事業承継など、<b>「やりたい」を現実に動かせる形にする仕事</b>を続けてきました。</p>
+          <div class="creator-quote">失敗を避けることより、<br><b>失敗しても組み直せる始め方を。</b></div>
+        </div>
+
+        <div class="creator-facts" aria-label="経験と実績">
+          <div class="creator-fact-group">
+            <small>LIFE</small>
+            <div class="creator-fact-list">
+              <span><b>3回</b> 結婚</span>
+              <span><b>4回</b> マンション購入</span>
+              <span><b>約1,500万円</b> 売買収益</span>
+              <span><b>10年</b> 婚活パーティー参加</span>
+              <span><b>3年</b> 婚活パーティー運営</span>
+              <span>離婚後の<b>調停経験</b></span>
+            </div>
+          </div>
+          <div class="creator-fact-group work">
+            <small>WORK</small>
+            <div class="creator-fact-list">
+              <span><b>20年以上</b> 経営支援</span>
+              <span>創業・補助金</span>
+              <span>資金調達</span>
+              <span>行政・金融機関連携</span>
+              <span>事業承継</span>
+            </div>
+          </div>
+          <p class="creator-note">成功談だけでなく、選び直した経験も、この診断の考え方に入っています。</p>
         </div>
       </div>
     </div>
