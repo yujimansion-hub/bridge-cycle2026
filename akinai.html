@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>わたしの商い診断｜これまでの経験を「自分の仕事」に変える｜占い×創業相談</title>
-<meta name="description" content="会社を辞めなくても、自分の名前の仕事は持てる。これまでの経験を、占いを入口に小さな商いへ。仕事案・使える時間・目標収入を整理し、必要なら事業計画化と商工会相談までつなげます。">
-<meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
-<meta property="og:description" content="これまでの経験と売ってみたいものから仕事の種を見つけ、1枚引き＋5問で仕事案3つへ。5,500円で具体化、16,500円で事業計画化し、商工会相談までつなげます。">
+<title>わたしの商い診断｜商工会・商工会議所を有効に活用するための相談前準備サイト</title>
+<meta name="description" content="商工会・商工会議所へ相談する前に、自分の経験・商品・顧客・時間・目標収入を整理する相談前準備サイト。占いを入口に仕事案を見つけ、必要なら事業計画化して、具体的な相談につなげます。">
+<meta property="og:title" content="わたしの商い診断｜商工会に行く前の相談前準備">
+<meta property="og:description" content="商工会・商工会議所をもっと有効に活用するために。相談前に考えを整理し、仕事案→具体化→事業計画化→商工会相談へつなげます。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#f4ece4">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,8 @@ h1,h2,h3.serif,.serif{font-family:var(--serif)}
 .nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(244,236,228,.9);border-bottom:1px solid rgba(221,214,202,.8)}
 .nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:15px}
+.brand>span:last-child{display:flex;flex-direction:column;line-height:1.25}
+.brand small{font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.02em;margin-top:3px}
 .brand-mark{width:34px;height:34px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--en);font-style:italic;color:var(--rose)}
 .nav-links{display:flex;align-items:center;gap:22px;font-size:13px}
 .nav-links>a:not(.btn){color:#4f524d}
@@ -91,6 +93,9 @@ h1 span{display:inline;color:var(--rose);background:linear-gradient(transparent 
 .cp-flow span{padding:5px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:10.5px;font-weight:700;color:#6c5c55}
 .cp-flow i{font-style:normal;color:var(--rose);font-size:11px}
 @media(max-width:620px){.concept-purpose{padding:16px 16px 15px}.concept-purpose .cp-main{font-size:16px}.cp-flow{gap:5px}.cp-flow span{font-size:10px;padding:4px 8px}}
+.hero-operator-note{max-width:620px;margin:-4px 0 18px;padding:13px 15px;border-radius:15px;background:#fff;border:1px solid var(--line)}
+.hero-operator-note b{display:block;font-family:var(--serif);font-size:13.5px;line-height:1.7;font-weight:500;color:var(--ink)}
+.hero-operator-note span{display:block;margin-top:4px;font-size:11px;line-height:1.65;color:var(--muted)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .hero-actions .btn.main{min-height:58px;padding:0 30px;font-size:16px;box-shadow:0 12px 30px rgba(196,127,116,.32)}
 .micro{font-size:12px;color:var(--muted);margin-top:14px}
@@ -123,6 +128,18 @@ h1 span{display:inline;color:var(--rose);background:linear-gradient(transparent 
 .sample p{font-size:13px;color:#6b605a;margin:0}
 .sample .tag{display:inline-block;margin-top:16px;font-size:11px;background:var(--rose-pale);padding:4px 10px;border-radius:999px;color:var(--rose);font-weight:700}
 .sample .hint{position:absolute;right:18px;bottom:16px;font-size:11px;color:var(--muted)}
+
+.before-consult-section{padding:10px 0 22px}
+.before-consult-card{padding:24px;border-radius:24px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+.before-consult-card>div:first-child>span{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px;letter-spacing:.06em}
+.before-consult-card h2{font-size:clamp(22px,3vw,31px);margin:6px 0 8px;line-height:1.45}
+.before-consult-card p{font-size:13px;line-height:1.8;color:#5a514b;margin:0}
+.before-checks{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}
+.before-checks>div{padding:12px 10px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.before-checks b{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:15px}
+.before-checks span{display:block;font-size:11px;line-height:1.55;color:var(--ink)}
+.before-note{padding-top:12px;border-top:1px dashed var(--line)}
+@media(max-width:760px){.before-checks{grid-template-columns:1fr 1fr}.before-checks>div:last-child{grid-column:1/-1}}
 
 /* ===== QUIZ (1問ずつ) ===== */
 section{padding:64px 0}
@@ -742,9 +759,9 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#"><span class="brand-mark">W</span><span>わたしの商い診断</span></a>
+    <a class="brand" href="#"><span class="brand-mark">W</span><span>わたしの商い診断<small>商工会・商工会議所に行く前の相談前準備</small></span></a>
     <nav class="nav-links">
-      <a href="#start">無料診断</a>
+      <a href="#start">相談前準備</a>
       <a href="#price">有料プラン</a>
       <a class="btn booking-link" href="#booking">予約する</a>
     </nav>
@@ -755,25 +772,30 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
-        <h1>会社を辞めたいわけじゃない。<br><span>でも、この先10年、わたしはどう働く？</span></h1>
+        <div class="eyebrow">商工会・商工会議所を有効に活用するための <span class="en">Before Consultation</span></div>
+        <h1>商工会に行く前に、<br><span>「何を相談するか」を整理しておこう。</span></h1>
 
         <div class="concept-purpose">
-          <span class="cp-label">WHY THIS EXISTS｜この診断の目的</span>
-          <p class="cp-main">新しく何かになるためではなく、<br><b>これまでやってきたことに「仕事の名前」をつけるため。</b></p>
-          <p>家事、育児、仕事、地域活動。自分では「普通」と思ってきた経験の中にも、誰かがお金を払う価値が眠っているかもしれません。</p>
-          <p><b>「今の暮らしを守る」ことと、「自分の仕事を持つ」ことは、どちらかを選ばなくていい。</b>占いを入口に、あなたの経験を小さな商いに変え、必要なら事業計画に整え、商工会へ相談できるところまでつなげます。</p>
+          <span class="cp-label">WHY THIS EXISTS｜このサイトの目的</span>
+          <p class="cp-main">このサイトは、<br><b>商工会・商工会議所をもっと有効に活用するための「相談前準備」サイトです。</b></p>
+          <p>商工会・商工会議所には、創業、経営、融資、補助金などを相談できます。ただ、相談する側が「何をしたいのか」「誰に売りたいのか」「何に困っているのか」を整理できていないと、せっかく相談に行っても話が抽象的なまま終わりやすくなります。</p>
+          <p><b>ここで事業を完成させることが目的ではありません。</b>自分の考えを一定整理し、「この計画のどこを相談したいのか」が伝わる状態にしてから、地域の商工会・商工会議所へつなぐことが目的です。</p>
           <div class="cp-flow">
-            <span>自分を知る</span><i>→</i><span>仕事案にする</span><i>→</i><span>小さく試す</span><i>→</i><span>事業計画にする</span>
+            <span>経験を整理</span><i>→</i><span>仕事案にする</span><i>→</i><span>数字を置く</span><i>→</i><span>事業計画にする</span><i>→</i><span>商工会へ相談</span>
           </div>
         </div>
 
-        <p class="lead"><b>まずは無料。</b>これまでの経験と売ってみたいものを軽く答え、商いカードを1枚引き、5問をタップ。あなたがすでに持っているものから、具体的な仕事案3つと<b>「週何時間で、月いくらを目指すか」</b>まで出します。生年月日の商い命数は任意です。</p>
+        <div class="hero-operator-note">
+          <b>商工会で20年以上、経営指導員として事業者相談に携わってきた経験からつくりました。</b>
+          <span>「相談先を知っている」だけでなく、「相談できる状態になっている」ことが大切だと考えています。</span>
+        </div>
+
+        <p class="lead"><b>入口は、少し気軽に。</b>これまでの経験と売ってみたいものを答え、商いカードを1枚引き、5問をタップ。仕事案3つと<b>「週何時間で、月いくらを目指すか」</b>まで整理します。占いは、考え始めるための入口です。</p>
         <div class="route-choose" id="start">
-          <p class="rq">「私にも何かできるかも」を、仕事の形にしてみるところから。</p>
+          <p class="rq">まずは、商工会で相談できる「材料」をつくるところから。</p>
           <a class="voice-route" href="#voice-diagnosis">
             <div class="vr-top"><span class="mic-dot">✦</span><div><b>経験 → 売りたいもの → 1枚引き → 5問</b><span>長文入力なし。生年月日は入れなくても結果まで進めます。</span></div></div>
-            <em>→ もう持っている経験から、仕事案3つを見つける</em>
+            <em>→ 商工会で相談する前の「事業のたたき台」をつくる</em>
           </a>
           <div class="route-grid">
             <a class="route-card" href="#fortune"><b>話すのは少し苦手</b><span>9問から選ぶだけでも、同じ「商い星」と仕事案3つが出ます。</span><em>→ 選んで診断する</em></a>
@@ -789,6 +811,26 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <div class="arrow">↓</div>
           <div class="ph-step"><div class="lab">創業相談で形にする</div><p class="pr">相談＋整理シート</p><p class="pr"><b>まず3人</b>に試す</p></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="before-consult-section">
+    <div class="wrap">
+      <div class="before-consult-card">
+        <div>
+          <span>BEFORE YOU GO｜商工会に行く前に</span>
+          <h2>「補助金を使いたい」だけでは、相談は進みにくい。</h2>
+          <p>最低限、<b>何を売るのか／誰に売るのか／どれくらいの時間を使えるのか／いくらを目指すのか／何にお金を使いたいのか</b>が整理されていると、相談内容が具体的になります。</p>
+        </div>
+        <div class="before-checks">
+          <div><b>01</b><span>自分の経験・強み</span></div>
+          <div><b>02</b><span>売りたい商品・サービス</span></div>
+          <div><b>03</b><span>顧客と困りごと</span></div>
+          <div><b>04</b><span>時間・価格・売上目標</span></div>
+          <div><b>05</b><span>必要な経費・相談したいこと</span></div>
+        </div>
+        <p class="before-note">ここで整理してから、地域の商工会・商工会議所へ。BRIDGE CYCLEは、商工会を代替するのではなく、<b>商工会を使いやすくする前準備</b>を担います。</p>
       </div>
     </div>
   </section>
