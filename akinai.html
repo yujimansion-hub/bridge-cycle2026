@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×仕事づくり。これまでの経験と売ってみたいものを先に整理し、1枚引きと5問タップから具体的な仕事案3つを出します。生年月日の商い命数は任意です。">
+<meta name="description" content="40代女性のための、占い×仕事づくり。これまでの経験・売ってみたいもの・使える時間・目標収入を整理し、1枚引きと5問から具体的な仕事案3つと現実的な売上目安を出します。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
 <meta property="og:description" content="これまでの経験と売ってみたいものから仕事の種を見つけ、1枚引き＋5問で仕事案3つへ。5,500円で具体化、16,500円で事業計画化し、商工会相談までつなげます。">
 <meta property="og:type" content="website">
@@ -571,6 +571,23 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .quick-choices button:hover{border-color:var(--rose);background:var(--rose-pale)}
 .quick-choices button.on{border-color:var(--rose);background:var(--rose);color:#fff;font-weight:700}
 .quick-hidden{display:none!important}
+.reality-block{margin:18px 0 6px;padding:16px 16px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.reality-q{margin-top:12px}
+.reality-q>b{display:block;font-family:var(--serif);font-size:15px;font-weight:500;margin-bottom:7px}
+.reality-choices{display:flex;flex-wrap:wrap;gap:8px}
+.reality-choices button{border:1.5px solid var(--line);background:#fffdfa;color:var(--ink);border-radius:999px;padding:9px 13px;font:inherit;font-size:12.5px;cursor:pointer;transition:.15s}
+.reality-choices button:hover{border-color:var(--rose);background:var(--rose-pale)}
+.reality-choices button.on{border-color:var(--rose);background:var(--rose);color:#fff;font-weight:700}
+.reality-note{display:block;margin-top:11px;font-size:10.5px;color:var(--muted);line-height:1.6}
+.reality-result{margin:12px 0;padding:16px;border-radius:18px;background:#fffaf7;border:1px solid var(--line)}
+.reality-result .rrlab{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.06em;margin-bottom:8px}
+.rrgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rrgrid>div{padding:10px 12px;border-radius:13px;background:#fff;border:1px solid var(--line)}
+.rrgrid small{display:block;font-size:9.5px;color:var(--muted)}
+.rrgrid b{display:block;font-family:var(--serif);font-size:17px;font-weight:500}
+.reality-result p{margin:9px 0 0;font-size:13px;line-height:1.75;color:#514842}
+.reality-result .rrnote{display:block;margin-top:7px;font-size:10px;line-height:1.55;color:var(--muted)}
+@media(max-width:560px){.rrgrid{grid-template-columns:1fr}}
 .quick-note{margin:16px 0 4px;padding:14px 15px;border:1px dashed var(--line);border-radius:16px;background:#fffaf7}
 .quick-note label{display:flex;align-items:center;gap:7px;font-size:12px;margin-bottom:7px}
 .quick-note label span{font-size:9px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 6px}
@@ -721,7 +738,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
         <h1>これまでを少し振り返ると、<br><span>「仕事になる私」が見えてくる。</span></h1>
-        <p class="lead">まず、<b>これまでの経験</b>と<b>売ってみたいもの</b>を軽く答えます。次に商いカードを1枚引き、5問をタップ。<br>あなたがすでに持っているものから、具体的な仕事案3つを出します。<b>生年月日の商い命数は任意</b>です。</p>
+        <p class="lead">まず、<b>これまでの経験</b>と<b>売ってみたいもの</b>を軽く答えます。次に商いカードを1枚引き、5問をタップ。<br>あなたがすでに持っているものから、具体的な仕事案3つと<b>「週何時間で、月いくらを目指すか」</b>まで出します。生年月日の商い命数は任意です。</p>
         <div class="route-choose" id="start">
           <p class="rq">いちばん気軽な方法からどうぞ。</p>
           <a class="voice-route" href="#voice-diagnosis">
@@ -890,6 +907,30 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
         </div>
 
+        <div class="reality-block">
+          <div class="voice-group-label"><span>REALITY</span><b>できそうな時間と、ほしい収入</b></div>
+          <div class="reality-q">
+            <b>この仕事に、週どれくらい使えそう？</b>
+            <div class="reality-choices" id="timeChoices">
+              <button type="button" data-hours="1.5" data-label="週1〜2時間">週1〜2時間</button>
+              <button type="button" data-hours="4" data-label="週3〜5時間">週3〜5時間</button>
+              <button type="button" data-hours="8" data-label="週6〜10時間">週6〜10時間</button>
+              <button type="button" data-hours="12" data-label="週10時間以上">週10時間以上</button>
+            </div>
+          </div>
+          <div class="reality-q">
+            <b>まず、月いくらくらい増えたらうれしい？</b>
+            <div class="reality-choices" id="incomeChoices">
+              <button type="button" data-income="10000" data-label="月1万円">月1万円</button>
+              <button type="button" data-income="30000" data-label="月3万円">月3万円</button>
+              <button type="button" data-income="50000" data-label="月5万円">月5万円</button>
+              <button type="button" data-income="100000" data-label="月10万円以上">月10万円以上</button>
+              <button type="button" data-income="0" data-label="まだ決めていない">まだ決めていない</button>
+            </div>
+          </div>
+          <small class="reality-note">これは「稼げる額の予測」ではなく、使える時間と希望額から逆算する目安です。</small>
+        </div>
+
         <div class="quick-note">
           <label for="quickNote"><b>もしあれば、最後にひとことだけ</b><span>任意</span></label>
           <input id="quickNote" type="text" maxlength="180" placeholder="例：昔から、人の相談に乗ることだけは多かった">
@@ -900,7 +941,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <span>AKINAI DATA｜この占いを、これから育てる</span>
           <b>「統計に基づく」とは、まだ言いません。</b>
           <p>商い命数は、希望する人だけが使えるBRIDGE CYCLE独自の象徴的な占いです。将来、利用者の明確な同意を得た匿名データで、「これまでの経験」「選んだ仕事案」「実際に試した結果」の傾向を検証し、十分な件数が集まり再現性を確認できた項目だけを公開する設計を目指します。</p>
-          <small>現在、このページの経験・売りたいもの・5問の選択・任意の生年月日はBRIDGE CYCLEへ送信・蓄積していません。</small>
+          <small>現在、このページの経験・売りたいもの・使える時間・目標額・5問の選択・任意の生年月日はBRIDGE CYCLEへ送信・蓄積していません。</small>
         </div>
         <p class="voice-help">※ 1枚引きと任意の商い命数は「占い」、経験・売りたいもの・5問は「仕事づくりの診断」として分けて扱います。</p>
         <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">経験・売りたいもの・占いから「仕事になる私」を見つける</button>
@@ -992,6 +1033,15 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
               <span class="crlab">YOU ALREADY HAVE｜あなたが、もう持っているもの</span>
               <p><b>これまで：</b><span id="rExperience"></span></p>
               <p><b>売ってみたいもの：</b><span id="rWantedProduct"></span></p>
+            </div>
+            <div class="reality-result" id="rRealityResult" style="display:none">
+              <span class="rrlab">REALITY LINE｜無理なく目指すライン</span>
+              <div class="rrgrid">
+                <div><small>使える時間</small><b id="rTimeLabel"></b></div>
+                <div><small>最初の目標</small><b id="rIncomeLabel"></b></div>
+              </div>
+              <p id="rRealityCalc"></p>
+              <small class="rrnote">売上・収入を保証するものではありません。最初は「目標額」より、3人に有料で試して反応を見ることを優先します。</small>
             </div>
             <div class="oracle-origin" id="rOracleOrigin" style="display:none">
               <div id="rBirthOrigin"><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
@@ -1312,7 +1362,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         </div>
 
         <div class="grant-grid">
-          <div><b>事前質問で整理すること</b><p>これまでの経験／売りたい商品・サービス／顧客／顧客ニーズ／自分の強み／今後の方針／販路開拓策／必要経費／売上目標</p></div>
+          <div><b>事前質問で整理すること</b><p>これまでの経験／売りたい商品・サービス／顧客／顧客ニーズ／自分の強み／今後の方針／販路開拓策／必要経費／売上目標／事業に使える時間／PC・スマホなどの利用環境</p></div>
           <div><b>オンラインで補うこと</b><p>数字の根拠、競合との差、なぜ今取り組むのか、経費と取組のつながりなど、文章だけでは不足する部分を確認します。</p></div>
           <div><b>後日お渡しするもの</b><p>事業計画整理シート＋商工会相談用メモ。小規模事業者持続化補助金を検討する場合に、何を確認すべきかも整理します。</p></div>
           <div><b>その次</b><p>資料を持って、地域の商工会・商工会議所へ。「この計画で持続化補助金の活用が可能か」を相談してください。</p></div>
@@ -1905,6 +1955,21 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
         document.getElementById('rWantedProduct').textContent=voiceMeta.product||'まだ決まっていない';
         context.style.display='';
       }else if(context){context.style.display='none';}
+      const reality=document.getElementById('rRealityResult');
+      if(reality&&voiceMeta.timeLabel){
+        document.getElementById('rTimeLabel').textContent=voiceMeta.timeLabel;
+        document.getElementById('rIncomeLabel').textContent=voiceMeta.incomeLabel||'まだ決めていない';
+        const monthlyHours=Math.max(1,Math.round((voiceMeta.weeklyHours||0)*4.3));
+        let calc='月に使える時間は、目安で約'+monthlyHours+'時間。';
+        if(voiceMeta.incomeTarget){
+          const hourly=Math.ceil(voiceMeta.incomeTarget/monthlyHours/100)*100;
+          calc+=' '+voiceMeta.incomeLabel+'を目指すなら、単純計算では1時間あたり約'+hourly.toLocaleString()+'円の売上が一つの目安です。';
+        }else{
+          calc+=' まずは金額を決めず、3人に有料で試して「またやりたいか」を確かめる段階です。';
+        }
+        document.getElementById('rRealityCalc').textContent=calc;
+        reality.style.display='';
+      }else if(reality){reality.style.display='none';}
       const origin=document.getElementById('rOracleOrigin'),birthOrigin=document.getElementById('rBirthOrigin');
       if(origin&&voiceMeta.draw){
         if(voiceMeta.birth){
@@ -1927,7 +1992,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       document.getElementById('rVoiceWords').innerHTML=words.length?'回答から拾った言葉：'+words.map(x=>'<b>「'+x+'」</b>').join('　'):'これまでの経験と5問に繰り返し出てきた役割から読みました。';
       document.getElementById('rVoiceInsight').textContent=VOICE_REFRAME[w];
       voiceReveal.style.display='';
-    }else if(voiceReveal){voiceReveal.style.display='none';const origin=document.getElementById('rOracleOrigin');if(origin)origin.style.display='none';const context=document.getElementById('rContextResult');if(context)context.style.display='none';}
+    }else if(voiceReveal){voiceReveal.style.display='none';const origin=document.getElementById('rOracleOrigin');if(origin)origin.style.display='none';const context=document.getElementById('rContextResult');if(context)context.style.display='none';const reality=document.getElementById('rRealityResult');if(reality)reality.style.display='none';}
     const ph=document.getElementById('paidHook');if(ph)ph.textContent='「'+cname+'」を仕事にするなら、次は「今週どこまで動けるか」を30秒で確認。';
     const hasAns=ans.filter(Boolean).length>=9;
     if(hasAns){
@@ -2095,6 +2160,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   const quickNote=document.getElementById('quickNote');
   const expChips=document.getElementById('experienceChips'),expDetail=document.getElementById('experienceDetail');
   const productState=document.getElementById('productState'),productMini=document.getElementById('productMini'),wantedProduct=document.getElementById('wantedProduct');
+  const timeChoices=document.getElementById('timeChoices'),incomeChoices=document.getElementById('incomeChoices');
   const steps=[...document.querySelectorAll('[data-voice-step]')];
   const go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
   const birth=document.getElementById('birthDate'),birthBox=document.getElementById('birthFortune');
@@ -2103,7 +2169,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   const drawStar=document.getElementById('drawStar'),drawText=document.getElementById('drawStarText');
   if(!answers.every(Boolean)||!go||!out||!birth||!drawBtn)return;
 
-  let birthType=null,birthNumber=null,drawType=null,productStatus="";
+  let birthType=null,birthNumber=null,drawType=null,productStatus="",weeklyHours=0,timeLabel="",incomeTarget=0,incomeLabel="";
 
   function markDone(i){
     const ok=(answers[i].value||'').trim().length>=3;
@@ -2130,6 +2196,16 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       if(productStatus==='まだない'&&wantedProduct)wantedProduct.value='';
     }));
   }
+
+  function bindSingleChoice(box,onPick){
+    if(!box)return;
+    box.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+      box.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on'); onPick(btn);
+    }));
+  }
+  bindSingleChoice(timeChoices,btn=>{weeklyHours=Number(btn.dataset.hours||0);timeLabel=btn.dataset.label||btn.textContent.trim();});
+  bindSingleChoice(incomeChoices,btn=>{incomeTarget=Number(btn.dataset.income||0);incomeLabel=btn.dataset.label||btn.textContent.trim();});
 
   function calcBirthNumber(v){
     if(!/^\d{4}-\d{2}-\d{2}$/.test(v||''))return null;
@@ -2235,7 +2311,18 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
         return;
       }
 
-      out.textContent='占いの星と、5つの選択を照らし合わせています…';
+      if(!weeklyHours){
+        out.textContent='あと1つ。「週どれくらい使えそうか」を選んでください。';
+        timeChoices?.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+      if(!incomeLabel){
+        out.textContent='最後に、「月いくらくらい増えたらうれしいか」を選んでください。';
+        incomeChoices?.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+
+      out.textContent='経験・占い・時間・目標額を重ねています…';
 
       const note=(quickNote?.value||'').trim();
       const experienceText=[...expSelected,expExtra].filter(Boolean).join('。');
@@ -2259,7 +2346,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       const hitPool=[...(work.hits[workType]||[]),...(life.hits[lifeType]||[]),...(other.hits[otherType]||[])];
       const words=hitPool.filter((x,i,ar)=>ar.indexOf(x)===i).slice(0,6);
       const cross=crossText(workType,lifeType,otherType,birthType,drawType);
-      const originalText='これまで：'+experienceText+'\n売りたいもの：'+(productStatus==='まだない'?'まだ決まっていない':product)+'\n'+vals.map((v,i)=>(i+1)+'：'+v).join('\n')+(note?'\nひとこと：'+note:'');
+      const originalText='これまで：'+experienceText+'\n売りたいもの：'+(productStatus==='まだない'?'まだ決まっていない':product)+'\n使える時間：'+timeLabel+'\n目標：'+incomeLabel+'\n'+vals.map((v,i)=>(i+1)+'：'+v).join('\n')+(note?'\nひとこと：'+note:'');
 
       if(typeof window.runAkinaiFromVoice!=='function')throw new Error('renderer unavailable');
 
@@ -2269,6 +2356,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
         work:workType,life:lifeType,other:otherType,
         birth:birthType,birthNumber,draw:drawType,
         experience:experienceText,productStatus,product:productStatus==='まだない'?'まだ決まっていない':product,
+        weeklyHours,timeLabel,incomeTarget,incomeLabel,
         text:originalText.slice(0,2400),answers:vals
       });
 
@@ -2276,11 +2364,12 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
         +'今日のカード '+D[drawType].sym
         +'｜これまで：'+experienceText
         +'｜売りたいもの：'+(productStatus==='まだない'?'未定':product)
+        +'｜使える時間：'+timeLabel+'｜目標：'+incomeLabel
         +'｜診断：'+D[main].title.split('｜')[1]+'（'+D[main].sym+'）'
         +'／仕事:'+D[workType].sym+'・暮らし:'+D[lifeType].sym+'・周り:'+D[otherType].sym;
       LAST_PLAN="";
       syncBookingResult();
-      out.textContent='結果を出しました。5問だけでも、占いと実際の経験が重なる点・違う点まで表示しています。';
+      out.textContent='結果を出しました。経験・占い・使える時間・目標額まで重ねて、現実的な仕事案を表示しています。';
     }catch(err){
       console.error('fortune input diagnosis error',err);
       out.textContent='結果の表示でエラーが起きました。ページを再読み込みして、もう一度お試しください。';
