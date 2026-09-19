@@ -2988,6 +2988,105 @@ h3{letter-spacing:-.02em!important}
   .maker-failure-grid{grid-template-columns:1fr}
 }
 
+
+/* ===== SNS-FIRST LANDING 2026-09-19 ===== */
+.sns-thoughts{
+  padding:86px 0 92px;
+  background:#fff;
+}
+.sns-thoughts-head{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:26px;
+  align-items:end;
+  margin-bottom:28px;
+}
+.sns-thoughts-head span{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+  color:var(--accent);
+}
+.sns-thoughts-head h2{
+  margin:0!important;
+  max-width:780px;
+  font-size:clamp(34px,4.2vw,52px)!important;
+  line-height:1.3!important;
+}
+.sns-thought-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:16px;
+}
+.sns-thought-card{
+  min-height:210px;
+  padding:28px;
+  border:1px solid #d9d6cf;
+  border-radius:22px;
+  background:#f7f4ef;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.sns-thought-card.big{
+  grid-row:span 2;
+  min-height:436px;
+  background:#efe8df;
+}
+.sns-thought-card.dark{
+  background:var(--deep);
+  border-color:var(--deep);
+}
+.sns-thought-card small{
+  font-size:10px;
+  letter-spacing:.12em;
+  color:#8a8177;
+  font-weight:800;
+}
+.sns-thought-card.dark small{color:#d7aaa0}
+.sns-thought-card p{
+  margin:0!important;
+  max-width:28ch!important;
+  font-family:var(--serif);
+  font-size:clamp(23px,2.8vw,34px)!important;
+  line-height:1.55!important;
+  color:var(--deep)!important;
+}
+.sns-thought-card.dark p{color:#fff!important}
+.sns-thought-card p b{
+  color:var(--accent)!important;
+  font-weight:600;
+}
+.sns-thought-card.dark p b{color:#f0c0b6!important}
+.sns-thought-close{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  align-items:center;
+  margin-top:24px;
+  padding-top:22px;
+  border-top:1px solid #dedbd5;
+}
+.sns-thought-close p{
+  margin:0!important;
+  color:var(--muted)!important;
+  font-size:15px!important;
+}
+.sns-thought-close a{
+  flex:0 0 auto;
+  font-weight:800;
+  color:var(--accent);
+}
+@media(max-width:760px){
+  .sns-thoughts{padding:58px 0 64px}
+  .sns-thoughts-head{grid-template-columns:1fr;gap:8px}
+  .sns-thought-grid{grid-template-columns:1fr}
+  .sns-thought-card.big{grid-row:auto;min-height:280px}
+  .sns-thought-card{min-height:180px}
+  .sns-thought-card p{font-size:25px!important}
+  .sns-thought-close{align-items:flex-start;flex-direction:column}
+}
+
 </style>
 </head>
 <body>
@@ -3009,9 +3108,9 @@ h3{letter-spacing:-.02em!important}
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <div class="eyebrow">わたしの商い診断 <span class="en">AKINAI FINDER</span></div>
-        <h1>「私にも、何かできるかも。」<br><span>そう思ったら、少しだけ話を聞かせてください。</span></h1>
-        <p class="hero-short">20年以上、いろいろな人の商売相談をしてきました。私が見るのは、資格や肩書きだけではありません。<b>何を頼まれてきたか、どこで遠回りしたか、何を「普通」と思っているか。</b>そこに仕事の種があることがあります。</p>
-        <p class="hero-maker-line"><b>失敗歴を見るのではなく、そこからどう立て直してきたかを見る。</b><br>9問、そこも一緒に見ていきます。</p>
+        <h1>「私には、特別な経験なんてない」<br><span>そう思っている人ほど、話を聞いてみたい。</span></h1>
+        <p class="hero-short">20年以上、いろいろな人の商売相談をしてきました。話してみると、本人が「普通」と思っていることの中に、仕事の種が隠れていることがよくあります。</p>
+        <p class="hero-maker-line"><b>失敗したことより、そのあとどう立て直したか。</b><br>私は、そこにその人らしさが出ると思っています。</p>
 
         <div class="guide-chip">
           <span class="guide-avatar">案内役</span>
@@ -3019,7 +3118,7 @@ h3{letter-spacing:-.02em!important}
         </div>
 
         <div class="hero-primary" id="start">
-          <a class="btn" href="#fortune">9問、私と一緒に見てみる →</a>
+          <a class="btn" href="#fortune">3分だけ、話してみる →</a>
           <small>9問・登録なし・無料</small>
         </div>
 
@@ -3046,14 +3145,45 @@ h3{letter-spacing:-.02em!important}
     </div>
   </section>
 
+  <section class="sns-thoughts" aria-label="この診断をつくった人の考え方">
+    <div class="wrap">
+      <div class="sns-thoughts-head">
+        <span>FROM MY NOTES</span>
+        <h2>こんなことを、よく考えています。</h2>
+      </div>
+      <div class="sns-thought-grid">
+        <article class="sns-thought-card big">
+          <small>01</small>
+          <p>「私には何もない」と言う人ほど、<br><b>人から何度も頼まれていること</b>を持っています。</p>
+        </article>
+        <article class="sns-thought-card">
+          <small>02</small>
+          <p><b>資格より、10年続けてきたこと。</b><br>それが仕事になることがあります。</p>
+        </article>
+        <article class="sns-thought-card dark">
+          <small>03</small>
+          <p>失敗歴を見るのではなく、<br><b>どう立て直したかを見る。</b></p>
+        </article>
+        <article class="sns-thought-card">
+          <small>04</small>
+          <p>「向いている仕事」を当てるより、<br><b>今ある経験をどう使うか</b>を考えたい。</p>
+        </article>
+      </div>
+      <div class="sns-thought-close">
+        <p>この診断は、こういう見方であなたの9つの答えを見ていきます。</p>
+        <a href="#fortune">9問、話してみる →</a>
+      </div>
+    </div>
+  </section>
+
   <section class="quick-understand" aria-label="このサイトでできること">
     <div class="wrap">
       <div class="quick-intro-grid">
         <div>
           <span class="quick-label">HOW IT WORKS</span>
-          <h2>履歴書には書かない経験ほど、<br>仕事になることがある。</h2>
+          <h2>私は、履歴書より<br>「その人がしてきたこと」を見ます。</h2>
         </div>
-        <p>資格や肩書きだけでは、その人の価値は分かりません。人から頼まれてきたこと、続けてきたこと、遠回りした経験。そうした「履歴書の外側」に、仕事の材料が隠れていることがあります。</p>
+        <p>人から頼まれてきたこと。何年も続けていること。失敗したあとに自分なりに身につけた工夫。そうした「履歴書の外側」に、仕事の材料が残っていることがあります。</p>
       </div>
 
       <div class="quick-steps-new">
@@ -3086,7 +3216,7 @@ h3{letter-spacing:-.02em!important}
 
       <div class="top-cta">
         <span>READY?</span>
-        <h2>「少し話してみようかな」と思ったら、<br>9問だけ付き合ってください。</h2>
+        <h2>「この人なら少し話してもいいかも」<br>そう思ったら、9問だけ付き合ってください。</h2>
         <a class="btn" href="#fortune">9問、話してみる →</a>
       </div>
     </div>
