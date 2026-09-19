@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜6つの商い星×4つの商いの季節｜占い×創業相談</title>
-<meta name="description" content="40代女性のための、占い×仕事づくり。生年月日から1〜60の「商い命数」と商い星を出し、1枚引きと5つの選択から、実際の経験に重なる仕事案3つまで出します。">
+<meta name="description" content="40代女性のための、占い×仕事づくり。これまでの経験と売ってみたいものを先に整理し、1枚引きと5問タップから具体的な仕事案3つを出します。生年月日の商い命数は任意です。">
 <meta property="og:title" content="わたしの商い診断｜商い星 × 商いの季節">
-<meta property="og:description" content="生年月日から商い命数を占い、5問をタップして仕事案3つへ。必要なら5,500円で具体化、16,500円で事業計画化し、商工会相談までつなげます。">
+<meta property="og:description" content="これまでの経験と売ってみたいものから仕事の種を見つけ、1枚引き＋5問で仕事案3つへ。5,500円で具体化、16,500円で事業計画化し、商工会相談までつなげます。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#f4ece4">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -518,6 +518,25 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .voice-section{background:linear-gradient(180deg,#eee5de,#f7f0ea);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .voice-box{max-width:720px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
 .fortune-input{margin:0 0 14px;padding:18px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.experience-chips,.product-state{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.experience-chips button,.product-state button{border:1.5px solid var(--line);background:#fffdfa;color:var(--ink);border-radius:999px;padding:9px 13px;font:inherit;font-size:12.5px;cursor:pointer;transition:.15s}
+.experience-chips button:hover,.product-state button:hover{border-color:var(--rose);background:var(--rose-pale)}
+.experience-chips button.on,.product-state button.on{border-color:var(--rose);background:var(--rose);color:#fff;font-weight:700}
+.mini-input-label{display:block;font-size:11.5px;font-weight:700;margin:10px 0 5px}
+.mini-input-label small,.product-mini label small{font-weight:400;color:var(--muted)}
+.mini-text-input{width:100%;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;font:inherit;font-size:14px;color:var(--ink)}
+.mini-text-input:focus{outline:2px solid var(--rose);border-color:var(--rose)}
+.mini-help{display:block;margin-top:5px;color:var(--muted);font-size:10.5px}
+.product-mini{margin-top:10px}
+.product-mini label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px}
+.optional-birth{margin:0 0 16px;border:1px dashed var(--line);border-radius:18px;background:#fffaf7;overflow:hidden}
+.optional-birth summary{cursor:pointer;padding:13px 16px;font-size:12px;font-weight:700;color:#665b55}
+.optional-birth summary span{font-size:9px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 6px;margin-left:4px}
+.optional-birth-in{padding:0 16px 16px}
+.context-result{margin:12px 0;padding:14px 15px;border-radius:16px;background:#fff;border:1px solid #ead8d0}
+.context-result .crlab{display:block;font-size:10px;color:var(--rose);font-weight:700;letter-spacing:.07em;margin-bottom:5px}
+.context-result p{margin:3px 0;font-size:12.5px;line-height:1.7}
+.context-result b{font-weight:700;color:var(--ink)}
 .fortune-input-head{display:flex;align-items:baseline;gap:9px;margin-bottom:11px}
 .fortune-input-head span{font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px}
 .fortune-input-head b{font-family:var(--serif);font-size:17px;font-weight:500}
@@ -701,20 +720,20 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">占い × 仕事づくり <span class="en">Akinai Finder</span></div>
-        <h1>占って、書いてみたら、<br><span>知らなかった「仕事になる私」が見えてくる。</span></h1>
-        <p class="lead">まず、生年月日から1〜60の<b>「商い命数」</b>と商い星を出し、1枚だけ商いカードを引きます。<br>そのあと<b>5問をタップ</b>すると、占いで出た星と、実際の人生に現れている力を重ねて、具体的な仕事案3つまで出します。文章入力は任意です。</p>
+        <h1>これまでを少し振り返ると、<br><span>「仕事になる私」が見えてくる。</span></h1>
+        <p class="lead">まず、<b>これまでの経験</b>と<b>売ってみたいもの</b>を軽く答えます。次に商いカードを1枚引き、5問をタップ。<br>あなたがすでに持っているものから、具体的な仕事案3つを出します。<b>生年月日の商い命数は任意</b>です。</p>
         <div class="route-choose" id="start">
           <p class="rq">いちばん気軽な方法からどうぞ。</p>
           <a class="voice-route" href="#voice-diagnosis">
-            <div class="vr-top"><span class="mic-dot">✦</span><div><b>占ってから、5問をタップする</b><span>長文入力なし。仕事・暮らし・周りから見た自分を、選ぶだけで重ねます。</span></div></div>
-            <em>→ 占い × 実際の経験から、仕事案3つを見つける</em>
+            <div class="vr-top"><span class="mic-dot">✦</span><div><b>経験 → 売りたいもの → 1枚引き → 5問</b><span>長文入力なし。生年月日は入れなくても結果まで進めます。</span></div></div>
+            <em>→ もう持っている経験から、仕事案3つを見つける</em>
           </a>
           <div class="route-grid">
             <a class="route-card" href="#fortune"><b>話すのは少し苦手</b><span>9問から選ぶだけでも、同じ「商い星」と仕事案3つが出ます。</span><em>→ 選んで診断する</em></a>
             <a class="route-card" href="#idea-check"><b>売りたいものは、もう決まっている</b><span>その商品を「誰に・いくらで・まず何人に売るか」で確かめます。</span><em>→ 商品を確かめる</em></a>
           </div>
         </div>
-        <p class="micro">無料・登録なし。生年月日や入力内容は、このページからBRIDGE CYCLEへ送信しません。</p>
+        <p class="micro">無料・登録なし。回答内容や任意の生年月日は、このページからBRIDGE CYCLEへ送信しません。</p>
       </div>
       <div class="hero-ph">
         <img src="images/akinai-hero.jpg" alt="自宅のテーブルでノートを開き、自分の商いを考える40代の女性" width="706" height="1024" loading="eager" fetchpriority="high">
@@ -731,26 +750,45 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     <div class="wrap">
       <div class="fortune-simple">
         <div class="kicker">無料｜占い × 仕事づくり</div>
-        <h2>まず占う。そのあと、あなたの人生と照らし合わせます。</h2>
-        <p><b>占いで出た星</b>と、<b>あなたが実際に書いた経験</b>は別々に見ます。「当たっているところ」と「意外に違うところ」の両方から、仕事の種を探します。</p>
+        <h2>生年月日より先に、<br>あなたがもう持っているものから。</h2>
+        <p>これまでの経験と、今ちょっと売ってみたいものを先に聞きます。そのあと占いと5問を重ねて、現実に試せる仕事案へつなげます。</p>
       </div>
 
       <div class="voice-box">
         <div class="fortune-input">
-          <div class="fortune-input-head"><span>FORTUNE 01</span><b>生まれ持った商い星</b></div>
-          <label class="birth-label" for="birthDate">生年月日</label>
-          <input class="birth-input" id="birthDate" type="date" autocomplete="bday">
-          <p class="voice-help">生年月日を独自の60周期に置き換え、「商い命数」1〜60と6つの商い星に対応させます。現時点では象徴的な占いで、統計学的な因果関係や科学的な適性を示すものではありません。</p>
-          <div class="fortune-result-mini" id="birthFortune" style="display:none">
-            <span>あなたの商い命数</span><b id="birthNumber"></b>
-            <div class="birth-star-line"><small>生まれ持った商い星</small><strong id="birthStar"></strong></div>
-            <p id="birthStarText"></p>
-            <p class="fortune-phase" id="birthPhaseText"></p>
+          <div class="fortune-input-head"><span>STEP 01</span><b>これまで、どんなことをしてきましたか？</b></div>
+          <p class="fortune-card-lead">仕事だけでなく、家事・育児・地域活動・趣味も含めてOK。近いものをいくつかタップしてください。</p>
+          <div class="experience-chips" id="experienceChips">
+            <button type="button" data-exp="接客・販売をしてきた">接客・販売</button>
+            <button type="button" data-exp="事務・経理・管理をしてきた">事務・経理</button>
+            <button type="button" data-exp="営業・企画・広報をしてきた">営業・企画</button>
+            <button type="button" data-exp="ものづくり・料理・制作をしてきた">ものづくり</button>
+            <button type="button" data-exp="教育・介護・支援をしてきた">教育・支援</button>
+            <button type="button" data-exp="家事・育児を長く担ってきた">家事・育児</button>
+            <button type="button" data-exp="地域活動・PTA・ボランティアをしてきた">地域活動</button>
+            <button type="button" data-exp="店や事業を運営した経験がある">店舗・事業運営</button>
           </div>
+          <label class="mini-input-label" for="experienceDetail">もう少しだけ書くなら <small>任意</small></label>
+          <input class="mini-text-input" id="experienceDetail" type="text" maxlength="120" placeholder="例：アパレル販売12年／経理8年／子育て15年">
+          <small class="mini-help">1つタップするだけでも次へ進めます。</small>
         </div>
 
         <div class="fortune-input">
-          <div class="fortune-input-head"><span>FORTUNE 02</span><b>今のあなたへの1枚</b></div>
+          <div class="fortune-input-head"><span>STEP 02</span><b>いま、売ってみたいものはありますか？</b></div>
+          <div class="product-state" id="productState">
+            <button type="button" data-state="ある">ある</button>
+            <button type="button" data-state="なんとなくある">なんとなくある</button>
+            <button type="button" data-state="まだない">まだない</button>
+          </div>
+          <div class="product-mini" id="productMini" style="display:none">
+            <label for="wantedProduct">何を売ってみたい？ <small>一言でOK</small></label>
+            <input class="mini-text-input" id="wantedProduct" type="text" maxlength="100" placeholder="例：焼き菓子／整理収納サポート／相談サービス">
+          </div>
+          <p class="voice-help">「まだない」でも大丈夫です。その場合は、これまでの経験から仕事案を出します。</p>
+        </div>
+
+        <div class="fortune-input">
+          <div class="fortune-input-head"><span>FORTUNE</span><b>今のあなたへの1枚</b></div>
           <p class="fortune-card-lead">6枚の商いカードから、今のテーマを1枚だけ引きます。</p>
           <button class="btn ghost fortune-draw" id="drawAkinaiCard" type="button">✦ 商いカードを1枚引く</button>
           <div class="fortune-result-mini card-drawn" id="drawFortune" style="display:none">
@@ -758,9 +796,24 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           </div>
         </div>
 
+        <details class="optional-birth" id="optionalBirth">
+          <summary>もう少し詳しく占う｜生年月日から「商い命数」も見る <span>任意</span></summary>
+          <div class="optional-birth-in">
+            <label class="birth-label" for="birthDate">生年月日</label>
+            <input class="birth-input" id="birthDate" type="date" autocomplete="bday">
+            <p class="voice-help">入力しなくても診断できます。入力した場合だけ、独自の60周期から「商い命数」を加えます。</p>
+            <div class="fortune-result-mini" id="birthFortune" style="display:none">
+              <span>あなたの商い命数</span><b id="birthNumber"></b>
+              <div class="birth-star-line"><small>生まれ持った商い星</small><strong id="birthStar"></strong></div>
+              <p id="birthStarText"></p>
+              <p class="fortune-phase" id="birthPhaseText"></p>
+            </div>
+          </div>
+        </details>
+
         <div class="voice-required-head">
-          <b>ここからは「診断」。5問、近いものをタップするだけ。</b>
-          <p>文章を7つ書く方式はやめました。迷ったら「一番近い」で大丈夫。最後のひとこと入力だけ任意です。</p>
+          <b>最後に5問。近いものをタップするだけ。</b>
+          <p>ここまでの経験・売りたいものに、仕事・暮らし・周りから見える自分を重ねます。迷ったら「一番近い」で大丈夫。</p>
         </div>
 
         <div class="voice-group-label"><span>WORK</span><b>仕事で見える私</b></div>
@@ -846,11 +899,11 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
         <div class="data-note">
           <span>AKINAI DATA｜この占いを、これから育てる</span>
           <b>「統計に基づく」とは、まだ言いません。</b>
-          <p>現在の商い命数は、BRIDGE CYCLE独自の象徴的な占いです。将来、利用者の明確な同意を得た匿名データで、命数と「頼まれてきた役」「選んだ仕事案」「実際に試した結果」の傾向を検証し、十分な件数が集まり再現性を確認できた項目だけを公開する設計を目指します。</p>
-          <small>現在、このページの生年月日・5問の選択・任意入力はBRIDGE CYCLEへ送信・蓄積していません。</small>
+          <p>商い命数は、希望する人だけが使えるBRIDGE CYCLE独自の象徴的な占いです。将来、利用者の明確な同意を得た匿名データで、「これまでの経験」「選んだ仕事案」「実際に試した結果」の傾向を検証し、十分な件数が集まり再現性を確認できた項目だけを公開する設計を目指します。</p>
+          <small>現在、このページの経験・売りたいもの・5問の選択・任意の生年月日はBRIDGE CYCLEへ送信・蓄積していません。</small>
         </div>
-        <p class="voice-help">※ 生年月日と1枚引きは「占い」、5問の選択は「診断」として分けて扱います。結果では両者が重なる点・違う点を表示します。</p>
-        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">占いと5問から「仕事になる私」を見つける</button>
+        <p class="voice-help">※ 1枚引きと任意の商い命数は「占い」、経験・売りたいもの・5問は「仕事づくりの診断」として分けて扱います。</p>
+        <button class="btn terra voice-analyze" id="voiceAnalyze" type="button">経験・売りたいもの・占いから「仕事になる私」を見つける</button>
         <div class="voice-out" id="voiceOut" aria-live="polite"></div>
       </div>
     </div>
@@ -935,8 +988,13 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
             <div class="star-art-sub" id="rArtSub" style="display:none"></div>
+            <div class="context-result" id="rContextResult" style="display:none">
+              <span class="crlab">YOU ALREADY HAVE｜あなたが、もう持っているもの</span>
+              <p><b>これまで：</b><span id="rExperience"></span></p>
+              <p><b>売ってみたいもの：</b><span id="rWantedProduct"></span></p>
+            </div>
             <div class="oracle-origin" id="rOracleOrigin" style="display:none">
-              <div><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
+              <div id="rBirthOrigin"><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
               <div><span>今日引いたカード</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
             </div>
             <div class="oracle-letter">
@@ -1841,11 +1899,20 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
     if(voiceReveal&&voiceMeta&&voiceMeta.main===w){
       const words=(voiceMeta.words||[]).slice(0,6);
       const wk=voiceMeta.work||w,lk=voiceMeta.life||w,ok=voiceMeta.other||w;
-      const origin=document.getElementById('rOracleOrigin');
-      if(origin&&voiceMeta.birth&&voiceMeta.draw){
-        document.getElementById('rBirthNumberResult').textContent=voiceMeta.birthNumber||'—';
-        document.getElementById('rBirthStarResult').textContent=D[voiceMeta.birth].sym+'｜'+D[voiceMeta.birth].title.split('｜')[1];
-        document.getElementById('rBirthStarResultText').textContent=FORTUNE_BIRTH_TEXT[voiceMeta.birth]+(voiceMeta.birthNumber?'　'+FORTUNE_PHASE[Math.floor((voiceMeta.birthNumber-1)/6)]:'');
+      const context=document.getElementById('rContextResult');
+      if(context&&voiceMeta.experience){
+        document.getElementById('rExperience').textContent=voiceMeta.experience;
+        document.getElementById('rWantedProduct').textContent=voiceMeta.product||'まだ決まっていない';
+        context.style.display='';
+      }else if(context){context.style.display='none';}
+      const origin=document.getElementById('rOracleOrigin'),birthOrigin=document.getElementById('rBirthOrigin');
+      if(origin&&voiceMeta.draw){
+        if(voiceMeta.birth){
+          document.getElementById('rBirthNumberResult').textContent=voiceMeta.birthNumber||'—';
+          document.getElementById('rBirthStarResult').textContent=D[voiceMeta.birth].sym+'｜'+D[voiceMeta.birth].title.split('｜')[1];
+          document.getElementById('rBirthStarResultText').textContent=FORTUNE_BIRTH_TEXT[voiceMeta.birth]+(voiceMeta.birthNumber?'　'+FORTUNE_PHASE[Math.floor((voiceMeta.birthNumber-1)/6)]:'');
+          if(birthOrigin)birthOrigin.style.display='';
+        }else if(birthOrigin){birthOrigin.style.display='none';}
         document.getElementById('rDrawStarResult').textContent=D[voiceMeta.draw].sym+'｜'+D[voiceMeta.draw].title.split('｜')[1];
         document.getElementById('rDrawStarResultText').textContent=FORTUNE_CARD_TEXT[voiceMeta.draw];
         origin.style.display='';
@@ -1857,10 +1924,10 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       document.getElementById('rVoiceLifeText').textContent=VOICE_FACE_LABEL[lk];
       document.getElementById('rVoiceOtherText').textContent=VOICE_FACE_LABEL[ok];
       document.getElementById('rVoiceCross').textContent=voiceMeta.cross||'仕事・暮らし・周りから見える姿を重ねて、今回の商い星を出しました。';
-      document.getElementById('rVoiceWords').innerHTML=words.length?'話の中で拾った言葉：'+words.map(x=>'<b>「'+x+'」</b>').join('　'):'7つの話に繰り返し出てきた役割から読みました。';
+      document.getElementById('rVoiceWords').innerHTML=words.length?'回答から拾った言葉：'+words.map(x=>'<b>「'+x+'」</b>').join('　'):'これまでの経験と5問に繰り返し出てきた役割から読みました。';
       document.getElementById('rVoiceInsight').textContent=VOICE_REFRAME[w];
       voiceReveal.style.display='';
-    }else if(voiceReveal){voiceReveal.style.display='none';const origin=document.getElementById('rOracleOrigin');if(origin)origin.style.display='none';}
+    }else if(voiceReveal){voiceReveal.style.display='none';const origin=document.getElementById('rOracleOrigin');if(origin)origin.style.display='none';const context=document.getElementById('rContextResult');if(context)context.style.display='none';}
     const ph=document.getElementById('paidHook');if(ph)ph.textContent='「'+cname+'」を仕事にするなら、次は「今週どこまで動けるか」を30秒で確認。';
     const hasAns=ans.filter(Boolean).length>=9;
     if(hasAns){
@@ -2026,6 +2093,8 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   const N=5;
   const answers=Array.from({length:N},(_,i)=>document.getElementById('voiceText'+i));
   const quickNote=document.getElementById('quickNote');
+  const expChips=document.getElementById('experienceChips'),expDetail=document.getElementById('experienceDetail');
+  const productState=document.getElementById('productState'),productMini=document.getElementById('productMini'),wantedProduct=document.getElementById('wantedProduct');
   const steps=[...document.querySelectorAll('[data-voice-step]')];
   const go=document.getElementById('voiceAnalyze'),out=document.getElementById('voiceOut');
   const birth=document.getElementById('birthDate'),birthBox=document.getElementById('birthFortune');
@@ -2034,7 +2103,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
   const drawStar=document.getElementById('drawStar'),drawText=document.getElementById('drawStarText');
   if(!answers.every(Boolean)||!go||!out||!birth||!drawBtn)return;
 
-  let birthType=null,birthNumber=null,drawType=null;
+  let birthType=null,birthNumber=null,drawType=null,productStatus="";
 
   function markDone(i){
     const ok=(answers[i].value||'').trim().length>=3;
@@ -2049,6 +2118,18 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       markDone(i);
     }));
   });
+
+  if(expChips){
+    expChips.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>btn.classList.toggle('on')));
+  }
+  if(productState){
+    productState.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+      productState.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on'); productStatus=btn.dataset.state||btn.textContent.trim();
+      if(productMini)productMini.style.display=productStatus==='まだない'?'none':'';
+      if(productStatus==='まだない'&&wantedProduct)wantedProduct.value='';
+    }));
+  }
 
   function calcBirthNumber(v){
     if(!/^\d{4}-\d{2}-\d{2}$/.test(v||''))return null;
@@ -2111,17 +2192,32 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       ?'5つの選択では、仕事・暮らし・周りから見た姿のすべてに「'+a+'」力が繰り返し出ています。'
       :(work===life?'仕事と暮らしには「'+a+'」が共通し、周りからは「'+c+'」人として見られています。'
       :'仕事では「'+a+'」、暮らしでは「'+b+'」、周りからは「'+c+'」人として見られています。');
-    const fortune='占いでは、生まれ持った星が「'+D[born].sym+'」、今日のカードが「'+D[drawn].sym+'」。';
-    const overlap=[work,life,other].includes(born)||[work,life,other].includes(drawn);
-    return fortune+diag+(overlap?' 占いの星と、実際の経験に重なる部分があります。':' 占いと実際の経験は少し違う方向を示しています。そのズレも、まだ使っていない自分を見るヒントです。');
+    const fortune=born
+      ?'占いでは、生まれ持った星が「'+D[born].sym+'」、今日のカードが「'+D[drawn].sym+'」。'
+      :'今日引いた商いカードは「'+D[drawn].sym+'」。';
+    const overlap=(born&&[work,life,other].includes(born))||[work,life,other].includes(drawn);
+    return fortune+diag+(overlap?' 占いと実際の経験に重なる部分があります。':' 占いと実際の経験は少し違う方向を示しています。そのズレも、まだ使っていない自分を見るヒントです。');
   }
 
   go.addEventListener('click',()=>{
     try{
       showBirth();
-      if(!birthType){
-        out.textContent='最初に、生年月日を入力してください。';
-        birth.scrollIntoView({behavior:'smooth',block:'center'});
+      const expSelected=[...(expChips?.querySelectorAll('button.on')||[])].map(b=>b.dataset.exp||b.textContent.trim());
+      const expExtra=(expDetail?.value||'').trim();
+      if(!expSelected.length&&!expExtra){
+        out.textContent='最初に、「これまでしてきたこと」を1つタップしてください。';
+        expChips?.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+      if(!productStatus){
+        out.textContent='次に、「売ってみたいもの」があるかを1つ選んでください。';
+        productState?.scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+      const product=(wantedProduct?.value||'').trim();
+      if(productStatus!=='まだない'&&!product){
+        out.textContent='売ってみたいものを、一言だけ入力してください。';
+        wantedProduct?.focus();
         return;
       }
       if(!drawType){
@@ -2142,10 +2238,12 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       out.textContent='占いの星と、5つの選択を照らし合わせています…';
 
       const note=(quickNote?.value||'').trim();
-      const work=analyze(vals.slice(0,2).join('。')+(note?'。'+note:''));
+      const experienceText=[...expSelected,expExtra].filter(Boolean).join('。');
+      const productText=productStatus==='まだない'?'':product;
+      const work=analyze(experienceText+'。'+vals.slice(0,2).join('。')+(note?'。'+note:''));
       const life=analyze(vals.slice(2,4).join('。')+(note?'。'+note:''));
       const other=analyze(vals[4]+(note?'。'+note:''));
-      const all=analyze(vals.join('。')+(note?'。'+note:''));
+      const all=analyze(experienceText+'。'+productText+'。'+vals.join('。')+(note?'。'+note:''));
       let main=mergeScores(work,life,other);
       if(!main||((work.topScore||0)+(life.topScore||0)+(other.topScore||0)===0))main=all.top;
 
@@ -2161,7 +2259,7 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
       const hitPool=[...(work.hits[workType]||[]),...(life.hits[lifeType]||[]),...(other.hits[otherType]||[])];
       const words=hitPool.filter((x,i,ar)=>ar.indexOf(x)===i).slice(0,6);
       const cross=crossText(workType,lifeType,otherType,birthType,drawType);
-      const originalText=vals.map((v,i)=>(i+1)+'：'+v).join('\n')+(note?'\nひとこと：'+note:'');
+      const originalText='これまで：'+experienceText+'\n売りたいもの：'+(productStatus==='まだない'?'まだ決まっていない':product)+'\n'+vals.map((v,i)=>(i+1)+'：'+v).join('\n')+(note?'\nひとこと：'+note:'');
 
       if(typeof window.runAkinaiFromVoice!=='function')throw new Error('renderer unavailable');
 
@@ -2170,11 +2268,15 @@ const LBL=["感謝されたこと","月5万円なら","始め方","キャリア�
         main,sub:null,words,cross,
         work:workType,life:lifeType,other:otherType,
         birth:birthType,birthNumber,draw:drawType,
+        experience:experienceText,productStatus,product:productStatus==='まだない'?'まだ決まっていない':product,
         text:originalText.slice(0,2400),answers:vals
       });
 
-      BASE_RESULT='占い：商い命数 '+birthNumber+'・生まれ持った星 '+D[birthType].sym+'／今日のカード '+D[drawType].sym
-        +'｜入力診断：'+D[main].title.split('｜')[1]+'（'+D[main].sym+'）'
+      BASE_RESULT=(birthType?'占い：商い命数 '+birthNumber+'・生まれ持った星 '+D[birthType].sym+'／':'占い：')
+        +'今日のカード '+D[drawType].sym
+        +'｜これまで：'+experienceText
+        +'｜売りたいもの：'+(productStatus==='まだない'?'未定':product)
+        +'｜診断：'+D[main].title.split('｜')[1]+'（'+D[main].sym+'）'
         +'／仕事:'+D[workType].sym+'・暮らし:'+D[lifeType].sym+'・周り:'+D[otherType].sym;
       LAST_PLAN="";
       syncBookingResult();
