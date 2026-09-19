@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜「私にも何かできる？」を小さな仕事に変える</title>
-<meta name="description" content="なんとなく何か自分でやってみたい。でも何ができるか分からない。これまでの経験から仕事の種を見つけ、使える時間や目標収入まで整理。小さく試し、必要になったら事業計画や商工会相談へつなげます。">
+<meta name="description" content="なんとなく何か自分でやってみたい。でも何ができるか分からない。自分だけでは見えにくい経験や強みを第三者の視点で仕事の種に変え、小さく試せる形へ。必要になったら内容に合った相談先へつなげます。">
 <meta property="og:title" content="わたしの商い診断｜私にも何かできる？から始める">
 <meta property="og:description" content="独立するかは、まだ決めなくて大丈夫。経験→仕事案→小さく試す→必要なら事業計画→商工会相談までつなげます。">
 <meta property="og:type" content="website">
@@ -137,6 +137,20 @@ h1 span{display:inline;color:var(--rose);background:linear-gradient(transparent 
 .sample p{font-size:13px;color:#6b605a;margin:0}
 .sample .tag{display:inline-block;margin-top:16px;font-size:11px;background:var(--rose-pale);padding:4px 10px;border-radius:999px;color:var(--rose);font-weight:700}
 .sample .hint{position:absolute;right:18px;bottom:16px;font-size:11px;color:var(--muted)}
+
+.outside-view-section{padding:10px 0 26px}
+.outside-view-card{background:linear-gradient(145deg,#fffaf5,#f7e7e1);border:1px solid #ead8d0;border-radius:26px;padding:25px 26px;box-shadow:var(--shadow)}
+.outside-view-card .ov-kicker{display:block;font-family:var(--en);font-style:italic;font-size:14px;color:var(--rose);letter-spacing:.06em;margin-bottom:5px}
+.outside-view-card h2{font-size:clamp(24px,3.2vw,34px);margin:4px 0 10px;line-height:1.5}
+.outside-view-card>p{max-width:790px;margin:0;font-size:13.5px;line-height:1.9;color:#594f49}
+.outside-view-card>p b{color:var(--ink)}
+.ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.ov-item{padding:15px 16px;border-radius:17px;background:#fff;border:1px solid var(--line)}
+.ov-item small{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:12px;letter-spacing:.06em}
+.ov-item b{display:block;font-family:var(--serif);font-size:16px;line-height:1.6;font-weight:500;margin:3px 0 5px}
+.ov-item p{margin:0;font-size:11.5px;line-height:1.7;color:#6a6059}
+.ov-message{margin-top:15px;padding:14px 16px;border-left:3px solid var(--rose);background:rgba(255,255,255,.68);font-family:var(--serif);font-size:15px;line-height:1.8;color:var(--ink)}
+@media(max-width:760px){.ov-grid{grid-template-columns:1fr}.outside-view-card{padding:21px 19px}}
 
 .before-consult-section{padding:10px 0 22px}
 .before-consult-card{padding:24px;border-radius:24px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
@@ -795,7 +809,7 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
           <small>登録なし・独立を決めていなくてもOK</small>
         </div>
 
-        <p class="micro">占いは、自分でも気づいていない可能性を考える入口。最後は、仕事案・使える時間・目標金額まで現実に落とします。</p>
+        <p class="micro">占いは、自分だけでは気づきにくい可能性を見る入口。その後は、第三者の視点で仕事案・使える時間・目標金額まで現実に落とします。</p>
       </div>
 
       <div class="hero-map" aria-label="何かしたいから、小さく試せそうまでの流れ">
@@ -838,13 +852,43 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
     </div>
   </section>
 
+  <section class="outside-view-section">
+    <div class="wrap">
+      <div class="outside-view-card">
+        <span class="ov-kicker">WHY TALK TO SOMEONE｜なぜ、誰かに話すのか</span>
+        <h2>自分のことほど、自分だけでは見つけにくい。</h2>
+        <p>自分にとって当たり前にできることは、自分では「強み」に見えないことがあります。だから、何か始めたいときは、<b>一人で答えを出そうとするより、誰かに話して外から見てもらうこと</b>が大切です。<br>ただし、もっと大切なのは、<b>「誰に、何を相談するか」</b>です。</p>
+
+        <div class="ov-grid">
+          <div class="ov-item">
+            <small>01｜気づく</small>
+            <b>まず、自分を外から見る。</b>
+            <p>診断や対話をきっかけに、「自分では普通だと思っていた経験」を仕事の材料として見直します。</p>
+          </div>
+          <div class="ov-item">
+            <small>02｜形にする</small>
+            <b>事業を考えられる相手に話す。</b>
+            <p>「向いているね」で終わらず、誰に・何を・いくらで売るか、使える時間まで具体化します。</p>
+          </div>
+          <div class="ov-item">
+            <small>03｜つなぐ</small>
+            <b>必要になった支援先へ行く。</b>
+            <p>創業、融資、補助金、許認可など、段階に応じて商工会・商工会議所や専門家へつなげます。</p>
+          </div>
+        </div>
+
+        <div class="ov-message">「相談すること」が目的ではありません。<b>今の自分に合った相談相手を選び、次の一歩が具体的になること</b>が目的です。</div>
+      </div>
+    </div>
+  </section>
+
   <section class="before-consult-section">
     <div class="wrap">
       <div class="before-consult-card">
         <div>
           <span>WHEN IT BECOMES REAL｜少し見えてきた、その先</span>
           <h2>「できそう」が見えてきたら、相談先を使えばいい。</h2>
-          <p>最初から商工会・商工会議所へ行くことがゴールではありません。まずは、自分にできそうな仕事を見つけ、小さく試せる形にする。<b>その先で、創業・融資・補助金・経営の相談が必要になったとき、商工会・商工会議所を有効に活用します。</b></p>
+          <p>最初から商工会・商工会議所へ行くことがゴールではありません。まずは、自分にできそうな仕事を見つけ、小さく試せる形にする。<b>そのうえで、創業・融資・補助金・経営など、相談したい内容に合った相手を選びます。</b>商工会・商工会議所は、その段階で活用できる有力な相談先のひとつです。</p>
         </div>
         <div class="before-checks">
           <div><b>01</b><span>私にもできそう</span></div>
