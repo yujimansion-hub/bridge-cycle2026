@@ -3924,6 +3924,34 @@ p,
 }
 /* ===== /STEP2 CARD CONTRAST FIX ===== */
 
+
+/* ===== PAID AUTO REPORT 2026-09-20 ===== */
+.auto-report{margin-top:28px;padding:24px;border:1px solid #d9d4cc;border-radius:20px;background:#fff}
+.auto-report-head{margin-bottom:18px}
+.auto-report-head>span{display:block;font-size:10px;letter-spacing:.12em;font-weight:800;color:#8b5f54;margin-bottom:5px}
+.auto-report-head h4{margin:0 0 8px;font-family:var(--serif);font-size:28px;line-height:1.35}
+.auto-report-head p{margin:0;font-size:14px;line-height:1.8;color:#666}
+.auto-report-card{padding:22px 0;border-top:1px solid #e4dfd8}
+.auto-report-card:first-child{border-top:0}
+.auto-report-card h5{margin:0 0 6px;font-family:var(--serif);font-size:23px;line-height:1.45}
+.auto-report-card .report-sub{margin:0 0 18px;color:#8b5f54;font-weight:700;font-size:12px}
+.auto-report-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.auto-report-box{padding:14px 15px;border-radius:14px;background:#f7f5f0}
+.auto-report-box.full{grid-column:1/-1}
+.auto-report-box b{display:block;margin-bottom:6px;font-size:12px;color:#2f3931}
+.auto-report-box p{margin:0;font-size:13px;line-height:1.75;color:#555}
+.auto-report-timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.auto-report-timeline div{padding:12px;border-radius:12px;background:#eef2ec}
+.auto-report-timeline span{display:block;font-size:10px;font-weight:800;color:#667263;margin-bottom:4px}
+.auto-report-timeline p{margin:0;font-size:12px;line-height:1.65}
+@media(max-width:760px){.auto-report{padding:18px 14px}.auto-report-grid,.auto-report-timeline{grid-template-columns:1fr}.auto-report-head h4{font-size:24px}}
+@media print{
+  .auto-report{border:none;padding:0}
+  .pe-result-actions,.web-consult-note{display:none!important}
+  .auto-report-card{break-inside:avoid-page;page-break-inside:avoid}
+}
+/* ===== /PAID AUTO REPORT ===== */
+
 </style>
 </head>
 <body>
@@ -4636,7 +4664,15 @@ p,
 
           <div class="pe-stage" id="result3Stage">
             <div class="plan-results" id="planResults"></div>
-            <div class="pe-result-actions"><button class="btn" type="button" id="copy3Plans">3案をまとめてコピー</button><button class="btn ghost" type="button" id="print3Plans">印刷・PDF保存</button><button class="btn ghost" type="button" id="redo3Plans">回答を見直す</button></div>
+            <section class="auto-report" id="autoReport" aria-live="polite">
+              <div class="auto-report-head">
+                <span>AUTO REPORT</span>
+                <h4>3案の詳細レポート</h4>
+                <p>3案の生成と同時に、各案の「なぜこの案か」「どう始めるか」「何を確認するか」まで自動で整理します。</p>
+              </div>
+              <div id="reportResults"></div>
+            </section>
+            <div class="pe-result-actions"><button class="btn" type="button" id="copy3Plans">3案をまとめてコピー</button><button class="btn ghost" type="button" id="copyFullReport">詳細レポートをコピー</button><button class="btn ghost" type="button" id="print3Plans">印刷・PDF保存</button><button class="btn ghost" type="button" id="redo3Plans">回答を見直す</button></div>
             <p class="web-consult-note">市場・競合・売上は、入力情報からつくる仮説です。実際の出店・投資・申請前には、地域の市場データ、競合、原価、許認可、制度要件を確認してください。</p>
           </div>
         </div>
@@ -5488,7 +5524,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   const status=$('paidStatus'),payMsg=$('payMessage'),qMsg=$('questionMessage');
   const fields=['peProduct','peCustomer','peNeed','peVoice','peRepeat','peNegative','pePurpose','peThreeYears','peHours','peIncome','peArea','peRange','peFamily','peFamilyRisk','peFunds','peFundsRisk','peAI','peCompetitor','peAlternative'];
   const key='akinai_paid_draft_v1';
-  let lastPlans=[];
+  let lastPlans=[],lastReports=[];
 
   function vals(){
     const o={}; fields.forEach(id=>o[id]=($(id)?.value||'').trim());
@@ -5616,6 +5652,69 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       '必要資金：'+p.funds,'家族・生活条件：'+p.family,'月売上の目安：'+p.sales,'最初の3人：'+p.first3,'90日で確認：'+p.test
     ].join('\n')).join('\n\n----------------\n\n');
   }
+  function reportFor(p,o,i){
+    const first=(o.peCustomer||'身近な見込み客')+'に対し、'+(o.peNeed||'困りごと')+'をどこまで解決できるかを、小さな有料テストで確認する。';
+    const price=o.peIncome?('月'+money(o.peIncome)+'を目標に置きつつ、最初は売上より「実際にお金を払う人がいるか」を優先する。'):'最初の3件では、安売りではなく「この内容なら払える」と思える価格帯を確認する。';
+    const risk='主な未確認事項は、競合・代替手段・実作業時間・原価・家族や生活への負担。特に「'+(o.peFamilyRisk||'生活への影響')+'」は実行前に確認する。';
+    return {
+      ...p,
+      reason:'この案は、あなたの回答にあった「'+(o.peRepeat||o.peVoice||'人から評価されてきたこと')+'」と、「'+(o.pePurpose||'自分の仕事を持ちたい')+'」を、今の時間・資金条件の中で実行しやすい形にしたものです。',
+      first,
+      price,
+      risk,
+      d30:'1週目：候補3人を決める。2週目：商品内容と価格を1つに絞る。3週目：3人へ同じ条件で声をかける。4週目：買う／買わない理由、作業時間、負担を記録する。',
+      d60:'反応があった部分だけを残し、説明文・価格・提供方法を修正する。2回目の販売で「再現できるか」を確認する。',
+      d90:p.test,
+      stop:'有料顧客が0、想定時間を大幅に超える、家族・生活への負担が大きい、原価を含めると赤字になる場合は、拡大せず設計を見直す。'
+    };
+  }
+  function reportHtml(r){
+    return '<article class="auto-report-card">'+
+      '<div class="report-sub">'+esc(r.tag)+'</div><h5>'+esc(r.title)+'</h5>'+
+      '<div class="auto-report-grid">'+
+        '<div class="auto-report-box full"><b>なぜこの案なのか</b><p>'+esc(r.reason)+'</p></div>'+
+        '<div class="auto-report-box"><b>想定顧客</b><p>'+esc(r.customer)+'</p></div>'+
+        '<div class="auto-report-box"><b>顧客の困りごと・市場仮説</b><p>'+esc(r.market)+'</p></div>'+
+        '<div class="auto-report-box"><b>商品・サービス</b><p>'+esc(r.product)+'</p></div>'+
+        '<div class="auto-report-box"><b>提供価値</b><p>'+esc(r.value)+'</p></div>'+
+        '<div class="auto-report-box"><b>価格・売り方の考え方</b><p>'+esc(r.offer+' '+r.price)+'</p></div>'+
+        '<div class="auto-report-box"><b>最初の顧客の見つけ方</b><p>'+esc(r.first)+'</p></div>'+
+        '<div class="auto-report-box"><b>競合・代替</b><p>'+esc(r.comp)+'</p></div>'+
+        '<div class="auto-report-box"><b>あなたの強み</b><p>'+esc(r.strength)+'</p></div>'+
+        '<div class="auto-report-box"><b>必要時間・資金</b><p>'+esc(r.time+'／'+r.funds)+'</p></div>'+
+        '<div class="auto-report-box"><b>家族・生活条件</b><p>'+esc(r.family)+'</p></div>'+
+        '<div class="auto-report-box"><b>売上の目安</b><p>'+esc(r.sales)+'</p></div>'+
+        '<div class="auto-report-box"><b>主なリスク</b><p>'+esc(r.risk)+'</p></div>'+
+        '<div class="auto-report-box full"><b>90日ロードマップ</b><div class="auto-report-timeline">'+
+          '<div><span>0〜30日</span><p>'+esc(r.d30)+'</p></div>'+
+          '<div><span>31〜60日</span><p>'+esc(r.d60)+'</p></div>'+
+          '<div><span>61〜90日</span><p>'+esc(r.d90)+'</p></div>'+
+        '</div></div>'+
+        '<div class="auto-report-box full"><b>止める・見直す基準</b><p>'+esc(r.stop)+'</p></div>'+
+      '</div></article>';
+  }
+  function reportText(reports){
+    return reports.map(r=>[
+      r.tag+'｜'+r.title,
+      '【なぜこの案なのか】'+r.reason,
+      '【想定顧客】'+r.customer,
+      '【顧客の困りごと・市場仮説】'+r.market,
+      '【商品・サービス】'+r.product,
+      '【提供価値】'+r.value,
+      '【価格・売り方】'+r.offer+' '+r.price,
+      '【最初の顧客】'+r.first,
+      '【競合】'+r.comp,
+      '【強み】'+r.strength,
+      '【必要時間・資金】'+r.time+'／'+r.funds,
+      '【家族・生活条件】'+r.family,
+      '【売上の目安】'+r.sales,
+      '【主なリスク】'+r.risk,
+      '【0〜30日】'+r.d30,
+      '【31〜60日】'+r.d60,
+      '【61〜90日】'+r.d90,
+      '【止める・見直す基準】'+r.stop
+    ].join('\n')).join('\n\n====================\n\n');
+  }
   $('generate3Btn')?.addEventListener('click',()=>{
     const o=vals();
     if(!o.peProduct && !o.peVoice){
@@ -5624,8 +5723,10 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     }
     save();
     lastPlans=makePlans(o);
+    lastReports=lastPlans.map((p,i)=>reportFor(p,o,i));
     $('planResults').innerHTML=lastPlans.map(planHtml).join('');
-    status.textContent='3案できました';
+    $('reportResults').innerHTML=lastReports.map(reportHtml).join('');
+    status.textContent='3案と詳細レポートができました';
     setStage('r');
     resultStage.scrollIntoView({behavior:'smooth',block:'start'});
   });
@@ -5633,6 +5734,10 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   $('copy3Plans')?.addEventListener('click',async()=>{
     if(!lastPlans.length)return;
     try{await navigator.clipboard.writeText(plansText(lastPlans));$('copy3Plans').textContent='コピーしました';setTimeout(()=>$('copy3Plans').textContent='3案をまとめてコピー',1800);}catch(e){}
+  });
+  $('copyFullReport')?.addEventListener('click',async()=>{
+    if(!lastReports.length)return;
+    try{await navigator.clipboard.writeText(reportText(lastReports));$('copyFullReport').textContent='レポートをコピーしました';setTimeout(()=>$('copyFullReport').textContent='詳細レポートをコピー',1800);}catch(e){}
   });
   $('print3Plans')?.addEventListener('click',()=>window.print());
 })();
