@@ -4385,6 +4385,19 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .companion-more>summary::after{content:" ＋"}
 .companion-more[open]>summary::after{content:" －"}
 .companion-more[open]>summary{margin-bottom:16px}
+.cond-box{margin:22px 0 0;padding:22px 24px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+.cond-lead{margin:0 0 14px!important;font-size:16px!important;line-height:1.8}
+.cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cond-grid>div{padding:14px 16px;border-radius:16px;background:rgba(143,85,75,.06)}
+.cond-grid small{display:block;font-size:11.5px;color:#8a7f78}
+.cond-grid b{display:block;font-family:var(--serif);font-size:17px;font-weight:500;line-height:1.5;color:#3f443f;margin:3px 0 5px}
+.cond-grid span{display:block;font-size:13px;line-height:1.75;color:#5d534d}
+.cond-note{margin:14px 0 0!important;font-size:12.5px!important;color:#7a706a!important}
+@media(max-width:700px){.cond-grid{grid-template-columns:1fr}.cond-box{padding:18px 16px}}
+.pe-code-fold{margin-top:14px}
+.pe-code-fold>summary{cursor:pointer;list-style:none;font-size:13px;color:#7a706a;text-decoration:underline;text-underline-offset:3px}
+.pe-code-fold>summary::-webkit-details-marker{display:none}
+.pe-code-fold[open]>summary{margin-bottom:10px}
 .sample-fold{margin:6px 0 0}
 .sample-fold>summary{cursor:pointer;list-style:none;display:block;text-align:center;font-size:14px;font-weight:700;color:#7d4a41;padding:13px 18px;border:1px solid rgba(143,85,75,.3);border-radius:999px;background:#fff}
 .sample-fold>summary::-webkit-details-marker{display:none}
@@ -4464,47 +4477,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
       <div class="yesbox-turn">
         <h3>それなら、まだ事業計画はいりません。</h3>
         <p>まず、あなたがこれまでやってきたことを、一緒に整理するところから始めます。</p>
-        <p class="yb-creed"><b>うまくいかなかったことも、やめたことも、やり直したことも、仕事の材料になります。</b>順調だったことだけを聞く場所ではありません。避けてきたことより、乗り越えてきたことのほうが、次に効きます。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="how3" aria-label="診断の流れ">
-    <div class="wrap how3-grid">
-      <div class="how3-steps">
-        <span class="how3-tag">HOW IT WORKS</span>
-        <div class="how3-step"><i>01</i><div><b>答える</b><small>9問・約3分</small></div></div>
-        <div class="how3-line"></div>
-        <div class="how3-step"><i>02</i><div><b>見えてくる</b><small>経験・強み・仕事の種</small></div></div>
-        <div class="how3-line"></div>
-        <div class="how3-step"><i>03</i><div><b>小さく試す</b><small>商品・価格・最初の一歩</small></div></div>
-        <a class="btn how3-btn" href="#fortune">無料で9問に答える →</a>
-      </div>
-      <div class="how3-sample" aria-label="診断結果のイメージ">
-        <span class="hs-tag">RESULT SAMPLE｜無料診断の結果イメージ</span>
-        <div class="hs-block"><small>あなたの経験資産</small><b>「人の話を整理して、次にやることに変える力」</b><p>職場でも家庭でも、まず話を聞く側にまわってきた経験が、そのまま価値になります。</p></div>
-        <div class="hs-grid">
-          <div><small>仕事の種</small><b>ひとり相談・少人数講座・伴走サポート</b></div>
-          <div><small>向いている進め方</small><b>まず1人ずつ、小さく試す</b></div>
-          <div class="wide"><small>最初の一歩</small><b>身近な1人に30分、試してみる</b></div>
-        </div>
-        <p class="hs-note">※イメージです。実際は回答内容から自動で作成されます。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="detail-hub" aria-label="詳しい情報">
-    <div class="wrap detail-hub-grid">
-      <div class="detail-hub-intro">
-        <span>DETAILS</span>
-        <h2>詳しいことは、<br>知りたいところだけ。</h2>
-        <p>トップページは概要だけにしました。気になる項目から詳しく読めます。</p>
-      </div>
-      <div class="detail-hub-links">
-        <a href="akinai-about.html"><small>ABOUT</small><b>この診断で何が分かる？</b><span>→</span></a>
-        <a href="akinai-method.html"><small>METHOD</small><b>どうやって商いを考える？</b><span>→</span></a>
-        <a href="akinai-profile.html"><small>PROFILE</small><b>誰がつくっている？</b><span>→</span></a>
-        <a href="akinai-faq.html"><small>FAQ</small><b>怪しくない？料金は？</b><span>→</span></a>
+        <p class="yb-creed"><b>うまくいかなかったことも、やめたことも、やり直したことも、仕事の材料になります。</b>順調だったことだけを聞く場所ではありません。</p>
       </div>
     </div>
   </section>
@@ -4518,14 +4491,6 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
         <p class="ht-note">人に話さなくていい。9問が、聞き役になります。</p>
       </div>
       <a class="btn" href="#fortune">はじめる →</a>
-    </div>
-  </section>
-
-  <section class="maker-strip" aria-label="つくった人">
-    <div class="wrap">
-      <img src="assets/akinai-profile-yuji-final.png?v=20260920-0032" alt="つくった人・中村裕二" loading="lazy" decoding="async">
-      <p><b>つくっているのは、商工会で20年以上、創業から廃業まで500社以上の相談に関わってきた中村裕二です。</b>起業を勧める立場ではなく、やめる判断にも立ち会ってきました。</p>
-      <a href="akinai-profile.html">つくった人を見る →</a>
     </div>
   </section>
 
@@ -4847,6 +4812,54 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
     </div>
   </section>
 
+  <section class="how3" aria-label="診断の流れ">
+    <div class="wrap how3-grid">
+      <div class="how3-steps">
+        <span class="how3-tag">HOW IT WORKS</span>
+        <div class="how3-step"><i>01</i><div><b>答える</b><small>9問・約3分</small></div></div>
+        <div class="how3-line"></div>
+        <div class="how3-step"><i>02</i><div><b>見えてくる</b><small>経験・強み・仕事の種</small></div></div>
+        <div class="how3-line"></div>
+        <div class="how3-step"><i>03</i><div><b>小さく試す</b><small>商品・価格・最初の一歩</small></div></div>
+        <a class="btn how3-btn" href="#fortune">無料で9問に答える →</a>
+      </div>
+      <div class="how3-sample" aria-label="診断結果のイメージ">
+        <span class="hs-tag">RESULT SAMPLE｜無料診断の結果イメージ</span>
+        <div class="hs-block"><small>あなたの経験資産</small><b>「人の話を整理して、次にやることに変える力」</b><p>職場でも家庭でも、まず話を聞く側にまわってきた経験が、そのまま価値になります。</p></div>
+        <div class="hs-grid">
+          <div><small>仕事の種</small><b>ひとり相談・少人数講座・伴走サポート</b></div>
+          <div><small>向いている進め方</small><b>まず1人ずつ、小さく試す</b></div>
+          <div class="wide"><small>最初の一歩</small><b>身近な1人に30分、試してみる</b></div>
+        </div>
+        <p class="hs-note">※イメージです。実際は回答内容から自動で作成されます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-hub" aria-label="詳しい情報">
+    <div class="wrap detail-hub-grid">
+      <div class="detail-hub-intro">
+        <span>DETAILS</span>
+        <h2>詳しいことは、<br>知りたいところだけ。</h2>
+        <p>トップページは概要だけにしました。気になる項目から詳しく読めます。</p>
+      </div>
+      <div class="detail-hub-links">
+        <a href="akinai-about.html"><small>ABOUT</small><b>この診断で何が分かる？</b><span>→</span></a>
+        <a href="akinai-method.html"><small>METHOD</small><b>どうやって商いを考える？</b><span>→</span></a>
+        <a href="akinai-profile.html"><small>PROFILE</small><b>誰がつくっている？</b><span>→</span></a>
+        <a href="akinai-faq.html"><small>FAQ</small><b>怪しくない？料金は？</b><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="maker-strip" aria-label="つくった人">
+    <div class="wrap">
+      <img src="assets/akinai-profile-yuji-final.png?v=20260920-0032" alt="つくった人・中村裕二" loading="lazy" decoding="async">
+      <p><b>つくっているのは、商工会で20年以上、創業から廃業まで500社以上の相談に関わってきた中村裕二です。</b>起業を勧める立場ではなく、やめる判断にも立ち会ってきました。</p>
+      <a href="akinai-profile.html">つくった人を見る →</a>
+    </div>
+  </section>
+
   <section id="idea-check" class="idea-section">
     <div class="wrap">
       <div class="fortune-simple">
@@ -4964,6 +4977,15 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
         </a>
         <figcaption>総合レポート ＋ 3案 ＋ 各案約3ページ（画像をクリックすると大きく表示できます）</figcaption>
       </figure>
+
+      <div class="cond-box">
+        <p class="cond-lead">同じ回答でも、<b>時間・家族・資金・地域</b>が違えば、提案は変わります。</p>
+        <div class="cond-grid">
+          <div><small>例：週2時間・自己資金5万円</small><b>固定費を持たない案</b><span>いま持っているもので、予約だけ受ける形から。</span></div>
+          <div><small>例：週10時間・自己資金30万円</small><b>販売テストから育てる案</b><span>小さく売って反応を見てから、投資を判断する形。</span></div>
+        </div>
+        <p class="cond-note">ひな形を差し替えているのではなく、回答した条件から計算しています。</p>
+      </div>
 
       <table class="cmp2">
         <thead><tr><th></th><th>無料</th><th class="on">3,300円</th></tr></thead>
@@ -5094,6 +5116,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
               <button class="btn" type="button" id="paidCheckoutBtn">3,300円で3案をつくる →</button>
             </div>
             <p class="pe-message" id="payMessage"></p>
+            <details class="pe-code-fold">
+            <summary>銀行振込でお支払いの方はこちら</summary>
             <div class="pe-code">
               <label for="peCode">お支払いが済んだ方へ｜受付コードを入力</label>
               <div class="pe-code-row">
@@ -5102,6 +5126,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
               </div>
               <p class="pe-message" id="codeMessage"></p>
             </div>
+            </details>
             <p class="web-consult-note" id="payHelpNote">お申し込みはLINEから受け付けています。お支払い（銀行振込またはクレジット決済リンク）を確認しましたら、受付コードをLINEでお送りします。上の欄に入力すると、そのまま質問へ進めます。<br>※受付時間：平日10:00〜16:00（通常1営業日以内にご返信します）</p>
           </div>
 
