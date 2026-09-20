@@ -4391,6 +4391,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .cond-keys>div{flex:1 1 90px;text-align:center;padding:12px 8px;border-radius:14px;border:1px solid rgba(143,85,75,.25);background:#fff}
 .cond-keys b{font-family:var(--serif);font-size:19px;font-weight:500;color:#7d4a41}
 .paid-trust{margin:16px 0 0!important;font-size:13.5px!important;line-height:1.8;color:#6a5f58!important;padding-left:12px;border-left:3px solid rgba(143,85,75,.35)}
+.fq-sub2{margin:8px 0 0!important;font-family:var(--serif);font-size:clamp(17px,2.4vw,23px)!important;font-weight:500;line-height:1.6;color:#5d534d!important}
 .paid-sub{margin:14px 0 0!important;font-size:16px!important;line-height:1.85}
 .paid-sub .ps-note{display:inline-block;margin-top:6px;font-size:12.5px;color:#7a706a}
 .cmp2-emo{margin:14px 0 0!important;text-align:center;font-family:var(--serif);font-size:clamp(16px,2.2vw,21px)!important;line-height:1.75;color:#5d534d!important}
@@ -4541,8 +4542,9 @@ document.addEventListener('click',function(e){
     <div class="wrap">
       <div class="fortune-simple">
         <div class="kicker">無料3分｜私から9つだけ質問します</div>
-        <h2>母でも、妻でも、肩書きでもない。<br>あなた自身について、9つだけ。</h2>
-        <p>好きだったこと、人から言われたこと、遠回りした経験、繰り返し任されてきたこと。<b>役割じゃなくて「あなた」のことを、こっちから順番に聞いていきます。</b></p>
+        <h2>今日は、母とか妻とか、<br>そういうの抜きで。</h2>
+        <p class="fq-sub2">あなた自身のことを、9つだけ。</p>
+        <p><b>いきなり夢とか目標とか、聞かないです。</b><br>好きだったこと、人から言われたこと、遠回りした経験、繰り返し任されてきたこと。役割じゃなくて「あなた」のことを、こっちから順番に聞いていきます。</p>
         <p style="margin-top:10px;font-size:14px;color:var(--muted)">売るものがもう決まっている人も、まず9問だけ。「なんで自分がそれを売るのか」が見えてきます。</p>
       </div>
 
@@ -4843,7 +4845,7 @@ document.addEventListener('click',function(e){
               <span>「これは少しやってみたい」</span>
               <span>「今はまだ動かない」</span>
             </div>
-            <a class="btn" href="#price">私の3つの商いを見てみる　3,300円 →</a>
+            <a class="btn" href="#price">私なら、どんな商いがありそう？　3,300円 →</a>
             <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
           </div>
 
@@ -4860,7 +4862,7 @@ document.addEventListener('click',function(e){
       <div class="paid-head">
         <span class="step-pill" id="paidPill">3,300円 ／ Web完結 ／ 面談なし</span>
         <h2>話してくれたことを、<br>ちゃんと「商い」にして返します。</h2>
-        <p class="paid-sub">経験・使える時間・家族・資金。<b>今の条件に合わせて、3つの形にします。</b><br><span class="ps-note">回答をもとに、その場でWeb上で作成します（個別の面談・個別執筆はありません）。</span></p>
+        <p class="paid-sub">今の生活とか、使える時間とか、お金のことも込みで。<b>無理のない3つの形にします。</b><br><span class="ps-note">回答をもとに、その場でWeb上で作成します（個別の面談・個別執筆はありません）。</span></p>
         <div class="paid-deliver">
           <div>総合レポート</div><i>＋</i><div>3つの事業案</div><i>＋</i><div>各案の詳細レポート</div>
         </div>
@@ -4870,7 +4872,7 @@ document.addEventListener('click',function(e){
         <p class="paid-voice">聞いたまま終わらせず、<b>「じゃあ何ができる？」まで出す。</b>それが、この診断の役目です。</p>
         <p class="paid-trust">商工会で20年以上、創業から廃業まで500社以上の相談経験をもとに設計しています。</p>
         <div class="paid-cta-top">
-          <a class="btn" href="#paidEngine">私の3つの商いを見てみる　3,300円 →</a>
+          <a class="btn" href="#paidEngine">私なら、どんな商いがありそう？　3,300円 →</a>
           <div class="pct-flow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
           <small class="pct-note">待ち時間なし ／ 面談なし ／ 自動継続なし</small>
         </div>
@@ -4912,8 +4914,8 @@ document.addEventListener('click',function(e){
       <p class="cmp2-emo">ここからは、あなたの話を<br class="sp">「仕事として通用する言葉」にして返します。</p>
 
       <div class="host-note">
-        <p class="hn-lead">私は、あなたに「起業した方がいい」とは言いません。</p>
-        <div class="hn-three"><span>「これは似合わない」</span><span>「これは少しやってみたい」</span><span>「これは今じゃない」</span></div>
+        <p class="hn-lead">別に、起業した方がいいとは思ってません。</p>
+        <div class="hn-three"><span>「これは違う」</span><span>「これはちょっとやってみたい」</span><span>「これは今じゃない」</span></div>
         <p class="hn-body">その3つが見えれば十分です。20年以上、創業から廃業まで見てきたからこそ、無理に背中を押すより、<b>似合いそうな始め方が見えるようにする</b>ほうが大事だと思って、この診断を作りました。</p>
       </div>
 
@@ -5228,7 +5230,7 @@ document.addEventListener('click',function(e){
           <div class="why" id="ideaResultWhy"></div>
           <div class="next"><b>今週の一歩</b><p id="ideaResultNext"></p></div>
           <p class="note">※「売れる／売れない」を保証する診断ではありません。今の仮説で不足している確認項目を見つけるチェックです。</p>
-          <div class="idea-actions"><a class="btn" href="#mini">最後に30秒｜今週どこまで動けるか見る</a><a class="btn ghost" href="#price">3,300円｜事業計画案を3つ出す</a><button class="btn ghost sm" id="ideaAgain" type="button">やり直す</button></div>
+          <div class="idea-actions"><a class="btn" href="#mini">最後に30秒｜今週どこまで動けるか見る</a><a class="btn ghost" href="#price">3,300円｜私ならどんな商い？</a><button class="btn ghost sm" id="ideaAgain" type="button">やり直す</button></div>
         </div>
       </div>
     </div>
@@ -5260,7 +5262,7 @@ document.addEventListener('click',function(e){
           <p class="season-combo" id="seasonCombo" style="display:none"></p>
           <p class="season-recheck">商いの季節は固定ではありません。売ってみた・時間が取れた・お客さんが見えたら変わります。1か月後に、また確認してください。</p>
           <p class="free-paid-line">ここまでが<b>無料でわかる「仕事の種」</b>です。上の価格は、同じ型の人に共通する<b>相場の目安</b>で、あなた個人の条件は入っていません。<b>3,300円</b>では、この結果に<b>あなたの使える時間・資金・家族の条件・地域・競合</b>を加えて、<b>必要な件数・月売上の目安・90日の判断基準</b>まで整理し、<b>比較できる事業計画案を3つ</b>つくります。</p>
-          <div class="cta-row"><a class="btn" href="#price">3,300円｜3つの事業計画案を見る</a><button type="button" class="btn ghost sm" id="again2">やり直す</button></div>
+          <div class="cta-row"><a class="btn" href="#price">3,300円｜私ならどんな商い？</a><button type="button" class="btn ghost sm" id="again2">やり直す</button></div>
         </div>
       </div>
     </div>
@@ -5343,7 +5345,7 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 
-<div class="mbar"><a class="btn" href="#start">無料診断</a><a class="btn ghost" href="#price">3,300円のWeb版</a></div>
+<div class="mbar"><a class="btn" href="#start">無料診断</a><a class="btn ghost" href="#price">3,300円で3つの商い</a></div>
 <div class="toast" id="toast"></div>
 
 <script>
