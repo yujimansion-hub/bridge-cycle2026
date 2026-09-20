@@ -8,6 +8,10 @@
 <meta property="og:title" content="わたしの商い診断｜私にも何かできる？から始める">
 <meta property="og:description" content="独立するかは、まだ決めなくて大丈夫。経験→仕事案→小さく試す→必要なら事業計画→商工会相談までつなげます。">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/assets/akinai-ogp.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f6f5f2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
@@ -4958,7 +4962,8 @@ const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認
    ※ 銀行振込など手動決済の方には、引き続き下の受付コードをお使いください */
 const PAID_ACCESS_CODE  = "AKINAI-2609";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
-const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // シェア用URL（本番はここに固定URLを）
+const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // 診断ページ本体
+const SHARE_URL   = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai-start.html";  // 共有・SNSプロフィール用の軽い入口ページ
 // ====================
 document.getElementById("year").textContent = new Date().getFullYear();
 const toast=document.getElementById("toast");
@@ -5114,7 +5119,7 @@ function renderCompass(main,season){
 function sharePayload(){
   const r=window.AKINAI_RESULT;
   if(!r)return null;
-  const url=PAGE_URL+"?t="+r.main+(r.sub?"&s="+r.sub:"");
+  const url=SHARE_URL+"?t="+r.main+(r.sub?"&s="+r.sub:"");
   const title=LAST_SEASON_TITLE||r.name;
   const seasonLine=LAST_SEASON?("\n"+r.stars+"／"+LAST_SEASON):("\n"+r.stars);
   const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||""):AFFIRM[r.main];
@@ -5665,7 +5670,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     x.fillStyle='#c47f74';x.font='500 25px '+serif;x.fillText(ORACLE_KEYWORD[cur],540,cy+40);
     x.fillStyle='#c47f74';x.font='700 30px '+sans;x.fillText('#わたしの商い診断',540,1640);
     x.fillStyle='#8a7f77';x.font='400 23px '+sans;x.fillText('今の自分への、小さなお守りカルテ',540,1700);
-    x.fillStyle='#c47f74';x.font='700 24px '+sans;x.fillText(PAGE_URL.replace(/^https?:\/\//,''),540,1750);
+    x.fillStyle='#c47f74';x.font='700 24px '+sans;x.fillText(SHARE_URL.replace(/^https?:\/\//,''),540,1750);
     return c;
   }
   function rr(x,X,Y,w,h,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+h,r);x.arcTo(X+w,Y+h,X,Y+h,r);x.arcTo(X,Y+h,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath();}

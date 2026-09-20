@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>わたしの商い診断｜9問・無料・3分</title>
+<meta name="description" content="相談に来た人の8割は、結局始めません。それでも来てよかったと言われます。これまでの経験や「人から頼まれてきたこと」から、あなたらしい小さな商いの種を見つける9問。無料・登録なし・3分。">
+<meta property="og:title" content="わたしの商い診断｜9問で「わたしの商いの種」を見つける">
+<meta property="og:description" content="相談に来た人の8割は、結局始めません。それでも来てよかったと言われます。無料・登録なし・3分。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/assets/akinai-ogp.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/akinai-start.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f5f0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f5f0;--paper:#fff;--ink:#182019;--body:#3d443e;--line:#d8d8d0;--accent:#8f554b;--deep:#243027;--soft:#efe3df;--serif:"Noto Serif JP",serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;font-size:17px;line-height:1.95;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(560px,calc(100% - 36px));margin:auto}
+main{padding:40px 0 30px}
+.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--accent);font-weight:800}
+h1{font-family:var(--serif);font-size:clamp(26px,6.4vw,33px);line-height:1.5;letter-spacing:-.012em;font-weight:500;margin:12px 0 16px}
+h1 span{color:var(--accent)}
+.lead{font-size:15.5px;color:var(--body);margin:0 0 20px}
+.friend{margin:0 0 22px;padding:18px 20px;border-radius:18px;background:var(--paper);border:1px solid var(--line);box-shadow:0 12px 34px rgba(34,38,34,.06)}
+.friend small{display:block;font-size:11px;letter-spacing:.1em;color:var(--accent);font-weight:800;margin-bottom:6px}
+.friend b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;line-height:1.5}
+.friend .sym{font-family:var(--serif);font-size:34px;line-height:1;color:var(--ink);margin-bottom:6px;display:block}
+.friend p{margin:8px 0 0;font-size:13.5px;color:var(--body)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 22px}
+.facts div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 10px;text-align:center}
+.facts b{display:block;font-family:var(--serif);font-size:20px;color:var(--accent);line-height:1.2}
+.facts span{display:block;font-size:11.5px;color:var(--body);margin-top:3px}
+.cta{display:flex;align-items:center;justify-content:center;min-height:58px;border-radius:14px;background:var(--deep);color:#fff;font-weight:700;font-size:16px;box-shadow:0 14px 34px rgba(36,48,39,.22)}
+.cta:active{transform:translateY(1px)}
+.note{font-size:12.5px;color:#6b716a;margin:14px 0 0;line-height:1.8}
+.quote{margin:26px 0 0;padding:20px 22px;border-left:3px solid var(--accent);background:var(--paper);border-radius:0 16px 16px 0}
+.quote p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.9}
+.quote small{display:block;margin-top:10px;font-size:12px;color:#6b716a;font-family:"Zen Kaku Gothic New",sans-serif}
+.what{margin:26px 0 0}
+.what h2{font-family:var(--serif);font-size:19px;font-weight:500;margin:0 0 10px}
+.what ol{margin:0;padding-left:1.3em;color:var(--body);font-size:14.5px}
+.what li{margin:7px 0}
+.who{margin:26px 0 0;padding:18px 20px;border-radius:18px;background:#eef1eb;border:1px solid #d7ded4;font-size:13.5px;line-height:1.85;color:#39423a}
+.who b{font-family:var(--serif);font-size:15px;font-weight:500}
+footer{padding:28px 0 46px;font-size:11.5px;line-height:1.9;color:#6b716a}
+footer a{text-decoration:underline}
+</style></head><body>
+<main><div class="wrap">
+  <div class="eyebrow">AKINAI FINDER</div>
+  <h1>「私にも、何かできるかも」<br><span>で止まっている人へ。</span></h1>
+  <p class="lead">これまでの経験や「人から頼まれてきたこと」から、あなたらしい小さな商いの種を見つける9問です。</p>
+
+  <div class="friend" id="friendBox" style="display:none">
+    <small>この診断を教えてくれた人の結果</small>
+    <span class="sym" id="fSym"></span>
+    <b id="fName"></b>
+    <p>同じ9問で、あなたの結果も出ます。</p>
+  </div>
+
+  <div class="facts">
+    <div><b>9問</b><span>選ぶだけ</span></div>
+    <div><b>無料</b><span>登録なし</span></div>
+    <div><b>3分</b><span>スマホで完結</span></div>
+  </div>
+
+  <a class="cta" href="akinai.html#fortune">診断をはじめる →</a>
+  <p class="note">入力した内容はどこにも送信されません。結果は1枚のカード画像として保存できます。</p>
+
+  <div class="quote">
+    <p>相談に来た人の8割は、結局、始めません。<br>それでも、「来てよかった」と言われます。</p>
+    <small>商工会の相談窓口で20年、私の実感です。</small>
+  </div>
+
+  <div class="what">
+    <h2>この9問で分かること</h2>
+    <ol>
+      <li>これまでの経験の中で、繰り返し現れている「価値の出し方」</li>
+      <li>自分では普通だと思っていた、人に頼まれてきたこと</li>
+      <li>今の暮らしのまま試すとしたら、どんな形がありそうか</li>
+      <li>そして、「今はやらない」と決めるための材料</li>
+    </ol>
+  </div>
+
+  <div class="who">
+    <b>つくった人：中村裕二</b><br>
+    商工会の経営指導員として20年以上、創業から廃業までの相談に関わってきました。国の認定経営革新等支援機関（BRIDGE CYCLE株式会社）です。起業を勧めるためのサイトではありません。
+    <br><a style="text-decoration:underline" href="akinai-profile.html">つくった人を詳しく見る →</a>
+  </div>
+</div></main>
+<footer><div class="wrap">
+運営：BRIDGE CYCLE株式会社（滋賀県大津市・国の認定経営革新等支援機関）／代表取締役 中村裕二<br>
+<a href="akinai.html">わたしの商い診断 トップ</a>　<a href="tokushoho.html">特定商取引法に基づく表記</a>　<a href="privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>
+</div></footer>
+<script>
+(function(){
+  var D={light:{s:"灯",t:"経験を、ことばにする人"},hand:{s:"手",t:"積み重ねを、形にする人"},garden:{s:"庭",t:"人を、長く支える人"},bridge:{s:"橋",t:"人と人を、つなぐ人"},boat:{s:"舟",t:"小さく出て、試す人"},tower:{s:"塔",t:"整える力を、価値にする人"}};
+  var q=new URLSearchParams(location.search), t=q.get("t"), s2=q.get("s");
+  if(t&&D[t]){
+    document.getElementById("fSym").textContent=D[t].s+(s2&&D[s2]&&s2!==t?" × "+D[s2].s:"");
+    document.getElementById("fName").textContent=D[t].t;
+    document.getElementById("friendBox").style.display="";
+  }
+  // 診断へ進むとき、紹介元の型は引き継がない（自分の結果を出すため）
+  document.querySelector(".cta").addEventListener("click",function(){try{sessionStorage.setItem("akinai_from_share","1");}catch(e){}});
+})();
+</script>
+</body></html>
