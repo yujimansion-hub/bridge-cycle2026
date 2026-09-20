@@ -4360,6 +4360,40 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .maker-strip p{flex:1 1 320px;margin:0;font-size:14px;line-height:1.85;color:#5d534d}
 .maker-strip p b{color:#3f443f}
 .maker-strip a{flex:none;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+
+/* ===== CUT & FOCUS 2026-09-20 ===== */
+@media(min-width:901px){
+  .hero-peek{position:static!important;margin:18px 0 0!important;background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .hero-v3-visual .hero-v3-photo{aspect-ratio:4/3}
+  .hero-peek .hp-note{display:block}
+}
+.hero-peek .hp-row+.hp-row{margin-top:10px}
+.hs-grid>div.wide{grid-column:1 / -1}
+.paid-cta-top{margin:20px 0 6px}
+.paid-cta-top .btn{font-size:17px;min-height:60px;padding:0 30px}
+.pct-flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.pct-flow span{font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:#3f443f}
+.pct-flow i{font-style:normal;color:var(--rose,#8f554b)}
+.pct-note{display:block;font-size:12.5px;color:#7a706a}
+.report-hero-top{margin:26px auto 24px!important}
+.report-hero-top .rht-lead{display:block;text-align:center;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--rose,#8f554b);margin-bottom:10px}
+.cmp2-turn.big{margin-top:20px!important;text-align:center}
+.cmp2-turn.big{font-family:var(--serif);font-size:clamp(22px,3.4vw,34px)!important;font-weight:500;line-height:1.55;color:#7d4a41!important}
+.companion-more{margin:0 0 18px}
+.companion-more>summary{cursor:pointer;font-size:14.5px;font-weight:700;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.08);display:inline-block;list-style:none}
+.companion-more>summary::-webkit-details-marker{display:none}
+.companion-more>summary::after{content:" ＋"}
+.companion-more[open]>summary::after{content:" －"}
+.companion-more[open]>summary{margin-bottom:16px}
+.fit-box{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 0}
+.fit{padding:20px 22px;border-radius:20px;border:1px solid var(--line);background:#fff}
+.fit b{display:block;font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:10px}
+.fit ul{margin:0;padding-left:1.1em}
+.fit li{font-size:14px;line-height:1.85;color:#5d534d}
+.fit.yes b{color:#3f5a45}
+.fit.no{background:#faf7f3}
+.fit.no b{color:#8a7f78}
+@media(max-width:760px){.fit-box{grid-template-columns:1fr}.pct-flow span{font-size:12.5px;padding:7px 11px}}
 </style>
 </head>
 <body>
@@ -4400,13 +4434,11 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="やわらかな灯りの部屋で、自分のこれからを静かに考えている女性" loading="eager" decoding="async">
         </div>
         <div class="hero-peek" aria-label="9問に答えると出てくるもの（例）">
-          <span class="hp-tag">9問に答えると…</span>
-          <div class="hp-row"><small>あなたの経験資産</small><b>人の話を整理する力</b></div>
-          <div class="hp-arw">↓</div>
-          <div class="hp-row"><small>仕事にすると</small><b>相談・講座・伴走</b></div>
-          <div class="hp-arw">↓</div>
-          <div class="hp-row hp-last"><small>まず試すなら</small><b>1人に30分、話を聞いてみる</b></div>
-          <p class="hp-note">※結果イメージです。内容は回答によって変わります。</p>
+          <span class="hp-tag">9問に答えると、こんな形で返ってきます</span>
+          <div class="hp-row"><small>あなたの経験資産</small><b>人の話を聞いて、整理して返す力</b></div>
+          <div class="hp-row"><small>仕事の種</small><b>相談 / 少人数講座 / 伴走サポート</b></div>
+          <div class="hp-row hp-last"><small>最初の一歩</small><b>まず1人に30分、試してみる</b></div>
+          <p class="hp-note">※あなたの回答によって内容は変わります</p>
         </div>
       </div>
     </div>
@@ -4422,7 +4454,6 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
         <li>何かやってみたい。でも何ができるか分からない。</li>
         <li>私には、売れるような特技なんてないと思う。</li>
         <li>いきなり起業相談に行くほどではない。</li>
-        <li>家族や今の生活を崩してまではやりたくない。</li>
       </ul>
       <div class="yesbox-turn">
         <h3>それなら、まだ事業計画はいりません。</h3>
@@ -4448,9 +4479,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
         <div class="hs-block"><small>あなたの経験資産</small><b>「人の話を整理して、次にやることに変える力」</b><p>職場でも家庭でも、まず話を聞く側にまわってきた経験が、そのまま価値になります。</p></div>
         <div class="hs-grid">
           <div><small>仕事の種</small><b>ひとり相談・少人数講座・伴走サポート</b></div>
-          <div><small>試せる価格</small><b>60分 3,000〜5,000円</b></div>
-          <div><small>使える時間</small><b>週2〜3時間から</b></div>
-          <div><small>最初の一歩</small><b>まず1人に無料で試す</b></div>
+          <div><small>向いている進め方</small><b>まず1人ずつ、小さく試す</b></div>
+          <div class="wide"><small>最初の一歩</small><b>身近な1人に30分、試してみる</b></div>
         </div>
         <p class="hs-note">※イメージです。実際は回答内容から自動で作成されます。</p>
       </div>
@@ -4906,7 +4936,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   <section id="price" class="paid-app">
     <div class="wrap paid-shell">
       <div class="paid-head">
-        <span class="step-pill" id="paidPill">3,300円・Web完結・面談なし</span>
+        <span class="step-pill" id="paidPill">3,300円 ／ Web完結 ／ 面談なし</span>
         <h2>「私にも何かできるかも」を、<br>「これなら試せそう」まで。</h2>
         <div class="paid-deliver">
           <div>総合レポート</div><i>＋</i><div>3つの事業案</div><i>＋</i><div>各案の詳細レポート</div>
@@ -4914,43 +4944,44 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
         <ul class="paid-items" aria-label="レポートに入る項目">
           <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>使える時間</li><li>家族への負担</li><li>最初の3人</li><li>90日プラン</li>
         </ul>
-        <p class="paid-boundary"><span><b>無料診断</b>でわかるのは、自分の中にある<b>仕事の種</b>です。</span><span class="ar">→</span><span class="pd"><b>3,300円</b>は、その種を<b>事業として判断できる状態</b>まで整理します。</span></p>
-        <p>顧客・価格・件数・使える時間・家族の条件までそろって、はじめて「やる・やらない」を自分で決められます。読んで「今はやらない」でも構いません。<b>続きを買う必要はありません。</b></p>
+        <div class="paid-cta-top">
+          <a class="btn" href="#paidEngine">3,300円で3案をつくる →</a>
+          <div class="pct-flow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
+          <small class="pct-note">待ち時間なし ／ 面談なし ／ 自動継続なし</small>
+        </div>
       </div>
 
-      <div class="paid-path single">
-        <article>
-          <small>これ一つで完結します</small>
-          <h3>3つの事業案</h3>
-          <div class="paid-path-price"><b>3,300</b><span>円（税込）</span></div>
-          <p>質問に答えると、今の暮らしを崩しにくい3案が、その場で並びます。面談はありません。</p>
-          <a href="#paidEngine">3案をつくる →</a>
-        </article>
-      </div>
-      <p class="paid-after-note">※このあと「実際に1件売るところまで一緒に」という方のために30日伴走（29,800円）もありますが、<b>ごく一部の方のための選択肢</b>です。3案を読んで終わりで、まったく問題ありません。<a href="#companion">伴走の内容を見る</a></p>
-
-      <div class="journey-4">
-        <div><span>FREE</span><b>経験 → 仕事の種</b><small>無料</small></div>
-        <i>→</i>
-        <div><span>WEB ONLY</span><b>質問に答える</b><small>3,300円</small></div>
-        <i>→</i>
-        <div><span>RESULT</span><b>3つの事業計画案を見る</b><small>面談なし</small></div>
-        <i>→</i>
-        <div><span>USE</span><b>AI・補助金・融資・相談に使う</b><small>自分で活用</small></div>
-      </div>
+      <figure class="report-hero-image report-hero-top">
+        <span class="rht-lead">実際に届くレポートのイメージ</span>
+        <a href="assets/report-sample-3plans.webp" target="_blank" rel="noopener" aria-label="3案の概要と詳細レポートの画像を大きく見る">
+          <img src="assets/report-sample-3plans.png?v=20260920-d" alt="3,300円で届く3案と詳細レポートの実際の画面" loading="eager" decoding="async">
+        </a>
+        <figcaption>総合レポート ＋ 3案 ＋ 各案約3ページ（画像をクリックすると大きく表示できます）</figcaption>
+      </figure>
 
       <table class="cmp2">
-        <thead><tr><th></th><th>無料診断</th><th class="on">3,300円</th></tr></thead>
+        <thead><tr><th></th><th>無料</th><th class="on">3,300円</th></tr></thead>
         <tbody>
-          <tr><th>分かること</th><td>私に、何がある？</td><td class="on">それを、どう仕事にする？</td></tr>
-          <tr><th></th><td>経験・強み</td><td class="on">顧客</td></tr>
-          <tr><th></th><td>仕事の種</td><td class="on">商品・サービス</td></tr>
-          <tr><th></th><td>最初の方向</td><td class="on">価格</td></tr>
-          <tr><th></th><td>小さな一歩</td><td class="on">月売上の目安</td></tr>
+          <tr><th>分かること</th><td>私に、何がある？</td><td class="on">どう仕事にする？</td></tr>
+          <tr><th></th><td>経験</td><td class="on">顧客</td></tr>
+          <tr><th></th><td>強み</td><td class="on">商品</td></tr>
+          <tr><th></th><td>仕事の種</td><td class="on">価格</td></tr>
+          <tr><th></th><td>最初の一歩</td><td class="on">必要件数</td></tr>
           <tr><th></th><td>—</td><td class="on">90日プラン</td></tr>
         </tbody>
       </table>
-      <p class="cmp2-turn"><b>「できそう」で終わらせない。</b>3つの事業案まで具体化します。</p>
+      <p class="cmp2-turn big">無料は「気づく」まで。<br>3,300円は「判断できる」まで。</p>
+
+      <div class="fit-box">
+        <div class="fit yes">
+          <b>こんな人向けです</b>
+          <ul><li>まだ起業するか決めていない</li><li>人に相談する前に、自分で整理したい</li><li>大きなお金をかけず、小さく試したい</li></ul>
+        </div>
+        <div class="fit no">
+          <b>向いていない人</b>
+          <ul><li>すぐに融資用の完成した事業計画書が欲しい</li><li>売上の保証を求めている</li><li>誰かに全部決めてほしい</li></ul>
+        </div>
+      </div>
 
       <div class="web-consult">
         <div class="web-consult-head">
@@ -4970,15 +5001,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             <p>3つの方向性を横並びで比較し、そのあと各案の詳細レポートを確認できます。</p>
           </div>
 
-          
-          <figure class="report-hero-image">
-            <a href="assets/report-sample-3plans.webp" target="_blank" rel="noopener" aria-label="3案の概要と詳細レポートの画像を大きく見る">
-              <img src="assets/report-sample-3plans.png?v=20260920-d" alt="3,300円で届く3案と詳細レポートの実際の画面" loading="eager" decoding="async">
-            </a>
-            <figcaption>画像をクリックすると大きく表示できます。</figcaption>
-          </figure>
-
-          <div class="report-overview-title">
+                    <div class="report-overview-title">
             <span>①</span>
             <div><h5>まず、3案の概要</h5><small>「今の自分なら、どれを試せそうか」を比較します。</small></div>
           </div>
@@ -5163,7 +5186,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
       <div class="companion-intro">
         <span class="companion-kicker">NEXT STEP｜3つの案を見た、その先へ</span>
         <h2>ひとりで決めきれなかったら、<br>30日だけ一緒にやります。</h2>
-        <p>3つの事業案を見て、「これを少しやってみたい」と思った人へ。相談だけで終わらず、<b>最初の1回を実際に売ってみるところまで</b>一緒に進めます。</p>
+        <p>3案を見たあと、「1人では動きにくい」と感じた方へ。最初の1件を売って、<b>続ける・変える・やめる</b>まで一緒に整理します。<b>ごく一部の方のための選択肢</b>です。3案を読んで終わりで、まったく問題ありません。</p>
         <div class="companion-price">
           <small>わたしの商い 30日伴走</small>
           <div class="companion-price-main"><strong>29,800</strong><em>円</em></div>
@@ -5172,6 +5195,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
       </div>
 
       <div class="companion-body">
+        <details class="companion-more">
+        <summary>30日伴走の内容を見る</summary>
         <div class="companion-steps">
           <article><span>01</span><b>3案から1案を選ぶ</b><p>「できそう」ではなく、「今の自分がやってみたい」で決めます。</p></article>
           <article><span>02</span><b>最初の商品と価格を決める</b><p>完璧な商品ではなく、まず売って反応を見られる形にします。</p></article>
@@ -5200,6 +5225,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <p><b>一度、自分の名前で、自分の仕事を外に出してみる。</b><br>その経験が、次の決断に少しでも影響を与えれば十分だと思っています。</p>
         </div>
 
+        </details>
         <a class="btn companion-btn" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">30日伴走についてLINEで相談する →</a>
         <small class="companion-note">3,300円の3案を見た方が対象です。申込み前の相談だけでも大丈夫です。</small>
       </div>
