@@ -4385,6 +4385,12 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .companion-more>summary::after{content:" ＋"}
 .companion-more[open]>summary::after{content:" －"}
 .companion-more[open]>summary{margin-bottom:16px}
+.host-turn .ht-btn{min-height:64px!important;font-size:17px!important;padding:0 32px!important}
+.cond-keys{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.cond-keys .ck-lab{width:100%;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--rose,#8f554b)}
+.cond-keys>div{flex:1 1 90px;text-align:center;padding:12px 8px;border-radius:14px;border:1px solid rgba(143,85,75,.25);background:#fff}
+.cond-keys b{font-family:var(--serif);font-size:19px;font-weight:500;color:#7d4a41}
+.paid-trust{margin:16px 0 0!important;font-size:13.5px!important;line-height:1.8;color:#6a5f58!important;padding-left:12px;border-left:3px solid rgba(143,85,75,.35)}
 .cond-box{margin:22px 0 0;padding:22px 24px;border-radius:22px;background:#fff;border:1px solid var(--line)}
 .cond-lead{margin:0 0 14px!important;font-size:16px!important;line-height:1.8}
 .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -4487,10 +4493,9 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
       <div>
         <span>YOUR TURN</span>
         <p class="ht-lead">いつも、聞く側だった人へ。</p>
-        <h2>今日は、9問だけ<br>あなた自身のことを答えてください。</h2>
-        <p class="ht-note">人に話さなくていい。9問が、聞き役になります。</p>
+        <h2>9問が、<br class="sp">あなたの話を聞きます。</h2>
       </div>
-      <a class="btn" href="#fortune">はじめる →</a>
+      <a class="btn ht-btn" href="#fortune">3分だけ答えてみる →</a>
     </div>
   </section>
 
@@ -4961,8 +4966,9 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <div>総合レポート</div><i>＋</i><div>3つの事業案</div><i>＋</i><div>各案の詳細レポート</div>
         </div>
         <ul class="paid-items" aria-label="レポートに入る項目">
-          <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>使える時間</li><li>家族への負担</li><li>最初の3人</li><li>90日プラン</li>
+          <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>時間</li><li>家族</li><li>最初の3人</li><li>90日</li>
         </ul>
+        <p class="paid-trust">商工会で20年以上、創業から廃業まで500社以上の相談経験をもとに設計しています。</p>
         <div class="paid-cta-top">
           <a class="btn" href="#paidEngine">3,300円で3案をつくる →</a>
           <div class="pct-flow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
@@ -4979,12 +4985,16 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
       </figure>
 
       <div class="cond-box">
-        <p class="cond-lead">同じ回答でも、<b>時間・家族・資金・地域</b>が違えば、提案は変わります。</p>
-        <div class="cond-grid">
-          <div><small>例：週2時間・自己資金5万円</small><b>固定費を持たない案</b><span>いま持っているもので、予約だけ受ける形から。</span></div>
-          <div><small>例：週10時間・自己資金30万円</small><b>販売テストから育てる案</b><span>小さく売って反応を見てから、投資を判断する形。</span></div>
+        <p class="cond-lead">同じ回答でも、条件が違えば、提案は変わります。</p>
+        <div class="cond-keys" aria-label="あなたの条件で変わる4項目">
+          <span class="ck-lab">あなたの条件で変わる4項目</span>
+          <div><b>時間</b></div><div><b>資金</b></div><div><b>家族</b></div><div><b>地域</b></div>
         </div>
-        <p class="cond-note">ひな形を差し替えているのではなく、回答した条件から計算しています。</p>
+        <div class="cond-grid">
+          <div><small>週2時間・資金5万円</small><b>固定費を持たない案</b><span>いま持っているもので、予約だけ受ける形から。</span></div>
+          <div><small>週10時間・資金30万円</small><b>販売テストから育てる案</b><span>小さく売って反応を見てから、投資を判断する形。</span></div>
+        </div>
+        <p class="cond-note">ひな形を当てはめるのではなく、回答した条件をもとに提案内容を組み立てます。</p>
       </div>
 
       <table class="cmp2">
