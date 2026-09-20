@@ -4304,6 +4304,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 @media(max-width:640px){.cmp2 th,.cmp2 td{padding:11px 10px;font-size:13.5px}.cmp2 tbody th{width:26%;font-size:11px}.cmp2 thead th.on{font-size:17px}}
 .yb-creed{margin:16px 0 0!important;padding-top:16px;border-top:1px solid rgba(143,85,75,.22);font-size:15px;line-height:1.9}
 .yb-creed b{display:block;font-family:var(--serif);font-size:clamp(18px,2.4vw,23px);font-weight:500;line-height:1.6;color:#7d4a41;margin-bottom:6px}
+.free-paid-line{margin:14px 0 10px!important;padding:13px 15px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13px!important;line-height:1.85;color:#5d534d!important}
+.free-paid-line b{color:#3f443f}
 .qwhisper{margin:16px 0 0;padding:11px 14px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13.5px;line-height:1.75;color:#6a5f58}
 
 /* ===== FV v2 2026-09-20 ===== */
@@ -4407,7 +4409,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
       <div class="yesbox-turn">
         <h3>それなら、まだ事業計画はいりません。</h3>
         <p>まず、あなたがこれまでやってきたことを、一緒に整理するところから始めます。</p>
-        <p class="yb-creed"><b>失敗を避けてきた経験より、失敗を乗り越えてきた経験のほうが、役に立ちます。</b>うまくいかなかったこと、やめたこと、やり直したこと。ここでは、それを一番の材料として扱います。</p>
+        <p class="yb-creed"><b>うまくいかなかったことも、やめたことも、やり直したことも、仕事の材料になります。</b>順調だったことだけを聞く場所ではありません。避けてきたことより、乗り越えてきたことのほうが、次に効きます。</p>
       </div>
     </div>
   </section>
@@ -4867,7 +4869,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <div class="season-title-box" id="seasonTitleBox" style="display:none"><span>今のあなたの称号</span><b id="seasonTitle"></b></div>
           <p class="season-combo" id="seasonCombo" style="display:none"></p>
           <p class="season-recheck">商いの季節は固定ではありません。売ってみた・時間が取れた・お客さんが見えたら変わります。1か月後に、また確認してください。</p>
-          <p style="margin:12px 0 8px;font-size:12.5px;color:var(--muted)">3,300円のWeb完結版では、この結果を引き継いで、商品・顧客・価格・地域・時間・家族・資金などを追加で整理し、事業計画案を3つ出します。</p>
+          <p class="free-paid-line">ここまでが<b>無料でわかる「仕事の種」</b>です。上の価格や件数は、同じ型の人に共通する<b>一般的な目安</b>で、あなた個人の条件は入っていません。<b>3,300円</b>では、この結果に<b>あなたの使える時間・資金・家族の条件・地域・競合</b>を加えて、<b>実際に判断できる事業計画案を3つ</b>つくります。</p>
           <div class="cta-row"><a class="btn" href="#price">3,300円｜3つの事業計画案を見る</a><button type="button" class="btn ghost sm" id="again2">やり直す</button></div>
         </div>
       </div>
@@ -6096,6 +6098,15 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     if(pdesc) pdesc.innerHTML=pdesc.innerHTML.replace('決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。','お申し込みとお支払いはLINE、そのあとの回答から3案の確認まではWeb上で完結します。Zoom・電話・対面でのヒアリングはありません。');
     const st=document.querySelector('#paidEngine .tag');
     if(st) st.textContent='START HERE｜3,300円・面談なし';
+    // 残りの「Web完結」表現
+    document.querySelectorAll('summary,p,span,b,div').forEach(function(e){
+      if(e.children.length) return;
+      var t=e.textContent;
+      if(t.indexOf('3,300円のWeb完結版')>=0) e.textContent=t.replace('3,300円のWeb完結版','3,300円のプラン');
+      else if(t.indexOf('3,300円のWeb完結プラン')>=0) e.textContent=t.replace('3,300円のWeb完結プラン','3,300円のプラン');
+    });
+    var j=[...document.querySelectorAll('.journey-4 span')].find(function(x){return x.textContent==='WEB ONLY';});
+    if(j) j.textContent='LINE→WEB';
     document.querySelectorAll('.mi').forEach(e=>{e.innerHTML=e.innerHTML.replace('有料は<b>Web完結プラン 3,300円</b>の1つだけ。','有料は<b>3,300円のプラン</b>の1つだけ（お申し込みとお支払いはLINE、回答と結果表示はWeb）。');});
   })();
 
@@ -6452,6 +6463,18 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     if(window.AKINAI_RESULT)renderCompass(window.AKINAI_RESULT.main,LAST_SEASON);
     const combo=document.getElementById('seasonCombo');if(combo){combo.style.display='';const p=window.AKINAI_RESULT?('あなたの商い星は「<b>'+window.AKINAI_RESULT.stars+'</b>」。'):"";combo.innerHTML=p+'今は「<b>'+T.textContent+'</b>」。<br><strong>'+SEASON_AFFIRM[T.textContent]+'</strong><br>'+NEXT_BY_SEASON[T.textContent];}
     scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='4';pBar.style.width='100%';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});}
+})();
+</script>
+
+<script>
+/* ヒーロー見出しの出し分け（?copy=soft で間口の広い版／既定は強い版） */
+(function(){
+  try{
+    var v=new URLSearchParams(location.search).get('copy');
+    if(v!=='soft') return;
+    var h=document.querySelector('.hero-v3-copy h1');
+    if(h) h.innerHTML='<i>人に相談する</i><i>ほどじゃない。</i><br><span><i>でも、自分のことも</i><i>少し考えてみたい。</i></span>';
+  }catch(e){}
 })();
 </script>
 
