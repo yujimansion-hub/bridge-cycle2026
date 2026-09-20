@@ -3779,6 +3779,110 @@ p,
 }
 /* ===== /CREATOR PHOTO HARD RESET ===== */
 
+
+/* ===== TOP PAGE V3: glance-first, asymmetric, larger type ===== */
+.hero-v3{padding:58px 0 48px}
+.hero-v3-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:64px;align-items:center}
+.hero-v3-copy h1{font-size:clamp(38px,5vw,62px);line-height:1.34;margin:16px 0 20px}
+.hero-v3-lead{font-size:20px;line-height:1.85;max-width:660px;margin:0 0 24px;color:#4f4640}
+.hero-v3-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:560px;margin:22px 0}
+.hero-v3-facts>div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.hero-v3-facts b{display:block;font-family:var(--serif);font-size:24px;color:var(--rose);line-height:1.25}
+.hero-v3-facts span{display:block;font-size:14px;margin-top:4px;color:#655b55}
+.hero-v3-textlink{font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.hero-v3-trust{max-width:650px;margin:18px 0 0;font-size:15px;line-height:1.8;color:#6a5f58}
+.hero-v3-photo{aspect-ratio:4/5;transform:translateY(16px)}
+.hero-v3-photo img{width:100%;height:100%;object-fit:cover}
+
+.at-glance{padding:72px 0;background:#fffaf5;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.at-glance-head{display:grid;grid-template-columns:.7fr 1.3fr;align-items:end;margin-bottom:30px}
+.at-glance-head>span,.detail-hub-intro>span,.maker-mini-copy>span,.before-fortune-cta span{font-family:var(--en);font-style:italic;color:var(--rose);letter-spacing:.08em;font-size:16px}
+.at-glance-head h2{margin:0;font-size:clamp(30px,4vw,48px)}
+.at-glance-grid{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:auto auto;gap:14px}
+.at-card{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:24px;border-radius:24px;background:#fff;border:1px solid var(--line);min-height:168px}
+.at-card-main{grid-row:span 2;align-content:center;padding:34px}
+.at-card-accent{background:var(--rose-pale);border-color:#ebcbc3}
+.at-card small{font-family:var(--en);font-style:italic;color:var(--rose);font-size:24px}
+.at-card h3{font-family:var(--serif);font-size:clamp(21px,2.5vw,30px);line-height:1.5;margin:0 0 8px;font-weight:500}
+.at-card p{font-size:16px;line-height:1.8;margin:0;color:#625851}
+
+.detail-hub{padding:78px 0}
+.detail-hub-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:70px;align-items:start}
+.detail-hub-intro{position:sticky;top:94px}
+.detail-hub-intro h2{font-size:clamp(32px,4vw,48px);margin:8px 0 12px}
+.detail-hub-intro p{font-size:16px;line-height:1.8;color:#625851}
+.detail-hub-links{display:grid;gap:12px}
+.detail-hub-links a{display:grid;grid-template-columns:88px 1fr 30px;align-items:center;gap:16px;padding:22px 24px;background:#fff;border:1px solid var(--line);border-radius:20px;transition:.18s ease}
+.detail-hub-links a:hover{transform:translateX(4px);border-color:var(--rose)}
+.detail-hub-links small{font-family:var(--en);font-style:italic;color:var(--rose);font-size:14px}
+.detail-hub-links b{font-family:var(--serif);font-size:20px;font-weight:500}
+.detail-hub-links span{font-size:22px;color:var(--rose)}
+
+.maker-mini{padding:34px 0 76px}
+.maker-mini-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:52px;align-items:center}
+.maker-mini-photo{border-radius:28px;overflow:hidden;aspect-ratio:4/3;background:#efe3da}
+.maker-mini-photo img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
+.maker-mini-copy h2{font-size:clamp(28px,3.8vw,43px);margin:8px 0 14px}
+.maker-mini-copy p{font-size:17px;line-height:1.9;margin:0 0 16px;color:#5d534d}
+.maker-mini-copy a{font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+
+.before-fortune-cta{padding:30px 0 58px}
+.before-fortune-cta>.wrap{display:flex;align-items:center;justify-content:space-between;gap:34px;padding:34px 38px;background:var(--ink);color:#fff;border-radius:28px}
+.before-fortune-cta h2{margin:6px 0 0;font-size:clamp(28px,4vw,44px);line-height:1.4}
+.before-fortune-cta .btn{flex:none;background:var(--rose);border-color:var(--rose);min-height:58px;font-size:16px}
+
+.fortune-simple .kicker{font-size:18px}
+.fortune-simple h2{font-size:clamp(30px,4.2vw,48px)}
+.fortune-simple p{font-size:17px;line-height:1.9}
+.qz{max-width:720px}
+.scr h3{font-size:clamp(22px,3vw,30px)}
+.scr .sub,.ch button{font-size:16px}
+.qnav{font-size:14px}
+
+@media(max-width:820px){
+  .hero-v3{padding:36px 0 28px}
+  .hero-v3-grid,.detail-hub-grid,.maker-mini-grid{grid-template-columns:1fr;gap:28px}
+  .hero-v3-copy h1{font-size:clamp(34px,10vw,48px)}
+  .hero-v3-lead{font-size:18px}
+  .hero-v3-facts{grid-template-columns:repeat(3,1fr)}
+  .hero-v3-facts>div{padding:11px 10px}
+  .hero-v3-facts b{font-size:21px}
+  .hero-v3-facts span{font-size:12px}
+  .hero-v3-photo{max-height:520px;transform:none}
+  .at-glance{padding:54px 0}
+  .at-glance-head{grid-template-columns:1fr;gap:6px}
+  .at-glance-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .at-card-main{grid-row:auto}
+  .detail-hub{padding:58px 0}
+  .detail-hub-intro{position:static}
+  .detail-hub-links a{grid-template-columns:70px 1fr 24px;padding:18px}
+  .detail-hub-links b{font-size:18px}
+  .maker-mini{padding:10px 0 56px}
+  .maker-mini-photo{aspect-ratio:16/11}
+  .before-fortune-cta>.wrap{align-items:flex-start;flex-direction:column;padding:28px 24px}
+}
+@media(max-width:520px){
+  body{line-height:1.8}
+  .wrap{width:min(var(--max),calc(100% - 28px))}
+  .nav-links>a:not(.btn){display:none}
+  .brand{font-size:14px}
+  .hero-v3-copy h1{font-size:34px;line-height:1.42}
+  .hero-v3-lead{font-size:17px}
+  .hero-v3-facts{gap:7px}
+  .hero-v3-facts b{font-size:19px}
+  .hero-v3-facts span{font-size:11px}
+  .hero-primary{align-items:flex-start;flex-direction:column}
+  .hero-primary .btn{width:100%}
+  .at-card{grid-template-columns:42px 1fr;padding:20px 18px}
+  .at-card h3{font-size:21px}
+  .at-card p{font-size:15px}
+  .detail-hub-links a{grid-template-columns:1fr 24px;gap:5px 10px}
+  .detail-hub-links small{grid-column:1/-1}
+  .maker-mini-copy p{font-size:16px}
+  .fortune-simple p{font-size:16px}
+  .qz{padding:22px 16px}
+  .ch button{font-size:16px;padding:15px 14px}
+}
 </style>
 </head>
 <body>
@@ -3796,28 +3900,25 @@ p,
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
+  <section class="hero hero-v3">
+    <div class="wrap hero-v3-grid">
+      <div class="hero-v3-copy">
         <div class="eyebrow">わたしの商い診断 <span class="en">AKINAI FINDER</span></div>
         <h1>家族のことを大切にしてきた。<br><span>そろそろ、自分の「やってみたい」も考えてみたい。</span></h1>
-        <p class="hero-short">私の妻も、結婚してから個人事業主になりました。最初から立派な事業計画があったわけではありません。暮らしの中でできることを探して、迷って、試して、少しずつ形にしていきました。</p>
-        <p class="hero-maker-line">個人事業って、きれいな「起業」ではなくて、<br><b>生活の中から、自分をもう一度つくり直すこと</b>なのかもしれません。</p>
-
-        <div class="guide-chip">
-          <span class="guide-avatar">案内役</span>
-          <div><b>誰かのために頑張ってきた人へ。</b><small>今度は少し、自分のことを考えてみませんか。</small></div>
+        <p class="hero-v3-lead">これまでの経験や「人から頼まれてきたこと」から、<b>あなたらしい小さな商いの種</b>を見つけます。</p>
+        <div class="hero-v3-facts" aria-label="診断の特徴">
+          <div><b>9問</b><span>答えるだけ</span></div>
+          <div><b>無料</b><span>登録なし</span></div>
+          <div><b>3分</b><span>スマホで完結</span></div>
         </div>
-
-        <div class="hero-primary" id="start">
-          <a class="btn" href="#fortune">9問だけ、自分のことを考えてみる →</a>
-          <small>9問・登録なし・無料</small>
+        <div class="hero-primary">
+          <a class="btn" href="#fortune">無料で診断してみる →</a>
+          <a class="hero-v3-textlink" href="akinai-about.html">まず内容を見る →</a>
         </div>
-
-        <p class="hero-trust-simple">無理に起業を勧めるための診断ではありません。<br>始める・変える・今はやらない。その全部を含めて考えるための入口です。</p>
+        <p class="hero-v3-trust">起業を勧めるためのサイトではありません。始める・小さく試す・今はやらない。その全部を含めて考える入口です。</p>
       </div>
 
-      <div class="hero-photo" aria-label="ここなら少し話してもいいと思える、やさしい時間">
+      <div class="hero-photo hero-v3-photo" aria-label="落ち着いて自分のことを考える時間">
         <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="あたたかな室内で、こちらの話をやさしく受け止めてくれそうな女性" loading="eager" decoding="async">
         <div class="hero-photo-caption">
           <small>YOU DON'T HAVE TO HAVE THE ANSWER YET.</small>
@@ -3827,182 +3928,75 @@ p,
     </div>
   </section>
 
-  <section class="sns-thoughts" aria-label="この診断をつくった人の考え方">
+  <section class="at-glance" aria-label="このサイトでできること">
     <div class="wrap">
-      <div class="sns-thoughts-head">
-        <span>FROM MY NOTES</span>
-        <h2>私は、こんなふうに人の話を聞いています。</h2>
+      <div class="at-glance-head">
+        <span>AT A GLANCE</span>
+        <h2>このサイトでできること。</h2>
       </div>
-      <div class="sns-thought-grid">
-        <article class="sns-thought-card big">
+      <div class="at-glance-grid">
+        <article class="at-card at-card-main">
           <small>01</small>
-          <p>母として、妻として、仕事人として。<br>役割が増えるほど、<b>「私」が見えなくなることがあります。</b></p>
+          <div>
+            <h3>自分の「商いの種」を見つける</h3>
+            <p>好きだったこと、頼まれてきたこと、遠回りした経験。9つの質問から仕事の材料を拾います。</p>
+          </div>
         </article>
-        <article class="sns-thought-card">
+        <article class="at-card">
           <small>02</small>
-          <p><b>好きだったことは、消えていません。</b><br>役割の奥に、まだ残っています。</p>
+          <div>
+            <h3>小さく試す形にする</h3>
+            <p>いきなり独立ではなく、まず3人に試せるサイズへ。</p>
+          </div>
         </article>
-        <article class="sns-thought-card dark">
+        <article class="at-card at-card-accent">
           <small>03</small>
-          <p>うまくいかなかった経験も、<br><b>あなたらしさの一部です。</b></p>
+          <div>
+            <h3>必要なら次の相談先へ</h3>
+            <p>事業計画、融資、補助金などは、必要になってから専門家へつなぎます。</p>
+          </div>
         </article>
-        <article class="sns-thought-card">
-          <small>04</small>
-          <p>「向いている仕事」を当てるより、<br><b>あなたをどう表現するか</b>を考えたい。</p>
-        </article>
-      </div>
-      <div class="sns-thought-close">
-        <p>この診断は、こういう見方であなたの9つの答えを見ていきます。</p>
-        <a href="#fortune">9問、話してみる →</a>
       </div>
     </div>
   </section>
 
-  <section class="quick-understand" aria-label="このサイトでできること">
+  <section class="detail-hub" aria-label="詳しい情報">
+    <div class="wrap detail-hub-grid">
+      <div class="detail-hub-intro">
+        <span>DETAILS</span>
+        <h2>詳しいことは、<br>知りたいところだけ。</h2>
+        <p>トップページは概要だけにしました。気になる項目から詳しく読めます。</p>
+      </div>
+      <div class="detail-hub-links">
+        <a href="akinai-about.html"><small>ABOUT</small><b>この診断で何が分かる？</b><span>→</span></a>
+        <a href="akinai-method.html"><small>METHOD</small><b>どうやって商いを考える？</b><span>→</span></a>
+        <a href="akinai-profile.html"><small>PROFILE</small><b>誰がつくっている？</b><span>→</span></a>
+        <a href="akinai-faq.html"><small>FAQ</small><b>怪しくない？料金は？</b><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="maker-mini" aria-label="この診断をつくった人">
+    <div class="wrap maker-mini-grid">
+      <div class="maker-mini-photo">
+        <img src="assets/akinai-profile-yuji-final.png?v=20260920-0032" alt="この診断をつくった人の横顔プロフィール写真" loading="lazy" decoding="async">
+      </div>
+      <div class="maker-mini-copy">
+        <span>THE PERSON BEHIND THIS</span>
+        <h2>20年以上、小さな事業者と「何ができるか」を考えてきました。</h2>
+        <p>商工会で創業や経営の相談に関わってきた経験から、事業アイデアだけでなく、その人の暮らし・経験・使える時間まで含めて考えます。</p>
+        <a href="akinai-profile.html">つくった人を詳しく見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="before-fortune-cta">
     <div class="wrap">
-      <div class="quick-intro-grid">
-        <div>
-          <span class="quick-label">HOW IT WORKS</span>
-          <h2>誰かの役割を外したとき、<br>あなたには何が残りますか。</h2>
-        </div>
-        <p>好きだったこと、人から頼まれてきたこと、何年も続けていること、失敗したあとに身につけた工夫。役割の外にある「あなた自身」を、9つの質問から少しずつ見つけます。</p>
+      <div>
+        <span>FREE CHECK</span>
+        <h2>まずは9問。<br>今のあなたから始めます。</h2>
       </div>
-
-      <div class="quick-steps-new">
-        <article class="wide">
-          <i>01</i>
-          <div><b>役割をいったん外す</b><p>母・妻・仕事上の肩書きではなく、あなた自身の経験を見ます。</p></div>
-        </article>
-        <article>
-          <i>02</i>
-          <div><b>「私らしさ」を見つける</b><p>好きだったことや、人から自然に頼まれてきたことを拾います。</p></div>
-        </article>
-        <article class="accent">
-          <i>03</i>
-          <div><b>仕事として表現する</b><p>今の暮らしを崩さず、小さな形で「自分」を外に出してみます。</p></div>
-        </article>
-      </div>
-
-      <div class="detail-gateway">
-        <div class="detail-gateway-head">
-          <span>MORE</span>
-          <h3>詳しく知りたいことだけ、次へ。</h3>
-        </div>
-        <div class="detail-links">
-          <a href="akinai-about.html"><small>ABOUT</small><b>この診断で分かること</b><span>→</span></a>
-          <a href="akinai-method.html"><small>METHOD</small><b>どうやって商売を考えるのか</b><span>→</span></a>
-          <a href="akinai-profile.html"><small>PROFILE</small><b>この診断をつくった人</b><span>→</span></a>
-          <a href="akinai-faq.html"><small>FAQ</small><b>怪しくない？何を売るの？</b><span>→</span></a>
-        </div>
-      </div>
-
-      <div class="top-cta">
-        <span>READY?</span>
-        <h2>「この人なら少し話してもいいかも」<br>そう思ったら、9問だけ付き合ってください。</h2>
-        <a class="btn" href="#fortune">9問、話してみる →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="life-business" aria-label="個人事業についての考え方">
-    <div class="wrap life-business-grid">
-      <div class="life-business-kicker">WHY SMALL BUSINESS</div>
-      <div class="life-business-copy">
-        <h2>個人事業は、その人の生き様が<br>少しだけ仕事になったものなのかもしれない。</h2>
-        <p>何を大切にしてきたか。何につまずいたか。何を諦めなかったか。誰に喜んでもらえたか。そういうものが重なって、「私はこれを仕事にしたい」が生まれることがあります。</p>
-        <div class="life-business-lines">
-          <span>何を大切にしてきたか。</span>
-          <span>何につまずいたか。</span>
-          <span>何を諦めなかったか。</span>
-          <span>誰に喜んでもらえたか。</span>
-        </div>
-        <p class="life-business-last">だから私は、事業アイデアだけを探しません。<b>あなたがどう生きてきたか。そこから、あなたにしかできない仕事を考えます。</b></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="maker-spotlight" aria-label="この診断をつくった人">
-    <div class="wrap maker-spotlight-grid">
-      <div class="maker-photo-col">
-        <div class="maker-photo-placeholder has-photo full-photo full-photo-v2" aria-label="この診断をつくった人のプロフィール写真">
-          <img src="assets/akinai-profile-yuji-final.png?v=20260920-0032" alt="この診断をつくった人の横顔プロフィール写真" loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div class="maker-copy">
-        <span class="maker-kicker">THE PERSON BEHIND THIS</span>
-        <h2>役割の中で見えなくなった「自分」を、<br>もう一度見つけてほしい。</h2>
-        <p>大学院ではイタリアのファッション産業を研究し、その後は商工会で小さな事業者や創業者の相談に長く関わってきました。20年以上、たくさんの「何ができるか分からない」「自分には何もない」を聞いてきました。</p>
-        <p>自分自身も一本道ではありません。仕事も暮らしも、何度か大きく選び直してきました。だから、誰かの「母」「妻」「社員」としてではなく、<b>その人自身が何を好きで、何を大切にして、どう立て直してきたか</b>を見たいと思っています。</p>
-        <div class="maker-quote">
-          <small>ここでは、誰かの役割で答えなくて大丈夫です。</small>
-          <b>「私は、本当は何が好きだった？」<br>そこから始めてもいい。</b>
-          <p>うまく言葉にならなくても大丈夫です。あなた自身の輪郭を、一緒に探します。</p>
-        </div>
-        <div class="maker-failures">
-          <span class="maker-failures-label">順調ではなかったから、見えることがあります。</span>
-          <div class="maker-failure-grid">
-            <article><b>研究の道に進んだけれど、研究者にはならなかった。</b><p>遠回りに見えましたが、物事を構造で見る力は、その後の経営支援にそのまま残りました。</p></article>
-            <article><b>仕事も暮らしも、何度か大きく選び直した。</b><p>一度決めたことに固執せず、条件を見直して組み替える癖がつきました。</p></article>
-            <article><b>投資や住まいの判断でも、迷ったことがある。</b><p>感覚だけで決めず、数字と条件を比べてから動くようになりました。</p></article>
-            <article><b>人間関係でも、うまくいかなかった時期がある。</b><p>だから「こうすべき」と急がず、その人の事情やタイミングを見るようになりました。</p></article>
-          </div>
-        </div>
-        <p>やめたこと、迷ったこと、うまくいかなかったこと、選び直したこと。そこには、その人なりの判断力や工夫があります。むしろ、<b>そこに誰かの役に立つ「商いの種」</b>が残っていることがあります。</p>
-        <div class="maker-links">
-          <a class="btn ghost" href="akinai-profile.html">この診断をつくった人 →</a>
-          <a class="maker-text-link" href="akinai-method.html">どうやって商売を見つけるのか →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="outside-view-section">
-    <div class="wrap">
-      <div class="outside-view-card">
-        <span class="ov-kicker">WHY TALK TO SOMEONE｜なぜ、誰かに話すのか</span>
-        <h2>自分のことほど、自分だけでは見つけにくい。</h2>
-        <p>自分にとって当たり前にできることは、自分では「強み」に見えないことがあります。だから、何か始めたいときは、<b>一人で答えを出そうとするより、誰かに話して外から見てもらうこと</b>が大切です。<br>ただし、もっと大切なのは、<b>「誰に、何を相談するか」</b>です。</p>
-
-        <div class="ov-grid">
-          <div class="ov-item">
-            <small>01｜気づく</small>
-            <b>まず、自分を外から見る。</b>
-            <p>診断や対話をきっかけに、「自分では普通だと思っていた経験」を仕事の材料として見直します。</p>
-          </div>
-          <div class="ov-item">
-            <small>02｜形にする</small>
-            <b>事業を考えられる相手に話す。</b>
-            <p>「向いているね」で終わらず、誰に・何を・いくらで売るか、使える時間まで具体化します。</p>
-          </div>
-          <div class="ov-item">
-            <small>03｜つなぐ</small>
-            <b>必要になった支援先へ行く。</b>
-            <p>創業、融資、補助金、許認可など、段階に応じて商工会・商工会議所や専門家へつなげます。</p>
-          </div>
-        </div>
-
-        <div class="ov-message">「相談すること」が目的ではありません。<b>今の自分に合った相談相手を選び、次の一歩が具体的になること</b>が目的です。</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="before-consult-section">
-    <div class="wrap">
-      <div class="before-consult-card">
-        <div>
-          <span>WHEN IT BECOMES REAL｜少し見えてきた、その先</span>
-          <h2>「できそう」が見えてきたら、相談先を使えばいい。</h2>
-          <p>最初から商工会・商工会議所へ行くことがゴールではありません。まずは、自分にできそうな仕事を見つけ、小さく試せる形にする。<b>そのうえで、創業・融資・補助金・経営など、相談したい内容に合った相手を選びます。</b>商工会・商工会議所は、その段階で活用できる有力な相談先のひとつです。</p>
-        </div>
-        <div class="before-checks">
-          <div><b>01</b><span>私にもできそう</span></div>
-          <div><b>02</b><span>まず3人に試す</span></div>
-          <div><b>03</b><span>価格と時間を確認</span></div>
-          <div><b>04</b><span>事業計画に整える</span></div>
-          <div><b>05</b><span>必要なら商工会へ</span></div>
-        </div>
-        <p class="before-note">このサイトの役割は、<b>「相談に行く人」を集めることではなく、「何かやってみたい人」を、必要な支援につながれるところまで育てること</b>です。</p>
-      </div>
+      <a class="btn" href="#fortune">無料で診断する →</a>
     </div>
   </section>
 
