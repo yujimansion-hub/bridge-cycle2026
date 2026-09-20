@@ -3960,6 +3960,81 @@ p,
 }
 /* ===== /PAID AUTO REPORT ===== */
 
+
+/* ============================================================
+   REFINEMENT LAYER — アラフォー女性向けの可読性・導線の精緻化
+   （既存の路線を保ったまま、文字組み・余白・スマホ挙動を整える）
+   ============================================================ */
+
+/* 1. 見出しの文字組み：和文の詰めすぎを解消し、かなを読みやすく */
+h1,h2,h3,h4,h5,h6{letter-spacing:-.012em}
+.hero.hero-v3 .hero-v3-copy h1{
+  font-size:clamp(34px,3.55vw,50px)!important;
+  line-height:1.44!important;
+  letter-spacing:-.008em;
+  margin:14px 0 22px;
+  max-width:19em;
+}
+.hero-v3-copy h1 span{display:inline-block}
+
+/* 2. ファーストビュー：見出しを抑え、CTAと写真を画面内へ */
+.hero.hero-v3{padding:44px 0 44px!important;min-height:auto!important}
+.hero-v3-lead{font-size:18.5px;line-height:1.9;margin:0 0 22px}
+.hero-v3-facts{margin:20px 0 22px}
+.hero-primary{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-v3-trust{font-size:14px;line-height:1.85;margin-top:16px}
+
+/* 3. 本文の読みやすさ（40代以降の可読性を優先） */
+p,li,dd{line-height:1.95}
+.lead,.section-head p{letter-spacing:.01em}
+
+/* 4. 操作しやすさ：押しやすい大きさと、キーボード操作時の明示 */
+.btn{letter-spacing:.02em}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{
+  outline:2.5px solid var(--accent,#8f554b);
+  outline-offset:3px;
+  border-radius:8px;
+}
+
+/* 4b. 追従ナビの下に見出しが潜り込まないように（アンカー移動・自動スクロール共通） */
+html{scroll-padding-top:96px}
+section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scroll-margin-top:96px}
+
+/* 5. 写真まわりの統一（角丸と影の調子をそろえる） */
+.hero-photo,.hero-v3-photo{border-radius:24px;overflow:hidden;box-shadow:0 22px 60px rgba(34,38,34,.10)}
+
+@media(max-width:760px){
+  /* 6. スマホのナビ：ブランド名と診断ボタンを必ず出す（空の帯を解消） */
+  .nav .brand span:last-child{display:flex!important}
+  .nav .brand small{display:none}
+  .nav-links .btn{display:inline-flex!important}
+  .nav-inner{min-height:54px;gap:10px}
+  .brand{font-size:13.5px;min-width:0}
+  .brand>span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* 7. スマホの見出し：6行→4行に収め、リード文とCTAを引き上げる */
+  .hero.hero-v3{padding:28px 0 28px!important}
+  .hero.hero-v3 .hero-v3-copy h1{font-size:clamp(26px,7.2vw,33px)!important;line-height:1.52!important;margin:12px 0 18px}
+  .hero-v3-lead{font-size:16.5px;line-height:1.9;margin-bottom:18px}
+  .hero-v3-facts{margin:16px 0 18px;gap:8px}
+  .hero-v3-facts>div{padding:10px 9px;border-radius:14px}
+  .hero-v3-trust{font-size:13.5px;margin-top:14px}
+  .hero-primary{gap:12px}
+  .hero-primary .btn{width:100%}
+
+  html{scroll-padding-top:78px}
+  section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage{scroll-margin-top:78px}
+
+  /* 8. 下部固定バー：iPhoneのホームバーを避け、本文の最後が隠れないように */
+  .mbar{padding-bottom:calc(9px + env(safe-area-inset-bottom))}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+}
+
+@media(max-width:400px){
+  .hero-v3-facts{grid-template-columns:repeat(3,1fr)}
+  .hero-v3-facts b{font-size:19px}
+  .hero-v3-facts span{font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -4647,7 +4722,7 @@ p,
               </div>
               <p class="pe-message" id="codeMessage"></p>
             </div>
-            <p class="web-consult-note">お申し込みはLINEから受け付けています。お支払い（銀行振込またはクレジット決済リンク）を確認しましたら、受付コードをLINEでお送りします。上の欄に入力すると、そのまま質問へ進めます。<br>※受付時間：平日10:00〜16:00（通常1営業日以内にご返信します）</p>
+            <p class="web-consult-note" id="payHelpNote">お申し込みはLINEから受け付けています。お支払い（銀行振込またはクレジット決済リンク）を確認しましたら、受付コードをLINEでお送りします。上の欄に入力すると、そのまま質問へ進めます。<br>※受付時間：平日10:00〜16:00（通常1営業日以内にご返信します）</p>
           </div>
 
           <div class="pe-stage" id="questionStage">
@@ -4808,8 +4883,14 @@ p,
 <script>
 // ===== 公開前設定 =====
 const BOOKING_URL = "";                                   // 旧予約導線（現在は未使用）
-const PAID_CHECKOUT_URL = "";                              // Stripe等の3,300円チェックアウトURL
-const PAID_RETURN_PARAM = "paid";                          // 決済完了後の戻りURLにつけるパラメータ
+const PAID_CHECKOUT_URL = "";                              // Stripe決済リンク（例：https://buy.stripe.com/xxxxxxxx）。ここに貼ると自動決済になります
+const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認ページ」に指定する戻り先のパラメータ（下のREADME参照）
+/* 自動決済の設定手順（Stripeダッシュボード）
+   1. 商品「わたしの商い診断 3つの事業案」3,300円（税込・一回払い）を作成
+   2. 決済リンクを作成 →「支払い後」の設定で「確認ページ」→「指定のURLにリダイレクト」を選び、次を貼る
+      https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html?paid=1#paidEngine
+   3. 発行された決済リンクURLを、上の PAID_CHECKOUT_URL に貼る（これだけで自動化されます）
+   ※ 銀行振込など手動決済の方には、引き続き下の受付コードをお使いください */
 const PAID_ACCESS_CODE  = "AKINAI-2609";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
 const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // シェア用URL（本番はここに固定URLを）
@@ -5572,18 +5653,29 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   }
   function paidFlag(){
     const u=new URL(location.href);
-    return u.searchParams.get(PAID_RETURN_PARAM)==='1' && sessionStorage.getItem('akinai_checkout_started')==='1';
+    // Stripeの確認ページから戻ったとき（?paid=1 または Stripeが付ける session_id）
+    return u.searchParams.get(PAID_RETURN_PARAM)==='1' || !!u.searchParams.get('session_id');
   }
-  if(paidFlag()){
-    status.textContent='決済後｜質問入力';
+  const returnedFromCheckout = paidFlag();
+  if(returnedFromCheckout){
+    try{ localStorage.setItem('akinai_paid_ok','1'); }catch(e){}
+    sessionStorage.setItem('akinai_checkout_started','1');
+  }
+  const alreadyPaid = (function(){
+    try{ return localStorage.getItem('akinai_paid_ok')==='1'; }catch(e){ return false; }
+  })() || sessionStorage.getItem('akinai_checkout_started')==='1';
+  if(returnedFromCheckout){
+    status.textContent='お支払い完了｜質問入力';
     setStage('q'); restore();
-  }else if(sessionStorage.getItem('akinai_checkout_started')==='1'){
+    setTimeout(()=>{ engine.scrollIntoView({behavior:'smooth',block:'start'}); },400);
+  }else if(alreadyPaid){
     status.textContent='お支払い確認済｜質問入力';
     setStage('q'); restore();
   }
 
   function unlockQuestions(from){
     sessionStorage.setItem('akinai_checkout_started','1');
+    try{ localStorage.setItem('akinai_paid_ok','1'); }catch(e){}
     status.textContent = (from==='code') ? 'お支払い確認済｜質問入力' : '決済後｜質問入力';
     setStage('q'); restore();
     questionStage.scrollIntoView({behavior:'smooth',block:'start'});
@@ -5600,6 +5692,13 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     }
   });
   $('peCode')?.addEventListener('keydown',e=>{ if(e.key==='Enter'){e.preventDefault();$('peCodeBtn').click();} });
+  // 自動決済が有効なときは、案内文を決済モードに切り替える
+  if(PAID_CHECKOUT_URL){
+    const note=$('payHelpNote');
+    if(note) note.innerHTML='ボタンを押すと決済ページへ移動します。カード・Apple Pay・Google Payがご利用いただけます。お支払いが完了すると、自動でこのページに戻り、そのまま質問に進めます。<br>※銀行振込をご希望の方は<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINE</a>からご連絡ください。確認後、受付コードをお送りします。';
+    const codeLabel=document.querySelector('.pe-code label');
+    if(codeLabel) codeLabel.textContent='銀行振込でお支払いの方へ｜受付コードを入力';
+  }
 
   $('paidCheckoutBtn')?.addEventListener('click',()=>{
     if(!PAID_CHECKOUT_URL){
@@ -5608,9 +5707,11 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       return;
     }
     sessionStorage.setItem('akinai_checkout_started','1');
-    const ret=location.origin+location.pathname+'?'+PAID_RETURN_PARAM+'=1#paidEngine';
+    payMsg.textContent='決済ページへ移動します…';
+    // Stripe決済リンクは戻り先をダッシュボード側で設定します。ここでは照合用のIDだけ渡します。
+    let ref=''; try{ ref=localStorage.getItem('akinai_ref')||''; if(!ref){ ref='AK'+Date.now().toString(36).toUpperCase(); localStorage.setItem('akinai_ref',ref);} }catch(e){}
     const sep=PAID_CHECKOUT_URL.includes('?')?'&':'?';
-    location.href=PAID_CHECKOUT_URL+sep+'return_url='+encodeURIComponent(ret);
+    location.href=PAID_CHECKOUT_URL+(ref?sep+'client_reference_id='+encodeURIComponent(ref):'');
   });
   $('savePaidDraft')?.addEventListener('click',save);
 
