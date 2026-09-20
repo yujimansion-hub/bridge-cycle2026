@@ -4064,6 +4064,18 @@ p,
   .plan-money b{font-size:26px}
 }
 
+
+/* ===== 持って行き先 2026-09-20 ===== */
+#res .takeout{display:block!important;margin:14px 0 6px;padding:22px;border-radius:22px;background:#eef1eb;border:1px solid #d7ded4}
+#res .takeout>b{display:block;font-family:var(--serif);font-size:17px;font-weight:500;color:#2f3931;margin-bottom:6px}
+#res .takeout>p{font-size:13.5px;line-height:1.95;color:#39423a;margin:0 0 14px}
+.tk-list{display:grid;gap:9px;margin-bottom:16px}
+.tk-list>div{position:relative;padding:14px 16px 14px 46px;border-radius:16px;background:#fff;border:1px solid #d7ded4}
+.tk-list span{position:absolute;left:14px;top:14px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#5f7052;color:#fff;font-size:10.5px;font-weight:800}
+.tk-list b{display:block;font-family:var(--serif);font-size:15px;font-weight:500;margin-bottom:4px}
+.tk-list p{margin:0;font-size:12.5px;line-height:1.85;color:#4a504a}
+#res .takeout .btn{width:100%;min-height:48px;font-size:13.5px}
+.tk-note{margin:10px 0 0!important;font-size:12px!important;line-height:1.8!important;color:#5f6b59!important}
 /* ===== 総合レポート 2026-09-20 ===== */
 .ov{margin:0 0 26px;padding:24px 22px;border-radius:20px;background:#fff;border:1px solid #ece5dc}
 .ov-head{margin-bottom:16px}
@@ -4507,6 +4519,17 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
               <button class="btn ghost wide" type="button" id="btnShareTop">その他のアプリでシェア</button>
             </div>
             <p class="share-hint">Instagramは、画像を保存してからストーリーズや投稿に貼ってください（スマホでは共有メニューからそのままInstagramを選べます）。キャプションは「コピー」を押すと、ハッシュタグまで一度に貼り付けられます。</p>
+          </div>
+          <div class="takeout">
+            <b>この結果は、ここから先でも使えます。</b>
+            <p>診断で出た言葉は、そのまま「自分の説明」になります。ひとりで抱えたままにせず、次の場所に持って行ってください。</p>
+            <div class="tk-list">
+              <div><span>01</span><b>商工会・商工会議所の相談窓口へ</b><p>窓口では最初に「何をしたいか」を聞かれます。この結果を見せれば、その説明から始められます。相談は無料です。</p></div>
+              <div><span>02</span><b>AIに相談するとき</b><p>AIに「私に何ができますか」と聞いても、一般論しか返りません。あなたの経験と条件を渡すと、答えが具体的に変わります。</p></div>
+              <div><span>03</span><b>家族に話すとき</b><p>「なんとなくやりたい」ではなく、何を、どんな理由で考えているのかを、言葉にして共有できます。</p></div>
+            </div>
+            <button class="btn ghost" type="button" id="btnAiPrompt">AIに相談する文をコピー</button>
+            <p class="tk-note" id="aiPromptNote">ChatGPTなどに貼り付けるだけで、あなたの前提を踏まえた相談ができます。</p>
           </div>
           <details class="result-alt">
             <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
@@ -5822,6 +5845,40 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       +'無料・9問・3分。プロフィールのリンクから。\n'
       +'#わたしの商い診断 #経験を仕事に #自分らしい働き方 #40代の働き方 #小さく始める #やりたいことがわからない';
   };
+  function aiPromptText(){
+    const r=window.AKINAI_RESULT; const t=id=>(document.getElementById(id)?.textContent||'').trim();
+    const lines=[];
+    lines.push('私は、これまでの経験から「小さな商い」を始められないか考えています。');
+    lines.push('ただし、いきなり独立するつもりはありません。今の暮らしを大きく変えずに、小さく試せる形を探しています。');
+    lines.push('');
+    lines.push('【診断でわかった私の傾向】');
+    if(r) lines.push('・タイプ：'+r.name+'（'+r.stars+'）');
+    if(typeof LAST_SEASON!=='undefined'&&LAST_SEASON) lines.push('・今の段階：'+LAST_SEASON);
+    if(t('rStory')) lines.push('・9つの回答から見えたこと：'+t('rStory'));
+    if(t('rValue')) lines.push('・大切にしたい価値観：'+t('rValue'));
+    if(t('rLetgo')) lines.push('・手放していいと言われたこと：'+t('rLetgo'));
+    if(t('rKeyword')) lines.push('・キーワード：'+t('rKeyword'));
+    lines.push('');
+    lines.push('【お願いしたいこと】');
+    lines.push('1. 上の内容をふまえて、私の経験を活かせる小さな商いのアイデアを3つ提案してください。');
+    lines.push('2. それぞれについて、誰に・何を・いくらで売るか、最初の3人をどう見つけるかを具体的に書いてください。');
+    lines.push('3. 今週できる最初の一歩を1つだけ挙げてください。');
+    lines.push('4. 逆に「今はやらないほうがいい」と考えられる理由があれば、それも正直に教えてください。');
+    lines.push('');
+    lines.push('※ 起業を勧めてほしいわけではありません。やらない判断も含めて、現実的に一緒に考えてください。');
+    return lines.join('\n');
+  }
+  document.getElementById('btnAiPrompt')?.addEventListener('click',async()=>{
+    if(!window.AKINAI_RESULT){showToast('先に無料診断をすると、相談文を作れます');return;}
+    const txt=aiPromptText(); const note=document.getElementById('aiPromptNote');
+    try{ await navigator.clipboard.writeText(txt); showToast('相談文をコピーしました'); if(note)note.textContent='コピーしました。ChatGPTなどに貼り付けてください。'; }
+    catch(e){
+      const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';
+      document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');showToast('相談文をコピーしました');}catch(e2){showToast('この端末ではコピーできませんでした');}
+      document.body.removeChild(ta);
+    }
+  });
   document.getElementById('btnCopyCaption')?.addEventListener('click',async()=>{
     if(!window.AKINAI_RESULT){showToast('先に無料診断をすると、キャプションを作れます');return;}
     const t=window.instaCaption();
