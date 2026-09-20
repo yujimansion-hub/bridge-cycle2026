@@ -2595,6 +2595,11 @@ h3{letter-spacing:-.02em!important}
 #res .turn,
 #res .occupation-hint,
 #res .result-nogo,
+/* ▼▼ 意図的に非表示（2026-09-19 単一導線化）▼▼
+   無料結果を「型・強み・方向性」までに絞り、3案の具体化は3,300円側に寄せるため、
+   無料結果内の「3案から選ぶ → プランカード → 今週やること」を止めています。
+   HTMLとJSは残っているので、この5行を消せばそのまま復活します。
+   ソースだけを読むと「無料で価格まで出している」ように見えますが、画面には出ません。 */
 #res .cands,
 #res .plan,
 #res .week,
@@ -2602,6 +2607,7 @@ h3{letter-spacing:-.02em!important}
 #res .more{
   display:none!important;
 }
+/* ▲▲ 意図的に非表示ここまで ▲▲ */
 #res .rcard{
   padding:38px!important;
   margin-top:10px;
@@ -4694,6 +4700,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             <p class="pick">気になる案を1つ選ぶと、「仕事イメージ・商品・相手・価格・売上目安・今週やること」まで1枚にします。</p>
           </div>
 
+          <!-- 注意：このプランカードは現在CSSで非表示（#res .plan）。無料/有料の境界を保つための意図的な停止です。 -->
           <div class="plan" id="plan" style="display:none">
             <div class="lab" id="planLab"></div>
             <div class="pl"><span>仕事イメージ</span><b id="pJob"></b></div>
