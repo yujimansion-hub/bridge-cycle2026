@@ -4391,6 +4391,17 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .cond-keys>div{flex:1 1 90px;text-align:center;padding:12px 8px;border-radius:14px;border:1px solid rgba(143,85,75,.25);background:#fff}
 .cond-keys b{font-family:var(--serif);font-size:19px;font-weight:500;color:#7d4a41}
 .paid-trust{margin:16px 0 0!important;font-size:13.5px!important;line-height:1.8;color:#6a5f58!important;padding-left:12px;border-left:3px solid rgba(143,85,75,.35)}
+.paid-sub{margin:14px 0 0!important;font-size:16px!important;line-height:1.85}
+.cmp2-emo{margin:14px 0 0!important;text-align:center;font-family:var(--serif);font-size:clamp(16px,2.2vw,21px)!important;line-height:1.75;color:#5d534d!important}
+.host-note{margin:26px 0 0;padding:26px 26px 22px;border-radius:22px;background:#243027;color:#fff}
+.host-note .hn-lead{margin:0 0 14px!important;font-family:var(--serif);font-size:clamp(18px,2.6vw,24px)!important;font-weight:500;line-height:1.6;color:#fff!important}
+.hn-three{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.hn-three span{font-size:14px;background:rgba(255,255,255,.1);border-radius:999px;padding:8px 14px;color:#fff}
+.host-note .hn-body{margin:0!important;font-size:14.5px!important;line-height:1.9;color:rgba(255,255,255,.88)!important}
+.host-note .hn-body b{color:#fff!important}
+.paid-voice{margin:16px 0 0!important;font-size:15.5px!important;line-height:1.85;color:#3f443f!important}
+.paid-voice b{color:#7d4a41}
+@media(max-width:640px){.host-note{padding:20px 18px 18px}.hn-three span{font-size:12.5px;padding:7px 11px}}
 .cond-box{margin:22px 0 0;padding:22px 24px;border-radius:22px;background:#fff;border:1px solid var(--line)}
 .cond-lead{margin:0 0 14px!important;font-size:16px!important;line-height:1.8}
 .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -4818,8 +4829,8 @@ document.addEventListener('click',function(e){
 
           <div class="result-upgrade">
             <span class="result-upgrade-label">ここまで答えてくれたあなたへ。</span>
-            <h3>ここから先は、仕事の種を<br>「事業として判断できる形」にします。</h3>
-            <p>ここまでで見つかったのは、<b>仕事の種</b>です。ただ、種のままでは「やる・やらない」を決められません。3,300円では、この結果を引き継いで、顧客・価格・必要な件数・使える時間・家族の条件までそろえ、<b>事業として判断できる状態</b>まで整理します。判断した結果が「今はやらない」でも構いません。</p>
+            <h3>あなたの話、<br>ちゃんと仕事の種になっています。</h3>
+            <p>でも、まだここでは<b>「あなたに何があるか」</b>が見えただけです。<br>次は、あなたのためだけに、<b>3つの「商いの形」</b>にして返します。顧客、商品、価格、必要な件数、使える時間、家族との両立。きれいごとではなく、<b>実際にできるところまで。</b></p>
             <div class="result-upgrade-grid">
               <div><small>FREE</small><b>経験・強み・方向性</b></div>
               <span>→</span>
@@ -4830,8 +4841,8 @@ document.addEventListener('click',function(e){
               <span>「これは少しやってみたい」</span>
               <span>「今はまだ動かない」</span>
             </div>
-            <a class="btn" href="#price">3,300円で3案を見る →</a>
-            <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」を見つけます。</p>
+            <a class="btn" href="#price">私の3つの商いを見てみる　3,300円 →</a>
+            <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
           </div>
 
           <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
@@ -4846,16 +4857,18 @@ document.addEventListener('click',function(e){
     <div class="wrap paid-shell">
       <div class="paid-head">
         <span class="step-pill" id="paidPill">3,300円 ／ Web完結 ／ 面談なし</span>
-        <h2>「私にも何かできるかも」を、<br>「これなら試せそう」まで。</h2>
+        <h2>あなたの話を、<br>ちゃんと「商い」にして返します。</h2>
+        <p class="paid-sub">あなたの経験・時間・家族・資金から、<b>3つの商いを、あなた専用で組み立てます。</b></p>
         <div class="paid-deliver">
           <div>総合レポート</div><i>＋</i><div>3つの事業案</div><i>＋</i><div>各案の詳細レポート</div>
         </div>
         <ul class="paid-items" aria-label="レポートに入る項目">
           <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>時間</li><li>家族</li><li>最初の3人</li><li>90日</li>
         </ul>
+        <p class="paid-voice">あなたの話を聞いたまま終わらせず、<b>「じゃあ何ができる？」まで考える</b>のが、私の仕事です。</p>
         <p class="paid-trust">商工会で20年以上、創業から廃業まで500社以上の相談経験をもとに設計しています。</p>
         <div class="paid-cta-top">
-          <a class="btn" href="#paidEngine">3,300円で3案をつくる →</a>
+          <a class="btn" href="#paidEngine">私の3つの商いを見てみる　3,300円 →</a>
           <div class="pct-flow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
           <small class="pct-note">待ち時間なし ／ 面談なし ／ 自動継続なし</small>
         </div>
@@ -4894,10 +4907,17 @@ document.addEventListener('click',function(e){
         </tbody>
       </table>
       <p class="cmp2-turn big">無料は「気づく」まで。<br>3,300円は「判断できる」まで。</p>
+      <p class="cmp2-emo">ここからは、あなたの話を<br class="sp">「仕事として通用する言葉」にして返します。</p>
+
+      <div class="host-note">
+        <p class="hn-lead">私は、あなたに「起業した方がいい」とは言いません。</p>
+        <div class="hn-three"><span>「これは似合わない」</span><span>「これは少しやってみたい」</span><span>「これは今じゃない」</span></div>
+        <p class="hn-body">その3つが見えれば十分です。20年以上、創業から廃業まで見てきたからこそ、無理に背中を押すより、<b>あなたに似合う始め方を一緒に探す</b>ほうが大事だと思っています。</p>
+      </div>
 
       <div class="fit-box">
         <div class="fit yes">
-          <b>こんな人向けです</b>
+          <b>こんな気持ちなら、たぶん合います</b>
           <ul><li>まだ起業するか決めていない</li><li>人に相談する前に、自分で整理したい</li><li>大きなお金をかけず、小さく試したい</li></ul>
         </div>
         <div class="fit no">
@@ -4927,17 +4947,17 @@ document.addEventListener('click',function(e){
 
           <div class="report-overview-grid">
             <article class="overview-plan">
-              <span class="op-tag">PLAN A｜暮らしを変えずに始める</span>
+              <span class="op-tag">PLAN A｜今の暮らしを守る商い</span>
               <h6>予約制・月2回の焼き菓子販売</h6>
               <dl><dt>向く人</dt><dd>本業や家庭と両立したい</dd><dt>顧客</dt><dd>近隣の30〜50代女性</dd><dt>売り方</dt><dd>予約販売・月2回受け渡し</dd><dt>目安</dt><dd>20セットで月36,000円</dd><dt>一歩目</dt><dd>まず10セットだけ有料販売</dd></dl>
             </article>
             <article class="overview-plan">
-              <span class="op-tag">PLAN B｜強みを生かして始める</span>
+              <span class="op-tag">PLAN B｜あなたらしさを一番使う商い</span>
               <h6>手土産に特化した焼き菓子セット</h6>
               <dl><dt>向く人</dt><dd>「丁寧」「配りやすい」が強み</dd><dt>顧客</dt><dd>職場の差し入れ・訪問時需要</dd><dt>売り方</dt><dd>予約＋口コミ・紹介</dd><dt>強み</dt><dd>甘さ控えめ・個包装</dd><dt>一歩目</dt><dd>3人に理由つきで感想を聞く</dd></dl>
             </article>
             <article class="overview-plan">
-              <span class="op-tag">PLAN C｜3年後まで育てる</span>
+              <span class="op-tag">PLAN C｜3年後まで育てる商い</span>
               <h6>予約販売 → マルシェ → 法人ギフト</h6>
               <dl><dt>向く人</dt><dd>将来、事業として育てたい</dd><dt>顧客</dt><dd>個人客から法人需要へ拡大</dd><dt>売り方</dt><dd>小さく検証して段階展開</dd><dt>投資</dt><dd>売上確認後に拡大判断</dd><dt>一歩目</dt><dd>90日で売れ方と継続性を確認</dd></dl>
             </article>
@@ -4994,7 +5014,7 @@ document.addEventListener('click',function(e){
           <div class="pe-head">
             <div>
               <span class="tag">START HERE｜3,300円 Web完結</span>
-              <h4>お支払いのあと、そのまま質問へ。</h4>
+              <h4>もう少し、あなたのことを聞かせてください。</h4>
               <p>このページ内で質問に答えると、その場で3つの事業計画案が表示されます（待ち時間はありません）。途中保存もできます。</p>
             </div>
             <span class="pe-status" id="paidStatus">決済前</span>
@@ -5002,7 +5022,7 @@ document.addEventListener('click',function(e){
 
           <div class="pe-stage on" id="payStage">
             <div class="pe-actions">
-              <button class="btn" type="button" id="paidCheckoutBtn">3,300円で3案をつくる →</button>
+              <button class="btn" type="button" id="paidCheckoutBtn">私の3つの商いを見てみる　3,300円 →</button>
             </div>
             <p class="pe-message" id="payMessage"></p>
             <details class="pe-code-fold">
@@ -5043,7 +5063,7 @@ document.addEventListener('click',function(e){
               <div class="pe-field"><label>似た商品・競合として思い浮かぶもの</label><input id="peCompetitor" type="text" placeholder="分からなければ「未確認」でOK"></div>
               <div class="pe-field full"><label>今、お客さんはその困りごとをどう解決している？</label><textarea id="peAlternative" placeholder="例：スーパーで買う／知人に頼む／自分で調べる／何もしない"></textarea></div>
             </div>
-            <div class="pe-actions"><button class="btn" type="button" id="generate3Btn">3つの事業計画案を作る</button><button class="btn ghost sm" type="button" id="savePaidDraft">途中保存</button></div>
+            <div class="pe-actions"><button class="btn" type="button" id="generate3Btn">私の3つの商いを見る</button><button class="btn ghost sm" type="button" id="savePaidDraft">途中保存</button></div>
             <p class="pe-message" id="questionMessage"></p>
           </div>
 
@@ -5074,9 +5094,9 @@ document.addEventListener('click',function(e){
           <span>OUTPUT｜答えは1つに決めません</span>
           <h4>3案を比較し、各案を詳細レポートまで具体化。</h4>
           <div class="plan3-grid">
-            <div><b>PLAN A｜今の暮らしを変えずに始める</b><p>固定費と初期投資を抑え、今ある時間・環境で小さく試す案。</p></div>
-            <div><b>PLAN B｜自分の強みを最も生かす</b><p>顧客の声・頼まれてきたこと・他者評価から、価値が伝わりやすい形にする案。</p></div>
-            <div><b>PLAN C｜3年後まで育てる</b><p>最初は小さく始めながら、将来の販路・設備・収益の広がりまで考える案。</p></div>
+            <div><b>PLAN A｜今の暮らしを守る商い</b><p>固定費と初期投資を抑え、今ある時間・環境で小さく試す案。</p></div>
+            <div><b>PLAN B｜あなたらしさを一番使う商い</b><p>顧客の声・頼まれてきたこと・他者評価から、価値が伝わりやすい形にする案。</p></div>
+            <div><b>PLAN C｜3年後まで育てる商い</b><p>最初は小さく始めながら、将来の販路・設備・収益の広がりまで考える案。</p></div>
           </div>
           <p class="web-consult-note">3案を同じ形式で比較したうえで、各案を顧客／価格／売り方／地域／競合／強み／必要時間／必要資金／家族への影響／月売上の目安／最初の3人／90日で確認することまで文章で整理します（1案A4約3ページ、3案で約9ページ相当が目安）。</p>
           <p class="web-consult-note"><b>3案は「見るだけ」の結果ではありません。</b>そのままAI相談・補助金の準備・融資相談・商工会での相談に使える「事業の基礎データ」として整理します。</p>
@@ -5147,7 +5167,7 @@ document.addEventListener('click',function(e){
   <section class="maker-strip" aria-label="つくった人">
     <div class="wrap">
       <img src="assets/akinai-profile-yuji-final.png?v=20260920-0032" alt="つくった人・中村裕二" loading="lazy" decoding="async">
-      <p><b>つくっているのは、商工会で20年以上、創業から廃業まで500社以上の相談に関わってきた中村裕二です。</b>起業を勧める立場ではなく、やめる判断にも立ち会ってきました。</p>
+      <p><b>今日は、あなたの話を聞く側に回ります。</b>つくっているのは、商工会で20年以上、創業から廃業まで500社以上の相談に関わってきた中村裕二です。起業を勧める立場ではなく、やめる判断にも立ち会ってきました。</p>
       <a href="akinai-profile.html">つくった人を見る →</a>
     </div>
   </section>
@@ -6323,7 +6343,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     };
     const lowFunds=/ほとんど|5万円未満/.test(funds);
     const pA={
-      tag:'PLAN A｜暮らしと好きを大切にする働き方',title:'固定費を持たず、小さく試す',
+      tag:'PLAN A｜今の暮らしを守る商い',title:'固定費を持たず、小さく試す',
       ...common, value:'「'+need+'」を、今ある時間と環境で小さく解決する。',
       product:product+'を、最小単位の商品に絞る。',
       offer:'予約制・受注後提供を基本にする。まず3人だけ有料で試し、在庫・店舗・大きな広告費は持たない。',
@@ -6331,7 +6351,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       test:'3人に有料提供し、再購入意向・実作業時間・原価を記録。家族や生活に無理が出ないかも確認。'
     };
     const pB={
-      tag:'PLAN B｜経験や想いを活かす働き方',title:'人から評価されていることを商品価値にする',
+      tag:'PLAN B｜あなたらしさを一番使う商い',title:'人から評価されていることを商品価値にする',
       ...common, value:'「'+voice+'」を、顧客が買う理由として明確にする。',
       product:product+'に、あなたならではの説明・選定・仕上げ・伴走などを加えて差をつくる。',
       offer:'価格だけで比べられないよう、顧客の声・提供プロセス・成果物を見える化して販売。',
@@ -6339,7 +6359,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       test:'3人に「なぜあなたから買うのか」を聞き、同じ言葉が2人以上から出るか確認。競合3者と価格・提供内容も比較。'
     };
     const pC={
-      tag:'PLAN C｜新しい未来にチャレンジする働き方',title:'小さく始めて、育てられる形にする',
+      tag:'PLAN C｜3年後まで育てる商い',title:'小さく始めて、育てられる形にする',
       ...common, value:purpose+'を実現し、3年後に「'+years+'」を目指す。',
       product:product+'を入口商品にし、反応が良ければ継続・高単価・法人向け・オンライン等へ段階展開。',
       offer:(digital.includes('生成AI')||/仕事で使っている|業務効率化/.test(ai))?'AI・デジタルを使って発信・資料作成・定型業務を省力化し、少人数でも回せる形にする。':'まず手作業で検証し、売れ方が見えた部分からデジタル化する。',
