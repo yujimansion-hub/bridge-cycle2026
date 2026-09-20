@@ -2520,6 +2520,26 @@ h3{letter-spacing:-.02em!important}
 }
 
 
+
+/* ===== SHARE (Instagram / Threads) 2026-09-20 ===== */
+#res .share-now{
+  display:block!important;
+  margin:18px 0 6px;
+  padding:22px 22px 20px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#fffdfb,#f7f2ec);
+  border:1px solid var(--line);
+  box-shadow:0 14px 40px rgba(34,38,34,.06);
+}
+#res .share-now b{font-size:17px;margin-bottom:5px}
+#res .share-now p{font-size:13px;color:var(--body,#3d443e);margin-bottom:14px;line-height:1.8}
+#res .share-now .card-name{display:block;margin-bottom:14px}
+#res .share-now .share{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0}
+#res .share-now .share .btn{min-height:48px;font-size:13px;width:100%}
+#res .share-now .share .btn.wide{grid-column:1/-1}
+.share-hint{margin:12px 0 0!important;font-size:11.5px!important;color:var(--muted)!important;line-height:1.75!important}
+@media(max-width:420px){#res .share-now .share{grid-template-columns:1fr}}
+
 /* ===== RESULT TO PAID SINGLE PATH 2026-09-19 ===== */
 /* The free result should answer one question: "What kind of value do I naturally create?" */
 #res .rcard>.result-basis,
@@ -2535,7 +2555,6 @@ h3{letter-spacing:-.02em!important}
 #res .rcard>.insight-box,
 #res .rcard>.belly,
 #res .rcard>.warm-note,
-#res .share-now,
 #res .result-alt,
 #res .turn,
 #res .occupation-hint,
@@ -3518,6 +3537,9 @@ h3{letter-spacing:-.02em!important}
 
 
 /* ===== PAID FLOW COMPLETE 2026-09-19 ===== */
+.paid-path.single{grid-template-columns:minmax(0,560px)!important;justify-content:center}
+.paid-after-note{max-width:640px;margin:16px auto 0;font-size:13px;line-height:1.85;color:var(--muted);text-align:center}
+.paid-after-note a{text-decoration:underline}
 .paid-path{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -4314,7 +4336,13 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             <b>この言葉を、今の自分への小さなメモに。</b>
             <p>カードにすると「経験資産・大切にしたい価値観・今の自分への一言」が1枚になります。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
-            <div class="share"><button class="btn" type="button" id="btnSaveTop">経験資産カルテを保存</button><button class="btn ghost" type="button" id="btnThreadsTop">Threadsに残す</button><button class="btn ghost" type="button" id="btnShareTop">その他でシェア</button></div>
+            <div class="share">
+              <button class="btn wide" type="button" id="btnSaveTop">画像を保存して、Instagramへ</button>
+              <button class="btn ghost" type="button" id="btnThreadsTop">Threadsに投稿</button>
+              <button class="btn ghost" type="button" id="btnCopyCaption">キャプションをコピー</button>
+              <button class="btn ghost wide" type="button" id="btnShareTop">その他のアプリでシェア</button>
+            </div>
+            <p class="share-hint">Instagramは、画像を保存してからストーリーズや投稿に貼ってください（スマホでは共有メニューからそのままInstagramを選べます）。キャプションは「コピー」を押すと、ハッシュタグまで一度に貼り付けられます。</p>
           </div>
           <details class="result-alt">
             <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
@@ -4539,27 +4567,21 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   <section id="price" class="paid-app">
     <div class="wrap paid-shell">
       <div class="paid-head">
-        <span class="step-pill">必要になったところから、有料へ</span>
+        <span class="step-pill">Web完結・面談なし</span>
         <h2>あなた自身を、<br>仕事として表現する3つの形。</h2>
-        <p>まずは3,300円で、あなた自身を仕事として表現する<b>3つの事業案</b>をつくります。そこで十分なら、そこで終わり。もし「1つを実際に試したい」と思ったら、希望者だけ30日伴走へ進めます。</p>
+        <p>3,300円で、あなたの経験から<b>3つの事業案</b>をつくります。これ一つで完結する商品です。読んで「今はやらない」と決めても構いません。<b>続きを買う必要も、誰かと話す必要もありません。</b></p>
       </div>
 
-      <div class="paid-path">
+      <div class="paid-path single">
         <article>
-          <small>STEP 1｜自分で考えたい人</small>
+          <small>これ一つで完結します</small>
           <h3>3つの事業案</h3>
           <div class="paid-path-price"><b>3,300</b><span>円（税込）</span></div>
-          <p>Webで質問に答え、今の暮らし・時間・お金を崩しにくい3案を比較します。</p>
+          <p>Webで質問に答えると、今の暮らし・時間・お金を崩しにくい3案が、その場で並びます。面談はありません。読んだあと、何も申し込まなくて構いません。</p>
           <a href="#paidEngine">3案をつくる →</a>
         </article>
-        <article class="deep">
-          <small>STEP 2｜実際に試したい人だけ</small>
-          <h3>わたしの商い 30日伴走</h3>
-          <div class="paid-path-price"><b>29,800</b><span>円（税込）</span></div>
-          <p>3案から1案を選び、最初の商品・価格・声かけを決め、最初の1回を売るところまで一緒に進みます。</p>
-          <a href="#companion">伴走を見る →</a>
-        </article>
       </div>
+      <p class="paid-after-note">※このあと「実際に1件売るところまで一緒に」という方のために30日伴走（29,800円）もありますが、<b>ごく一部の方のための選択肢</b>です。3案を読んで終わりで、まったく問題ありません。<a href="#companion">伴走の内容を見る</a></p>
 
       <div class="journey-4">
         <div><span>FREE</span><b>経験 → 仕事の種</b><small>無料</small></div>
@@ -5607,7 +5629,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   function wrap(x,t,cx,y,mw,lh,al){x.textAlign=al;let line='',yy=y;for(const ch of t){const test=line+ch;if(x.measureText(test).width>mw&&line){x.fillText(line,cx,yy);line=ch;yy+=lh;}else line=test;}if(line)x.fillText(line,cx,yy);}
   async function blob(){return new Promise(r=>drawCard().toBlob(r,'image/png'));}
   document.getElementById('btnSave').addEventListener('click',async()=>{const b=await blob();const f=new File([b],'akinai-'+cur+'.png',{type:'image/png'});
-    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'わたしの商い診断'});return;}catch(e){}}
+    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'わたしの商い診断',text:(window.instaCaption?window.instaCaption():'')});return;}catch(e){}}
     const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;a.click();showToast('画像を保存しました。ストーリーズに貼ってみてください');});
   document.getElementById('btnShare').addEventListener('click',async()=>{const p=sharePayload();if(!p)return;const data={title:'わたしの商い診断',text:p.text,url:p.url};
     if(navigator.share){try{await navigator.share(data);}catch(e){}}else{try{await navigator.clipboard.writeText(data.text+' '+data.url);showToast('リンクをコピーしました');}catch(e){showToast('この端末ではシェアできませんでした');}}});
@@ -5615,6 +5637,29 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   document.getElementById('btnThreadsTop').addEventListener('click',shareToThreads);
   document.getElementById('btnThreads').addEventListener('click',shareToThreads);
   document.getElementById('btnShareTop').addEventListener('click',()=>document.getElementById('btnShare').click());
+  // Instagram用キャプション（画像に添える短い文）
+  window.instaCaption=function(){
+    const r=window.AKINAI_RESULT; if(!r) return '';
+    const title=LAST_SEASON_TITLE||r.name;
+    const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||''):(AFFIRM[r.main]||'');
+    return '「わたしの商い診断」をやってみました。\n\n'
+      +'私の経験資産カルテは【'+title+'】。\n'+(LAST_SEASON?(r.stars+'／'+LAST_SEASON+'\n'):(r.stars+'\n'))
+      +'\n'+now+'\n\n'
+      +'これまで「普通」だと思っていたことの中にも、\n仕事にできる経験があるのかもしれない。\n\n'
+      +'無料・9問・3分。プロフィールのリンクから。\n'
+      +'#わたしの商い診断 #経験を仕事に #自分らしい働き方 #40代の働き方 #小さく始める #やりたいことがわからない';
+  };
+  document.getElementById('btnCopyCaption')?.addEventListener('click',async()=>{
+    if(!window.AKINAI_RESULT){showToast('先に無料診断をすると、キャプションを作れます');return;}
+    const t=window.instaCaption();
+    try{ await navigator.clipboard.writeText(t); showToast('キャプションをコピーしました。Instagramに貼り付けてください'); }
+    catch(e){
+      const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.left='-9999px';
+      document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');showToast('キャプションをコピーしました');}catch(e2){showToast('この端末ではコピーできませんでした');}
+      document.body.removeChild(ta);
+    }
+  });
 })();
 
 // ---- 3,300円 Web完結プラン：決済ゲート → 質問 → 3案自動生成 ----
