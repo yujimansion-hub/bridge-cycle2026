@@ -4312,6 +4312,16 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .yb-creed b{display:block;font-family:var(--serif);font-size:clamp(18px,2.4vw,23px);font-weight:500;line-height:1.6;color:#7d4a41;margin-bottom:6px}
 .plan .pl.locked b{color:#8a7f78!important;font-weight:400;font-size:13.5px;line-height:1.7}
 .plan .pl.locked b i{display:inline-block;font-style:normal;margin-left:8px;font-size:11px;font-weight:700;color:#fff;background:var(--rose,#8f554b);border-radius:999px;padding:4px 10px;vertical-align:middle}
+.week-solo{margin:22px 0 0;padding:26px 26px 22px;border-radius:24px;background:#243027;color:#fff}
+.week-solo .ws-tag{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;color:#e0a99d;margin-bottom:10px}
+.week-solo h3{margin:0 0 16px!important;font-family:var(--serif);font-size:clamp(21px,3.2vw,29px);font-weight:500;line-height:1.5;color:#fff!important}
+.week-solo .ws-job{margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.18)}
+.week-solo .ws-job small{display:block;font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.6)}
+.week-solo .ws-job b{display:block;font-size:15.5px;line-height:1.6;color:#fff!important;margin-top:3px}
+.week-solo .ws-job small{color:rgba(255,255,255,.6)!important}
+.week-solo .ws-body{margin:0;font-size:16px!important;line-height:1.95;color:#fff!important}
+.week-solo .ws-note{margin:16px 0 0;font-size:13px!important;line-height:1.8;color:rgba(255,255,255,.72)!important}
+@media(max-width:640px){.week-solo{padding:22px 18px 18px;border-radius:20px}.week-solo .ws-body{font-size:15px!important}}
 .free-paid-line{margin:14px 0 10px!important;padding:13px 15px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13px!important;line-height:1.85;color:#5d534d!important}
 .free-paid-line b{color:#3f443f}
 .qwhisper{margin:16px 0 0;padding:11px 14px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13.5px;line-height:1.75;color:#6a5f58}
@@ -4767,6 +4777,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             </div>
             <details class="others"><summary>ほかの型も見る</summary><div class="ol" id="ol"></div></details>
           </details>
+          <div class="week-solo" id="weekSolo" style="display:none">
+            <span class="ws-tag">THIS WEEK｜まず7日で試すこと</span>
+            <h3>今週、これだけ<br class="sp">試してみてください。</h3>
+            <p class="ws-job"><small>あなたに合いやすい仕事イメージ</small><b id="wsJob">—</b></p>
+            <p class="ws-body" id="wsBody">—</p>
+            <p class="ws-note">断られても大丈夫です。そのとき返ってきた理由が、次の材料になります。読んで「今週は動かない」と決めても構いません。</p>
+          </div>
+
           <div class="result-upgrade">
             <span class="result-upgrade-label">ここまで答えてくれたあなたへ。</span>
             <h3>3つの事業案が、<br>「自分をどう表現したいか」を考えるきっかけになれば。</h3>
@@ -5832,6 +5850,17 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     const order=CAND[w].map((c,idx)=>({c,idx,rec:!!(w2&&c.fit.includes(w2))})).sort((a,b)=>(b.rec?1:0)-(a.rec?1:0));
     order.forEach((o,pos)=>{const c=o.c;const b=document.createElement('button');b.type='button';if(o.rec)b.classList.add('rec');b.innerHTML='<span class="k">'+'ABC'[pos]+'</span><span class="job">仕事イメージ｜'+JOB[w][o.idx]+'</span><span class="t">'+(o.rec?'<em>おすすめ｜</em>':'')+c.t+'</span><span class="d">'+c.d+(o.rec?'　— 副星「'+d2.sym+'」のあなたに合いやすい':'')+'</span>';
       b.addEventListener('click',()=>{[...cl.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');showPlan(w,o.idx,'ABC'[pos]);});cl.appendChild(b);});
+    // 無料結果の締めに「今週やること」を1つだけ固定表示（案の選択UIは出さない）
+    try{
+      const so=order[0];
+      const ws=document.getElementById('weekSolo');
+      if(ws&&so){
+        const c0=CAND[w][so.idx];
+        document.getElementById('wsJob').textContent=JOB[w][so.idx]+'（'+c0.t+'）';
+        document.getElementById('wsBody').textContent=c0.week+(sub?' '+SUBTWEAK[sub]:'');
+        ws.style.display='';
+      }
+    }catch(e){}
     document.getElementById('pRisk').textContent=d.risk;
     // もっと楽しむ
     document.getElementById('rChara2').textContent=cname;document.getElementById('rComboName').textContent=d.sym+(d2?' × '+d2.sym+'　「'+COMBO[w][w2][0]+'」':'');
