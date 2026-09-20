@@ -4455,7 +4455,7 @@ document.addEventListener('click',function(e){
   var href=a.getAttribute('href')||'';
   var name = (a.id==='paidCheckoutBtn') ? 'checkout_click'
            : (href==='#fortune') ? 'free_start_click' : 'paid_cta_click';
-  window.track&&window.track(name,{label:(a.textContent||'').trim().slice(0,40)});
+  window.track&&window.track(name,{label:(a.textContent||'').trim().slice(0,40),loc:a.getAttribute('data-loc')||'body'});
 },true);
 </script>
 </head>
@@ -5345,7 +5345,7 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 
-<div class="mbar"><a class="btn" href="#start">無料診断</a><a class="btn ghost" href="#price">3,300円で3つの商い</a></div>
+<div class="mbar"><a class="btn" href="#fortune" data-loc="mbar">無料で9問やってみる</a><a class="btn ghost" href="#price" data-loc="mbar">私ならどんな商い？ 3,300円</a></div>
 <div class="toast" id="toast"></div>
 
 <script>
