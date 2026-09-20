@@ -4302,6 +4302,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .cmp2-turn{margin:18px 0 0;font-size:17px;line-height:1.8;color:#3f443f}
 .cmp2-turn b{font-family:var(--serif);font-size:22px;font-weight:500;color:#7d4a41;display:block;margin-bottom:4px}
 @media(max-width:640px){.cmp2 th,.cmp2 td{padding:11px 10px;font-size:13.5px}.cmp2 tbody th{width:26%;font-size:11px}.cmp2 thead th.on{font-size:17px}}
+.yb-creed{margin:16px 0 0!important;padding-top:16px;border-top:1px solid rgba(143,85,75,.22);font-size:15px;line-height:1.9}
+.yb-creed b{display:block;font-family:var(--serif);font-size:clamp(18px,2.4vw,23px);font-weight:500;line-height:1.6;color:#7d4a41;margin-bottom:6px}
 .qwhisper{margin:16px 0 0;padding:11px 14px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13.5px;line-height:1.75;color:#6a5f58}
 </style>
 </head>
@@ -4371,6 +4373,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
       <div class="yesbox-turn">
         <h3>それなら、まだ事業計画はいりません。</h3>
         <p>まず、あなたがこれまでやってきたことを、一緒に整理するところから始めます。</p>
+        <p class="yb-creed"><b>失敗を避けてきた経験より、失敗を乗り越えてきた経験のほうが、役に立ちます。</b>うまくいかなかったこと、やめたこと、やり直したこと。ここでは、それを一番の材料として扱います。</p>
       </div>
     </div>
   </section>
@@ -6405,7 +6408,8 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
 <script>
 /* ホスト的な相づち：質問画面に短い一言を添える（2026-09-20） */
 (function(){
-  var W={2:'すぐに答えが出なくても大丈夫です。',
+  var W={0:'すぐに答えが出なくても大丈夫です。',
+         2:'うまくいかなかった経験ほど、ここでは材料になります。避けてきたことより、乗り越えてきたことを見ます。',
          4:'それも、ちゃんとあなたの経験です。',
          6:'「特別なことはない」と思う人ほど、材料は多いです。',
          8:'ここまでで十分です。次は少しだけ、仕事の形にしてみます。'};
