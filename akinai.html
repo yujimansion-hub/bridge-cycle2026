@@ -4304,6 +4304,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 @media(max-width:640px){.cmp2 th,.cmp2 td{padding:11px 10px;font-size:13.5px}.cmp2 tbody th{width:26%;font-size:11px}.cmp2 thead th.on{font-size:17px}}
 .yb-creed{margin:16px 0 0!important;padding-top:16px;border-top:1px solid rgba(143,85,75,.22);font-size:15px;line-height:1.9}
 .yb-creed b{display:block;font-family:var(--serif);font-size:clamp(18px,2.4vw,23px);font-weight:500;line-height:1.6;color:#7d4a41;margin-bottom:6px}
+.plan .pl.locked b{color:#8a7f78!important;font-weight:400;font-size:13.5px;line-height:1.7}
+.plan .pl.locked b i{display:inline-block;font-style:normal;margin-left:8px;font-size:11px;font-weight:700;color:#fff;background:var(--rose,#8f554b);border-radius:999px;padding:4px 10px;vertical-align:middle}
 .free-paid-line{margin:14px 0 10px!important;padding:13px 15px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13px!important;line-height:1.85;color:#5d534d!important}
 .free-paid-line b{color:#3f443f}
 .qwhisper{margin:16px 0 0;padding:11px 14px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13.5px;line-height:1.75;color:#6a5f58}
@@ -4699,7 +4701,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             <div class="pl"><span>最初の商品</span><b id="pProd"></b></div>
             <div class="pl"><span>最初に声をかける人</span><b id="pWho"></b></div>
             <div class="pl"><span>まず試す価格</span><b id="pPrice"></b></div>
-            <div class="pl"><span>月3万・5万円の目安</span><b id="pNum"></b></div>
+            <div class="pl locked"><span>月3万・5万円に必要な人数</span><b>あなたの使える時間・地域・条件から計算します<i>3,300円のプラン</i></b></div>
             <div class="pl"><span>今週用意するもの</span><b id="pPrep"></b></div>
             <div class="pl"><span>今はやらないこと</span><b id="pNo"></b></div>
             <div class="pl brake"><span>先に決めること</span><b id="pRisk"></b></div>
@@ -4869,7 +4871,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <div class="season-title-box" id="seasonTitleBox" style="display:none"><span>今のあなたの称号</span><b id="seasonTitle"></b></div>
           <p class="season-combo" id="seasonCombo" style="display:none"></p>
           <p class="season-recheck">商いの季節は固定ではありません。売ってみた・時間が取れた・お客さんが見えたら変わります。1か月後に、また確認してください。</p>
-          <p class="free-paid-line">ここまでが<b>無料でわかる「仕事の種」</b>です。上の価格や件数は、同じ型の人に共通する<b>一般的な目安</b>で、あなた個人の条件は入っていません。<b>3,300円</b>では、この結果に<b>あなたの使える時間・資金・家族の条件・地域・競合</b>を加えて、<b>実際に判断できる事業計画案を3つ</b>つくります。</p>
+          <p class="free-paid-line">ここまでが<b>無料でわかる「仕事の種」</b>です。上の価格は、同じ型の人に共通する<b>相場の目安</b>で、あなた個人の条件は入っていません。<b>3,300円</b>では、この結果に<b>あなたの使える時間・資金・家族の条件・地域・競合</b>を加えて、<b>必要な件数・月売上の目安・90日の判断基準</b>まで計算し、<b>比較できる事業計画案を3つ</b>つくります。</p>
           <div class="cta-row"><a class="btn" href="#price">3,300円｜3つの事業計画案を見る</a><button type="button" class="btn ghost sm" id="again2">やり直す</button></div>
         </div>
       </div>
@@ -5846,8 +5848,8 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   function showPlan(w,idx,L){const c=CAND[w][idx],job=JOB[w][idx],model=MODEL[w][idx];document.getElementById('planLab').textContent=L+'案｜最初の小さなビジネスプラン';
     LAST_PLAN='選択案：'+job+'／'+c.t;syncBookingResult();
     document.getElementById('pJob').textContent=job;document.getElementById('pModel').textContent=model;
-    document.getElementById('pProd').textContent=c.prod;document.getElementById('pWho').textContent=c.who;document.getElementById('pPrice').textContent=c.price;document.getElementById('pNum').textContent=c.num;document.getElementById('pPrep').textContent=c.prep;document.getElementById('pNo').textContent=c.no;
-    document.getElementById('pSummary').textContent=c.who+'に、「'+c.prod+'」を'+c.price+'で。'+c.num+'を目安に、小さく試します。';
+    document.getElementById('pProd').textContent=c.prod;document.getElementById('pWho').textContent=c.who;document.getElementById('pPrice').textContent=c.price;document.getElementById('pPrep').textContent=c.prep;document.getElementById('pNo').textContent=c.no;
+    document.getElementById('pSummary').textContent=c.who+'に、「'+c.prod+'」を'+c.price+'で。まず3人に、小さく試します。';
     const pp=document.getElementById('peekProd'),pr=document.getElementById('peekPrice');if(pp)pp.textContent=c.prod;if(pr)pr.textContent=c.price;
     document.getElementById('wText').textContent=c.week+(sub?' '+SUBTWEAK[sub]:'');
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='');
