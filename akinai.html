@@ -4420,6 +4420,31 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .fit.no b{color:#8a7f78}
 @media(max-width:760px){.fit-box{grid-template-columns:1fr}.pct-flow span{font-size:12.5px;padding:7px 11px}}
 </style>
+<script>
+/* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
+window.AKINAI_ANALYTICS_ID = "";   /* ← GA4の測定ID（例：G-XXXXXXXXXX）を入れると計測開始。空なら外部通信ゼロ */
+(function(){
+  var id=window.AKINAI_ANALYTICS_ID;
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){window.dataLayer.push(arguments);};
+  window.track=function(name,params){
+    try{ if(window.AKINAI_ANALYTICS_ID) gtag('event',name,params||{}); }catch(e){}
+  };
+  if(!id) return;
+  var g=document.createElement('script');
+  g.async=true; g.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
+  document.head.appendChild(g);
+  gtag('js',new Date()); gtag('config',id);
+})();
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a[href="#price"], a[href="#paidEngine"], #paidCheckoutBtn, a[href="#fortune"]');
+  if(!a) return;
+  var href=a.getAttribute('href')||'';
+  var name = (a.id==='paidCheckoutBtn') ? 'checkout_click'
+           : (href==='#fortune') ? 'free_start_click' : 'paid_cta_click';
+  window.track&&window.track(name,{label:(a.textContent||'').trim().slice(0,40)});
+},true);
+</script>
 </head>
 <body>
 
@@ -4806,7 +4831,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
               <span>「今はまだ動かない」</span>
             </div>
             <a class="btn" href="#price">3,300円で3案を見る →</a>
-            <p class="result-upgrade-note">正解を決めるためではありません。3つを並べることで、自分の気持ちが少し見えれば十分だと思っています。</p>
+            <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」を見つけます。</p>
           </div>
 
           <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
@@ -5316,6 +5341,8 @@ const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認
       https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html?paid=1#paidEngine
    3. 発行された決済リンクURLを、上の PAID_CHECKOUT_URL に貼る（これだけで自動化されます）
    ※ 銀行振込など手動決済の方には、引き続き下の受付コードをお使いください */
+/* 計測（GA4）の設定は、このファイル上部 <head> 内の window.AKINAI_ANALYTICS_ID です。
+   例：window.AKINAI_ANALYTICS_ID = "G-XXXXXXXXXX";　空のままなら外部通信は一切しません。 */
 const PAID_ACCESS_CODE  = "AKINAI-2609";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
 const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // 診断ページ本体
@@ -5948,7 +5975,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     const fillOtherTypes=(ol)=>{if(!ol)return;ol.innerHTML='';Object.keys(D).filter(k=>k!==w).forEach(k=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span class="s">'+D[k].sym+'</span>'+D[k].title.split('｜')[1];b.addEventListener('click',()=>{render(k,null);document.getElementById('res').scrollIntoView({behavior:'smooth',block:'start'});});ol.appendChild(b);});};
     fillOtherTypes(document.getElementById('ol'));
     fillOtherTypes(document.getElementById('olTop'));
-    res.classList.add('on'); res.scrollIntoView({behavior:'smooth',block:'start'});
+    res.classList.add('on'); track('free_result_shown',{type:w||''}); res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
   function showPlan(w,idx,L){const c=CAND[w][idx],job=JOB[w][idx],model=MODEL[w][idx];document.getElementById('planLab').textContent=L+'案｜最初の小さなビジネスプラン';
@@ -6168,6 +6195,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   }
 
   function unlockQuestions(from){
+    track('paid_unlocked',{method:from||'return'});
     sessionStorage.setItem('akinai_checkout_started','1');
     try{ localStorage.setItem('akinai_paid_ok','1'); }catch(e){}
     status.textContent = (from==='code') ? 'お支払い確認済｜質問入力' : '決済後｜質問入力';
@@ -6224,6 +6252,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       window.open(LINE_URL,'_blank','noopener,noreferrer');
       return;
     }
+    track('checkout_start',{});
     sessionStorage.setItem('akinai_checkout_started','1');
     payMsg.textContent='決済ページへ移動します…';
     // Stripe決済リンクは戻り先をダッシュボード側で設定します。ここでは照合用のIDだけ渡します。
