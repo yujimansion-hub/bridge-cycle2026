@@ -4037,6 +4037,32 @@ p,
 .report-close{margin-top:22px;padding:18px 20px;border-radius:18px;background:#eef1eb;border:1px solid #d7ded4;font-size:13.5px;line-height:1.95;color:#39423a}
 .report-close b{font-family:var(--serif);font-size:15px;font-weight:500;display:block;margin-bottom:6px}
 @media(max-width:760px){.auto-report{padding:20px 16px;border-radius:20px}.report-letter{padding:15px 16px}.report-letter p{font-size:13.5px}}
+
+/* ===== VISUAL & AFFIRMING 2026-09-20 ===== */
+.plan-shape{margin:12px 0 14px;padding:14px 15px;border-radius:14px;background:#faf7f3;border:1px solid #ece5dc}
+.ps-row{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-bottom:9px;white-space:nowrap}
+.ps-row:last-of-type{margin-bottom:0}
+.ps-row>span{font-size:11.5px;color:#6b716a;flex:0 0 6.2em}
+.ps-row .mtr{flex:0 0 auto}
+.ps-row>b{font-size:12px;font-weight:700;color:#3d443e!important;flex:1 1 auto}
+.mtr{display:inline-flex;gap:4px}
+.mtr i{width:22px;height:7px;border-radius:99px;background:#e6ded4;display:block}
+.mtr i.on{background:#8f554b}
+.ps-tone{margin:11px 0 0;white-space:normal;padding-top:9px;border-top:1px dashed #e4ddd3;font-family:var(--serif);font-size:13px;line-height:1.7;color:#3d443e}
+.plan-money{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 12px;padding:12px 15px;border-radius:14px;background:#243027;color:#fff}
+.plan-money small{font-size:11px;color:#c9d2c7!important}
+.plan-money small.t{font-size:11px;color:#aab6a8!important;flex:1 1 100%;margin-top:2px;line-height:1.6}
+.plan-money b{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1;color:#fff!important}
+.plan-money b em{font-style:normal;font-size:15px;margin-left:2px}
+.tl-bar{display:flex;gap:4px;margin:10px 0 12px}
+.tl-bar span{font-size:10.5px;font-weight:800;letter-spacing:.04em;color:#fff;background:#8f554b;padding:6px 8px;border-radius:8px;text-align:center}
+.tl-bar span:nth-child(2){background:#a8756a}
+.tl-bar span:nth-child(3){background:#5f7052}
+@media(max-width:760px){
+  .ps-row{grid-template-columns:5.6em auto 1fr;gap:8px}
+  .mtr i{width:16px}
+  .plan-money b{font-size:26px}
+}
 /* ===== /PAID AUTO REPORT ===== */
 
 
@@ -4877,15 +4903,15 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
                 <span>YOUR THREE OPTIONS</span>
                 <h4>あなたの話から、<br>3つの形にしてみました。</h4>
                 <div class="report-letter">
-                  <p>どれかを選ばせるための3案ではありません。「これは違う」「これなら少しできそう」と、自分の気持ちを確かめるための3案です。</p>
-                  <p>数字は、いまの答えから置いた仮の目安です。当たっているかどうかより、「この数字なら無理がないか」を見てください。まだ分からないところは<b>「未確認」</b>と正直に書いてあります。そこが、次に確かめる場所です。</p>
-                  <p class="sig">読んで「今はやらない」と決めても、それで構いません。<br><span>わたしの商い診断</span></p>
+                  <p>ここまで書いてくださって、ありがとうございます。<b>これは、新しく何かを始めるための提案ではありません。</b>あなたがもう持っているものを、商いの形に置き換えただけのものです。</p>
+                  <p>どれかを選ばせるための3案ではありません。「これは違う」「これなら少しできそう」と、自分の気持ちを確かめるための3案です。数字は仮の目安なので、当たっているかどうかより<b>「この数字なら無理がないか」</b>を見てください。分からないところは「未確認」と正直に書いてあります。そこが、次に確かめる場所です。</p>
+                  <p class="sig">読んで「今はやらない」と決めても、それで構いません。<br>ここまで考えたこと自体が、もう十分に一歩です。<br><span>わたしの商い診断</span></p>
                 </div>
               </div>
               <div id="reportResults"></div>
               <div class="report-close">
                 <b>ここまで読んで、どうでしたか。</b>
-                3案のうち1つでも「これなら」と思えたなら、まず3人に声をかけるところからで十分です。どれもピンと来なければ、それも一つの答えです。この3案は、あなたの今の答えから作った仮説なので、気が変わったらまた作り直せます。
+                1つでも「これなら」と思えたなら、まず3人に声をかけるところからで十分です。どれもピンと来なければ、それも答えのひとつ。あなたの経験が足りないのではなく、<b>今のタイミングではなかっただけ</b>です。この3案はいまの答えから作った仮説なので、気が変わったら、また作り直せます。
               </div>
             </section>
             <div class="pe-result-actions"><button class="btn" type="button" id="copy3Plans">3案をまとめてコピー</button><button class="btn ghost" type="button" id="copyFullReport">詳細レポートをコピー</button><button class="btn ghost" type="button" id="print3Plans">印刷・PDF保存</button><button class="btn ghost" type="button" id="redo3Plans">回答を見直す</button></div>
@@ -5866,6 +5892,26 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
 
   function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
   function money(n){return Number(n||0).toLocaleString('ja-JP')+'円';}
+  const PLAN_SHAPE=[
+    {lab:'暮らしを変えない',load:1,income:1,prep:1,tone:'いま持っているもので、そのまま'},
+    {lab:'強みを前に出す',load:2,income:2,prep:2,tone:'人に褒められてきたことを、そのまま値段に'},
+    {lab:'少しずつ育てる',load:3,income:3,prep:3,tone:'今すぐでなくていい。数年かけて'}
+  ];
+  function CANDIDX_HINT(p){const t=String(p.tag||'');if(t.indexOf('B')>=0)return 1;if(t.indexOf('C')>=0)return 2;return 0;}
+  function meter(n,max){let h='';for(let i=1;i<=max;i++){h+='<i class="'+(i<=n?'on':'')+'"></i>';}return '<span class="mtr">'+h+'</span>';}
+  function shapeHtml(i){
+    const sh=PLAN_SHAPE[i]||PLAN_SHAPE[0];
+    return '<div class="plan-shape">'+
+      '<div class="ps-row"><span>暮らしへの負担</span>'+meter(sh.load,3)+'<b>'+['小さい','ふつう','やや大きい'][sh.load-1]+'</b></div>'+
+      '<div class="ps-row"><span>お金の伸びしろ</span>'+meter(sh.income,3)+'<b>'+['ゆっくり','ふつう','伸びやすい'][sh.income-1]+'</b></div>'+
+      '<div class="ps-row"><span>準備の量</span>'+meter(sh.prep,3)+'<b>'+['少ない','ふつう','多め'][sh.prep-1]+'</b></div>'+
+      '<p class="ps-tone">'+sh.tone+'</p></div>';
+  }
+  function bigMoney(p){
+    const m=String(p.sales||'').match(/([0-9,]+)円/);
+    if(!m) return '';
+    return '<div class="plan-money"><small>この形なら、月の目安は</small><b>'+m[1]+'<em>円</em></b><small class="t">'+esc(String(p.num||p.time||'').slice(0,40))+'</small></div>';
+  }
   function planHtml(p){
     const rows=[
       ['誰に',p.customer],['何が助かるか',p.value],['何を渡すか',p.product],['いくらで、どう渡すか',p.offer],
@@ -5873,7 +5919,8 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       ['使う時間',p.time],['使うお金',p.funds],['暮らしとの両立',p.family],['お金の目安',p.sales],
       ['最初に声をかける3人',p.first3],['90日で確かめること',p.test]
     ];
-    return '<article class="plan-card"><span class="ptag">'+esc(p.tag)+'</span><h5>'+esc(p.title)+'</h5><dl>'+
+    const idx=CANDIDX_HINT(p);
+    return '<article class="plan-card"><span class="ptag">'+esc(p.tag)+'</span><h5>'+esc(p.title)+'</h5>'+shapeHtml(idx)+bigMoney(p)+'<dl>'+
       rows.map(r=>'<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>').join('')+
       '</dl><p class="hypo">※市場・競合・売上は現時点の仮説。実行前に確認が必要です。</p></article>';
   }
@@ -5976,7 +6023,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
         '<div class="auto-report-box"><b>暮らしとの両立</b><p>'+esc(r.family)+'</p></div>'+
         '<div class="auto-report-box"><b>お金の目安</b><p>'+esc(r.sales)+'</p></div>'+
         '<div class="auto-report-box"><b>つまずきやすいところ</b><p>'+esc(r.risk)+'</p></div>'+
-        '<div class="auto-report-box full"><b>はじめの90日</b><div class="auto-report-timeline">'+
+        '<div class="auto-report-box full"><b>はじめの90日</b><div class="tl-bar"><span style="width:33.3%">まず決める</span><span style="width:33.3%">直す</span><span style="width:33.4%">確かめる</span></div><div class="auto-report-timeline">'+
           '<div><span>0〜30日</span><p>'+esc(r.d30)+'</p></div>'+
           '<div><span>31〜60日</span><p>'+esc(r.d60)+'</p></div>'+
           '<div><span>61〜90日</span><p>'+esc(r.d90)+'</p></div>'+
