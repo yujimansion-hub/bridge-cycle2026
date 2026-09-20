@@ -8,7 +8,7 @@
 <meta property="og:title" content="わたしの商い診断｜「私にも何かできるかも」を、3分で言葉にする">
 <meta property="og:description" content="9問・無料、登録なし、起業しなくてもOK。これまでの経験から「仕事にできそうなこと」を見つけます。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/assets/akinai-ogp.png">
+<meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/assets/akinai-ogp.png?v=20260920b">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -4404,6 +4404,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .paid-voice{margin:16px 0 0!important;font-size:15.5px!important;line-height:1.85;color:#3f443f!important}
 .paid-voice b{color:#7d4a41}
 @media(max-width:640px){.host-note{padding:20px 18px 18px}.hn-three span{font-size:12.5px;padding:7px 11px}}
+.mbar.mbar-free .mbar-paid{display:none}
+.mbar.mbar-free .btn:first-child{flex:1 1 100%}
 .share.share-v2{display:block}
 .share-main{display:flex!important;align-items:center;justify-content:flex-start;gap:12px;width:100%;min-height:68px;text-align:left;padding:14px 20px!important}
 .share-main svg{width:24px;height:24px;flex:none}
@@ -4537,7 +4539,6 @@ document.addEventListener('click',function(e){
         </div>
         <div class="hero-primary">
           <a class="btn" href="#fortune">じゃあ、まず9問だけ →</a>
-          <a class="hero-v3-textlink" href="akinai-about.html">まず内容を見る →</a>
         </div>
         <p class="hero-v3-sub">いきなり事業計画とか、そこまでじゃないですよね。</p>
       </div>
@@ -5393,7 +5394,7 @@ document.addEventListener('click',function(e){
         <details><summary>やりたいことが、まだ決まっていなくても？</summary><p>大丈夫。むしろその段階の人のための診断です。資格を探す前に、「頼まれてきたこと」を一緒に書き出します。</p></details>
         <details><summary>占いで「向いてない」と言われる？</summary><p>言いません。占いは自分を知る材料。始めるかどうかは、お客さん・値段・お金の話で決めます。</p></details>
         <details><summary>会社員・パートのままでも？</summary><p>そのままで。辞めずに試す方法（副業・週末・予約制）から一緒に考えます。</p></details>
-        <details><summary>あとで高額な契約を勧められませんか？</summary><p>3,300円の3案だけで終えて大丈夫です。その先に進みたい方だけ、29,800円の30日伴走を選べます。自動継続や月額課金はありません。</p></details>
+        <details><summary>あとで高額な契約を勧められませんか？</summary><p>このサイトにある有料は2つだけです。<b>3,300円の3案</b>と、<b>29,800円の30日伴走</b>。これ以外の講座や教材はありません。伴走は「実際に1件売るところまで一緒に」という方だけの選択肢で、3案を読んで終わりにして構いません。自動継続も月額課金もなく、こちらから営業の連絡をすることもありません。</p></details>
       </div>
     </div>
   </section>
@@ -5411,7 +5412,7 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 
-<div class="mbar"><a class="btn" href="#fortune" data-loc="mbar">無料で9問やってみる</a><a class="btn ghost" href="#price" data-loc="mbar">私ならどんな商い？ 3,300円</a></div>
+<div class="mbar mbar-free"><a class="btn" href="#fortune" data-loc="mbar">無料で9問やってみる</a><a class="btn ghost mbar-paid" href="#price" data-loc="mbar">私ならどんな商い？ 3,300円</a></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -6060,7 +6061,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     fillOtherTypes(document.getElementById('ol'));
     fillOtherTypes(document.getElementById('olTop'));
     res.classList.add('on'); track('free_result_shown',{type:w||''});
-    try{const mb=document.querySelector('.mbar a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}catch(e){} res.scrollIntoView({behavior:'smooth',block:'start'});
+    try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}}catch(e){} res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
   function showPlan(w,idx,L){const c=CAND[w][idx],job=JOB[w][idx],model=MODEL[w][idx];document.getElementById('planLab').textContent=L+'案｜最初の小さなビジネスプラン';
