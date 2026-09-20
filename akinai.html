@@ -4404,6 +4404,31 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .paid-voice{margin:16px 0 0!important;font-size:15.5px!important;line-height:1.85;color:#3f443f!important}
 .paid-voice b{color:#7d4a41}
 @media(max-width:640px){.host-note{padding:20px 18px 18px}.hn-three span{font-size:12.5px;padding:7px 11px}}
+.share.share-v2{display:block}
+.share-main{display:flex!important;align-items:center;justify-content:flex-start;gap:12px;width:100%;min-height:68px;text-align:left;padding:14px 20px!important}
+.share-main svg{width:24px;height:24px;flex:none}
+.share-main span{display:block;line-height:1.35}
+.share-main b{display:block;font-size:16px;font-weight:700;color:#fff!important}
+.share-main small,.share-main span{color:#fff!important}
+.share-main svg{color:#fff}
+.share-main small{display:block;font-size:11.5px;opacity:.78;margin-top:3px;font-weight:400}
+.share-more{margin-top:10px}
+.share-more>summary{cursor:pointer;list-style:none;font-size:13.5px;color:#7a706a;text-align:center;padding:12px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.share-more>summary::-webkit-details-marker{display:none}
+.share-more>summary::after{content:" ＋"}
+.share-more[open]>summary::after{content:" －"}
+.share-apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(74px,1fr));gap:8px}
+.share-apps .sapp.cap i{background:#8f554b}
+.share-apps .sapp{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  min-height:72px;border-radius:16px;border:1px solid var(--line);background:#fff;
+  font-size:11.5px;color:#3f443f;text-decoration:none;cursor:pointer;padding:8px 4px}
+.share-apps .sapp i{font-style:normal;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:15px;font-weight:700;color:#fff;background:#8a7f78}
+.share-apps .sapp.line i{background:#06c755}
+.share-apps .sapp.th i{background:#000}
+.share-apps .sapp.x i{background:#000}
+.share-apps .sapp.other i{background:#8a7f78}
+@media(max-width:400px){.share-apps{gap:6px}.share-apps .sapp{min-height:66px;font-size:10.5px}}
 .cond-box{margin:22px 0 0;padding:22px 24px;border-radius:22px;background:#fff;border:1px solid var(--line)}
 .cond-lead{margin:0 0 14px!important;font-size:16px!important;line-height:1.8}
 .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -4442,6 +4467,10 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .hero-v3-textlink,.maker-strip a,.detail-hub-links a{display:inline-flex;align-items:center;min-height:44px}
   footer a{display:inline-block;padding:10px 2px;min-height:40px}
   .pe-code label{display:block;padding:6px 0}
+  .brand{min-height:46px;display:flex;align-items:center}
+  .qnav button{min-height:44px;padding:10px 14px}
+  .web-consult-note a,.pe-message a,.note a,p a[href*="line.me"]{display:inline-block;padding:8px 2px;min-height:40px}
+  footer a{min-height:44px;padding:12px 2px}
   /* 具体性の高いセレクタで、既存ルールに勝たせる */
   .pe-grid .pe-field input,.pe-grid .pe-field select,.pe-grid .pe-field textarea,
   .pe-code .pe-code-row input,.bform input,.bform select,.bform textarea{font-size:16px!important}
@@ -4722,13 +4751,21 @@ document.addEventListener('click',function(e){
             <b>この言葉を、今の自分への小さなメモに。</b>
             <p>カードにすると「経験資産・大切にしたい価値観・今の自分への一言」が1枚になります。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
-            <div class="share">
-              <button class="btn wide" type="button" id="btnSaveTop">画像を保存して、Instagramへ</button>
-              <button class="btn ghost" type="button" id="btnThreadsTop">Threadsに投稿</button>
-              <button class="btn ghost" type="button" id="btnCopyCaption">キャプションをコピー</button>
-              <button class="btn ghost wide" type="button" id="btnShareTop">その他のアプリでシェア</button>
+            <div class="share share-v2">
+              <button class="btn share-main" type="button" id="btnSaveTop">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
+                <span><b>カードをシェアする</b><small>Instagram・LINEも、ここから</small></span>
+              </button>
+              <details class="share-more">
+                <summary>アプリを選んで送る</summary>
+                <div class="share-apps">
+                  <button class="sapp th" type="button" id="btnThreadsTop"><i>@</i><span>Threads</span></button>
+                  <button class="sapp cap" type="button" id="btnCopyCaption"><i>✎</i><span>文章をコピー</span></button>
+                  <button class="sapp other" type="button" id="btnShareTop"><i>…</i><span>その他のアプリ</span></button>
+                </div>
+              </details>
             </div>
-            <p class="share-hint">Instagramは、画像を保存してからストーリーズや投稿に貼ってください（スマホでは共有メニューからそのままInstagramを選べます）。キャプションは「コピー」を押すと、ハッシュタグまで一度に貼り付けられます。</p>
+            <p class="share-hint">ボタンを押すと、スマホの共有メニューが開きます。そこからInstagram・LINE・写真への保存が選べます。Instagramのストーリーズに貼るときは、いったん保存してからでも大丈夫です。</p>
           </div>
           <div class="takeout">
             <b>この結果は、ここから先でも使えます。</b>
@@ -4826,14 +4863,22 @@ document.addEventListener('click',function(e){
               <div class="cn" id="rComboName"></div>
               <ul class="aru" id="rAru"></ul>
               <div class="msg" id="rMsg"></div>
-              <div class="share">
-                <button class="btn" type="button" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>経験資産カルテを保存</button>
-                <button class="btn ghost" type="button" id="btnShare">シェア</button>
-                <a class="btn ghost" id="btnLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
-                <button class="btn ghost" type="button" id="btnThreads">Threadsに投稿</button>
-                <a class="btn ghost" id="btnX" href="#" target="_blank" rel="noopener">Xに投稿</a>
+              <div class="share share-v2">
+                <button class="btn share-main" type="button" id="btnSave">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
+                  <span><b>結果を画像でシェア</b><small>Instagram・LINEも、ここから</small></span>
+                </button>
+                <details class="share-more">
+                  <summary>アプリを選んで送る</summary>
+                  <div class="share-apps">
+                    <a class="sapp line" id="btnLine" href="#" target="_blank" rel="noopener"><i>L</i><span>LINE</span></a>
+                    <button class="sapp th" type="button" id="btnThreads"><i>@</i><span>Threads</span></button>
+                    <a class="sapp x" id="btnX" href="#" target="_blank" rel="noopener"><i>X</i><span>X</span></a>
+                    <button class="sapp other" type="button" id="btnShare"><i>…</i><span>その他・コピー</span></button>
+                  </div>
+                </details>
               </div>
-              <p class="share-note">Instagramはカードを保存してストーリーズへ。Threadsは、結果を静かに書き留めるような文章が自動で入ります。投稿前に自由に書き換えられます。</p>
+              <p class="share-note">画像は「経験資産カルテ」です。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
             </div>
             <div class="pair" id="rPair"><b>この結果と一緒に、残しておきたい言葉</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>誰かと比べるためではなく、迷った日に戻ってこられる言葉として。</small></div>
             <div class="tako" id="rTako">
