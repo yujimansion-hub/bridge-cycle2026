@@ -4093,6 +4093,9 @@ p,
 .ov-check li:before{content:"";position:absolute;left:12px;top:12px;width:14px;height:14px;border:1.5px solid #c2b6a8;border-radius:4px;background:#fff}
 .ov-tips{margin:0;padding:0;list-style:none;display:grid;gap:8px}
 .ov-tips li{padding:12px 14px;border-radius:12px;background:#eef1eb;border:1px solid #d7ded4;font-size:13.5px;line-height:1.85;color:#39423a}
+.look-back ul{margin:0;padding-left:1.2em}
+.look-back li{font-size:13px;line-height:1.9;color:#464c46;margin:4px 0}
+.lb-note{margin-top:10px!important;font-size:12.5px!important;color:#6b716a!important}
 .ov-close{margin-top:12px!important;font-family:var(--serif);font-size:14.5px!important;color:#2f3931!important}
 @media(max-width:760px){
   .ov{padding:18px 15px}
@@ -4800,7 +4803,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           
           <figure class="report-hero-image">
             <a href="assets/report-sample-3plans.webp" target="_blank" rel="noopener" aria-label="3案の概要と詳細レポートの画像を大きく見る">
-              <img src="assets/report-sample-3plans.png?v=20260920-b" alt="3,300円で届く3案と詳細レポートの実際の画面" loading="eager" decoding="async">
+              <img src="assets/report-sample-3plans.png?v=20260920-c" alt="3,300円で届く3案と詳細レポートの実際の画面" loading="eager" decoding="async">
             </a>
             <figcaption>画像をクリックすると大きく表示できます。</figcaption>
           </figure>
@@ -6130,6 +6133,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
           '<div><span>61〜90日</span><p>'+esc(r.d90)+'</p></div>'+
         '</div></div>'+
         '<div class="auto-report-box full"><b>やめる・変える目安</b><p>'+esc(r.stop)+'</p></div>'+
+        '<div class="auto-report-box full look-back"><b>振り返りのポイント</b><ul><li>やってみて気づいたこと（思ったより楽だったこと・しんどかったこと）</li><li>うまくいったこと／次はこう変えたいこと</li><li>次にやってみたいこと、または「ここで一度やめる」という判断</li></ul><p class="lb-note">3人に提供し終えたら、この3つだけ書き留めてください。続けるかどうかは、そのあとで決まります。</p></div>'+
       '</div></article>';
   }
   function overviewText(o,plans){
