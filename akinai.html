@@ -883,6 +883,14 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .pe-checks input:checked+span{background:var(--rose-pale);border-color:var(--rose);color:var(--rose);font-weight:700}
 .pe-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
 .pe-message{font-size:12px;color:var(--rose);margin-top:9px;min-height:1.6em}
+.pe-code{margin-top:16px;padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.6)}
+.pe-code label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}
+.pe-code-row{display:flex;gap:8px;flex-wrap:wrap}
+.pe-code-row input{flex:1 1 200px;border:1.5px solid var(--line);border-radius:10px;padding:10px 11px;background:#fff;color:var(--ink);font:inherit;font-size:14px}
+.pe-code .pe-message{margin-top:7px}
+.foot-legal{font-size:11.5px;line-height:1.85;text-align:right}
+.foot-legal a{text-decoration:underline}
+@media(max-width:640px){.foot-legal{text-align:left;margin-top:10px}}
 .plan-results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
 .plan-card{padding:16px;border-radius:17px;border:1px solid var(--line);background:var(--paper)}
 .plan-card .ptag{font-size:10px;color:var(--rose);font-weight:700;letter-spacing:.06em}
@@ -4613,15 +4621,15 @@ p,
             <div><b>商工会・専門家</b><small>相談資料として</small></div>
             <div><b>家族への説明</b><small>時間・資金を共有</small></div>
           </div>
-          <p class="report-volume-note">※上記はサンプルです。実際のレポートは回答内容に応じて個別に作成されます。市場・競合・売上は仮説を含み、実行前の確認が必要です。</p>
+          <p class="report-volume-note">※上記はサンプルです。実際のレポートは、ご入力いただいた回答をもとにこのページ上で自動作成され、その場で表示されます。市場・競合・売上は仮説を含み、実行前の確認が必要です。</p>
         </div>
 
         <div class="paid-engine" id="paidEngine">
           <div class="pe-head">
             <div>
               <span class="tag">START HERE｜3,300円 Web完結</span>
-              <h4>決済後、そのまま質問へ。</h4>
-              <p>決済が確認できたらこのページ内で質問に回答し、最後に3つの事業計画案を自動生成します。回答途中の内容はこの端末内に一時保存できます。</p>
+              <h4>お支払いのあと、そのまま質問へ。</h4>
+              <p>受付コードを入力すると、このページ内で質問に回答できます。回答が終わると、その場で3つの事業計画案が自動作成され、すぐに画面で確認できます（待ち時間はありません）。回答途中の内容は、この端末内に一時保存できます。</p>
             </div>
             <span class="pe-status" id="paidStatus">決済前</span>
           </div>
@@ -4631,7 +4639,15 @@ p,
               <button class="btn" type="button" id="paidCheckoutBtn">3,300円で3案をつくる →</button>
             </div>
             <p class="pe-message" id="payMessage"></p>
-            <p class="web-consult-note">オンライン決済が利用できる場合はそのまま決済へ進みます。未接続の場合は、LINEから申込みできます。</p>
+            <div class="pe-code">
+              <label for="peCode">お支払いが済んだ方へ｜受付コードを入力</label>
+              <div class="pe-code-row">
+                <input id="peCode" type="text" inputmode="latin" autocomplete="off" placeholder="例：AKINAI-0000">
+                <button class="btn ghost sm" type="button" id="peCodeBtn">質問に進む</button>
+              </div>
+              <p class="pe-message" id="codeMessage"></p>
+            </div>
+            <p class="web-consult-note">お申し込みはLINEから受け付けています。お支払い（銀行振込またはクレジット決済リンク）を確認しましたら、受付コードをLINEでお送りします。上の欄に入力すると、そのまま質問へ進めます。<br>※受付時間：平日10:00〜16:00（通常1営業日以内にご返信します）</p>
           </div>
 
           <div class="pe-stage" id="questionStage">
@@ -4779,7 +4795,10 @@ p,
 <footer>
   <div class="wrap footer-row">
     <div>© <span id="year"></span> わたしの商い診断</div>
-    
+    <div class="foot-legal">
+      運営：BRIDGE CYCLE株式会社（滋賀県大津市・国の認定経営革新等支援機関）<br>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>　<a href="privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>
+    </div>
   </div>
 </footer>
 
@@ -4791,6 +4810,7 @@ p,
 const BOOKING_URL = "";                                   // 旧予約導線（現在は未使用）
 const PAID_CHECKOUT_URL = "";                              // Stripe等の3,300円チェックアウトURL
 const PAID_RETURN_PARAM = "paid";                          // 決済完了後の戻りURLにつけるパラメータ
+const PAID_ACCESS_CODE  = "AKINAI-2609";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
 const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // シェア用URL（本番はここに固定URLを）
 // ====================
@@ -5557,12 +5577,33 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   if(paidFlag()){
     status.textContent='決済後｜質問入力';
     setStage('q'); restore();
+  }else if(sessionStorage.getItem('akinai_checkout_started')==='1'){
+    status.textContent='お支払い確認済｜質問入力';
+    setStage('q'); restore();
   }
+
+  function unlockQuestions(from){
+    sessionStorage.setItem('akinai_checkout_started','1');
+    status.textContent = (from==='code') ? 'お支払い確認済｜質問入力' : '決済後｜質問入力';
+    setStage('q'); restore();
+    questionStage.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  $('peCodeBtn')?.addEventListener('click',()=>{
+    const el=$('peCode'), msg=$('codeMessage');
+    const v=(el?.value||'').trim().toUpperCase().replace(/\s+/g,'');
+    if(!v){ msg.textContent='受付コードを入力してください。'; return; }
+    if(v===PAID_ACCESS_CODE.toUpperCase()){
+      msg.textContent='確認できました。質問に進みます。';
+      unlockQuestions('code');
+    }else{
+      msg.innerHTML='コードが確認できませんでした。お手元のLINEメッセージをご確認のうえ、もう一度お試しください。<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINEで問い合わせる →</a>';
+    }
+  });
+  $('peCode')?.addEventListener('keydown',e=>{ if(e.key==='Enter'){e.preventDefault();$('peCodeBtn').click();} });
 
   $('paidCheckoutBtn')?.addEventListener('click',()=>{
     if(!PAID_CHECKOUT_URL){
-      const msg='「わたしの商い診断」3,300円の3案プランを申し込みたいです。';
-      payMsg.innerHTML='現在はLINE申込みで受付しています。<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINEを開く →</a>';
+      payMsg.innerHTML='LINEで申し込みを受け付けています。お支払いの確認後、受付コードをお送りします。<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINEを開く →</a>';
       window.open(LINE_URL,'_blank','noopener,noreferrer');
       return;
     }
