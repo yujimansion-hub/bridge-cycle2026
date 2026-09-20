@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>わたしの商い診断｜「私にも何かできる？」を小さな仕事に変える</title>
+<title>わたしの商い診断｜商工会に行く前の、ひとり相談室</title>
 <meta name="description" content="相談に来た人の8割は、結局始めません。それでも来てよかったと言われます。なんとなく何か自分でやってみたい。でも何ができるか分からない。自分だけでは見えにくい経験や強みを第三者の視点で仕事の種に変え、小さく試せる形へ。必要になったら内容に合った相談先へつなげます。">
-<meta property="og:title" content="わたしの商い診断｜私にも何かできる？から始める">
+<meta property="og:title" content="わたしの商い診断｜いつも聞く側だった人へ。今日は話す側に。">
 <meta property="og:description" content="独立するかは、まだ決めなくて大丈夫。経験→仕事案→小さく試す→必要なら事業計画→商工会相談までつなげます。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/assets/akinai-ogp.png">
@@ -4103,6 +4103,30 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .hero.hero-v3 .hero-v3-copy h1{font-size:clamp(24px,6.4vw,30px)!important;line-height:1.5!important}
   .hero-v3-sub{font-size:14.5px;margin-bottom:16px}
 }
+
+/* ヒーロー：商工会前相談 × ホスト（2026-09-20） */
+.hero-v3-aside{margin-top:18px;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.66);border:1px solid var(--line);max-width:620px}
+.hero-v3-aside p{margin:0;font-size:13.5px;line-height:1.85;color:var(--body,#3d443e)}
+.hero-v3-aside p b{color:var(--ink)}
+.hero-v3-aside p.t{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.hero-v3-copy .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:6px 13px;border-radius:999px;background:var(--accent,#8f554b);color:#fff!important;font-size:12px!important;letter-spacing:.06em}
+.hero-v3-copy .eyebrow:before{background:rgba(255,255,255,.6)!important;width:16px!important}
+.hero-v3-copy .eyebrow .en{color:rgba(255,255,255,.72);font-weight:700;letter-spacing:.1em}
+@media(max-width:760px){
+  .hero-v3-aside{margin-top:14px;padding:13px 15px}
+  .hero-v3-aside p{font-size:12.5px}
+  .hero-v3-copy .eyebrow{font-size:11px;padding:5px 11px}
+}
+
+/* ヒーロー写真：昼の"部屋"から、夜の"迎えられる場"へ寄せる */
+.hero-v3-photo img{filter:saturate(1.04) contrast(1.03) brightness(.98) sepia(.06)}
+.hero-v3-photo:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 78% 38%, rgba(255,236,214,.16), transparent 58%),
+    linear-gradient(180deg, rgba(24,32,25,.05) 0%, rgba(24,32,25,0) 32%, rgba(24,32,25,.42) 100%);
+}
+.hero-photo-caption{backdrop-filter:blur(8px)}
 </style>
 </head>
 <body>
@@ -4123,10 +4147,10 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   <section class="hero hero-v3">
     <div class="wrap hero-v3-grid">
       <div class="hero-v3-copy">
-        <div class="eyebrow">わたしの商い診断 <span class="en">AKINAI FINDER</span></div>
-        <h1><i>相談に来た人の</i><i>8割は、</i><i>結局、始めません。</i><br><span><i>それでも、</i><i>「来てよかった」</i><i>と言われます。</i></span></h1>
-        <p class="hero-v3-lead">商工会の相談窓口で20年、私の実感です。だからこの診断は、始めるためだけのものにしていません。<b>「今はやらない」と決めるための材料</b>も、同じだけ入っています。</p>
-        <p class="hero-v3-sub">「私にも、何かできるかも」と一度でも思ったことがあるなら、9問だけ答えてみてください。</p>
+        <div class="eyebrow">商工会に行く前の、ひとり相談室 <span class="en">AKINAI FINDER</span></div>
+        <h1><i>いつも、</i><i>聞く側だった人へ。</i><br><span><i>今日は、</i><i>話す側になって</i><i>ください。</i></span></h1>
+        <p class="hero-v3-lead">窓口に行くほどでもない。人に言うほどでもない。でも「私にも、何かできるかも」と思った日が、たしかにあった。<b>その話を、9問だけ聞かせてください。</b></p>
+        <p class="hero-v3-sub">うまく説明できなくて大丈夫です。選んでいくだけで、あなたの話になります。</p>
         <div class="hero-v3-facts" aria-label="診断の特徴">
           <div><b>9問</b><span>答えるだけ</span></div>
           <div><b>無料</b><span>登録なし</span></div>
@@ -4136,14 +4160,17 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <a class="btn" href="#fortune">無料で診断してみる →</a>
           <a class="hero-v3-textlink" href="akinai-about.html">まず内容を見る →</a>
         </div>
-        <p class="hero-v3-trust">起業を勧めるためのサイトではありません。始める・小さく試す・今はやらない。その全部を、同じ重さで扱います。</p>
+        <div class="hero-v3-aside">
+          <p><b>相談に来た人の8割は、結局、始めません。</b>それでも「来てよかった」と言われます。商工会の相談窓口で20年、私の実感です。</p>
+          <p class="t">起業を勧めるためのサイトではありません。始める・小さく試す・今はやらない。その全部を、同じ重さで扱います。</p>
+        </div>
       </div>
 
       <div class="hero-photo hero-v3-photo" aria-label="落ち着いて自分のことを考える時間">
-        <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="あたたかな室内で、こちらの話をやさしく受け止めてくれそうな女性" loading="eager" decoding="async">
+        <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="やわらかな灯りの部屋で、こちらの話をゆっくり聞いてくれる場面" loading="eager" decoding="async">
         <div class="hero-photo-caption">
-          <small>YOU DON'T HAVE TO HAVE THE ANSWER YET.</small>
-          <b>まだ答えがなくても、大丈夫です。</b>
+          <small>TONIGHT, I'LL DO THE LISTENING.</small>
+          <b>今日は、聞き役を代わります。</b>
         </div>
       </div>
     </div>
