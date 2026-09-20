@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしの商い診断｜商工会に行く前の、ひとり相談室</title>
-<meta name="description" content="相談に来た人の8割は、結局始めません。それでも来てよかったと言われます。なんとなく何か自分でやってみたい。でも何ができるか分からない。自分だけでは見えにくい経験や強みを第三者の視点で仕事の種に変え、小さく試せる形へ。必要になったら内容に合った相談先へつなげます。">
+<meta name="description" content="相談したからといって、みんなが起業するわけではありません。それでも来てよかったと言われます。なんとなく何か自分でやってみたい。でも何ができるか分からない。自分だけでは見えにくい経験や強みを第三者の視点で仕事の種に変え、小さく試せる形へ。必要になったら内容に合った相談先へつなげます。">
 <meta property="og:title" content="わたしの商い診断｜いつも聞く側だった人へ。今日は話す側に。">
 <meta property="og:description" content="独立するかは、まだ決めなくて大丈夫。経験→仕事案→小さく試す→必要なら事業計画→商工会相談までつなげます。">
 <meta property="og:type" content="website">
@@ -4065,6 +4065,12 @@ p,
 }
 
 
+.paid-boundary{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.7);border:1px solid var(--line)}
+.paid-boundary>span{font-size:13.5px;line-height:1.85;flex:1 1 240px}
+.paid-boundary .ar{flex:0 0 auto;color:var(--accent,#8f554b);font-size:18px}
+.paid-boundary .pd{font-weight:700}
+@media(max-width:700px){.paid-boundary{flex-direction:column;align-items:flex-start;gap:6px}.paid-boundary>span{flex:0 0 auto!important;width:100%}.paid-boundary .ar{width:auto!important;transform:rotate(90deg);margin-left:2px;line-height:1}}
+
 /* ===== 持って行き先 2026-09-20 ===== */
 #res .takeout{display:block!important;margin:14px 0 6px;padding:22px;border-radius:22px;background:#eef1eb;border:1px solid #d7ded4}
 #res .takeout>b{display:block;font-family:var(--serif);font-size:17px;font-weight:500;color:#2f3931;margin-bottom:6px}
@@ -4263,16 +4269,16 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <a class="hero-v3-textlink" href="akinai-about.html">まず内容を見る →</a>
         </div>
         <div class="hero-v3-aside">
-          <p><b>相談に来た人の8割は、結局、始めません。</b>それでも「来てよかった」と言われます。商工会の相談窓口で20年、私の実感です。</p>
+          <p>商工会の窓口で20年、私がこれまで相談を受けてきた実感では、<b>相談したからといって、みんなが起業するわけではありません。</b>それでも「来てよかった」と言われます。</p>
           <p class="t">起業を勧めるためのサイトではありません。ここで扱うのは「失敗しない方法」ではなく、<b>うまくいかなくても戻れる始め方</b>です。始める・小さく試す・今はやらない。その全部を、同じ重さで扱います。</p>
         </div>
       </div>
 
       <div class="hero-photo hero-v3-photo" aria-label="落ち着いて自分のことを考える時間">
-        <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="やわらかな灯りの部屋で、こちらの話をゆっくり聞いてくれる場面" loading="eager" decoding="async">
+        <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="やわらかな灯りの部屋で、自分のこれからを静かに考えている女性" loading="eager" decoding="async">
         <div class="hero-photo-caption">
-          <small>TONIGHT, I'LL DO THE LISTENING.</small>
-          <b>今日は、聞き役を代わります。</b>
+          <small>A PLACE TO THINK ABOUT YOURSELF.</small>
+          <b>ここなら、自分のことを考えられる。</b>
         </div>
       </div>
     </div>
@@ -4431,7 +4437,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 
         <div class="res" id="res">
           <div class="rcard" id="rcard">
-            <div class="lab">話してくれて、ありがとうございます。</div>
+            <div class="lab">9問に答えてくれて、ありがとうございます。</div>
             <div class="gentle-relief">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
               <p>でも、</p>
@@ -4634,9 +4640,9 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             <details class="others"><summary>ほかの型も見る</summary><div class="ol" id="ol"></div></details>
           </details>
           <div class="result-upgrade">
-            <span class="result-upgrade-label">ここまで話してくれたあなたへ。</span>
+            <span class="result-upgrade-label">ここまで答えてくれたあなたへ。</span>
             <h3>3つの事業案が、<br>「自分をどう表現したいか」を考えるきっかけになれば。</h3>
-            <p>始める。少し変える。今はやらない。どれも立派な決断です。3,300円のWeb完結版では、無料診断の結果を引き継ぎ、<b>あなた自身を仕事として表現する3つの形</b>を、今の暮らし・時間・お金の範囲でつくります。個人事業を、単なる稼ぎ方ではなく<b>「自分の生き方をどう仕事にするか」</b>として考えるための3案です。</p>
+            <p>ここまでで見つかったのは、<b>仕事の種</b>です。ただ、種のままでは「やる・やらない」を決められません。3,300円では、この結果を引き継いで、顧客・価格・必要な件数・使える時間・家族の条件までそろえ、<b>事業として判断できる状態</b>まで整理します。判断した結果が「今はやらない」でも構いません。</p>
             <div class="result-upgrade-grid">
               <div><small>FREE</small><b>経験・強み・方向性</b></div>
               <span>→</span>
@@ -4754,9 +4760,10 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   <section id="price" class="paid-app">
     <div class="wrap paid-shell">
       <div class="paid-head">
-        <span class="step-pill">Web完結・面談なし</span>
-        <h2>あなた自身を、<br>仕事として表現する3つの形。</h2>
-        <p>3,300円で、あなたの経験から<b>3つの事業案</b>をつくります。これ一つで完結する商品です。読んで「今はやらない」と決めても構いません。<b>続きを買う必要も、誰かと話す必要もありません。</b></p>
+        <span class="step-pill" id="paidPill">Webで完結・面談なし</span>
+        <h2>「何ができそう？」から、<br>「これなら試せそう」まで。</h2>
+        <p class="paid-boundary"><span><b>無料診断</b>でわかるのは、自分の中にある<b>仕事の種</b>です。</span><span class="ar">→</span><span class="pd"><b>3,300円</b>は、その種を<b>事業として判断できる状態</b>まで整理します。</span></p>
+        <p>顧客・価格・件数・使える時間・家族の条件までそろって、はじめて「やる・やらない」を自分で決められます。読んで「今はやらない」でも構いません。<b>続きを買う必要はありません。</b></p>
       </div>
 
       <div class="paid-path single">
@@ -4764,7 +4771,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <small>これ一つで完結します</small>
           <h3>3つの事業案</h3>
           <div class="paid-path-price"><b>3,300</b><span>円（税込）</span></div>
-          <p>Webで質問に答えると、今の暮らし・時間・お金を崩しにくい3案が、その場で並びます。面談はありません。読んだあと、何も申し込まなくて構いません。</p>
+          <p>質問に答えると、今の暮らしを崩しにくい3案が、その場で並びます。面談はありません。</p>
           <a href="#paidEngine">3案をつくる →</a>
         </article>
       </div>
@@ -4810,7 +4817,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <div>
             <span class="tag">WEB COMPLETE｜申込みから3案提示まで、Webだけ</span>
             <h3>人と話さなくても、事業の可能性を3案まで整理できる。</h3>
-            <p>商工会で20年以上、事業者相談に携わってきた経験をもとに、回答内容を<b>「実際に小さく試せる事業の形」</b>まで整理します。働き方を最初から決めず、今の時間・資金・家族・地域条件から、負担の小さい始め方を比較します。決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。</p>
+            <p>商工会で20年以上の相談経験をもとに、あなたの回答を<b>「実際に小さく試せる事業の形」</b>まで整理します。決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。</p>
           </div>
           <div class="web-consult-price">3,300<small>円（税込）</small></div>
         </div>
@@ -4820,7 +4827,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <div class="report-bundle-head">
             <span class="tag">WHAT YOU GET｜3,300円で届くもの</span>
             <h4>3案の概要 ＋ それぞれの詳細レポート</h4>
-            <p>まず3つの方向性を横並びで比較。そのあと、各案について文章と数字で具体化した詳細レポートを確認できます。</p>
+            <p>3つの方向性を横並びで比較し、そのあと各案の詳細レポートを確認できます。</p>
           </div>
 
           
@@ -4830,14 +4837,6 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             </a>
             <figcaption>画像をクリックすると大きく表示できます。</figcaption>
           </figure>
-
-          <div class="report-bundle-flow">
-            <div><span>FREE</span><b>無料診断</b></div>
-            <div><span>PAY</span><b>3,300円決済</b></div>
-            <div><span>ANSWER</span><b>Webで回答</b></div>
-            <div><span>COMPARE</span><b>3案の概要を比較</b></div>
-            <div><span>REPORT</span><b>詳細レポートを受取</b></div>
-          </div>
 
           <div class="report-overview-title">
             <span>①</span>
@@ -4869,7 +4868,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 
           <div class="report-volume">
             <div class="pages">1案 約3ページ<small>3案で合計 約9ページ相当</small></div>
-            <p><b>A4換算の文章量の目安です。</b> 回答内容によって長さは前後します。ページ数を増やすことが目的ではなく、顧客・ニーズ・競合・強み・地域・時間・家族・資金・90日検証まで、次の行動に使える情報を整理します。</p>
+            <p><b>A4換算の目安です（回答内容により前後します）。</b> 長さより、顧客・競合・強み・地域・時間・家族・資金・90日検証まで、次の行動に使える形になっていることを大事にしています。</p>
           </div>
 
           <div class="report-detail">
@@ -4913,7 +4912,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             <div>
               <span class="tag">START HERE｜3,300円 Web完結</span>
               <h4>お支払いのあと、そのまま質問へ。</h4>
-              <p>受付コードを入力すると、このページ内で質問に回答できます。回答が終わると、その場で3つの事業計画案が自動作成され、すぐに画面で確認できます（待ち時間はありません）。回答途中の内容は、この端末内に一時保存できます。</p>
+              <p>このページ内で質問に答えると、その場で3つの事業計画案が表示されます（待ち時間はありません）。途中保存もできます。</p>
             </div>
             <span class="pe-status" id="paidStatus">決済前</span>
           </div>
@@ -4969,7 +4968,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
                 <span>YOUR THREE OPTIONS</span>
                 <h4>あなたの話から、<br>3つの形にしてみました。</h4>
                 <div class="report-letter">
-                  <p>ここまで書いてくださって、ありがとうございます。<b>これは、新しく何かを始めるための提案ではありません。</b>あなたがもう持っているものを、商いの形に置き換えただけのものです。</p>
+                  <p>ここまで答えてくださって、ありがとうございます。<b>これは、新しく何かを始めるための提案ではありません。</b>あなたがもう持っているものを、商いの形に置き換えただけのものです。</p>
                   <p>どれかを選ばせるための3案ではありません。「これは違う」「これなら少しできそう」と、自分の気持ちを確かめるための3案です。数字は仮の目安なので、当たっているかどうかより<b>「この数字なら無理がないか」</b>を見てください。分からないところは「未確認」と正直に書いてあります。そこが、次に確かめる場所です。</p>
                   <p class="sig">どの案も、<b>うまくいかなかったときに戻れる形</b>にしてあります。失敗しないように小さくするのではなく、失敗しても生活が壊れないように小さくしています。試した結果が「思っていたのと違った」でも、それは分かったことが1つ増えたということです。<br><br>読んで「今はやらない」と決めても、それで構いません。<br>ここまで考えたこと自体が、もう十分に一歩です。<br><span>わたしの商い診断</span></p>
                 </div>
@@ -4993,9 +4992,8 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
             <div><b>PLAN B｜自分の強みを最も生かす</b><p>顧客の声・頼まれてきたこと・他者評価から、価値が伝わりやすい形にする案。</p></div>
             <div><b>PLAN C｜3年後まで育てる</b><p>最初は小さく始めながら、将来の販路・設備・収益の広がりまで考える案。</p></div>
           </div>
-          <p class="web-consult-note">まず3案の概要を同じ形式で比較。その後、各案について顧客／提供価値／商品・サービス／価格／売り方／地域／競合／強み／必要時間／必要資金／家族への影響／月売上の目安／最初の3人／90日で確認することまで文章で整理します。詳細レポートはA4換算で1案約3ページ、3案合計約9ページ相当が目安です（回答内容により前後します）。</p>
-          <p class="web-consult-note"><b>3案は「見るだけ」の結果ではありません。</b>選んだ案は、その後のAI相談・文章作成、補助金申請の準備、融資相談、商工会・商工会議所での相談などに使える「事業の基礎データ」として整理します。</p>
-          <p class="web-consult-note"><b>質問回答・3案生成の画面は実装済みです。</b>オンライン決済の接続前はLINEで申込みを受け付けます。決済URL接続後は、このページからそのまま購入できる設計です。</p>
+          <p class="web-consult-note">3案を同じ形式で比較したうえで、各案を顧客／価格／売り方／地域／競合／強み／必要時間／必要資金／家族への影響／月売上の目安／最初の3人／90日で確認することまで文章で整理します（1案A4約3ページ、3案で約9ページ相当が目安）。</p>
+          <p class="web-consult-note"><b>3案は「見るだけ」の結果ではありません。</b>そのままAI相談・補助金の準備・融資相談・商工会での相談に使える「事業の基礎データ」として整理します。</p>
         </div>
       </div>
 
@@ -5974,6 +5972,21 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     const codeLabel=document.querySelector('.pe-code label');
     if(codeLabel) codeLabel.textContent='銀行振込でお支払いの方へ｜受付コードを入力';
   }
+
+  // 決済が自動化されていない間は、「Web完結」の表現を実態に合わせて弱める
+  (function(){
+    if(PAID_CHECKOUT_URL) return;
+    const set=(sel,txt)=>{const e=document.querySelector(sel);if(e)e.textContent=txt;};
+    set('#paidPill','お申し込みはLINE・面談なし');
+    set('.web-consult .tag','ONLINE｜回答から3案の表示まで、Webだけ');
+    const li=[...document.querySelectorAll('.web-consult li')].find(x=>/Web上で完結/.test(x.textContent));
+    if(li) li.textContent='Zoom・電話・対面ヒアリングなし。お申し込みとお支払いのみLINE、回答から結果確認まではWeb上で完結';
+    const pdesc=[...document.querySelectorAll('.web-consult p')].find(x=>/決済 → 回答 → 3案確認までWeb上で完結/.test(x.textContent));
+    if(pdesc) pdesc.innerHTML=pdesc.innerHTML.replace('決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。','お申し込みとお支払いはLINE、そのあとの回答から3案の確認まではWeb上で完結します。Zoom・電話・対面でのヒアリングはありません。');
+    const st=document.querySelector('#paidEngine .tag');
+    if(st) st.textContent='START HERE｜3,300円・面談なし';
+    document.querySelectorAll('.mi').forEach(e=>{e.innerHTML=e.innerHTML.replace('有料は<b>Web完結プラン 3,300円</b>の1つだけ。','有料は<b>3,300円のプラン</b>の1つだけ（お申し込みとお支払いはLINE、回答と結果表示はWeb）。');});
+  })();
 
   $('paidCheckoutBtn')?.addEventListener('click',()=>{
     if(!PAID_CHECKOUT_URL){
