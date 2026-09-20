@@ -4477,18 +4477,18 @@ document.addEventListener('click',function(e){
     <div class="wrap hero-v3-grid">
       <div class="hero-v3-copy">
         <div class="eyebrow">誰かに相談する前の、ひとり相談室 <span class="en">AKINAI FINDER</span></div>
-        <h1><i>人に相談する</i><i>ほどじゃない。</i><br><span><i>でも、このままでは</i><i>終わりたくない。</i></span></h1>
-        <p class="hero-v3-lead">家族や仕事を優先してきて、自分のことは後回しだった人へ。<br>9問に答えるだけで、これまでの経験から<b>「仕事にできそうなこと」</b>を見つけます。</p>
+        <h1><i>いつも人の話ばっかり</i><i>聞いてません？</i><br><span><i>今日は、</i><i>あなたの番です。</i></span></h1>
+        <p class="hero-v3-lead">何かやりたい。でも、何をしたいかはまだ分からない。<br><b>それでいいです。</b>これまでの経験から「仕事にできそうなこと」を、9問で見つけます。</p>
         <div class="hero-v3-facts" aria-label="診断の特徴">
           <div><b>無料・3分</b><span>9問だけ</span></div>
           <div><b>登録なし</b><span>メール不要</span></div>
           <div><b>起業しなくてOK</b><span>勧誘しません</span></div>
         </div>
         <div class="hero-primary">
-          <a class="btn" href="#fortune">9問に答えてみる →</a>
+          <a class="btn" href="#fortune">じゃあ、まず9問だけ →</a>
           <a class="hero-v3-textlink" href="akinai-about.html">まず内容を見る →</a>
         </div>
-        <p class="hero-v3-sub">何をしたいか、まだ分からなくて大丈夫です。</p>
+        <p class="hero-v3-sub">いきなり事業計画とか、そこまでじゃないですよね。</p>
       </div>
 
       <div class="hero-v3-visual">
@@ -4529,8 +4529,9 @@ document.addEventListener('click',function(e){
     <div class="wrap">
       <div>
         <span>YOUR TURN</span>
-        <p class="ht-lead">いつも、聞く側だった人へ。</p>
-        <h2>9問が、<br class="sp">あなたの話を聞きます。</h2>
+        <p class="ht-lead">まだ、起業するって決めなくていいです。</p>
+        <h2>今日は、ちょっと<br class="sp">自分の話をしてみませんか。</h2>
+        <p class="ht-note">人に話さなくて大丈夫。9問が、聞き役になります。</p>
       </div>
       <a class="btn ht-btn" href="#fortune">3分だけ答えてみる →</a>
     </div>
@@ -6619,13 +6620,25 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
 </script>
 
 <script>
-/* ヒーロー見出しの出し分け（?copy=soft で間口の広い版／既定は強い版） */
+/* ヒーロー見出しの出し分け
+   既定（口語）  ：いつも人の話ばっかり聞いてません？／今日は、あなたの番です。
+   ?copy=strong ：人に相談するほどじゃない。／でも、このままでは終わりたくない。
+   ?copy=soft   ：人に相談するほどじゃない。／でも、自分のことも少し考えてみたい。 */
 (function(){
   try{
     var v=new URLSearchParams(location.search).get('copy');
-    if(v!=='soft') return;
+    var H={
+      strong:['<i>人に相談する</i><i>ほどじゃない。</i><br><span><i>でも、このままでは</i><i>終わりたくない。</i></span>',
+              '家族や仕事を優先してきて、自分のことは後回しだった人へ。<br>9問に答えるだけで、これまでの経験から<b>「仕事にできそうなこと」</b>を見つけます。'],
+      soft:  ['<i>人に相談する</i><i>ほどじゃない。</i><br><span><i>でも、自分のことも</i><i>少し考えてみたい。</i></span>',
+              '家族や仕事を優先してきて、自分のことは後回しだった人へ。<br>9問に答えるだけで、これまでの経験から<b>「仕事にできそうなこと」</b>を見つけます。']
+    };
+    if(!H[v]) return;
     var h=document.querySelector('.hero-v3-copy h1');
-    if(h) h.innerHTML='<i>人に相談する</i><i>ほどじゃない。</i><br><span><i>でも、自分のことも</i><i>少し考えてみたい。</i></span>';
+    var l=document.querySelector('.hero-v3-lead');
+    if(h) h.innerHTML=H[v][0];
+    if(l) l.innerHTML=H[v][1];
+    if(window.track) window.track('hero_variant',{variant:v});
   }catch(e){}
 })();
 </script>
