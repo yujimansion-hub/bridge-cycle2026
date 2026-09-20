@@ -4305,6 +4305,41 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .yb-creed{margin:16px 0 0!important;padding-top:16px;border-top:1px solid rgba(143,85,75,.22);font-size:15px;line-height:1.9}
 .yb-creed b{display:block;font-family:var(--serif);font-size:clamp(18px,2.4vw,23px);font-weight:500;line-height:1.6;color:#7d4a41;margin-bottom:6px}
 .qwhisper{margin:16px 0 0;padding:11px 14px;border-radius:14px;background:rgba(143,85,75,.06);border-left:3px solid rgba(143,85,75,.35);font-size:13.5px;line-height:1.75;color:#6a5f58}
+
+/* ===== FV v2 2026-09-20 ===== */
+.hero-v3-visual{position:relative}
+@media(min-width:901px){
+  .hero-peek{position:absolute;left:18px;right:18px;bottom:18px;margin:0;background:rgba(255,255,255,.93);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:16px 18px 14px}
+  .hero-v3-visual .hero-v3-photo{aspect-ratio:3/4}
+  .hp-note{display:none}
+}
+.host-turn>.wrap{align-items:center}
+.host-turn .ht-lead{margin:8px 0 6px;font-size:15px;color:rgba(255,255,255,.72)}
+.host-turn h2{margin:0!important;color:#fff!important;font-family:var(--serif);font-weight:500}
+.host-turn>.wrap>div{flex:1 1 420px}
+.host-turn .btn{background:var(--rose)!important;border-color:var(--rose)!important;color:#fff!important}
+.host-turn span{color:var(--rose)!important}
+.host-turn .ht-lead{color:rgba(255,255,255,.78)!important;font-size:15.5px!important}
+.host-turn .ht-note{color:#fff!important;font-size:16px!important;opacity:1!important}
+.host-turn .ht-note{margin:14px 0 0;font-size:15.5px;line-height:1.8;color:rgba(255,255,255,.9);border-left:3px solid var(--rose);padding-left:12px}
+.paid-deliver{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0 14px}
+.paid-deliver>div{font-family:var(--serif);font-size:clamp(19px,2.6vw,27px);font-weight:500;color:#3f443f;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 18px;line-height:1.3}
+.paid-deliver>i{font-style:normal;font-size:18px;color:var(--rose,#8f554b)}
+.paid-items{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0}
+.paid-items li{font-size:13px;line-height:1;color:#6a5f58;background:rgba(143,85,75,.07);border-radius:999px;padding:9px 13px}
+@media(max-width:640px){
+  .paid-deliver{gap:8px}
+  .paid-deliver>div{font-size:17px;padding:10px 13px}
+  .paid-items li{font-size:12px;padding:8px 11px}
+  .host-turn .ht-note{font-size:14px}
+  .yesbox-head h2 br.sp{display:inline}
+}
+.maker-strip{padding:26px 0 0}
+.maker-strip>.wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 22px}
+.maker-strip img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none}
+.maker-strip p{flex:1 1 320px;margin:0;font-size:14px;line-height:1.85;color:#5d534d}
+.maker-strip p b{color:#3f443f}
+.maker-strip a{flex:none;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 </style>
 </head>
 <body>
@@ -4326,19 +4361,18 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
     <div class="wrap hero-v3-grid">
       <div class="hero-v3-copy">
         <div class="eyebrow">誰かに相談する前の、ひとり相談室 <span class="en">AKINAI FINDER</span></div>
-        <h1><i>「私にも何か</i><i>できるかも」を、</i><br><span><i>3分で</i><i>言葉にする。</i></span></h1>
+        <h1><i>人に相談する</i><i>ほどじゃない。</i><br><span><i>でも、このままでは</i><i>終わりたくない。</i></span></h1>
         <p class="hero-v3-lead">家族や仕事を優先してきて、自分のことは後回しだった人へ。<br>9問に答えるだけで、これまでの経験から<b>「仕事にできそうなこと」</b>を見つけます。</p>
         <div class="hero-v3-facts" aria-label="診断の特徴">
-          <div><b>9問・無料</b><span>約3分</span></div>
+          <div><b>無料・3分</b><span>9問だけ</span></div>
           <div><b>登録なし</b><span>メール不要</span></div>
           <div><b>起業しなくてOK</b><span>勧誘しません</span></div>
         </div>
         <div class="hero-primary">
-          <a class="btn" href="#fortune">無料で9問に答える →</a>
+          <a class="btn" href="#fortune">9問に答えてみる →</a>
           <a class="hero-v3-textlink" href="akinai-about.html">まず内容を見る →</a>
         </div>
-        <p class="hero-v3-sub">何をしたいか、まだ分からなくても大丈夫です。</p>
-        <p class="hero-emotion"><i>いつも、聞く側だった人へ。</i><b>今日は、話す側になってください。</b></p>
+        <p class="hero-v3-sub">何をしたいか、まだ分からなくて大丈夫です。</p>
       </div>
 
       <div class="hero-v3-visual">
@@ -4349,10 +4383,10 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
           <span class="hp-tag">9問に答えると…</span>
           <div class="hp-row"><small>あなたの経験資産</small><b>人の話を整理する力</b></div>
           <div class="hp-arw">↓</div>
-          <div class="hp-row"><small>仕事の種</small><b>相談サービス／少人数講座／伴走サポート</b></div>
+          <div class="hp-row"><small>仕事にすると</small><b>相談・講座・伴走</b></div>
           <div class="hp-arw">↓</div>
-          <div class="hp-row hp-last"><small>今週の一歩</small><b>まず1人に聞いてみる</b></div>
-          <p class="hp-note">※表示はイメージです。結果は回答内容によって変わります。</p>
+          <div class="hp-row hp-last"><small>まず試すなら</small><b>1人に30分、話を聞いてみる</b></div>
+          <p class="hp-note">※結果イメージです。内容は回答によって変わります。</p>
         </div>
       </div>
     </div>
@@ -4362,13 +4396,13 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
     <div class="wrap">
       <div class="yesbox-head">
         <span>MAYBE THIS IS YOU</span>
-        <h2>こんなこと、ありませんか？</h2>
+        <h2>こんなところで、<br class="sp">止まっていませんか。</h2>
       </div>
       <ul class="yesbox-list">
         <li>何かやってみたい。でも何ができるか分からない。</li>
-        <li>資格も特別な経験もない、と思っている。</li>
-        <li>いきなり起業相談に行くのは、ちょっと違う。</li>
-        <li>家族や今の生活を崩してまで始めたいわけではない。</li>
+        <li>私には、売れるような特技なんてないと思う。</li>
+        <li>いきなり起業相談に行くほどではない。</li>
+        <li>家族や今の生活を崩してまではやりたくない。</li>
       </ul>
       <div class="yesbox-turn">
         <h3>それなら、まだ事業計画はいりません。</h3>
@@ -4419,13 +4453,23 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
     </div>
   </section>
 
-  <section class="before-fortune-cta">
+  <section class="before-fortune-cta host-turn">
     <div class="wrap">
       <div>
-        <span>FREE CHECK</span>
-        <h2>まずは9問。<br>今のあなたから始めます。</h2>
+        <span>YOUR TURN</span>
+        <p class="ht-lead">いつも、聞く側だった人へ。</p>
+        <h2>今日は、9問だけ<br>あなた自身のことを答えてください。</h2>
+        <p class="ht-note">人に話さなくていい。9問が、聞き役になります。</p>
       </div>
-      <a class="btn" href="#fortune">無料で診断する →</a>
+      <a class="btn" href="#fortune">はじめる →</a>
+    </div>
+  </section>
+
+  <section class="maker-strip" aria-label="つくった人">
+    <div class="wrap">
+      <img src="assets/akinai-profile-yuji-final.png?v=20260920-0032" alt="つくった人・中村裕二" loading="lazy" decoding="async">
+      <p><b>つくっているのは、商工会で20年以上、創業から廃業まで500社以上の相談に関わってきた中村裕二です。</b>起業を勧める立場ではなく、やめる判断にも立ち会ってきました。</p>
+      <a href="akinai-profile.html">つくった人を見る →</a>
     </div>
   </section>
 
@@ -4833,8 +4877,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   <section id="price" class="paid-app">
     <div class="wrap paid-shell">
       <div class="paid-head">
-        <span class="step-pill" id="paidPill">Webで完結・面談なし</span>
-        <h2>「何ができそう？」から、<br>「これなら試せそう」まで。</h2>
+        <span class="step-pill" id="paidPill">3,300円・Web完結・面談なし</span>
+        <h2>「私にも何かできるかも」を、<br>「これなら試せそう」まで。</h2>
+        <div class="paid-deliver">
+          <div>総合レポート</div><i>＋</i><div>3つの事業案</div><i>＋</i><div>各案の詳細レポート</div>
+        </div>
+        <ul class="paid-items" aria-label="レポートに入る項目">
+          <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>使える時間</li><li>家族への負担</li><li>最初の3人</li><li>90日プラン</li>
+        </ul>
         <p class="paid-boundary"><span><b>無料診断</b>でわかるのは、自分の中にある<b>仕事の種</b>です。</span><span class="ar">→</span><span class="pd"><b>3,300円</b>は、その種を<b>事業として判断できる状態</b>まで整理します。</span></p>
         <p>顧客・価格・件数・使える時間・家族の条件までそろって、はじめて「やる・やらない」を自分で決められます。読んで「今はやらない」でも構いません。<b>続きを買う必要はありません。</b></p>
       </div>
