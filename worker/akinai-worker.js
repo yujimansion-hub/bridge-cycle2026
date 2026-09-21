@@ -31,8 +31,11 @@ async function readToken(env,token){
   const [body,sig]=token.split('.');
   if(await hmac(env.TOKEN_SECRET,body)!==sig) return null;
   try{
-    const txt=decodeURIComponent(escape(atob(body.replace(/-/g,'+').replace(/_/g,'/'))));
-    const p=JSON.parse(txt);
+    let b=body.replace(/-/g,'+').replace(/_/g,'/');
+    b+='='.repeat((4-b.length%4)%4);
+    const bin=atob(b), bytes=new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+    const p=JSON.parse(new TextDecoder().decode(bytes));
     if(!p.exp||Date.now()>p.exp) return null;
     return p;
   }catch(e){return null}
@@ -41,6 +44,25 @@ function cors(env,req){
   const origin=req.headers.get('Origin')||'';
   const allowed=(env.ALLOWED_ORIGIN||'https://yujimansion-hub.github.io').split(',').map(s=>s.trim());
   return allowed.includes(origin)?origin:allowed[0];
+}
+async function createCheckout(env,clientKey){
+  if(!env.STRIPE_PRICE_ID) throw new Error('stripe_price_not_configured');
+  const site=(env.SITE_BASE||'https://yujimansion-hub.github.io/bridge-cycle2026').replace(/\/$/,'');
+  const p=new URLSearchParams();
+  p.set('mode','payment');
+  p.set('line_items[0][price]',env.STRIPE_PRICE_ID);
+  p.set('line_items[0][quantity]','1');
+  p.set('client_reference_id',clientKey);
+  p.set('success_url',site+'/akinai-plan.html?session_id={CHECKOUT_SESSION_ID}');
+  p.set('cancel_url',site+'/akinai.html#paidEngine');
+  p.set('metadata[product]','akinai_plan');
+  const r=await fetch('https://api.stripe.com/v1/checkout/sessions',{
+    method:'POST',
+    headers:{Authorization:'Bearer '+env.STRIPE_SECRET_KEY,'content-type':'application/x-www-form-urlencoded'},
+    body:p.toString()
+  });
+  if(!r.ok) throw new Error('stripe_checkout_create_failed');
+  return r.json();
 }
 async function stripeSession(env,id){
   const r=await fetch('https://api.stripe.com/v1/checkout/sessions/'+encodeURIComponent(id),{
@@ -124,6 +146,12 @@ export default {
     if(req.method==='OPTIONS') return new Response(null,{status:204,headers});
     const u=new URL(req.url);
     try{
+      if(u.pathname==='/checkout'&&req.method==='POST'){
+        const {client_key}=await req.json();
+        if(!client_key||String(client_key).length<12) return json({ok:false,error:'invalid_client_key'},400,headers);
+        const s=await createCheckout(env,String(client_key).slice(0,180));
+        return json({ok:true,url:s.url},200,headers);
+      }
       if(u.pathname==='/verify'&&req.method==='POST'){
         const {session_id,client_key}=await req.json();
         if(!session_id||!client_key) return json({ok:false,error:'missing_parameters'},400,headers);
