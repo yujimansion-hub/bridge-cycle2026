@@ -113,9 +113,9 @@ h3{font-size:19px;margin-bottom:10px}
 .promise p{font-size:14px;margin:0}
 
 /* host */
-.host{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:center}
-@media(max-width:640px){.host{grid-template-columns:1fr}.host img{width:160px}}
-.host img{border-radius:20px;aspect-ratio:1;object-fit:cover;width:200px}
+.host{display:grid;grid-template-columns:112px 1fr;gap:24px;align-items:start}
+@media(max-width:640px){.host{grid-template-columns:1fr}.host img{width:88px}}
+.host img{border-radius:50%;aspect-ratio:1;object-fit:cover;width:112px}
 .host .name{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:4px}
 .host .role{font-size:13px;color:var(--muted);margin-bottom:14px}
 
@@ -164,6 +164,16 @@ footer{background:var(--page);border-top:1px solid var(--line);padding:36px 0;fo
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center}
 footer a{color:var(--muted);text-decoration:none;margin-right:14px}
 .fine{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* mobile sticky reserve bar */
+.mbar{display:none}
+@media(max-width:820px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(28,33,29,.96);backdrop-filter:blur(8px);border-top:1px solid var(--night-line);color:#e9ebe6}
+  .mbar .mb-t{font-size:12px;line-height:1.4;color:var(--night-muted)}
+  .mbar .mb-t b{display:block;font-family:var(--serif);font-size:15px;color:#fff}
+  .mbar a{flex:none;background:var(--gold);color:var(--night);font-weight:700;font-size:14px;padding:11px 18px;border-radius:12px;text-decoration:none}
+  body{padding-bottom:72px}
+}
 </style>
 </head>
 <body>
@@ -254,8 +264,8 @@ footer a{color:var(--muted);text-decoration:none;margin-right:14px}
 <section id="host">
   <div class="wrap narrow">
     <div class="kicker">WHO YOU'LL TALK TO</div>
-    <h2>話す相手は、この人です。</h2>
-    <p class="muted">申し込む前に、相手の顔と経歴を知っておけるように。</p>
+    <h2>商工会の窓口で、20年。</h2>
+    <p class="muted">申し込む前に、どんな人が聞くのかを知っておけるように。</p>
     <div class="card host" style="margin-top:24px">
       <img src="https://yujimansion-hub.github.io/bridge-cycle2026/assets/akinai-profile-yuji-final.png" alt="中村裕二のプロフィール写真">
       <div>
@@ -390,6 +400,11 @@ footer a{color:var(--muted);text-decoration:none;margin-right:14px}
 <div class="back">
   この時間は、「わたしの商い診断」の続きにある場所です。<br>
   <a href="akinai.html">← 無料診断に戻る</a>　／　<a href="akinai.html#price">3,300円のWeb完結版を見る</a>
+</div>
+
+<div class="mbar" aria-label="予約">
+  <div class="mb-t"><b>声だけの45分　3,300円</b>毎週水曜 21:00〜 ／ 顔出し不要</div>
+  <a href="https://buy.stripe.com/6oUcN7bo3df9bFA08m3gk08" data-track="mbar_reserve">予約する →</a>
 </div>
 
 <footer>
