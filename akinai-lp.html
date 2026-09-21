@@ -20,6 +20,24 @@
   --line:#ead8d1;--muted:#776b66;--gold:#d5b27c;--serif:"Noto Serif JP","Yu Mincho",serif;
   --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;--max:1080px;
 }
+.editorial-label{position:absolute;right:-26px;top:110px;z-index:4;writing-mode:vertical-rl;letter-spacing:.16em;font-size:10px;color:#d9ccc6;text-transform:uppercase}
+.scribble{display:inline-block;position:relative}
+.scribble:after{content:"";position:absolute;left:-3%;right:-3%;bottom:-4px;height:8px;border-bottom:2px solid var(--rose2);border-radius:50%;transform:rotate(-2deg)}
+.offset-note{position:absolute;left:-32px;top:28px;z-index:5;background:#fff8f4;color:var(--ink);padding:11px 14px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.16);font-family:var(--serif);font-size:13px;line-height:1.5;transform:rotate(-5deg);border:1px solid #efd9d1}
+.magazine-no{font-family:"Cormorant Garamond",serif;font-size:68px;line-height:.8;color:var(--rose2);opacity:.75}
+.break{position:relative;overflow:hidden}
+.break:before{content:"AKINAI / AKINAI / AKINAI /";position:absolute;left:-20px;right:-20px;top:4px;white-space:nowrap;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:56px;color:rgba(255,255,255,.10);letter-spacing:.06em}
+.pain{align-items:stretch}
+.pain div:nth-child(2){transform:translateY(18px)}
+.pain div:nth-child(3){transform:rotate(1.5deg)}
+.step:nth-child(1){transform:rotate(-1.2deg)}
+.step:nth-child(3){transform:rotate(1.2deg)}
+@media(max-width:780px){
+  .editorial-label{display:none}
+  .offset-note{position:static;display:inline-block;margin:0 0 16px;transform:rotate(-2deg)}
+  .pain div:nth-child(2),.pain div:nth-child(3),.step:nth-child(1),.step:nth-child(3){transform:none}
+}
+
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
@@ -103,10 +121,13 @@ footer{padding:28px 0 90px;text-align:center;font-size:11px;color:#8a7e78}
 <body>
 <main>
 <section class="hero">
+  <div class="editorial-label">NOT A BUSINESS CONSULTING PAGE</div>
   <div class="wrap hero-grid">
     <div>
+      <div class="offset-note">創業相談20年のおじさんが、<br>起業を勧めない診断をつくりました。</div>
       <div class="eyebrow">9 QUESTIONS / FREE / NO SIGN-UP</div>
-      <h1>あなたの中に、<br><em>まだ仕事になっていないもの</em>がある。</h1>
+      <div class="magazine-no">03</div>
+      <h1>あなたの中に、<br><em class="scribble">まだ仕事になっていないもの</em>がある。</h1>
       <p class="sub">それが何か、3分で見てみませんか。</p>
       <p class="hero-copy">
         私は商工会で20年以上、創業相談を受けてきました。<br>
@@ -128,7 +149,7 @@ footer{padding:28px 0 90px;text-align:center;font-size:11px;color:#8a7e78}
     <div class="visual">
       <div class="photo">
         <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8820%E6%97%A5%2000_21_33.png" alt="中村裕二">
-        <div class="photo-tag">創業相談20年以上。でも、起業は勧めません。</div>
+        <div class="photo-tag">相談じゃない。自己分析でもない。</div>
         <div class="photo-copy">
           <div class="en">A little unusual, on purpose.</div>
           <h2>創業相談を20年以上。<br>でも、私は起業を勧めません。</h2>
@@ -142,6 +163,7 @@ footer{padding:28px 0 90px;text-align:center;font-size:11px;color:#8a7e78}
 <section class="section white">
   <div class="wrap big-q">
     <div class="kicker">Does this sound like you?</div>
+    <div class="magazine-no" style="color:var(--rose);opacity:.45">01</div>
     <h2>何かしたい。<br>でも、何ができるか分からない。</h2>
     <p>それは、「何もない」からではなく、まだ自分の経験を仕事として見ていないだけかもしれません。</p>
     <div class="pain">
@@ -163,6 +185,7 @@ footer{padding:28px 0 90px;text-align:center;font-size:11px;color:#8a7e78}
   <div class="wrap">
     <div class="steps-head">
       <div class="kicker">Nine questions. That's all.</div>
+      <div class="magazine-no" style="color:var(--rose);opacity:.45">02</div>
       <h2>私が、9つだけ質問します。</h2>
       <p>難しい自己分析はありません。直感で答えるだけです。</p>
     </div>
@@ -178,6 +201,7 @@ footer{padding:28px 0 90px;text-align:center;font-size:11px;color:#8a7e78}
   <div class="wrap trust">
     <div>
       <div class="kicker">No pressure.</div>
+      <div class="magazine-no" style="color:var(--rose);opacity:.45">04</div>
       <h2>私は、あなたを「起業家」にしたいわけではありません。</h2>
       <p>少しやってみる。誰か一人に売ってみる。今はやらない。どれでも構いません。私がしたいのは、あなた自身もまだ気づいていない「商いの種」を一緒に見つけることです。</p>
     </div>
