@@ -4504,6 +4504,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .report-volume-note,.web-consult-note,.share-note,.data-note,.fortune-note{font-size:12px!important;line-height:1.75}
   body{padding-bottom:120px!important}
 }
+.entre-result{margin:24px 0 0;padding:22px;border:1px solid #e8d5cc;border-radius:22px;background:linear-gradient(145deg,#fffaf6,#f6e8e2)}
+.entre-result .er-kicker{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.06em}
+.entre-result h3{font-family:var(--serif);font-size:23px;margin:6px 0 12px}
+.er-meter{height:8px;background:#eaded8;border-radius:999px;overflow:hidden;margin:10px 0 14px}.er-meter i{display:block;height:100%;width:0;background:var(--rose);border-radius:999px;transition:width .5s ease}
+.entre-result>p{font-size:14px;line-height:1.85;color:#554b45}
+.er-next{margin-top:15px;padding:14px 15px;background:#fff;border-radius:15px;border:1px solid var(--line)}.er-next b{font-family:var(--serif);font-size:16px}.er-next p{margin:5px 0 0;font-size:13px;line-height:1.75;color:#5f554f}
+.er-paths{display:grid;gap:8px;margin-top:12px}.er-paths span{display:block;padding:10px 12px;border-left:3px solid var(--rose);background:rgba(255,255,255,.66);font-size:12.5px;line-height:1.65}
+.entre-result>small{display:block;margin-top:13px;color:var(--muted);font-size:10.5px;line-height:1.65}
 .biz-optional{margin:26px 0 0;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.55);overflow:hidden}
 .biz-optional>summary{cursor:pointer;padding:16px 18px;font-weight:700;color:var(--ink);list-style:none}
 .biz-optional>summary::-webkit-details-marker{display:none}
@@ -4626,63 +4634,63 @@ document.addEventListener('click',function(e){
       </div>
 
       <div class="qz" id="qz">
-        <div class="prog"><b id="pNow">1</b><span>/ 9</span><div class="bar"><i id="pBar"></i></div><span id="pTxt">自分では普通だと思っていること</span></div>
+        <div class="prog"><b id="pNow">1</b><span>/ 9</span><div class="bar"><i id="pBar"></i></div><span id="pTxt">今の自分</span></div>
 
-        <div class="scr on" data-i="0"><h3>友だちに「えっ、それ普通できないよ」って言われたこと、ありません？</h3><p class="sub">Q1 / 9｜近いものを、ひとつ。</p><div class="ch">
-          <button type="button" data-v="light"><span class="k">A</span>話を聞いてたら、相手が勝手にスッキリしてた</button>
-          <button type="button" data-v="hand"><span class="k">B</span>気づいたら、なんか作ってた・直してた</button>
-          <button type="button" data-v="garden"><span class="k">C</span>同じ人と、なんだかんだ長く続いてる</button>
-          <button type="button" data-v="bridge"><span class="k">D</span>「いい店ない？」ってよく聞かれる</button></div></div>
+        <div class="scr on" data-i="0"><h3>最近いちばん近い気持ちは？</h3><p class="sub">Q1 / 9｜今の状態から見ていきます。</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>まず、自分の気持ちを整理したい</button>
+          <button type="button" data-v="tower"><span class="k">B</span>暮らしや仕事の負担を少し減らしたい</button>
+          <button type="button" data-v="hand"><span class="k">C</span>好きなことを、もう少し形にしてみたい</button>
+          <button type="button" data-v="boat"><span class="k">D</span>今までと違うことを、何か試してみたい</button></div></div>
 
-        <div class="scr" data-i="1"><h3>誰かに頼られたとき、「自分らしいな」と思うのは？</h3><p class="sub">Q2 / 9｜近いものを、ひとつ。</p><div class="ch">
-          <button type="button" data-v="light"><span class="k">A</span>話を聞いて、気持ちを整理する</button>
-          <button type="button" data-v="hand"><span class="k">B</span>手を動かして、形にする</button>
-          <button type="button" data-v="garden"><span class="k">C</span>そばで見守って、続ける</button>
-          <button type="button" data-v="bridge"><span class="k">D</span>人や情報をつないで、助ける</button></div></div>
+        <div class="scr" data-i="1"><h3>これからの働き方で、いちばん大切なのは？</h3><p class="sub">Q2 / 9｜正解ではなく、今の気持ちで。</p><div class="ch">
+          <button type="button" data-v="garden"><span class="k">A</span>安心して、無理なく続けられること</button>
+          <button type="button" data-v="tower"><span class="k">B</span>収入や時間が、ある程度読めること</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>好きな人や面白い人と関われること</button>
+          <button type="button" data-v="boat"><span class="k">D</span>自分で決められる範囲が増えること</button></div></div>
 
-        <div class="scr" data-i="2"><h3>うまくいかなかったこと。そこで身についたのは？</h3><p class="sub">Q3 / 9｜遠回りした話のほうが、材料になります。</p><div class="ch">
-          <button type="button" data-v="boat"><span class="k">A</span>とりあえずやってみる度胸</button>
-          <button type="button" data-v="tower"><span class="k">B</span>数字と条件を先に見るクセ</button>
-          <button type="button" data-v="bridge"><span class="k">C</span>一人で抱えない、という判断</button>
-          <button type="button" data-v="light"><span class="k">D</span>起きたことを、言葉にする力</button></div></div>
+        <div class="scr" data-i="2"><h3>正解が分からないことに挑戦するとき、どうする？</h3><p class="sub">Q3 / 9｜不確実さとの付き合い方を見ます。</p><div class="ch">
+          <button type="button" data-v="tower"><span class="k">A</span>条件がそろうまで、なるべく動かない</button>
+          <button type="button" data-v="light"><span class="k">B</span>誰かに話しながら、考えを整理する</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>詳しい人に聞いて、選択肢を増やす</button>
+          <button type="button" data-v="boat"><span class="k">D</span>小さく試して、違ったら直す</button></div></div>
 
-        <div class="scr" data-i="3"><h3>昔から、なぜかいつも回ってくる役は？</h3><p class="sub">Q4 / 9｜4問おわりました。あと少し。</p><div class="ch">
-          <button type="button" data-v="light"><span class="k">A</span>話を聞く係</button>
-          <button type="button" data-v="hand"><span class="k">B</span>作る・仕上げる係</button>
-          <button type="button" data-v="tower"><span class="k">C</span>まとめる・整える係</button>
-          <button type="button" data-v="garden"><span class="k">D</span>気にかける・見守る係</button></div></div>
+        <div class="scr" data-i="3"><h3>「これ、やってみたい」と思ったときは？</h3><p class="sub">Q4 / 9｜普段の動き方に近いものを。</p><div class="ch">
+          <button type="button" data-v="garden"><span class="k">A</span>家族や周りとのバランスを先に考える</button>
+          <button type="button" data-v="light"><span class="k">B</span>まず誰かに話して、気持ちを確かめる</button>
+          <button type="button" data-v="hand"><span class="k">C</span>試作品や見本を、ひとつ作ってみる</button>
+          <button type="button" data-v="boat"><span class="k">D</span>日程を決めて、とりあえず一度やる</button></div></div>
 
-        <div class="scr" data-i="4"><h3>ちょっと高い買い物。決める直前、何してます？</h3><p class="sub">Q5 / 9｜決め方にも、その人らしさが出ます。</p><div class="ch">
-          <button type="button" data-v="light"><span class="k">A</span>誰かに話しながら考えてる</button>
-          <button type="button" data-v="boat"><span class="k">B</span>とりあえず現物を見に行ってる</button>
-          <button type="button" data-v="tower"><span class="k">C</span>比較表を作ってる</button>
-          <button type="button" data-v="bridge"><span class="k">D</span>詳しい人に聞いてる</button></div></div>
+        <div class="scr" data-i="4"><h3>収入が少し不安定になる可能性がある選択は？</h3><p class="sub">Q5 / 9｜お金への安心感も大切です。</p><div class="ch">
+          <button type="button" data-v="tower"><span class="k">A</span>かなり不安。できれば避けたい</button>
+          <button type="button" data-v="garden"><span class="k">B</span>生活費が守られるなら少し考えられる</button>
+          <button type="button" data-v="bridge"><span class="k">C</span>副収入など別の支えがあれば試せる</button>
+          <button type="button" data-v="boat"><span class="k">D</span>小さな範囲なら、多少の波は受け入れられる</button></div></div>
 
-        <div class="scr" data-i="5"><h3>自分の経験を後輩に渡すなら、どれが近い？</h3><p class="sub">Q6 / 9｜渡し方にも、クセがあります。</p><div class="ch">
-          <button type="button" data-v="hand"><span class="k">A</span>使える見本を渡す</button>
-          <button type="button" data-v="tower"><span class="k">B</span>手順とコツを書いて渡す</button>
-          <button type="button" data-v="boat"><span class="k">C</span>とりあえず一緒にやる</button>
-          <button type="button" data-v="garden"><span class="k">D</span>しばらく横で見てる</button></div></div>
+        <div class="scr" data-i="5"><h3>今、自分のために使える余力はどれくらい？</h3><p class="sub">Q6 / 9｜時間と気力の余白を見ます。</p><div class="ch">
+          <button type="button" data-v="tower"><span class="k">A</span>正直、ほとんど余裕がない</button>
+          <button type="button" data-v="garden"><span class="k">B</span>週に1〜2時間ならつくれそう</button>
+          <button type="button" data-v="hand"><span class="k">C</span>週に半日くらいなら使えそう</button>
+          <button type="button" data-v="boat"><span class="k">D</span>週に1日以上、新しいことに使えそう</button></div></div>
 
-        <div class="scr" data-i="6"><h3>これから増やしたい時間は、どれに近い？</h3><p class="sub">Q7 / 9｜正解はありません。</p><div class="ch">
-          <button type="button" data-v="hand"><span class="k">A</span>好きなものを、丁寧につくる時間</button>
-          <button type="button" data-v="garden"><span class="k">B</span>気の合う人と、ゆっくり続く時間</button>
-          <button type="button" data-v="bridge"><span class="k">C</span>新しい人や場所と、つながる時間</button>
-          <button type="button" data-v="boat"><span class="k">D</span>思いついたことを、すぐ試す時間</button></div></div>
+        <div class="scr" data-i="6"><h3>自分の得意なことで、人に喜ばれた経験は？</h3><p class="sub">Q7 / 9｜「売れるか」ではなく、外から見える強みです。</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>話を聞く・整理することで喜ばれた</button>
+          <button type="button" data-v="hand"><span class="k">B</span>作る・直す・仕上げることで喜ばれた</button>
+          <button type="button" data-v="garden"><span class="k">C</span>支える・見守ることで喜ばれた</button>
+          <button type="button" data-v="bridge"><span class="k">D</span>紹介する・つなぐことで喜ばれた</button></div></div>
 
-        <div class="scr" data-i="7"><h3>友だちが困ってる。頼まれてないのに、つい？</h3><p class="sub">Q8 / 9｜あと2問。</p><div class="ch">
-          <button type="button" data-v="tower"><span class="k">A</span>現実的な条件を整理しはじめる</button>
-          <button type="button" data-v="boat"><span class="k">B</span>試せる方法を探しはじめる</button>
-          <button type="button" data-v="bridge"><span class="k">C</span>「あの人に聞いてみたら？」</button>
-          <button type="button" data-v="light"><span class="k">D</span>本人も気づいてないことを、言っちゃう</button></div></div>
+        <div class="scr" data-i="7"><h3>誰かに「それ、有料でもお願いしたい」と言われたら？</h3><p class="sub">Q8 / 9｜お金を受け取ることへの感覚です。</p><div class="ch">
+          <button type="button" data-v="light"><span class="k">A</span>うれしいけど、まだお金をもらうのは抵抗がある</button>
+          <button type="button" data-v="tower"><span class="k">B</span>条件や範囲が決まれば考えられる</button>
+          <button type="button" data-v="hand"><span class="k">C</span>内容に自信が持てれば試してみたい</button>
+          <button type="button" data-v="boat"><span class="k">D</span>まず一度、少額でも試してみたい</button></div></div>
 
-        <div class="scr" data-i="8"><h3>10年後、「こんな自分でいたい」に近いのは？</h3><p class="sub">Q9 / 9｜最後です。</p><div class="ch">
-          <button type="button" data-v="tower"><span class="k">A</span>落ち着いて、物事を整えられる自分</button>
-          <button type="button" data-v="hand"><span class="k">B</span>好きなことを、ちゃんと形にしている自分</button>
-          <button type="button" data-v="garden"><span class="k">C</span>大切な人と、長く穏やかにつながっている自分</button>
-          <button type="button" data-v="boat"><span class="k">D</span>面白そうと思ったら、軽やかに動ける自分</button></div></div>
+        <div class="scr" data-i="8"><h3>3年後、「こうなっていたらいいな」に近いのは？</h3><p class="sub">Q9 / 9｜最後です。</p><div class="ch">
+          <button type="button" data-v="garden"><span class="k">A</span>今の暮らしを大切にしながら、気持ちに余裕がある</button>
+          <button type="button" data-v="tower"><span class="k">B</span>働き方や生活が整理され、安心して過ごせている</button>
+          <button type="button" data-v="hand"><span class="k">C</span>好きなことや得意なことを、今より活かせている</button>
+          <button type="button" data-v="boat"><span class="k">D</span>自分で選んだ仕事や活動に、もっと時間を使えている</button></div></div>
 
-        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜ここまで見て</div><h3>少し輪郭が見えてきました。 <b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">ここからは、<b>何を大切にしているか</b>と<b>これからどんな方向が心地よさそうか</b>を見ます。あと5問だけ、付き合ってください。</p><button type="button" class="btn" id="midGo">続きを一緒に見る →</button></div></div>
+        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜ここまで見て</div><h3>少し輪郭が見えてきました。 <b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">ここからは、<b>生活の余力</b>、<b>変化への向き合い方</b>、そして<b>起業という選択肢との今の相性</b>も見ていきます。あと5問だけ。</p><button type="button" class="btn" id="midGo">続きを一緒に見る →</button></div></div>
 
         <div class="tk" id="tk">
           <div class="tkh"><div class="lab">友達からの、他己診断</div><h3>この人のこと、4問だけ教えてください。</h3><p class="sub">名前は要りません。答えは送信されず、結果だけをこの人に送れます。</p></div>
@@ -4709,7 +4717,7 @@ document.addEventListener('click',function(e){
               <p>そう思えたら、少しだけ気持ちが軽くなることがあると思っています。</p>
               <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
             </div>
-            <p class="result-basis">9つの回答から、これまでの経験に繰り返し現れている「自分らしい選び方・進み方」を整理します。診断の本体は、あなた自身の回答と経験です。占い要素は任意の読み物として分けています。</p>
+            <p class="result-basis">9つの回答から、「自分らしい選び方・進み方」と、起業を含むこれからの選択肢との今の相性を整理します。診断の本体は、あなた自身の回答と経験です。占い要素は任意の読み物として分けています。</p>
             <span class="result-section-label">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
@@ -4763,6 +4771,18 @@ document.addEventListener('click',function(e){
               <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
               <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
             </div>
+            <div class="entre-result" id="entreResult">
+              <span class="er-kicker">START A BUSINESS?｜起業は、選択肢のひとつ</span>
+              <h3 id="entreTitle">起業との今の相性</h3>
+              <div class="er-meter"><i id="entreMeter"></i></div>
+              <p id="entreReason"></p>
+              <div class="er-next">
+                <b id="entreNextTitle"></b>
+                <p id="entreNext"></p>
+              </div>
+              <div class="er-paths" id="entrePaths"></div>
+              <small>※性格を決めつける「起業家適性」ではありません。今の生活余力・不確実性への向き合い方・行動の準備度から、起業という選択肢との現在の相性を見ています。</small>
+            </div>
             <div class="belly" id="rBelly" style="display:none">
               <span class="blab">9つの答えを「これからの言葉」にすると</span>
               <p id="rStory"></p>
@@ -4811,7 +4831,7 @@ document.addEventListener('click',function(e){
           </details>
 
           <details class="biz-optional">
-            <summary>この結果を「仕事」にしてみたい人だけ見る</summary>
+            <summary>起業・副業が合いそうな人へ｜どんな事業がありそう？</summary>
             <div class="biz-optional-inner">
           <div class="turn"><span>ここから先は、仕事にしてみたい人向け</span></div>
 
@@ -5990,13 +6010,55 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   const qp=new URLSearchParams(location.search);
   const W=[2,1,1,2,2,1,1,1,1];function scoreOf(arr){const sc={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},first={};arr.forEach((v,k)=>{if(!v)return;sc[v]+=(W[k]||1);if(first[v]===undefined)first[v]=k;});const order=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||(first[a]??99)-(first[b]??99));return {sc,order};}
   function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',s.dataset.i===String(n)));pNow.textContent=n+1;pBar.style.width=((n+1)/N*100)+'%';pTxt.textContent=LBL[n]||'';back.style.visibility=n>0?'visible':'hidden';res.classList.remove('on');qz.querySelector('.qnav').style.display='';}
-  function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='仮の星';}
+  function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='途中のタイプ';}
   scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
   document.getElementById('midGo').addEventListener('click',()=>show(4));
   back.addEventListener('click',()=>{if(i>0)show(i-1);});
   document.getElementById('again').addEventListener('click',()=>{ans=[];show(0);qz.scrollIntoView({behavior:'smooth',block:'start'});});
   function finish(){window.AKINAI_VOICE_RESULT=null;const {sc,order}=scoreOf(ans);const top=Math.max(...Object.values(sc),1);window.AKINAI_SCORE_MIX=order.filter(k=>sc[k]>0).slice(0,3).map(k=>({k,score:sc[k],pct:Math.round(sc[k]/top*100)}));render(order[0], sc[order[1]]>0?order[1]:null);}
   function nm(w,w2){return w2?NAME[w][w2][0]:D[w].title.split('｜')[1];}
+  
+  function entrepreneurshipResult(){
+    const E=[
+      {light:0,tower:0,hand:1,boat:2},
+      {garden:0,tower:0,bridge:1,boat:2},
+      {tower:0,light:1,bridge:1,boat:2},
+      {garden:0,light:1,hand:2,boat:2},
+      {tower:0,garden:1,bridge:1,boat:2},
+      {tower:0,garden:1,hand:2,boat:2},
+      {light:1,hand:1,garden:1,bridge:2},
+      {light:0,tower:1,hand:2,boat:2},
+      {garden:0,tower:0,hand:1,boat:2}
+    ];
+    let score=0;
+    ans.forEach((v,i)=>{score+=(E[i]&&E[i][v]!=null)?E[i][v]:0;});
+    const max=18, pct=Math.round(score/max*100);
+    let level,title,reason,nextTitle,next,paths;
+    if(score>=14){
+      level='high';
+      title='起業との相性は、今は高めです';
+      reason='自分で決めて動くこと、不確実な状況を小さく試すこと、時間をつくることへの準備が比較的そろっています。会社を辞める必要はありませんが、起業・副業を現実的な選択肢として検討できる状態です。';
+      nextTitle='起業するなら';
+      next='いきなり独立ではなく、今の生活を守りながら「一人のお客さんに、一つの価値を、有料で渡す」ことから始めるのが合っています。';
+      paths=['今の仕事を続けながら、小さく有料で試す','得意なことを一つに絞り、誰の何を助けるか決める','3人に試してから、独立するかどうかを判断する'];
+    }else if(score>=9){
+      level='conditional';
+      title='起業は、条件が整えば向いています';
+      reason='起業に必要な強みや関心はありますが、生活余力・お金・自信・不確実さへの耐性のどこかに、まだ整えたい条件があります。「向いていない」のではなく、今すぐ一本に決めない方がよい状態です。';
+      nextTitle='今は、こう進むのがおすすめ';
+      next='転職や退職を先に決めず、副業・プロボノ・イベント参加・小さな販売など、戻れる形で試してください。試したあとの気持ちが、次の判断材料になります。';
+      paths=['副業や週末活動で「やってみたい」を試す','今の仕事の中で、得意な役割を増やしてみる','生活費・時間・家族との条件を先に整理する'];
+    }else{
+      level='low';
+      title='今は、起業を急がない方がよさそうです';
+      reason='起業そのものが向いていない、という意味ではありません。今は新しい責任を増やすより、生活・仕事・気持ちの余白を取り戻す方が、次の選択をはっきりさせやすい状態です。';
+      nextTitle='起業以外にも、十分に道があります';
+      next='今の仕事を続ける、配置や働き方を変える、転職を考える、学び直す、休む時間をつくる。まず「何を増やすか」より「何を減らしたいか」を整理してください。';
+      paths=['今の仕事で減らしたい役割を一つ決める','転職・学び直し・働き方変更を比較してみる','週に30分、自分のためだけに考える時間をつくる'];
+    }
+    return {score,pct,level,title,reason,nextTitle,next,paths};
+  }
+
   function render(w,w2){
     cur=w; sub=w2; const d=D[w], d2=w2?D[w2]:null, life=LIFE_RESULT[w];
     scrs.forEach(s=>s.classList.remove('on')); qz.querySelector('.qnav').style.display='none';
@@ -6015,6 +6077,18 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     document.getElementById('rKeyword').textContent=life.keyword;
     const dirBox=document.getElementById('rDirectionTags');
     if(dirBox)dirBox.innerHTML=life.directions.map((t,i)=>'<span class="tag '+(i===0?'active':'')+'">'+t+'</span>').join('');
+    const er=entrepreneurshipResult();
+    window.AKINAI_ENTRE_RESULT=er;
+    const et=document.getElementById('entreTitle'), em=document.getElementById('entreMeter'), erp=document.getElementById('entreReason'), ent=document.getElementById('entreNextTitle'), en=document.getElementById('entreNext'), eps=document.getElementById('entrePaths');
+    if(et)et.textContent=er.title;
+    if(em)em.style.width=er.pct+'%';
+    if(erp)erp.textContent=er.reason;
+    if(ent)ent.textContent=er.nextTitle;
+    if(en)en.textContent=er.next;
+    if(eps)eps.innerHTML=er.paths.map(x=>'<span>'+x+'</span>').join('');
+    const bo=document.querySelector('.biz-optional');
+    if(bo){bo.style.display=er.level==='low'?'none':''; if(er.level==='high')bo.open=true;}
+
     const voiceReveal=document.getElementById('rVoiceReveal'),voiceMeta=window.AKINAI_VOICE_RESULT;
     if(voiceReveal&&voiceMeta&&voiceMeta.main===w){
       const words=(voiceMeta.words||[]).slice(0,6);
