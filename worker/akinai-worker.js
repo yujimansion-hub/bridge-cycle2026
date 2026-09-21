@@ -115,6 +115,41 @@ plansは必ずA/B/Cの3件。数値は整数。JSON以外の文章やMarkdownは
 function userPrompt(a){
   return '以下が本人の回答です。制約を守り、3案を別ビジネスモデルとして設計してください。\n'+JSON.stringify(a,null,2);
 }
+function outputSchema(){
+  const plan={
+    type:'object',
+    additionalProperties:false,
+    required:['id','name','one_line','why','customer','problem','offer','price_yen','quantity_per_month','monthly_sales_yen','sales_method','region','competitors_hypothesis','differentiation','hours_per_week','startup_cost_yen','family_fit','digital_fit','first_three','day30','day60','day90','stop_rule','checks_before_start'],
+    properties:{
+      id:{type:'string',enum:['A','B','C']},
+      name:{type:'string'},one_line:{type:'string'},why:{type:'string'},
+      customer:{type:'string'},problem:{type:'string'},offer:{type:'string'},
+      price_yen:{type:'integer',minimum:0},quantity_per_month:{type:'integer',minimum:0},monthly_sales_yen:{type:'integer',minimum:0},
+      sales_method:{type:'string'},region:{type:'string'},competitors_hypothesis:{type:'string'},differentiation:{type:'string'},
+      hours_per_week:{type:'string'},startup_cost_yen:{type:'integer',minimum:0},family_fit:{type:'string'},digital_fit:{type:'string'},
+      first_three:{type:'array',minItems:1,maxItems:6,items:{type:'string'}},
+      day30:{type:'string'},day60:{type:'string'},day90:{type:'string'},stop_rule:{type:'string'},
+      checks_before_start:{type:'array',items:{type:'string'}}
+    }
+  };
+  return {
+    type:'object',
+    additionalProperties:false,
+    required:['summary','plans'],
+    properties:{
+      summary:{
+        type:'object',additionalProperties:false,
+        required:['strengths','constraints','principle'],
+        properties:{
+          strengths:{type:'array',items:{type:'string'}},
+          constraints:{type:'array',items:{type:'string'}},
+          principle:{type:'string'}
+        }
+      },
+      plans:{type:'array',minItems:3,maxItems:3,items:plan}
+    }
+  };
+}
 async function generateWithOpenAI(env,answers){
   const body={
     model:env.OPENAI_MODEL||'gpt-5.6-luna',
@@ -122,6 +157,14 @@ async function generateWithOpenAI(env,answers){
       {role:'system',content:[{type:'input_text',text:systemPrompt()}]},
       {role:'user',content:[{type:'input_text',text:userPrompt(answers)}]}
     ],
+    text:{
+      format:{
+        type:'json_schema',
+        name:'akinai_three_plans',
+        strict:true,
+        schema:outputSchema()
+      }
+    },
     max_output_tokens:7500
   };
   const r=await fetch('https://api.openai.com/v1/responses',{
@@ -133,7 +176,8 @@ async function generateWithOpenAI(env,answers){
   const data=await r.json();
   let txt='';
   for(const item of (data.output||[])) for(const part of (item.content||[])) if(part.type==='output_text') txt+=part.text||'';
-  txt=txt.trim().replace(/^\`\`\`json\s*/,'').replace(/\s*\`\`\`$/,'');
+  txt=txt.trim();
+  if(!txt) throw new Error('openai_empty_output');
   return JSON.parse(txt);
 }
 function randId(){
@@ -157,6 +201,8 @@ export default {
         if(!session_id||!client_key) return json({ok:false,error:'missing_parameters'},400,headers);
         const s=await stripeSession(env,session_id);
         if(s.payment_status!=='paid') return json({ok:false,error:'payment_not_confirmed'},402,headers);
+        if(s.metadata?.product!=='akinai_plan') return json({ok:false,error:'wrong_product'},403,headers);
+        if(Number(s.amount_total)!==3300 || String(s.currency||'').toLowerCase()!=='jpy') return json({ok:false,error:'wrong_amount_or_currency'},403,headers);
         if(!s.client_reference_id||s.client_reference_id!==client_key) return json({ok:false,error:'browser_mismatch'},403,headers);
         const payload={sid:s.id,ref:client_key,exp:Date.now()+30*24*60*60*1000};
         const token=await makeToken(env,payload);
@@ -167,17 +213,20 @@ export default {
         const auth=(req.headers.get('Authorization')||'').replace(/^Bearer\s+/i,'');
         const p=await readToken(env,auth);
         if(!p) return json({ok:false,error:'invalid_or_expired_token'},401,headers);
+        let used=0;
         if(env.AKINAI_KV){
-          const k='uses:'+p.sid; const used=Number(await env.AKINAI_KV.get(k)||0);
+          const k='uses:'+p.sid; used=Number(await env.AKINAI_KV.get(k)||0);
           if(used>=5) return json({ok:false,error:'generation_limit'},429,headers);
-          await env.AKINAI_KV.put(k,String(used+1),{expirationTtl:31*24*60*60});
         }
         const {answers}=await req.json();
         const cleaned=cleanAnswers(answers||{});
         if(!cleaned.product&&!cleaned.voice&&!cleaned.experience) return json({ok:false,error:'insufficient_answers'},400,headers);
         const result=await generateWithOpenAI(env,cleaned);
         const result_id=randId();
-        if(env.AKINAI_KV) await env.AKINAI_KV.put('result:'+result_id,JSON.stringify(result),{expirationTtl:31*24*60*60});
+        if(env.AKINAI_KV){
+          await env.AKINAI_KV.put('result:'+result_id,JSON.stringify(result),{expirationTtl:31*24*60*60});
+          await env.AKINAI_KV.put('uses:'+p.sid,String(used+1),{expirationTtl:31*24*60*60});
+        }
         return json({ok:true,result,result_id:env.AKINAI_KV?result_id:null},200,headers);
       }
       if(u.pathname.startsWith('/result/')&&req.method==='GET'){
