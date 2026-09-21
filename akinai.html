@@ -4512,6 +4512,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .er-next{margin-top:15px;padding:14px 15px;background:#fff;border-radius:15px;border:1px solid var(--line)}.er-next b{font-family:var(--serif);font-size:16px}.er-next p{margin:5px 0 0;font-size:13px;line-height:1.75;color:#5f554f}
 .er-paths{display:grid;gap:8px;margin-top:12px}.er-paths span{display:block;padding:10px 12px;border-left:3px solid var(--rose);background:rgba(255,255,255,.66);font-size:12.5px;line-height:1.65}
 .entre-result>small{display:block;margin-top:13px;color:var(--muted);font-size:10.5px;line-height:1.65}
+.er-override{margin-top:18px;padding-top:16px;border-top:1px dashed #d8c5bc}
+.er-override>p{font-size:13px;line-height:1.75;color:#5d514b;margin:0 0 12px}
+.er-override-advice{margin-top:14px;padding:17px;background:#fff;border:1px solid var(--line);border-radius:16px}
+.er-advice-label{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:12px;letter-spacing:.06em}
+.er-override-advice h4{font-family:var(--serif);font-size:19px;margin:5px 0 12px}
+.er-advice-list{display:grid;gap:9px}.er-advice-list div{padding:10px 12px;background:#fffaf7;border-left:3px solid var(--rose);font-size:12.5px;line-height:1.7}.er-advice-list b{display:block;color:var(--ink)}
+.er-advice-note{font-size:12px;line-height:1.7;color:#6b605a;margin:12px 0}
+
 .biz-optional{margin:26px 0 0;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.55);overflow:hidden}
 .biz-optional>summary{cursor:pointer;padding:16px 18px;font-weight:700;color:var(--ink);list-style:none}
 .biz-optional>summary::-webkit-details-marker{display:none}
@@ -4781,6 +4789,17 @@ document.addEventListener('click',function(e){
                 <p id="entreNext"></p>
               </div>
               <div class="er-paths" id="entrePaths"></div>
+              <div class="er-override" id="entreOverride" style="display:none">
+                <p><b>それでも、起業を進めたいですか？</b><br>診断は「やめた方がいい」と決めるためのものではありません。進むなら、今の弱点を先に守りに変えます。</p>
+                <button class="btn ghost" type="button" id="entreOverrideBtn">それでも起業を進めたい →</button>
+                <div class="er-override-advice" id="entreOverrideAdvice" style="display:none">
+                  <span class="er-advice-label">IF YOU STILL WANT TO GO｜進むなら、この順番で</span>
+                  <h4>会社を辞める前に、起業を「試す」。</h4>
+                  <div class="er-advice-list" id="entreAdviceList"></div>
+                  <p class="er-advice-note">向いていないのではなく、今は守る条件が多い状態です。その条件を一つずつ整えれば、起業は後からでも選べます。</p>
+                  <button class="btn sm" type="button" id="entreShowBiz">私に合う事業の方向も見る →</button>
+                </div>
+              </div>
               <small>※性格を決めつける「起業家適性」ではありません。今の生活余力・不確実性への向き合い方・行動の準備度から、起業という選択肢との現在の相性を見ています。</small>
             </div>
             <div class="belly" id="rBelly" style="display:none">
@@ -6050,13 +6069,32 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       paths=['副業や週末活動で「やってみたい」を試す','今の仕事の中で、得意な役割を増やしてみる','生活費・時間・家族との条件を先に整理する'];
     }else{
       level='low';
-      title='今は、起業を急がない方がよさそうです';
-      reason='起業そのものが向いていない、という意味ではありません。今は新しい責任を増やすより、生活・仕事・気持ちの余白を取り戻す方が、次の選択をはっきりさせやすい状態です。';
+      title='今のまま起業するのは、少し慎重に';
+      reason='起業そのものが向いていない、という意味ではありません。今の生活余力や不確実さへの負担を考えると、いきなり独立するより「守りを残して試す」方が合っています。';
       nextTitle='起業以外にも、十分に道があります';
       next='今の仕事を続ける、配置や働き方を変える、転職を考える、学び直す、休む時間をつくる。まず「何を増やすか」より「何を減らしたいか」を整理してください。';
       paths=['今の仕事で減らしたい役割を一つ決める','転職・学び直し・働き方変更を比較してみる','週に30分、自分のためだけに考える時間をつくる'];
     }
     return {score,pct,level,title,reason,nextTitle,next,paths};
+  }
+
+  function lowEntreAdvice(w){
+    const base=[
+      ['01｜退職しない','まず3〜6か月は、今の収入を残したまま試してください。起業の判断と退職の判断を同じ日にしないこと。'],
+      ['02｜固定費を持たない','店舗・事務所・高額設備・長期契約は後回し。最初は月1〜3万円以内で撤退できる形にします。'],
+      ['03｜1人に有料で試す','無料で褒められるより、少額でも「お金を払う人が1人いるか」を先に確かめます。'],
+      ['04｜生活防衛ラインを決める','毎月必要な生活費、使ってよい自己資金、週に使える時間を先に数字で決めます。'],
+      ['05｜3回試してから判断','1回で向き不向きを決めず、同じ条件で3回試して、疲れ方・反応・続けたい気持ちを記録します。']
+    ];
+    const extra={
+      light:['06｜相談を商品にしすぎない','人の話を聞く力はありますが、最初は「30分で何を持ち帰ってもらうか」を決めて、感情労働を抱え込みすぎない形に。'],
+      hand:['06｜完成度を上げすぎない','最初から完璧な商品を作らず、試作品を1つ出して反応を見てください。材料費と作業時間は必ず記録します。'],
+      garden:['06｜支えすぎない','相手を大切にするほど無償対応が増えやすいタイプです。対応時間・回数・連絡できる時間を先に決めてください。'],
+      bridge:['06｜紹介責任を抱えすぎない','人をつなぐ場合は、紹介先の品質を保証しないこと、手数料や役割の範囲を明確にしてください。'],
+      boat:['06｜勢いで固定費を背負わない','行動力は強みですが、店舗契約や大きな仕入れは「3回試した後」に回してください。'],
+      tower:['06｜準備だけで終わらせない','条件整理は得意です。準備項目を増やすより、「この日までに1人へ提案する」と期限を先に置いてください。']
+    };
+    return base.concat(extra[w]?[extra[w]]:[]);
   }
 
   function render(w,w2){
@@ -6087,7 +6125,15 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     if(en)en.textContent=er.next;
     if(eps)eps.innerHTML=er.paths.map(x=>'<span>'+x+'</span>').join('');
     const bo=document.querySelector('.biz-optional');
-    if(bo){bo.style.display=er.level==='low'?'none':''; if(er.level==='high')bo.open=true;}
+    const ov=document.getElementById('entreOverride'), ovBtn=document.getElementById('entreOverrideBtn'), ovAdvice=document.getElementById('entreOverrideAdvice'), ovList=document.getElementById('entreAdviceList'), ovBiz=document.getElementById('entreShowBiz');
+    if(bo){bo.style.display=er.level==='low'?'none':''; bo.open=er.level==='high';}
+    if(ov){
+      ov.style.display=er.level==='low'?'':'none';
+      if(ovAdvice)ovAdvice.style.display='none';
+      if(ovList)ovList.innerHTML=lowEntreAdvice(w).map(x=>'<div><b>'+x[0]+'</b>'+x[1]+'</div>').join('');
+      if(ovBtn)ovBtn.onclick=()=>{ if(ovAdvice){ovAdvice.style.display='';ovAdvice.scrollIntoView({behavior:'smooth',block:'nearest'});} track('entrepreneur_override_open',{type:w||''}); };
+      if(ovBiz)ovBiz.onclick=()=>{ if(bo){bo.style.display='';bo.open=true;bo.scrollIntoView({behavior:'smooth',block:'start'});} track('entrepreneur_override_business',{type:w||''}); };
+    }
 
     const voiceReveal=document.getElementById('rVoiceReveal'),voiceMeta=window.AKINAI_VOICE_RESULT;
     if(voiceReveal&&voiceMeta&&voiceMeta.main===w){
