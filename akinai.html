@@ -5608,6 +5608,7 @@ document.addEventListener('click',function(e){
 <div class="mbar mbar-free"><a class="btn" href="#fortune" data-loc="mbar">無料で9問やってみる</a><a class="btn ghost mbar-paid" href="#price" data-loc="mbar">私ならどんな商い？ 3,300円</a></div>
 <div class="toast" id="toast"></div>
 
+<script src="akinai-config.js"></script>
 <script>
 // ===== 公開前設定 =====
 const BOOKING_URL = "";                                   // 旧予約導線（現在は未使用）
@@ -6808,13 +6809,9 @@ const CTX_LABELS={
     return;
   }
 
-  btn?.addEventListener('click',()=>{
-    if(!PAID_CHECKOUT_URL){
-      if(msg) msg.textContent='現在、決済設定を確認中です。';
-      return;
-    }
+  btn?.addEventListener('click',async()=>{
     window.track&&window.track('checkout_start',{});
-    if(msg) msg.textContent='決済ページへ移動します…';
+    if(msg) msg.textContent='安全な決済ページを準備しています…';
     let ref='';
     try{
       ref=localStorage.getItem('akinai_ref')||'';
@@ -6823,8 +6820,16 @@ const CTX_LABELS={
         localStorage.setItem('akinai_ref',ref);
       }
     }catch(e){}
-    const sep=PAID_CHECKOUT_URL.includes('?')?'&':'?';
-    location.href=PAID_CHECKOUT_URL+(ref?sep+'client_reference_id='+encodeURIComponent(ref):'');
+    const api=(window.AKINAI_API_BASE||'').replace(/\/$/,'');
+    if(!api){ if(msg) msg.textContent='安全な決済APIの設定が完了していません。'; return; }
+    try{
+      const r=await fetch(api+'/checkout',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({client_key:ref})});
+      const d=await r.json();
+      if(!d.ok||!d.url) throw new Error(d.error||'checkout_failed');
+      location.href=d.url;
+    }catch(e){
+      if(msg) msg.textContent='決済ページを開けませんでした。時間をおいて再度お試しください。';
+    }
   });
 })();
 
