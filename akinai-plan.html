@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>わたしの商い設計｜3つの商いプラン</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#f4ece4;--paper:#fffaf5;--ink:#3b332e;--muted:#7e726b;--line:#e6d9cf;--rose:#c47f74;--pale:#f7e4df}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.8}
+.wrap{width:min(900px,calc(100% - 32px));margin:auto}.nav{padding:17px 0;border-bottom:1px solid var(--line);background:rgba(255,250,245,.9)}
+.nav b{font-size:14px}.hero{padding:42px 0 20px}.tag{font-size:12px;color:var(--rose);font-weight:700}.hero h1{font-family:"Yu Mincho",serif;font-size:clamp(28px,5vw,44px);line-height:1.45;margin:8px 0}.hero p{color:#5e534d}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px;margin:18px 0;box-shadow:0 16px 40px rgba(80,50,35,.06)}
+.status{padding:14px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:14px}.status.ok{background:#f0f4ec}.status.err{background:#fff0ed}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.full{grid-column:1/-1}label{display:block;font-weight:700;font-size:13px;margin-bottom:5px}
+input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fff;font:inherit;font-size:16px}textarea{min-height:88px;resize:vertical}
+.checks{display:flex;flex-wrap:wrap;gap:8px}.checks label{font-weight:500;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:999px}.checks input{width:auto}
+.btn{border:0;border-radius:999px;background:var(--rose);color:white;padding:14px 22px;font-weight:700;font-size:15px;cursor:pointer}.btn:disabled{opacity:.45}
+.note{font-size:12px;color:var(--muted)}.result{display:none}.result.on{display:block}.summary{padding:18px;background:var(--pale);border-radius:16px;margin-bottom:18px}
+.plans{display:grid;gap:18px}.plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.plan h3{font-family:"Yu Mincho",serif;font-size:23px;margin:4px 0 8px}.plan .one{font-weight:700;color:#6f5349}.facts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px 0}.facts div{padding:11px;background:#fffaf7;border-radius:12px}.facts small{display:block;color:var(--muted)}.facts b{font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.steps div{background:var(--pale);padding:10px;border-radius:10px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.actions .ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+@media(max-width:680px){.grid,.facts{grid-template-columns:1fr}.full{grid-column:auto}.steps{grid-template-columns:1fr}.card{padding:18px}}
+</style>
+</head>
+<body>
+<div class="nav"><div class="wrap"><b>わたしのこれから診断 → わたしの商い設計</b></div></div>
+<main class="wrap">
+<section class="hero"><span class="tag">PAID｜3,300円</span><h1>あなたの条件から、<br>3つの商いプランをつくります。</h1><p>同じ案の言い換えではなく、暮らし・強み・3年後の3方向から、商品・顧客・売り方・価格構造が異なる案を設計します。</p></section>
+<div id="status" class="status">購入情報を確認しています…</div>
+<section id="formCard" class="card" hidden>
+  <div class="grid">
+    <div class="full"><label>1｜提供したい商品・サービス</label><textarea id="product" placeholder="まだ決まっていなければ、できそうなことでもOK"></textarea></div>
+    <div><label>2｜誰に提供したい？</label><input id="customer"></div>
+    <div><label>3｜どんな困りごと・欲求？</label><input id="need"></div>
+    <div class="full"><label>4｜人から実際に言われたこと・喜ばれたこと</label><textarea id="voice"></textarea></div>
+    <div><label>5｜繰り返し言われたこと</label><input id="repeat"></div>
+    <div><label>6｜不満・買わなかった理由</label><input id="negative"></div>
+    <div><label>7｜目的</label><select id="purpose"><option>収入を少し増やしたい</option><option>会社以外の自分の仕事を持ちたい</option><option>将来の独立に備えたい</option><option>経験を生かしたい</option><option>好きなことを仕事にしたい</option><option>地域・人の役に立ちたい</option><option>まだ分からない</option></select></div>
+    <div><label>8｜3年後どうなっていたい？</label><input id="threeYears"></div>
+    <div class="full"><label>9｜やりたくないこと（案から外します）</label><div class="checks" id="avoid"><label><input type="checkbox" value="飛び込み・電話営業">飛び込み・電話営業</label><label><input type="checkbox" value="SNS発信">SNS発信</label><label><input type="checkbox" value="顔出し">顔出し</label><label><input type="checkbox" value="在庫">在庫</label><label><input type="checkbox" value="夜・土日">夜・土日</label><label><input type="checkbox" value="大きな固定費">大きな固定費</label><label><input type="checkbox" value="雇用">人を雇う</label></div></div>
+    <div><label>10｜地域</label><input id="region" placeholder="例：滋賀県大津市／オンライン"></div>
+    <div><label>11｜週に使える時間</label><input id="hours" placeholder="例：週5時間"></div>
+    <div><label>12｜最初に使える自己資金</label><input id="funds" placeholder="例：5万円以内"></div>
+    <div><label>13｜目標の月収・月売上</label><input id="targetIncome" placeholder="例：まず月3万円"></div>
+    <div><label>14｜デジタル環境</label><input id="digital" placeholder="例：Instagramは使える／PCは苦手"></div>
+    <div><label>15｜これまでの仕事・経験</label><textarea id="experience"></textarea></div>
+    <div><label>16｜資格・得意なこと</label><textarea id="skills"></textarea></div>
+    <div><label>17｜家族・生活上の条件</label><textarea id="family" placeholder="例：平日昼のみ／家族時間優先"></textarea></div>
+    <div><label>18｜最初に声をかけられそうな人</label><textarea id="firstPeople"></textarea></div>
+    <div class="full"><label>19｜その他、案に反映してほしいこと</label><textarea id="notes"></textarea></div>
+  </div>
+  <p class="note">途中内容はこの端末に自動保存されます。購入後30日間・最大5回の生成を想定しています。別端末へ移る場合は、現時点では回答内容は自動同期されません。</p>
+  <button class="btn" id="generate">3つの商いプランをつくる</button>
+</section>
+<section id="result" class="card result"><div id="resultBody"></div><div class="actions"><button class="btn ghost" id="copy">結果をコピー</button><button class="btn ghost" onclick="print()">印刷・PDF保存</button></div></section>
+</main>
+<script>
+const API_BASE='https://YOUR-WORKER.workers.dev'; // Workerデプロイ後に置換
+const $=id=>document.getElementById(id), status=$('status'), form=$('formCard'), result=$('result');
+const fieldIds=['product','customer','need','voice','repeat','negative','purpose','threeYears','region','hours','funds','targetIncome','digital','experience','skills','family','firstPeople','notes'];
+function workerReady(){return !API_BASE.includes('YOUR-WORKER')}
+function getDraft(){try{return JSON.parse(localStorage.getItem('akinai_plan_draft')||'{}')}catch(e){return {}}}
+function saveDraft(){const a=answers();localStorage.setItem('akinai_plan_draft',JSON.stringify(a))}
+function answers(){const a={};fieldIds.forEach(k=>a[k]=$(k)?.value||'');a.avoid=[...document.querySelectorAll('#avoid input:checked')].map(x=>x.value);return a}
+function restore(){const a=getDraft();fieldIds.forEach(k=>{if($(k)&&a[k]!=null)$(k).value=a[k]});document.querySelectorAll('#avoid input').forEach(x=>x.checked=(a.avoid||[]).includes(x.value))}
+document.addEventListener('input',saveDraft);document.addEventListener('change',saveDraft);
+function setStatus(t,kind=''){status.textContent=t;status.className='status '+kind}
+function token(){return localStorage.getItem('akinai_plan_token')||''}
+async function verify(){
+  restore();
+  if(!workerReady()){setStatus('安全な決済確認APIは実装済みですが、Worker URLの設定がまだ必要です。','err');return}
+  const u=new URL(location.href), sid=u.searchParams.get('session_id'), ck=localStorage.getItem('akinai_ref')||'';
+  if(sid){
+    const r=await fetch(API_BASE+'/verify',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({session_id:sid,client_key:ck})});
+    const d=await r.json();
+    if(!d.ok){setStatus('購入確認ができませんでした。決済した端末・ブラウザで開いてください。','err');return}
+    localStorage.setItem('akinai_plan_token',d.token);
+    history.replaceState({},'',location.pathname);
+  }
+  if(!token()){setStatus('購入確認が必要です。診断ページから決済してください。','err');return}
+  setStatus('購入確認済み。回答を入力して、3つの商いプランを作成できます。','ok');form.hidden=false;
+}
+function yen(n){return Number(n||0).toLocaleString('ja-JP')+'円'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function render(data,id){
+  const s=data.summary||{}, plans=data.plans||[];
+  let h='<div class="summary"><b>今回の設計原則</b><p>'+esc(s.principle||'')+'</p><p><b>強み：</b>'+esc((s.strengths||[]).join('／'))+'<br><b>制約：</b>'+esc((s.constraints||[]).join('／'))+'</p></div><div class="plans">';
+  for(const p of plans){
+    h+='<article class="plan"><span class="tag">PLAN '+esc(p.id)+'</span><h3>'+esc(p.name)+'</h3><p class="one">'+esc(p.one_line)+'</p><p>'+esc(p.why)+'</p>'+
+    '<div class="facts"><div><small>顧客</small><b>'+esc(p.customer)+'</b></div><div><small>困りごと</small><b>'+esc(p.problem)+'</b></div><div><small>商品</small><b>'+esc(p.offer)+'</b></div><div><small>価格 × 月件数</small><b>'+yen(p.price_yen)+' × '+esc(p.quantity_per_month)+'件 = '+yen(p.monthly_sales_yen)+'</b></div><div><small>売り方</small><b>'+esc(p.sales_method)+'</b></div><div><small>初期費用</small><b>'+yen(p.startup_cost_yen)+'</b></div><div><small>週の時間</small><b>'+esc(p.hours_per_week)+'</b></div><div><small>家族との両立</small><b>'+esc(p.family_fit)+'</b></div></div>'+
+    '<p><b>競合仮説：</b>'+esc(p.competitors_hypothesis)+'<br><b>差別化：</b>'+esc(p.differentiation)+'</p>'+
+    '<p><b>最初の3人：</b>'+esc((p.first_three||[]).join('／'))+'</p>'+
+    '<div class="steps"><div><b>0〜30日</b><br>'+esc(p.day30)+'</div><div><b>31〜60日</b><br>'+esc(p.day60)+'</div><div><b>61〜90日</b><br>'+esc(p.day90)+'</div></div>'+
+    '<p><b>撤退・見直し基準：</b>'+esc(p.stop_rule)+'</p><p class="note">開始前の確認：'+esc((p.checks_before_start||[]).join('／'))+'</p></article>';
+  }
+  h+='</div>';
+  if(id) h+='<p class="note">結果ID：'+esc(id)+'（保存期間30日を想定）</p>';
+  $('resultBody').innerHTML=h;result.classList.add('on');result.scrollIntoView({behavior:'smooth'});
+}
+$('generate').addEventListener('click',async()=>{
+  const a=answers(); if(!a.product&&!a.voice&&!a.experience){setStatus('商品・人から言われたこと・経験のいずれかを入力してください。','err');return}
+  $('generate').disabled=true;setStatus('回答から3つの商いプランを設計しています…');
+  try{
+    const r=await fetch(API_BASE+'/generate',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+token()},body:JSON.stringify({answers:a})});
+    const d=await r.json(); if(!d.ok) throw new Error(d.error||'generate_failed');
+    localStorage.setItem('akinai_last_result',JSON.stringify(d.result));render(d.result,d.result_id);setStatus('3つの商いプランができました。','ok');
+  }catch(e){setStatus(e.message==='generation_limit'?'生成回数の上限に達しました。':'生成できませんでした。時間をおいて再度お試しください。','err')}
+  finally{$('generate').disabled=false}
+});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('resultBody').innerText);$('copy').textContent='コピーしました'}catch(e){}});
+verify();
+</script>
+</body></html>
