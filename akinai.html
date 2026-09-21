@@ -4406,6 +4406,17 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 @media(max-width:640px){.host-note{padding:20px 18px 18px}.hn-three span{font-size:12.5px;padding:7px 11px}}
 .mbar.mbar-free .mbar-paid{display:none}
 .mbar.mbar-free .btn:first-child{flex:1 1 100%}
+.maker-strip img,.maker-strip picture{width:80px;height:80px;flex:none}
+.maker-strip picture img{width:80px;height:80px;border-radius:50%;object-fit:cover;display:block}
+.paid-trust-row{display:flex;align-items:center;gap:14px;margin:16px 0 0}
+.paid-trust-row .paid-trust{margin:0!important}
+.paid-trust-row .paid-trust small{display:block;margin-top:4px;font-size:12px;color:#8a7f78;letter-spacing:.04em}
+.pt-face,.hn-face{flex:none;display:block}
+.pt-face img{width:56px;height:56px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 14px rgba(90,66,52,.14)}
+.hn-head{display:flex;align-items:center;gap:14px;margin:0 0 14px}
+.hn-head .hn-lead{margin:0!important}
+.hn-face img{width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(255,255,255,.25)}
+@media(max-width:640px){.pt-face img{width:48px;height:48px}.hn-face img{width:44px;height:44px}}
 .share.share-v2{display:block}
 .share-main{display:flex!important;align-items:center;justify-content:flex-start;gap:12px;width:100%;min-height:68px;text-align:left;padding:14px 20px!important}
 .share-main svg{width:24px;height:24px;flex:none}
@@ -4937,7 +4948,7 @@ document.addEventListener('click',function(e){
           <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>時間</li><li>家族</li><li>最初の3人</li><li>90日</li>
         </ul>
         <p class="paid-voice">聞いたまま終わらせず、<b>「じゃあ何ができる？」まで出す。</b>それが、この診断の役目です。</p>
-        <p class="paid-trust">商工会で20年以上、創業から廃業まで500社以上の相談経験をもとに設計しています。</p>
+        <div class="paid-trust-row"><span class="pt-face"><picture><source srcset="assets/akinai-face-yuji.webp" type="image/webp"><img src="assets/akinai-face-yuji.png" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="paid-trust">商工会で20年以上、創業から廃業まで500社以上の相談経験をもとに設計しています。<small>つくった人　中村裕二</small></p></div>
         <div class="paid-cta-top">
           <a class="btn" href="#paidEngine">私なら、どんな商いがありそう？　3,300円 →</a>
           <div class="pct-flow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
@@ -4981,7 +4992,7 @@ document.addEventListener('click',function(e){
       <p class="cmp2-emo">ここからは、あなたの話を<br class="sp">「仕事として通用する言葉」にして返します。</p>
 
       <div class="host-note">
-        <p class="hn-lead">別に、起業した方がいいとは思ってません。</p>
+        <div class="hn-head"><span class="hn-face"><picture><source srcset="assets/akinai-face-yuji.webp" type="image/webp"><img src="assets/akinai-face-yuji.png" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="hn-lead">別に、起業した方がいいとは思ってません。</p></div>
         <div class="hn-three"><span>「これは違う」</span><span>「これはちょっとやってみたい」</span><span>「これは今じゃない」</span></div>
         <p class="hn-body">その3つが見えれば十分です。20年以上、創業から廃業まで見てきたからこそ、無理に背中を押すより、<b>似合いそうな始め方が見えるようにする</b>ほうが大事だと思って、この診断を作りました。</p>
       </div>
@@ -5237,7 +5248,7 @@ document.addEventListener('click',function(e){
 
   <section class="maker-strip" aria-label="つくった人">
     <div class="wrap">
-      <img src="assets/akinai-profile-yuji-final.png?v=20260920-0032" alt="つくった人・中村裕二" loading="lazy" decoding="async">
+      <picture><source srcset="assets/akinai-face-yuji.webp" type="image/webp"><img src="assets/akinai-face-yuji.png" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture>
       <p><b>今日は、あなたの話を聞く側に回ります。</b>つくっているのは、商工会で20年以上、創業から廃業まで500社以上の相談に関わってきた中村裕二です。起業を勧める立場ではなく、やめる判断にも立ち会ってきました。</p>
       <a href="akinai-profile.html">つくった人を見る →</a>
     </div>
