@@ -4507,7 +4507,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
-window.AKINAI_ANALYTICS_ID = "";   /* ← GA4の測定ID（例：G-XXXXXXXXXX）を入れると計測開始。空なら外部通信ゼロ */
+window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";   /* ← GA4の測定ID（akinai-lounge.html と同じID）。空文字にすると計測停止・外部通信ゼロ */
 (function(){
   var id=window.AKINAI_ANALYTICS_ID;
   window.dataLayer=window.dataLayer||[];
@@ -5409,7 +5409,7 @@ const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認
    3. 発行された決済リンクURLを、上の PAID_CHECKOUT_URL に貼る（これだけで自動化されます）
    ※ 銀行振込など手動決済の方には、引き続き下の受付コードをお使いください */
 /* 計測（GA4）の設定は、このファイル上部 <head> 内の window.AKINAI_ANALYTICS_ID です。
-   例：window.AKINAI_ANALYTICS_ID = "G-XXXXXXXXXX";　空のままなら外部通信は一切しません。 */
+   例：window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";　空のままなら外部通信は一切しません。 */
 const PAID_ACCESS_CODE  = "AKINAI-2609";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
 const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // 診断ページ本体
@@ -6713,5 +6713,53 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
 </script>
 
 
+<script>
+/* ===== 計測アドオン（2026-09-21）：既存の track() を使い、ファネルの各段階をGA4へ送る ===== */
+(function(){
+  if(!window.track) return;
+  var fired={};
+  function once(name,params){ if(fired[name]) return; fired[name]=1; window.track(name,params||{}); }
+
+  // 結果表示（class="on" が付いた瞬間を1回だけ）
+  var watch={quizResult:'mini_result_shown', ideaResult:'idea_result_shown', tkres:'tako_result_shown', result3Stage:'plans_generated'};
+  Object.keys(watch).forEach(function(id){
+    var el=document.getElementById(id); if(!el) return;
+    var name=watch[id];
+    if(el.classList.contains('on')) once(name,{});
+    new MutationObserver(function(){ if(el.classList.contains('on')) once(name,{}); }).observe(el,{attributes:true,attributeFilter:['class']});
+  });
+
+  // クリック系
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var b=t.closest&&t.closest('#qz .ch button');    if(b){ once('free_quiz_started',{}); return; }
+    b=t.closest&&t.closest('#ideaQz .ch button');    if(b){ once('idea_quiz_started',{}); return; }
+    b=t.closest&&t.closest('#qz2 .ch button');       if(b){ once('mini_quiz_started',{}); return; }
+    b=t.closest&&t.closest('#cl button');            if(b){ window.track('plan_selected',{label:(b.textContent||'').trim().slice(0,30)}); return; }
+    b=t.closest&&t.closest('#generate3Btn');         if(b){ window.track('generate3_click',{}); return; }
+    b=t.closest&&t.closest('#btnSave,#btnSaveTop,#btnShare,#btnShareTop,#btnLine,#btnThreads,#btnThreadsTop,#btnX,#btnTakoLine,#btnTakoCopy,#btnCopyCaption,#btnAiPrompt,#copy3Plans,#copyFullReport,#print3Plans');
+    if(b){ window.track('share_click',{id:b.id}); return; }
+    var a=t.closest&&t.closest('a[href]'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('line.me/R/ti')>-1){ window.track('line_click',{loc:a.closest('section')&&a.closest('section').id||'body'}); return; }
+    if(h.indexOf('akinai-lounge')>-1){ window.track('to_lounge_click',{loc:a.closest('section')&&a.closest('section').id||'body'}); return; }
+    if(h==='#companion'){ window.track('companion_cta_click',{}); return; }
+  },true);
+
+  // 決済完了（Stripeから ?paid=1 / session_id 付きで戻った時）。同じセッションIDは1回だけ
+  try{
+    var u=new URL(location.href);
+    var sid=u.searchParams.get('session_id'), paid=u.searchParams.get('paid')==='1';
+    if(sid||paid){
+      var key='akinai_purchase_tracked', done=localStorage.getItem(key)||'';
+      var tid=sid||('paid_'+Date.now());
+      if(done!==(sid||'1')){
+        window.track('purchase',{transaction_id:tid,value:3300,currency:'JPY',items:[{item_id:'akinai_web_plan',item_name:'わたしの商い診断 Web完結版 3案',price:3300,quantity:1}]});
+        localStorage.setItem(key,sid||'1');
+      }
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
