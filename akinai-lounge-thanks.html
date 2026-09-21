@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ご予約ありがとうございます｜夜の商いラウンジ</title>
+<!-- ▼ Google Analytics 4：G-GYGZ9W6FQ9 を測定IDに置換（akinai-lounge.html と同じID） -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYGZ9W6FQ9"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-GYGZ9W6FQ9',{anonymize_ip:true});
+// 決済完了＝コンバージョン。GA4側で「purchase」をキーイベントに設定する
+gtag('event','purchase',{transaction_id:new URLSearchParams(location.search).get('session_id')||('t'+Date.now()),value:3300,currency:'JPY',items:[{item_id:'lounge_1on1',item_name:'夜の商いラウンジ 1対1 45分',price:3300,quantity:1}]});
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--page:#f7f5f0;--ink:#182019;--body:#353c36;--muted:#697069;--line:#d8d8d0;--accent:#8f554b;--night:#1c211d;--gold:#b99a6d}
+body{margin:0;background:var(--page);color:var(--body);font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;line-height:1.9;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:80px 20px}
+h1{font-family:"Noto Serif JP","Yu Mincho",serif;font-weight:600;color:var(--ink);font-size:clamp(24px,4vw,32px);line-height:1.5;margin:0 0 20px}
+.kicker{font-size:12px;letter-spacing:.18em;color:var(--muted);margin-bottom:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 32px;margin:28px 0}
+.card h2{font-family:"Noto Serif JP",serif;font-size:17px;margin:0 0 10px;color:var(--ink)}
+ol{padding-left:1.3em;margin:0}li{margin-bottom:8px}
+a{color:var(--accent)}
+.fine{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">AKINAI LOUNGE</div>
+  <h1>ご予約ありがとうございます。<br>当日は、飲み物だけ用意してお待ちください。</h1>
+  <p>決済が完了しました。これから、次の順でご案内します。</p>
+  <div class="card">
+    <h2>このあとの流れ</h2>
+    <ol>
+      <li><strong>希望日を受け取りました</strong>　決済画面でご入力いただいた第1・第2希望の水曜日をもとに、日程を調整します。</li>
+      <li><strong>日時確定と参加URLをメールでお送りします</strong>（2日以内）。届かない場合は迷惑メールフォルダをご確認ください。</li>
+      <li><strong>当日</strong>　カメラは切ったままで大丈夫です。まとまっていない話のまま、来てください。</li>
+    </ol>
+  </div>
+  <p class="fine">日程変更は開催48時間前まで受け付けます。ご連絡は <a href="https://line.me/R/ti/p/@907kxssd">LINE</a> または <a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a> へ。</p>
+  <p class="fine"><a href="akinai-lounge.html">← 夜の商いラウンジに戻る</a></p>
+</div>
+</body>
+</html>
