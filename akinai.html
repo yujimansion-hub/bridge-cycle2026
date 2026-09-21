@@ -5377,80 +5377,18 @@ document.addEventListener('click',function(e){
         <div class="paid-engine" id="paidEngine">
           <div class="pe-head">
             <div>
-              <span class="tag">START HERE｜3,300円 Web完結</span>
-              <h4>もう少し、あなたのことを聞かせてください。</h4>
-              <p>このページ内で質問に答えると、その場で3つの商いプランが表示されます（待ち時間はありません）。途中保存もできます。</p>
+              <span class="tag">SECURE CHECKOUT｜3,300円</span>
+              <h4>決済後は、専用の「わたしの商い設計」へ。</h4>
+              <p>支払い確認はサーバー側で行います。決済URLの共有や、ブラウザの保存値だけでは有料機能は開きません。</p>
             </div>
             <span class="pe-status" id="paidStatus">決済前</span>
           </div>
-
           <div class="pe-stage on" id="payStage">
             <div class="pe-actions">
               <button class="btn" type="button" id="paidCheckoutBtn">私の3つの商いを見てみる　3,300円 →</button>
             </div>
             <p class="pe-message" id="payMessage"></p>
-            <details class="pe-code-fold">
-            <summary>銀行振込でお支払いの方はこちら</summary>
-            <div class="pe-code">
-              <label for="peCode">お支払いが済んだ方へ｜受付コードを入力</label>
-              <div class="pe-code-row">
-                <input id="peCode" type="text" inputmode="latin" autocomplete="off" placeholder="例：AKINAI-0000">
-                <button class="btn ghost sm" type="button" id="peCodeBtn">質問に進む</button>
-              </div>
-              <p class="pe-message" id="codeMessage"></p>
-            </div>
-            </details>
-            <p class="web-consult-note" id="payHelpNote">ボタンを押すとクレジット決済へ進みます。お支払い完了後は自動でこのページに戻り、そのまま質問へ進めます。待ち時間はありません。<br>※銀行振込をご希望の方のみ、LINEで受付コードをご案内します。</p>
-          </div>
-
-          <div class="pe-stage" id="questionStage">
-            <div class="pe-grid">
-              <div class="pe-field full"><label>1｜提供したい商品・サービスは？</label><textarea id="peProduct" placeholder="例：職場への差し入れに使いやすい個包装の焼き菓子セット"></textarea></div>
-              <div class="pe-field"><label>誰に提供したい？</label><input id="peCustomer" type="text" placeholder="例：近隣の30〜50代の働く女性"></div>
-              <div class="pe-field"><label>どんな困りごと・欲求に応える？</label><input id="peNeed" type="text" placeholder="例：手土産を選ぶ時間がない"></div>
-              <div class="pe-field full"><label>2｜お客さん・周りの人から、実際に何と言われた？</label><textarea id="peVoice" placeholder="褒められたこと、喜ばれたこと、意外な反応など"></textarea></div>
-              <div class="pe-field"><label>繰り返し言われたことは？</label><input id="peRepeat" type="text" placeholder="例：甘すぎなくて食べやすい"></div>
-              <div class="pe-field"><label>不満・買わなかった理由は？</label><input id="peNegative" type="text" placeholder="分からなければ「まだ分からない」でOK"></div>
-              <div class="pe-field"><label>3｜事業の目的は？</label><select id="pePurpose"><option>収入を少し増やしたい</option><option>会社以外の自分の仕事を持ちたい</option><option>将来の独立に備えたい</option><option>これまでの経験を生かしたい</option><option>好きなことを仕事にしたい</option><option>人・地域の役に立ちたい</option><option>まだ分からない</option></select></div>
-              <div class="pe-field"><label>3年後、どうなっていたら「始めてよかった」？</label><input id="peThreeYears" type="text" placeholder="例：月5万円を安定して得たい"></div>
-              <div class="pe-field full"><label>4｜これだけは、やりたくないことは？</label><div class="pe-checks" id="peAvoid"><label><input type="checkbox" value="飛び込み・電話営業"><span>飛び込み・電話営業</span></label><label><input type="checkbox" value="SNS発信"><span>SNS発信</span></label><label><input type="checkbox" value="顔出し"><span>顔出し</span></label><label><input type="checkbox" value="在庫を持つ"><span>在庫</span></label><label><input type="checkbox" value="夜・土日"><span>夜・土日</span></label><label><input type="checkbox" value="大きな固定費"><span>固定費</span></label><label><input type="checkbox" value="人を雇う"><span>雇用</span></label><label><input type="checkbox" value="納期に追われる"><span>納期</span></label></div></div>
-              <div class="pe-field"><label>5｜事業に使える時間</label><select id="peHours"><option value="1.5">週1〜2時間</option><option value="4">週3〜5時間</option><option value="8">週6〜10時間</option><option value="12">週10時間以上</option></select></div>
-              <div class="pe-field"><label>目標にしたい月売上</label><select id="peIncome"><option value="10000">月1万円</option><option value="30000">月3万円</option><option value="50000">月5万円</option><option value="100000">月10万円</option><option value="0">まだ決めていない</option></select></div>
-              <div class="pe-field"><label>6｜事業をするエリア</label><input id="peArea" type="text" placeholder="例：大津市膳所／京都市左京区／オンライン"></div>
-              <div class="pe-field"><label>商圏のイメージ</label><select id="peRange"><option>自宅周辺</option><option>市内</option><option>近隣市まで</option><option>県内</option><option>オンライン中心</option><option>全国</option><option>まだ未定</option></select></div>
-              <div class="pe-field"><label>7｜家族・身近な人の理解</label><select id="peFamily"><option>応援してくれている</option><option>おおむね理解している</option><option>応援はあるが不安もある</option><option>まだ話していない</option><option>反対されている</option><option>相談する必要はない</option></select></div>
-              <div class="pe-field"><label>家庭への負担で気になること</label><input id="peFamilyRisk" type="text" placeholder="例：休日の時間、家事分担、初期費用"></div>
-              <div class="pe-field"><label>8｜無理なく使える自己資金</label><select id="peFunds"><option>ほとんど使いたくない</option><option>5万円未満</option><option>5〜10万円</option><option>10〜30万円</option><option>30〜50万円</option><option>50〜100万円</option><option>100万円以上</option><option>まだ決めていない</option></select></div>
-              <div class="pe-field"><label>自己資金を使った後の不安</label><select id="peFundsRisk"><option>影響しない</option><option>少し不安がある</option><option>かなり不安がある</option><option>家族との相談が必要</option><option>まだ分からない</option></select></div>
-              <div class="pe-field full"><label>9｜使えるデジタル環境</label><div class="pe-checks" id="peDigital"><label><input type="checkbox" value="PC"><span>PC</span></label><label><input type="checkbox" value="安定したネット"><span>安定したネット</span></label><label><input type="checkbox" value="Zoom"><span>Zoom</span></label><label><input type="checkbox" value="Excel・スプレッドシート"><span>Excel等</span></label><label><input type="checkbox" value="Canva"><span>Canva</span></label><label><input type="checkbox" value="SNS"><span>SNS</span></label><label><input type="checkbox" value="生成AI"><span>生成AI</span></label></div></div>
-              <div class="pe-field"><label>AIの利用状況</label><select id="peAI"><option>まだ使ったことがない</option><option>調べ物や文章作成に少し使う</option><option>SNS・資料・企画に使っている</option><option>日常的に仕事で使っている</option><option>業務効率化まで考えられる</option></select></div>
-              <div class="pe-field"><label>似た商品・競合として思い浮かぶもの</label><input id="peCompetitor" type="text" placeholder="分からなければ「未確認」でOK"></div>
-              <div class="pe-field full"><label>今、お客さんはその困りごとをどう解決している？</label><textarea id="peAlternative" placeholder="例：スーパーで買う／知人に頼む／自分で調べる／何もしない"></textarea></div>
-            </div>
-            <div class="pe-actions"><button class="btn" type="button" id="generate3Btn">私の3つの商いを見る</button><button class="btn ghost sm" type="button" id="savePaidDraft">途中保存</button></div>
-            <p class="pe-message" id="questionMessage"></p>
-          </div>
-
-          <div class="pe-stage" id="result3Stage">
-            <div class="plan-results" id="planResults"></div>
-            <section class="auto-report" id="autoReport" aria-live="polite">
-              <div class="auto-report-head">
-                <span>YOUR THREE OPTIONS</span>
-                <h4>あなたの話から、<br>3つの形にしてみました。</h4>
-                <div class="report-letter">
-                  <p>ここまで答えてくださって、ありがとうございます。<b>これは、新しく何かを始めるための提案ではありません。</b>あなたがもう持っているものを、商いの形に置き換えただけのものです。</p>
-                  <p>どれかを選ばせるための3案ではありません。「これは違う」「これなら少しできそう」と、自分の気持ちを確かめるための3案です。数字は仮の目安なので、当たっているかどうかより<b>「この数字なら無理がないか」</b>を見てください。分からないところは「未確認」と正直に書いてあります。そこが、次に確かめる場所です。</p>
-                  <p class="sig">どの案も、<b>うまくいかなかったときに戻れる形</b>にしてあります。失敗しないように小さくするのではなく、失敗しても生活が壊れないように小さくしています。試した結果が「思っていたのと違った」でも、それは分かったことが1つ増えたということです。<br><br>読んで「今はやらない」と決めても、それで構いません。<br>ここまで考えたこと自体が、もう十分に一歩です。<br><span>わたしのこれから診断</span></p>
-                </div>
-              </div>
-              <div id="reportResults"></div>
-              <div class="report-close">
-                <b>ここまで読んで、どうでしたか。</b>
-                1つでも「これなら」と思えたなら、まず3人に声をかけるところからで十分です。うまくいかなくても、<b>戻れるところから始めています</b>。どれもピンと来なければ、それも答えのひとつ。あなたの経験が足りないのではなく、<b>今のタイミングではなかっただけ</b>です。この3案はいまの答えから作った仮説なので、気が変わったら、また作り直せます。
-              </div>
-            </section>
-            <div class="pe-result-actions"><button class="btn" type="button" id="copy3Plans">3案をまとめてコピー</button><button class="btn ghost" type="button" id="copyFullReport">詳細レポートをコピー</button><button class="btn ghost" type="button" id="print3Plans">印刷・PDF保存</button><button class="btn ghost" type="button" id="redo3Plans">回答を見直す</button></div>
-            <p class="web-consult-note">市場・競合・売上は、入力情報からつくる仮説です。実際の出店・投資・申請前には、地域の市場データ、競合、原価、許認可、制度要件を確認してください。</p>
+            <p class="web-consult-note">クレジット決済後、Stripeの支払い情報を安全に確認してから専用ページを開きます。面談なし・自動継続なし。</p>
           </div>
         </div>
 
@@ -5675,15 +5613,14 @@ document.addEventListener('click',function(e){
 const BOOKING_URL = "";                                   // 旧予約導線（現在は未使用）
 const PAID_CHECKOUT_URL = "https://buy.stripe.com/dRm28tajZdf9bFA3ky3gk07";                              // Stripe決済リンク（例：https://buy.stripe.com/xxxxxxxx）。ここに貼ると自動決済になります
 const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認ページ」に指定する戻り先のパラメータ（下のREADME参照）
-/* 自動決済の設定手順（Stripeダッシュボード）
-   1. 商品「わたしのこれから診断 3つの商いプラン」3,300円（税込・一回払い）を作成
-   2. 決済リンクを作成 →「支払い後」の設定で「確認ページ」→「指定のURLにリダイレクト」を選び、次を貼る
-      https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html?paid=1#paidEngine
-   3. 発行された決済リンクURLを、上の PAID_CHECKOUT_URL に貼る（これだけで自動化されます）
-   ※ 銀行振込など手動決済の方には、引き続き下の受付コードをお使いください */
+/* Stripe Payment Link の「支払い後」URLは次を設定:
+   https://yujimansion-hub.github.io/bridge-cycle2026/akinai-plan.html?session_id={CHECKOUT_SESSION_ID}
+   決済リンクには、このページが client_reference_id を付与します。
+   支払い確認は Cloudflare Worker が Stripe API へ照会し、クライアント側のフラグだけでは解錠しません。
+   詳細: worker/README.md */
 /* 計測（GA4）の設定は、このファイル上部 <head> 内の window.AKINAI_ANALYTICS_ID です。
    例：window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";　空のままなら外部通信は一切しません。 */
-const PAID_ACCESS_CODE  = "AKINAI-2609";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
+const PAID_ACCESS_CODE  = "[廃止済み]";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
 const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // 診断ページ本体
 const SHARE_URL   = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai-start.html";  // 共有・SNSプロフィール用の軽い入口ページ
@@ -6851,391 +6788,44 @@ const CTX_LABELS={
   });
 })();
 
-// ---- 3,300円 Web完結プラン：決済ゲート → 質問 → 3案自動生成 ----
+// ---- 3,300円：安全なStripe決済 → 専用ページ ----
 (function(){
-  const $=id=>document.getElementById(id);
-  const engine=$('paidEngine'); if(!engine)return;
-  const payStage=$('payStage'),questionStage=$('questionStage'),resultStage=$('result3Stage');
-  const status=$('paidStatus'),payMsg=$('payMessage'),qMsg=$('questionMessage');
-  const fields=['peProduct','peCustomer','peNeed','peVoice','peRepeat','peNegative','pePurpose','peThreeYears','peHours','peIncome','peArea','peRange','peFamily','peFamilyRisk','peFunds','peFundsRisk','peAI','peCompetitor','peAlternative'];
-  const key='akinai_paid_draft_v1';
-  let lastPlans=[],lastReports=[];
+  const btn=document.getElementById('paidCheckoutBtn');
+  const msg=document.getElementById('payMessage');
+  const status=document.getElementById('paidStatus');
+  const u=new URL(location.href);
 
-  function vals(){
-    const o={}; fields.forEach(id=>o[id]=($(id)?.value||'').trim());
-    o.avoid=[...document.querySelectorAll('#peAvoid input:checked')].map(x=>x.value);
-    o.digital=[...document.querySelectorAll('#peDigital input:checked')].map(x=>x.value);
-    return o;
-  }
-  function restore(){
-    try{
-      const o=JSON.parse(localStorage.getItem(key)||'{}');
-      fields.forEach(id=>{if(o[id]!=null&&$(id))$(id).value=o[id]});
-      document.querySelectorAll('#peAvoid input').forEach(x=>x.checked=(o.avoid||[]).includes(x.value));
-      document.querySelectorAll('#peDigital input').forEach(x=>x.checked=(o.digital||[]).includes(x.value));
-    }catch(e){}
-  }
-  function save(){
-    localStorage.setItem(key,JSON.stringify(vals()));
-    if(qMsg)qMsg.textContent='この端末に途中保存しました。';
-  }
-  function setStage(name){
-    [payStage,questionStage,resultStage].forEach(x=>x&&x.classList.remove('on'));
-    if(name==='pay')payStage.classList.add('on');
-    if(name==='q')questionStage.classList.add('on');
-    if(name==='r')resultStage.classList.add('on');
-  }
-  function paidFlag(){
-    const u=new URL(location.href);
-    // Stripeの確認ページから戻ったとき（?paid=1 または Stripeが付ける session_id）
-    return u.searchParams.get(PAID_RETURN_PARAM)==='1' || !!u.searchParams.get('session_id');
-  }
-  const returnedFromCheckout = paidFlag();
-  if(returnedFromCheckout){
-    try{ localStorage.setItem('akinai_paid_ok','1'); }catch(e){}
-    sessionStorage.setItem('akinai_checkout_started','1');
-  }
-  const alreadyPaid = (function(){
-    try{ return localStorage.getItem('akinai_paid_ok')==='1'; }catch(e){ return false; }
-  })();
-  if(returnedFromCheckout){
-    status.textContent='お支払い完了｜質問入力';
-    setStage('q'); restore();
-    setTimeout(()=>{ engine.scrollIntoView({behavior:'smooth',block:'start'}); },400);
-  }else if(alreadyPaid){
-    status.textContent='お支払い確認済｜質問入力';
-    setStage('q'); restore();
+  // 旧方式 ?paid=1 は支払い証明として扱わない。
+  if(u.searchParams.get('paid')==='1'){
+    if(status) status.textContent='安全な購入確認が必要';
+    if(msg) msg.innerHTML='決済は完了していても、このURLだけでは有料機能を開きません。Stripeの完了後URLを <b>akinai-plan.html?session_id={CHECKOUT_SESSION_ID}</b> に変更すると、自動確認できます。';
   }
 
-  function unlockQuestions(from){
-    track('paid_unlocked',{method:from||'return'});
-    sessionStorage.setItem('akinai_checkout_started','1');
-    try{ localStorage.setItem('akinai_paid_ok','1'); }catch(e){}
-    status.textContent = (from==='code') ? 'お支払い確認済｜質問入力' : '決済後｜質問入力';
-    setStage('q'); restore();
-    questionStage.scrollIntoView({behavior:'smooth',block:'start'});
-  }
-  $('peCodeBtn')?.addEventListener('click',()=>{
-    const el=$('peCode'), msg=$('codeMessage');
-    const v=(el?.value||'').trim().toUpperCase().replace(/\s+/g,'');
-    if(!v){ msg.textContent='受付コードを入力してください。'; return; }
-    if(v===PAID_ACCESS_CODE.toUpperCase()){
-      msg.textContent='確認できました。質問に進みます。';
-      unlockQuestions('code');
-    }else{
-      msg.innerHTML='コードが確認できませんでした。お手元のLINEメッセージをご確認のうえ、もう一度お試しください。<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINEで問い合わせる →</a>';
-    }
-  });
-  $('peCode')?.addEventListener('keydown',e=>{ if(e.key==='Enter'){e.preventDefault();$('peCodeBtn').click();} });
-  // 自動決済が有効なときは、案内文を決済モードに切り替える
-  if(PAID_CHECKOUT_URL){
-    const note=$('payHelpNote');
-    if(note) note.innerHTML='ボタンを押すと決済ページへ移動します。カード・Apple Pay・Google Payがご利用いただけます。お支払いが完了すると、自動でこのページに戻り、そのまま質問に進めます。<br>※銀行振込をご希望の方は<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINE</a>からご連絡ください。確認後、受付コードをお送りします。';
-    const codeLabel=document.querySelector('.pe-code label');
-    if(codeLabel) codeLabel.textContent='銀行振込でお支払いの方へ｜受付コードを入力';
+  // Stripe側を新しい戻りURLへ変更済みなら、念のためmainへ戻ってきたsession_idも専用ページへ転送。
+  const sid=u.searchParams.get('session_id');
+  if(sid){
+    location.replace('akinai-plan.html?session_id='+encodeURIComponent(sid));
+    return;
   }
 
-  // 決済が自動化されていない間は、「Web完結」の表現を実態に合わせて弱める
-  (function(){
-    if(PAID_CHECKOUT_URL) return;
-    const set=(sel,txt)=>{const e=document.querySelector(sel);if(e)e.textContent=txt;};
-    set('#paidPill','お申し込みはLINE・面談なし');
-    set('.web-consult .tag','ONLINE｜回答から3案の表示まで、Webだけ');
-    const li=[...document.querySelectorAll('.web-consult li')].find(x=>/Web上で完結/.test(x.textContent));
-    if(li) li.textContent='Zoom・電話・対面ヒアリングなし。お申し込みとお支払いのみLINE、回答から結果確認まではWeb上で完結';
-    const pdesc=[...document.querySelectorAll('.web-consult p')].find(x=>/決済 → 回答 → 3案確認までWeb上で完結/.test(x.textContent));
-    if(pdesc) pdesc.innerHTML=pdesc.innerHTML.replace('決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。','お申し込みとお支払いはLINE、そのあとの回答から3案の確認まではWeb上で完結します。Zoom・電話・対面でのヒアリングはありません。');
-    const st=document.querySelector('#paidEngine .tag');
-    if(st) st.textContent='START HERE｜3,300円・面談なし';
-    // 残りの「Web完結」表現
-    document.querySelectorAll('summary,p,span,b,div').forEach(function(e){
-      if(e.children.length) return;
-      var t=e.textContent;
-      if(t.indexOf('3,300円のWeb完結版')>=0) e.textContent=t.replace('3,300円のWeb完結版','3,300円のプラン');
-      else if(t.indexOf('3,300円のWeb完結プラン')>=0) e.textContent=t.replace('3,300円のWeb完結プラン','3,300円のプラン');
-    });
-    var j=[...document.querySelectorAll('.journey-4 span')].find(function(x){return x.textContent==='WEB ONLY';});
-    if(j) j.textContent='LINE→WEB';
-    document.querySelectorAll('.mi').forEach(e=>{e.innerHTML=e.innerHTML.replace('有料は<b>Web完結プラン 3,300円</b>の1つだけ。','有料は<b>3,300円のプラン</b>の1つだけ（お申し込みとお支払いはLINE、回答と結果表示はWeb）。');});
-  })();
-
-  $('paidCheckoutBtn')?.addEventListener('click',()=>{
+  btn?.addEventListener('click',()=>{
     if(!PAID_CHECKOUT_URL){
-      payMsg.innerHTML='LINEで申し込みを受け付けています。お支払いの確認後、受付コードをお送りします。<a href="'+LINE_URL+'" target="_blank" rel="noopener">LINEを開く →</a>';
-      window.open(LINE_URL,'_blank','noopener,noreferrer');
+      if(msg) msg.textContent='現在、決済設定を確認中です。';
       return;
     }
-    track('checkout_start',{});
-    payMsg.textContent='決済ページへ移動します…';
-    // Stripe決済リンクは戻り先をダッシュボード側で設定します。ここでは照合用のIDだけ渡します。
-    let ref=''; try{ ref=localStorage.getItem('akinai_ref')||''; if(!ref){ ref='AK'+Date.now().toString(36).toUpperCase(); localStorage.setItem('akinai_ref',ref);} }catch(e){}
+    window.track&&window.track('checkout_start',{});
+    if(msg) msg.textContent='決済ページへ移動します…';
+    let ref='';
+    try{
+      ref=localStorage.getItem('akinai_ref')||'';
+      if(!ref){
+        ref='AK-'+(crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+'-'+Math.random().toString(36).slice(2));
+        localStorage.setItem('akinai_ref',ref);
+      }
+    }catch(e){}
     const sep=PAID_CHECKOUT_URL.includes('?')?'&':'?';
     location.href=PAID_CHECKOUT_URL+(ref?sep+'client_reference_id='+encodeURIComponent(ref):'');
   });
-  $('savePaidDraft')?.addEventListener('click',save);
-
-  function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-  function money(n){return Number(n||0).toLocaleString('ja-JP')+'円';}
-  const PLAN_SHAPE=[
-    {lab:'暮らしを変えない',load:1,income:1,prep:1,tone:'いま持っているもので、そのまま'},
-    {lab:'強みを前に出す',load:2,income:2,prep:2,tone:'人に褒められてきたことを、そのまま値段に'},
-    {lab:'少しずつ育てる',load:3,income:3,prep:3,tone:'今すぐでなくていい。数年かけて'}
-  ];
-  function CANDIDX_HINT(p){const t=String(p.tag||'');if(t.indexOf('B')>=0)return 1;if(t.indexOf('C')>=0)return 2;return 0;}
-  function meter(n,max){let h='';for(let i=1;i<=max;i++){h+='<i class="'+(i<=n?'on':'')+'"></i>';}return '<span class="mtr">'+h+'</span>';}
-  function shapeHtml(i){
-    const sh=PLAN_SHAPE[i]||PLAN_SHAPE[0];
-    return '<div class="plan-shape">'+
-      '<div class="ps-row"><span>暮らしへの負担</span>'+meter(sh.load,3)+'<b>'+['小さい','ふつう','やや大きい'][sh.load-1]+'</b></div>'+
-      '<div class="ps-row"><span>お金の伸びしろ</span>'+meter(sh.income,3)+'<b>'+['ゆっくり','ふつう','伸びやすい'][sh.income-1]+'</b></div>'+
-      '<div class="ps-row"><span>準備の量</span>'+meter(sh.prep,3)+'<b>'+['少ない','ふつう','多め'][sh.prep-1]+'</b></div>'+
-      '<p class="ps-tone">'+sh.tone+'</p></div>';
-  }
-  function bigMoney(p){
-    const m=String(p.sales||'').match(/([0-9,]+)円/);
-    if(!m) return '';
-    return '<div class="plan-money"><small>この形なら、月の目安は</small><b>'+m[1]+'<em>円</em></b><small class="t">'+esc(String(p.num||p.time||'').slice(0,40))+'</small></div>';
-  }
-  function planHtml(p){
-    const rows=[
-      ['誰に',p.customer],['何が助かるか',p.value],['何を渡すか',p.product],['いくらで、どう渡すか',p.offer],
-      ['どこで',p.area],['その人は、いまどうしているか',p.market],['ほかの選択肢',p.comp],['あなたが選ばれる理由',p.strength],
-      ['使う時間',p.time],['使うお金',p.funds],['暮らしとの両立',p.family],['お金の目安',p.sales],
-      ['最初に声をかける3人',p.first3],['90日で確かめること',p.test]
-    ];
-    const idx=CANDIDX_HINT(p);
-    return '<article class="plan-card"><span class="ptag">'+esc(p.tag)+'</span><h5>'+esc(p.title)+'</h5>'+shapeHtml(idx)+bigMoney(p)+'<dl>'+
-      rows.map(r=>'<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>').join('')+
-      '</dl><p class="hypo">※市場・競合・売上は現時点の仮説。実行前に確認が必要です。</p></article>';
-  }
-  function makePlans(o){
-    const product=o.peProduct||'これまでの経験を生かした小さな商品・サービス';
-    const customer=o.peCustomer||'まず身近にいる、困りごとが具体的な3人';
-    const need=o.peNeed||'まだ言語化できていない困りごと';
-    const voice=o.peRepeat||o.peVoice||'周りから繰り返し評価されてきたこと';
-    const negative=o.peNegative||'未確認';
-    const purpose=o.pePurpose||'自分の仕事を小さく持つこと';
-    const years=o.peThreeYears||'無理なく継続できる状態';
-    const hours=Number(o.peHours||4), monthlyHours=Math.round(hours*4.3);
-    const target=Number(o.peIncome||0);
-    const pace=target?Math.ceil((target/monthlyHours)/100)*100:0;
-    const area=(o.peArea||'地域未定')+'／'+(o.peRange||'商圏未定');
-    const avoids=(o.avoid||[]).length?o.avoid.join('・'):'特になし';
-    const digital=(o.digital||[]).length?o.digital.join('・'):'スマホ中心を想定';
-    const comp=o.peCompetitor||'未確認。地域・オンラインで類似商品を3つ確認する';
-    const alt=o.peAlternative||'未確認。想定顧客3人に現在の代替手段を聞く';
-    const family=o.peFamily||'未確認';
-    const famRisk=o.peFamilyRisk||'大きな負担はまだ未確認';
-    const funds=o.peFunds||'まだ決めていない';
-    const fundsRisk=o.peFundsRisk||'未確認';
-    const ai=o.peAI||'未確認';
-    const baseSales=target?money(target)+'を仮目標（約'+monthlyHours+'時間/月なら売上ペース約'+money(pace)+'/時間）':'まず3件の有料テスト後に目標設定';
-    const market='「'+need+'」を感じる'+customer+'が対象。現在の代替は「'+alt+'」。まず3人への聞き取りで需要の強さを確認。';
-    const strength='顧客・周囲の声「'+voice+'」を価値として見せる。買わない理由・不満「'+negative+'」も改善材料にする。';
-    const common={
-      customer, area, market, comp, strength,
-      time:'週約'+hours+'時間（約'+monthlyHours+'時間/月）',
-      family:family+'。注意点：'+famRisk,
-      first3:'顔が浮かぶ3人に、同じ内容・同じ価格で提案し、買う／買わない理由を記録',
-      sales:baseSales
-    };
-    const lowFunds=/ほとんど|5万円未満/.test(funds);
-    const pA={
-      tag:'PLAN A｜今の暮らしを守る商い',title:'固定費を持たず、小さく試す',
-      ...common, value:'「'+need+'」を、今ある時間と環境で小さく解決する。',
-      product:product+'を、最小単位の商品に絞る。',
-      offer:'予約制・受注後提供を基本にする。まず3人だけ有料で試し、在庫・店舗・大きな広告費は持たない。',
-      funds:lowFunds?funds+'。新規投資は極力せず、既存の道具・場所・無料ツールを優先。':funds+'のうち、最初は一部だけをテスト費に使う。',
-      test:'3人に有料提供し、再購入意向・実作業時間・原価を記録。家族や生活に無理が出ないかも確認。'
-    };
-    const pB={
-      tag:'PLAN B｜あなたらしさを生かす商い',title:'人から評価されていることを商品価値にする',
-      ...common, value:'「'+voice+'」を、顧客が買う理由として明確にする。',
-      product:product+'に、あなたならではの説明・選定・仕上げ・伴走などを加えて差をつくる。',
-      offer:'価格だけで比べられないよう、顧客の声・提供プロセス・成果物を見える化して販売。',
-      funds:funds+'。強みを伝える最低限の写真・資料・サンプルに優先配分。',
-      test:'3人に「なぜあなたから買うのか」を聞き、同じ言葉が2人以上から出るか確認。競合3者と価格・提供内容も比較。'
-    };
-    const pC={
-      tag:'PLAN C｜3年後まで育てる商い',title:'小さく始めて、育てられる形にする',
-      ...common, value:purpose+'を実現し、3年後に「'+years+'」を目指す。',
-      product:product+'を入口商品にし、反応が良ければ継続・高単価・法人向け・オンライン等へ段階展開。',
-      offer:(digital.includes('生成AI')||/仕事で使っている|業務効率化/.test(ai))?'AI・デジタルを使って発信・資料作成・定型業務を省力化し、少人数でも回せる形にする。':'まず手作業で検証し、売れ方が見えた部分からデジタル化する。',
-      funds:funds+'。最初の90日は検証費に限定し、売上確認後に設備・広告等を判断。',
-      test:'90日で有料顧客数、リピート、粗利、必要時間を確認。続ける条件を満たせば次の販路・設備投資を検討。'
-    };
-    [pA,pB,pC].forEach(p=>p.avoid='避ける条件：'+avoids);
-    return [pA,pB,pC];
-  }
-  function plansText(plans){
-    return plans.map(p=>[
-      p.tag+'｜'+p.title,'顧客：'+p.customer,'提供価値：'+p.value,'商品・サービス：'+p.product,'価格・売り方：'+p.offer,
-      '地域・商圏：'+p.area,'顧客ニーズ・市場仮説：'+p.market,'競合：'+p.comp,'強み：'+p.strength,'時間：'+p.time,
-      '必要資金：'+p.funds,'家族・生活条件：'+p.family,'月売上の目安：'+p.sales,'最初の3人：'+p.first3,'90日で確認：'+p.test
-    ].join('\n')).join('\n\n----------------\n\n');
-  }
-  function reportFor(p,o,i){
-    const first=(o.peCustomer||'身近な見込み客')+'に対し、'+(o.peNeed||'困りごと')+'をどこまで解決できるかを、小さな有料テストで確認する。';
-    const price=o.peIncome?('月'+money(o.peIncome)+'を目標に置きつつ、最初は売上より「実際にお金を払う人がいるか」を優先する。'):'最初の3件では、安売りではなく「この内容なら払える」と思える価格帯を確認する。';
-    const risk='まだ確認できていないのは、競合・代替手段・実作業時間・原価・家族や生活への負担です。特に「'+(o.peFamilyRisk||'生活への影響')+'」は先に確認してください。ただし、ここでつまずいても失うのは数時間と材料費の範囲で、生活は元のままです。むしろ「この値段では買われない」「この作り方では時間がかかりすぎる」と分かったことが、次の設計にそのまま使えます。';
-    return {
-      ...p,
-      reason:'この案は、あなたの回答にあった「'+(o.peRepeat||o.peVoice||'人から評価されてきたこと')+'」と、「'+(o.pePurpose||'自分の仕事を持ちたい')+'」を、今の時間・資金条件の中で実行しやすい形にしたものです。',
-      first,
-      price,
-      risk,
-      d30:'1週目：候補3人を決める。2週目：商品内容と価格を1つに絞る。3週目：3人へ同じ条件で声をかける。4週目：買う／買わない理由、作業時間、負担を記録する。',
-      d60:'反応があった部分だけを残し、説明文・価格・提供方法を修正する。2回目の販売で「再現できるか」を確認する。',
-      d90:p.test+' もし3人とも買わなかった場合は、商品ではなく「誰に」か「値段」のどちらかを1つだけ変えて、もう一度3人に聞きます。2回変えても反応がなければ、その案は一度置いて構いません。',
-      stop:'有料顧客が0、想定時間を大幅に超える、家族・生活への負担が大きい、原価を含めると赤字になる場合は、拡大せず設計を見直します。やめると決めた場合でも、「誰に声をかけたか」「なぜ買われなかったか」「何時間かかったか」の記録は残ります。これは次に何かを始めるとき、そのまま材料になります。ゼロには戻りません。'
-    };
-  }
-  // ===== 総合レポート（あなた専用の10項目） =====
-  const SHINE_TIPS={
-    light:['話したことを、その日のうちに3行だけメモに残す。次に同じ相談が来たとき、それが商品の原型になります。','「聞くだけ」で終わらせず、最後に必ず一つだけ次の行動を渡す。それが有料にできる線です。','自分の言葉づかいのクセ（安心する、整える、など）は、そのままあなたの看板になります。'],
-    hand:['作ったものは、完成品だけでなく途中も写真に残す。過程が価値の説明になります。','「これ、いくらなら頼みたい？」と3人に聞く。値段は自分で決めなくていい。','材料費ではなく、かかった時間にも値段をつける。2時間かかったなら、それは2時間分の仕事です。'],
-    garden:['続けてもらう仕組みは、回数券か月1回の約束から。複雑な会員制度は要りません。','相手の変化を一言メモして、次に会ったとき伝える。それだけで「この人に見てもらいたい」になります。','自分が休む日を先に決める。続ける仕事は、続けられる形でしか続きません。'],
-    bridge:['紹介するとき、なぜその人かを一言添える。その一言が、あなたにしかない価値です。','つないだあと「どうでした？」と聞く。この一手間が、次の依頼を連れてきます。','人の名前ではなく、「合う・合わない」を見抜く目が資産です。そこに値段がつきます。'],
-    boat:['やってみた記録を残す。3回目には、あなたの型になります。','完璧な準備より、次の土曜日。日程を先に決めると、準備は追いついてきます。','失敗した話こそ、人に喜ばれます。そのまま発信の材料になります。'],
-    tower:['「ここからここまで」を先に紙に書く。範囲が決まると、値段も決まります。','自分が当たり前にやっている手順を、1枚の表にする。それが商品になります。','丁寧すぎて安く受けてしまう人ほど、相手が減らせる手間の分を価格に含めてください。']
-  };
-  function money0(n){return Number(n||0).toLocaleString('ja-JP');}
-  function simRows(o,plans){
-    // 価格のレンジから中央値を取り、必要人数を出す
-    const hours=Number(o.peHours||4), monthlyHours=Math.round(hours*4.3);
-    const unit=(function(){
-      const t=Number(o.peIncome||0);
-      if(t) return Math.max(1000, Math.round((t/10)/500)*500); // 月10件で届く単価を仮置き
-      return 3000;
-    })();
-    return [30000,50000,100000].map(g=>{
-      const n=Math.ceil(g/unit);
-      const hrPer=monthlyHours&&n?Math.round(monthlyHours/n*10)/10:null;
-      return {goal:g,unit,n,hrPer,over:monthlyHours&&n?(n*1.5>monthlyHours):false};
-    });
-  }
-  function overviewHtml(o,plans){
-    const r=window.AKINAI_RESULT||null;
-    const voice=o.peRepeat||o.peVoice||'人から繰り返し言われてきたこと';
-    const purpose=o.pePurpose||'自分の仕事を小さく持つこと';
-    const years=o.peThreeYears||'無理なく続けられている状態';
-    const hours=Number(o.peHours||4), monthlyHours=Math.round(hours*4.3);
-    const sims=simRows(o,plans);
-    const tips=(r&&SHINE_TIPS[r.main])||SHINE_TIPS.light;
-    const cmp=plans.map((p,i)=>'<tr><th>'+esc(String(p.tag).split('｜')[0])+'</th><td>'+esc(String(p.tag).split('｜')[1]||'')+'</td><td>'+esc(p.product)+'</td><td>'+esc(String(p.offer||'').split('。')[0]+'。')+'</td><td>'+['小さい','ふつう','やや大きい'][i]+'</td></tr>').join('');
-    return '<section class="ov">'+
-    '<div class="ov-head"><span>総合レポート</span><h4>あなたの回答から、全体を整理しました。</h4></div>'+
-
-    '<div class="ov-item"><span class="n">01</span><div><b>いまの強み・魅力の整理</b>'+
-      '<p>'+(r?'無料診断の結果は<b>「'+esc(r.name)+'」</b>（'+esc(r.stars)+'）。':'')+
-      'あなたが繰り返し人から言われてきたのは「'+esc(voice)+'」。これは新しく身につけるものではなく、すでに手の中にあるものです。</p></div></div>'+
-
-    '<div class="ov-item"><span class="n">02</span><div><b>あなたの想い・価値観</b>'+
-      '<p>いま望んでいるのは「'+esc(purpose)+'」。3年後は「'+esc(years)+'」。3案はどれも、この2つから外れないように組んでいます。</p></div></div>'+
-
-    '<div class="ov-item full"><span class="n">03</span><div><b>3つの可能性 比較一覧</b>'+
-      '<div class="ov-table"><table><thead><tr><th>案</th><th>方向</th><th>何を渡すか</th><th>進め方</th><th>暮らしへの負担</th></tr></thead><tbody>'+cmp+'</tbody></table></div></div></div>'+
-
-    '<div class="ov-item full"><span class="n">06</span><div><b>価格・収益のシミュレーション</b>'+
-      '<p class="ov-note">単価を'+money0(sims[0].unit)+'円と仮置きした場合の、必要な件数です。実際の単価は、最初の3人の反応で決めてください。</p>'+
-      '<div class="ov-sim">'+sims.map(x=>'<div'+(x.over?' class="warn"':'')+'><small>月'+money0(x.goal)+'円なら</small><b>'+x.n+'<em>件</em></b><span>1件あたり'+(x.hrPer?x.hrPer+'時間':'—')+'／使える時間は月'+monthlyHours+'時間</span>'+(x.over?'<i>いまの時間では、少し無理があります</i>':'')+'</div>').join('')+'</div></div></div>'+
-
-    '<div class="ov-item full"><span class="n">08</span><div><b>最初の一歩チェックリスト</b>'+
-      '<ul class="ov-check">'+
-      ['売るものを1つに決めた','値段を決めた（安すぎないか、時間も数えた）','声をかける3人の顔が浮かんだ','「こういうことを始めます」と言う一文を書いた','1人目に声をかけた','買う／買わない理由を聞いてメモした','かかった時間と材料費を記録した','家族に「これをやってみる」と話した']
-        .map(t=>'<li>'+t+'</li>').join('')+'</ul></div></div>'+
-
-    '<div class="ov-item full"><span class="n">10</span><div><b>もっと輝くためのヒント</b>'+
-      '<ul class="ov-tips">'+tips.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>'+
-      '<p class="ov-close">ここまでが、いまのあなたの手札です。使うかどうかは、これから決めれば大丈夫です。</p></div></div>'+
-    '</section>';
-  }
-
-  function reportHtml(r){
-    return '<article class="auto-report-card">'+
-      '<div class="report-sub">'+esc(r.tag)+'</div><h5>'+esc(r.title)+'</h5>'+
-      '<div class="auto-report-grid">'+
-        '<div class="auto-report-box full"><b>なぜ、あなたにこの案なのか</b><p>'+esc(r.reason)+'</p></div>'+
-        '<div class="auto-report-box"><b>誰に渡すか</b><p>'+esc(r.customer)+'</p></div>'+
-        '<div class="auto-report-box"><b>その人は、いまどうしているか</b><p>'+esc(r.market)+'</p></div>'+
-        '<div class="auto-report-box"><b>何を渡すか</b><p>'+esc(r.product)+'</p></div>'+
-        '<div class="auto-report-box"><b>何が助かるか</b><p>'+esc(r.value)+'</p></div>'+
-        '<div class="auto-report-box"><b>いくらで、どう渡すか</b><p>'+esc(r.offer+' '+r.price)+'</p></div>'+
-        '<div class="auto-report-box"><b>最初の一人の見つけ方</b><p>'+esc(r.first)+'</p></div>'+
-        '<div class="auto-report-box"><b>ほかの選択肢</b><p>'+esc(r.comp)+'</p></div>'+
-        '<div class="auto-report-box"><b>あなたが選ばれる理由</b><p>'+esc(r.strength)+'</p></div>'+
-        '<div class="auto-report-box"><b>使う時間と、使うお金</b><p>'+esc(r.time+'／'+r.funds)+'</p></div>'+
-        '<div class="auto-report-box"><b>暮らしとの両立</b><p>'+esc(r.family)+'</p></div>'+
-        '<div class="auto-report-box"><b>お金の目安</b><p>'+esc(r.sales)+'</p></div>'+
-        '<div class="auto-report-box"><b>つまずいたときの、戻り方</b><p>'+esc(r.risk)+'</p></div>'+
-        '<div class="auto-report-box full"><b>はじめの90日</b><div class="tl-bar"><span style="width:33.3%">まず決める</span><span style="width:33.3%">直す</span><span style="width:33.4%">確かめる</span></div><div class="auto-report-timeline">'+
-          '<div><span>0〜30日</span><p>'+esc(r.d30)+'</p></div>'+
-          '<div><span>31〜60日</span><p>'+esc(r.d60)+'</p></div>'+
-          '<div><span>61〜90日</span><p>'+esc(r.d90)+'</p></div>'+
-        '</div></div>'+
-        '<div class="auto-report-box full"><b>やめる・変える目安と、そのとき残るもの</b><p>'+esc(r.stop)+'</p></div>'+
-        '<div class="auto-report-box full look-back"><b>振り返りのポイント</b><ul><li>やってみて気づいたこと（思ったより楽だったこと・しんどかったこと）</li><li>うまくいったこと／次はこう変えたいこと</li><li>次にやってみたいこと、または「ここで一度やめる」という判断</li></ul><p class="lb-note">3人に提供し終えたら、この3つだけ書き留めてください。続けるかどうかは、そのあとで決まります。</p></div>'+
-      '</div></article>';
-  }
-  function overviewText(o,plans){
-    const r=window.AKINAI_RESULT||null;
-    const sims=simRows(o,plans);
-    return ['【総合レポート】',
-      '01 いまの強み・魅力：'+(r?r.name+'（'+r.stars+'）／':'')+'人から言われてきたこと＝'+(o.peRepeat||o.peVoice||'未記入'),
-      '02 想い・価値観：'+(o.pePurpose||'未記入')+'／3年後＝'+(o.peThreeYears||'未記入'),
-      '03 比較一覧：'+plans.map(p=>p.tag).join(' / '),
-      '06 収益シミュレーション：'+sims.map(x=>'月'+money0(x.goal)+'円→'+x.n+'件').join('、'),
-      '08 最初の一歩チェックリスト：売るものを1つ決める／値段を決める／3人を決める／一文を書く／1人目に声をかける／理由を聞く／時間と原価を記録／家族に話す',
-      '10 ヒント：'+((r&&SHINE_TIPS[r.main])||SHINE_TIPS.light).join(' ／ ')
-    ].join('\n');
-  }
-  function reportText(reports){
-    return reports.map(r=>[
-      r.tag+'｜'+r.title,
-      '【なぜこの案なのか】'+r.reason,
-      '【想定顧客】'+r.customer,
-      '【顧客の困りごと・市場仮説】'+r.market,
-      '【商品・サービス】'+r.product,
-      '【提供価値】'+r.value,
-      '【価格・売り方】'+r.offer+' '+r.price,
-      '【最初の顧客】'+r.first,
-      '【競合】'+r.comp,
-      '【強み】'+r.strength,
-      '【必要時間・資金】'+r.time+'／'+r.funds,
-      '【家族・生活条件】'+r.family,
-      '【売上の目安】'+r.sales,
-      '【主なリスク】'+r.risk,
-      '【0〜30日】'+r.d30,
-      '【31〜60日】'+r.d60,
-      '【61〜90日】'+r.d90,
-      '【止める・見直す基準】'+r.stop
-    ].join('\n')).join('\n\n====================\n\n');
-  }
-  $('generate3Btn')?.addEventListener('click',()=>{
-    const o=vals();
-    if(!o.peProduct && !o.peVoice){
-      qMsg.textContent='「提供したい商品・サービス」か「人から言われたこと」のどちらかは入力してください。';
-      return;
-    }
-    save();
-    lastPlans=makePlans(o);
-    lastReports=lastPlans.map((p,i)=>reportFor(p,o,i));
-    $('planResults').innerHTML=lastPlans.map(planHtml).join('');
-    $('reportResults').innerHTML=overviewHtml(o,lastPlans)+lastReports.map(reportHtml).join('');
-    status.textContent='3案と詳細レポートができました';
-    setStage('r');
-    resultStage.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-  $('redo3Plans')?.addEventListener('click',()=>{setStage('q');status.textContent='回答を見直し中';});
-  $('copy3Plans')?.addEventListener('click',async()=>{
-    if(!lastPlans.length)return;
-    try{await navigator.clipboard.writeText(plansText(lastPlans));$('copy3Plans').textContent='コピーしました';setTimeout(()=>$('copy3Plans').textContent='3案をまとめてコピー',1800);}catch(e){}
-  });
-  $('copyFullReport')?.addEventListener('click',async()=>{
-    if(!lastReports.length)return;
-    try{await navigator.clipboard.writeText(reportText(lastReports));$('copyFullReport').textContent='レポートをコピーしました';setTimeout(()=>$('copyFullReport').textContent='詳細レポートをコピー',1800);}catch(e){}
-  });
-  $('print3Plans')?.addEventListener('click',()=>window.print());
 })();
 
 // ---- 売りたいものがある人向け：商品チェック ----
@@ -7396,10 +6986,10 @@ const CTX_LABELS={
     var sid=u.searchParams.get('session_id'), paid=u.searchParams.get('paid')==='1';
     if(sid||paid){
       var key='akinai_purchase_tracked', done=localStorage.getItem(key)||'';
-      var tid=sid||('paid_'+Date.now());
-      if(done!==(sid||'1')){
+      var tid=sid;
+      if(done!==sid){
         window.track('purchase',{transaction_id:tid,value:3300,currency:'JPY',items:[{item_id:'akinai_web_plan',item_name:'わたしの商い設計 3つの商いプラン',price:3300,quantity:1}]});
-        localStorage.setItem(key,sid||'1');
+        localStorage.setItem(key,sid);
       }
     }
   }catch(e){}
