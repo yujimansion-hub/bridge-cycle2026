@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしのこれから診断｜「これから、私はどうしたい？」を3分で整理する</title>
-<meta name="description" content="誰かに相談する前の、ひとり相談室。家族や仕事を優先してきたアラフォー女性へ。9問に答えるだけで、強み・価値観・今の違和感を整理し、「これから私はどうしたい？」を言葉にします。無料・登録なし・約3分。">
+<meta name="description" content="転職サービスや起業相談を受ける前に、家族・家計・仕事・想い・悩みを匿名で整理する『わたしのこれから診断』。起業は選択肢のひとつ。今の自分に合う次の道を考えます。">
 <meta property="og:title" content="わたしのこれから診断｜「これから、私はどうしたい？」を3分で整理する">
 <meta property="og:description" content="9問・無料・登録なし。強み・価値観・今の違和感を整理して、これからの方向を言葉にします。">
 <meta property="og:type" content="website">
@@ -4520,6 +4520,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .er-advice-list{display:grid;gap:9px}.er-advice-list div{padding:10px 12px;background:#fffaf7;border-left:3px solid var(--rose);font-size:12.5px;line-height:1.7}.er-advice-list b{display:block;color:var(--ink)}
 .er-advice-note{font-size:12px;line-height:1.7;color:#6b605a;margin:12px 0}
 
+.private-context{max-width:760px;margin:0 auto 28px;padding:26px;background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}
+.pc-kicker,.cs-kicker{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.06em}
+.private-context h3,.current-summary h3{font-family:var(--serif);font-size:clamp(21px,3vw,29px);line-height:1.55;margin:6px 0 8px}
+.pc-lead{font-size:13px;color:#655a53;margin:0 0 18px}
+.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pc-grid label{display:block}.pc-grid label>span{display:block;font-size:12px;font-weight:700;margin-bottom:5px}.pc-grid select,.pc-grid textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:14px}.pc-grid textarea{min-height:86px;resize:vertical}.pc-grid .pc-wide{grid-column:1/-1}.pc-grid small{font-size:10px;color:var(--muted);font-weight:500}
+.pc-privacy{margin-top:15px;padding:11px 13px;border-left:3px solid var(--rose);background:#fffaf7;font-size:11.5px;line-height:1.7;color:#675b54}.pc-privacy b{color:var(--ink)}.pc-start{margin-top:15px}
+.current-summary{margin:20px 0;padding:20px;border:1px solid var(--line);border-radius:20px;background:#fffaf7}.cs-lines{display:grid;gap:8px;margin-top:12px}.cs-lines div{padding:9px 11px;background:#fff;border-radius:11px;font-size:12.5px;line-height:1.7;color:#554b45}.cs-lines b{color:var(--ink)}.cs-memo{margin:10px 0 0;padding:12px 14px;border-left:3px solid var(--rose);font-family:var(--serif);font-size:14px;line-height:1.8;background:#fff}
+@media(max-width:760px){.pc-grid{grid-template-columns:1fr}.pc-grid .pc-wide{grid-column:auto}.private-context{padding:20px 17px}}
 .nonbiz-result{margin:24px 0 0;padding:22px;border:1px solid var(--line);border-radius:22px;background:#fff}
 .nb-kicker{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.06em}
 .nonbiz-result h3{font-family:var(--serif);font-size:23px;line-height:1.5;margin:6px 0 8px}
@@ -4642,11 +4650,101 @@ document.addEventListener('click',function(e){
   <section id="fortune" class="fortune-section">
     <div class="wrap">
       <div class="fortune-simple">
-        <div class="kicker">無料3分｜私から9つだけ質問します</div>
-        <h2>今日は、母とか妻とか、<br>そういうの抜きで。</h2>
-        <p class="fq-sub2">あなた自身のことを、9つだけ。</p>
-        <p><b>いきなり夢とか目標とか、聞かないです。</b><br>好きだったこと、人から言われたこと、遠回りした経験、繰り返し任されてきたこと。役割じゃなくて「あなた」のことを、こっちから順番に聞いていきます。</p>
-        <p style="margin-top:10px;font-size:14px;color:var(--muted)">仕事のことでも、家族のことでも、これからの生き方でも大丈夫。今のあなたの「軸」を見つける9問です。</p>
+        <div class="kicker">転職サービスや起業相談へ行く、その前に</div>
+        <h2>人には聞かれないことから、<br>少し整理してみませんか。</h2>
+        <p class="fq-sub2">家族のこと。お金のこと。今の仕事。本当はどうしたいか。</p>
+        <p><b>こういうことほど、身近な人には話しにくいものです。</b><br>ここでは、誰かを納得させる必要はありません。まず「今の自分が、何に困っていて、何を守りたくて、どうなりたいのか」を整理します。</p>
+        <p style="margin-top:10px;font-size:14px;color:var(--muted)">転職・副業・起業・今の仕事を続ける・少し休む。答えを先に決めず、今のあなたから考えます。</p>
+      </div>
+
+
+      <div class="private-context" id="privateContext">
+        <span class="pc-kicker">BEFORE THE 9 QUESTIONS｜まず、今の暮らしを少しだけ</span>
+        <h3>誰にも説明しなくていいので、<br>今の状況に近いものを選んでください。</h3>
+        <p class="pc-lead">正確な金額や個人情報は要りません。答えにくいものは「答えたくない」で大丈夫です。</p>
+        <div class="pc-grid">
+          <label><span>今の働き方</span>
+            <select id="ctxWork">
+              <option value="">選ばなくてもOK</option>
+              <option value="employee">会社員・公務員</option>
+              <option value="part">パート・アルバイト</option>
+              <option value="self">個人事業・フリーランス</option>
+              <option value="leave">休職中・離職中</option>
+              <option value="home">家事・育児を中心にしている</option>
+              <option value="other">その他</option>
+            </select>
+          </label>
+          <label><span>家族・生活上の責任</span>
+            <select id="ctxFamily">
+              <option value="">選ばなくてもOK</option>
+              <option value="heavy">子育て・介護など、今かなり大きい</option>
+              <option value="some">家族への責任はあるが、少し余白もある</option>
+              <option value="light">比較的、自分で時間を決めやすい</option>
+              <option value="solo">一人暮らし・自分中心に決めやすい</option>
+              <option value="private">答えたくない</option>
+            </select>
+          </label>
+          <label><span>毎月の家計の余裕</span>
+            <select id="ctxMargin">
+              <option value="">選ばなくてもOK</option>
+              <option value="deficit">赤字になる月がある</option>
+              <option value="tight">ほとんど残らない</option>
+              <option value="small">少しは残る</option>
+              <option value="room">ある程度余裕がある</option>
+              <option value="private">答えたくない</option>
+            </select>
+          </label>
+          <label><span>あなたの収入が減ったら</span>
+            <select id="ctxIncome">
+              <option value="">選ばなくてもOK</option>
+              <option value="critical">家計がすぐ厳しくなる</option>
+              <option value="important">かなり影響する</option>
+              <option value="manageable">少しなら調整できる</option>
+              <option value="flexible">しばらくは対応できる</option>
+              <option value="private">答えたくない</option>
+            </select>
+          </label>
+          <label><span>家族や身近な人に、この悩みを</span>
+            <select id="ctxTalk">
+              <option value="">選ばなくてもOK</option>
+              <option value="can">ある程度話せている</option>
+              <option value="partial">少しだけ話している</option>
+              <option value="hard">反対や心配があり、話しにくい</option>
+              <option value="none">まだ誰にも話していない</option>
+              <option value="private">答えたくない</option>
+            </select>
+          </label>
+          <label><span>今、いちばん重い悩み</span>
+            <select id="ctxWorry">
+              <option value="">まだ分からない</option>
+              <option value="stay">今の仕事をこのまま続けるか</option>
+              <option value="change">転職・環境を変えるべきか</option>
+              <option value="money">収入・支出・将来のお金</option>
+              <option value="family">家族と自分の時間のバランス</option>
+              <option value="relation">職場や身近な人との人間関係</option>
+              <option value="self">自分が何をしたいのか分からない</option>
+              <option value="business">副業・起業をやってみたいが不安</option>
+              <option value="future">将来がなんとなく不安</option>
+            </select>
+          </label>
+          <label class="pc-wide"><span>本当は、どうなったら少し楽になりそう？</span>
+            <select id="ctxHope">
+              <option value="">まだ言葉にならない</option>
+              <option value="stability">安心して暮らせる状態をつくりたい</option>
+              <option value="time">自分の時間を取り戻したい</option>
+              <option value="meaning">もっと納得できる仕事をしたい</option>
+              <option value="income">収入を増やしたい</option>
+              <option value="strength">自分の得意なことを活かしたい</option>
+              <option value="freedom">自分で決められる働き方に近づきたい</option>
+              <option value="unknown">まだ分からない。ただ、このままは嫌</option>
+            </select>
+          </label>
+          <label class="pc-wide"><span>人には言いにくいけど、頭から離れないこと <small>任意・120文字まで</small></span>
+            <textarea id="ctxMemo" maxlength="120" placeholder="例：辞めたい気持ちはある。でも家のローンもあるし、子どものことを考えると動けない。"></textarea>
+          </label>
+        </div>
+        <div class="pc-privacy"><b>ここは「相談の前の整理」です。</b>この欄の内容は、このページ内で診断結果を組み立てるために使い、この診断から外部へ送信しません。</div>
+        <a class="btn pc-start" href="#qz">ここまでを踏まえて、9問に進む →</a>
       </div>
 
       <div class="qz" id="qz">
@@ -4786,6 +4884,12 @@ document.addEventListener('click',function(e){
             <div class="insight-box">
               <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
               <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
+            </div>
+            <div class="current-summary" id="currentSummary">
+              <span class="cs-kicker">YOUR CURRENT POSITION｜今のあなたの現在地</span>
+              <h3>まず、ここを無視しないで考えます。</h3>
+              <div class="cs-lines" id="currentSummaryLines"></div>
+              <p id="currentMemoEcho" class="cs-memo" style="display:none"></p>
             </div>
             <div class="entre-result" id="entreResult">
               <span class="er-kicker">START A BUSINESS?｜起業も、起業しない道も、選択肢です</span>
@@ -6045,7 +6149,22 @@ const COMBO={
         bridge:["整えられる。そして、必要な人を呼べる人。","自分でできない部分は、詳しい人につなげられる。窓口として、信頼される。"],
         boat:["整えられる。でも、完璧を待たなくていい人。","段取りが決まる前に、一人分だけ試してみる。動きながら整えるほうが、あなたには早い。"]}
 };
-const LBL=["普通だと思っていること","お金になる経験","やり直した経験","繰り返し任されたこと","決断のしかた","遠回りの渡し方","お金の受け取り方","無意識の商い癖","10年後の相談"];
+const LBL=["今の気持ち","働き方で大切なこと","不確実さとの付き合い方","動き方","お金への安心","生活の余白","人から見える強み","お金を受け取る感覚","3年後の自分"];
+
+function currentContext(){
+  const val=id=>document.getElementById(id)?.value||'';
+  const memo=(document.getElementById('ctxMemo')?.value||'').trim();
+  return {work:val('ctxWork'),family:val('ctxFamily'),margin:val('ctxMargin'),income:val('ctxIncome'),talk:val('ctxTalk'),worry:val('ctxWorry'),hope:val('ctxHope'),memo};
+}
+const CTX_LABELS={
+  work:{employee:'会社員・公務員',part:'パート・アルバイト',self:'個人事業・フリーランス',leave:'休職中・離職中',home:'家事・育児を中心にしている',other:'その他'},
+  family:{heavy:'家族への責任が今かなり大きい',some:'家族への責任はあるが少し余白もある',light:'比較的自分で時間を決めやすい',solo:'自分中心に決めやすい',private:'家族のことは答えない'},
+  margin:{deficit:'赤字になる月がある',tight:'家計にほとんど余裕がない',small:'家計に少し余裕がある',room:'家計にある程度余裕がある',private:'家計の余裕は答えない'},
+  income:{critical:'自分の収入が減ると家計がすぐ厳しい',important:'自分の収入減は家計にかなり影響する',manageable:'収入が少し減る程度なら調整できる',flexible:'収入が減ってもしばらく対応できる',private:'収入の影響は答えない'},
+  talk:{can:'身近な人にある程度話せている',partial:'身近な人には少しだけ話している',hard:'反対や心配があり話しにくい',none:'この悩みはまだ誰にも話していない',private:'相談状況は答えない'},
+  worry:{stay:'今の仕事を続けるか',change:'転職・環境を変えるか',money:'収入・支出・将来のお金',family:'家族と自分の時間のバランス',relation:'人間関係',self:'自分が何をしたいか分からない',business:'副業・起業への不安',future:'将来への漠然とした不安'},
+  hope:{stability:'安心して暮らせる状態',time:'自分の時間を取り戻す',meaning:'納得できる仕事',income:'収入を増やす',strength:'得意なことを活かす',freedom:'自分で決められる働き方',unknown:'まだ分からないが、このままではいたくない'}
+};
 
 // ---- 9問・4択の占い（4問で速報→9問でキャラ）＋他己診断 ----
 (function(){
@@ -6077,6 +6196,15 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     ];
     let score=0;
     ans.forEach((v,i)=>{score+=(E[i]&&E[i][v]!=null)?E[i][v]:0;});
+    const ctx=currentContext();
+    if(ctx.margin==='deficit')score-=3;
+    else if(ctx.margin==='tight')score-=2;
+    if(ctx.income==='critical')score-=3;
+    else if(ctx.income==='important')score-=1;
+    if(ctx.family==='heavy')score-=1;
+    if(ctx.talk==='hard'||ctx.talk==='none')score-=1;
+    if(ctx.work==='leave'&&ctx.margin!=='room')score-=1;
+    score=Math.max(0,score);
     const max=18, pct=Math.round(score/max*100);
     let level,title,reason,nextTitle,next,paths;
     if(score>=14){
@@ -6096,7 +6224,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     }else{
       level='low';
       title='今のまま起業するのは、少し慎重に';
-      reason='起業そのものが向いていない、という意味ではありません。今の生活余力や不確実さへの負担を考えると、いきなり独立するより「守りを残して試す」方が合っています。';
+      reason='起業そのものが向いていない、という意味ではありません。今の生活余力や不確実さへの負担を考えると、いきなり独立するより「守りを残して試す」方が合っています。'+((ctx.margin==='deficit'||ctx.margin==='tight'||ctx.income==='critical')?' 特に今は、家計の安全を先に守ることが大切です。':'')+(ctx.family==='heavy'?' 家族への責任も大きいため、時間の確保を先に考えましょう。':'');
       nextTitle='起業以外にも、十分に道があります';
       next='今の仕事を続ける、配置や働き方を変える、転職を考える、学び直す、休む時間をつくる。まず「何を増やすか」より「何を減らしたいか」を整理してください。';
       paths=['今の仕事で減らしたい役割を一つ決める','転職・学び直し・働き方変更を比較してみる','週に30分、自分のためだけに考える時間をつくる'];
@@ -6145,6 +6273,22 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     if(q(8)==='hand'){scores.learn+=2;scores.side+=1;}
     if(q(8)==='boat'){scores.change+=2;scores.side+=2;}
 
+    const ctx=currentContext();
+    if(ctx.margin==='deficit'||ctx.margin==='tight'){scores.stay+=2;scores.rest+=2;}
+    if(ctx.income==='critical'||ctx.income==='important'){scores.stay+=2;scores.side-=1;}
+    if(ctx.family==='heavy'){scores.rest+=2;scores.stay+=1;}
+    if(ctx.talk==='hard'||ctx.talk==='none'){scores.undecided+=2;scores.rest+=1;}
+    if(ctx.worry==='change'){scores.change+=4;}
+    if(ctx.worry==='stay'){scores.stay+=3;}
+    if(ctx.worry==='money'){scores.stay+=2;scores.rest+=1;}
+    if(ctx.worry==='family'){scores.rest+=3;}
+    if(ctx.worry==='self'||ctx.worry==='future'){scores.undecided+=3;}
+    if(ctx.worry==='business'){scores.side+=3;}
+    if(ctx.hope==='time'){scores.rest+=3;}
+    if(ctx.hope==='meaning'){scores.change+=2;scores.learn+=1;}
+    if(ctx.hope==='income'){scores.stay+=1;scores.side+=1;}
+    if(ctx.hope==='strength'){scores.learn+=2;scores.side+=2;}
+    if(ctx.hope==='freedom'){scores.side+=2;scores.change+=1;}
     const order=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
     const route=order[0];
     const DATA={
@@ -6250,6 +6394,23 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     document.getElementById('rKeyword').textContent=life.keyword;
     const dirBox=document.getElementById('rDirectionTags');
     if(dirBox)dirBox.innerHTML=life.directions.map((t,i)=>'<span class="tag '+(i===0?'active':'')+'">'+t+'</span>').join('');
+    const ctx=currentContext();
+    window.AKINAI_CURRENT_CONTEXT=ctx;
+    const cs=document.getElementById('currentSummaryLines');
+    if(cs){
+      const rows=[];
+      if(ctx.work&&CTX_LABELS.work[ctx.work])rows.push(['今の働き方',CTX_LABELS.work[ctx.work]]);
+      if(ctx.family&&CTX_LABELS.family[ctx.family])rows.push(['家族・生活',CTX_LABELS.family[ctx.family]]);
+      if(ctx.margin&&CTX_LABELS.margin[ctx.margin])rows.push(['家計',CTX_LABELS.margin[ctx.margin]]);
+      if(ctx.income&&CTX_LABELS.income[ctx.income])rows.push(['収入',CTX_LABELS.income[ctx.income]]);
+      if(ctx.talk&&CTX_LABELS.talk[ctx.talk])rows.push(['誰かに話せているか',CTX_LABELS.talk[ctx.talk]]);
+      if(ctx.worry&&CTX_LABELS.worry[ctx.worry])rows.push(['いちばん重い悩み',CTX_LABELS.worry[ctx.worry]]);
+      if(ctx.hope&&CTX_LABELS.hope[ctx.hope])rows.push(['本当はこうなりたい',CTX_LABELS.hope[ctx.hope]]);
+      cs.innerHTML=(rows.length?rows:[['現在地','まだはっきり言葉になっていません。それも今の大切な情報です。']]).map(r=>'<div><b>'+r[0]+'：</b>'+r[1]+'</div>').join('');
+    }
+    const cm=document.getElementById('currentMemoEcho');
+    if(cm){if(ctx.memo){cm.style.display='';cm.textContent='「'+ctx.memo+'」';}else{cm.style.display='none';cm.textContent='';}}
+
     const er=entrepreneurshipResult();
     window.AKINAI_ENTRE_RESULT=er;
     const et=document.getElementById('entreTitle'), em=document.getElementById('entreMeter'), erp=document.getElementById('entreReason'), ent=document.getElementById('entreNextTitle'), en=document.getElementById('entreNext'), eps=document.getElementById('entrePaths');
