@@ -4707,9 +4707,9 @@ document.addEventListener('click',function(e){
                 <span>「もう一度、自分のことを考えてもいいかもしれない」</span>
               </blockquote>
               <p>そう思えたら、少しだけ気持ちが軽くなることがあると思っています。</p>
-              <p class="gentle-relief-last">仕事を見つける前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
+              <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
             </div>
-            <p class="result-basis">9つの回答から、これまでの経験に繰り返し現れている「価値の出し方」を整理します。診断の本体は、あなた自身の回答と経験です。占い要素は任意の読み物として分けています。</p>
+            <p class="result-basis">9つの回答から、これまでの経験に繰り返し現れている「自分らしい選び方・進み方」を整理します。診断の本体は、あなた自身の回答と経験です。占い要素は任意の読み物として分けています。</p>
             <span class="result-section-label">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
@@ -4718,16 +4718,16 @@ document.addEventListener('click',function(e){
             <div class="context-result" id="rContextResult" style="display:none">
               <span class="crlab">YOU ALREADY HAVE｜あなたが、もう持っているもの</span>
               <p><b>これまで：</b><span id="rExperience"></span></p>
-              <p><b>売ってみたいもの：</b><span id="rWantedProduct"></span></p>
+              <p><b>いま気になっていること：</b><span id="rWantedProduct"></span></p>
             </div>
             <div class="reality-result" id="rRealityResult" style="display:none">
-              <span class="rrlab">REALITY LINE｜無理なく目指すライン</span>
+              <span class="rrlab">REALITY LINE｜無理なく使える余白</span>
               <div class="rrgrid">
                 <div><small>使える時間</small><b id="rTimeLabel"></b></div>
-                <div><small>最初の目標</small><b id="rIncomeLabel"></b></div>
+                <div><small>いま考えている目安</small><b id="rIncomeLabel"></b></div>
               </div>
               <p id="rRealityCalc"></p>
-              <small class="rrnote">売上・収入を保証するものではありません。最初は「目標額」より、3人に有料で試して反応を見ることを優先します。</small>
+              <small class="rrnote">数字は、人生の答えではなく、無理のない選択を考えるための参考情報です。</small>
             </div>
             <details class="oracle-optional" id="rOracleOptional"><summary>遊び要素として占いも見る（任意）</summary><div class="oracle-origin" id="rOracleOrigin" style="display:none">
               <div id="rBirthOrigin"><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
@@ -4908,7 +4908,7 @@ document.addEventListener('click',function(e){
                   </div>
                 </details>
               </div>
-              <p class="share-note">画像は「経験資産カルテ」です。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
+              <p class="share-note">画像は「これからカルテ」です。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
             </div>
             <div class="pair" id="rPair"><b>この結果と一緒に、残しておきたい言葉</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>誰かと比べるためではなく、迷った日に戻ってこられる言葉として。</small></div>
             <div class="tako" id="rTako">
@@ -4951,7 +4951,7 @@ document.addEventListener('click',function(e){
           <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
         </div>
       </div>
-      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※診断の中心は、あなた自身の経験と回答です。占い要素は任意の読み物です。実際に始めるかどうかは、お客さん・価格・使える時間・資金を別に確認して決めます。</p>
+      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※診断の中心は、あなた自身の経験と回答です。占い要素は任意の読み物です。この結果は進路を決めつけるものではなく、自分の考えを整理するための材料です。</p>
       <canvas class="hid" id="cv" width="1080" height="1920"></canvas>
     </div>
   </section>
@@ -5591,12 +5591,12 @@ function sharePayload(){
   const seasonLine=LAST_SEASON?("\n"+r.stars+"／"+LAST_SEASON):("\n"+r.stars);
   const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||""):AFFIRM[r.main];
   const text="『わたしのこれから診断』をやってみました。\n\n"+
-    "私の経験資産カルテは【"+title+"】。"+seasonLine+"\n\n"+
+    "私のこれからカルテは【"+title+"】。"+seasonLine+"\n\n"+
     "✦ 今の自分に残しておきたい言葉\n"+now+"\n\n"+
     "✦ 今日、手放していいこと\n"+LETGO[r.main]+"\n\n"+
-    "これまで「普通」と思っていたことの中にも、仕事にできる経験があるのかもしれない。\n"+
+    "これまで「普通」と思っていたことの中にも、これからを選ぶヒントがあるのかもしれない。\n"+
     "今の自分のために、そっと残しておきます。\n\n"+
-    "#わたしのこれから診断 #これからの私 #自分らしい働き方";
+    "#わたしのこれから診断 #これからの私 #これからの生き方";
   return {url,text};
 }
 function refreshShareLinks(){
@@ -5691,6 +5691,76 @@ const VOICE_REFRAME={
   boat:"あなたは「深く考える前に動いてしまう」と思っているかもしれません。でも、話から見えるのは、小さく試して現場の反応を持ち帰り、次を直してきた人です。その経験は、準備だけでは得られない「本当の手応え」として仕事になります。",
   tower:"あなたは「しっかりしているだけ」「事務が苦にならないだけ」と思っているかもしれません。でも、話から見えるのは、誰かが困る前に抜けを見つけ、安心して動ける状態をつくってきた人です。あなたが積み重ねてきたのは、事務作業より「安心をつくる経験」です。"
 };
+
+const LIFE_RESULT={
+  light:{
+    title:"灯｜気持ちを、ことばにして進む人",
+    affirm:"あなたには、もやもやした気持ちを言葉にして、少しずつ輪郭をつくる力があります。人のことだけでなく、自分の気持ちにも、その力を使っていい時期です。",
+    letgo:"「ちゃんとした答えが出るまで、まだ考えなくていい」という思い込み。",
+    value:"急いで答えを決めず、自分の本音を言葉にしながら納得して進むこと。",
+    keyword:"余白・本音・言葉にする",
+    letter:"今は、答えを増やすより、自分が何に引っかかっているのかを言葉にしてみてください。誰かに説明できるほど整っていなくても大丈夫。言葉になった瞬間から、次の方向は少し見えやすくなります。",
+    directions:["本音を聞く","言葉にする","急がない"],
+    hooks:["人の話は聞けるのに、自分のことになると後回しにしがち。","考えているうちに、気持ちが整理されていく。","誰かに正解をもらうより、自分で納得して決めたい。"],
+    message:"あなたに必要なのは、すぐに答えを出すことではなく、自分の気持ちに言葉を与える時間です。"
+  },
+  hand:{
+    title:"手｜好きなものを、形にして確かめる人",
+    affirm:"あなたは、考えるだけより、少し形にしてみると自分の気持ちが分かる人です。完璧に決めてからではなく、小さく作ることで「これは好き」「これは違う」が見えてきます。",
+    letgo:"「自信が持てるまで、形にしてはいけない」という思い込み。",
+    value:"頭の中だけで考え続けず、手を動かして自分の感覚を確かめること。",
+    keyword:"手ざわり・形にする・確かめる",
+    letter:"迷っているなら、答えを書くより、ひとつ小さく形にしてみてください。料理でも、文章でも、部屋でも、作品でも、予定表でもいい。自分の手で触れられるものになると、本当に好きなのかが見えてきます。",
+    directions:["手を動かす","小さく形にする","感覚を確かめる"],
+    hooks:["考えているだけより、何かを作っている方が落ち着く。","丁寧に仕上がると、それだけで少し自信が戻る。","言葉より、形になったものを見て判断したい。"],
+    message:"あなたの次の一歩は、大きな決断ではなく、気になっていることを小さく形にしてみることです。"
+  },
+  garden:{
+    title:"庭｜大切なものを、ゆっくり育てる人",
+    affirm:"あなたは、一度きりの変化より、時間をかけて大切なものを育てる人です。これからを考えるときも、急に全部変える必要はありません。残したいものを守りながら進めます。",
+    letgo:"「変わるなら、思い切って全部変えなければ」という思い込み。",
+    value:"家族・人間関係・自分のペースを守りながら、長く続けられる選択をすること。",
+    keyword:"育む・続ける・境界線",
+    letter:"何か新しいことを始める前に、今の暮らしの中で「これは残したい」と思うものを数えてみてください。あなたは捨てて進む人ではなく、大切なものを残しながら少しずつ育てていける人です。",
+    directions:["残したいものを見る","ゆっくり育てる","抱えすぎない"],
+    hooks:["急な変化より、無理なく続く方が安心する。","人や場所との関係を、長く大切にしてきた。","自分だけが頑張る形には、そろそろ疲れている。"],
+    message:"あなたに合うのは、人生をひっくり返すことではなく、大切なものを残したまま少しずつ変えることです。"
+  },
+  bridge:{
+    title:"橋｜人や世界をつないで、選択肢を広げる人",
+    affirm:"あなたは、自分ひとりで答えを出すより、人・場所・情報との出会いから可能性が広がる人です。いま見えている選択肢だけで決めなくても大丈夫です。",
+    letgo:"「自分の中だけで、答えを見つけなければ」という思い込み。",
+    value:"いろいろな人や世界に触れながら、自分に合うものを選び取ること。",
+    keyword:"出会う・選ぶ・つなぐ",
+    letter:"いま答えが見つからないなら、新しい答えをひねり出すより、知らなかった人や場所に一度触れてみてください。あなたは、出会いによって自分の可能性に気づく人です。",
+    directions:["人に会う","世界を広げる","自分で選ぶ"],
+    hooks:["誰かと話したあとに、新しい考えが浮かぶことが多い。","知らない場所や人の話を聞くと、少し元気になる。","選択肢が少ない状態で決めるのは、あまり好きではない。"],
+    message:"あなたに必要なのは、すぐ一つに決めることより、いまの世界を少しだけ広げることです。"
+  },
+  boat:{
+    title:"舟｜動きながら、自分の答えを見つける人",
+    affirm:"あなたは、考え抜いてから動くより、小さく動いてみることで本当の気持ちが分かる人です。失敗しない答えを探すより、軽く試して修正する方が前に進めます。",
+    letgo:"「絶対に後悔しないと分かるまで、動いてはいけない」という思い込み。",
+    value:"完璧な計画より、小さな経験から自分の答えをつくっていくこと。",
+    keyword:"試す・動く・選び直す",
+    letter:"いま必要なのは、大きな決断ではありません。気になっている場所へ行く、一度だけ体験する、誰かに会う。そんな小さな行動で十分です。あなたの答えは、動いた後に見えてくることがあります。",
+    directions:["小さく試す","感じてみる","選び直す"],
+    hooks:["考えすぎると、かえって動けなくなる。","一度やってみると、好き嫌いがはっきりする。","途中で方向を変えることを、失敗だとは思いたくない。"],
+    message:"あなたの次の一歩は、人生を決めることではなく、気になることを一度だけ試してみることです。"
+  },
+  tower:{
+    title:"塔｜暮らしを整えて、納得して進む人",
+    affirm:"あなたは、気持ちだけで進むより、時間・お金・家族・仕事など現実の条件が整理されると安心して決められる人です。まず暮らしを整えることも、立派な前進です。",
+    letgo:"「変化を起こさなければ、前に進んだことにならない」という思い込み。",
+    value:"自分が安心して続けられる条件を知り、無理のない順番で選ぶこと。",
+    keyword:"整える・減らす・安心",
+    letter:"何を始めるかより先に、何があなたを疲れさせているのかを整理してみてください。予定、お金、役割、家のこと。ひとつ減るだけでも、次に考えるための余白が生まれます。",
+    directions:["条件を整える","減らす","安心をつくる"],
+    hooks:["ごちゃごちゃしていると、考えること自体が嫌になる。","条件が見えると、意外と決断は早い。","まず生活を壊さないことを大切にしたい。"],
+    message:"あなたに必要なのは、新しい何かを足すことより、今の暮らしに考える余白をつくることです。"
+  }
+};
+
 const D={
  light:{sym:"灯",title:"灯｜経験を、ことばにする人",tagline:"あなたの経験は、誰かの迷いを軽くする。",
   hookHead:"気づけば、誰かの「話を聞く側」に、いつもいた人。",
@@ -5928,22 +5998,23 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
   function finish(){window.AKINAI_VOICE_RESULT=null;const {sc,order}=scoreOf(ans);const top=Math.max(...Object.values(sc),1);window.AKINAI_SCORE_MIX=order.filter(k=>sc[k]>0).slice(0,3).map(k=>({k,score:sc[k],pct:Math.round(sc[k]/top*100)}));render(order[0], sc[order[1]]>0?order[1]:null);}
   function nm(w,w2){return w2?NAME[w][w2][0]:D[w].title.split('｜')[1];}
   function render(w,w2){
-    cur=w; sub=w2; const d=D[w], d2=w2?D[w2]:null;
+    cur=w; sub=w2; const d=D[w], d2=w2?D[w2]:null, life=LIFE_RESULT[w];
     scrs.forEach(s=>s.classList.remove('on')); qz.querySelector('.qnav').style.display='none';
     pNow.textContent=N;pBar.style.width='100%';pTxt.textContent='結果';back.style.visibility='hidden';
-    const cname=w2?NAME[w][w2][0]:d.title.split('｜')[1];
+    const cname=life.title.split('｜')[1];
     document.getElementById('rChara').textContent=cname;
     BASE_RESULT=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:d.sym+(d2?'×'+d2.sym:'')};
     document.getElementById('rStars').textContent='参考タイプ　'+d.sym+(d2?' × '+d2.sym:'')+(d2?'　主星・副星':'');
     const art=document.getElementById('rArt');art.className='star-art '+w;art.innerHTML=STAR_ART[w];
     const artSub=document.getElementById('rArtSub');if(d2){artSub.style.display='flex';artSub.innerHTML='<span>主星 '+d.sym+'</span><i></i><span>副星 '+d2.sym+'</span>';}else{artSub.style.display='none';artSub.innerHTML='';}
-    document.getElementById('rOracleLetter').textContent=ORACLE_LETTER[w];
-    document.getElementById('rAffirm').textContent=AFFIRM[w];
-    document.getElementById('rLetgo').textContent=LETGO[w];
-    document.getElementById('rValue').textContent=ORACLE_VALUE[w];
-    document.getElementById('rKeyword').textContent=ORACLE_KEYWORD[w];
-    renderCompass(w,LAST_SEASON);
+    document.getElementById('rOracleLetter').textContent=life.letter;
+    document.getElementById('rAffirm').textContent=life.affirm;
+    document.getElementById('rLetgo').textContent=life.letgo;
+    document.getElementById('rValue').textContent=life.value;
+    document.getElementById('rKeyword').textContent=life.keyword;
+    const dirBox=document.getElementById('rDirectionTags');
+    if(dirBox)dirBox.innerHTML=life.directions.map((t,i)=>'<span class="tag '+(i===0?'active':'')+'">'+t+'</span>').join('');
     const voiceReveal=document.getElementById('rVoiceReveal'),voiceMeta=window.AKINAI_VOICE_RESULT;
     if(voiceReveal&&voiceMeta&&voiceMeta.main===w){
       const words=(voiceMeta.words||[]).slice(0,6);
@@ -6004,10 +6075,12 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       const G=gaps(ans);const g0=G[0],rest=G.slice(1);
       document.getElementById('rTwist').innerHTML=(g0?('<b>'+g0.h+'</b><span>'+g0.t+'</span>'):('<b>まだ、ここだけ整っていません——</b><span>'+CONTRA[w]+'</span>'))+(rest.length?('<details class="gmore"><summary>もう1つ、あなたに出ている特徴を見る</summary>'+rest.map(g=>'<b>'+g.h+'</b><span>'+g.t+'</span>').join('')+'</details>'):'');
     }else{
-      document.getElementById('rHook').innerHTML=(w2?NAME[w][w2][1].concat([d.hook[2]]):d.hook).map(t=>'<p>'+t+'</p>').join('');
-      document.getElementById('rTwist').textContent=TWIST[w];
+      document.getElementById('rHook').innerHTML=life.hooks.map(t=>'<p>'+t+'</p>').join('');
+      document.getElementById('rTwist').textContent=life.message;
     }
-    document.getElementById('rHead').innerHTML='あなたの場合は、<b>'+HEAD[w][0]+'</b><br>'+HEAD[w][1];
+    document.getElementById('rHook').innerHTML=life.hooks.map(t=>'<p>'+t+'</p>').join('');
+    document.getElementById('rTwist').textContent=life.message;
+    document.getElementById('rHead').innerHTML='仕事にしてみたい場合の参考として、<b>'+HEAD[w][0]+'</b><br>'+HEAD[w][1];
     document.getElementById('rOccupation').textContent=OCCUPATION[w];
     const noGo=document.getElementById('rNoGo');
     if(noGo) noGo.textContent=(PLAN[w]&&PLAN[w].no)?PLAN[w].no.split('／').join('・'):'最初から大きな設備、肩書き、完璧な準備をそろえること';
@@ -6019,8 +6092,8 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
       const byK=k=>{const z=labels.find(x=>x.k===k);return z?z.t:'';};
       const q1=byK(0),q4=byK(3),q5=byK(4),q8=byK(7),q9=byK(8);
       const belly=document.getElementById('rBelly');
-      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ところを、自分では普通だと思ってきた。仕事や暮らしが変わっても「<b>'+q4+'</b>」ことは繰り返し任されてきました。大きな決断では「<b>'+q5+'</b>」を選び、誰かが困っていると「<b>'+q8+'</b>」ことを自然にしてしまう。<br>そして10年後は、「<b>'+q9+'</b>」と相談される自分でいたい。';
-      document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、これまでのキャリアの中で、同じ種類の役割を何度も任されてきた人の答えです。'+BOTTOM_LINE[w];
+      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ところを、自分では普通だと思ってきた。仕事や暮らしが変わっても「<b>'+q4+'</b>」ことは繰り返し任されてきました。大きな決断では「<b>'+q5+'</b>」を選び、誰かが困っていると「<b>'+q8+'</b>」ことを自然にしてしまう。<br>そして10年後は、「<b>'+q9+'</b>」自分でいたい。';
+      document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、これまでの人生の中で、自分らしい選び方を何度もしてきた人の答えです。';
       belly.style.display='';
       const warm=document.getElementById('rWarm');document.getElementById('rWarmText').textContent=WARM[w];warm.style.display='';
     }
@@ -6056,7 +6129,7 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     document.getElementById('btnTakoLine').href='https://line.me/R/share?text='+encodeURIComponent(ft);
     document.getElementById('btnTakoCopy').onclick=async()=>{try{await navigator.clipboard.writeText(ft);showToast('リンクをコピーしました');}catch(e){showToast('コピーできませんでした');}};
     const fv=document.getElementById('fview'); const f2=qp.get('f2'); if(f2&&/^[a-z]+-[a-z]*$/.test(f2)){const [a,b2]=f2.split('-');if(D[a]){fv.style.display='';document.getElementById('more').open=true;document.getElementById('fvSelf').textContent=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';document.getElementById('fvFriend').textContent=(b2&&D[b2]&&b2!==a?NAME[a][b2][0]:D[a].title.split('｜')[1])+'（'+D[a].sym+(b2&&D[b2]?'×'+D[b2].sym:'')+'）';document.getElementById('fvNote').textContent=(a===w)?'自分の見立てと、友達の見立てが一致。「'+D[a].sym+'」は、周りにもそう見えています。':'友達には「'+D[a].sym+'」が見えています。あなたが「普通」だと思っていた「'+CORE[a]+'」力は、外からは仕事に見えているのかもしれません。';}}else fv.style.display='none';
-    const fillOtherTypes=(ol)=>{if(!ol)return;ol.innerHTML='';Object.keys(D).filter(k=>k!==w).forEach(k=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span class="s">'+D[k].sym+'</span>'+D[k].title.split('｜')[1];b.addEventListener('click',()=>{render(k,null);document.getElementById('res').scrollIntoView({behavior:'smooth',block:'start'});});ol.appendChild(b);});};
+    const fillOtherTypes=(ol)=>{if(!ol)return;ol.innerHTML='';Object.keys(D).filter(k=>k!==w).forEach(k=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span class="s">'+D[k].sym+'</span>'+LIFE_RESULT[k].title.split('｜')[1];b.addEventListener('click',()=>{render(k,null);document.getElementById('res').scrollIntoView({behavior:'smooth',block:'start'});});ol.appendChild(b);});};
     fillOtherTypes(document.getElementById('ol'));
     fillOtherTypes(document.getElementById('olTop'));
     res.classList.add('on'); track('free_result_shown',{type:w||''});
@@ -6121,9 +6194,9 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     x.textAlign='center';
     x.fillStyle='#3b332e';x.font='500 54px '+serif;x.fillText('わたしのこれから診断',540,150);
     x.fillStyle='#c47f74';x.font='italic 500 28px "Cormorant Garamond",Georgia,serif';x.fillText('for women in their 40s',540,196);
-    const nick=(document.getElementById('cardName')?.value||'').trim().slice(0,20);if(nick){x.fillStyle='#6b605a';x.font='500 30px '+sans;x.fillText(nick+' さんの商い診断結果',540,270);}
-    x.fillStyle='#c47f74';x.font='italic 500 36px "Cormorant Garamond",Georgia,serif';x.fillText('Your Akinai Character',540,360);
-    const name=d2?NAME[cur][sub][0]:d.title.split('｜')[1];
+    const nick=(document.getElementById('cardName')?.value||'').trim().slice(0,20);if(nick){x.fillStyle='#6b605a';x.font='500 30px '+sans;x.fillText(nick+' さんのこれから診断結果',540,270);}
+    x.fillStyle='#c47f74';x.font='italic 500 36px "Cormorant Garamond",Georgia,serif';x.fillText('Your Next Chapter',540,360);
+    const name=LIFE_RESULT[cur].title.split('｜')[1];
     x.fillStyle='#3b332e';x.font='500 '+(name.length>11?56:68)+'px '+serif;wrap(x,name,540,470,900,80,'center');
     x.fillStyle='#fffaf5';x.beginPath();x.arc(540,650,118,0,Math.PI*2);x.fill();x.strokeStyle='rgba(196,127,116,.28)';x.lineWidth=2;x.stroke();drawStarArt(x,cur,540,650,150);
     x.fillStyle='#3b332e';x.font='500 72px '+serif;
@@ -6136,17 +6209,17 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     cy+=120;
     if(LAST_SEASON){x.fillStyle='#f7e4df';rr(x,210,cy,660,105,28);x.fill();x.fillStyle='#c47f74';x.font='700 20px '+sans;x.fillText('いまの商いの季節',540,cy+32);x.fillStyle='#3b332e';x.font='500 30px '+serif;x.fillText(LAST_SEASON_TITLE||LAST_SEASON,540,cy+76);cy+=135;}
     x.fillStyle='#c47f74';x.font='700 21px '+sans;x.fillText('あなたが、もう持っているもの',540,cy+18);
-    x.fillStyle='#3b332e';x.font='500 28px '+serif;wrap(x,AFFIRM[cur],540,cy+62,760,42,'center');
+    x.fillStyle='#3b332e';x.font='500 28px '+serif;wrap(x,LIFE_RESULT[cur].affirm,540,cy+62,760,42,'center');
     cy+=190;
     x.fillStyle='#fff';rr(x,140,cy,800,205,28);x.fill();x.strokeStyle='#edd6cf';x.lineWidth=2;rr(x,140,cy,800,205,28);x.stroke();
     x.fillStyle='#c47f74';x.font='700 21px '+sans;x.fillText('今日、手放していいこと',540,cy+46);
-    x.fillStyle='#3b332e';x.font='500 27px '+serif;wrap(x,LETGO[cur],540,cy+94,720,40,'center');
+    x.fillStyle='#3b332e';x.font='500 27px '+serif;wrap(x,LIFE_RESULT[cur].letgo,540,cy+94,720,40,'center');
     cy+=245;
     x.fillStyle='#8a7f77';x.font='700 19px '+sans;x.fillText('大切にしたい価値観',540,cy);
-    x.fillStyle='#3b332e';x.font='500 25px '+serif;wrap(x,ORACLE_VALUE[cur],540,cy+40,760,38,'center');
+    x.fillStyle='#3b332e';x.font='500 25px '+serif;wrap(x,LIFE_RESULT[cur].value,540,cy+40,760,38,'center');
     cy+=110;
     x.fillStyle='#8a7f77';x.font='700 19px '+sans;x.fillText('心を緩めるキーワード',540,cy);
-    x.fillStyle='#c47f74';x.font='500 25px '+serif;x.fillText(ORACLE_KEYWORD[cur],540,cy+40);
+    x.fillStyle='#c47f74';x.font='500 25px '+serif;x.fillText(LIFE_RESULT[cur].keyword,540,cy+40);
     x.fillStyle='#c47f74';x.font='700 30px '+sans;x.fillText('#わたしのこれから診断',540,1640);
     x.fillStyle='#8a7f77';x.font='400 23px '+sans;x.fillText('今の自分への、小さなお守りカルテ',540,1700);
     x.fillStyle='#c47f74';x.font='700 24px '+sans;x.fillText(SHARE_URL.replace(/^https?:\/\//,''),540,1750);
@@ -6170,11 +6243,11 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     const title=LAST_SEASON_TITLE||r.name;
     const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||''):(AFFIRM[r.main]||'');
     return '「わたしのこれから診断」をやってみました。\n\n'
-      +'私の経験資産カルテは【'+title+'】。\n'+(LAST_SEASON?(r.stars+'／'+LAST_SEASON+'\n'):(r.stars+'\n'))
+      +'私のこれからカルテは【'+title+'】。\n'+(LAST_SEASON?(r.stars+'／'+LAST_SEASON+'\n'):(r.stars+'\n'))
       +'\n'+now+'\n\n'
       +'これまで「普通」だと思っていたことの中にも、\n仕事にできる経験があるのかもしれない。\n\n'
       +'無料・9問・3分。プロフィールのリンクから。\n'
-      +'#わたしのこれから診断 #これからの私 #自分らしい働き方 #40代の働き方 #小さく始める #やりたいことがわからない';
+      +'#わたしのこれから診断 #これからの私 #これからの生き方 #40代の働き方 #小さく始める #やりたいことがわからない';
   };
   function aiPromptText(){
     const r=window.AKINAI_RESULT; const t=id=>(document.getElementById(id)?.textContent||'').trim();
