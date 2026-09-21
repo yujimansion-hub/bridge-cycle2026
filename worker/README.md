@@ -18,7 +18,7 @@ npx wrangler deploy
 
 TOKEN_SECRET は十分長いランダム文字列にしてください。
 
-## 2. Worker URL
+## 2. Stripe Price ID\nStripeの商品「わたしの商い設計 3,300円」に紐づく Price ID（price_...）を `wrangler.toml` の `STRIPE_PRICE_ID` に設定します。\n\n## 3. Worker URL
 デプロイ後のURL（例: https://akinai-api.<account>.workers.dev）を
 `akinai-plan.html` の `API_BASE` に設定します。
 
@@ -37,5 +37,5 @@ WorkerはStripe Sessionに記録された client_reference_id と、購入ブラ
 Workerは Responses API を利用します。APIキーはWorker Secretにのみ保存し、HTML/JavaScriptへ絶対に埋め込みません。
 既定モデルは wrangler.toml の OPENAI_MODEL で変更できます。
 
-## 5. KV
+## 6. KV
 AKINAI_KV を設定すると購入1件につき最大5回まで生成し、結果を30日保存します。
