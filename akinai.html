@@ -4520,6 +4520,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .er-advice-list{display:grid;gap:9px}.er-advice-list div{padding:10px 12px;background:#fffaf7;border-left:3px solid var(--rose);font-size:12.5px;line-height:1.7}.er-advice-list b{display:block;color:var(--ink)}
 .er-advice-note{font-size:12px;line-height:1.7;color:#6b605a;margin:12px 0}
 
+.nonbiz-result{margin:24px 0 0;padding:22px;border:1px solid var(--line);border-radius:22px;background:#fff}
+.nb-kicker{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.06em}
+.nonbiz-result h3{font-family:var(--serif);font-size:23px;line-height:1.5;margin:6px 0 8px}
+.nb-lead{font-size:14px;line-height:1.85;color:#584e48;margin:0 0 16px}
+.nb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.nb-card{padding:14px;border-radius:15px;background:#fffaf7;border:1px solid var(--line)}.nb-card span{display:block;font-size:10.5px;font-weight:700;color:var(--rose);letter-spacing:.04em}.nb-card p{margin:5px 0 0;font-size:12.5px;line-height:1.7;color:#554b45}
+.nb-actions{display:grid;grid-template-columns:1.15fr .85fr;gap:10px;margin-top:12px}.nb-actions>div{padding:15px;border-radius:15px;background:var(--soft-clay)}.nb-actions b{font-family:var(--serif);font-size:15px}.nb-actions ol{margin:8px 0 0;padding-left:20px}.nb-actions li,.nb-actions p{font-size:12.5px;line-height:1.75;color:#554b45}.nb-actions p{margin:8px 0 0}
+.nb-other{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}.nb-other>b{font-family:var(--serif);font-size:14px}.nb-other>div{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.nb-other span{padding:7px 10px;border-radius:999px;background:var(--rose-pale);font-size:11px;color:#654f48}
+@media(max-width:760px){.nb-grid,.nb-actions{grid-template-columns:1fr}}
 .biz-optional{margin:26px 0 0;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.55);overflow:hidden}
 .biz-optional>summary{cursor:pointer;padding:16px 18px;font-weight:700;color:var(--ink);list-style:none}
 .biz-optional>summary::-webkit-details-marker{display:none}
@@ -4780,7 +4788,7 @@ document.addEventListener('click',function(e){
               <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
             </div>
             <div class="entre-result" id="entreResult">
-              <span class="er-kicker">START A BUSINESS?｜起業は、選択肢のひとつ</span>
+              <span class="er-kicker">START A BUSINESS?｜起業も、起業しない道も、選択肢です</span>
               <h3 id="entreTitle">起業との今の相性</h3>
               <div class="er-meter"><i id="entreMeter"></i></div>
               <p id="entreReason"></p>
@@ -4801,6 +4809,24 @@ document.addEventListener('click',function(e){
                 </div>
               </div>
               <small>※性格を決めつける「起業家適性」ではありません。今の生活余力・不確実性への向き合い方・行動の準備度から、起業という選択肢との現在の相性を見ています。</small>
+            </div>
+            <div class="nonbiz-result" id="nonBizResult">
+              <span class="nb-kicker">IF YOU DON'T START A BUSINESS｜起業しない道も、ちゃんとあります</span>
+              <h3 id="nonBizTitle">今のあなたに合う、もう一つの進み方</h3>
+              <p class="nb-lead" id="nonBizLead"></p>
+              <div class="nb-grid">
+                <div class="nb-card"><span>01｜今の状態</span><p id="nonBizNow"></p></div>
+                <div class="nb-card"><span>02｜今、優先したいこと</span><p id="nonBizPriority"></p></div>
+                <div class="nb-card"><span>03｜今は、しなくていいこと</span><p id="nonBizNotNow"></p></div>
+              </div>
+              <div class="nb-actions">
+                <div><b>この30日でやること</b><ol id="nonBiz30"></ol></div>
+                <div><b>3か月後に、もう一度考えること</b><p id="nonBiz90"></p></div>
+              </div>
+              <div class="nb-other">
+                <b>ほかに考えられる道</b>
+                <div id="nonBizAlternatives"></div>
+              </div>
             </div>
             <div class="belly" id="rBelly" style="display:none">
               <span class="blab">9つの答えを「これからの言葉」にすると</span>
@@ -6078,6 +6104,115 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     return {score,pct,level,title,reason,nextTitle,next,paths};
   }
 
+
+  function nonStartupResult(w){
+    const q=(i)=>ans[i]||'';
+    const scores={stay:0,change:0,side:0,learn:0,rest:0,undecided:0};
+
+    // Q1 今の気持ち
+    if(q(0)==='tower'){scores.rest+=3;scores.stay+=1;}
+    if(q(0)==='light'){scores.undecided+=3;scores.learn+=1;}
+    if(q(0)==='hand'){scores.side+=2;scores.learn+=1;}
+    if(q(0)==='boat'){scores.change+=2;scores.side+=2;}
+
+    // Q2 働き方で大切なこと
+    if(q(1)==='garden'){scores.stay+=2;scores.rest+=1;}
+    if(q(1)==='tower'){scores.stay+=2;}
+    if(q(1)==='bridge'){scores.change+=2;scores.learn+=1;}
+    if(q(1)==='boat'){scores.side+=2;scores.change+=1;}
+
+    // Q3 不確実さ
+    if(q(2)==='tower'){scores.stay+=2;scores.rest+=1;}
+    if(q(2)==='light'){scores.undecided+=2;}
+    if(q(2)==='bridge'){scores.learn+=2;scores.change+=1;}
+    if(q(2)==='boat'){scores.side+=2;scores.change+=1;}
+
+    // Q5 お金の不安
+    if(q(4)==='tower'){scores.stay+=2;scores.rest+=1;}
+    if(q(4)==='garden'){scores.stay+=1;scores.side+=1;}
+    if(q(4)==='bridge'){scores.side+=2;}
+    if(q(4)==='boat'){scores.side+=2;scores.change+=1;}
+
+    // Q6 余力
+    if(q(5)==='tower'){scores.rest+=4;}
+    if(q(5)==='garden'){scores.stay+=1;scores.learn+=1;}
+    if(q(5)==='hand'){scores.side+=2;scores.learn+=1;}
+    if(q(5)==='boat'){scores.side+=3;scores.change+=1;}
+
+    // Q9 3年後
+    if(q(8)==='garden'){scores.stay+=2;scores.rest+=1;}
+    if(q(8)==='tower'){scores.stay+=2;}
+    if(q(8)==='hand'){scores.learn+=2;scores.side+=1;}
+    if(q(8)==='boat'){scores.change+=2;scores.side+=2;}
+
+    const order=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
+    const route=order[0];
+    const DATA={
+      stay:{
+        title:'今の仕事を続けながら、働き方を整える',
+        lead:'「辞める／始める」の二択にしなくて大丈夫です。今の土台を残したまま、役割・時間・人間関係を調整する方が、今は納得しやすそうです。',
+        now:'大きく環境を変えるより、今ある安定を残しながら負担を減らしたい状態です。',
+        priority:'続けたいこと・減らしたいこと・増やしたいことを、それぞれ1つずつ決めること。',
+        notNow:'勢いで退職すること。今の不満をすべて「会社そのものの問題」と決めつけること。',
+        d30:['今の仕事で「続けたい／減らしたい／増やしたい」を3列で書く','上司や家族に相談できる変更を1つだけ選ぶ','4週間、疲れ方と満足度を週1回メモする'],
+        d90:'役割や時間を変えても苦しさがほとんど変わらないなら、転職を本格的に比較する。改善したなら、今の仕事を続ける選択も立派な答えです。',
+        alts:['配置・役割変更','時短・勤務調整','副業を小さく試す','転職情報だけ集める']
+      },
+      change:{
+        title:'転職・環境変更を、起業より先に考える',
+        lead:'「自分で仕事を作る」より、まず環境を変えることで悩みが解決する可能性があります。起業しなくても、働く場所を変えるだけで人生はかなり変わります。',
+        now:'今の環境と、自分がこれから大切にしたいことの間にズレが出始めています。',
+        priority:'「会社が嫌」ではなく、仕事内容・人間関係・時間・収入・価値観のどこが合わないかを切り分けること。',
+        notNow:'転職サイトを眺め続けるだけの情報収集。条件を決めないまま応募を始めること。',
+        d30:['今の仕事で嫌なことを3つ、残したいことを3つ書く','次の職場で絶対に譲れない条件を3つ決める','条件に近い求人を5件だけ保存し、共通点を見る'],
+        d90:'「環境を変えれば解決しそう」なら転職へ。「どこへ行っても自分でやりたい」が残るなら、副業・起業を再検討する。',
+        alts:['社内異動','転職','複業','職種変更']
+      },
+      side:{
+        title:'会社を辞めず、小さな活動・副業で試す',
+        lead:'安定を手放す必要はありません。興味のあることを小さく試し、「本当に続けたいか」を自分の感覚で確かめるのが合っています。',
+        now:'変化への関心はありますが、いきなり一本に決めるより、試して判断したい状態です。',
+        priority:'売上より先に、「やっているときの自分はどう感じるか」を確かめること。',
+        notNow:'開業届、ロゴ、ホームページ、大きな設備など、試す前の形づくり。',
+        d30:['週2時間だけ「試す時間」をカレンダーに入れる','興味のあることを1つだけ、無料または低額で1回試す','終わったあと「楽しい／疲れる／またやりたい」を3行で記録する'],
+        d90:'3回以上試して「もっとやりたい」が続くなら副業として育てる。義務感が強いなら、趣味や学びとして残してよい。',
+        alts:['週末活動','副業','ボランティア','イベント参加']
+      },
+      learn:{
+        title:'いまは、学び直しで選択肢を増やす',
+        lead:'すぐに仕事を変えるより、「もっと知りたい」と思える分野を確かめる時期です。資格取得をゴールにせず、興味が続くかを見る方が大切です。',
+        now:'今の自分にはない知識や世界に触れることで、次の方向が見えやすくなる状態です。',
+        priority:'学ぶテーマを広げすぎず、3か月だけ一つ試すこと。',
+        notNow:'高額講座を一括契約すること。資格を取れば人生が決まると思うこと。',
+        d30:['気になる分野を3つ書き、そのうち1つに絞る','無料講座・本・体験会などを1つ試す','「もっと知りたいか／仕事にしたいか」を分けてメモする'],
+        d90:'興味が深まったら学習を継続。興味はあるが仕事にしたくないなら、趣味として残す。別の分野が気になったら選び直す。',
+        alts:['資格取得','オンライン講座','読書・体験会','社内研修']
+      },
+      rest:{
+        title:'今は、増やすより「減らす・休む」を優先する',
+        lead:'新しいことを始める力がないのではありません。今は余白が少ないだけです。まず回復してから考えた方が、選択を間違えにくくなります。',
+        now:'仕事や家庭など、すでに抱えているものが多く、新しい責任を足すと苦しくなりやすい状態です。',
+        priority:'何を始めるかではなく、何を一つ減らせるかを決めること。',
+        notNow:'起業準備、転職活動、資格取得を同時に始めること。疲れている状態で人生の大きな決断をすること。',
+        d30:['やめても困らない予定・役割を1つ減らす','週に30分だけ、誰のためでもない時間を確保する','「疲れること／少し元気になること」を毎週1つずつ記録する'],
+        d90:'少し余白が戻ったら、転職・学び・副業などから一つだけ選んで試す。まだ疲れているなら、決めない期間を延ばしてよい。',
+        alts:['休む','役割を減らす','勤務調整','家事・ケアの分担見直し']
+      },
+      undecided:{
+        title:'まだ決めず、「何が嫌で、何が気になるか」を集める',
+        lead:'今は答えを出す時期というより、自分の本音を集める時期です。決められないのではなく、判断材料がまだ足りていません。',
+        now:'「変えたい気持ち」はあるものの、行き先より先に現在地を整理する必要がある状態です。',
+        priority:'やりたいこと探しより、「嫌だったこと」「少し気になったこと」を集めること。',
+        notNow:'無理に目標を決めること。周りの成功例をそのまま自分の答えにすること。',
+        d30:['毎日「嫌だった／少し良かった」を1行ずつメモする','気になった仕事・人・場所を5つ保存する','月末に共通するキーワードを3つ拾う'],
+        d90:'同じ方向への興味が何度も出てきたら、小さく体験する。何も出てこなければ、まず生活の余白を増やす。',
+        alts:['情報収集','自己整理','キャリア相談','小さな体験']
+      }
+    };
+    const data=DATA[route];
+    return {route,scores,second:order[1],...data};
+  }
+
   function lowEntreAdvice(w){
     const base=[
       ['01｜退職しない','まず3〜6か月は、今の収入を残したまま試してください。起業の判断と退職の判断を同じ日にしないこと。'],
@@ -6124,6 +6259,18 @@ const LBL=["普通だと思っていること","お金になる経験","やり�
     if(ent)ent.textContent=er.nextTitle;
     if(en)en.textContent=er.next;
     if(eps)eps.innerHTML=er.paths.map(x=>'<span>'+x+'</span>').join('');
+    const nb=nonStartupResult(w);
+    window.AKINAI_NONBIZ_RESULT=nb;
+    const nbSet=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val;};
+    nbSet('nonBizTitle',nb.title);
+    nbSet('nonBizLead',nb.lead);
+    nbSet('nonBizNow',nb.now);
+    nbSet('nonBizPriority',nb.priority);
+    nbSet('nonBizNotNow',nb.notNow);
+    nbSet('nonBiz90',nb.d90);
+    const nb30=document.getElementById('nonBiz30');if(nb30)nb30.innerHTML=nb.d30.map(x=>'<li>'+x+'</li>').join('');
+    const nbAlt=document.getElementById('nonBizAlternatives');if(nbAlt)nbAlt.innerHTML=nb.alts.map(x=>'<span>'+x+'</span>').join('');
+
     const bo=document.querySelector('.biz-optional');
     const ov=document.getElementById('entreOverride'), ovBtn=document.getElementById('entreOverrideBtn'), ovAdvice=document.getElementById('entreOverrideAdvice'), ovList=document.getElementById('entreAdviceList'), ovBiz=document.getElementById('entreShowBiz');
     if(bo){bo.style.display=er.level==='low'?'none':''; bo.open=er.level==='high';}
