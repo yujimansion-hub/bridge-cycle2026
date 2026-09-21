@@ -56,7 +56,7 @@ input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px
 </main>
 <script src="akinai-config.js"></script>
 <script>
-const API_BASE=(window.AKINAI_API_BASE||'').replace(/\\/$/,'')
+const API_BASE=(window.AKINAI_API_BASE||'').replace(/\/$/,'');
 const $=id=>document.getElementById(id), status=$('status'), form=$('formCard'), result=$('result');
 const fieldIds=['product','customer','need','voice','repeat','negative','purpose','threeYears','region','hours','funds','targetIncome','digital','experience','skills','family','firstPeople','notes'];
 function workerReady(){return !!API_BASE}
@@ -70,7 +70,17 @@ function token(){return localStorage.getItem('akinai_plan_token')||''}
 async function verify(){
   restore();
   if(!workerReady()){setStatus('安全な決済確認APIは実装済みですが、Worker URLの設定がまだ必要です。','err');return}
-  const u=new URL(location.href), sid=u.searchParams.get('session_id'), ck=localStorage.getItem('akinai_ref')||'';
+  const u=new URL(location.href), resultId=u.searchParams.get('result'), sid=u.searchParams.get('session_id'), ck=localStorage.getItem('akinai_ref')||'';
+  if(resultId){
+    try{
+      const rr=await fetch(API_BASE+'/result/'+encodeURIComponent(resultId));
+      const rd=await rr.json();
+      if(!rd.ok) throw new Error(rd.error||'result_not_found');
+      render(rd.result,resultId);
+      setStatus('保存済みの商いプランを表示しています。','ok');
+      return;
+    }catch(e){setStatus('保存結果を読み込めませんでした。保存期間を過ぎている可能性があります。','err');return}
+  }
   if(sid){
     const r=await fetch(API_BASE+'/verify',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({session_id:sid,client_key:ck})});
     const d=await r.json();
@@ -104,7 +114,14 @@ $('generate').addEventListener('click',async()=>{
   try{
     const r=await fetch(API_BASE+'/generate',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+token()},body:JSON.stringify({answers:a})});
     const d=await r.json(); if(!d.ok) throw new Error(d.error||'generate_failed');
-    localStorage.setItem('akinai_last_result',JSON.stringify(d.result));render(d.result,d.result_id);setStatus('3つの商いプランができました。','ok');
+    localStorage.setItem('akinai_last_result',JSON.stringify(d.result));render(d.result,d.result_id);
+    if(d.result_id){
+      const link=location.origin+location.pathname+'?result='+encodeURIComponent(d.result_id);
+      const box=document.createElement('div');box.className='summary';box.innerHTML='<b>30日間の保存URL</b><p>スマホからPCへ移るときや、あとで見返すときに使えます。</p><input id="resultLink" value="'+esc(link)+'" readonly><div class="actions"><button class="btn ghost" id="copyLink" type="button">URLをコピー</button></div>';
+      $('resultBody').prepend(box);
+      $('copyLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(link);$('copyLink').textContent='コピーしました'}catch(e){}});
+    }
+    setStatus('3つの商いプランができました。','ok');
   }catch(e){setStatus(e.message==='generation_limit'?'生成回数の上限に達しました。':'生成できませんでした。時間をおいて再度お試しください。','err')}
   finally{$('generate').disabled=false}
 });
