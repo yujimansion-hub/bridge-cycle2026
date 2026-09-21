@@ -4417,6 +4417,20 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .hn-head .hn-lead{margin:0!important}
 .hn-face img{width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(255,255,255,.25)}
 @media(max-width:640px){.pt-face img{width:48px;height:48px}.hn-face img{width:44px;height:44px}}
+.shared-banner{display:none;margin:0 0 18px;padding:20px 22px;border-radius:18px;background:#fff;border:2px solid rgba(143,85,75,.28)}
+.res.shared-view .shared-banner{display:block}
+.shared-banner .sb-tag{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--rose,#8f554b);margin-bottom:8px}
+.shared-banner p{margin:0 0 14px!important;font-size:14.5px!important;line-height:1.85}
+.shared-banner .sb-btn{display:inline-flex;align-items:center;min-height:52px}
+.res.shared-view #currentSummary,
+.res.shared-view #entreResult,
+.res.shared-view #nonBizResult,
+.res.shared-view #entreOverride,
+.res.shared-view .biz-optional,
+.res.shared-view .result-upgrade,
+.res.shared-view .week-solo,
+.res.shared-view .share-now,
+.res.shared-view .takeout{display:none!important}
 .banso-link{padding:30px 0 10px}
 .bl-box{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 26px}
 .bl-main{flex:1 1 380px;min-width:0}
@@ -4834,6 +4848,11 @@ document.addEventListener('click',function(e){
         <div class="qnav"><button type="button" id="back" style="visibility:hidden">← ひとつ戻る</button><span>登録なし・送信なし</span></div>
 
         <div class="res" id="res">
+          <div class="shared-banner" id="sharedBanner">
+            <span class="sb-tag">SHARED RESULT｜共有された結果です</span>
+            <p><b>これは、この診断を教えてくれた人のタイプ紹介です。</b>その人の今の状況や、起業との相性は、ここには表示していません（回答の中身は共有されない仕組みです）。</p>
+            <a class="btn sb-btn" href="#fortune" id="sharedStart">私も9問やってみる →</a>
+          </div>
           <div class="rcard" id="rcard">
             <div class="lab">9問に答えてくれて、ありがとうございます。</div>
             <div class="gentle-relief">
@@ -6583,7 +6602,9 @@ const CTX_LABELS={
     const fillOtherTypes=(ol)=>{if(!ol)return;ol.innerHTML='';Object.keys(D).filter(k=>k!==w).forEach(k=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span class="s">'+D[k].sym+'</span>'+LIFE_RESULT[k].title.split('｜')[1];b.addEventListener('click',()=>{render(k,null);document.getElementById('res').scrollIntoView({behavior:'smooth',block:'start'});});ol.appendChild(b);});};
     fillOtherTypes(document.getElementById('ol'));
     fillOtherTypes(document.getElementById('olTop'));
-    res.classList.add('on'); track('free_result_shown',{type:w||''});
+    const sharedView=!ans.length&&!window.AKINAI_VOICE_RESULT;
+    res.classList.toggle('shared-view',sharedView);
+    res.classList.add('on'); track(sharedView?'shared_result_view':'free_result_shown',{type:w||''});
     try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}}catch(e){} res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
@@ -6601,6 +6622,13 @@ const CTX_LABELS={
     window.AKINAI_VOICE_RESULT=meta||null;
     render(w,w2);
   };
+
+  // ---- 共有ビューから自分の診断へ ----
+  document.getElementById('sharedStart')?.addEventListener('click',()=>{
+    try{history.replaceState(null,'',location.pathname);}catch(e){}
+    res.classList.remove('on','shared-view');
+    document.getElementById('again')?.click();
+  });
 
   // ---- 他己診断モード ----
   const t=qp.get('t'), t2=qp.get('s');
