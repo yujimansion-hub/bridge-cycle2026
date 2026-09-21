@@ -19,6 +19,10 @@ input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px
 .plans{display:grid;gap:18px}.plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.plan h3{font-family:"Yu Mincho",serif;font-size:23px;margin:4px 0 8px}.plan .one{font-weight:700;color:#6f5349}.facts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px 0}.facts div{padding:11px;background:#fffaf7;border-radius:12px}.facts small{display:block;color:var(--muted)}.facts b{font-size:14px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.steps div{background:var(--pale);padding:10px;border-radius:10px;font-size:13px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.actions .ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.stepbox{margin:18px 0 24px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#fff}
+.stepbox>h2{font-family:"Yu Mincho",serif;font-size:21px;margin:0 0 4px}.stepbox>p{font-size:13px;color:var(--muted);margin:0 0 15px}
+.ai-note{margin:18px 0 14px;padding:14px 16px;border-radius:14px;background:#fff7f3;border:1px solid #ecd3ca;font-size:12.5px;color:#5f514a}
+.ai-note b{display:block;margin-bottom:3px}.share-warning{margin-top:10px;font-size:11.5px;color:#8a5d52}.result-link{width:100%;margin-top:8px}
 @media(max-width:680px){.grid,.facts{grid-template-columns:1fr}.full{grid-column:auto}.steps{grid-template-columns:1fr}.card{padding:18px}}
 </style>
 </head>
@@ -28,28 +32,55 @@ input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px
 <section class="hero"><span class="tag">PAID｜3,300円</span><h1>あなたの条件から、<br>3つの商いプランをつくります。</h1><p>同じ案の言い換えではなく、暮らし・強み・3年後の3方向から、商品・顧客・売り方・価格構造が異なる案を設計します。</p></section>
 <div id="status" class="status">購入情報を確認しています…</div>
 <section id="formCard" class="card" hidden>
-  <div class="grid">
-    <div class="full"><label>1｜提供したい商品・サービス</label><textarea id="product" placeholder="まだ決まっていなければ、できそうなことでもOK"></textarea></div>
-    <div><label>2｜誰に提供したい？</label><input id="customer"></div>
-    <div><label>3｜どんな困りごと・欲求？</label><input id="need"></div>
-    <div class="full"><label>4｜人から実際に言われたこと・喜ばれたこと</label><textarea id="voice"></textarea></div>
-    <div><label>5｜繰り返し言われたこと</label><input id="repeat"></div>
-    <div><label>6｜不満・買わなかった理由</label><input id="negative"></div>
-    <div><label>7｜目的</label><select id="purpose"><option>収入を少し増やしたい</option><option>会社以外の自分の仕事を持ちたい</option><option>将来の独立に備えたい</option><option>経験を生かしたい</option><option>好きなことを仕事にしたい</option><option>地域・人の役に立ちたい</option><option>まだ分からない</option></select></div>
-    <div><label>8｜3年後どうなっていたい？</label><input id="threeYears"></div>
-    <div class="full"><label>9｜やりたくないこと（案から外します）</label><div class="checks" id="avoid"><label><input type="checkbox" value="飛び込み・電話営業">飛び込み・電話営業</label><label><input type="checkbox" value="SNS発信">SNS発信</label><label><input type="checkbox" value="顔出し">顔出し</label><label><input type="checkbox" value="在庫">在庫</label><label><input type="checkbox" value="夜・土日">夜・土日</label><label><input type="checkbox" value="大きな固定費">大きな固定費</label><label><input type="checkbox" value="雇用">人を雇う</label></div></div>
-    <div><label>10｜地域</label><input id="region" placeholder="例：滋賀県大津市／オンライン"></div>
-    <div><label>11｜週に使える時間</label><input id="hours" placeholder="例：週5時間"></div>
-    <div><label>12｜最初に使える自己資金</label><input id="funds" placeholder="例：5万円以内"></div>
-    <div><label>13｜目標の月収・月売上</label><input id="targetIncome" placeholder="例：まず月3万円"></div>
-    <div><label>14｜デジタル環境</label><input id="digital" placeholder="例：Instagramは使える／PCは苦手"></div>
-    <div><label>15｜これまでの仕事・経験</label><textarea id="experience"></textarea></div>
-    <div><label>16｜資格・得意なこと</label><textarea id="skills"></textarea></div>
-    <div><label>17｜家族・生活上の条件</label><textarea id="family" placeholder="例：平日昼のみ／家族時間優先"></textarea></div>
-    <div><label>18｜最初に声をかけられそうな人</label><textarea id="firstPeople"></textarea></div>
-    <div class="full"><label>19｜その他、案に反映してほしいこと</label><textarea id="notes"></textarea></div>
+  <div class="stepbox">
+    <h2>STEP 1｜これまでのあなた</h2>
+    <p>まず、すでに持っている経験や人から見た強みを教えてください。</p>
+    <div class="grid">
+      <div><label>1｜これまでの仕事・経験</label><textarea id="experience"></textarea></div>
+      <div><label>2｜資格・得意なこと</label><textarea id="skills"></textarea></div>
+      <div class="full"><label>3｜人から実際に言われたこと・喜ばれたこと</label><textarea id="voice"></textarea></div>
+      <div><label>4｜繰り返し言われたこと</label><input id="repeat"></div>
+      <div><label>5｜不満・うまくいかなかったこと</label><input id="negative"></div>
+    </div>
   </div>
-  <p class="note">途中内容はこの端末に自動保存されます。購入後30日間・最大5回の生成を想定しています。別端末へ移る場合は、現時点では回答内容は自動同期されません。</p>
+
+  <div class="stepbox">
+    <h2>STEP 2｜誰に、何を渡したい？</h2>
+    <p>まだ決まっていない項目は空欄でも構いません。</p>
+    <div class="grid">
+      <div class="full"><label>6｜提供したい商品・サービス</label><textarea id="product" placeholder="まだ決まっていなければ、できそうなことでもOK"></textarea></div>
+      <div><label>7｜誰に提供したい？</label><input id="customer"></div>
+      <div><label>8｜どんな困りごと・欲求？</label><input id="need"></div>
+      <div><label>9｜地域</label><input id="region" placeholder="例：滋賀県大津市／オンライン"></div>
+      <div><label>10｜最初に声をかけられそうな人</label><textarea id="firstPeople"></textarea></div>
+    </div>
+  </div>
+
+  <div class="stepbox">
+    <h2>STEP 3｜暮らしの条件</h2>
+    <p>できることより、「無理なく続けられる条件」を優先します。</p>
+    <div class="grid">
+      <div class="full"><label>11｜やりたくないこと（案から外します）</label><div class="checks" id="avoid"><label><input type="checkbox" value="飛び込み・電話営業">飛び込み・電話営業</label><label><input type="checkbox" value="SNS発信">SNS発信</label><label><input type="checkbox" value="顔出し">顔出し</label><label><input type="checkbox" value="在庫">在庫</label><label><input type="checkbox" value="夜・土日">夜・土日</label><label><input type="checkbox" value="大きな固定費">大きな固定費</label><label><input type="checkbox" value="雇用">人を雇う</label></div></div>
+      <div><label>12｜週に使える時間</label><input id="hours" placeholder="例：週5時間"></div>
+      <div><label>13｜最初に使える自己資金</label><input id="funds" placeholder="例：5万円以内"></div>
+      <div><label>14｜家族・生活上の条件</label><textarea id="family" placeholder="例：平日昼のみ／家族時間優先"></textarea></div>
+      <div><label>15｜デジタル環境</label><input id="digital" placeholder="例：Instagramは使える／PCは苦手"></div>
+    </div>
+  </div>
+
+  <div class="stepbox">
+    <h2>STEP 4｜どこまで行きたい？</h2>
+    <p>大きな目標でなくて大丈夫です。「まず月3万円」でも十分です。</p>
+    <div class="grid">
+      <div><label>16｜目的</label><select id="purpose"><option>収入を少し増やしたい</option><option>会社以外の自分の仕事を持ちたい</option><option>将来の独立に備えたい</option><option>経験を生かしたい</option><option>好きなことを仕事にしたい</option><option>地域・人の役に立ちたい</option><option>まだ分からない</option></select></div>
+      <div><label>17｜目標の月収・月売上</label><input id="targetIncome" placeholder="例：まず月3万円"></div>
+      <div><label>18｜3年後どうなっていたい？</label><input id="threeYears"></div>
+      <div><label>19｜その他、案に反映してほしいこと</label><textarea id="notes"></textarea></div>
+    </div>
+  </div>
+
+  <p class="note">途中内容はこの端末に自動保存されます。購入後30日間・最大5回まで生成できます。別端末へ移る場合、入力途中の内容は自動同期されません。</p>
+  <div class="ai-note"><b>生成AIの利用について</b>入力した回答は、3つの商いプランを生成するために当社が利用するAIサービスへ送信されます。氏名・住所・電話番号・勤務先の個人名など、本人や第三者を直接特定できる情報は入力しないでください。<br><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシーを確認する →</a></div>
   <button class="btn" id="generate">3つの商いプランをつくる</button>
 </section>
 <section id="result" class="card result"><div id="resultBody"></div><div class="actions"><button class="btn ghost" id="copy">結果をコピー</button><button class="btn ghost" onclick="print()">印刷・PDF保存</button></div></section>
@@ -117,7 +148,7 @@ $('generate').addEventListener('click',async()=>{
     localStorage.setItem('akinai_last_result',JSON.stringify(d.result));render(d.result,d.result_id);
     if(d.result_id){
       const link=location.origin+location.pathname+'?result='+encodeURIComponent(d.result_id);
-      const box=document.createElement('div');box.className='summary';box.innerHTML='<b>30日間の保存URL</b><p>スマホからPCへ移るときや、あとで見返すときに使えます。</p><input id="resultLink" value="'+esc(link)+'" readonly><div class="actions"><button class="btn ghost" id="copyLink" type="button">URLをコピー</button></div>';
+      const box=document.createElement('div');box.className='summary';box.innerHTML='<b>30日間の保存URL</b><p>スマホからPCへ移るときや、あとで見返すときに使えます。</p><input class="result-link" id="resultLink" value="'+esc(link)+'" readonly><p class="share-warning">※このURLを知っている人は結果を閲覧できます。第三者への共有にはご注意ください。</p><div class="actions"><button class="btn ghost" id="copyLink" type="button">URLをコピー</button></div>';
       $('resultBody').prepend(box);
       $('copyLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(link);$('copyLink').textContent='コピーしました'}catch(e){}});
     }
