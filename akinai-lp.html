@@ -41,10 +41,15 @@ h1 em{font-style:normal;color:var(--rose);background:linear-gradient(transparent
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 30px;border-radius:999px;background:var(--rose);color:#fff;font-weight:700;font-size:16px;box-shadow:0 12px 26px rgba(196,127,116,.24)}
 .btn:hover{background:var(--rose-dark);transform:translateY(-1px)}
 .micro{font-size:12px;color:var(--muted);margin-top:10px}
-.hero-card{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow);transform:rotate(1deg)}
-.hero-card small{display:block;color:var(--rose);font-weight:700;letter-spacing:.08em;margin-bottom:8px}
-.hero-card h2{font-size:29px;line-height:1.45;margin:0 0 12px}
-.hero-card p{margin:0;color:#615650;font-size:14px}
+.host-visual{position:relative;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);background:#2f2925;min-height:520px}
+.host-visual img{width:100%;height:100%;min-height:520px;object-fit:cover;object-position:center 24%;display:block;filter:saturate(.94) contrast(.98)}
+.host-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,24,21,.04) 28%,rgba(31,24,21,.82) 100%)}
+.host-copy{position:absolute;left:24px;right:24px;bottom:24px;z-index:2;color:#fff}
+.host-copy small{display:block;color:#f0c8bf;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:17px;letter-spacing:.05em;margin-bottom:5px}
+.host-copy h2{color:#fff;font-size:28px;line-height:1.45;margin:0 0 9px}
+.host-copy p{margin:0;color:#f2e9e4;font-size:13.5px;line-height:1.75}
+.host-sign{display:flex;align-items:center;gap:9px;margin-top:13px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22);font-size:11.5px;color:#e8dcd6}
+.host-sign b{font-size:13px;color:#fff}
 .thoughts{display:grid;gap:10px;margin-top:20px}
 .thoughts div{padding:14px 15px;background:#fff;border:1px solid var(--line);border-radius:16px;font-family:var(--serif);font-size:15px}
 .arrow{text-align:center;color:var(--rose);font-size:28px;margin:14px 0 8px}
@@ -86,7 +91,10 @@ footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
   .hero-grid{grid-template-columns:1fr;gap:26px}
   h1{font-size:39px}
   .lead{font-size:16px}
-  .hero-card{transform:none;padding:21px}
+  .host-visual{min-height:470px}
+  .host-visual img{min-height:470px}
+  .host-copy{left:19px;right:19px;bottom:19px}
+  .host-copy h2{font-size:25px}
   section{padding:54px 0}
   .cards,.trust{grid-template-columns:1fr}
   .final{padding-bottom:96px}
@@ -112,17 +120,23 @@ footer{padding:30px 0 90px;color:var(--muted);font-size:11px;text-align:center}
       <div class="micro">起業を勧める診断ではありません。「今はやらない」も立派な結果です。</div>
     </div>
 
-    <div class="hero-card">
-      <small>たとえば、こんなこと。</small>
-      <h2>あなたはもう、誰かの役に立っているかもしれません。</h2>
-      <div class="thoughts">
-        <div>「これ、いつも私に聞かれるな」</div>
-        <div>「なぜか、これだけは続けてきた」</div>
-        <div>「遠回りしたから、分かることがある」</div>
+    <div class="host-visual">
+      <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8820%E6%97%A5%2000_21_33.png" alt="わたしの商い診断をつくった中村裕二">
+      <div class="host-copy">
+        <small>Like a host, but for your next chapter.</small>
+        <h2>答えを押しつけるより、<br>まず、あなたの話を聞きたい。</h2>
+        <p>ホストのように、まず相手を見る。言葉になっていない気持ちを拾う。でも、起業を煽らない。それが「わたしの商い診断」の距離感です。</p>
+        <div class="host-sign"><b>中村 裕二</b><span>｜ 元・商工会経営指導員 20年以上</span></div>
       </div>
-      <div class="arrow">↓</div>
-      <div class="result"><b>それを「小さな商いの種」として言葉にする。</b><br>それが、この診断です。</div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap quote">
+    <div class="kicker">The host concept</div>
+    <p>「何をしたらいいですか？」より前に、<br>「本当は、どうしたいですか？」を聞く。</p>
+    <small>売り込むためではなく、その人の中にある言葉を見つけるために。</small>
   </div>
 </section>
 
