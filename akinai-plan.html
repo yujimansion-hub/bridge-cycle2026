@@ -54,11 +54,12 @@ input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px
 </section>
 <section id="result" class="card result"><div id="resultBody"></div><div class="actions"><button class="btn ghost" id="copy">結果をコピー</button><button class="btn ghost" onclick="print()">印刷・PDF保存</button></div></section>
 </main>
+<script src="akinai-config.js"></script>
 <script>
-const API_BASE='https://YOUR-WORKER.workers.dev'; // Workerデプロイ後に置換
+const API_BASE=(window.AKINAI_API_BASE||'').replace(/\\/$/,'')
 const $=id=>document.getElementById(id), status=$('status'), form=$('formCard'), result=$('result');
 const fieldIds=['product','customer','need','voice','repeat','negative','purpose','threeYears','region','hours','funds','targetIncome','digital','experience','skills','family','firstPeople','notes'];
-function workerReady(){return !API_BASE.includes('YOUR-WORKER')}
+function workerReady(){return !!API_BASE}
 function getDraft(){try{return JSON.parse(localStorage.getItem('akinai_plan_draft')||'{}')}catch(e){return {}}}
 function saveDraft(){const a=answers();localStorage.setItem('akinai_plan_draft',JSON.stringify(a))}
 function answers(){const a={};fieldIds.forEach(k=>a[k]=$(k)?.value||'');a.avoid=[...document.querySelectorAll('#avoid input:checked')].map(x=>x.value);return a}
