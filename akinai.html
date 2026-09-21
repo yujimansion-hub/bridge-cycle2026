@@ -4524,7 +4524,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .pc-kicker,.cs-kicker{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.06em}
 .private-context h3,.current-summary h3{font-family:var(--serif);font-size:clamp(21px,3vw,29px);line-height:1.55;margin:6px 0 8px}
 .pc-lead{font-size:13px;color:#655a53;margin:0 0 18px}
-.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pc-grid label{display:block}.pc-grid label>span{display:block;font-size:12px;font-weight:700;margin-bottom:5px}.pc-grid select,.pc-grid textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:14px}.pc-grid textarea{min-height:86px;resize:vertical}.pc-grid .pc-wide{grid-column:1/-1}.pc-grid small{font-size:10px;color:var(--muted);font-weight:500}
+.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pc-grid label{display:block}.pc-grid label>span{display:block;font-size:12px;font-weight:700;margin-bottom:5px}.pc-grid select,.pc-grid input,.pc-grid textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:14px}.pc-grid textarea{min-height:86px;resize:vertical}.pc-grid .pc-wide{grid-column:1/-1}.pc-grid small{font-size:10px;color:var(--muted);font-weight:500}
 .pc-privacy{margin-top:15px;padding:11px 13px;border-left:3px solid var(--rose);background:#fffaf7;font-size:11.5px;line-height:1.7;color:#675b54}.pc-privacy b{color:var(--ink)}.pc-start{margin-top:15px}
 .current-summary{margin:20px 0;padding:20px;border:1px solid var(--line);border-radius:20px;background:#fffaf7}.cs-lines{display:grid;gap:8px;margin-top:12px}.cs-lines div{padding:9px 11px;background:#fff;border-radius:11px;font-size:12.5px;line-height:1.7;color:#554b45}.cs-lines b{color:var(--ink)}.cs-memo{margin:10px 0 0;padding:12px 14px;border-left:3px solid var(--rose);font-family:var(--serif);font-size:14px;line-height:1.8;background:#fff}
 @media(max-width:760px){.pc-grid{grid-template-columns:1fr}.pc-grid .pc-wide{grid-column:auto}.private-context{padding:20px 17px}}
@@ -4659,11 +4659,11 @@ document.addEventListener('click',function(e){
 
 
       <div class="private-context" id="privateContext">
-        <span class="pc-kicker">BEFORE THE 9 QUESTIONS｜まず、今の暮らしを少しだけ</span>
-        <h3>誰にも説明しなくていいので、<br>今の状況に近いものを選んでください。</h3>
-        <p class="pc-lead">正確な金額や個人情報は要りません。答えにくいものは「答えたくない」で大丈夫です。</p>
+        <span class="pc-kicker">BEFORE THE 9 QUESTIONS｜ちょっとだけ、今の話を。</span>
+        <h3>かしこまらなくて大丈夫。<br>「今こんな感じ」に近いものを。</h3>
+        <p class="pc-lead">正確な金額も、きれいな答えもいりません。ここは誰かに見せる履歴書ではなく、自分の頭の中をほどく場所です。</p>
         <div class="pc-grid">
-          <label><span>今の働き方</span>
+          <label><span>いま、どんな働き方？</span>
             <select id="ctxWork">
               <option value="">選ばなくてもOK</option>
               <option value="employee">会社員・公務員</option>
@@ -4674,7 +4674,20 @@ document.addEventListener('click',function(e){
               <option value="other">その他</option>
             </select>
           </label>
-          <label><span>家族・生活上の責任</span>
+          <label><span>今の仕事、ひとことで言うと？</span>
+            <input id="ctxJob" type="text" maxlength="50" placeholder="例：営業事務／看護師／接客／経理／今は働いていない">
+          </label>
+          <label><span>今の仕事、ほんとのところどう？</span>
+            <select id="ctxWorkFeel">
+              <option value="">まだうまく言えない</option>
+              <option value="like">けっこう好き。できれば続けたい</option>
+              <option value="mixed">嫌いじゃない。でも、このまま？とは思う</option>
+              <option value="tired">正直、ちょっとしんどい</option>
+              <option value="leave">できれば離れたい気持ちがある</option>
+              <option value="lost">自分でもよく分からなくなってきた</option>
+            </select>
+          </label>
+          <label><span>家族のこと、今どれくらい気になる？</span>
             <select id="ctxFamily">
               <option value="">選ばなくてもOK</option>
               <option value="heavy">子育て・介護など、今かなり大きい</option>
@@ -4684,7 +4697,7 @@ document.addEventListener('click',function(e){
               <option value="private">答えたくない</option>
             </select>
           </label>
-          <label><span>毎月の家計の余裕</span>
+          <label><span>お金のこと、今どれくらい気になる？</span>
             <select id="ctxMargin">
               <option value="">選ばなくてもOK</option>
               <option value="deficit">赤字になる月がある</option>
@@ -4694,7 +4707,7 @@ document.addEventListener('click',function(e){
               <option value="private">答えたくない</option>
             </select>
           </label>
-          <label><span>あなたの収入が減ったら</span>
+          <label><span>もし自分の収入が少し減ったら？</span>
             <select id="ctxIncome">
               <option value="">選ばなくてもOK</option>
               <option value="critical">家計がすぐ厳しくなる</option>
@@ -4704,7 +4717,7 @@ document.addEventListener('click',function(e){
               <option value="private">答えたくない</option>
             </select>
           </label>
-          <label><span>家族や身近な人に、この悩みを</span>
+          <label><span>この悩み、誰かに話せてる？</span>
             <select id="ctxTalk">
               <option value="">選ばなくてもOK</option>
               <option value="can">ある程度話せている</option>
@@ -4714,7 +4727,7 @@ document.addEventListener('click',function(e){
               <option value="private">答えたくない</option>
             </select>
           </label>
-          <label><span>今、いちばん重い悩み</span>
+          <label><span>今いちばん、頭の片隅にいるのは？</span>
             <select id="ctxWorry">
               <option value="">まだ分からない</option>
               <option value="stay">今の仕事をこのまま続けるか</option>
@@ -4727,7 +4740,7 @@ document.addEventListener('click',function(e){
               <option value="future">将来がなんとなく不安</option>
             </select>
           </label>
-          <label class="pc-wide"><span>本当は、どうなったら少し楽になりそう？</span>
+          <label class="pc-wide"><span>「こうなったら、ちょっといいかも」は？</span>
             <select id="ctxHope">
               <option value="">まだ言葉にならない</option>
               <option value="stability">安心して暮らせる状態をつくりたい</option>
@@ -4739,12 +4752,15 @@ document.addEventListener('click',function(e){
               <option value="unknown">まだ分からない。ただ、このままは嫌</option>
             </select>
           </label>
+          <label class="pc-wide"><span>もし誰にも止められなかったら、一度はやってみたいことある？ <small>任意・80文字まで</small></span>
+            <input id="ctxDream" type="text" maxlength="80" placeholder="例：小さなお店をやる／海の近くで暮らす／もう一度勉強する／海外に行く／特にまだない">
+          </label>
           <label class="pc-wide"><span>人には言いにくいけど、頭から離れないこと <small>任意・120文字まで</small></span>
             <textarea id="ctxMemo" maxlength="120" placeholder="例：辞めたい気持ちはある。でも家のローンもあるし、子どものことを考えると動けない。"></textarea>
           </label>
         </div>
         <div class="pc-privacy"><b>ここは「相談の前の整理」です。</b>この欄の内容は、このページ内で診断結果を組み立てるために使い、この診断から外部へ送信しません。</div>
-        <a class="btn pc-start" href="#qz">ここまでを踏まえて、9問に進む →</a>
+        <a class="btn pc-start" href="#qz">うん、こんな感じ。9問に進む →</a>
       </div>
 
       <div class="qz" id="qz">
@@ -4831,7 +4847,7 @@ document.addEventListener('click',function(e){
               <p>そう思えたら、少しだけ気持ちが軽くなることがあると思っています。</p>
               <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
             </div>
-            <p class="result-basis">9つの回答から、「自分らしい選び方・進み方」と、起業を含むこれからの選択肢との今の相性を整理します。診断の本体は、あなた自身の回答と経験です。占い要素は任意の読み物として分けています。</p>
+            <p class="result-basis">今の仕事、家族、お金、言いにくい悩み、そして「本当はこうしたい」を9つの回答と重ねて、これからの選択肢を整理します。転職や起業を先に決めるためではなく、相談へ行く前に自分の考えを言葉にするための結果です。</p>
             <span class="result-section-label">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
@@ -6154,10 +6170,13 @@ const LBL=["今の気持ち","働き方で大切なこと","不確実さとの�
 function currentContext(){
   const val=id=>document.getElementById(id)?.value||'';
   const memo=(document.getElementById('ctxMemo')?.value||'').trim();
-  return {work:val('ctxWork'),family:val('ctxFamily'),margin:val('ctxMargin'),income:val('ctxIncome'),talk:val('ctxTalk'),worry:val('ctxWorry'),hope:val('ctxHope'),memo};
+  const job=(document.getElementById('ctxJob')?.value||'').trim();
+  const dream=(document.getElementById('ctxDream')?.value||'').trim();
+  return {work:val('ctxWork'),job,workFeel:val('ctxWorkFeel'),family:val('ctxFamily'),margin:val('ctxMargin'),income:val('ctxIncome'),talk:val('ctxTalk'),worry:val('ctxWorry'),hope:val('ctxHope'),dream,memo};
 }
 const CTX_LABELS={
   work:{employee:'会社員・公務員',part:'パート・アルバイト',self:'個人事業・フリーランス',leave:'休職中・離職中',home:'家事・育児を中心にしている',other:'その他'},
+  workFeel:{like:'けっこう好き。できれば続けたい',mixed:'嫌いではない。でも、このまま？とは思う',tired:'正直、ちょっとしんどい',leave:'できれば離れたい気持ちがある',lost:'自分でもよく分からなくなってきた'},
   family:{heavy:'家族への責任が今かなり大きい',some:'家族への責任はあるが少し余白もある',light:'比較的自分で時間を決めやすい',solo:'自分中心に決めやすい',private:'家族のことは答えない'},
   margin:{deficit:'赤字になる月がある',tight:'家計にほとんど余裕がない',small:'家計に少し余裕がある',room:'家計にある程度余裕がある',private:'家計の余裕は答えない'},
   income:{critical:'自分の収入が減ると家計がすぐ厳しい',important:'自分の収入減は家計にかなり影響する',manageable:'収入が少し減る程度なら調整できる',flexible:'収入が減ってもしばらく対応できる',private:'収入の影響は答えない'},
@@ -6203,6 +6222,8 @@ const CTX_LABELS={
     else if(ctx.income==='important')score-=1;
     if(ctx.family==='heavy')score-=1;
     if(ctx.talk==='hard'||ctx.talk==='none')score-=1;
+    if(ctx.workFeel==='tired')score-=1;
+    if(ctx.workFeel==='leave'&&ctx.margin!=='room')score-=1;
     if(ctx.work==='leave'&&ctx.margin!=='room')score-=1;
     score=Math.max(0,score);
     const max=18, pct=Math.round(score/max*100);
@@ -6278,6 +6299,11 @@ const CTX_LABELS={
     if(ctx.income==='critical'||ctx.income==='important'){scores.stay+=2;scores.side-=1;}
     if(ctx.family==='heavy'){scores.rest+=2;scores.stay+=1;}
     if(ctx.talk==='hard'||ctx.talk==='none'){scores.undecided+=2;scores.rest+=1;}
+    if(ctx.workFeel==='like'){scores.stay+=3;}
+    if(ctx.workFeel==='mixed'){scores.undecided+=2;scores.change+=1;}
+    if(ctx.workFeel==='tired'){scores.rest+=2;scores.change+=1;}
+    if(ctx.workFeel==='leave'){scores.change+=4;}
+    if(ctx.workFeel==='lost'){scores.undecided+=3;scores.rest+=1;}
     if(ctx.worry==='change'){scores.change+=4;}
     if(ctx.worry==='stay'){scores.stay+=3;}
     if(ctx.worry==='money'){scores.stay+=2;scores.rest+=1;}
@@ -6400,12 +6426,15 @@ const CTX_LABELS={
     if(cs){
       const rows=[];
       if(ctx.work&&CTX_LABELS.work[ctx.work])rows.push(['今の働き方',CTX_LABELS.work[ctx.work]]);
+      if(ctx.job)rows.push(['今の仕事',ctx.job]);
+      if(ctx.workFeel&&CTX_LABELS.workFeel[ctx.workFeel])rows.push(['今の仕事への本音',CTX_LABELS.workFeel[ctx.workFeel]]);
       if(ctx.family&&CTX_LABELS.family[ctx.family])rows.push(['家族・生活',CTX_LABELS.family[ctx.family]]);
       if(ctx.margin&&CTX_LABELS.margin[ctx.margin])rows.push(['家計',CTX_LABELS.margin[ctx.margin]]);
       if(ctx.income&&CTX_LABELS.income[ctx.income])rows.push(['収入',CTX_LABELS.income[ctx.income]]);
       if(ctx.talk&&CTX_LABELS.talk[ctx.talk])rows.push(['誰かに話せているか',CTX_LABELS.talk[ctx.talk]]);
       if(ctx.worry&&CTX_LABELS.worry[ctx.worry])rows.push(['いちばん重い悩み',CTX_LABELS.worry[ctx.worry]]);
       if(ctx.hope&&CTX_LABELS.hope[ctx.hope])rows.push(['本当はこうなりたい',CTX_LABELS.hope[ctx.hope]]);
+      if(ctx.dream)rows.push(['人生で一度は',ctx.dream]);
       cs.innerHTML=(rows.length?rows:[['現在地','まだはっきり言葉になっていません。それも今の大切な情報です。']]).map(r=>'<div><b>'+r[0]+'：</b>'+r[1]+'</div>').join('');
     }
     const cm=document.getElementById('currentMemoEcho');
@@ -6424,7 +6453,7 @@ const CTX_LABELS={
     window.AKINAI_NONBIZ_RESULT=nb;
     const nbSet=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val;};
     nbSet('nonBizTitle',nb.title);
-    nbSet('nonBizLead',nb.lead);
+    nbSet('nonBizLead',nb.lead+(ctx.dream?' 「'+ctx.dream+'」という気持ちも、今すぐ仕事に変えなくて大丈夫。人生の選択肢として残しておきましょう。':''));
     nbSet('nonBizNow',nb.now);
     nbSet('nonBizPriority',nb.priority);
     nbSet('nonBizNotNow',nb.notNow);
