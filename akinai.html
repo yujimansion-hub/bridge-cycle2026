@@ -4832,6 +4832,34 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .biz-optional>summary:after{content:"＋";float:right;color:var(--rose)}
 .biz-optional[open]>summary:after{content:"−"}
 .biz-optional-inner{padding:0 18px 18px}
+
+/* PAID VALUE-FIRST REBUILD 2026-09-22 */
+.paid-head-v2{max-width:940px;margin:0 auto}
+.paid-head-v2 .paid-sub{max-width:760px}
+.paid-takeaway{margin:24px 0 18px;padding:22px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:0 16px 40px rgba(90,66,52,.07)}
+.ptw-kicker{display:block;font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:14px}
+.ptw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ptw-grid>div{padding:16px;border-radius:18px;background:#faf7f3;border:1px solid rgba(230,217,207,.9)}
+.ptw-grid i{display:block;font-style:normal;font-family:var(--en);font-size:18px;color:var(--rose);margin-bottom:5px}
+.ptw-grid b{display:block;font-family:var(--serif);font-size:17px;line-height:1.55;font-weight:500;color:var(--ink)}
+.ptw-grid span{display:block;margin-top:6px;font-size:11.5px;line-height:1.6;color:var(--muted)}
+.paid-plan-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.ppc{padding:18px;border-radius:20px;border:1px solid var(--line);background:#fff}
+.ppc small{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--rose);margin-bottom:5px}
+.ppc b{display:block;font-family:var(--serif);font-size:26px;font-weight:500;line-height:1.2;color:var(--ink)}
+.ppc p{margin:8px 0 0!important;font-size:12.5px!important;line-height:1.7;color:#625851!important}
+.ppc.protect{background:linear-gradient(145deg,#fff,#f2eee8)}
+.ppc.use{background:linear-gradient(145deg,#fff,#f8e9e4)}
+.ppc.grow{background:linear-gradient(145deg,#fff,#eef0e8)}
+.paid-cta-top-v2{margin-top:20px;padding:18px;border-radius:20px;background:#fff;border:1px solid var(--line)}
+.paid-cta-top-v2 .btn{min-height:58px;font-size:16px;padding:0 28px}
+@media(max-width:760px){
+  .ptw-grid,.paid-plan-cards{grid-template-columns:1fr}
+  .paid-takeaway{padding:18px}
+  .ptw-kicker{font-size:18px}
+  .ppc{padding:15px 16px}
+  .ppc b{font-size:22px}
+}
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
@@ -5516,23 +5544,39 @@ document.addEventListener('click',function(e){
 
   <section id="price" class="paid-app">
     <div class="wrap paid-shell">
-      <div class="paid-head">
+      <div class="paid-head paid-head-v2">
         <span class="step-pill" id="paidPill">わたしの商い設計 ／ 3,300円 ／ Web完結</span>
         <h2>「ちょっとやってみたい」を、<br>暮らしを壊さず試せる形に。</h2>
-        <p class="paid-sub"><b>守る。活かす。育てる。</b><br>今の暮らしを壊さない3つの商いを比べます。<br><span class="ps-note">面談なし。その場でWeb上に表示します。</span></p><div class="paid-principle"><small>この診断が大事にしていること</small><b>大きく始めるためではなく、<br>失敗しても暮らしが壊れない始め方を考えます。</b><span>「今はやらない」も、きちんとした答えのひとつです。</span></div>
-        <div class="paid-deliver">
-          <div>守る</div><i>＋</i><div>活かす</div><i>＋</i><div>育てる</div>
+        <p class="paid-sub"><b>無料で「私に何がある？」まで。</b><br>ここからは、「じゃあ、どうやる？」を3つの商いにします。</p>
+
+        <div class="paid-takeaway" aria-label="3,300円で持ち帰れるもの">
+          <span class="ptw-kicker">3,300円で持ち帰る、3つ。</span>
+          <div class="ptw-grid">
+            <div><i>01</i><b>私に合う<br>3つの商い</b><span>守る・活かす・育てる</span></div>
+            <div><i>02</i><b>顧客・商品・価格まで<br>入った具体案</b><span>必要件数・時間・資金も</span></div>
+            <div><i>03</i><b>最初の3人と<br>90日の動き方</b><span>続ける／やめる基準まで</span></div>
+          </div>
         </div>
+
+        <div class="paid-plan-cards" aria-label="3つの商いの考え方">
+          <article class="ppc protect"><small>PLAN A</small><b>守る</b><p>今の暮らしを変えずに、小さく試す。</p></article>
+          <article class="ppc use"><small>PLAN B</small><b>活かす</b><p>今ある経験・強みを、そのまま価値にする。</p></article>
+          <article class="ppc grow"><small>PLAN C</small><b>育てる</b><p>3年後につながる形を、無理なく育てる。</p></article>
+        </div>
+
         <ul class="paid-items" aria-label="レポートに入る項目">
           <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>時間</li><li>家族</li><li>最初の3人</li><li>90日</li>
         </ul>
-        <p class="paid-voice">聞いたまま終わらせず、<b>「じゃあ何ができる？」まで出す。</b>それが、この診断の役目です。</p>
-        <div class="paid-trust-row"><span class="pt-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>大きく始めるより、暮らしを壊さず試せる形を。20年以上の相談現場で見てきた判断基準を、この3案に落とし込んでいます。</span><small>つくった人　中村裕二</small></p></div>
-        <div class="paid-cta-top">
-          <a class="btn" href="#paidEngine">私なら、どんな商いがありそう？　3,300円 →</a>
+
+        <div class="paid-principle"><small>この設計が大事にしていること</small><b>大きく始めるためではなく、<br>失敗しても暮らしが壊れない始め方を考えます。</b><span>「今はやらない」も、きちんとした答えのひとつです。</span></div>
+
+        <div class="paid-cta-top paid-cta-top-v2">
+          <a class="btn" href="#paidEngine">私の3案を見る　3,300円 →</a>
           <div class="pct-flow" id="paidTopFlow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
           <small class="pct-note" id="paidTopNote">受付準備中</small>
         </div>
+
+        <div class="paid-trust-row"><span class="pt-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>大きく始めるより、暮らしを壊さず試せる形を。20年以上の相談現場で見てきた判断基準を、この3案に落とし込んでいます。</span><small>つくった人　中村裕二</small></p></div>
       </div>
 
       <figure class="report-hero-image report-hero-top">
@@ -5568,7 +5612,7 @@ document.addEventListener('click',function(e){
         </tbody>
       </table>
       <p class="cmp2-turn big">無料で「何がありそう？」まで。<br>3,300円で「じゃあ、どうやる？」まで。</p>
-      <p class="cmp2-emo">ここからは、あなたの話を<br class="sp">「仕事として通用する言葉」にして返します。</p>
+      <p class="cmp2-emo">ここからは、あなたの「やってみたい」を<br class="sp">商品・価格・最初の一歩まで形にします。</p>
 
       <div class="host-note">
         <div class="hn-head"><span class="hn-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="hn-lead">別に、起業した方がいいとは思ってません。</p></div>
@@ -5661,11 +5705,11 @@ document.addEventListener('click',function(e){
           </div>
 
           <div class="report-uses">
-            <div><b>AIで追加検討</b><small>弱点・販促・文章化</small></div>
-            <div><b>補助金の準備</b><small>事業目的・取組の整理</small></div>
-            <div><b>融資相談</b><small>計画のたたき台</small></div>
-            <div><b>商工会・専門家</b><small>相談資料として</small></div>
+            <div><b>自分で比較して決める</b><small>3案を同じ基準で見る</small></div>
             <div><b>家族への説明</b><small>時間・資金を共有</small></div>
+            <div><b>AIで追加検討</b><small>弱点・販促・文章化</small></div>
+            <div><b>商工会・専門家</b><small>相談資料として</small></div>
+            <div><b>補助金・融資の準備</b><small>計画のたたき台</small></div>
           </div>
           <p class="report-volume-note">※上記はサンプルです。実際のレポートは、ご入力いただいた回答をもとにこのページ上で自動作成され、その場で表示されます。市場・競合・売上は仮説を含み、実行前の確認が必要です。</p>
           </details>
