@@ -78,6 +78,18 @@ h1,h2,h3.serif,.serif{font-family:var(--serif)}
 .bdone h3{font-family:var(--serif);font-size:20px;font-weight:500;margin:12px 0 10px}
 .bdone p{font-size:13.5px;color:#6b605a;line-height:1.9;margin:0}
 
+
+.maker-belief{padding:0 0 26px}
+.maker-belief-card{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:rgba(255,250,245,.88);border:1px solid var(--line);border-radius:22px;padding:16px 18px;box-shadow:0 10px 30px rgba(90,66,52,.06)}
+.maker-belief-face{width:58px;height:58px;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:#fff}
+.maker-belief-face img{width:100%;height:100%;object-fit:cover;display:block}
+.maker-belief-copy small{display:block;color:var(--rose);font-weight:700;letter-spacing:.08em;margin-bottom:3px}
+.maker-belief-copy b{display:block;font-family:var(--serif);font-size:18px;line-height:1.55;font-weight:500}
+.maker-belief-copy p{margin:4px 0 0;font-size:12.5px;line-height:1.7;color:#665b54}
+.maker-belief a{font-size:12px;color:var(--rose);font-weight:700;white-space:nowrap}
+.paid-trust-row .paid-trust b{display:block;font-family:var(--serif);font-size:17px;line-height:1.6;margin-bottom:5px;color:var(--ink)}
+.paid-trust-row .paid-trust span{display:block;font-size:12.5px;line-height:1.7;color:#665b54}
+@media(max-width:680px){.maker-belief-card{grid-template-columns:auto 1fr}.maker-belief-card>a{grid-column:2}.maker-belief-copy b{font-size:16px}}
 /* ===== HERO ===== */
 .hero{padding:48px 0 38px}
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:38px;align-items:center}
@@ -4661,6 +4673,22 @@ document.addEventListener('click',function(e){
     </div>
   </section>
 
+  <section class="maker-belief" aria-label="この診断をつくった人">
+    <div class="wrap">
+      <div class="maker-belief-card">
+        <span class="maker-belief-face">
+          <picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二" loading="lazy" decoding="async" width="320" height="320"></picture>
+        </span>
+        <div class="maker-belief-copy">
+          <small>つくった人｜中村裕二</small>
+          <b>起業を勧めるために、つくった診断ではありません。</b>
+          <p>始めた人も、迷った人も、やめた人も見てきた。だから先に「あなたは、どうしたい？」から考えます。</p>
+        </div>
+        <a href="akinai-profile.html">つくった人を見る →</a>
+      </div>
+    </div>
+  </section>
+
   <section class="yesbox" aria-label="こんなこと、ありませんか？">
     <div class="wrap">
       <div class="yesbox-head">
@@ -5178,7 +5206,7 @@ document.addEventListener('click',function(e){
           <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>時間</li><li>家族</li><li>最初の3人</li><li>90日</li>
         </ul>
         <p class="paid-voice">聞いたまま終わらせず、<b>「じゃあ何ができる？」まで出す。</b>それが、この診断の役目です。</p>
-        <div class="paid-trust-row"><span class="pt-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="paid-trust">商工会で20年以上、創業から廃業まで500社以上の相談経験をもとに設計しています。<small>つくった人　中村裕二</small></p></div>
+        <div class="paid-trust-row"><span class="pt-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>大きく始めるより、暮らしを壊さず試せる形を。20年以上の相談現場で見てきた判断基準を、この3案に落とし込んでいます。</span><small>つくった人　中村裕二</small></p></div>
         <div class="paid-cta-top">
           <a class="btn" href="#paidEngine">私なら、どんな商いがありそう？　3,300円 →</a>
           <div class="pct-flow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
