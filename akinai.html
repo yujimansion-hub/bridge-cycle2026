@@ -6219,8 +6219,10 @@ const CTX_LABELS={
   document.getElementById('again').addEventListener('click',()=>{
     ans=[];show(0);
     try{if(location.search)history.replaceState(null,'',location.pathname);}catch(e){}
-    // 結果ブロックが消えて文書が縮んだ後に位置を合わせる（縮む前にsmoothスクロールすると末尾に取り残される）
-    requestAnimationFrame(()=>{const y=qz.getBoundingClientRect().top+window.scrollY-96;window.scrollTo({top:Math.max(0,y),behavior:'auto'});});
+    // 結果ブロック（display:none）が消えて文書が縮んだ直後に、即時スクロールで位置を合わせる。
+    // smooth／rAF はバックグラウンドタブや縮小中に動かず、末尾に取り残されることがある。
+    const y=qz.getBoundingClientRect().top+window.scrollY-96;
+    window.scrollTo({top:Math.max(0,y),behavior:'instant'});
   });
   function finish(){window.AKINAI_VOICE_RESULT=null;const {sc,order}=scoreOf(ans);const top=Math.max(...Object.values(sc),1);window.AKINAI_SCORE_MIX=order.filter(k=>sc[k]>0).slice(0,3).map(k=>({k,score:sc[k],pct:Math.round(sc[k]/top*100)}));render(order[0], sc[order[1]]>0?order[1]:null);}
   function nm(w,w2){return w2?NAME[w][w2][0]:D[w].title.split('｜')[1];}
