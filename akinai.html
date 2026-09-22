@@ -4198,9 +4198,11 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .nav .brand span:last-child{display:flex!important}
   .nav .brand small{display:none}
   .nav-links .btn{display:inline-flex!important}
-  .nav-inner{min-height:54px;gap:10px}
-  .brand{font-size:13.5px;min-width:0}
-  .brand>span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-inner{min-height:54px;gap:8px;flex-wrap:nowrap}
+  .brand{font-size:12.5px;min-width:0;flex:1 1 auto}
+  .brand-mark{flex:none}
+  .brand>span:last-child{white-space:nowrap;overflow:visible;text-overflow:clip}
+  .nav-links{flex:none}
 
   /* 7. スマホの見出し：6行→4行に収め、リード文とCTAを引き上げる */
   .hero.hero-v3{padding:28px 0 28px!important}
@@ -4248,14 +4250,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 /* ヒーロー見出し（2026-09-20 尖らせ版） */
 .hero.hero-v3 .hero-v3-copy h1 i{font-style:normal;display:inline-block}
 .hero.hero-v3 .hero-v3-copy h1{font-size:clamp(30px,3.1vw,44px)!important;line-height:1.46!important}
-.hero-v3-copy h1 b{display:block;font-weight:500;color:var(--ink);margin:.08em 0 .18em}
-.hero-v3-copy h1 span{display:block;margin-top:.08em;font-size:1.18em}
+.hero-v3-copy h1 b{display:block;font-weight:500;color:var(--ink);margin:.04em 0 .02em}
+.hero-v3-copy h1 span{display:block;margin-top:0;font-size:1.18em}
 .hero-v3-lead{font-size:15px!important;letter-spacing:.04em}
 
 .hero-v3-sub{font-size:15.5px;line-height:1.85;color:var(--body,#3d443e);margin:0 0 20px;max-width:620px}
 .hero-v3-sub{font-weight:700}
 @media(max-width:760px){
-  .hero.hero-v3 .hero-v3-copy h1{font-size:clamp(24px,6.4vw,30px)!important;line-height:1.5!important}
+  .hero.hero-v3 .hero-v3-copy h1{font-size:clamp(24px,6.4vw,30px)!important;line-height:1.34!important}
   .hero-v3-sub{font-size:14.5px;margin-bottom:16px}
 }
 
@@ -4289,6 +4291,26 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .hero-emotion b{font-family:var(--serif);font-size:19px;font-weight:500;color:#3f443f;display:block;margin-top:2px}
 .hero-v3-sub{margin:14px 0 0!important;font-size:14.5px!important;color:#6a5f58!important}
 .hero-v3-visual{display:flex;flex-direction:column}
+.hero-self-board{position:relative;min-height:430px;border-radius:28px;padding:26px;background:linear-gradient(155deg,#fffdf9,#f5e8e2);border:1px solid var(--line);box-shadow:0 24px 60px rgba(90,66,52,.12);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero-self-board:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-80px;top:-70px;background:rgba(196,127,116,.10)}
+.hsb-top{position:relative;z-index:1;margin-bottom:18px}
+.hsb-top span{display:block;font-family:var(--en);font-style:italic;color:var(--rose);font-size:13px;letter-spacing:.12em}
+.hsb-top small{display:block;margin-top:3px;font-size:12px;color:var(--muted)}
+.hsb-list{position:relative;z-index:1;display:grid;gap:10px}
+.hsb-list>div{display:grid;grid-template-columns:32px 62px 1fr;align-items:center;gap:10px;padding:13px 14px;border-radius:15px;background:#fff;border:1px solid var(--line)}
+.hsb-list i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;background:var(--sage-pale);color:#617054}
+.hsb-list span{font-size:12px;color:#7a6f68;font-weight:700}
+.hsb-list b{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--ink)}
+.hsb-list .self{border:1.5px dashed var(--rose);background:#fff8f4}
+.hsb-list .self i{background:var(--rose-pale);color:var(--rose)}
+.hsb-list .self b{border-bottom:1px solid rgba(196,127,116,.45);min-height:24px}
+.hsb-question{position:relative;z-index:1;margin-top:22px;font-family:var(--serif);font-size:clamp(28px,4vw,40px);line-height:1.2;color:var(--rose);text-align:right;font-weight:500}
+@media(max-width:760px){
+  .hero-self-board{min-height:auto;padding:20px 16px 22px;border-radius:22px}
+  .hsb-list>div{grid-template-columns:28px 52px 1fr;padding:11px 12px;gap:8px}
+  .hsb-list b{font-size:13px}
+  .hsb-question{font-size:30px;margin-top:16px}
+}
 .hero-v3-visual .hero-v3-photo{aspect-ratio:4/5;transform:none!important}
 .hero-peek{position:relative;z-index:2;margin:-46px 18px 0;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 20px 16px;box-shadow:0 20px 48px rgba(34,38,34,.14)}
 .hp-tag{display:block;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--rose,#8f554b);margin-bottom:10px}
@@ -4666,8 +4688,18 @@ document.addEventListener('click',function(e){
       </div>
 
       <div class="hero-v3-visual">
-        <div class="hero-photo hero-v3-photo" aria-label="落ち着いて自分のことを考える時間">
-          <img id="heroMoodImage" src="assets/akinai-host-hero.webp?v=20260919-2240" alt="やわらかな灯りの部屋で、自分のこれからを静かに考えている女性" loading="eager" decoding="async">
+        <div class="hero-self-board" aria-label="家族、仕事、お金の予定は埋まっているのに、自分のこれからだけ空白になっているイメージ">
+          <div class="hsb-top">
+            <span>THIS WEEK</span>
+            <small>みんなのことは、ちゃんと考えてる。</small>
+          </div>
+          <div class="hsb-list">
+            <div class="done"><i>✓</i><span>家族</span><b>学校・家事・予定</b></div>
+            <div class="done"><i>✓</i><span>仕事</span><b>締切・連絡・段取り</b></div>
+            <div class="done"><i>✓</i><span>お金</span><b>支払い・貯金・これから</b></div>
+            <div class="self"><i>?</i><span>私</span><b>　　　　　　　　　</b></div>
+          </div>
+          <div class="hsb-question">で、私は？</div>
         </div>
         <div class="hero-peek" aria-label="9問に答えると出てくるもの（例）">
           <span class="hp-tag">9問のあとに見えるもの</span>
