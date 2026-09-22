@@ -4621,6 +4621,18 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .nb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.nb-card{padding:14px;border-radius:15px;background:#fffaf7;border:1px solid var(--line)}.nb-card span{display:block;font-size:10.5px;font-weight:700;color:var(--rose);letter-spacing:.04em}.nb-card p{margin:5px 0 0;font-size:12.5px;line-height:1.7;color:#554b45}
 .nb-actions{display:grid;grid-template-columns:1.15fr .85fr;gap:10px;margin-top:12px}.nb-actions>div{padding:15px;border-radius:15px;background:var(--soft-clay)}.nb-actions b{font-family:var(--serif);font-size:15px}.nb-actions ol{margin:8px 0 0;padding-left:20px}.nb-actions li,.nb-actions p{font-size:12.5px;line-height:1.75;color:#554b45}.nb-actions p{margin:8px 0 0}
 .nb-other{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}.nb-other>b{font-family:var(--serif);font-size:14px}.nb-other>div{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.nb-other span{padding:7px 10px;border-radius:999px;background:var(--rose-pale);font-size:11px;color:#654f48}
+.result-choice{margin:14px 0 24px;padding:18px;border:1px solid var(--line);border-radius:20px;background:#fffaf7}
+.result-choice-kicker{display:block;font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:12px}
+.result-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.result-choice-card{display:block;min-height:132px;padding:16px;border-radius:16px;border:1px solid var(--line);background:#fff;transition:.18s ease}
+.result-choice-card:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(90,66,52,.08)}
+.result-choice-card small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--muted);margin-bottom:7px}
+.result-choice-card b{display:block;font-family:var(--serif);font-size:16px;line-height:1.65;font-weight:500;color:var(--ink)}
+.result-choice-card.paid{background:linear-gradient(135deg,#fff,#f8e7e2);border-color:rgba(196,127,116,.45)}
+.result-choice-card.paid small,.result-choice-card.paid em{color:var(--rose)}
+.result-choice-card em{display:block;margin-top:8px;font-style:normal;font-size:12px;font-weight:700}
+.res.shared-view .result-choice{display:none}
+@media(max-width:640px){.result-choice{padding:15px}.result-choice-grid{grid-template-columns:1fr}.result-choice-card{min-height:auto}.result-choice-card b{font-size:15px}}
 @media(max-width:760px){.nb-grid,.nb-actions{grid-template-columns:1fr}}
 .biz-optional{margin:26px 0 0;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.55);overflow:hidden}
 .biz-optional>summary{cursor:pointer;padding:16px 18px;font-weight:700;color:var(--ink);list-style:none}
@@ -4645,6 +4657,11 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";   /* ← GA4の測定ID（akinai-lo
   document.head.appendChild(g);
   gtag('js',new Date()); gtag('config',id);
 })();
+document.addEventListener('click',function(e){
+  var rc=e.target.closest('[data-result-choice]');
+  if(!rc) return;
+  window.track&&window.track('result_choice_click',{choice:rc.getAttribute('data-result-choice')||''});
+},true);
 document.addEventListener('click',function(e){
   var a=e.target.closest('a[href="#price"], a[href="#paidEngine"], #paidCheckoutBtn, a[href="#fortune"]');
   if(!a) return;
@@ -4928,6 +4945,20 @@ document.addEventListener('click',function(e){
           </div>
           <div class="rcard" id="rcard">
             <div class="lab">9問に答えてくれて、ありがとうございます。</div>
+            <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
+              <span class="result-choice-kicker">この結果、どうする？</span>
+              <div class="result-choice-grid">
+                <a class="result-choice-card keep" href="#resultCore" data-result-choice="keep">
+                  <small>01｜今日はここまで</small>
+                  <b>この結果を、<br>自分のために持っておく</b>
+                </a>
+                <a class="result-choice-card paid" href="#price" data-result-choice="paid">
+                  <small>02｜もう少し形にする</small>
+                  <b>「ちょっとやってみたい」を、<br>3つの商いにする</b>
+                  <em>3,300円 →</em>
+                </a>
+              </div>
+            </div>
             <div class="gentle-relief">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
               <p>でも、</p>
@@ -4940,7 +4971,7 @@ document.addEventListener('click',function(e){
               <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
             </div>
             <p class="result-basis">今の仕事、これまでの経歴、家族、お金、言いにくい悩み、そして「本当はこうしたい」を9つの回答と重ねて、これからの選択肢を整理します。転職や起業を先に決めるためではなく、専門サービスへ行く前に、自分の考えを言葉にするための結果です。</p>
-            <span class="result-section-label">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
+            <span class="result-section-label" id="resultCore">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
