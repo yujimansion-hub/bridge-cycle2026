@@ -3881,6 +3881,7 @@ p,
 .h1-v4 .h1-punch i{font-style:normal}
 .hero-result-sample{position:relative;overflow:hidden;border-radius:26px;padding:22px 24px 20px;background:linear-gradient(160deg,#fffdf9 0%,#f7ece6 100%);border:1px solid var(--line);box-shadow:0 26px 64px rgba(90,66,52,.14)}
 .hero-result-sample:before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-90px;top:-90px;background:rgba(196,127,116,.12)}
+.hrsm-illust{margin:-22px -24px 14px;height:170px;overflow:hidden;border-bottom:1px solid var(--line)}.hrsm-illust img{width:100%;height:100%;object-fit:cover;object-position:left 16%}@media(max-width:900px){.hrsm-illust{margin:-18px -16px 12px;height:150px}}
 .hrsm-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:14px;flex-wrap:wrap}.hrsm-top span{white-space:nowrap}@media(max-width:480px){.hrsm-top small{display:none}}
 .hrsm-top span{font-size:10px;letter-spacing:.14em;font-weight:800;color:var(--rose)}
 .hrsm-top small{font-size:11px;color:#8a7d75}
@@ -3909,6 +3910,17 @@ p,
 .result-illustration-head small{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--rose)}
 .result-illustration-head b{font-family:var(--serif);font-size:13px;font-weight:500;color:var(--ink)}
 .result-illustration img{display:block;width:100%;height:auto}
+.rg-body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;background:linear-gradient(135deg,#fdf8f4,#f6ece7)}
+.rg-art{position:relative;min-height:100%}.rg-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.rg-cards{padding:18px 18px 16px;display:flex;flex-direction:column;gap:9px;justify-content:center}
+.rg-lead{margin:0 0 4px;align-self:flex-start;padding:7px 14px;border-radius:999px;background:#f3dcd7;color:#7d4a41;font-family:var(--serif);font-size:13.5px}
+.rg-card{display:flex;gap:12px;align-items:center;padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.9);border:1px solid var(--line)}
+.rg-ic{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:16px;color:#fff}
+.rg-ic.c1{background:#e3b6ae}.rg-ic.c2{background:#aeb9a3}.rg-ic.c3{background:#d1b98e}
+.rg-card b{display:block;font-family:var(--serif);font-size:15px;color:#7d4a41;margin-bottom:2px}
+.rg-card span{display:block;font-size:12.5px;line-height:1.65;color:#4f4640}
+.rg-quote{margin:6px 0 0;padding:12px 14px;border-radius:16px;background:#f7e4df;font-family:var(--serif);font-size:13px;line-height:1.8;color:#5a4f49;text-align:center}
+@media(max-width:700px){.rg-body{grid-template-columns:1fr}.rg-art{max-height:230px;overflow:hidden}.rg-art img{object-position:left 30%}.rg-cards{padding:14px 12px 14px}}
 @media(max-width:640px){.result-illustration{margin:14px -4px 20px;border-radius:18px}.result-illustration-head{display:block;padding:11px 12px 9px}.result-illustration-head b{display:block;margin-top:3px;font-size:12px}}
 @media(max-width:900px){
   .hero-v3-grid{display:flex!important;flex-direction:column!important;gap:18px!important;align-items:stretch!important}
@@ -4855,6 +4867,7 @@ document.addEventListener('click',function(e){
 
       <div class="hero-v3-visual">
         <div class="hero-result-sample" aria-label="結果の一例（手×舟タイプ）">
+          <div class="hrsm-illust" aria-hidden="true"><picture><source srcset="assets/akinai-result-illustration-left.webp?v=20260922c" type="image/webp"><img src="assets/akinai-result-illustration-left.jpg?v=20260922c" alt="" loading="eager" decoding="async" width="588" height="912"></picture></div>
           <div class="hrsm-top"><span>FREE RESULT SAMPLE｜無料結果の一例</span><small>9問に答えると、あなたの場合で出ます</small></div>
           <div class="hrsm-head">
             <div class="hrsm-art" id="heroSampleArt" aria-hidden="true"></div>
@@ -5103,12 +5116,21 @@ document.addEventListener('click',function(e){
               <small>最初に選んだ気持ちから</small>
               <p id="heroChoiceEchoText"></p>
             </div>
-            <figure class="result-illustration" aria-label="モヤモヤがほどけ、自分の強みと今週の一歩が見えてくるイメージ">
+            <figure class="result-illustration result-glance" aria-label="9問で見えてきたことの要約">
               <div class="result-illustration-head">
                 <small>YOUR RESULT, AT A GLANCE</small>
                 <b>9問で見えてきたことを、まず一枚で。</b>
               </div>
-              <picture><source srcset="assets/akinai-result-illustration.webp?v=20260922b" type="image/webp"><img src="assets/akinai-result-illustration.jpg?v=20260922b" alt="自分のモヤモヤを整理し、強み・今の気持ち・次の一歩が見えてくる女性のイラスト" loading="lazy" decoding="async" width="1200" height="912"></picture>
+              <div class="rg-body">
+                <div class="rg-art"><picture><source srcset="assets/akinai-result-illustration-left.webp?v=20260922c" type="image/webp"><img src="assets/akinai-result-illustration-left.jpg?v=20260922c" alt="" loading="lazy" decoding="async" width="588" height="912"></picture></div>
+                <div class="rg-cards">
+                  <p class="rg-lead">これからの私が、少し見えてきました。</p>
+                  <div class="rg-card"><i class="rg-ic c1">✦</i><div><b>見つかる｜私の強み</b><span id="rgStrength">—</span></div></div>
+                  <div class="rg-card"><i class="rg-ic c2">◎</i><div><b>ほどける｜今のモヤモヤ</b><span id="rgRelease">—</span></div></div>
+                  <div class="rg-card"><i class="rg-ic c3">→</i><div><b>決まる｜今週の一歩</b><span id="rgStep">—</span></div></div>
+                  <p class="rg-quote">答えを急がなくていい。<br>今日は、自分のことを少し言葉にできた。</p>
+                </div>
+              </div>
             </figure>
             <div class="gentle-relief">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
@@ -6907,6 +6929,11 @@ const CTX_LABELS={
         document.getElementById('wsBody').textContent=c0.week+(sub?' '+SUBTWEAK[sub]:'');
         ws.style.display='';
       }
+      // 結果冒頭「まず一枚で」：本人の結果で3カードを上書き
+      const rgS=document.getElementById('rgStrength'),rgR=document.getElementById('rgRelease'),rgW=document.getElementById('rgStep');
+      if(rgS)rgS.textContent=cname+'。'+(life.directions||[]).join('・');
+      if(rgR)rgR.textContent=life.letgo||'';
+      if(rgW&&so)rgW.textContent=CAND[w][so.idx].week;
     }catch(e){}
     document.getElementById('pRisk').textContent=d.risk;
     // もっと楽しむ
