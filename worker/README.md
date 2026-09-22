@@ -47,3 +47,16 @@ WorkerはOpenAI Responses APIを利用します。APIキーはWorker Secretに�
 
 ## 8. 利用回数と結果保存
 KV設定時は、購入1件につき最大5回まで生成できます。生成結果はランダムな結果IDで30日保存し、`akinai-plan.html?result=<ID>` から再表示できます。
+
+
+## 9. 公開前確認
+Workerをデプロイし、akinai-config.js にURLを設定したあと、次をブラウザで確認します。
+
+1. `/health` が `{"ok":true,"ready":true,...}` を返す
+2. akinai.html の3,300円ボタンが「準備中」から「私の3つの商いを見てみる」に変わる
+3. テスト決済後に akinai-plan.html へ戻る
+4. Stripe照合後に4STEPの回答欄が表示される
+5. 3案生成成功後に生成回数が1回だけ増える
+6. 保存URLで結果を再表示できる
+
+`ready:false` の場合は、Stripe Secret / OpenAI API Key / TOKEN_SECRET / KV / STRIPE_PRICE_ID のいずれかが未設定です。秘密値そのものは /health から返しません。
