@@ -4336,6 +4336,54 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .hp-row b{display:block;font-size:14.5px;line-height:1.6;color:#3f443f;font-weight:700;margin-top:2px}
 .hp-arw{color:var(--rose,#8f554b);font-size:13px;line-height:1;margin:6px 0 6px 4px}
 .hp-note{margin:12px 0 0;font-size:10.5px;line-height:1.6;color:#8a7f78}
+
+/* HERO VISUAL V2 — blank self as the focal point */
+.hero-self-board-v2{min-height:470px;justify-content:flex-start;padding:28px 28px 42px;background:
+  radial-gradient(90% 70% at 88% 10%,rgba(196,127,116,.18),transparent 62%),
+  linear-gradient(155deg,#fffdf9 0%,#f4ebe5 58%,#eee4de 100%)}
+.hero-self-board-v2:after{content:"";position:absolute;inset:auto -70px -90px auto;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.48);filter:blur(2px)}
+.hsb-mini-list{position:relative;z-index:1;display:grid;gap:8px}
+.hsb-mini-list>div{display:grid;grid-template-columns:26px 54px 1fr;align-items:center;gap:9px;padding:9px 11px;border-radius:13px;background:rgba(255,255,255,.78);border:1px solid rgba(230,217,207,.9);backdrop-filter:blur(5px)}
+.hsb-mini-list i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--sage-pale);color:#617054;font-style:normal;font-size:12px;font-weight:700}
+.hsb-mini-list b{font-size:11px;color:#746b65}
+.hsb-mini-list span{font-size:11.5px;color:#8a7f78}
+.hsb-self-card{position:relative;z-index:2;display:block;margin-top:14px;padding:22px 20px 18px;border-radius:22px;border:1.5px dashed rgba(196,127,116,.78);background:rgba(255,250,247,.92);box-shadow:0 18px 42px rgba(104,73,62,.12);overflow:hidden;transition:.22s ease;text-decoration:none}
+.hsb-self-card:before{content:"";position:absolute;inset:-45% -15% auto auto;width:170px;height:170px;border-radius:50%;background:rgba(196,127,116,.10)}
+.hsb-self-card:hover{transform:translateY(-3px);box-shadow:0 24px 48px rgba(104,73,62,.16);border-color:var(--rose)}
+.hsb-self-label{display:block;font-family:var(--en);font-style:italic;font-size:12px;letter-spacing:.13em;color:var(--rose)}
+.hsb-self-main{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:center;margin-top:7px}
+.hsb-self-main>i{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--rose-pale);color:var(--rose);font-family:var(--serif);font-size:34px;font-style:normal;box-shadow:0 0 0 0 rgba(196,127,116,.25);animation:heroSelfPulse 3.2s ease-in-out infinite}
+.hsb-self-main small{display:block;font-size:11px;color:#8a7f78;margin-bottom:3px}
+.hsb-self-main b{display:block;font-family:var(--serif);font-size:clamp(22px,2.8vw,31px);font-weight:500;line-height:1.35;color:var(--ink)}
+.hsb-self-card em{display:block;margin-top:13px;padding-top:11px;border-top:1px solid rgba(196,127,116,.22);font-style:normal;font-size:12px;font-weight:700;color:var(--rose);text-align:right}
+@keyframes heroSelfPulse{0%,100%{box-shadow:0 0 0 0 rgba(196,127,116,.18);transform:translateY(0)}50%{box-shadow:0 0 0 10px rgba(196,127,116,0);transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){.hsb-self-main>i{animation:none}.hsb-self-card{transition:none}}
+.hero-self-board-v2 .hsb-question{font-size:15px;margin-top:14px;padding-bottom:12px;color:rgba(125,74,65,.55);letter-spacing:.12em}
+.hero-result-stack{position:relative;z-index:3;margin:-12px 12px 0;padding:15px 14px 14px;border-radius:20px;background:rgba(255,255,255,.94);border:1px solid var(--line);box-shadow:0 22px 50px rgba(34,38,34,.14);backdrop-filter:blur(8px)}
+.hrs-label{display:block;font-size:10px;font-weight:700;letter-spacing:.055em;color:#8a7f78;margin:0 0 10px 2px}
+.hrs-cards{position:relative;height:152px}
+.hrs-card{position:absolute;top:0;width:63%;min-height:136px;padding:13px 13px 12px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(90,66,52,.10);transform-origin:center bottom;transition:.2s ease}
+.hrs-card.c1{left:0;z-index:3;transform:rotate(-2deg)}
+.hrs-card.c2{left:18%;top:5px;z-index:2;transform:rotate(1deg)}
+.hrs-card.c3{right:0;top:10px;z-index:1;transform:rotate(3deg)}
+.hero-result-stack:hover .hrs-card.c1{transform:translateX(-4px) rotate(-3deg)}
+.hero-result-stack:hover .hrs-card.c3{transform:translateX(4px) rotate(4deg)}
+.hrs-card small{display:block;font-size:9.5px;color:var(--rose);font-weight:700;margin-bottom:7px}
+.hrs-card b{display:block;font-family:var(--serif);font-size:14px;line-height:1.5;font-weight:500;color:var(--ink)}
+.hrs-card span{position:absolute;left:13px;bottom:11px;font-size:9px;color:#aaa19b}
+@media(max-width:900px){
+  .hero-self-board-v2{min-height:auto;padding:22px 18px 36px}
+  .hero-result-stack{margin:-8px 8px 0}
+}
+@media(max-width:640px){
+  .hsb-mini-list>div{grid-template-columns:24px 48px 1fr}
+  .hsb-self-main{grid-template-columns:58px 1fr}
+  .hsb-self-main>i{width:54px;height:54px;font-size:29px}
+  .hero-self-board-v2 .hsb-question{font-size:22px;color:var(--rose);letter-spacing:0;margin-top:15px;padding-bottom:18px}
+  .hrs-cards{height:138px}
+  .hrs-card{width:68%;min-height:123px}
+  .hrs-card b{font-size:12.5px}
+}
 @media(max-width:900px){.hero-peek{margin:-34px 10px 0;padding:16px 16px 14px}.hp-row b{font-size:14px}}
 .hero-v3-facts>div:last-child b{font-size:20px!important;line-height:1.35}
 @media(max-width:640px){
@@ -4688,6 +4736,11 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";   /* ← GA4の測定ID（akinai-lo
   gtag('js',new Date()); gtag('config',id);
 })();
 document.addEventListener('click',function(e){
+  var selfCard=e.target.closest('.hsb-self-card');
+  if(!selfCard) return;
+  window.track&&window.track('hero_self_card_click',{});
+},true);
+document.addEventListener('click',function(e){
   var hf=e.target.closest('[data-hero-feeling]');
   if(!hf) return;
   window.track&&window.track('hero_feeling_click',{feeling:hf.getAttribute('data-hero-feeling')||''});
@@ -4752,25 +4805,40 @@ document.addEventListener('click',function(e){
       </div>
 
       <div class="hero-v3-visual">
-        <div class="hero-self-board" aria-label="家族、仕事、お金の予定は埋まっているのに、自分のこれからだけ空白になっているイメージ">
+        <div class="hero-self-board hero-self-board-v2" aria-label="家族、仕事、お金は埋まっているのに、自分のこれからだけ空白になっているイメージ">
           <div class="hsb-top">
-            <span>THIS WEEK</span>
+            <span>MY WEEK / MY LIFE</span>
             <small>みんなのことは、ちゃんと考えてる。</small>
           </div>
-          <div class="hsb-list">
-            <div class="done"><i>✓</i><span>家族</span><b>家事・予定・気づかい</b></div>
-            <div class="done"><i>✓</i><span>仕事</span><b>締切・連絡・段取り</b></div>
-            <div class="done"><i>✓</i><span>お金</span><b>支払い・貯金・これから</b></div>
-            <div class="self"><i>?</i><span>私</span><b>　　　　　　　　　</b></div>
+
+          <div class="hsb-mini-list" aria-hidden="true">
+            <div><i>✓</i><b>家族</b><span>家事・予定・気づかい</span></div>
+            <div><i>✓</i><b>仕事</b><span>締切・連絡・段取り</span></div>
+            <div><i>✓</i><b>お金</b><span>支払い・貯金・これから</span></div>
           </div>
+
+          <a class="hsb-self-card" href="#fortune" aria-label="無料診断で自分のこれからを見てみる">
+            <span class="hsb-self-label">MYSELF</span>
+            <div class="hsb-self-main">
+              <i>?</i>
+              <div>
+                <small>まだ、ここだけ空いている。</small>
+                <b>私のこれから</b>
+              </div>
+            </div>
+            <em>9問でひらく →</em>
+          </a>
+
           <div class="hsb-question">で、私は？</div>
         </div>
-        <div class="hero-peek" aria-label="9問に答えると出てくるもの（例）">
-          <span class="hp-tag">9問のあとに見えるもの</span>
-          <div class="hp-row"><small>もう持っているもの</small><b>人の話を聞いて、整理して返す力</b></div>
-          <div class="hp-row"><small>いま守りたいもの</small><b>自分の時間 / 人とのつながり / 無理をしない</b></div>
-          <div class="hp-row hp-last"><small>次に試すこと</small><b>今週30分だけ、自分のための時間をつくる</b></div>
-          <p class="hp-note">※あなたの回答によって内容は変わります</p>
+
+        <div class="hero-result-stack" aria-label="診断後に見える結果の一部">
+          <span class="hrs-label">AFTER 9 QUESTIONS｜あなたの場合で出ます</span>
+          <div class="hrs-cards">
+            <article class="hrs-card c1"><small>01｜もう持っている力</small><b>あなたが自然に<br>やってきたこと</b><span>診断後に表示</span></article>
+            <article class="hrs-card c2"><small>02｜無理しやすいこと</small><b>頑張り方の<br>クセ</b><span>診断後に表示</span></article>
+            <article class="hrs-card c3"><small>03｜今週の一歩</small><b>今の自分でも<br>試せること</b><span>診断後に表示</span></article>
+          </div>
         </div>
       </div>
     </div>
