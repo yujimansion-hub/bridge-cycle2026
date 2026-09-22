@@ -3917,7 +3917,17 @@ p,
 .hv-badge.b1{top:10%;right:5%}
 .hv-badge.b2{top:42%;right:3%}
 .hv-badge.b3{right:10%;bottom:8%}
-.hv-bottom{padding:13px 5px 3px;text-align:center}
+.hv-bottom{padding:12px 5px 2px;text-align:center}
+.hv-sample{margin:8px 2px 0;display:grid;gap:6px}
+.hv-sample-tag{display:block;font-size:10.5px;letter-spacing:.04em;color:#8a7d75;margin:2px 0 2px 2px}
+.hv-row{display:flex;gap:10px;align-items:center;padding:8px 11px;border-radius:13px;background:#fff;border:1px solid var(--line)}
+.hv-row i{flex:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:14px;color:#fff}
+.hv-row i.c1{background:#e3b6ae}.hv-row i.c2{background:#aeb9a3}.hv-row i.c3{background:#d1b98e}
+.hv-row b{display:block;font-family:var(--serif);font-size:13px;color:#7d4a41;line-height:1.3}
+.hv-row span{display:block;font-size:12px;line-height:1.55;color:#4f4640;margin-top:1px}
+.hv-cta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 2px 2px;padding:12px 16px;border-radius:14px;background:var(--rose);color:#fff!important;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 10px 24px rgba(196,127,116,.28)}
+.hv-cta small{font-size:11px;font-weight:500;color:#fff!important;opacity:.9}
+
 .hv-bottom p{margin:0;font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink)}
 .hv-bottom p b{color:var(--rose);font-weight:600}
 .hv-bottom>small{display:block;margin-top:4px;font-size:11px;line-height:1.65;color:var(--muted)}
@@ -4915,9 +4925,15 @@ document.addEventListener('click',function(e){
             <div class="hv-badge b3"><i>→</i><span>決まる<small>今週の一歩</small></span></div>
           </div>
           <div class="hv-bottom">
-            <p>3分後、<b>「今の私」が少し見えてくる。</b></p>
-            <small>答えを決めるためではなく、自分の中にあるものを整理するための9問です。</small>
+            <p>3分後、<b>この1枚が、あなたの言葉で出ます。</b></p>
           </div>
+          <div class="hv-sample" aria-label="結果の一例（手×舟タイプ）">
+            <span class="hv-sample-tag">例｜手×舟「好きなものを、形にして確かめる人」の場合</span>
+            <div class="hv-row"><i class="c1">✦</i><div><b>見つかる｜私の強み</b><span>頼まれると、必要以上にちゃんとやる。「最後まで形にする」力。</span></div></div>
+            <div class="hv-row"><i class="c2">◎</i><div><b>ほどける｜今のモヤモヤ</b><span>「これを仕事と呼んでいい」と、自分で認めにくいこと。</span></div></div>
+            <div class="hv-row"><i class="c3">→</i><div><b>決まる｜今週の一歩</b><span>今週30分だけ、最近人から頼まれたことを3つ書き出す。</span></div></div>
+          </div>
+          <a class="hv-cta" href="#qz" data-go-quiz="hero-card">私の1枚を見る →<small>無料・3分・登録なし</small></a>
         </div>
       </div>
     </div>
