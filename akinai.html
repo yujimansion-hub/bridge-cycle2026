@@ -3904,6 +3904,12 @@ p,
 .hero-choice-echo{margin:14px 0 18px;padding:15px 17px;border-radius:16px;background:#fff;border:1px solid rgba(196,127,116,.30);border-left:4px solid var(--rose)}
 .hero-choice-echo small{display:block;font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--rose);margin-bottom:4px}
 .hero-choice-echo p{margin:0!important;font-size:13.5px!important;line-height:1.8!important;color:#514741!important}
+.result-illustration{margin:18px 0 24px;padding:0;border-radius:22px;overflow:hidden;background:#f8f3ef;border:1px solid var(--line);box-shadow:0 16px 36px rgba(90,66,52,.08)}
+.result-illustration-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px 11px;background:rgba(255,255,255,.78);border-bottom:1px solid var(--line)}
+.result-illustration-head small{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--rose)}
+.result-illustration-head b{font-family:var(--serif);font-size:13px;font-weight:500;color:var(--ink)}
+.result-illustration img{display:block;width:100%;height:auto}
+@media(max-width:640px){.result-illustration{margin:14px -4px 20px;border-radius:18px}.result-illustration-head{display:block;padding:11px 12px 9px}.result-illustration-head b{display:block;margin-top:3px;font-size:12px}}
 @media(max-width:900px){
   .hero-v3-grid{display:flex!important;flex-direction:column!important;gap:18px!important;align-items:stretch!important}
   .hero-v3-copy{display:contents}
@@ -5097,6 +5103,13 @@ document.addEventListener('click',function(e){
               <small>最初に選んだ気持ちから</small>
               <p id="heroChoiceEchoText"></p>
             </div>
+            <figure class="result-illustration" aria-label="モヤモヤがほどけ、自分の強みと今週の一歩が見えてくるイメージ">
+              <div class="result-illustration-head">
+                <small>YOUR RESULT, AT A GLANCE</small>
+                <b>9問で見えてきたことを、まず一枚で。</b>
+              </div>
+              <img src="assets/akinai-result-illustration.webp?v=20260922" alt="自分のモヤモヤを整理し、強み・今の気持ち・次の一歩が見えてくる女性のイラスト" loading="lazy" decoding="async" width="900" height="600">
+            </figure>
             <div class="gentle-relief">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
               <p>でも、</p>
