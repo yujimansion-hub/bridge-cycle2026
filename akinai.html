@@ -32,12 +32,12 @@ button,input{font:inherit}
 .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
 h1,h2,h3.serif,.serif{font-family:var(--serif)}
 .nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(244,236,228,.9);border-bottom:1px solid rgba(221,214,202,.8)}
-.nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:15px}
 .brand>span:last-child{display:flex;flex-direction:column;line-height:1.25}
 .brand small{font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.02em;margin-top:3px}
 .brand-mark{width:34px;height:34px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--en);font-style:italic;color:var(--rose)}
-.nav-links{display:flex;align-items:center;gap:22px;font-size:13px}
+.nav-links{display:flex;align-items:center;gap:14px;font-size:13px;flex-wrap:wrap;justify-content:flex-end}
 .nav-links>a:not(.btn){color:#4f524d}
 .btn{border:1px solid var(--rose);background:var(--rose);color:#fff;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;font-size:14px;font-weight:700;cursor:pointer;transition:.18s ease;text-align:center}
 .btn:hover{transform:translateY(-1px);background:#b06e63}
@@ -430,6 +430,8 @@ footer{padding:36px 0 90px;color:var(--muted);font-size:12px}
 .mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(244,236,228,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:9px 12px;gap:8px}
 .mbar a{flex:1;min-height:46px;font-size:14px}
 @media(max-width:900px){
+  .nav-inner{flex-wrap:nowrap}
+  .nav-links{flex-wrap:nowrap}
   .nav-links>a:not(.btn){display:none}
   .hero{padding-top:28px}
   .hero-grid,.price-box{grid-template-columns:1fr}
@@ -4680,7 +4682,7 @@ document.addEventListener('click',function(e){
           <picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二" loading="lazy" decoding="async" width="320" height="320"></picture>
         </span>
         <div class="maker-belief-copy">
-          <small>つくった人｜中村裕二</small>
+          <small>つくった人｜中村裕二　商工会20年以上｜500社以上の相談</small>
           <b>起業を勧めるために、つくった診断ではありません。</b>
           <p>始めた人も、迷った人も、やめた人も見てきた。だから先に「あなたは、どうしたい？」から考えます。</p>
         </div>
@@ -5168,7 +5170,7 @@ document.addEventListener('click',function(e){
           <div class="result-upgrade">
             <span class="result-upgrade-label">ここから先は、仕事にする話。</span>
             <h3>思いつきのままにしない。</h3>
-            <p><b>守る。活かす。育てる。</b><br>あなたの条件から、3つの商いにします。</p>
+            <p><b>守る。活かす。育てる。</b><br>顧客・商品・価格・必要件数・90日の試し方まで、あなたの条件で3案にします。</p>
             <div class="result-upgrade-grid">
               <div><small>FREE</small><b>経験・強み・方向性</b></div>
               <span>→</span>
@@ -5197,7 +5199,7 @@ document.addEventListener('click',function(e){
     <div class="wrap paid-shell">
       <div class="paid-head">
         <span class="step-pill" id="paidPill">わたしの商い設計 ／ 3,300円 ／ Web完結</span>
-        <h2>夢の話で終わらせない。<br>試せる形にする。</h2>
+        <h2>「ちょっとやってみたい」を、<br>暮らしを壊さず試せる形に。</h2>
         <p class="paid-sub"><b>守る。活かす。育てる。</b><br>今の暮らしを壊さない3つの商いを比べます。<br><span class="ps-note">面談なし。その場でWeb上に表示します。</span></p><div class="paid-principle"><small>この診断が大事にしていること</small><b>大きく始めるためではなく、<br>失敗しても暮らしが壊れない始め方を考えます。</b><span>「今はやらない」も、きちんとした答えのひとつです。</span></div>
         <div class="paid-deliver">
           <div>守る</div><i>＋</i><div>活かす</div><i>＋</i><div>育てる</div>
@@ -5279,7 +5281,7 @@ document.addEventListener('click',function(e){
 
         <div class="report-bundle">
                     <details class="sample-fold">
-          <summary>サンプルの中身を見る（焼き菓子の例・3案の概要と詳細レポート）</summary>
+          <summary>実物を見る｜焼き菓子の例 →</summary>
           <div class="report-overview-title">
             <span>①</span>
             <div><h5>まず、3案の概要</h5><small>「今の自分なら、どれが試せそうか」を見比べます。</small></div>
@@ -5396,7 +5398,7 @@ document.addEventListener('click',function(e){
 
       <details class="method" id="about">
         <summary>診断のしくみを知りたい方へ</summary>
-        <div class="mi"><b>無料診断</b>では、占いを入口に「仕事の種」を見つけます。有料は<b>Web完結プラン 3,300円</b>の1つだけ。回答内容から、比較できる<b>3つの商いプラン</b>と、それぞれを文章で整理したレポートを作ります。Zoom・電話・対面相談はありません。結果はAIでの追加検討、補助金申請の準備、融資、商工会・専門家への相談などに自分で活用できます。</div>
+        <div class="mi"><b>無料診断</b>では、9問とあなた自身の経験・回答から「仕事の種」を見つけます。有料は<b>Web完結プラン 3,300円</b>の1つだけ。回答内容から、比較できる<b>3つの商いプラン</b>と、それぞれを文章で整理したレポートを作ります。Zoom・電話・対面相談はありません。結果はAIでの追加検討、補助金申請の準備、融資、商工会・専門家への相談などに自分で活用できます。</div>
       </details>
     </div>
   </section>
