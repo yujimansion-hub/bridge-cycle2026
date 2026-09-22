@@ -6,13 +6,13 @@ compatibility_date = "2026-09-01"
 ALLOWED_ORIGIN = "https://yujimansion-hub.github.io"
 OPENAI_MODEL = "gpt-5.6-luna"
 SITE_BASE = "https://yujimansion-hub.github.io/bridge-cycle2026"
-STRIPE_PRICE_ID = "REPLACE_WITH_STRIPE_PRICE_ID"
+STRIPE_PRICE_ID = "price_1UHcwjRrmp6P8brba65NXHhQ"
 
 # Create a KV namespace and replace the placeholder before deploy:
 # npx wrangler kv namespace create AKINAI_KV
 [[kv_namespaces]]
 binding = "AKINAI_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "e57e361dae4344fa8b2caa74738b76e5"
 
 # Secrets (never commit values):
 # npx wrangler secret put STRIPE_SECRET_KEY
