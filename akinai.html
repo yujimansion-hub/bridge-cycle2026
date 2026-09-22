@@ -39,6 +39,7 @@ h1,h2,h3.serif,.serif{font-family:var(--serif)}
 .brand-mark{width:34px;height:34px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--en);font-style:italic;color:var(--rose)}
 .nav-links{display:flex;align-items:center;gap:14px;font-size:13px;flex-wrap:wrap;justify-content:flex-end}
 .nav-links>a:not(.btn){color:#4f524d}
+.nav .btn{white-space:nowrap}
 .btn{border:1px solid var(--rose);background:var(--rose);color:#fff;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;font-size:14px;font-weight:700;cursor:pointer;transition:.18s ease;text-align:center}
 .btn:hover{transform:translateY(-1px);background:#b06e63}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
@@ -4220,6 +4221,10 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 }
 
 @media(max-width:400px){
+  .hero-v3-copy .eyebrow .en{display:none}
+  .hero-v3-copy .eyebrow{letter-spacing:.06em;font-size:11.5px;white-space:nowrap}
+  .hero-v3-copy h1 span{margin-top:0!important}
+  .hero-v3-copy h1 b{margin-bottom:.04em!important}
   .hero-v3-facts{grid-template-columns:repeat(3,1fr)}
   .hero-v3-facts b{font-size:19px}
   .hero-v3-facts span{font-size:11px}
@@ -5211,8 +5216,8 @@ document.addEventListener('click',function(e){
         <div class="paid-trust-row"><span class="pt-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>大きく始めるより、暮らしを壊さず試せる形を。20年以上の相談現場で見てきた判断基準を、この3案に落とし込んでいます。</span><small>つくった人　中村裕二</small></p></div>
         <div class="paid-cta-top">
           <a class="btn" href="#paidEngine">私なら、どんな商いがありそう？　3,300円 →</a>
-          <div class="pct-flow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
-          <small class="pct-note">待ち時間なし ／ 面談なし ／ 自動継続なし</small>
+          <div class="pct-flow" id="paidTopFlow"><span>クレジット決済</span><i>→</i><span>質問に回答</span><i>→</i><span>その場で3案＋レポート表示</span></div>
+          <small class="pct-note" id="paidTopNote">受付準備中</small>
         </div>
       </div>
 
@@ -6184,15 +6189,25 @@ const CTX_LABELS={
   const qz=document.getElementById('qz'), scrs=[...qz.querySelectorAll('.scr')], res=document.getElementById('res'), tk=document.getElementById('tk');
   const pNow=document.getElementById('pNow'), pBar=document.getElementById('pBar'), pTxt=document.getElementById('pTxt'), back=document.getElementById('back');
   const N=9; let i=0, ans=[], cur=null, sub=null;
+  const reachedQs=new Set();
+  function trackQuizReach(n){
+    if(n<0||n>=N||reachedQs.has(n)) return;
+    reachedQs.add(n);
+    window.track&&window.track('free_quiz_q'+(n+1),{question:n+1});
+  }
   const qp=new URLSearchParams(location.search);
+  document.querySelector('.pc-start')?.addEventListener('click',()=>{
+    window.track&&window.track('prefill_done',{});
+    trackQuizReach(0);
+  },{once:true});
   const W=[2,1,1,2,2,1,1,1,1];function scoreOf(arr){const sc={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},first={};arr.forEach((v,k)=>{if(!v)return;sc[v]+=(W[k]||1);if(first[v]===undefined)first[v]=k;});const order=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||(first[a]??99)-(first[b]??99));return {sc,order};}
-  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',s.dataset.i===String(n)));pNow.textContent=n+1;pBar.style.width=((n+1)/N*100)+'%';pTxt.textContent=LBL[n]||'';back.style.visibility=n>0?'visible':'hidden';res.classList.remove('on');qz.querySelector('.qnav').style.display='';}
+  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',s.dataset.i===String(n)));pNow.textContent=n+1;pBar.style.width=((n+1)/N*100)+'%';pTxt.textContent=LBL[n]||'';back.style.visibility=n>0?'visible':'hidden';res.classList.remove('on');qz.querySelector('.qnav').style.display='';trackQuizReach(n);}
   function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='途中のタイプ';}
   scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
   document.getElementById('midGo').addEventListener('click',()=>show(4));
   back.addEventListener('click',()=>{if(i>0)show(i-1);});
   document.getElementById('again').addEventListener('click',()=>{
-    ans=[];show(0);
+    ans=[];reachedQs.clear();show(0);
     try{if(location.search)history.replaceState(null,'',location.pathname);}catch(e){}
     // 結果ブロック（display:none）が消えて文書が縮んだ直後に、即時スクロールで位置を合わせる。
     // smooth／rAF はバックグラウンドタブや縮小中に動かず、末尾に取り残されることがある。
@@ -6797,9 +6812,16 @@ const CTX_LABELS={
 
   async function preflight(){
     const api=(window.AKINAI_API_BASE||'').replace(/\/$/,'');
+    const topFlow=document.getElementById('paidTopFlow');
+    const topNote=document.getElementById('paidTopNote');
+    function setReady(ready){
+      if(topFlow) topFlow.style.display=ready?'flex':'none';
+      if(topNote) topNote.textContent=ready?'待ち時間なし ／ 面談なし ／ 自動継続なし':'現在、受付準備中です';
+    }
     if(!btn) return;
     btn.disabled=true;
     btn.textContent='準備中';
+    setReady(false);
     if(!api){
       if(status) status.textContent='近日受付開始';
       if(msg) msg.textContent='現在、決済機能の最終準備中です。';
@@ -6813,9 +6835,11 @@ const CTX_LABELS={
       btn.textContent='私の3つの商いを見てみる　3,300円 →';
       if(status) status.textContent='受付中';
       if(msg) msg.textContent='';
+      setReady(true);
     }catch(e){
       if(status) status.textContent='近日受付開始';
       if(msg) msg.textContent='現在、決済機能の最終準備中です。';
+      setReady(false);
     }
   }
   preflight();
