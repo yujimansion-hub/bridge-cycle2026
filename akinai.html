@@ -3879,11 +3879,35 @@ p,
 .h1-v4 .h1-context b{font-weight:500;color:var(--ink)}
 .h1-v4 .h1-punch{display:block;margin-top:.18em;font-size:clamp(52px,7vw,88px);line-height:1.1;color:var(--rose)}
 .h1-v4 .h1-punch i{font-style:normal}
+.hero-result-sample{position:relative;overflow:hidden;border-radius:26px;padding:22px 24px 20px;background:linear-gradient(160deg,#fffdf9 0%,#f7ece6 100%);border:1px solid var(--line);box-shadow:0 26px 64px rgba(90,66,52,.14)}
+.hero-result-sample:before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-90px;top:-90px;background:rgba(196,127,116,.12)}
+.hrsm-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:14px;flex-wrap:wrap}.hrsm-top span{white-space:nowrap}@media(max-width:480px){.hrsm-top small{display:none}}
+.hrsm-top span{font-size:10px;letter-spacing:.14em;font-weight:800;color:var(--rose)}
+.hrsm-top small{font-size:11px;color:#8a7d75}
+.hrsm-head{display:flex;gap:14px;align-items:center;position:relative}
+.hrsm-art{flex:none;width:64px;height:64px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--rose)}
+.hrsm-art svg{width:42px;height:42px}
+.hrsm-head small{display:block;font-size:11px;color:#8a7d75;margin-bottom:3px}
+.hrsm-head b{display:block;font-family:var(--serif);font-size:22px;line-height:1.35;font-weight:500;color:var(--ink)}
+.hrsm-alias{display:inline-block;margin-top:5px;font-size:11.5px;color:var(--rose);border:1px solid rgba(196,127,116,.4);border-radius:999px;padding:2px 9px;background:#fff}
+.hrsm-tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 10px}
+.hrsm-tags span{font-size:11.5px;padding:5px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#5a4f49}
+.hrsm-block{position:relative;margin-top:8px;padding:11px 13px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.hrsm-block small{display:block;font-size:10px;letter-spacing:.06em;font-weight:800;color:#8a7d75;margin-bottom:4px}
+.hrsm-block p{margin:0;font-size:13px;line-height:1.7;color:#4f4640}
+.hrsm-conclusion{border-color:rgba(196,127,116,.45);background:#fffaf7}
+.hrsm-conclusion p b{color:var(--rose);font-weight:700}
+.hrsm-week{background:var(--deep);border-color:var(--deep)}
+.hero-result-sample .hrsm-week small{color:#e0aaa0!important}.hero-result-sample .hrsm-week p{color:#fff!important}.hero-result-sample .hrsm-week p b{color:#f3c9c0!important}
+.hrsm-cta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding:13px 16px;border-radius:14px;background:var(--rose);color:#fff!important;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 10px 24px rgba(196,127,116,.28)}
+.hero-result-sample .hrsm-cta small{font-size:11px;font-weight:500;color:#fff!important;opacity:.9}
+@media(max-width:900px){.hero-result-sample{padding:18px 16px 16px}.hrsm-head b{font-size:19px}.hrsm-block p{font-size:12.5px}}
 .hero-sample{margin:14px 0 0;max-width:640px}
 .hero-sample small{display:block;font-size:11.5px;letter-spacing:.04em;color:#7a6f68;margin-bottom:8px}
 .hero-sample-row{display:grid;gap:6px}
 .hero-sample-row span{display:flex;align-items:baseline;gap:10px;padding:8px 12px;border-left:3px solid var(--rose);background:#fffaf7;border-radius:0 12px 12px 0;font-size:13px;line-height:1.6;color:#514741}
 .hero-sample-row em{flex:none;font-style:normal;font-family:var(--serif);font-size:13px;color:var(--rose);white-space:nowrap}
+@media(max-width:900px){.hero-sample{display:none}}
 @media(max-width:700px){.h1-v4 .h1-context{font-size:19px}.h1-v4 .h1-punch{font-size:48px}.hero-sample-row span{font-size:12.5px}}
 .hero-v3-lead{font-size:20px;line-height:1.85;max-width:660px;margin:0 0 24px;color:#4f4640}
 .hero-hook{margin:8px 0 18px;max-width:620px}
@@ -4816,40 +4840,30 @@ document.addEventListener('click',function(e){
       </div>
 
       <div class="hero-v3-visual">
-        <div class="hero-self-board hero-self-board-v2" aria-label="家族、仕事、お金は埋まっているのに、自分のこれからだけ空白になっているイメージ">
-          <div class="hsb-top">
-            <span>MY WEEK / MY LIFE</span>
-            <small>みんなのことは、ちゃんと考えてる。</small>
-          </div>
-
-          <div class="hsb-mini-list" aria-hidden="true">
-            <div><i>✓</i><b>家族</b><span>家事・予定・気づかい</span></div>
-            <div><i>✓</i><b>仕事</b><span>締切・連絡・段取り</span></div>
-            <div><i>✓</i><b>お金</b><span>支払い・貯金・これから</span></div>
-          </div>
-
-          <a class="hsb-self-card" href="#fortune" aria-label="無料診断で自分のこれからを見てみる">
-            <span class="hsb-self-label">MYSELF</span>
-            <div class="hsb-self-main">
-              <i>?</i>
-              <div>
-                <small>まだ、ここだけ空いている。</small>
-                <b>私のこれから</b>
-              </div>
+        <div class="hero-result-sample" aria-label="結果の一例（手×舟タイプ）">
+          <div class="hrsm-top"><span>RESULT SAMPLE｜結果の一例</span><small>9問に答えると、1枚になります</small></div>
+          <div class="hrsm-head">
+            <div class="hrsm-art" id="heroSampleArt" aria-hidden="true"></div>
+            <div>
+              <small>参考タイプ　手 × 舟</small>
+              <b>好きなものを、<br>形にして確かめる人</b>
+              <span class="hrsm-alias">とりあえず売ってみる職人</span>
             </div>
-            <em>9問でひらく →</em>
-          </a>
-
-          <div class="hsb-question">で、私は？</div>
-        </div>
-
-        <div class="hero-result-stack" aria-label="9問でもらえる3つの答え">
-          <span class="hrs-label">9問でもらえる、3つの答え。</span>
-          <div class="hrs-cards">
-            <article class="hrs-card c1"><small>✦ 見つかる</small><b>私の<br>強み</b><span>自然にやってきたこと</span></article>
-            <article class="hrs-card c2"><small>◎ ほどける</small><b>今の<br>モヤモヤ</b><span>なぜ引っかかっているか</span></article>
-            <article class="hrs-card c3"><small>→ 決まる</small><b>今週の<br>一歩</b><span>無理なく試せること</span></article>
           </div>
+          <div class="hrsm-tags"><span>手を動かす</span><span>小さく形にする</span><span>感覚を確かめる</span></div>
+          <div class="hrsm-block">
+            <small>01｜自分では、仕事だと思っていなかったこと</small>
+            <p>頼まれると、必要以上にちゃんとやる。「こんなの売れない」と本人だけ思っている。</p>
+          </div>
+          <div class="hrsm-block hrsm-conclusion">
+            <small>02｜売れそうな部分</small>
+            <p>「器用さ」を売る人ではありません。<b>“この人に頼めば、ちゃんと仕上がる”という安心</b>でお金になる人です。</p>
+          </div>
+          <div class="hrsm-block hrsm-week">
+            <small>03｜今週、これだけ</small>
+            <p>近くのマルシェか、知り合いの店に「一日だけ置かせて」と<b>1件</b>、連絡する。</p>
+          </div>
+          <a class="hrsm-cta" href="#qz" data-go-quiz="sample">私の1枚を見る →<small>無料・3分・登録なし</small></a>
         </div>
       </div>
     </div>
@@ -6452,6 +6466,7 @@ const CTX_LABELS={
     if(w)setSel('ctxWorry',w); if(h)setSel('ctxHope',h);
     goQuiz();
   }));
+  try{const hsa=document.getElementById('heroSampleArt');if(hsa&&typeof STAR_ART!=='undefined')hsa.innerHTML=STAR_ART.hand;}catch(e){}
   // 結果表示後に「現在地」を足した場合、9問をやり直さずに結果だけ更新する
   window.__akinaiRerender=()=>{if(!cur)return false;render(cur,sub);return true;};
   document.getElementById('again').addEventListener('click',()=>{
