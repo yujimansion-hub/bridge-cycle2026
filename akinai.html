@@ -4631,6 +4631,19 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .result-choice-card.paid{background:linear-gradient(135deg,#fff,#f8e7e2);border-color:rgba(196,127,116,.45)}
 .result-choice-card.paid small,.result-choice-card.paid em{color:var(--rose)}
 .result-choice-card em{display:block;margin-top:8px;font-style:normal;font-size:12px;font-weight:700}
+.quiz-insight{margin:0 0 18px;padding:14px 15px;border-radius:15px;background:linear-gradient(135deg,#fffaf5,#f7e4df);border:1px solid var(--line)}
+.quiz-insight small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--rose);margin-bottom:4px}
+.quiz-insight b{display:block;font-family:var(--serif);font-size:15px;line-height:1.65;font-weight:500;color:var(--ink)}
+.result-roadmap{margin:18px 0 26px;padding:16px 17px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.result-roadmap>span{display:block;font-size:12px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.result-roadmap>div{display:flex;flex-wrap:wrap;gap:7px}
+.result-roadmap a{padding:7px 10px;border-radius:999px;background:var(--rose-pale);font-size:11px;color:#654f48;font-weight:700}
+.free-paid-bridge{margin:26px 0 16px;padding:22px;border-radius:20px;background:#243027;color:#fff}
+.free-paid-bridge small{display:block;font-size:10.5px;letter-spacing:.07em;color:rgba(255,255,255,.65);margin-bottom:5px}
+.free-paid-bridge h3{margin:0;font-family:var(--serif);font-size:clamp(20px,3vw,27px);line-height:1.55;font-weight:500;color:#fff}
+.free-paid-bridge h3 b{color:#fff}
+.free-paid-bridge p{margin:9px 0 0;font-size:13px;line-height:1.8;color:rgba(255,255,255,.82)}
+@media(max-width:640px){.result-roadmap>div{display:grid;grid-template-columns:1fr 1fr}.result-roadmap a{text-align:center}.free-paid-bridge{padding:18px}}
 .res.shared-view .result-choice{display:none}
 @media(max-width:640px){.result-choice{padding:15px}.result-choice-grid{grid-template-columns:1fr}.result-choice-card{min-height:auto}.result-choice-card b{font-size:15px}}
 @media(max-width:760px){.nb-grid,.nb-actions{grid-template-columns:1fr}}
@@ -4912,7 +4925,7 @@ document.addEventListener('click',function(e){
           <button type="button" data-v="garden"><span class="k">C</span>支える・見守ることで喜ばれた</button>
           <button type="button" data-v="bridge"><span class="k">D</span>紹介する・つなぐことで喜ばれた</button></div></div>
 
-        <div class="scr" data-i="7"><h3>誰かに「それ、有料でもお願いしたい」と言われたら？</h3><p class="sub">Q8 / 9｜お金を受け取ることへの感覚です。</p><div class="ch">
+        <div class="scr" data-i="7"><div class="quiz-insight" id="q7Insight"><small>7問ここまで｜少し見えてきたこと</small><b id="q7InsightText">あなたが自然にやってきたことが、少しずつ輪郭になっています。</b></div><h3>誰かに「それ、有料でもお願いしたい」と言われたら？</h3><p class="sub">Q8 / 9｜お金を受け取ることへの感覚です。</p><div class="ch">
           <button type="button" data-v="light"><span class="k">A</span>うれしいけど、まだお金をもらうのは抵抗がある</button>
           <button type="button" data-v="tower"><span class="k">B</span>条件や範囲が決まれば考えられる</button>
           <button type="button" data-v="hand"><span class="k">C</span>内容に自信が持てれば試してみたい</button>
@@ -4971,6 +4984,16 @@ document.addEventListener('click',function(e){
               <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
             </div>
             <p class="result-basis">今の仕事、これまでの経歴、家族、お金、言いにくい悩み、そして「本当はこうしたい」を9つの回答と重ねて、これからの選択肢を整理します。転職や起業を先に決めるためではなく、専門サービスへ行く前に、自分の考えを言葉にするための結果です。</p>
+            <div class="result-roadmap" aria-label="無料結果で分かること">
+              <span>このあと、5つだけ見ていきます。</span>
+              <div>
+                <a href="#rAffirm">01 力</a>
+                <a href="#currentSummary">02 現在地</a>
+                <a href="#rLetgo">03 無理しやすいこと</a>
+                <a href="#nonBizResult">04 今はしなくていいこと</a>
+                <a href="#weekSolo">05 今週の一歩</a>
+              </div>
+            </div>
             <span class="result-section-label" id="resultCore">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
@@ -5016,10 +5039,10 @@ document.addEventListener('click',function(e){
               <p id="rVoiceInsight"></p>
               <small>入力した内容に出てきた行動や言葉から見ています。占い部分と診断部分は別に扱っています。</small>
             </div>
-            <div class="affirm"><span>01｜あなたが、もう持っている力</span><p id="rAffirm"></p></div>
+            <div class="affirm" id="resultStrength"><span>01｜あなたが、もう持っている力</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
-            <div class="letgo"><b>今、手放していい思い込み</b><p id="rLetgo"></p></div>
+            <div class="letgo" id="resultRisk"><b>03｜いま、無理をしやすいポイント</b><p id="rLetgo"></p></div>
             <div class="insight-box">
               <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
               <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
@@ -5235,6 +5258,12 @@ document.addEventListener('click',function(e){
             <p class="ws-note">断られても大丈夫です。そのとき返ってきた理由が、次の材料になります。読んで「今週は動かない」と決めても構いません。</p>
           </div>
 
+          <div class="free-paid-bridge">
+            <small>ここまでが、無料で分かること。</small>
+            <h3>自分のことは、少し見えてきた。<br><b>でも、まだ“仕事”にはなっていません。</b></h3>
+            <p>ここから先は、何を・誰に・いくらで・何件なら続けられるかまで具体化します。</p>
+          </div>
+
           <div class="result-upgrade">
             <span class="result-upgrade-label">ここから先は、仕事にする話。</span>
             <h3>思いつきのままにしない。</h3>
@@ -5249,7 +5278,7 @@ document.addEventListener('click',function(e){
               <span>「これは少しやってみたい」</span>
               <span>「今はまだ動かない」</span>
             </div>
-            <a class="btn" href="#price">私なら、どんな商いがありそう？　3,300円 →</a>
+            <a class="btn" href="#price">私の3案を全部見る　3,300円 →</a>
             <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
           </div>
             </div>
@@ -6264,7 +6293,25 @@ const CTX_LABELS={
     trackQuizReach(0);
   },{once:true});
   const W=[2,1,1,2,2,1,1,1,1];function scoreOf(arr){const sc={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},first={};arr.forEach((v,k)=>{if(!v)return;sc[v]+=(W[k]||1);if(first[v]===undefined)first[v]=k;});const order=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||(first[a]??99)-(first[b]??99));return {sc,order};}
-  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',s.dataset.i===String(n)));pNow.textContent=n+1;pBar.style.width=((n+1)/N*100)+'%';pTxt.textContent=LBL[n]||'';back.style.visibility=n>0?'visible':'hidden';res.classList.remove('on');qz.querySelector('.qnav').style.display='';trackQuizReach(n);}
+  function show(n){
+    i=n;
+    scrs.forEach(s=>s.classList.toggle('on',s.dataset.i===String(n)));
+    pNow.textContent=n+1;pBar.style.width=((n+1)/N*100)+'%';pTxt.textContent=LBL[n]||'';back.style.visibility=n>0?'visible':'hidden';res.classList.remove('on');qz.querySelector('.qnav').style.display='';trackQuizReach(n);
+    if(n===7){
+      const {order}=scoreOf(ans), w=order[0];
+      const insight={
+        light:'人の気持ちや言葉を受け取り、整理して返す力が出ています。',
+        hand:'考えるだけでなく、手を動かして形にする力が出ています。',
+        garden:'誰かを支え、無理なく続ける力が出ています。',
+        bridge:'人や情報をつなぎ、流れをつくる力が出ています。',
+        boat:'迷いながらでも、小さく動いて確かめる力が出ています。',
+        tower:'条件を整理し、安心できる形に整える力が出ています。'
+      };
+      const el=document.getElementById('q7InsightText');
+      if(el) el.textContent=insight[w]||'あなたが自然にやってきたことが、少しずつ輪郭になっています。';
+      window.track&&window.track('mini_result_shown',{stage:'q7',type:w||''});
+    }
+  }
   function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='途中のタイプ';}
   scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
   document.getElementById('midGo').addEventListener('click',()=>show(4));
@@ -6682,7 +6729,7 @@ const CTX_LABELS={
     fillOtherTypes(document.getElementById('olTop'));
     const sharedView=!ans.length&&!window.AKINAI_VOICE_RESULT;
     res.classList.toggle('shared-view',sharedView);
-    res.classList.add('on'); track(sharedView?'shared_result_view':'free_result_shown',{type:w||''});
+    res.classList.add('on'); track(sharedView?'shared_result_view':'free_result_shown',{type:w||''}); if(!sharedView) track('tako_result_shown',{stage:'result_available'});
     try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}}catch(e){} res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
