@@ -5385,7 +5385,7 @@ document.addEventListener('click',function(e){
           </div>
           <div class="pe-stage on" id="payStage">
             <div class="pe-actions">
-              <button class="btn" type="button" id="paidCheckoutBtn">私の3つの商いを見てみる　3,300円 →</button>
+              <button class="btn" type="button" id="paidCheckoutBtn" disabled>準備中</button>
             </div>
             <p class="pe-message" id="payMessage"></p>
             <p class="web-consult-note">決済後すぐ利用できます ／ 面談なし ／ 自動継続なし</p>
@@ -6796,10 +6796,10 @@ const CTX_LABELS={
   const status=document.getElementById('paidStatus');
   const u=new URL(location.href);
 
-  // 旧方式 ?paid=1 は支払い証明として扱わない。
+  // 旧URLから来た場合も、購入者向けの技術説明は表示しない。
   if(u.searchParams.get('paid')==='1'){
-    if(status) status.textContent='安全な購入確認が必要';
-    if(msg) msg.innerHTML='決済は完了していても、このURLだけでは有料機能を開きません。Stripeの完了後URLを <b>akinai-plan.html?session_id={CHECKOUT_SESSION_ID}</b> に変更すると、自動確認できます。';
+    if(status) status.textContent='購入確認が必要';
+    if(msg) msg.textContent='新しい決済方式へ移行しました。下のボタンからお進みください。';
   }
 
   // Stripe側を新しい戻りURLへ変更済みなら、念のためmainへ戻ってきたsession_idも専用ページへ転送。
@@ -6808,6 +6808,31 @@ const CTX_LABELS={
     location.replace('akinai-plan.html?session_id='+encodeURIComponent(sid));
     return;
   }
+
+  async function preflight(){
+    const api=(window.AKINAI_API_BASE||'').replace(/\/$/,'');
+    if(!btn) return;
+    btn.disabled=true;
+    btn.textContent='準備中';
+    if(!api){
+      if(status) status.textContent='近日受付開始';
+      if(msg) msg.textContent='現在、決済機能の最終準備中です。';
+      return;
+    }
+    try{
+      const r=await fetch(api+'/health',{cache:'no-store'});
+      const d=await r.json();
+      if(!d.ok||!d.ready) throw new Error('not_ready');
+      btn.disabled=false;
+      btn.textContent='私の3つの商いを見てみる　3,300円 →';
+      if(status) status.textContent='受付中';
+      if(msg) msg.textContent='';
+    }catch(e){
+      if(status) status.textContent='近日受付開始';
+      if(msg) msg.textContent='現在、決済機能の最終準備中です。';
+    }
+  }
+  preflight();
 
   btn?.addEventListener('click',async()=>{
     window.track&&window.track('checkout_start',{});
