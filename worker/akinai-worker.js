@@ -190,6 +190,16 @@ export default {
     if(req.method==='OPTIONS') return new Response(null,{status:204,headers});
     const u=new URL(req.url);
     try{
+      if(u.pathname==='/health'&&req.method==='GET'){
+        const ready=Boolean(
+          env.STRIPE_SECRET_KEY &&
+          env.OPENAI_API_KEY &&
+          env.TOKEN_SECRET &&
+          env.AKINAI_KV &&
+          /^price_/.test(String(env.STRIPE_PRICE_ID||''))
+        );
+        return json({ok:true,ready,version:'2026-09-22'},200,headers);
+      }
       if(u.pathname==='/checkout'&&req.method==='POST'){
         const {client_key}=await req.json();
         if(!client_key||String(client_key).length<12) return json({ok:false,error:'invalid_client_key'},400,headers);
