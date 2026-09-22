@@ -3875,6 +3875,23 @@ p,
 .hero-v3-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:64px;align-items:center}
 .hero-v3-copy h1{font-size:clamp(38px,5vw,62px);line-height:1.34;margin:16px 0 20px}
 .hero-v3-lead{font-size:20px;line-height:1.85;max-width:660px;margin:0 0 24px;color:#4f4640}
+.hero-hook{margin:8px 0 18px;max-width:620px}
+.hero-hook-label{display:block;font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:10px}
+.hero-hook-choices{display:grid;gap:8px}
+.hero-hook-choices a{position:relative;display:flex;align-items:center;min-height:46px;padding:10px 42px 10px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px;font-weight:700;color:#514741;box-shadow:0 6px 18px rgba(90,66,52,.04);transition:.18s ease}
+.hero-hook-choices a:after{content:"→";position:absolute;right:14px;color:var(--rose)}
+.hero-hook-choices a:hover{transform:translateX(3px);border-color:var(--rose);background:#fffaf7}
+.hero-hook p{margin:12px 0 0;font-size:13.5px;line-height:1.75;color:#655b55}
+.hero-hook p b{display:block;font-family:var(--serif);font-size:16.5px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.hero-hook p span{font-size:12.5px}
+.hero-answer-preview{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:12px 0 0}
+.hero-answer-preview small{width:100%;font-size:10.5px;color:var(--muted);letter-spacing:.03em}
+.hero-answer-preview span{padding:6px 9px;border-radius:999px;background:var(--rose-pale);font-size:11px;font-weight:700;color:#6b4f48}
+@media(max-width:760px){
+  .hero-hook-label{font-size:16px}
+  .hero-hook-choices a{font-size:13px;min-height:44px}
+  .hero-hook p b{font-size:15.5px}
+}
 .hero-v3-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:560px;margin:22px 0}
 .hero-v3-facts>div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 16px}
 .hero-v3-facts b{display:block;font-family:var(--serif);font-size:24px;color:var(--rose);line-height:1.25}
@@ -4671,6 +4688,11 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";   /* ← GA4の測定ID（akinai-lo
   gtag('js',new Date()); gtag('config',id);
 })();
 document.addEventListener('click',function(e){
+  var hf=e.target.closest('[data-hero-feeling]');
+  if(!hf) return;
+  window.track&&window.track('hero_feeling_click',{feeling:hf.getAttribute('data-hero-feeling')||''});
+},true);
+document.addEventListener('click',function(e){
   var rc=e.target.closest('[data-result-choice]');
   if(!rc) return;
   window.track&&window.track('result_choice_click',{choice:rc.getAttribute('data-result-choice')||'',entre_level:(document.getElementById('res')?.dataset.entreLevel||'unknown')});
@@ -4705,14 +4727,26 @@ document.addEventListener('click',function(e){
       <div class="hero-v3-copy">
         <div class="eyebrow">誰かに相談する前の、ひとり相談室 <span class="en">MY NEXT CHAPTER</span></div>
         <h1><i>家族のこと。</i><i>仕事のこと。</i><i>お金のこと。</i><br><b>ずっと考えてきた。</b><br><span><i>で、私は？</i></span></h1>
-        <p class="hero-v3-lead">9問で、いまの自分を整理する。</p>
+        <div class="hero-hook">
+          <span class="hero-hook-label">あなたの「？」は、どれに近い？</span>
+          <div class="hero-hook-choices" aria-label="今の気持ちを選ぶ">
+            <a href="#fortune" data-hero-feeling="same">このままでいいのかな</a>
+            <a href="#fortune" data-hero-feeling="unknown">何かしたい。でも分からない</a>
+            <a href="#fortune" data-hero-feeling="mytime">自分の時間を取り戻したい</a>
+          </div>
+          <p><b>9問で、あなたの「？」を言葉にします。</b><br><span>向いている仕事を決める診断ではありません。今のあなたが、何を守って、何なら試せるかを見ます。</span></p>
+        </div>
         <div class="hero-v3-facts" aria-label="診断の特徴">
           <div><b>無料・3分</b><span>9問だけ</span></div>
           <div><b>登録なし</b><span>メール不要</span></div>
           <div><b>答えを決めなくてOK</b><span>整理するだけでも</span></div>
         </div>
         <div class="hero-primary">
-          <a class="btn" href="#fortune">じゃあ、まず9問だけ →</a>
+          <a class="btn" href="#fortune">私の「？」を見てみる →</a>
+        </div>
+        <div class="hero-answer-preview" aria-label="診断後に分かること">
+          <small>9問のあとに、あなたの場合で出ます</small>
+          <span>もう持っている力</span><span>無理しやすいこと</span><span>今週の一歩</span>
         </div>
         <p class="hero-v3-sub">答えを出さなくていい。今日は、自分の番です。</p>
       </div>
