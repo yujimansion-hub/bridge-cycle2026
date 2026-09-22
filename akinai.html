@@ -3934,6 +3934,8 @@ p,
   .hero-result-sample{margin-top:0}
 }
 @media(max-width:900px){.hero-result-sample{padding:18px 16px 16px}.hrsm-head b{font-size:19px}.hrsm-block p{font-size:12.5px}}
+.gentle-relief-short{padding:16px 18px}.gentle-relief-short .gentle-relief-lead{margin-bottom:6px}.gentle-relief-short p{margin:0;line-height:1.8}
+.result-more>summary{font-weight:700;color:var(--ink)}.rm-note{font-size:12px;color:#8a7d75;margin:8px 0 14px}
 .hero-sample{margin:14px 0 0;max-width:640px}
 .hero-sample small{display:block;font-size:11.5px;letter-spacing:.04em;color:#7a6f68;margin-bottom:8px}
 .hero-sample-row{display:grid;gap:6px}
@@ -4874,7 +4876,6 @@ document.addEventListener('click',function(e){
             <div>
               <small>参考タイプ　手 × 舟</small>
               <b>好きなものを、<br>形にして確かめる人</b>
-              <span class="hrsm-alias">とりあえず売ってみる職人</span>
             </div>
           </div>
           <div class="hrsm-tags"><span>手を動かす</span><span>小さく形にする</span><span>感覚を確かめる</span></div>
@@ -5132,27 +5133,9 @@ document.addEventListener('click',function(e){
                 </div>
               </div>
             </figure>
-            <div class="gentle-relief">
-              <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
-              <p>でも、</p>
-              <blockquote>
-                <span>「私にも、まだ何かあるかもしれない」</span>
-                <span>「これまでの時間も、無駄じゃなかったかもしれない」</span>
-                <span>「もう一度、自分のことを考えてもいいかもしれない」</span>
-              </blockquote>
-              <p>そう思えたら、少しだけ気持ちが軽くなることがあると思っています。</p>
-              <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
-            </div>
-            <p class="result-basis">今の仕事、これまでの経歴、家族、お金、言いにくい悩み、そして「本当はこうしたい」を9つの回答と重ねて、これからの選択肢を整理します。転職や起業を先に決めるためではなく、専門サービスへ行く前に、自分の考えを言葉にするための結果です。</p>
-            <div class="result-roadmap" aria-label="無料結果で分かること">
-              <span>このあと、5つだけ見ていきます。</span>
-              <div>
-                <a href="#rAffirm">01 力</a>
-                <a href="#currentSummary">02 現在地</a>
-                <a href="#rLetgo">03 無理しやすいこと</a>
-                <a href="#nonBizResult">04 今はしなくていいこと</a>
-                <a href="#weekSolo">05 今週の一歩</a>
-              </div>
+            <div class="gentle-relief gentle-relief-short">
+              <p class="gentle-relief-lead">答えを急がなくていい。</p>
+              <p>「私にも、まだ何かあるかもしれない」<br>そう思えたら、この9問は十分です。</p>
             </div>
             <span class="result-section-label" id="resultCore">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
             <h3 class="chara" id="rChara"></h3>
@@ -5172,19 +5155,6 @@ document.addEventListener('click',function(e){
               </div>
               <p id="rRealityCalc"></p>
               <small class="rrnote">数字は、人生の答えではなく、無理のない選択を考えるための参考情報です。</small>
-            </div>
-            <details class="oracle-optional" id="rOracleOptional"><summary>遊び要素として占いも見る（任意）</summary><div class="oracle-origin" id="rOracleOrigin" style="display:none">
-              <div id="rBirthOrigin"><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
-              <div><span>今日引いたカード</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
-            </div></details>
-            <div class="oracle-letter">
-              <span class="olabel">A LETTER FROM YOUR AKINAI STAR｜経験を別の角度から見るヒント</span>
-              <p id="rOracleLetter"></p>
-              <small>診断結果とは別の、読み物としての補助要素です。未来予測や適性判定には使っていません。</small>
-            </div>
-            <div class="status-direction" id="rCompass">
-              <span class="direction-label">今の自分に置いておきたい3つのこと</span>
-              <div class="direction-tags" id="rDirectionTags"></div>
             </div>
             <div class="voice-reveal" id="rVoiceReveal" style="display:none">
               <span class="vrlab">自分の記憶と、周りから見た事実を重ねた3つの自分</span>
@@ -5217,10 +5187,6 @@ document.addEventListener('click',function(e){
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
             <div class="letgo" id="resultRisk"><b>03｜いま、無理をしやすいポイント</b><p id="rLetgo"></p></div>
-            <div class="insight-box">
-              <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
-              <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
-            </div>
             <div class="current-summary" id="currentSummary">
               <span class="cs-kicker">YOUR CURRENT POSITION｜今のあなたの現在地</span>
               <h3>まず、ここを無視しないで考えます。</h3>
@@ -5268,16 +5234,13 @@ document.addEventListener('click',function(e){
                 <div id="nonBizAlternatives"></div>
               </div>
             </div>
-            <div class="belly" id="rBelly" style="display:none">
-              <span class="blab">9つの答えを「これからの言葉」にすると</span>
-              <p id="rStory"></p>
-              <p class="bend" id="rStoryEnd"></p>
-            </div>
-            <div class="warm-note" id="rWarm" style="display:none">
-              <span class="wlab">ここまでやってきた、あなたへ</span>
-              <p id="rWarmText"></p>
-              <small>新しく何かにならなくていい。これまでの中に、これからを選ぶヒントがあります。</small>
-            </div>
+          <div class="week-solo" id="weekSolo" style="display:none">
+            <span class="ws-tag">THIS WEEK｜まず7日で試すこと</span>
+            <h3>今週、これだけ<br class="sp">試してみてください。</h3>
+            <p class="ws-job"><small>あなたに合いやすい仕事イメージ</small><b id="wsJob">—</b></p>
+            <p class="ws-body" id="wsBody">—</p>
+            <p class="ws-note">断られても大丈夫です。そのとき返ってきた理由が、次の材料になります。読んで「今週は動かない」と決めても構いません。</p>
+          </div>
           </div>
           <div class="share-now">
             <b>この言葉を、今の自分への小さなメモに。</b>
@@ -5299,6 +5262,80 @@ document.addEventListener('click',function(e){
             </div>
             <p class="share-hint">ボタンを押すと、スマホの共有メニューが開きます。そこからInstagram・LINE・写真への保存が選べます。Instagramのストーリーズに貼るときは、いったん保存してからでも大丈夫です。</p>
           </div>
+          <div class="free-paid-bridge">
+            <small>ここまでが、無料で分かること。</small>
+            <h3>自分のことは、少し見えてきた。<br><b>でも、まだ“仕事”にはなっていません。</b></h3>
+            <p>ここから先は、何を・誰に・いくらで・何件なら続けられるかまで具体化します。</p>
+          </div>
+          <div class="result-upgrade">
+            <span class="result-upgrade-label">ここから先は、仕事にする話。</span>
+            <h3>思いつきのままにしない。</h3>
+            <p><b>守る。活かす。育てる。</b><br>顧客・商品・価格・必要件数・90日の試し方まで、あなたの条件で3案にします。</p>
+            <div class="result-upgrade-grid">
+              <div><small>FREE</small><b>経験・強み・方向性</b></div>
+              <span>→</span>
+              <div class="paid"><small>3,300円</small><b>顧客・商品・価格・90日</b></div>
+            </div>
+            <div class="decision-lines">
+              <span>「これは違う」</span>
+              <span>「これは少しやってみたい」</span>
+              <span>「今はまだ動かない」</span>
+            </div>
+            <a class="btn" href="#price">私の3案を全部見る　3,300円 →</a>
+            <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
+          </div>
+          <details class="result-more" id="more">
+            <summary>もっと見たい人へ｜占い・今日のカード・他己診断・AI相談・別タイプ</summary>
+            <div class="rm-note">ここから下は、結果を味わうための補足です。読まなくても、上の結果は完結しています。</div>
+            <div class="gentle-relief gentle-relief-long">
+              <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
+              <p>でも、</p>
+              <blockquote>
+                <span>「私にも、まだ何かあるかもしれない」</span>
+                <span>「これまでの時間も、無駄じゃなかったかもしれない」</span>
+                <span>「もう一度、自分のことを考えてもいいかもしれない」</span>
+              </blockquote>
+              <p>そう思えたら、少しだけ気持ちが軽くなることがあると思っています。</p>
+              <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
+            </div>
+            <p class="result-basis">今の仕事、これまでの経歴、家族、お金、言いにくい悩み、そして「本当はこうしたい」を9つの回答と重ねて、これからの選択肢を整理します。転職や起業を先に決めるためではなく、専門サービスへ行く前に、自分の考えを言葉にするための結果です。</p>
+            <div class="result-roadmap" aria-label="無料結果で分かること">
+              <span>このあと、5つだけ見ていきます。</span>
+              <div>
+                <a href="#rAffirm">01 力</a>
+                <a href="#currentSummary">02 現在地</a>
+                <a href="#rLetgo">03 無理しやすいこと</a>
+                <a href="#nonBizResult">04 今はしなくていいこと</a>
+                <a href="#weekSolo">05 今週の一歩</a>
+              </div>
+            </div>
+            <details class="oracle-optional" id="rOracleOptional"><summary>遊び要素として占いも見る（任意）</summary><div class="oracle-origin" id="rOracleOrigin" style="display:none">
+              <div id="rBirthOrigin"><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
+              <div><span>今日引いたカード</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
+            </div></details>
+            <div class="oracle-letter">
+              <span class="olabel">A LETTER FROM YOUR AKINAI STAR｜経験を別の角度から見るヒント</span>
+              <p id="rOracleLetter"></p>
+              <small>診断結果とは別の、読み物としての補助要素です。未来予測や適性判定には使っていません。</small>
+            </div>
+            <div class="status-direction" id="rCompass">
+              <span class="direction-label">今の自分に置いておきたい3つのこと</span>
+              <div class="direction-tags" id="rDirectionTags"></div>
+            </div>
+            <div class="insight-box">
+              <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
+              <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
+            </div>
+            <div class="belly" id="rBelly" style="display:none">
+              <span class="blab">9つの答えを「これからの言葉」にすると</span>
+              <p id="rStory"></p>
+              <p class="bend" id="rStoryEnd"></p>
+            </div>
+            <div class="warm-note" id="rWarm" style="display:none">
+              <span class="wlab">ここまでやってきた、あなたへ</span>
+              <p id="rWarmText"></p>
+              <small>新しく何かにならなくていい。これまでの中に、これからを選ぶヒントがあります。</small>
+            </div>
           <div class="takeout">
             <b>この結果は、ここから先でも使えます。</b>
             <p>診断で出た言葉は、そのまま「今の自分の説明」になります。仕事、家族、これからの暮らし。考えたい場所に持っていってください。</p>
@@ -5313,6 +5350,38 @@ document.addEventListener('click',function(e){
           <details class="result-alt">
             <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
             <div class="ol" id="olTop"></div>
+          </details>
+            <div class="mcard">
+              <div class="lab">SNS用カード</div>
+              <div class="chara" id="rChara2"></div>
+              <div class="cn" id="rComboName"></div>
+              <ul class="aru" id="rAru"></ul>
+              <div class="msg" id="rMsg"></div>
+              <div class="share share-v2">
+                <button class="btn share-main" type="button" id="btnSave">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
+                  <span><b>結果を画像でシェア</b><small>Instagram・LINEも、ここから</small></span>
+                </button>
+                <details class="share-more">
+                  <summary>アプリを選んで送る</summary>
+                  <div class="share-apps">
+                    <a class="sapp line" id="btnLine" href="#" target="_blank" rel="noopener"><i>L</i><span>LINE</span></a>
+                    <button class="sapp th" type="button" id="btnThreads"><i>@</i><span>Threads</span></button>
+                    <a class="sapp x" id="btnX" href="#" target="_blank" rel="noopener"><i>X</i><span>X</span></a>
+                    <button class="sapp other" type="button" id="btnShare"><i>…</i><span>その他・コピー</span></button>
+                  </div>
+                </details>
+              </div>
+              <p class="share-note">画像は「これからカルテ」です。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
+            </div>
+            <div class="pair" id="rPair"><b>この結果と一緒に、残しておきたい言葉</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>誰かと比べるためではなく、迷った日に戻ってこられる言葉として。</small></div>
+            <div class="tako" id="rTako">
+              <b>私って、本当に「<span id="tSym"></span>」？</b>
+              <p>自分では「普通」と思っていることほど、周りは頼りにしています。友達に4問だけ答えてもらうと、「友達から見た私」が出ます。</p>
+              <div class="share"><a class="btn" id="btnTakoLine" href="#" target="_blank" rel="noopener">LINEで友達に頼む</a><button class="btn ghost" type="button" id="btnTakoCopy">リンクをコピー</button></div>
+              <div class="fview" id="fview" style="display:none"><span>自分から見た私</span><b id="fvSelf"></b><span>友達から見た私</span><b id="fvFriend"></b><p id="fvNote"></p></div>
+            </div>
+            <details class="others"><summary>ほかの型も見る</summary><div class="ol" id="ol"></div></details>
           </details>
 
           <details class="biz-optional">
@@ -5390,71 +5459,8 @@ document.addEventListener('click',function(e){
             <a class="btn" href="#mini">無料30秒｜今週どこまで動けるか見る →</a>
           </div>
 
-          <details class="more" id="more">
-            <summary>結果を、もう少し味わう（あるある・他己診断）</summary>
-            <div class="mcard">
-              <div class="lab">SNS用カード</div>
-              <div class="chara" id="rChara2"></div>
-              <div class="cn" id="rComboName"></div>
-              <ul class="aru" id="rAru"></ul>
-              <div class="msg" id="rMsg"></div>
-              <div class="share share-v2">
-                <button class="btn share-main" type="button" id="btnSave">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
-                  <span><b>結果を画像でシェア</b><small>Instagram・LINEも、ここから</small></span>
-                </button>
-                <details class="share-more">
-                  <summary>アプリを選んで送る</summary>
-                  <div class="share-apps">
-                    <a class="sapp line" id="btnLine" href="#" target="_blank" rel="noopener"><i>L</i><span>LINE</span></a>
-                    <button class="sapp th" type="button" id="btnThreads"><i>@</i><span>Threads</span></button>
-                    <a class="sapp x" id="btnX" href="#" target="_blank" rel="noopener"><i>X</i><span>X</span></a>
-                    <button class="sapp other" type="button" id="btnShare"><i>…</i><span>その他・コピー</span></button>
-                  </div>
-                </details>
-              </div>
-              <p class="share-note">画像は「これからカルテ」です。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
-            </div>
-            <div class="pair" id="rPair"><b>この結果と一緒に、残しておきたい言葉</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>誰かと比べるためではなく、迷った日に戻ってこられる言葉として。</small></div>
-            <div class="tako" id="rTako">
-              <b>私って、本当に「<span id="tSym"></span>」？</b>
-              <p>自分では「普通」と思っていることほど、周りは頼りにしています。友達に4問だけ答えてもらうと、「友達から見た私」が出ます。</p>
-              <div class="share"><a class="btn" id="btnTakoLine" href="#" target="_blank" rel="noopener">LINEで友達に頼む</a><button class="btn ghost" type="button" id="btnTakoCopy">リンクをコピー</button></div>
-              <div class="fview" id="fview" style="display:none"><span>自分から見た私</span><b id="fvSelf"></b><span>友達から見た私</span><b id="fvFriend"></b><p id="fvNote"></p></div>
-            </div>
-            <details class="others"><summary>ほかの型も見る</summary><div class="ol" id="ol"></div></details>
-          </details>
-          <div class="week-solo" id="weekSolo" style="display:none">
-            <span class="ws-tag">THIS WEEK｜まず7日で試すこと</span>
-            <h3>今週、これだけ<br class="sp">試してみてください。</h3>
-            <p class="ws-job"><small>あなたに合いやすい仕事イメージ</small><b id="wsJob">—</b></p>
-            <p class="ws-body" id="wsBody">—</p>
-            <p class="ws-note">断られても大丈夫です。そのとき返ってきた理由が、次の材料になります。読んで「今週は動かない」と決めても構いません。</p>
-          </div>
 
-          <div class="free-paid-bridge">
-            <small>ここまでが、無料で分かること。</small>
-            <h3>自分のことは、少し見えてきた。<br><b>でも、まだ“仕事”にはなっていません。</b></h3>
-            <p>ここから先は、何を・誰に・いくらで・何件なら続けられるかまで具体化します。</p>
-          </div>
 
-          <div class="result-upgrade">
-            <span class="result-upgrade-label">ここから先は、仕事にする話。</span>
-            <h3>思いつきのままにしない。</h3>
-            <p><b>守る。活かす。育てる。</b><br>顧客・商品・価格・必要件数・90日の試し方まで、あなたの条件で3案にします。</p>
-            <div class="result-upgrade-grid">
-              <div><small>FREE</small><b>経験・強み・方向性</b></div>
-              <span>→</span>
-              <div class="paid"><small>3,300円</small><b>顧客・商品・価格・90日</b></div>
-            </div>
-            <div class="decision-lines">
-              <span>「これは違う」</span>
-              <span>「これは少しやってみたい」</span>
-              <span>「今はまだ動かない」</span>
-            </div>
-            <a class="btn" href="#price">私の3案を全部見る　3,300円 →</a>
-            <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
-          </div>
             </div>
           </details>
 
@@ -7013,45 +7019,46 @@ const CTX_LABELS={
     else if(key==='tower'){L(31,82,69,82);L(36,82,40,32);L(64,82,60,32);L(40,32,60,32);L(42,32,42,23);L(58,32,58,23);L(42,23,58,23);L(46,23,46,13);L(54,23,54,13);L(46,13,54,13);L(41,47,59,47);L(39,61,61,61);L(46,82,46,69);L(54,82,54,69);L(46,69,54,69);C(50,39,3);}
     ctx.restore();
   }
+  const CARD_IMG=new Image();CARD_IMG.decoding='async';CARD_IMG.src='assets/akinai-result-illustration-banner.jpg?v=20260922d';
   function drawCard(){
+    // 結果サマリーカード：強み・モヤモヤ・今週の一歩の3つを1枚に（結果冒頭「まず一枚で」と同じ構成）
     const d=D[cur], d2=sub?D[sub]:null, c=document.getElementById('cv'), x=c.getContext('2d'), W=1080,H=1920;
     const serif='"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif', sans='"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif';
+    const t=id=>(document.getElementById(id)?.textContent||'').trim();
+    const life=LIFE_RESULT[cur]||{};
+    const name=(life.title||'').split('｜')[1]||'';
+    const strength=t('rgStrength')||(name+'。'+(life.directions||[]).join('・'));
+    const release=t('rgRelease')||life.letgo||'';
+    const step=t('rgStep')||t('wsBody')||'';
     x.fillStyle='#f4ece4';x.fillRect(0,0,W,H);
-    x.fillStyle='#fffaf5';rr(x,70,230,940,1440,48);x.fill();
-    x.strokeStyle='rgba(196,127,116,.45)';x.lineWidth=2;rr(x,100,260,880,1380,36);x.stroke();
-    const g=x.createRadialGradient(900,320,10,900,320,320);g.addColorStop(0,'rgba(247,228,223,1)');g.addColorStop(1,'rgba(247,228,223,0)');x.fillStyle=g;x.beginPath();x.arc(900,320,320,0,Math.PI*2);x.fill();
+    x.fillStyle='#fffaf5';rr(x,60,140,960,1700,48);x.fill();
+    x.strokeStyle='rgba(196,127,116,.35)';x.lineWidth=2;rr(x,60,140,960,1700,48);x.stroke();
     x.textAlign='center';
-    x.fillStyle='#3b332e';x.font='500 54px '+serif;x.fillText('わたしのこれから診断',540,150);
-    x.fillStyle='#c47f74';x.font='italic 500 28px "Cormorant Garamond",Georgia,serif';x.fillText('for women in their 40s',540,196);
-    const nick=(document.getElementById('cardName')?.value||'').trim().slice(0,20);if(nick){x.fillStyle='#6b605a';x.font='500 30px '+sans;x.fillText(nick+' さんのこれから診断結果',540,270);}
-    x.fillStyle='#c47f74';x.font='italic 500 36px "Cormorant Garamond",Georgia,serif';x.fillText('Your Next Chapter',540,360);
-    const name=LIFE_RESULT[cur].title.split('｜')[1];
-    x.fillStyle='#3b332e';x.font='500 '+(name.length>11?56:68)+'px '+serif;wrap(x,name,540,470,900,80,'center');
-    x.fillStyle='#fffaf5';x.beginPath();x.arc(540,650,118,0,Math.PI*2);x.fill();x.strokeStyle='rgba(196,127,116,.28)';x.lineWidth=2;x.stroke();drawStarArt(x,cur,540,650,150);
-    x.fillStyle='#3b332e';x.font='500 72px '+serif;
-    if(d2){x.fillText(d.sym,385,790);x.fillStyle='#c47f74';x.font='400 44px '+serif;x.fillText('×',540,782);x.fillStyle='#8a7f77';x.font='500 72px '+serif;x.fillText(d2.sym,695,790);}else{x.fillText(d.sym,540,790);}
-    x.fillStyle='#c47f74';x.font='700 20px '+sans;if(d2){x.fillText('主星',385,824);x.fillText('副星',695,824);}
-    let cy=875;
-    x.textAlign='center';x.fillStyle='#8a7f77';x.font='700 20px '+sans;x.fillText('今の自分に置いておきたいこと',540,cy);
-    const dirs=(LAST_SEASON&&SEASON_DIRECTION[LAST_SEASON])||ORACLE_DIRECTION[cur]||[];
-    x.fillStyle='#f7e4df';dirs.forEach((t,j)=>{const xx=300+j*240;rr(x,xx-95,cy+24,190,54,27);x.fill();x.fillStyle='#8b5e55';x.font='700 20px '+sans;x.fillText(t,xx,cy+58);x.fillStyle='#f7e4df';});
-    cy+=120;
-    if(LAST_SEASON){x.fillStyle='#f7e4df';rr(x,210,cy,660,105,28);x.fill();x.fillStyle='#c47f74';x.font='700 20px '+sans;x.fillText('いまの商いの季節',540,cy+32);x.fillStyle='#3b332e';x.font='500 30px '+serif;x.fillText(LAST_SEASON_TITLE||LAST_SEASON,540,cy+76);cy+=135;}
-    x.fillStyle='#c47f74';x.font='700 21px '+sans;x.fillText('あなたが、もう持っているもの',540,cy+18);
-    x.fillStyle='#3b332e';x.font='500 28px '+serif;wrap(x,LIFE_RESULT[cur].affirm,540,cy+62,760,42,'center');
-    cy+=190;
-    x.fillStyle='#fff';rr(x,140,cy,800,205,28);x.fill();x.strokeStyle='#edd6cf';x.lineWidth=2;rr(x,140,cy,800,205,28);x.stroke();
-    x.fillStyle='#c47f74';x.font='700 21px '+sans;x.fillText('今日、手放していいこと',540,cy+46);
-    x.fillStyle='#3b332e';x.font='500 27px '+serif;wrap(x,LIFE_RESULT[cur].letgo,540,cy+94,720,40,'center');
-    cy+=245;
-    x.fillStyle='#8a7f77';x.font='700 19px '+sans;x.fillText('大切にしたい価値観',540,cy);
-    x.fillStyle='#3b332e';x.font='500 25px '+serif;wrap(x,LIFE_RESULT[cur].value,540,cy+40,760,38,'center');
-    cy+=110;
-    x.fillStyle='#8a7f77';x.font='700 19px '+sans;x.fillText('心を緩めるキーワード',540,cy);
-    x.fillStyle='#c47f74';x.font='500 25px '+serif;x.fillText(LIFE_RESULT[cur].keyword,540,cy+40);
-    x.fillStyle='#c47f74';x.font='700 30px '+sans;x.fillText('#わたしのこれから診断',540,1640);
-    x.fillStyle='#8a7f77';x.font='400 23px '+sans;x.fillText('今の自分への、小さなお守りカルテ',540,1700);
-    x.fillStyle='#c47f74';x.font='700 24px '+sans;x.fillText(SHARE_URL.replace(/^https?:\/\//,''),540,1750);
+    x.fillStyle='#3b332e';x.font='500 46px '+serif;x.fillText('わたしのこれから診断',540,92);
+    x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('YOUR RESULT, AT A GLANCE｜9問で見えてきたことを、まず一枚で。',540,128);
+    // イラスト（2:1）
+    if(CARD_IMG.complete&&CARD_IMG.naturalWidth){x.save();rr(x,100,180,880,440,32);x.clip();x.drawImage(CARD_IMG,100,180,880,440);x.restore();}
+    else{const g=x.createLinearGradient(100,180,980,620);g.addColorStop(0,'#fdf8f4');g.addColorStop(1,'#f3e1db');x.fillStyle=g;rr(x,100,180,880,440,32);x.fill();}
+    const nick=(document.getElementById('cardName')?.value||'').trim().slice(0,20);
+    x.fillStyle='#8a7f77';x.font='500 24px '+sans;x.fillText((nick?nick+' さんの':'')+'参考タイプ　'+d.sym+(d2?' × '+d2.sym:''),540,680);
+    x.fillStyle='#3b332e';x.font='500 '+(name.length>14?46:name.length>11?52:58)+'px '+serif;wrap(x,name,540,748,880,66,'center');
+    drawStarArt(x,cur,955,655,64);
+    // 3カード
+    const cards=[['✦','見つかる｜私の強み',strength,'#e3b6ae'],['◎','ほどける｜今のモヤモヤ',release,'#aeb9a3'],['→','決まる｜今週の一歩',step,'#d1b98e']];
+    let cy=870;
+    cards.forEach(([ic,lab,body,col])=>{
+      x.fillStyle='#fff';rr(x,110,cy,860,215,26);x.fill();x.strokeStyle='#eadfd8';x.lineWidth=2;rr(x,110,cy,860,215,26);x.stroke();
+      x.fillStyle=col;x.beginPath();x.arc(185,cy+70,38,0,Math.PI*2);x.fill();
+      x.fillStyle='#fff';x.font='700 32px '+sans;x.textAlign='center';x.fillText(ic,185,cy+82);
+      x.textAlign='left';x.fillStyle='#7d4a41';x.font='700 27px '+serif;x.fillText(lab,250,cy+66);
+      x.fillStyle='#4f4640';x.font='500 25px '+sans;wrap(x,body,250,cy+112,690,37,'left');
+      cy+=240;
+    });
+    x.textAlign='center';
+    x.fillStyle='#f7e4df';rr(x,140,1600,800,120,30);x.fill();
+    x.fillStyle='#5a4f49';x.font='500 27px '+serif;x.fillText('答えを急がなくていい。',540,1648);x.fillText('今日は、自分のことを少し言葉にできた。',540,1692);
+    x.fillStyle='#c47f74';x.font='700 28px '+sans;x.fillText('#わたしのこれから診断',540,1768);
+    x.fillStyle='#8a7f77';x.font='400 22px '+sans;x.fillText('無料・9問・3分　'+SHARE_URL.replace(/^https?:\/\//,''),540,1808);
     return c;
   }
   function rr(x,X,Y,w,h,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+h,r);x.arcTo(X+w,Y+h,X,Y+h,r);x.arcTo(X,Y+h,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath();}
