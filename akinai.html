@@ -3902,6 +3902,41 @@ p,
 .hero-result-sample .hrsm-week small{color:#e0aaa0!important}.hero-result-sample .hrsm-week p{color:#fff!important}.hero-result-sample .hrsm-week p b{color:#f3c9c0!important}
 .hrsm-cta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding:13px 16px;border-radius:14px;background:var(--rose);color:#fff!important;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 10px 24px rgba(196,127,116,.28)}
 .hero-result-sample .hrsm-cta small{font-size:11px;font-weight:500;color:#fff!important;opacity:.9}
+
+/* Hero visual: intuitive result preview */
+.hero-visual-card{position:relative;padding:14px;border-radius:26px;background:rgba(255,255,255,.88);border:1px solid var(--line);box-shadow:0 26px 64px rgba(90,66,52,.13);overflow:hidden}
+.hv-kicker{display:block;margin:1px 4px 11px;font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--rose)}
+.hv-stage{position:relative;overflow:hidden;border-radius:20px;background:linear-gradient(135deg,#fdf8f4,#f3e9e3);aspect-ratio:1.58/1}
+.hv-stage picture,.hv-stage img{display:block;width:100%;height:100%}
+.hv-stage img{object-fit:cover;object-position:center}
+.hv-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,250,247,.04) 0%,rgba(255,250,247,0) 46%,rgba(255,250,247,.16) 100%);pointer-events:none}
+.hv-badge{position:absolute;z-index:2;display:flex;align-items:center;gap:9px;min-width:154px;padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(196,127,116,.24);box-shadow:0 10px 25px rgba(79,58,48,.12);backdrop-filter:blur(8px)}
+.hv-badge i{flex:none;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;background:var(--rose-pale);color:var(--rose)}
+.hv-badge span{font-family:var(--serif);font-size:13px;line-height:1.15;font-weight:600;color:#61483f}
+.hv-badge small{display:block;margin-top:3px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:10.5px;font-weight:600;color:#7c7069}
+.hv-badge.b1{top:10%;right:5%}
+.hv-badge.b2{top:42%;right:3%}
+.hv-badge.b3{right:10%;bottom:8%}
+.hv-bottom{padding:13px 5px 3px;text-align:center}
+.hv-bottom p{margin:0;font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink)}
+.hv-bottom p b{color:var(--rose);font-weight:600}
+.hv-bottom>small{display:block;margin-top:4px;font-size:11px;line-height:1.65;color:var(--muted)}
+@media(max-width:900px){.hero-visual-card{padding:12px}.hv-stage{aspect-ratio:1.65/1}}
+@media(max-width:520px){
+  .hero-visual-card{border-radius:22px;padding:10px}
+  .hv-kicker{margin-bottom:8px;font-size:9.5px}
+  .hv-stage{aspect-ratio:1.18/1}
+  .hv-stage img{object-position:42% center}
+  .hv-badge{min-width:0;padding:7px 9px;gap:7px}
+  .hv-badge i{width:25px;height:25px;font-size:12px}
+  .hv-badge span{font-size:11.5px}
+  .hv-badge small{font-size:9.5px}
+  .hv-badge.b1{top:5%;right:3%}
+  .hv-badge.b2{top:38%;right:2%}
+  .hv-badge.b3{right:5%;bottom:5%}
+  .hv-bottom p{font-size:15px}
+  .hv-bottom>small{font-size:10.5px}
+}
 .hero-choice-echo{margin:14px 0 18px;padding:15px 17px;border-radius:16px;background:#fff;border:1px solid rgba(196,127,116,.30);border-left:4px solid var(--rose)}
 .hero-choice-echo small{display:block;font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--rose);margin-bottom:4px}
 .hero-choice-echo p{margin:0!important;font-size:13.5px!important;line-height:1.8!important;color:#514741!important}
@@ -4868,30 +4903,21 @@ document.addEventListener('click',function(e){
       </div>
 
       <div class="hero-v3-visual">
-        <div class="hero-result-sample" aria-label="結果の一例（手×舟タイプ）">
-          <div class="hrsm-illust" aria-hidden="true"><picture><source srcset="assets/akinai-result-illustration-banner.webp?v=20260922d" type="image/webp"><img src="assets/akinai-result-illustration-banner.jpg?v=20260922d" alt="" loading="eager" decoding="async" width="1280" height="640"></picture></div>
-          <div class="hrsm-top"><span>FREE RESULT SAMPLE｜無料結果の一例</span><small>9問に答えると、あなたの場合で出ます</small></div>
-          <div class="hrsm-head">
-            <div class="hrsm-art" id="heroSampleArt" aria-hidden="true"></div>
-            <div>
-              <small>参考タイプ　手 × 舟</small>
-              <b>好きなものを、<br>形にして確かめる人</b>
-            </div>
+        <div class="hero-visual-card" aria-label="無料診断で見える3つのこと">
+          <span class="hv-kicker">FREE RESULT SAMPLE｜無料結果の一例</span>
+          <div class="hv-stage">
+            <picture>
+              <source srcset="assets/akinai-result-illustration-banner.webp?v=20260922e" type="image/webp">
+              <img src="assets/akinai-result-illustration-banner.jpg?v=20260922e" alt="自分の強み、今のモヤモヤ、次の一歩が少しずつ見えてくる女性のイラスト" loading="eager" decoding="async" width="1280" height="640">
+            </picture>
+            <div class="hv-badge b1"><i>✦</i><span>見つかる<small>私の強み</small></span></div>
+            <div class="hv-badge b2"><i>◎</i><span>ほどける<small>今のモヤモヤ</small></span></div>
+            <div class="hv-badge b3"><i>→</i><span>決まる<small>今週の一歩</small></span></div>
           </div>
-          <div class="hrsm-tags"><span>手を動かす</span><span>小さく形にする</span><span>感覚を確かめる</span></div>
-          <div class="hrsm-block">
-            <small>01｜見つかる｜私の強み</small>
-            <p>頼まれると、必要以上にちゃんとやる。<b>「最後まで形にする」ことが、もう持っている力です。</b></p>
+          <div class="hv-bottom">
+            <p>3分後、<b>「今の私」が少し見えてくる。</b></p>
+            <small>答えを決めるためではなく、自分の中にあるものを整理するための9問です。</small>
           </div>
-          <div class="hrsm-block hrsm-conclusion">
-            <small>02｜ほどける｜今のモヤモヤ</small>
-            <p>できることがないのではなく、<b>「これを仕事と呼んでいい」と自分で認めにくい</b>ことが、引っかかりになっています。</p>
-          </div>
-          <div class="hrsm-block hrsm-week">
-            <small>03｜決まる｜今週の一歩</small>
-            <p>今週30分だけ、最近人から頼まれたことを<b>3つ</b>書き出してみる。</p>
-          </div>
-          <a class="hrsm-cta" href="#qz" data-go-quiz="sample">私の1枚を見る →<small>無料・3分・登録なし</small></a>
         </div>
       </div>
     </div>
