@@ -3901,6 +3901,20 @@ p,
 .hero-result-sample .hrsm-week small{color:#e0aaa0!important}.hero-result-sample .hrsm-week p{color:#fff!important}.hero-result-sample .hrsm-week p b{color:#f3c9c0!important}
 .hrsm-cta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding:13px 16px;border-radius:14px;background:var(--rose);color:#fff!important;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 10px 24px rgba(196,127,116,.28)}
 .hero-result-sample .hrsm-cta small{font-size:11px;font-weight:500;color:#fff!important;opacity:.9}
+.hero-choice-echo{margin:14px 0 18px;padding:15px 17px;border-radius:16px;background:#fff;border:1px solid rgba(196,127,116,.30);border-left:4px solid var(--rose)}
+.hero-choice-echo small{display:block;font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--rose);margin-bottom:4px}
+.hero-choice-echo p{margin:0!important;font-size:13.5px!important;line-height:1.8!important;color:#514741!important}
+@media(max-width:900px){
+  .hero-v3-grid{display:flex!important;flex-direction:column!important;gap:18px!important;align-items:stretch!important}
+  .hero-v3-copy{display:contents}
+  .hero-v3-copy .eyebrow{order:1}
+  .hero-v3-copy .h1-v4{order:2}
+  .hero-v3-visual{order:3}
+  .hero-v3-copy .hero-hook{order:4}
+  .hero-v3-copy .hero-primary{order:5}
+  .hero-v3-copy .hero-v3-sub{order:6}
+  .hero-result-sample{margin-top:0}
+}
 @media(max-width:900px){.hero-result-sample{padding:18px 16px 16px}.hrsm-head b{font-size:19px}.hrsm-block p{font-size:12.5px}}
 .hero-sample{margin:14px 0 0;max-width:640px}
 .hero-sample small{display:block;font-size:11.5px;letter-spacing:.04em;color:#7a6f68;margin-bottom:8px}
@@ -4778,7 +4792,9 @@ document.addEventListener('click',function(e){
 document.addEventListener('click',function(e){
   var hf=e.target.closest('[data-hero-feeling]');
   if(!hf) return;
-  window.track&&window.track('hero_feeling_click',{feeling:hf.getAttribute('data-hero-feeling')||''});
+  var feeling=hf.getAttribute('data-hero-feeling')||'';
+  window.AKINAI_HERO_FEELING=feeling;
+  window.track&&window.track('hero_feeling_click',{feeling:feeling});
 },true);
 document.addEventListener('click',function(e){
   var rc=e.target.closest('[data-result-choice]');
@@ -4828,20 +4844,12 @@ document.addEventListener('click',function(e){
           <a class="btn" href="#qz" data-go-quiz="hero">私の3つを見てみる →</a>
           <small>無料・3分・メール不要</small>
         </div>
-        <div class="hero-sample" aria-label="結果の一例">
-          <small>たとえば、こんな結果が出ます。</small>
-          <div class="hero-sample-row">
-            <span><em>手 × 舟</em>あなたが売るのは「器用さ」ではなく、“ちゃんと仕上がる”安心。</span>
-            <span><em>灯 × 橋</em>あなたが売るのは「相談」ではなく、“次の一歩を作る”整理。</span>
-            <span><em>庭 × 塔</em>あなたが売るのは「優しさ」ではなく、“続けられる”時間。</span>
-          </div>
-        </div>
         <p class="hero-v3-sub">答えを出さなくていい。今日は、自分の番です。</p>
       </div>
 
       <div class="hero-v3-visual">
         <div class="hero-result-sample" aria-label="結果の一例（手×舟タイプ）">
-          <div class="hrsm-top"><span>RESULT SAMPLE｜結果の一例</span><small>9問に答えると、1枚になります</small></div>
+          <div class="hrsm-top"><span>FREE RESULT SAMPLE｜無料結果の一例</span><small>9問に答えると、あなたの場合で出ます</small></div>
           <div class="hrsm-head">
             <div class="hrsm-art" id="heroSampleArt" aria-hidden="true"></div>
             <div>
@@ -4852,16 +4860,16 @@ document.addEventListener('click',function(e){
           </div>
           <div class="hrsm-tags"><span>手を動かす</span><span>小さく形にする</span><span>感覚を確かめる</span></div>
           <div class="hrsm-block">
-            <small>01｜自分では、仕事だと思っていなかったこと</small>
-            <p>頼まれると、必要以上にちゃんとやる。「こんなの売れない」と本人だけ思っている。</p>
+            <small>01｜見つかる｜私の強み</small>
+            <p>頼まれると、必要以上にちゃんとやる。<b>「最後まで形にする」ことが、もう持っている力です。</b></p>
           </div>
           <div class="hrsm-block hrsm-conclusion">
-            <small>02｜売れそうな部分</small>
-            <p>「器用さ」を売る人ではありません。<b>“この人に頼めば、ちゃんと仕上がる”という安心</b>でお金になる人です。</p>
+            <small>02｜ほどける｜今のモヤモヤ</small>
+            <p>できることがないのではなく、<b>「これを仕事と呼んでいい」と自分で認めにくい</b>ことが、引っかかりになっています。</p>
           </div>
           <div class="hrsm-block hrsm-week">
-            <small>03｜今週、これだけ</small>
-            <p>近くのマルシェか、知り合いの店に「一日だけ置かせて」と<b>1件</b>、連絡する。</p>
+            <small>03｜決まる｜今週の一歩</small>
+            <p>今週30分だけ、最近人から頼まれたことを<b>3つ</b>書き出してみる。</p>
           </div>
           <a class="hrsm-cta" href="#qz" data-go-quiz="sample">私の1枚を見る →<small>無料・3分・登録なし</small></a>
         </div>
@@ -5085,6 +5093,10 @@ document.addEventListener('click',function(e){
           </div>
           <div class="rcard" id="rcard">
             <div class="lab">9問に答えてくれて、ありがとうございます。</div>
+            <div class="hero-choice-echo" id="heroChoiceEcho" style="display:none">
+              <small>最初に選んだ気持ちから</small>
+              <p id="heroChoiceEchoText"></p>
+            </div>
             <div class="gentle-relief">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
               <p>でも、</p>
@@ -6701,6 +6713,16 @@ const CTX_LABELS={
     document.getElementById('rLetgo').textContent=life.letgo;
     document.getElementById('rValue').textContent=life.value;
     document.getElementById('rKeyword').textContent=life.keyword;
+    const heroEcho=document.getElementById('heroChoiceEcho'), heroEchoText=document.getElementById('heroChoiceEchoText');
+    if(heroEcho&&heroEchoText&&window.AKINAI_HERO_FEELING){
+      const msg={
+        same:'最初は「このままでいいのかな」と感じていました。9問を見ると、全部を変えたいというより、今の暮らしの中で「自分の分」を取り戻したい気持ちが見えています。',
+        unknown:'最初は「何かしたい。でも分からない」と感じていました。9問を見ると、何もないのではなく、すでにある経験にまだ名前が付いていない状態に近そうです。',
+        mytime:'最初は「自分の時間を取り戻したい」と感じていました。9問を見ると、新しい何かを増やす前に、まず自分に使える余白を取り戻すことが大切そうです。'
+      };
+      heroEchoText.textContent=msg[window.AKINAI_HERO_FEELING]||'';
+      heroEcho.style.display=heroEchoText.textContent?'':'none';
+    }else if(heroEcho){heroEcho.style.display='none';}
     const dirBox=document.getElementById('rDirectionTags');
     if(dirBox)dirBox.innerHTML=life.directions.map((t,i)=>'<span class="tag '+(i===0?'active':'')+'">'+t+'</span>').join('');
     const ctx=currentContext();
