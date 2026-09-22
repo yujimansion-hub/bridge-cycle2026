@@ -3874,6 +3874,17 @@ p,
 .hero-v3{padding:58px 0 48px}
 .hero-v3-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:64px;align-items:center}
 .hero-v3-copy h1{font-size:clamp(38px,5vw,62px);line-height:1.34;margin:16px 0 20px}
+.hero-v3-copy h1.h1-v4{margin:14px 0 16px;line-height:1.2}
+.h1-v4 .h1-context{display:block;font-size:clamp(20px,2.4vw,30px);line-height:1.55;font-weight:500;color:#4f4640}
+.h1-v4 .h1-context b{font-weight:500;color:var(--ink)}
+.h1-v4 .h1-punch{display:block;margin-top:.18em;font-size:clamp(52px,7vw,88px);line-height:1.1;color:var(--rose)}
+.h1-v4 .h1-punch i{font-style:normal}
+.hero-sample{margin:14px 0 0;max-width:640px}
+.hero-sample small{display:block;font-size:11.5px;letter-spacing:.04em;color:#7a6f68;margin-bottom:8px}
+.hero-sample-row{display:grid;gap:6px}
+.hero-sample-row span{display:flex;align-items:baseline;gap:10px;padding:8px 12px;border-left:3px solid var(--rose);background:#fffaf7;border-radius:0 12px 12px 0;font-size:13px;line-height:1.6;color:#514741}
+.hero-sample-row em{flex:none;font-style:normal;font-family:var(--serif);font-size:13px;color:var(--rose);white-space:nowrap}
+@media(max-width:700px){.h1-v4 .h1-context{font-size:19px}.h1-v4 .h1-punch{font-size:48px}.hero-sample-row span{font-size:12.5px}}
 .hero-v3-lead{font-size:20px;line-height:1.85;max-width:660px;margin:0 0 24px;color:#4f4640}
 .hero-hook{margin:8px 0 18px;max-width:620px}
 .hero-hook-label{display:block;font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:10px}
@@ -4668,7 +4679,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .pc-lead{font-size:13px;color:#655a53;margin:0 0 18px}
 .pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pc-grid label{display:block}.pc-grid label>span{display:block;font-size:12px;font-weight:700;margin-bottom:5px}.pc-grid select,.pc-grid input,.pc-grid textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:14px}.pc-grid textarea{min-height:86px;resize:vertical}.pc-grid .pc-wide{grid-column:1/-1}.pc-grid small{font-size:10px;color:var(--muted);font-weight:500}
 .pc-privacy{margin-top:15px;padding:11px 13px;border-left:3px solid var(--rose);background:#fffaf7;font-size:11.5px;line-height:1.7;color:#675b54}.pc-privacy b{color:var(--ink)}.pc-start{margin-top:15px}
-.current-summary{margin:20px 0;padding:20px;border:1px solid var(--line);border-radius:20px;background:#fffaf7}.cs-lines{display:grid;gap:8px;margin-top:12px}.cs-lines div{padding:9px 11px;background:#fff;border-radius:11px;font-size:12.5px;line-height:1.7;color:#554b45}.cs-lines b{color:var(--ink)}.cs-memo{margin:10px 0 0;padding:12px 14px;border-left:3px solid var(--rose);font-family:var(--serif);font-size:14px;line-height:1.8;background:#fff}
+.current-summary{margin:20px 0;padding:20px;border:1px solid var(--line);border-radius:20px;background:#fffaf7}.cs-lines{display:grid;gap:8px;margin-top:12px}.cs-lines div{padding:9px 11px;background:#fff;border-radius:11px;font-size:12.5px;line-height:1.7;color:#554b45}.cs-lines b{color:var(--ink)}.cs-lines .cs-add{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;border:1px dashed var(--rose);background:#fffaf7}.cs-lines .cs-add .btn{min-height:40px;padding:0 16px;font-size:13px}.cs-memo{margin:10px 0 0;padding:12px 14px;border-left:3px solid var(--rose);font-family:var(--serif);font-size:14px;line-height:1.8;background:#fff}
 
 .pc-core{grid-template-columns:1fr 1fr}.pc-core .pc-wide{grid-column:1/-1}
 .pc-more{margin-top:16px;border:1px solid var(--line);border-radius:15px;background:#fffaf7;overflow:hidden}
@@ -4779,27 +4790,27 @@ document.addEventListener('click',function(e){
     <div class="wrap hero-v3-grid">
       <div class="hero-v3-copy">
         <div class="eyebrow">誰かに相談する前の、ひとり相談室 <span class="en">MY NEXT CHAPTER</span></div>
-        <h1><i>家族のこと。</i><i>仕事のこと。</i><i>お金のこと。</i><br><b>ずっと考えてきた。</b><br><span><i>で、私は？</i></span></h1>
+        <h1 class="h1-v4"><span class="h1-context"><i>家族のこと。</i><i>仕事のこと。</i><i>お金のこと。</i><br><b>ずっと考えてきた。</b></span><span class="h1-punch"><i>で、私は？</i></span></h1>
         <div class="hero-hook">
-          <span class="hero-hook-label">あなたの「？」は、どれに近い？</span>
+          <span class="hero-hook-label">あなたの「？」に近いものを、ひとつ選ぶと始まります。</span>
           <div class="hero-hook-choices" aria-label="今の気持ちを選ぶ">
-            <a href="#fortune" data-hero-feeling="same">このままでいいのかな</a>
-            <a href="#fortune" data-hero-feeling="unknown">何かしたい。でも分からない</a>
-            <a href="#fortune" data-hero-feeling="mytime">自分の時間を取り戻したい</a>
+            <a href="#qz" data-hero-feeling="same" data-ctx-worry="stay">このままでいいのかな</a>
+            <a href="#qz" data-hero-feeling="unknown" data-ctx-worry="self">何かしたい。でも分からない</a>
+            <a href="#qz" data-hero-feeling="mytime" data-ctx-hope="time">自分の時間を取り戻したい</a>
           </div>
-          <p><b>9問で、あなたの「？」を言葉にします。</b><br><span>向いている仕事を決める診断ではありません。今のあなたが、何を守って、何なら試せるかを見ます。</span></p>
-        </div>
-        <div class="hero-v3-facts" aria-label="診断の特徴">
-          <div><b>無料・3分</b><span>9問だけ</span></div>
-          <div><b>登録なし</b><span>メール不要</span></div>
-          <div><b>答えを決めなくてOK</b><span>整理するだけでも</span></div>
+          <p><b>9問・3分。登録なし。答えを決めなくてOK。</b><br><span>向いている仕事を決める診断ではありません。今のあなたが、何を守って、何なら試せるかを見ます。</span></p>
         </div>
         <div class="hero-primary">
-          <a class="btn" href="#fortune">私の3つを見てみる →</a>
+          <a class="btn" href="#qz" data-go-quiz="hero">私の3つを見てみる →</a>
+          <small>無料・3分・メール不要</small>
         </div>
-        <div class="hero-answer-preview" aria-label="9問でもらえる3つの答え">
-          <small>9問でもらえる、3つの答え。</small>
-          <span>✦ 見つかる｜私の強み</span><span>◎ ほどける｜今のモヤモヤ</span><span>→ 決まる｜今週の一歩</span>
+        <div class="hero-sample" aria-label="結果の一例">
+          <small>たとえば、こんな結果が出ます。</small>
+          <div class="hero-sample-row">
+            <span><em>手 × 舟</em>あなたが売るのは「器用さ」ではなく、“ちゃんと仕上がる”安心。</span>
+            <span><em>灯 × 橋</em>あなたが売るのは「相談」ではなく、“次の一歩を作る”整理。</span>
+            <span><em>庭 × 塔</em>あなたが売るのは「優しさ」ではなく、“続けられる”時間。</span>
+          </div>
         </div>
         <p class="hero-v3-sub">答えを出さなくていい。今日は、自分の番です。</p>
       </div>
@@ -6394,6 +6405,15 @@ const CTX_LABELS={
     window.track&&window.track('prefill_done',{});
     trackQuizReach(0);
   },{once:true});
+  document.querySelector('.pc-start')?.addEventListener('click',e=>{
+    // 結果表示後に現在地を足したときは、9問をやり直さず結果を更新して結果へ戻る
+    if(window.__akinaiRerender&&window.__akinaiRerender()){
+      e.preventDefault();
+      window.track&&window.track('context_added_after_result',{});
+      const t=document.getElementById('currentSummary')||res;
+      window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-96,behavior:'instant'});
+    }
+  });
   const W=[2,1,1,2,2,1,1,1,1];function scoreOf(arr){const sc={light:0,hand:0,garden:0,bridge:0,boat:0,tower:0},first={};arr.forEach((v,k)=>{if(!v)return;sc[v]+=(W[k]||1);if(first[v]===undefined)first[v]=k;});const order=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||(first[a]??99)-(first[b]??99));return {sc,order};}
   function show(n){
     i=n;
@@ -6418,8 +6438,24 @@ const CTX_LABELS={
   scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
   document.getElementById('midGo').addEventListener('click',()=>show(4));
   back.addEventListener('click',()=>{if(i>0)show(i-1);});
+  // ---- ヒーローから直接Q1へ（「3分」の約束を守る。事前ヒアリングは任意で、結果の後からも足せる） ----
+  function goQuiz(){
+    if(cur){ans=[];reachedQs.clear();cur=null;sub=null;show(0);}
+    const y=qz.getBoundingClientRect().top+window.scrollY-96;
+    window.scrollTo({top:Math.max(0,y),behavior:'instant'});
+    trackQuizReach(0);
+  }
+  document.querySelectorAll('[data-hero-feeling],[data-go-quiz]').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    const w=a.getAttribute('data-ctx-worry'),h=a.getAttribute('data-ctx-hope');
+    const setSel=(id,v)=>{const s=document.getElementById(id);if(s&&v&&!s.value){s.value=v;s.dispatchEvent(new Event('change',{bubbles:true}));}};
+    if(w)setSel('ctxWorry',w); if(h)setSel('ctxHope',h);
+    goQuiz();
+  }));
+  // 結果表示後に「現在地」を足した場合、9問をやり直さずに結果だけ更新する
+  window.__akinaiRerender=()=>{if(!cur)return false;render(cur,sub);return true;};
   document.getElementById('again').addEventListener('click',()=>{
-    ans=[];reachedQs.clear();show(0);
+    ans=[];reachedQs.clear();cur=null;sub=null;show(0);
     try{if(location.search)history.replaceState(null,'',location.pathname);}catch(e){}
     // 結果ブロック（display:none）が消えて文書が縮んだ直後に、即時スクロールで位置を合わせる。
     // smooth／rAF はバックグラウンドタブや縮小中に動かず、末尾に取り残されることがある。
@@ -6674,7 +6710,16 @@ const CTX_LABELS={
       if(ctx.worry&&CTX_LABELS.worry[ctx.worry])rows.push(['いちばん重い悩み',CTX_LABELS.worry[ctx.worry]]);
       if(ctx.hope&&CTX_LABELS.hope[ctx.hope])rows.push(['本当はこうなりたい',CTX_LABELS.hope[ctx.hope]]);
       if(ctx.dream)rows.push(['人生で一度は',ctx.dream]);
-      cs.innerHTML=(rows.length?rows:[['現在地','まだはっきり言葉になっていません。それも今の大切な情報です。']]).map(r=>'<div><b>'+r[0]+'：</b>'+r[1]+'</div>').join('');
+      const needCtx=!(ctx.work||ctx.family||ctx.margin||ctx.income);
+      cs.innerHTML=(rows.length
+        ? rows.map(r=>'<div><b>'+r[0]+'：</b>'+r[1]+'</div>').join('')
+        : '<div><b>現在地：</b>まだはっきり言葉になっていません。それも今の大切な情報です。</div>')
+        +(needCtx?'<div class="cs-add"><b>働き方・家族・お金を足すと、この結果は「私の場合」になります。</b><a href="#privateContext" class="btn sm" data-add-context="1">現在地を足す（30秒・任意）→</a></div>':'');
+      const addLink=cs.querySelector('[data-add-context]');
+      if(addLink)addLink.addEventListener('click',()=>{
+        const b=document.querySelector('.pc-start');if(b)b.textContent='結果を更新する →';
+        window.track&&window.track('add_context_click',{});
+      });
     }
     const cm=document.getElementById('currentMemoEcho');
     if(cm){if(ctx.memo){cm.style.display='';cm.textContent='「'+ctx.memo+'」';}else{cm.style.display='none';cm.textContent='';}}
