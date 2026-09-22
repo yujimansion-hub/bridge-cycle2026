@@ -4673,7 +4673,7 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";   /* ← GA4の測定ID（akinai-lo
 document.addEventListener('click',function(e){
   var rc=e.target.closest('[data-result-choice]');
   if(!rc) return;
-  window.track&&window.track('result_choice_click',{choice:rc.getAttribute('data-result-choice')||''});
+  window.track&&window.track('result_choice_click',{choice:rc.getAttribute('data-result-choice')||'',entre_level:(document.getElementById('res')?.dataset.entreLevel||'unknown')});
 },true);
 document.addEventListener('click',function(e){
   var a=e.target.closest('a[href="#price"], a[href="#paidEngine"], #paidCheckoutBtn, a[href="#fortune"]');
@@ -4958,20 +4958,6 @@ document.addEventListener('click',function(e){
           </div>
           <div class="rcard" id="rcard">
             <div class="lab">9問に答えてくれて、ありがとうございます。</div>
-            <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
-              <span class="result-choice-kicker">この結果、どうする？</span>
-              <div class="result-choice-grid">
-                <a class="result-choice-card keep" href="#resultCore" data-result-choice="keep">
-                  <small>01｜今日はここまで</small>
-                  <b>この結果を、<br>自分のために持っておく</b>
-                </a>
-                <a class="result-choice-card paid" href="#price" data-result-choice="paid">
-                  <small>02｜もう少し形にする</small>
-                  <b>「ちょっとやってみたい」を、<br>3つの商いにする</b>
-                  <em>3,300円 →</em>
-                </a>
-              </div>
-            </div>
             <div class="gentle-relief">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
               <p>でも、</p>
@@ -5040,6 +5026,20 @@ document.addEventListener('click',function(e){
               <small>入力した内容に出てきた行動や言葉から見ています。占い部分と診断部分は別に扱っています。</small>
             </div>
             <div class="affirm" id="resultStrength"><span>01｜あなたが、もう持っている力</span><p id="rAffirm"></p></div>
+            <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
+              <span class="result-choice-kicker">この結果、どうする？</span>
+              <div class="result-choice-grid">
+                <a class="result-choice-card keep" href="#currentSummary" data-result-choice="keep">
+                  <small>01｜今日はここまで</small>
+                  <b>この結果を、<br>自分のために持っておく</b>
+                </a>
+                <a class="result-choice-card paid" href="#price" data-result-choice="paid">
+                  <small>02｜もう少し形にする</small>
+                  <b>「ちょっとやってみたい」を、<br>3つの商いにする</b>
+                  <em>3,300円 →</em>
+                </a>
+              </div>
+            </div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
             <div class="letgo" id="resultRisk"><b>03｜いま、無理をしやすいポイント</b><p id="rLetgo"></p></div>
@@ -6579,6 +6579,7 @@ const CTX_LABELS={
 
     const er=entrepreneurshipResult();
     window.AKINAI_ENTRE_RESULT=er;
+    if(res) res.dataset.entreLevel=er.level||'unknown';
     const et=document.getElementById('entreTitle'), em=document.getElementById('entreMeter'), erp=document.getElementById('entreReason'), ent=document.getElementById('entreNextTitle'), en=document.getElementById('entreNext'), eps=document.getElementById('entrePaths');
     if(et)et.textContent=er.title;
     if(em)em.style.width=er.pct+'%';
