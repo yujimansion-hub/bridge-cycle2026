@@ -6309,7 +6309,7 @@ const CTX_LABELS={
       };
       const el=document.getElementById('q7InsightText');
       if(el) el.textContent=insight[w]||'あなたが自然にやってきたことが、少しずつ輪郭になっています。';
-      window.track&&window.track('mini_result_shown',{stage:'q7',type:w||''});
+      window.track&&window.track('free_mid2_shown',{stage:'q7',type:w||''});
     }
   }
   function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='途中のタイプ';}
@@ -6729,7 +6729,7 @@ const CTX_LABELS={
     fillOtherTypes(document.getElementById('olTop'));
     const sharedView=!ans.length&&!window.AKINAI_VOICE_RESULT;
     res.classList.toggle('shared-view',sharedView);
-    res.classList.add('on'); track(sharedView?'shared_result_view':'free_result_shown',{type:w||''}); if(!sharedView) track('tako_result_shown',{stage:'result_available'});
+    res.classList.add('on'); track(sharedView?'shared_result_view':'free_result_shown',{type:w||''});
     try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}}catch(e){} res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
