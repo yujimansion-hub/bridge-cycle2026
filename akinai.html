@@ -332,6 +332,9 @@ h2{font-size:clamp(26px,3.6vw,42px);line-height:1.45;font-weight:500;margin:10px
 .midbox h3{margin:8px 0 6px;font-size:24px}
 .midbox h3 b{font-size:40px;color:var(--ink);font-weight:500;vertical-align:-4px}
 .midbox h3 span{font-size:18px;color:var(--rose)}
+.midbox h3 .mid-lead{font-size:inherit;color:inherit}
+.midbox h3 b,.midbox h3 span:not(.mid-lead){white-space:nowrap}
+.res.shared-view #rcard > .lab:first-child{display:none}
 .midbox .sub{margin-bottom:16px}
 .tk{display:none}.tk.on{display:block}
 .tkh{margin-bottom:8px}.tkh .lab{font-family:var(--en);font-style:italic;color:var(--rose);font-size:16px}
@@ -4892,7 +4895,7 @@ document.addEventListener('click',function(e){
           <button type="button" data-v="hand"><span class="k">C</span>好きなことや得意なことを、今より活かせている</button>
           <button type="button" data-v="boat"><span class="k">D</span>自分で選んだ仕事や活動に、もっと時間を使えている</button></div></div>
 
-        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜ここまで見て</div><h3>少し輪郭が見えてきました。 <b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">ここからは、<b>生活の余力</b>、<b>変化への向き合い方</b>、そして<b>起業という選択肢との今の相性</b>も見ていきます。あと5問だけ。</p><button type="button" class="btn" id="midGo">続きを一緒に見る →</button></div></div>
+        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜ここまで見て</div><h3><span class="mid-lead">少し輪郭が見えてきました。</span><br><b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">ここからは、<b>生活の余力</b>、<b>変化への向き合い方</b>、そして<b>起業という選択肢との今の相性</b>も見ていきます。あと5問だけ。</p><button type="button" class="btn" id="midGo">続きを一緒に見る →</button></div></div>
 
         <div class="tk" id="tk">
           <div class="tkh"><div class="lab">友達からの、他己診断</div><h3>この人のこと、4問だけ教えてください。</h3><p class="sub">名前は要りません。答えは送信されず、結果だけをこの人に送れます。</p></div>
@@ -5612,7 +5615,7 @@ document.addEventListener('click',function(e){
 <script>
 // ===== 公開前設定 =====
 const BOOKING_URL = "";                                   // 旧予約導線（現在は未使用）
-const PAID_CHECKOUT_URL = "https://buy.stripe.com/dRm28tajZdf9bFA3ky3gk07";                              // Stripe決済リンク（例：https://buy.stripe.com/xxxxxxxx）。ここに貼ると自動決済になります
+const PAID_CHECKOUT_URL = "https://buy.stripe.com/dRm28tajZdf9bFA3ky3gk07";                              // 旧Stripe Payment Link（3,300円商品では未使用。決済はWorker /checkout 経由。worker/README.md 参照）
 const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認ページ」に指定する戻り先のパラメータ（下のREADME参照）
 /* Stripe Payment Link の「支払い後」URLは次を設定:
    https://yujimansion-hub.github.io/bridge-cycle2026/akinai-plan.html?session_id={CHECKOUT_SESSION_ID}
@@ -6213,7 +6216,12 @@ const CTX_LABELS={
   scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
   document.getElementById('midGo').addEventListener('click',()=>show(4));
   back.addEventListener('click',()=>{if(i>0)show(i-1);});
-  document.getElementById('again').addEventListener('click',()=>{ans=[];show(0);qz.scrollIntoView({behavior:'smooth',block:'start'});});
+  document.getElementById('again').addEventListener('click',()=>{
+    ans=[];show(0);
+    try{if(location.search)history.replaceState(null,'',location.pathname);}catch(e){}
+    // 結果ブロックが消えて文書が縮んだ後に位置を合わせる（縮む前にsmoothスクロールすると末尾に取り残される）
+    requestAnimationFrame(()=>{const y=qz.getBoundingClientRect().top+window.scrollY-96;window.scrollTo({top:Math.max(0,y),behavior:'auto'});});
+  });
   function finish(){window.AKINAI_VOICE_RESULT=null;const {sc,order}=scoreOf(ans);const top=Math.max(...Object.values(sc),1);window.AKINAI_SCORE_MIX=order.filter(k=>sc[k]>0).slice(0,3).map(k=>({k,score:sc[k],pct:Math.round(sc[k]/top*100)}));render(order[0], sc[order[1]]>0?order[1]:null);}
   function nm(w,w2){return w2?NAME[w][w2][0]:D[w].title.split('｜')[1];}
   
@@ -6576,8 +6584,9 @@ const CTX_LABELS={
       const byK=k=>{const z=labels.find(x=>x.k===k);return z?z.t:'';};
       const q1=byK(0),q4=byK(3),q5=byK(4),q8=byK(7),q9=byK(8);
       const belly=document.getElementById('rBelly');
-      document.getElementById('rStory').innerHTML='人からは「<b>'+q1+'</b>」ところを、自分では普通だと思ってきた。仕事や暮らしが変わっても「<b>'+q4+'</b>」ことは繰り返し任されてきました。大きな決断では「<b>'+q5+'</b>」を選び、誰かが困っていると「<b>'+q8+'</b>」ことを自然にしてしまう。<br>そして10年後は、「<b>'+q9+'</b>」自分でいたい。';
-      document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、これまでの人生の中で、自分らしい選び方を何度もしてきた人の答えです。';
+      const q3=byK(2),q7=byK(6);
+      document.getElementById('rStory').innerHTML='いまの気持ちは「<b>'+q1+'</b>」。'+(q7?'これまでの実感は「<b>'+q7+'</b>」。':'')+(q3?'正解が分からないときは「<b>'+q3+'</b>」。':'')+'「やってみたい」と思ったら「<b>'+q4+'</b>」。収入が少し読めなくなる選択には「<b>'+q5+'</b>」、有料でと言われたら「<b>'+q8+'</b>」。<br>そして3年後は、「<b>'+q9+'</b>」自分でいたい。';
+      document.getElementById('rStoryEnd').textContent='この並びは、「何もないから探す人」ではなく、迷いながらも自分なりの選び方をしてきた人の答えです。';
       belly.style.display='';
       const warm=document.getElementById('rWarm');document.getElementById('rWarmText').textContent=WARM[w];warm.style.display='';
     }

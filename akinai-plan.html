@@ -115,7 +115,10 @@ async function verify(){
   if(sid){
     const r=await fetch(API_BASE+'/verify',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({session_id:sid,client_key:ck})});
     const d=await r.json();
-    if(!d.ok){setStatus('購入確認ができませんでした。決済した端末・ブラウザで開いてください。','err');return}
+    if(!d.ok){
+      const why=d.error==='browser_mismatch'?'決済した端末・ブラウザで開いてください（別の端末やプライベートモードでは確認できません）。':d.error==='payment_not_confirmed'?'決済がまだ完了していません。数分おいて再読み込みしてください。':'';
+      setStatus('購入確認ができませんでした。'+why+' 解決しない場合は、Stripeからの領収メールを info@bridgecycleco.com へ転送してください。手動で確認します。','err');return
+    }
     localStorage.setItem('akinai_plan_token',d.token);
     history.replaceState({},'',location.pathname);
   }
