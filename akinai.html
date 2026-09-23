@@ -6694,7 +6694,7 @@ const CTX_LABELS={
   hope:{stability:'安心して暮らせる状態',time:'自分の時間を取り戻す',meaning:'納得できる仕事',income:'収入を増やす',strength:'得意なことを活かす',freedom:'自分で決められる働き方',unknown:'まだ分からないが、このままではいたくない'}
 };
 
-// ---- 9問・4択の診断（4問で速報→9問でタイプ）＋他己診断 ----
+// ---- 9問・4択の診断（4問で速報→9問で傾向）＋他己診断 ----
 (function(){
   const qz=document.getElementById('qz'), scrs=[...qz.querySelectorAll('.scr')], res=document.getElementById('res'), tk=document.getElementById('tk');
   const pNow=document.getElementById('pNow'), pBar=document.getElementById('pBar'), pTxt=document.getElementById('pTxt'), back=document.getElementById('back');
@@ -6739,7 +6739,7 @@ const CTX_LABELS={
       window.track&&window.track('free_mid2_shown',{stage:'q7',type:w||''});
     }
   }
-  function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='途中のタイプ';}
+  function showMid(){const {order}=scoreOf(ans);const w=order[0];document.getElementById('midSym').textContent='「'+D[w].sym+'」';document.getElementById('midPct').textContent='が少し強く出ています';scrs.forEach(s=>s.classList.toggle('on',s.dataset.i==='mid'));pNow.textContent='4';pTxt.textContent='途中の傾向';}
   scrs.filter(sc=>/^\d$/.test(sc.dataset.i)).forEach(sc=>sc.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ans[+sc.dataset.i]=b.dataset.v;if(i===3){setTimeout(showMid,140);}else if(i<N-1){setTimeout(()=>show(i+1),140);}else{finish();}})));
   document.getElementById('midGo').addEventListener('click',()=>show(4));
   back.addEventListener('click',()=>{if(i>0)show(i-1);});
@@ -6969,7 +6969,7 @@ const CTX_LABELS={
     const extra={
       light:['06｜相談を商品にしすぎない','人の話を聞く力はありますが、最初は「30分で何を持ち帰ってもらうか」を決めて、感情労働を抱え込みすぎない形に。'],
       hand:['06｜完成度を上げすぎない','最初から完璧な商品を作らず、試作品を1つ出して反応を見てください。材料費と作業時間は必ず記録します。'],
-      garden:['06｜支えすぎない','相手を大切にするほど無償対応が増えやすいタイプです。対応時間・回数・連絡できる時間を先に決めてください。'],
+      garden:['06｜支えすぎない','相手を大切にするほど無償対応が増えやすい傾向があります。対応時間・回数・連絡できる時間を先に決めてください。'],
       bridge:['06｜紹介責任を抱えすぎない','人をつなぐ場合は、紹介先の品質を保証しないこと、手数料や役割の範囲を明確にしてください。'],
       boat:['06｜勢いで固定費を背負わない','行動力は強みですが、店舗契約や大きな仕入れは「3回試した後」に回してください。'],
       tower:['06｜準備だけで終わらせない','条件整理は得意です。準備項目を増やすより、「この日までに1人へ提案する」と期限を先に置いてください。']
@@ -7133,7 +7133,7 @@ const CTX_LABELS={
       document.getElementById('rVoiceWorkText').textContent=VOICE_FACE_LABEL[wk];
       document.getElementById('rVoiceLifeText').textContent=VOICE_FACE_LABEL[lk];
       document.getElementById('rVoiceOtherText').textContent=VOICE_FACE_LABEL[ok];
-      document.getElementById('rVoiceCross').textContent=voiceMeta.cross||'仕事・暮らし・周りから見える姿を重ねて、参考タイプを出しました。';
+      document.getElementById('rVoiceCross').textContent=voiceMeta.cross||'仕事・暮らし・周りから見える姿を重ねて、参考になる傾向を出しました。';
       document.getElementById('rVoiceWords').innerHTML=words.length?'回答から拾った言葉：'+words.map(x=>'<b>「'+x+'」</b>').join('　'):'これまでの経験と5問に繰り返し出てきた役割から読みました。';
       document.getElementById('rVoiceInsight').textContent=VOICE_REFRAME[w];
       voiceReveal.style.display='';
@@ -7295,7 +7295,7 @@ const CTX_LABELS={
     if(CARD_IMG.complete&&CARD_IMG.naturalWidth){x.save();rr(x,100,180,880,440,32);x.clip();x.drawImage(CARD_IMG,100,180,880,440);x.restore();}
     else{const g=x.createLinearGradient(100,180,980,620);g.addColorStop(0,'#fdf8f4');g.addColorStop(1,'#f3e1db');x.fillStyle=g;rr(x,100,180,880,440,32);x.fill();}
     const nick=(document.getElementById('cardName')?.value||'').trim().slice(0,20);
-    x.fillStyle='#8a7f77';x.font='500 24px '+sans;x.fillText((nick?nick+' さんの':'')+'参考タイプ　'+d.sym+(d2?' × '+d2.sym:''),540,680);
+    x.fillStyle='#8a7f77';x.font='500 24px '+sans;x.fillText((nick?nick+' さんの':'')+'参考傾向　'+d.sym+(d2?' × '+d2.sym:''),540,680);
     x.fillStyle='#3b332e';x.font='500 '+(name.length>14?46:name.length>11?52:58)+'px '+serif;wrap(x,name,540,748,880,66,'center');
     drawStarArt(x,cur,955,655,64);
     // 3カード
@@ -7347,7 +7347,7 @@ const CTX_LABELS={
     lines.push('ただし、いきなり独立するつもりはありません。今の暮らしを大きく変えずに、小さく試せる形を探しています。');
     lines.push('');
     lines.push('【診断でわかった私の傾向】');
-    if(r) lines.push('・タイプ：'+r.name+'（'+r.stars+'）');
+    if(r) lines.push('・傾向：'+r.name+'（'+r.stars+'）');
     if(typeof LAST_SEASON!=='undefined'&&LAST_SEASON) lines.push('・今の段階：'+LAST_SEASON);
     if(t('rStory')) lines.push('・9つの回答から見えたこと：'+t('rStory'));
     if(t('rValue')) lines.push('・大切にしたい価値観：'+t('rValue'));
@@ -7537,7 +7537,7 @@ const CTX_LABELS={
     const stb=document.getElementById('seasonTitleBox'),st=document.getElementById('seasonTitle');if(stb&&st&&LAST_SEASON_TITLE){st.textContent=LAST_SEASON_TITLE;stb.style.display='';}else if(stb){stb.style.display='none';}
     syncBookingResult();refreshShareLinks();
     if(window.AKINAI_RESULT)renderCompass(window.AKINAI_RESULT.main,LAST_SEASON);
-    const combo=document.getElementById('seasonCombo');if(combo){combo.style.display='';const p=window.AKINAI_RESULT?('あなたのこれからタイプは「<b>'+window.AKINAI_RESULT.stars+'</b>」。'):"";combo.innerHTML=p+'今は「<b>'+T.textContent+'</b>」。<br><strong>'+SEASON_AFFIRM[T.textContent]+'</strong><br>'+NEXT_BY_SEASON[T.textContent];}
+    const combo=document.getElementById('seasonCombo');if(combo){combo.style.display='';const p=window.AKINAI_RESULT?('あなたのこれからの傾向は「<b>'+window.AKINAI_RESULT.stars+'</b>」。'):"";combo.innerHTML=p+'今は「<b>'+T.textContent+'</b>」。<br><strong>'+SEASON_AFFIRM[T.textContent]+'</strong><br>'+NEXT_BY_SEASON[T.textContent];}
     scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='4';pBar.style.width='100%';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});}
 })();
 </script>
