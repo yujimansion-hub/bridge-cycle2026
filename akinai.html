@@ -5320,11 +5320,11 @@ document.addEventListener('click',function(e){
                 <div class="voice-face"><span>肩書きを外した私</span><b id="rVoiceLifeStar"></b><small id="rVoiceLifeText"></small></div>
                 <div class="voice-face"><span>他人から見た私</span><b id="rVoiceOtherStar"></b><small id="rVoiceOtherText"></small></div>
               </div>
-              <div class="voice-cross"><span class="vclab">CHECK｜占いと実際の経験を照らし合わせると</span><div id="rVoiceCross"></div></div>
+              <div class="voice-cross"><span class="vclab">CHECK｜診断と実際の経験を照らし合わせると</span><div id="rVoiceCross"></div></div>
               <div class="vrwords" id="rVoiceWords"></div>
               <span class="voice-hidden-label">診断から見えた、まだ名前のなかったあなた</span>
               <p id="rVoiceInsight"></p>
-              <small>入力した内容に出てきた行動や言葉から見ています。占い部分と診断部分は別に扱っています。</small>
+              <small>入力した内容に出てきた行動や言葉から見ています。この補助要素と診断本体は別に扱っています。</small>
             </div>
             <div class="affirm" id="resultStrength"><span>01｜あなたが、もう持っている力</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
@@ -5442,7 +5442,7 @@ document.addEventListener('click',function(e){
             <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
           </div>
           <details class="result-more" id="more">
-            <summary>もっと見たい人へ｜占い・今日のカード・他己診断・AI相談・別タイプ</summary>
+            <summary>もっと見たい人へ｜もう一つの見方・他己診断・AI相談・別タイプ</summary>
             <div class="rm-note">ここから下は、結果を味わうための補足です。読まなくても、上の結果は完結しています。</div>
             <div class="gentle-relief gentle-relief-long">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
@@ -5624,7 +5624,7 @@ document.addEventListener('click',function(e){
           <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
         </div>
       </div>
-      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※診断の中心は、あなた自身の経験と回答です。占い要素は任意の読み物です。この結果は進路を決めつけるものではなく、自分の考えを整理するための材料です。</p>
+      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※診断の中心は、あなた自身の経験と回答です。追加の読み物は任意です。この結果は進路を決めつけるものではなく、自分の考えを整理するための材料です。</p>
       <canvas class="hid" id="cv" width="1080" height="1920"></canvas>
     </div>
   </section>
@@ -5965,7 +5965,7 @@ document.addEventListener('click',function(e){
       <div class="fortune-simple">
         <div class="kicker">無料30秒｜最後の確認</div>
         <h2>今週、どこまで動けそう？</h2>
-        <p>買う人・有料経験・使える時間を4問で確認します。占いでは、この現在地を「商いの季節」と呼びます。</p>
+        <p>買う人・有料経験・使える時間を4問で確認します。この診断では、この現在地を「商いの季節」と呼びます。</p>
       </div>
       <div class="qz mini" id="qz2">
         <div class="prog"><b id="p2Now">1</b><span>/ 4</span><div class="bar"><i id="p2Bar"></i></div><span>4問</span></div>
@@ -5978,7 +5978,7 @@ document.addEventListener('click',function(e){
         <div class="scr" data-i="3"><h3>週に5時間、自分のために使えそう？</h3><div class="ch">
           <button type="button" data-v="0"><span class="k">A</span>いまは難しい</button><button type="button" data-v="1"><span class="k">B</span>なんとかなる</button></div></div>
         <div class="result" id="quizResult" aria-live="polite">
-          <div class="result-label">30秒チェック結果｜占い名では「商いの季節」</div>
+          <div class="result-label">30秒チェック結果｜いまの段階</div>
           <h3 id="resultTitle"></h3>
           <p id="resultBody"></p>
           <div class="season-title-box" id="seasonTitleBox" style="display:none"><span>今のあなたの称号</span><b id="seasonTitle"></b></div>
@@ -6010,7 +6010,7 @@ document.addEventListener('click',function(e){
       <div class="faq">
         <details><summary>40代からって、遅くない？</summary><p>40代だからこそ、これまでの経験、人とのつながり、生活者としての感覚を使えます。そのかわり、大きく賭けず小さく試します。</p></details>
         <details><summary>やりたいことが、まだ決まっていなくても？</summary><p>大丈夫。むしろその段階の人のための診断です。資格を探す前に、「頼まれてきたこと」を一緒に書き出します。</p></details>
-        <details><summary>占いで「向いてない」と言われる？</summary><p>言いません。占いは自分を知る材料。始めるかどうかは、お客さん・値段・お金の話で決めます。</p></details>
+        <details><summary>診断で「向いてない」と言われる？</summary><p>言いません。診断は自分を知る材料。始めるかどうかは、お客さん・値段・お金の話で決めます。</p></details>
         <details><summary>会社員・パートのままでも？</summary><p>そのままで。辞めずに試す方法（副業・週末・予約制）から一緒に考えます。</p></details>
         <details><summary>あとで高額な契約を勧められませんか？</summary><p>このサイトにある有料は2つだけです。<b>3,300円の3案</b>と、<b>29,800円の30日伴走</b>。これ以外の講座や教材はありません。伴走は「実際に1件売るところまで一緒に」という方だけの選択肢で、3案を読んで終わりにして構いません。自動継続も月額課金もなく、こちらから営業の連絡をすることもありません。</p></details>
       </div>
@@ -6157,7 +6157,7 @@ const FORTUNE_CARD_TEXT={
   garden:"もう一つの見方は「育てる」。一度の成果より、続けられる関係を選ぶ日。",
   bridge:"もう一つの見方は「選ぶ・つなぐ」。全部自分で抱えず、合うもの同士を結ぶ日。",
   boat:"もう一つの見方は「試す」。準備を増やすより、一度小さく出して手応えを見る日。",
-  tower:"もう一つの見方は「整える」。増やすより、今あるものに順番と範囲を与える日."
+  tower:"もう一つの見方は「整える」。増やすより、今あるものに順番と範囲を与える日。"
 };
 const ORACLE_LETTER={
   light:"答えをもっと増やすより、これまで何度も聞いてきた人の言葉を思い出してみて。あなたの次の仕事の種は、誰かが「話してよかった」と帰った時間の中にあります。",
@@ -6642,7 +6642,7 @@ const CTX_LABELS={
   hope:{stability:'安心して暮らせる状態',time:'自分の時間を取り戻す',meaning:'納得できる仕事',income:'収入を増やす',strength:'得意なことを活かす',freedom:'自分で決められる働き方',unknown:'まだ分からないが、このままではいたくない'}
 };
 
-// ---- 9問・4択の占い（4問で速報→9問でキャラ）＋他己診断 ----
+// ---- 9問・4択の診断（4問で速報→9問でタイプ）＋他己診断 ----
 (function(){
   const qz=document.getElementById('qz'), scrs=[...qz.querySelectorAll('.scr')], res=document.getElementById('res'), tk=document.getElementById('tk');
   const pNow=document.getElementById('pNow'), pBar=document.getElementById('pBar'), pTxt=document.getElementById('pTxt'), back=document.getElementById('back');
