@@ -3969,9 +3969,9 @@ p,
 .result-illustration-head small{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--rose)}
 .result-illustration-head b{font-family:var(--serif);font-size:13px;font-weight:500;color:var(--ink)}
 .result-illustration img{display:block;width:100%;height:auto}
-.rg-body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;background:linear-gradient(135deg,#fdf8f4,#f6ece7)}
+.rg-body{display:block;background:linear-gradient(135deg,#fdf8f4,#f6ece7)}
 .rg-art{position:relative;min-height:100%}.rg-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
-.rg-cards{padding:18px 18px 16px;display:flex;flex-direction:column;gap:9px;justify-content:center}
+.rg-cards{max-width:720px;margin:0 auto;padding:22px 20px 20px;display:flex;flex-direction:column;gap:10px;justify-content:center}
 .rg-lead{margin:0 0 4px;align-self:flex-start;padding:7px 14px;border-radius:999px;background:#f3dcd7;color:#7d4a41;font-family:var(--serif);font-size:13.5px}
 .rg-card{display:flex;gap:12px;align-items:center;padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.9);border:1px solid var(--line)}
 .rg-ic{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:16px;color:#fff}
@@ -5074,7 +5074,7 @@ document.addEventListener('click',function(e){
             <div class="hvr-head">
               <small>YOUR RESULT｜結果の一例</small>
               <strong>人と話すと、次の一歩が見えてくる人</strong>
-              <p>人とのつながりや出会いの中でヒントを見つけ、小さく動きながら、自分に合う答えを見つけていくタイプです。</p>
+              <p>人とのつながりや出会いの中でヒントを見つけ、小さく動きながら、自分に合う答えを見つけていく傾向があります。</p>
             </div>
             <div class="hvr-grid">
               <div class="hvr-card strength"><i>♡</i><span><b>私の強み</b><em>人とつながりながら<br>チャンスをつくれる</em></span></div>
@@ -5220,7 +5220,7 @@ document.addEventListener('click',function(e){
         <div class="res" id="res">
           <div class="shared-banner" id="sharedBanner">
             <span class="sb-tag">SHARED RESULT｜共有された結果です</span>
-            <p><b>これは、この診断を教えてくれた人のタイプ紹介です。</b>その人の今の状況や、起業との相性は、ここには表示していません（回答の中身は共有されない仕組みです）。</p>
+            <p><b>これは、この診断を教えてくれた人の結果紹介です。</b>その人の今の状況や、起業・副業の準備状態は、ここには表示していません（回答の中身は共有されない仕組みです）。</p>
             <a class="btn sb-btn" href="#fortune" id="sharedStart">私も9問やってみる →</a>
           </div>
           <div class="rcard" id="rcard">
@@ -5235,7 +5235,6 @@ document.addEventListener('click',function(e){
                 <b>9問で見えてきたことを、まず一枚で。</b>
               </div>
               <div class="rg-body">
-                <div class="rg-art"><img src="assets/akinai-woman-clean.webp?v=20260923a" alt="これからの自分を静かに考える女性" loading="lazy" decoding="async" width="320" height="430"></div>
                 <div class="rg-cards">
                   <p class="rg-lead">これからの私が、少し見えてきました。</p>
                   <div class="rg-card"><i class="rg-ic c1">✦</i><div><b>見つかる｜私の強み</b><span id="rgStrength">—</span></div></div>
@@ -5304,7 +5303,7 @@ document.addEventListener('click',function(e){
             </div>
             <div class="entre-result" id="entreResult">
               <span class="er-kicker">START A BUSINESS?｜起業も、起業しない道も、選択肢です</span>
-              <h3 id="entreTitle">起業との今の相性</h3>
+              <h3 id="entreTitle">起業・副業を選択肢に入れる準備度</h3>
               <div class="er-meter"><i id="entreMeter"></i></div>
               <p id="entreReason"></p>
               <div class="er-next">
@@ -5478,7 +5477,7 @@ document.addEventListener('click',function(e){
             <p>ここから先は、何を・誰に・いくらで・何件なら続けられるかまで具体化します。</p>
           </div>
           <div class="result-upgrade">
-            <span class="result-upgrade-label">ここから先は、仕事にする話。</span>
+            <span class="result-upgrade-label">今の結果では、副業・小さな商いも選択肢に残っています。</span>
             <h3>思いつきのままにしない。</h3>
             <p><b>守る。活かす。育てる。</b><br>顧客・商品・価格・必要件数・90日の試し方まで、あなたの条件で3案にします。</p>
             <div class="result-upgrade-grid">
@@ -5495,7 +5494,7 @@ document.addEventListener('click',function(e){
             <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
           </div>
           <details class="result-more" id="more">
-            <summary>もっと見たい人へ｜もう一つの見方・他己診断・AI相談・別タイプ</summary>
+            <summary>もっと見たい人へ｜もう一つの見方・他己診断・AI相談・別の傾向</summary>
             <div class="rm-note">ここから下は、結果を味わうための補足です。読まなくても、上の結果は完結しています。</div>
             <div class="gentle-relief gentle-relief-long">
               <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
@@ -5558,7 +5557,7 @@ document.addEventListener('click',function(e){
             <p class="tk-note" id="aiPromptNote">ChatGPTなどに貼り付けるだけで、あなたの前提を踏まえた相談ができます。</p>
           </div>
           <details class="result-alt">
-            <summary>「少し違うかも」と思ったら、ほかの型も見る</summary>
+            <summary>「少し違うかも」と思ったら、ほかの傾向も見る</summary>
             <div class="ol" id="olTop"></div>
           </details>
             <div class="mcard">
@@ -5591,7 +5590,7 @@ document.addEventListener('click',function(e){
               <div class="share"><a class="btn" id="btnTakoLine" href="#" target="_blank" rel="noopener">LINEで友達に頼む</a><button class="btn ghost" type="button" id="btnTakoCopy">リンクをコピー</button></div>
               <div class="fview" id="fview" style="display:none"><span>自分から見た私</span><b id="fvSelf"></b><span>友達から見た私</span><b id="fvFriend"></b><p id="fvNote"></p></div>
             </div>
-            <details class="others"><summary>ほかの型も見る</summary><div class="ol" id="ol"></div></details>
+            <details class="others"><summary>ほかの傾向も見る</summary><div class="ol" id="ol"></div></details>
           </details>
 
           <details class="biz-optional">
@@ -6592,8 +6591,8 @@ const OCCUPATION={
 const TWIST={light:"あなたは「聞き上手」ではなく、「聞いた後に、次の一歩まで作ってしまう人」かもしれません。",hand:"あなたは“慎重な人”ではなく、「自分の価値にだけ慎重な人」かもしれません。",garden:"あなたは“優しい人”というより、「続けられる形を、無意識に作っている人」かもしれません。",bridge:"あなたは“顔が広い人”ではなく、「合う・合わないを、先に見抜いている人」かもしれません。",boat:"あなたは“計画性がない人”ではなく、「試す前には決められないだけの、現実主義者」かもしれません。",tower:"あなたは“裏方”ではなく、「安心を売っているのに、自分だけ気づいていない人」かもしれません。"};
 const HEAD={light:["「相談」を売る人ではありません。","“整理して、次の一歩を作る”ことでお金になる人です。"],hand:["「器用さ」を売る人ではありません。","“この人に頼めば、ちゃんと仕上がる”という安心でお金になる人です。"],garden:["「優しさ」を売る人ではありません。","“この人となら、続けられる”という時間でお金になる人です。"],bridge:["「人脈」を売る人ではありません。","“あなたが選んだなら大丈夫”という判断でお金になる人です。"],boat:["「行動力」を売る人ではありません。","“まずやってみた人だけが持つ手応え”でお金になる人です。"],tower:["「事務作業」を売る人ではありません。","“任せておけば、抜けがない”という安心でお金になる人です。"]};
 const TSUMARI={light:"つまり、ただの「聞き上手」ではありません。相手の頭の中のごちゃごちゃを、“次に何をするか”まで整理できること。ここに、あなたの商いの種があります。",hand:"つまり、ただの「器用な人」ではありません。頼まれたものを、期待より少し上で仕上げて返せること。ここに、あなたの商いの種があります。",garden:"つまり、ただの「優しい人」ではありません。一度きりで終わらせず、相手が続けられる関係を作れること。ここに、あなたの商いの種があります。",bridge:"つまり、ただの「顔が広い人」ではありません。その人に合うものを、理由つきで選べること。ここに、あなたの商いの種があります。",boat:"つまり、ただの「フットワークが軽い人」ではありません。考える前に一回やって、手応えを持ち帰れること。ここに、あなたの商いの種があります。",tower:"つまり、ただの「しっかり者」ではありません。相手の抜けを先回りして、任せられる形に整えられること。ここに、あなたの商いの種があります。"};
-const IND7={hand:"お金は「一回の仕上がり」ごとに受け取りたいタイプ。値段も一回分でつけるのが、あなたには自然です。",garden:"月ごと・回数券で受け取る形が納得しやすいタイプ。だから最初の商品も「セット」にしています。",bridge:"紹介や仲介の手数料に抵抗がないタイプ。「選んだ理由」を見せれば、それがそのまま値段になります。",boat:"一日で売り切る形が合うタイプ。在庫より先に、日程を決めることが大事です。"};
-const IND8={tower:"不安なときは数字で安心するタイプなので、最初の商品にも「必要人数」を添えました。",boat:"不安なときほど小さく試して確かめるタイプ。準備より、最初の1回を早く。",bridge:"不安なときは経験者に聞くタイプ。最初の3人に、遠慮なく感想を聞いてください。",light:"不安なときは書き出して整理するタイプ。今週やることを、まず紙に書いてから動くと進みます。"};
+const IND7={hand:"お金は「一回の仕上がり」ごとに受け取りたい傾向。値段も一回分でつけるのが、あなたには自然です。",garden:"月ごと・回数券で受け取る形が納得しやすい傾向。だから最初の商品も「セット」にしています。",bridge:"紹介や仲介の手数料に抵抗がない傾向。「選んだ理由」を見せれば、それがそのまま値段になります。",boat:"一日で売り切る形が合う傾向。在庫より先に、日程を決めることが大事です。"};
+const IND8={tower:"不安なときは数字で安心する傾向なので、最初の商品にも「必要人数」を添えました。",boat:"不安なときほど小さく試して確かめる傾向。準備より、最初の1回を早く。",bridge:"不安なときは経験者に聞く傾向。最初の3人に、遠慮なく感想を聞いてください。",light:"不安なときは書き出して整理する傾向。今週やることを、まず紙に書いてから動くと進みます。"};
 const PLAN={
  light:{prod:"30分・頭の中整理セッション",who:"やりたいことはあるけれど、何から始めればいいか分からない人",price:"3,000円",num:"月5万円なら17人／月3万円なら10人",prep:"Zoomかカフェ。A4の整理シート1枚",no:"ホームページ／資格／事務所／ロゴ",week:"身近な3人に、「30分3,000円で、頭の中を整理するのを試してるんだけど、やってみない？」と聞く。"},
  hand:{prod:"「頼まれ品」を1つ、10個限定で",who:"これまで頼んでくれた人と、その人の紹介",price:"材料費＋作業時間×1,000円（例：3,500円）",num:"月5万円なら15個／月3万円なら9個",prep:"材料と、値札1枚",no:"ネットショップ／屋号／ロゴ／包装",week:"過去に頼んでくれた3人に、「今回から値段をつけて受けることにした。○○円で、また頼んでもらえる？」と聞く。"},
@@ -6803,21 +6802,21 @@ const CTX_LABELS={
     let level,title,reason,nextTitle,next,paths;
     if(score>=14){
       level='high';
-      title='起業との相性は、今は高めです';
+      title='今、起業・副業を選択肢に入れやすい状態です';
       reason='自分で決めて動くこと、不確実な状況を小さく試すこと、時間をつくることへの準備が比較的そろっています。会社を辞める必要はありませんが、起業・副業を現実的な選択肢として検討できる状態です。';
       nextTitle='起業するなら';
       next='いきなり独立ではなく、今の生活を守りながら「一人のお客さんに、一つの価値を、有料で渡す」ことから始めるのが合っています。';
       paths=['今の仕事を続けながら、小さく有料で試す','得意なことを一つに絞り、誰の何を助けるか決める','3人に試してから、独立するかどうかを判断する'];
     }else if(score>=9){
       level='conditional';
-      title='起業は、条件が整えば向いています';
-      reason='起業に必要な強みや関心はありますが、生活余力・お金・自信・不確実さへの耐性のどこかに、まだ整えたい条件があります。「向いていない」のではなく、今すぐ一本に決めない方がよい状態です。';
+      title='小さく試す条件を整える段階です';
+      reason='興味や行動の芽はありますが、生活余力・お金・時間などに、まだ整えたい条件があります。今すぐ一本に決めるより、戻れる形で小さく試す準備をする段階です。';
       nextTitle='今は、こう進むのがおすすめ';
       next='転職や退職を先に決めず、副業・プロボノ・イベント参加・小さな販売など、戻れる形で試してください。試したあとの気持ちが、次の判断材料になります。';
       paths=['副業や週末活動で「やってみたい」を試す','今の仕事の中で、得意な役割を増やしてみる','生活費・時間・家族との条件を先に整理する'];
     }else{
       level='low';
-      title='今のまま起業するのは、少し慎重に';
+      title='今は、起業より先に守る条件を整える段階です';
       reason='起業そのものが向いていない、という意味ではありません。今の生活余力や不確実さへの負担を考えると、いきなり独立するより「守りを残して試す」方が合っています。'+((ctx.margin==='deficit'||ctx.margin==='tight'||ctx.income==='critical')?' 特に今は、家計の安全を先に守ることが大切です。':'')+(ctx.family==='heavy'?' 家族への責任も大きいため、時間の確保を先に考えましょう。':'');
       nextTitle='起業以外にも、十分に道があります';
       next='今の仕事を続ける、配置や働き方を変える、転職を考える、学び直す、休む時間をつくる。まず「何を増やすか」より「何を減らしたいか」を整理してください。';
@@ -7048,13 +7047,21 @@ const CTX_LABELS={
     const er=entrepreneurshipResult();
     window.AKINAI_ENTRE_RESULT=er;
     if(res) res.dataset.entreLevel=er.level||'unknown';
-    const paidEligible=(er.level==='high'||er.level==='conditional');
+    const nb=nonStartupResult(w);
+    window.AKINAI_NONBIZ_RESULT=nb;
+
+    // 有料の「商い設計」は、準備度だけでなく「今の次の一歩」が副業・小さな事業に向いている人だけに表示する。
+    // stay / change / learn / rest / undecided の人には営業導線を出さず、中立な診断として完結させる。
+    const businessIntent=(nb.route==='side'||ctx.worry==='business');
+    const paidEligible=(er.level==='high'||er.level==='conditional')&&businessIntent;
     const paidBridge=res&&res.querySelector('.free-paid-bridge');
     const paidUpgrade=res&&res.querySelector('.result-upgrade');
     const priceSection=document.getElementById('price');
+    if(res) res.dataset.nextRoute=nb.route||'unknown';
     if(paidBridge) paidBridge.style.display=paidEligible?'':'none';
     if(paidUpgrade) paidUpgrade.style.display=paidEligible?'':'none';
     if(priceSection) priceSection.style.display=paidEligible?'':'none';
+
     const et=document.getElementById('entreTitle'), em=document.getElementById('entreMeter'), erp=document.getElementById('entreReason'), ent=document.getElementById('entreNextTitle'), en=document.getElementById('entreNext'), eps=document.getElementById('entrePaths');
     if(et)et.textContent=er.title;
     if(em)em.style.width=er.pct+'%';
@@ -7062,8 +7069,6 @@ const CTX_LABELS={
     if(ent)ent.textContent=er.nextTitle;
     if(en)en.textContent=er.next;
     if(eps)eps.innerHTML=er.paths.map(x=>'<span>'+x+'</span>').join('');
-    const nb=nonStartupResult(w);
-    window.AKINAI_NONBIZ_RESULT=nb;
     const nbSet=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val;};
     nbSet('nonBizTitle',nb.title);
     nbSet('nonBizLead',nb.lead+(ctx.dream?' 「'+ctx.dream+'」という気持ちも、今すぐ仕事に変えなくて大丈夫。人生の選択肢として残しておきましょう。':''));
