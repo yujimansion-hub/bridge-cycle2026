@@ -2768,9 +2768,6 @@ h3{letter-spacing:-.02em!important}
   background:#fff!important;
 }
 
-/* Remove parallel free funnels. One diagnosis, one paid next step. */
-.idea-section,#mini{display:none!important}
-
 /* Paid section: offer first, details second. */
 #price{
   padding-top:100px!important;
@@ -5951,98 +5948,6 @@ document.addEventListener('click',function(e){
     </div>
   </section>
 
-  <section id="idea-check" class="idea-section">
-    <div class="wrap">
-      <div class="fortune-simple">
-        <div class="kicker">無料2分｜売りたいものが、もう決まっている人</div>
-        <h2>その商品、まず3人に売れそう？</h2>
-        <p>6問で「誰に売るか・何に困っているか・いくらか・自分が続けられるか・3人に声をかけられるか」を確認します。</p>
-        <p style="margin-top:8px"><a href="#fortune" style="color:var(--rose);font-weight:700">何を売るか決まっていない人はこちら →</a></p>
-      </div>
-
-      <div class="idea-name">
-        <label for="ideaProd">売りたい商品・サービスは？</label>
-        <input id="ideaProd" type="text" maxlength="60" placeholder="例：自宅で作る焼き菓子／整理収納サポート／SNS相談">
-      </div>
-
-      <div class="qz" id="ideaQz">
-        <div class="prog"><b id="ipNow">1</b><span>/ 6</span><div class="bar"><i id="ipBar"></i></div><span id="ipTxt">買う人</span></div>
-        <div class="scr on" data-i="0"><h3>その商品に、お金を払ってくれそうな人が具体的に浮かぶ？</h3><p class="sub">Q1 / 6</p><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>まだ「誰でも」くらい</button>
-          <button type="button" data-v="1"><span class="k">B</span>1人くらいは浮かぶ</button>
-          <button type="button" data-v="2"><span class="k">C</span>3人以上、顔が浮かぶ</button>
-        </div></div>
-        <div class="scr" data-i="1"><h3>その人が「なぜ買うか」を、その人の言葉で説明できる？</h3><p class="sub">Q2 / 6</p><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>まだ「喜びそう」くらい</button>
-          <button type="button" data-v="1"><span class="k">B</span>困りごとを1つ言える</button>
-          <button type="button" data-v="2"><span class="k">C</span>実際に聞いた言葉がある</button>
-        </div></div>
-        <div class="scr" data-i="2"><h3>その困りごとに、今すでにお金を払っているものはある？</h3><p class="sub">Q3 / 6</p><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>分からない</button>
-          <button type="button" data-v="1"><span class="k">B</span>無料や自己流で済ませている</button>
-          <button type="button" data-v="2"><span class="k">C</span>似た商品・サービスに払っている</button>
-        </div></div>
-        <div class="scr" data-i="3"><h3>「いくらで売るか」を、今すぐ言える？</h3><p class="sub">Q4 / 6</p><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>まだ決めていない</button>
-          <button type="button" data-v="1"><span class="k">B</span>だいたい決めている</button>
-          <button type="button" data-v="2"><span class="k">C</span>理由も含めて決めている</button>
-        </div></div>
-        <div class="scr" data-i="4"><h3>その価格で売れたとして、自分も続けたいと思える？</h3><p class="sub">Q5 / 6</p><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>手間を考えると自信がない</button>
-          <button type="button" data-v="1"><span class="k">B</span>月に数件なら続けられそう</button>
-          <button type="button" data-v="2"><span class="k">C</span>時間と利益のイメージがある</button>
-        </div></div>
-        <div class="scr" data-i="5"><h3>今月、3人に「有料で」試してもらえる？</h3><p class="sub">Q6 / 6</p><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>まだ声をかけにくい</button>
-          <button type="button" data-v="1"><span class="k">B</span>1人なら声をかけられる</button>
-          <button type="button" data-v="2"><span class="k">C</span>3人に声をかけられる</button>
-        </div></div>
-
-        <div class="idea-result" id="ideaResult" aria-live="polite">
-          <div class="irlab">結果｜次にやることを1つに絞りました</div>
-          <h3 id="ideaResultTitle"></h3>
-          <div class="prod" id="ideaResultProd"></div>
-          <div class="why" id="ideaResultWhy"></div>
-          <div class="next"><b>今週の一歩</b><p id="ideaResultNext"></p></div>
-          <p class="note">※「売れる／売れない」を保証する診断ではありません。今の仮説で不足している確認項目を見つけるチェックです。</p>
-          <div class="idea-actions"><a class="btn" href="#mini">最後に30秒｜今週どこまで動けるか見る</a><a class="btn ghost" href="#price">3,300円｜私ならどんな商い？</a><button class="btn ghost sm" id="ideaAgain" type="button">やり直す</button></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="mini" class="diagnosis">
-    <div class="wrap">
-      <div class="fortune-simple">
-        <div class="kicker">無料30秒｜最後の確認</div>
-        <h2>今週、どこまで動けそう？</h2>
-        <p>買う人・有料経験・使える時間を4問で確認します。この診断では、この現在地を「商いの季節」と呼びます。</p>
-      </div>
-      <div class="qz mini" id="qz2">
-        <div class="prog"><b id="p2Now">1</b><span>/ 4</span><div class="bar"><i id="p2Bar"></i></div><span>4問</span></div>
-        <div class="scr on" data-i="0"><h3>「人から頼まれたこと・褒められたこと」を、3つ言える？</h3><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>自分では、すぐには出てこない</button><button type="button" data-v="1"><span class="k">B</span>3つは思い出せる</button></div></div>
-        <div class="scr" data-i="1"><h3>それに、お金を払ってくれそうな人の顔が浮かぶ？</h3><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>まだ浮かばない</button><button type="button" data-v="1"><span class="k">B</span>浮かぶ</button></div></div>
-        <div class="scr" data-i="2"><h3>自分の商品やサービスで、お金をもらったことは？</h3><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>まだない</button><button type="button" data-v="1"><span class="k">B</span>ある</button></div></div>
-        <div class="scr" data-i="3"><h3>週に5時間、自分のために使えそう？</h3><div class="ch">
-          <button type="button" data-v="0"><span class="k">A</span>いまは難しい</button><button type="button" data-v="1"><span class="k">B</span>なんとかなる</button></div></div>
-        <div class="result" id="quizResult" aria-live="polite">
-          <div class="result-label">30秒チェック結果｜いまの段階</div>
-          <h3 id="resultTitle"></h3>
-          <p id="resultBody"></p>
-          <div class="season-title-box" id="seasonTitleBox" style="display:none"><span>今のあなたの称号</span><b id="seasonTitle"></b></div>
-          <p class="season-combo" id="seasonCombo" style="display:none"></p>
-          <p class="season-recheck">商いの季節は固定ではありません。売ってみた・時間が取れた・お客さんが見えたら変わります。1か月後に、また確認してください。</p>
-          <p class="free-paid-line">ここまでが<b>無料でわかる「仕事の種」</b>です。上の価格は、同じ型の人に共通する<b>相場の目安</b>で、あなた個人の条件は入っていません。<b>3,300円</b>では、この結果に<b>あなたの使える時間・資金・家族の条件・地域・競合</b>を加えて、<b>必要な件数・月売上の目安・90日の判断基準</b>まで整理し、<b>比較できる事業計画案を3つ</b>つくります。</p>
-          <div class="cta-row"><a class="btn" href="#price">3,300円｜私ならどんな商い？</a><button type="button" class="btn ghost sm" id="again2">やり直す</button></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="banso-link" id="companion" aria-label="30日伴走">
     <div class="wrap">
       <div class="bl-box">
@@ -7489,81 +7394,6 @@ const CTX_LABELS={
   });
 })();
 
-// ---- 売りたいものがある人向け：商品チェック ----
-(function(){
-  const qz=document.getElementById('ideaQz');if(!qz)return;
-  const scrs=[...qz.querySelectorAll('.scr')],pNow=document.getElementById('ipNow'),pBar=document.getElementById('ipBar'),pTxt=document.getElementById('ipTxt'),out=document.getElementById('ideaResult');
-  const labels=['買う人','困りごと','支払い','価格','続けやすさ','3人テスト'];
-  let i=0,v=[];
-  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',+s.dataset.i===n));pNow.textContent=n+1;pBar.style.width=((n+1)/6*100)+'%';pTxt.textContent=labels[n]||'';out.classList.remove('show');}
-  qz.querySelectorAll('.scr button').forEach(b=>b.addEventListener('click',()=>{v[i]=+b.dataset.v;if(i<5)setTimeout(()=>show(i+1),120);else fin();}));
-  document.getElementById('ideaAgain').addEventListener('click',()=>{v=[];LAST_IDEA_RESULT='';syncBookingResult();show(0);qz.scrollIntoView({behavior:'smooth',block:'start'});});
-  function fin(){
-    const prod=(document.getElementById('ideaProd').value||'').trim()||'いま考えている商品';
-    const total=v.reduce((a,b)=>a+b,0);
-    const weak=v.map((x,k)=>({x,k})).sort((a,b)=>a.x-b.x||a.k-b.k)[0];
-    let title,why,next;
-    if(v[0]===0||v[1]===0){
-      title='まず、「誰に売るか」を3人まで絞る';
-      why='今は商品そのものより、買う人と困りごとの輪郭がまだ広い状態です。商品を作り直す前に、「誰が、何に困って、今どうしているか」を3人に聞く方が早く確かめられます。';
-      next='商品説明をしないで、想定する3人に「最近、このことで何が一番困る？」だけ聞く。3人の言葉に共通点が出たら、その言葉を商品名より先にメモする。';
-    }else if(v[2]===0||v[2]===1){
-      title='3人に、「今いくら払っているか」を聞く';
-      why='困りごとは見えていますが、その困りごとが有料で解決したいほど強いかは、まだ確認余地があります。似たものにいくら払っているか、無料で済ませているならなぜか、を知る段階です。';
-      next='想定する3人に「今はこれに、時間かお金をどれくらい使っている？」と聞く。金額だけでなく、代わりに我慢していることも聞く。';
-    }else if(v[4]===0){
-      title='値段か、やり方を軽くする';
-      why='買う理由は見えていますが、その価格や提供方法だと、あなた自身が続けにくい可能性があります。「売れるか」だけでなく、「売れた後も続けたいか」を先に整える方が安全です。';
-      next='提供時間・材料・移動・準備を全部書き出し、「ここまでならまたやりたい」と思える最小の形に削る。その形で価格を付け直す。';
-    }else if(v[3]===0||v[5]===0){
-      title='値段を決めて、まず1人に売る';
-      why='商品と顧客の仮説はあります。今のボトルネックは、価格を外に出すことと、有料で反応を見ることです。ロゴやサイトより、最初の1件が判断材料になります。';
-      next='価格を1つだけ決めて、顔が浮かぶ1人に「この内容を○円で3人だけ試したい」と伝える。断られた理由も記録する。';
-    }else if(total>=10){
-      title='商品と価格を変えず、3人に売ってみる';
-      why='買う人・困りごと・支払い・価格・続けやすさ・声をかける相手が、かなり具体的です。ただし「売れる」と決める段階ではなく、同じ条件で3人に売って反応を取る段階です。';
-      next='商品と価格を変えずに3人へ提案する。買った理由・迷った理由・もう一度買うか、の3点だけ記録してから次を決める。';
-    }else{
-      title='商品は変えず、弱い1点だけ確かめる';
-      const names=['買う人','困りごと','支払い実績','価格','続けやすさ','3人に売る準備'];
-      why='全部を作り直す必要はありません。今は「'+names[weak.k]+'」が一番弱いので、そこだけ確かめれば次の判断がしやすくなります。';
-      next='今週は「'+names[weak.k]+'」だけ確認する。確認できるまで、商品名・ロゴ・SNS投稿を増やさない。';
-    }
-    document.getElementById('ideaResultTitle').textContent=title;
-    document.getElementById('ideaResultProd').textContent=prod;
-    document.getElementById('ideaResultWhy').textContent=why;
-    document.getElementById('ideaResultNext').textContent=next;
-    LAST_IDEA_RESULT='商品チェック：'+prod+'／'+title;syncBookingResult();
-    scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='6';pBar.style.width='100%';pTxt.textContent='結果';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});
-  }
-})();
-
-// ---- 30秒チェック（1問ずつ） ----
-(function(){
-  const qz=document.getElementById('qz2'), scrs=[...qz.querySelectorAll('.scr')], pNow=document.getElementById('p2Now'), pBar=document.getElementById('p2Bar'), out=document.getElementById('quizResult');
-  let i=0, v=[];
-  function show(n){i=n;scrs.forEach(s=>s.classList.toggle('on',+s.dataset.i===n));pNow.textContent=n+1;pBar.style.width=((n+1)/4*100)+'%';out.classList.remove('show');}
-  qz.querySelectorAll('.scr button').forEach(b=>b.addEventListener('click',()=>{v[i]=+b.dataset.v;if(i<3)setTimeout(()=>show(i+1),140);else fin();}));
-  document.getElementById('again2').addEventListener('click',()=>{v=[];show(0);});
-  function fin(){const s=v.reduce((a,b)=>a+b,0);const T=document.getElementById('resultTitle'),B=document.getElementById('resultBody');
-    if(s<=1){T.textContent='種を見つける季節';B.textContent='今は、商品を決めるより「何度も頼まれてきたこと」を集める時期です。今週は10個、書き出す。資格探しは、その後で。';}
-    else if(s===2){T.textContent='小さく試す季節';B.textContent='今の仕事や暮らしはそのまま。商品候補を1つ決めて、まず3人に有料で試す時期です。売れるかより、「この値段でもう一度やりたいか」を確かめます。';}
-    else if(s===3){T.textContent='育てる季節';B.textContent='商品とお客さんの輪郭は見えています。次は、値段・リピート・必要時間を確かめる時期。予約制・イベント・間借りなどで数字を取ります。';}
-    else{T.textContent='形にする季節';B.textContent='条件はかなり揃っています。必要な手取り・使える時間・投資の上限まで数字にして、独立や本格展開を具体化する時期です。';}
-    const NEXT_BY_SEASON={
-      '種を見つける季節':'次に決めるのは「何を売るか」ではありません。まず、何度も頼まれてきたことを10個集めること。',
-      '小さく試す季節':'次に決めるのは、商品を1つに固定し、値段を先に決めてから、まず3人に声をかけること。',
-      '育てる季節':'次に決めるのは、続けられる価格と時間。3回分だけ記録して、リピートする人がいるかを見ること。',
-      '形にする季節':'次に決めるのは、必要な手取り・週の時間・投資上限。独立するかより先に、続けられる条件を数字にすること。'
-    };
-    LAST_SEASON=T.textContent;window.AKINAI_SEASON=LAST_SEASON;
-    LAST_SEASON_TITLE=window.AKINAI_RESULT?(SEASON_TITLE[window.AKINAI_RESULT.main][LAST_SEASON]||""):"";
-    const stb=document.getElementById('seasonTitleBox'),st=document.getElementById('seasonTitle');if(stb&&st&&LAST_SEASON_TITLE){st.textContent=LAST_SEASON_TITLE;stb.style.display='';}else if(stb){stb.style.display='none';}
-    syncBookingResult();refreshShareLinks();
-    if(window.AKINAI_RESULT)renderCompass(window.AKINAI_RESULT.main,LAST_SEASON);
-    const combo=document.getElementById('seasonCombo');if(combo){combo.style.display='';const p=window.AKINAI_RESULT?('あなたのこれからの傾向は「<b>'+window.AKINAI_RESULT.stars+'</b>」。'):"";combo.innerHTML=p+'今は「<b>'+T.textContent+'</b>」。<br><strong>'+SEASON_AFFIRM[T.textContent]+'</strong><br>'+NEXT_BY_SEASON[T.textContent];}
-    scrs.forEach(s=>s.classList.remove('on'));pNow.textContent='4';pBar.style.width='100%';out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});}
-})();
 </script>
 
 <script>
@@ -7616,7 +7446,7 @@ const CTX_LABELS={
   function once(name,params){ if(fired[name]) return; fired[name]=1; window.track(name,params||{}); }
 
   // 結果表示（class="on" が付いた瞬間を1回だけ）
-  var watch={quizResult:'mini_result_shown', ideaResult:'idea_result_shown', tkres:'tako_result_shown', result3Stage:'plans_generated'};
+  var watch={tkres:'tako_result_shown', result3Stage:'plans_generated'};
   Object.keys(watch).forEach(function(id){
     var el=document.getElementById(id); if(!el) return;
     var name=watch[id];
@@ -7628,8 +7458,6 @@ const CTX_LABELS={
   document.addEventListener('click',function(e){
     var t=e.target;
     var b=t.closest&&t.closest('#qz .ch button');    if(b){ once('free_quiz_started',{}); return; }
-    b=t.closest&&t.closest('#ideaQz .ch button');    if(b){ once('idea_quiz_started',{}); return; }
-    b=t.closest&&t.closest('#qz2 .ch button');       if(b){ once('mini_quiz_started',{}); return; }
     b=t.closest&&t.closest('#cl button');            if(b){ window.track('plan_selected',{label:(b.textContent||'').trim().slice(0,30)}); return; }
     b=t.closest&&t.closest('#generate3Btn');         if(b){ window.track('generate3_click',{}); return; }
     b=t.closest&&t.closest('#btnSave,#btnSaveTop,#btnShare,#btnShareTop,#btnLine,#btnThreads,#btnThreadsTop,#btnX,#btnTakoLine,#btnTakoCopy,#btnCopyCaption,#btnAiPrompt,#copy3Plans,#copyFullReport,#print3Plans');
