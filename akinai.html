@@ -4885,13 +4885,14 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .hero-visual-card{background:rgba(255,253,249,.94)}
 .hero-visual-card .hv-kicker{font-family:var(--serif);font-size:12px;letter-spacing:.04em;color:#785c52}
 .hv-stage{aspect-ratio:1.58/1;background:#f7eee7}
-.hv-stage img{object-fit:cover;object-position:center!important;filter:saturate(.94) contrast(.99)}
+.hv-stage img{object-fit:cover;object-position:42% 34%!important;filter:saturate(.96) contrast(.99)}
 .hv-stage:after{background:linear-gradient(90deg,rgba(255,250,247,.04) 0%,rgba(255,250,247,0) 50%,rgba(255,250,247,.08) 100%)}
 .hv-badge{background:rgba(255,253,250,.94);border-color:rgba(196,127,116,.18);box-shadow:0 8px 22px rgba(79,58,48,.10)}
 .hv-bottom p{font-size:16px}
 .hv-soft-note{font-size:13.5px;color:#6b5c55}
 @media(max-width:520px){
-  .hv-stage{aspect-ratio:1.28/1}
+  .hv-stage{aspect-ratio:1.18/1}
+  .hv-stage img{object-position:43% 30%!important}
   .hero-visual-card .hv-kicker{font-size:11px}
 }
 
@@ -4988,7 +4989,8 @@ document.addEventListener('click',function(e){
           <span class="hv-kicker">3分後に見えること</span>
           <div class="hv-stage">
             <picture>
-              <img src="assets/akinai-life-still.svg?v=20260923b" alt="ノートとマグカップを前に、これからを静かに考える時間" loading="eager" decoding="async" width="1200" height="760">
+              <source srcset="assets/akinai-woman-clean.webp?v=20260923c" type="image/webp">
+              <img src="assets/akinai-woman-clean.webp?v=20260923c" alt="これからの自分について静かに考える女性" loading="eager" decoding="async" width="640" height="920">
             </picture>
             <div class="hv-badge b1"><i>✦</i><span>見つかる<small>私の強み</small></span></div>
             <div class="hv-badge b2"><i>◎</i><span>ほどける<small>今のモヤモヤ</small></span></div>
