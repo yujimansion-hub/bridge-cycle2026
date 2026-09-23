@@ -4896,6 +4896,43 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .hero-visual-card .hv-kicker{font-size:11px}
 }
 
+
+/* ===== 2026-09-23: hero result preview = HTML, not screenshot ===== */
+.hv-result-preview{
+  aspect-ratio:auto!important;
+  min-height:360px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(145deg,#fffaf7 0%,#f8efea 58%,#f2f3ec 100%);
+  border:1px solid rgba(196,127,116,.18);
+}
+.hv-result-preview:after{display:none!important}
+.hvr-head{max-width:92%;margin:0 auto 16px;text-align:left}
+.hvr-head small{display:block;font-size:10px;font-weight:800;letter-spacing:.11em;color:var(--rose);margin-bottom:7px}
+.hvr-head strong{display:block;font-family:var(--serif);font-size:clamp(21px,2.5vw,28px);line-height:1.45;font-weight:500;color:var(--ink)}
+.hvr-head p{margin:8px 0 0;font-size:12.5px;line-height:1.75;color:#675b54}
+.hvr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.hvr-card{min-width:0;padding:13px 11px;border-radius:17px;background:rgba(255,255,255,.93);border:1px solid var(--line);text-align:left}
+.hvr-card i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-style:normal;font-size:16px;margin-bottom:8px}
+.hvr-card b{display:block;font-family:var(--serif);font-size:13px;line-height:1.4;font-weight:600;margin-bottom:4px}
+.hvr-card em{display:block;font-style:normal;font-size:11.5px;line-height:1.55;color:#514741}
+.hvr-card.strength i{background:#f7dfdb;color:#b66e63}.hvr-card.strength b{color:#9c5e55}
+.hvr-card.release i{background:#e8eef1;color:#678195}.hvr-card.release b{color:#5b768a}
+.hvr-card.step i{background:#eaf0df;color:#66805d}.hvr-card.step b{color:#5c7654}
+@media(max-width:520px){
+  .hv-result-preview{min-height:0;padding:16px 13px}
+  .hvr-head{max-width:100%;margin-bottom:12px}
+  .hvr-head strong{font-size:19px}
+  .hvr-head p{font-size:11.5px}
+  .hvr-grid{grid-template-columns:1fr;gap:7px}
+  .hvr-card{display:flex;align-items:center;gap:10px;padding:10px 11px}
+  .hvr-card i{flex:none;margin:0}
+  .hvr-card b{font-size:12.5px}
+  .hvr-card em{font-size:11px}
+}
+
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
@@ -4987,17 +5024,20 @@ document.addEventListener('click',function(e){
       <div class="hero-v3-visual">
         <div class="hero-visual-card" aria-label="無料診断で見える3つのこと">
           <span class="hv-kicker">3分後に見えること</span>
-          <div class="hv-stage">
-            <picture>
-              <source srcset="assets/akinai-hero-user.webp?v=20260923d" type="image/webp">
-              <img src="assets/akinai-hero-user.webp?v=20260923d" alt="これからの自分について静かに考える女性" loading="eager" decoding="async" width="180" height="270">
-            </picture>
-            <div class="hv-badge b1"><i>✦</i><span>見つかる<small>私の強み</small></span></div>
-            <div class="hv-badge b2"><i>◎</i><span>ほどける<small>今のモヤモヤ</small></span></div>
-            <div class="hv-badge b3"><i>→</i><span>決まる<small>今週の一歩</small></span></div>
+          <div class="hv-stage hv-result-preview" aria-label="無料診断の結果画面サンプル">
+            <div class="hvr-head">
+              <small>YOUR RESULT｜結果の一例</small>
+              <strong>つながりで広がる、やってみる人</strong>
+              <p>人とのつながりや出会いの中でヒントを見つけ、小さく動きながら、自分に合う答えを見つけていくタイプです。</p>
+            </div>
+            <div class="hvr-grid">
+              <div class="hvr-card strength"><i>♡</i><span><b>私の強み</b><em>人とつながりながら<br>チャンスをつくれる</em></span></div>
+              <div class="hvr-card release"><i>◎</i><span><b>今のモヤモヤ</b><em>失敗したくなくて<br>一歩が遅くなる</em></span></div>
+              <div class="hvr-card step"><i>↗</i><span><b>今週の一歩</b><em>気になることを<br>小さく試してみる</em></span></div>
+            </div>
           </div>
           <div class="hv-bottom">
-            <p>3分後、<b>強み・モヤモヤ・今週の一歩が、ひと目で見えます。</b></p>
+            <p>3分後、<b>あなた自身の言葉で、この3つが整理されます。</b></p>
           </div>
           <p class="hv-soft-note">「私にも、まだ何かあるかも。」<br>その感覚を、3分で言葉にします。</p>
         </div>
@@ -5208,7 +5248,7 @@ document.addEventListener('click',function(e){
           <div class="scr" data-i="t1"><h3>この人の、すごいところは？</h3><div class="ch"><button type="button" data-v="light"><span class="k">A</span>言葉にするのが、うまい</button><button type="button" data-v="hand"><span class="k">B</span>仕上がりが、丁寧</button><button type="button" data-v="boat"><span class="k">C</span>とにかく、まず動く</button><button type="button" data-v="tower"><span class="k">D</span>段取りが、完璧</button></div></div>
           <div class="scr" data-i="t2"><h3>一緒に何かするなら、任せるのは？</h3><div class="ch"><button type="button" data-v="boat"><span class="k">A</span>当日の現場</button><button type="button" data-v="tower"><span class="k">B</span>会計と段取り</button><button type="button" data-v="bridge"><span class="k">C</span>人集めと声かけ</button><button type="button" data-v="garden"><span class="k">D</span>参加者のケア</button></div></div>
           <div class="scr" data-i="t3"><h3>この人が、お金を取ってもいいと思うことは？</h3><div class="ch"><button type="button" data-v="light"><span class="k">A</span>相談にのること、教えること</button><button type="button" data-v="hand"><span class="k">B</span>作るもの、技術</button><button type="button" data-v="garden"><span class="k">C</span>続けて支えること</button><button type="button" data-v="bridge"><span class="k">D</span>紹介、コーディネート</button></div></div>
-          <div class="tkres" id="tkres"><div class="lab">あなたから見た、この人</div><div class="stars"><div class="main"><div class="sym" id="tkSym"></div><div class="rl">主星</div></div><div class="subst"><div class="sym" id="tkSym2"></div><div class="rl">副星</div></div></div><div class="chara" id="tkChara"></div><p class="sub" id="tkSelf"></p><div class="share"><a class="btn" id="tkLine" href="#" target="_blank" rel="noopener">この結果を、本人にLINEで送る</a><button class="btn ghost" type="button" id="tkCopy">リンクをコピー</button></div><div class="next" style="margin-top:14px"><a class="btn terra" href="akinai.html">わたしも、診断してみる →</a></div></div>
+          <div class="tkres" id="tkres"><div class="lab">あなたから見た、この人</div><div class="stars"><div class="main"><div class="sym" id="tkSym"></div><div class="rl">中心の傾向</div></div><div class="subst"><div class="sym" id="tkSym2"></div><div class="rl">もう一つの傾向</div></div></div><div class="chara" id="tkChara"></div><p class="sub" id="tkSelf"></p><div class="share"><a class="btn" id="tkLine" href="#" target="_blank" rel="noopener">この結果を、本人にLINEで送る</a><button class="btn ghost" type="button" id="tkCopy">リンクをコピー</button></div><div class="next" style="margin-top:14px"><a class="btn terra" href="akinai.html">わたしも、診断してみる →</a></div></div>
         </div>
 
         <div class="qnav"><button type="button" id="back" style="visibility:hidden">← ひとつ戻る</button><span>登録なし・送信なし</span></div>
@@ -5426,12 +5466,12 @@ document.addEventListener('click',function(e){
                 <a href="#weekSolo">05 今週の一歩</a>
               </div>
             </div>
-            <details class="oracle-optional" id="rOracleOptional"><summary>遊び要素として占いも見る（任意）</summary><div class="oracle-origin" id="rOracleOrigin" style="display:none">
-              <div id="rBirthOrigin"><span>生まれ持った星｜商い命数 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
-              <div><span>今日引いたカード</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
+            <details class="oracle-optional" id="rOracleOptional"><summary>もう一つの見方も見る（任意）</summary><div class="oracle-origin" id="rOracleOrigin" style="display:none">
+              <div id="rBirthOrigin"><span>もともとの傾向 <i id="rBirthNumberResult"></i></span><b id="rBirthStarResult"></b><small id="rBirthStarResultText"></small></div>
+              <div><span>もう一つの傾向</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
             </div></details>
             <div class="oracle-letter">
-              <span class="olabel">A LETTER FROM YOUR AKINAI STAR｜経験を別の角度から見るヒント</span>
+              <span class="olabel">ANOTHER VIEW｜経験を別の角度から見るヒント</span>
               <p id="rOracleLetter"></p>
               <small>診断結果とは別の、読み物としての補助要素です。未来予測や適性判定には使っていません。</small>
             </div>
@@ -6112,12 +6152,12 @@ const FORTUNE_BIRTH_TEXT={
   tower:"もともと出やすい傾向は「整える」。混ざったものに順番を与え、安心をつくる力。"
 };
 const FORTUNE_CARD_TEXT={
-  light:"今日のカードは「聞く」。答えを急がず、まだ言葉になっていないものを拾う日。",
-  hand:"今日のカードは「形にする」。頭の中だけに置かず、小さく見える形にしてみる日。",
-  garden:"今日のカードは「育てる」。一度の成果より、続けられる関係を選ぶ日。",
-  bridge:"今日のカードは「選ぶ・つなぐ」。全部自分で抱えず、合うもの同士を結ぶ日。",
-  boat:"今日のカードは「試す」。準備を増やすより、一度小さく出して手応えを見る日。",
-  tower:"今日のカードは「整える」。増やすより、今あるものに順番と範囲を与える日。"
+  light:"もう一つの見方は「聞く」。答えを急がず、まだ言葉になっていないものを拾う日。",
+  hand:"もう一つの見方は「形にする」。頭の中だけに置かず、小さく見える形にしてみる日。",
+  garden:"もう一つの見方は「育てる」。一度の成果より、続けられる関係を選ぶ日。",
+  bridge:"もう一つの見方は「選ぶ・つなぐ」。全部自分で抱えず、合うもの同士を結ぶ日。",
+  boat:"もう一つの見方は「試す」。準備を増やすより、一度小さく出して手応えを見る日。",
+  tower:"もう一つの見方は「整える」。増やすより、今あるものに順番と範囲を与える日."
 };
 const ORACLE_LETTER={
   light:"答えをもっと増やすより、これまで何度も聞いてきた人の言葉を思い出してみて。あなたの次の仕事の種は、誰かが「話してよかった」と帰った時間の中にあります。",
@@ -7071,7 +7111,7 @@ const CTX_LABELS={
     const cl=document.getElementById('cl'); cl.innerHTML='';
     ['plan','week','cta45'].forEach(id=>document.getElementById(id).style.display='none');
     const order=CAND[w].map((c,idx)=>({c,idx,rec:!!(w2&&c.fit.includes(w2))})).sort((a,b)=>(b.rec?1:0)-(a.rec?1:0));
-    order.forEach((o,pos)=>{const c=o.c;const b=document.createElement('button');b.type='button';if(o.rec)b.classList.add('rec');b.innerHTML='<span class="k">'+'ABC'[pos]+'</span><span class="job">仕事イメージ｜'+JOB[w][o.idx]+'</span><span class="t">'+(o.rec?'<em>おすすめ｜</em>':'')+c.t+'</span><span class="d">'+c.d+(o.rec?'　— 副星「'+d2.sym+'」のあなたに合いやすい':'')+'</span>';
+    order.forEach((o,pos)=>{const c=o.c;const b=document.createElement('button');b.type='button';if(o.rec)b.classList.add('rec');b.innerHTML='<span class="k">'+'ABC'[pos]+'</span><span class="job">仕事イメージ｜'+JOB[w][o.idx]+'</span><span class="t">'+(o.rec?'<em>おすすめ｜</em>':'')+c.t+'</span><span class="d">'+c.d+(o.rec?'　— もう一つの傾向「'+d2.sym+'」とも相性がいい':'')+'</span>';
       b.addEventListener('click',()=>{[...cl.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');showPlan(w,o.idx,'ABC'[pos]);});cl.appendChild(b);});
     // 無料結果の締めに「今週やること」を1つだけ固定表示（案の選択UIは出さない）
     try{
