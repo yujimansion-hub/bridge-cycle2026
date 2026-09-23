@@ -3983,10 +3983,10 @@ p,
   .hero-v3-copy{display:contents}
   .hero-v3-copy .eyebrow{order:1}
   .hero-v3-copy .h1-v4{order:2}
-  .hero-v3-visual{order:3}
-  .hero-v3-copy .hero-hook{order:4}
-  .hero-v3-copy .hero-primary{order:5}
-  .hero-v3-copy .hero-v3-sub{order:6}
+  .hero-v3-copy .hero-hook{order:3}
+  .hero-v3-copy .hero-primary{order:4}
+  .hero-v3-copy .hero-v3-sub{order:5}
+  .hero-v3-visual{order:6}
   .hero-result-sample{margin-top:0}
 }
 @media(max-width:900px){.hero-result-sample{padding:18px 16px 16px}.hrsm-head b{font-size:19px}.hrsm-block p{font-size:12.5px}}
@@ -5002,6 +5002,25 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 }
 .faq .faq-price-link{color:var(--rose);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 
+
+/* 98-point refinement 2026-09-23 */
+.hero-visual-min{padding:24px}
+.hero-visual-min .hv-kicker{display:block;text-align:center;font-family:var(--serif);font-size:18px;line-height:1.6;color:var(--ink);margin-bottom:16px}
+.hero-visual-min .hv-stage{padding:22px 16px}
+.hvr-grid-min .hvr-card{min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px}
+.hvr-grid-min .hvr-card i{width:44px;height:44px;font-size:22px;margin:0 0 3px}
+.hvr-grid-min .hvr-card b{font-size:15px;margin:0}
+.hero-visual-min .hv-soft-note{text-align:center;margin:14px 0 0;font-size:12px;color:var(--muted)}
+.maker-belief-after-result{padding:12px 0 20px}
+.result-upgrade .btn small{font-size:.78em;font-weight:500;opacity:.78;margin-left:4px}
+@media(max-width:520px){
+  .hero-visual-min{padding:18px 14px}
+  .hero-visual-min .hv-stage{padding:13px}
+  .hvr-grid-min{grid-template-columns:repeat(3,1fr);gap:6px}
+  .hvr-grid-min .hvr-card{min-height:104px;padding:10px 5px}
+  .hvr-grid-min .hvr-card i{width:38px;height:38px;font-size:19px}
+  .hvr-grid-min .hvr-card b{font-size:12px}
+}
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
@@ -5037,7 +5056,14 @@ document.addEventListener('click',function(e){
   if(!rf) return;
   document.querySelectorAll('[data-result-fit]').forEach(function(b){b.classList.toggle('on',b===rf);});
   var th=document.getElementById('resultFitThanks');
-  if(th) th.textContent=rf.getAttribute('data-result-fit')==='low'?'「違う」も大切な結果です。下で別の見方も選べます。':'ありがとう。この感覚も、これからを考える材料です。';
+  if(th){
+    var fit=rf.getAttribute('data-result-fit');
+    th.textContent=fit==='high'
+      ?'たぶん、もう自分の中では少し分かっていたのかもしれません。'
+      :fit==='mid'
+      ?'全部当てはまらなくて大丈夫。引っかかった言葉だけ残してください。'
+      :'違うと感じたことも、大切な答えです。';
+  }
   window.track&&window.track('result_fit_feedback',{fit:rf.getAttribute('data-result-fit')||'',type:(window.AKINAI_RESULT&&window.AKINAI_RESULT.main)||'',sub:(window.AKINAI_RESULT&&window.AKINAI_RESULT.sub)||''});
 },true);
 document.addEventListener('click',function(e){
@@ -5116,81 +5142,27 @@ document.addEventListener('click',function(e){
       </div>
 
       <div class="hero-v3-visual">
-        <div class="hero-visual-card" aria-label="無料診断で見える3つのこと">
-          <span class="hv-kicker">3分後に見えること</span>
-          <div class="hv-stage hv-result-preview" aria-label="無料診断の結果画面サンプル">
-            <div class="hvr-head hvr-head-simple">
-              <small>YOUR RESULT｜3分後のイメージ</small>
-              <strong>こんなふうに、今の自分が整理されます。</strong>
-            </div>
-            <div class="hvr-grid">
-              <div class="hvr-card strength"><i>♡</i><span><b>私の強み</b><em>暮らしと仕事の<br>バランスを考えられる</em></span></div>
-              <div class="hvr-card release"><i>◎</i><span><b>今のモヤモヤ</b><em>自分のことを<br>後回しにしやすい</em></span></div>
-              <div class="hvr-card step"><i>↗</i><span><b>今週の一歩</b><em>自分のための30分を<br>先に予定に入れる</em></span></div>
+        <div class="hero-visual-card hero-visual-min" aria-label="無料診断で見える3つのこと">
+          <span class="hv-kicker">3分後、こんなふうに整理されます。</span>
+          <div class="hv-stage hv-result-preview" aria-label="無料診断で見えること">
+            <div class="hvr-grid hvr-grid-min">
+              <div class="hvr-card strength"><i>♡</i><span><b>私の強み</b></span></div>
+              <div class="hvr-card release"><i>◎</i><span><b>今のモヤモヤ</b></span></div>
+              <div class="hvr-card step"><i>↗</i><span><b>今週の一歩</b></span></div>
             </div>
           </div>
-          <div class="hv-bottom">
-            <p>3分後、<b>あなたの回答から、この3つを整理します。</b></p>
-          </div>
-          <p class="hv-soft-note">「私にも、まだ何かあるかも。」<br>その感覚を、3分で言葉にします。</p>
+          <p class="hv-soft-note">9問から、あなたの「今」を整理します。</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="maker-belief" aria-label="この診断をつくった人">
-    <div class="wrap">
-      <div class="maker-belief-card">
-        <span class="maker-belief-face">
-          <picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二" loading="lazy" decoding="async" width="320" height="320"></picture>
-        </span>
-        <div class="maker-belief-copy">
-          <small>つくった人｜中村裕二</small>
-          <b>商工会などで20年以上、500社以上を支援。起業を勧めるための診断ではありません。</b>
-        </div>
-        <a href="akinai-profile.html">つくった人を見る →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="yesbox" aria-label="こんなこと、ありませんか？">
-    <div class="wrap">
-      <div class="yesbox-head">
-        <span>MAYBE THIS IS YOU</span>
-        <h2>ふと、こう思うことないですか。</h2>
-      </div>
-      <ul class="yesbox-list">
-        <li>このままでいいのかな、と時々思う</li>
-        <li>自分が本当は何をしたいのか、よく分からない</li>
-        <li>人に相談するほどではないけど、一度整理したい</li>
-      </ul>
-      <div class="yesbox-turn">
-        <h3>まだ、決めなくていいです。</h3>
-        <p class="yb-creed"><b>うまくいかなかったことも、やめたことも、やり直したことも。</b><br>全部、いまのあなたです。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="before-fortune-cta host-turn">
-    <div class="wrap">
-      <div>
-        <span>YOUR TURN</span>
-        <p class="ht-lead">誰にも話さなくていい。</p>
-        <h2>今日は、<br class="sp">自分の番です。</h2>
-        <p class="ht-note">9問だけ、答えてみる。</p>
-      </div>
-      <a class="btn ht-btn" href="#fortune">3分だけ答えてみる →</a>
     </div>
   </section>
 
   <section id="fortune" class="fortune-section">
     <div class="wrap">
       <div class="fortune-simple">
-        <div class="kicker">転職サービスや起業相談へ行く、その前に</div>
-        <h2>人には聞かれないことから、<br>少し整理してみませんか。</h2>
-        <p class="fq-sub2">家族のこと。お金のこと。今の仕事。本当はどうしたいか。</p>
-        <p><b>こういうことほど、身近な人には話しにくいものです。</b><br>ここでは、誰かを納得させる必要はありません。まず「今の自分が、何に困っていて、何を守りたくて、どうなりたいのか」を整理します。</p>
-        <p style="margin-top:10px;font-size:14px;color:var(--muted)">転職・副業・起業・今の仕事を続ける・少し休む。答えを先に決めず、今のあなたから考えます。</p>
+        <div class="kicker">YOUR TURN</div>
+        <h2>9問だけ。<br>今の自分から始めます。</h2>
+        <p class="fq-sub2">正解はありません。ぱっと近いものを選んでください。</p>
       </div>
 
 
@@ -5502,13 +5474,13 @@ document.addEventListener('click',function(e){
             <details class="result-save-more" id="resultSaveMore">
               <summary>結果を残しておく</summary>
             <div class="share-now">
-            <b>この言葉を、今の自分への小さなメモに。</b>
-            <p>カードにすると「経験資産・大切にしたい価値観・今の自分への一言」が1枚になります。</p>
+            <b>「私これだった。」を、1枚に。</b>
+            <p>強みと今週の一歩だけを残した、シェアしやすい結果カードです。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
             <div class="share share-v2">
               <button class="btn share-main" type="button" id="btnSaveTop">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
-                <span><b>カードをシェアする</b><small>Instagram・LINEも、ここから</small></span>
+                <span><b>「私これだった」カードを保存</b><small>Instagram・LINEにも使えます</small></span>
               </button>
               <details class="share-more">
                 <summary>アプリを選んで送る</summary>
@@ -5519,18 +5491,18 @@ document.addEventListener('click',function(e){
                 </div>
               </details>
             </div>
-            <p class="share-hint">ボタンを押すと、スマホの共有メニューが開きます。そこからInstagram・LINE・写真への保存が選べます。Instagramのストーリーズに貼るときは、いったん保存してからでも大丈夫です。</p>
+            <p class="share-hint">まず画像として残しておけます。よければ、InstagramのストーリーズやLINEで「私これだった」と共有してください。</p>
           </div>
             </details>
           <div class="free-paid-bridge">
-            <small>ここまでで、「今の自分」は少し見えてきました。</small>
-            <h3>もし、この中に<br><b>「ちょっと形にしてみたい」があったら。</b></h3>
-            <p>ここから先は、仕事や小さな副業として試すなら「誰に・何を・いくらで・どのくらい」なら無理なく続けられるかを具体化します。今は動かない、ももちろん答えです。</p>
+            <small>ここまでで、「今の私」が少し見えてきました。</small>
+            <h3>ここで終わっても大丈夫です。<br><b>もし「これ、何か形にできるのかな」と思ったら。</b></h3>
+            <p>ここから先は、その続きを考えます。仕事や小さな副業として試すなら、誰に・何を・どんな形で・いくらくらいで・最初にどう試すかを、あなたの条件で整理します。</p>
           </div>
           <div class="result-upgrade">
-            <span class="result-upgrade-label">「少し試してみたい」と思った人へ。</span>
-            <h3>思いつきのままにしない。</h3>
-            <p><b>守る。活かす。育てる。</b><br>顧客・商品・価格・必要件数・90日の試し方まで、あなたの条件で3案にします。</p>
+            <span class="result-upgrade-label">「少し形にしてみたい」と思った人へ。</span>
+            <h3>あなたの場合の、3つの具体案。</h3>
+            <p>誰に、何を、どんな形で、いくらくらいで、最初にどう試すか。暮らしを大きく変えずに試せる3案にします。</p>
             <div class="result-upgrade-grid">
               <div><small>FREE</small><b>経験・強み・方向性</b></div>
               <span>→</span>
@@ -5541,8 +5513,21 @@ document.addEventListener('click',function(e){
               <span>「これは少しやってみたい」</span>
               <span>「今はまだ動かない」</span>
             </div>
-            <a class="btn" href="#price">私の3案を全部見る　3,300円 →</a>
+            <a class="btn" href="#price">私なら、何ができそう？ → <small>3つの具体案 3,300円</small></a>
             <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
+          </div>
+          <div class="maker-belief maker-belief-after-result" aria-label="この診断をつくった人">
+            <div class="maker-belief-card">
+              <span class="maker-belief-face">
+                <picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二" loading="lazy" decoding="async" width="320" height="320"></picture>
+              </span>
+              <div class="maker-belief-copy">
+                <small>この診断をつくった人｜中村裕二</small>
+                <b>人に相談する前に、自分だけで少し整理できる場所があってもいい。</b>
+                <p>商工会などで20年以上、500社以上の相談に関わる中で感じてきたことから、この診断をつくりました。起業を勧めるための診断ではありません。</p>
+              </div>
+              <a href="akinai-profile.html">つくった人を見る →</a>
+            </div>
           </div>
           <details class="result-more" id="more">
             <summary>もっと見たい人へ｜もう一つの見方・他己診断・AI相談・別の傾向</summary>
@@ -7433,7 +7418,7 @@ const CTX_LABELS={
       const d=await r.json();
       if(!d.ok||!d.ready) throw new Error('not_ready');
       btn.disabled=false;
-      btn.textContent='私の3つの商いを見てみる　3,300円 →';
+      btn.textContent='私なら、何ができそう？　3,300円 →';
       if(status) status.textContent='受付中';
       if(msg) msg.textContent='';
       setReady(true);
