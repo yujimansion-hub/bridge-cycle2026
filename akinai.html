@@ -5204,7 +5204,7 @@ document.addEventListener('click',function(e){
           <button type="button" data-v="hand"><span class="k">C</span>好きなことや得意なことを、今より活かせている</button>
           <button type="button" data-v="boat"><span class="k">D</span>自分で選んだ仕事や活動に、もっと時間を使えている</button></div></div>
 
-        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜ここまで見て</div><h3><span class="mid-lead">少し輪郭が見えてきました。</span><br><b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">ここからは、<b>生活の余力</b>、<b>変化への向き合い方</b>、そして<b>起業という選択肢との今の相性</b>も見ていきます。あと5問だけ。</p><button type="button" class="btn" id="midGo">続きを一緒に見る →</button></div></div>
+        <div class="scr mid" data-i="mid"><div class="midbox"><div class="lab">4問おわり｜ここまで見て</div><h3><span class="mid-lead">少し輪郭が見えてきました。</span><br><b id="midSym"></b> <span id="midPct"></span></h3><p class="sub">ここからは、<b>生活の余力</b>、<b>変化への向き合い方</b>、そして<b>新しいことを小さく試せる余白</b>も見ていきます。あと5問だけ。</p><button type="button" class="btn" id="midGo">続きを一緒に見る →</button></div></div>
 
         <div class="tk" id="tk">
           <div class="tkh"><div class="lab">友達からの、他己診断</div><h3>この人のこと、4問だけ教えてください。</h3><p class="sub">名前は要りません。答えは送信されず、結果だけをこの人に送れます。</p></div>
@@ -5303,7 +5303,7 @@ document.addEventListener('click',function(e){
             </div>
             <div class="entre-result" id="entreResult">
               <span class="er-kicker">START A BUSINESS?｜起業も、起業しない道も、選択肢です</span>
-              <h3 id="entreTitle">起業・副業を選択肢に入れる準備度</h3>
+              <h3 id="entreTitle">今、小さく試せる余白はどのくらい？</h3>
               <div class="er-meter"><i id="entreMeter"></i></div>
               <p id="entreReason"></p>
               <div class="er-next">
@@ -5322,7 +5322,7 @@ document.addEventListener('click',function(e){
                   <button class="btn sm" type="button" id="entreShowBiz">私に合う事業の方向も見る →</button>
                 </div>
               </div>
-              <small>※性格を決めつける「起業家適性」ではありません。今の生活余力・不確実性への向き合い方・行動の準備度から、起業という選択肢との現在の相性を見ています。</small>
+              <small>※性格や「向き・不向き」を決めるものではありません。今の時間・家計・生活の余白と、小さく試せる状態かどうかを見ています。</small>
             </div>
             <div class="nonbiz-result" id="nonBizResult">
               <span class="nb-kicker">IF YOU DON'T START A BUSINESS｜起業しない道も、ちゃんとあります</span>
@@ -5355,8 +5355,8 @@ document.addEventListener('click',function(e){
               <span class="result-choice-kicker">この結果、どうする？</span>
               <div class="result-choice-grid">
                 <a class="result-choice-card keep" href="#resultSaveMore" data-result-choice="keep">
-                  <small>01｜今日はここまで</small>
-                  <b>この結果を保存して、<br>今日は終わる</b>
+                  <small>01｜結果を残す</small>
+                  <b>この結果を残して、<br>今日はここまで</b>
                 </a>
                 <a class="result-choice-card context" href="#postContextDetails" data-result-choice="context">
                   <small>02｜もう少し自分向けに</small>
@@ -5449,7 +5449,7 @@ document.addEventListener('click',function(e){
       </div>
             </details>
             <details class="result-save-more" id="resultSaveMore">
-              <summary>結果を保存・シェアする</summary>
+              <summary>結果を残しておく</summary>
             <div class="share-now">
             <b>この言葉を、今の自分への小さなメモに。</b>
             <p>カードにすると「経験資産・大切にしたい価値観・今の自分への一言」が1枚になります。</p>
@@ -6802,21 +6802,21 @@ const CTX_LABELS={
     let level,title,reason,nextTitle,next,paths;
     if(score>=14){
       level='high';
-      title='今、起業・副業を選択肢に入れやすい状態です';
+      title='今は、小さく試せる余白がありそうです';
       reason='自分で決めて動くこと、不確実な状況を小さく試すこと、時間をつくることへの準備が比較的そろっています。会社を辞める必要はありませんが、起業・副業を現実的な選択肢として検討できる状態です。';
       nextTitle='起業するなら';
       next='いきなり独立ではなく、今の生活を守りながら「一人のお客さんに、一つの価値を、有料で渡す」ことから始めるのが合っています。';
       paths=['今の仕事を続けながら、小さく有料で試す','得意なことを一つに絞り、誰の何を助けるか決める','3人に試してから、独立するかどうかを判断する'];
     }else if(score>=9){
       level='conditional';
-      title='小さく試す条件を整える段階です';
+      title='小さく試す前に、条件を少し整える段階です';
       reason='興味や行動の芽はありますが、生活余力・お金・時間などに、まだ整えたい条件があります。今すぐ一本に決めるより、戻れる形で小さく試す準備をする段階です。';
       nextTitle='今は、こう進むのがおすすめ';
       next='転職や退職を先に決めず、副業・プロボノ・イベント参加・小さな販売など、戻れる形で試してください。試したあとの気持ちが、次の判断材料になります。';
       paths=['副業や週末活動で「やってみたい」を試す','今の仕事の中で、得意な役割を増やしてみる','生活費・時間・家族との条件を先に整理する'];
     }else{
       level='low';
-      title='今は、起業より先に守る条件を整える段階です';
+      title='今は、新しいことを増やすより余白を守る段階です';
       reason='起業そのものが向いていない、という意味ではありません。今の生活余力や不確実さへの負担を考えると、いきなり独立するより「守りを残して試す」方が合っています。'+((ctx.margin==='deficit'||ctx.margin==='tight'||ctx.income==='critical')?' 特に今は、家計の安全を先に守ることが大切です。':'')+(ctx.family==='heavy'?' 家族への責任も大きいため、時間の確保を先に考えましょう。':'');
       nextTitle='起業以外にも、十分に道があります';
       next='今の仕事を続ける、配置や働き方を変える、転職を考える、学び直す、休む時間をつくる。まず「何を増やすか」より「何を減らしたいか」を整理してください。';
@@ -6830,41 +6830,57 @@ const CTX_LABELS={
     const q=(i)=>ans[i]||'';
     const scores={stay:0,change:0,side:0,learn:0,rest:0,undecided:0};
 
+    // 「動ける」ことと「商いをしたい」ことを分けて見る。
+    // side は、Q8（対価を受け取る感覚）やQ5（副収入）など、
+    // 事業意欲に近い回答が重なったときだけ強くなる設計。
+
     // Q1 今の気持ち
     if(q(0)==='tower'){scores.rest+=3;scores.stay+=1;}
     if(q(0)==='light'){scores.undecided+=3;scores.learn+=1;}
-    if(q(0)==='hand'){scores.side+=2;scores.learn+=1;}
-    if(q(0)==='boat'){scores.change+=2;scores.side+=2;}
+    if(q(0)==='hand'){scores.learn+=2;scores.side+=1;}
+    if(q(0)==='boat'){scores.change+=2;scores.undecided+=1;}
 
     // Q2 働き方で大切なこと
     if(q(1)==='garden'){scores.stay+=2;scores.rest+=1;}
-    if(q(1)==='tower'){scores.stay+=2;}
-    if(q(1)==='bridge'){scores.change+=2;scores.learn+=1;}
-    if(q(1)==='boat'){scores.side+=2;scores.change+=1;}
+    if(q(1)==='tower'){scores.stay+=3;}
+    if(q(1)==='bridge'){scores.change+=1;scores.learn+=2;}
+    if(q(1)==='boat'){scores.change+=2;scores.side+=1;}
 
     // Q3 不確実さ
     if(q(2)==='tower'){scores.stay+=2;scores.rest+=1;}
     if(q(2)==='light'){scores.undecided+=2;}
     if(q(2)==='bridge'){scores.learn+=2;scores.change+=1;}
-    if(q(2)==='boat'){scores.side+=2;scores.change+=1;}
+    if(q(2)==='boat'){scores.change+=1;scores.side+=1;}
 
-    // Q5 お金の不安
-    if(q(4)==='tower'){scores.stay+=2;scores.rest+=1;}
-    if(q(4)==='garden'){scores.stay+=1;scores.side+=1;}
-    if(q(4)==='bridge'){scores.side+=2;}
-    if(q(4)==='boat'){scores.side+=2;scores.change+=1;}
+    // Q4 普段の動き方
+    if(q(3)==='garden'){scores.stay+=1;scores.rest+=1;}
+    if(q(3)==='light'){scores.undecided+=2;}
+    if(q(3)==='hand'){scores.learn+=1;scores.side+=1;}
+    if(q(3)==='boat'){scores.change+=1;scores.side+=1;}
 
-    // Q6 余力
+    // Q5 お金への安心
+    if(q(4)==='tower'){scores.stay+=3;scores.rest+=1;}
+    if(q(4)==='garden'){scores.stay+=2;}
+    if(q(4)==='bridge'){scores.side+=3;}
+    if(q(4)==='boat'){scores.side+=1;scores.change+=1;}
+
+    // Q6 生活の余白
     if(q(5)==='tower'){scores.rest+=4;}
-    if(q(5)==='garden'){scores.stay+=1;scores.learn+=1;}
-    if(q(5)==='hand'){scores.side+=2;scores.learn+=1;}
-    if(q(5)==='boat'){scores.side+=3;scores.change+=1;}
+    if(q(5)==='garden'){scores.stay+=1;scores.rest+=1;}
+    if(q(5)==='hand'){scores.learn+=1;scores.side+=1;}
+    if(q(5)==='boat'){scores.change+=1;scores.side+=1;}
+
+    // Q8 お金を受け取る感覚（商い意欲を最も強く見る）
+    if(q(7)==='light'){scores.undecided+=2;}
+    if(q(7)==='tower'){scores.stay+=1;scores.side+=1;}
+    if(q(7)==='hand'){scores.side+=3;}
+    if(q(7)==='boat'){scores.side+=4;}
 
     // Q9 3年後
     if(q(8)==='garden'){scores.stay+=2;scores.rest+=1;}
     if(q(8)==='tower'){scores.stay+=2;}
     if(q(8)==='hand'){scores.learn+=2;scores.side+=1;}
-    if(q(8)==='boat'){scores.change+=2;scores.side+=2;}
+    if(q(8)==='boat'){scores.change+=2;scores.side+=1;}
 
     const ctx=currentContext();
     if(ctx.margin==='deficit'||ctx.margin==='tight'){scores.stay+=2;scores.rest+=2;}
@@ -6890,8 +6906,15 @@ const CTX_LABELS={
     if(ctx.hope==='income'){scores.stay+=1;scores.side+=1;}
     if(ctx.hope==='strength'){scores.learn+=2;scores.side+=2;}
     if(ctx.hope==='freedom'){scores.side+=2;scores.change+=1;}
-    const order=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
-    const route=order[0];
+    // side は「動きたい」だけでは選ばない。
+    // 対価・副収入への具体的な反応があり、他の進路より明確に強い場合だけ採用する。
+    const businessEvidence=(q(7)==='hand'||q(7)==='boat'||q(4)==='bridge'||ctx.worry==='business');
+    const nonSide=['stay','change','learn','rest','undecided'];
+    const nonSideOrder=nonSide.slice().sort((a,b)=>scores[b]-scores[a]||nonSide.indexOf(a)-nonSide.indexOf(b));
+    const topNonSide=nonSideOrder[0];
+    const sideClear=businessEvidence&&scores.side>=5&&scores.side>=scores[topNonSide]+2;
+    const route=sideClear?'side':topNonSide;
+    const order=[route].concat(Object.keys(scores).filter(k=>k!==route).sort((a,b)=>scores[b]-scores[a]));
     const DATA={
       stay:{
         title:'今の仕事を続けながら、働き方を整える',
@@ -7052,7 +7075,8 @@ const CTX_LABELS={
 
     // 有料の「商い設計」は、準備度だけでなく「今の次の一歩」が副業・小さな事業に向いている人だけに表示する。
     // stay / change / learn / rest / undecided の人には営業導線を出さず、中立な診断として完結させる。
-    const businessIntent=(nb.route==='side'||ctx.worry==='business');
+    const explicitBusinessInterest=(ctx.worry==='business');
+    const businessIntent=(nb.route==='side'||(explicitBusinessInterest&&(nb.route==='learn'||nb.route==='undecided')));
     const paidEligible=(er.level==='high'||er.level==='conditional')&&businessIntent;
     const paidBridge=res&&res.querySelector('.free-paid-bridge');
     const paidUpgrade=res&&res.querySelector('.result-upgrade');
