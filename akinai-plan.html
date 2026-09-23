@@ -25,6 +25,19 @@ input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px
 .ai-note b{display:block;margin-bottom:3px}.share-warning{margin-top:10px;font-size:11.5px;color:#8a5d52}.result-link{width:100%;margin-top:8px}
 @media(max-width:680px){.grid,.facts{grid-template-columns:1fr}.full{grid-column:auto}.steps{grid-template-columns:1fr}.card{padding:18px}}
 </style>
+<script>
+/* GA4：akinai.html と同じ測定ID。Stripeの戻り先はこのページなので、purchase はここで計測する。空文字なら外部通信ゼロ。 */
+window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
+(function(){
+  var id=window.AKINAI_ANALYTICS_ID;
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){window.dataLayer.push(arguments);};
+  window.track=function(name,params){ try{ if(window.AKINAI_ANALYTICS_ID) gtag('event',name,params||{}); }catch(e){} };
+  if(!id) return;
+  var g=document.createElement('script'); g.async=true; g.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id); document.head.appendChild(g);
+  gtag('js',new Date()); gtag('config',id);
+})();
+</script>
 </head>
 <body>
 <div class="nav"><div class="wrap"><b>わたしのこれから診断 → わたしの商い設計</b></div></div>
@@ -89,6 +102,21 @@ input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px
 <script>
 const API_BASE=(window.AKINAI_API_BASE||'').replace(/\/$/,'');
 const $=id=>document.getElementById(id), status=$('status'), form=$('formCard'), result=$('result');
+/* 診断ページが保存したファネル文脈（どの判定・どの入口から来たか）。purchase / plans_generated に付与する。 */
+function funnelCtx(){
+  let f={};try{f=JSON.parse(localStorage.getItem('akinai_funnel')||'{}');}catch(e){}
+  return {funnel_version:f.funnel_version||'',type:f.type||'',entre_level:f.entre_level||'unknown',route:f.route||'unknown',
+          paid_eligible:f.paid_eligible||'unknown',paid_cta_loc:f.paid_cta_loc||'direct'};
+}
+function trackPurchase(sid){
+  try{
+    const key='akinai_purchase_tracked';
+    if(localStorage.getItem(key)===sid) return;           // 同じ決済は1回だけ
+    window.track&&window.track('purchase',Object.assign({transaction_id:sid,value:3300,currency:'JPY',
+      items:[{item_id:'akinai_web_plan',item_name:'わたしの商い設計 3つの商いプラン',price:3300,quantity:1}]},funnelCtx()));
+    localStorage.setItem(key,sid);
+  }catch(e){}
+}
 const fieldIds=['product','customer','need','voice','repeat','negative','purpose','threeYears','region','hours','funds','targetIncome','digital','experience','skills','family','firstPeople','notes'];
 function workerReady(){return !!API_BASE}
 function getDraft(){try{return JSON.parse(localStorage.getItem('akinai_plan_draft')||'{}')}catch(e){return {}}}
@@ -113,13 +141,16 @@ async function verify(){
     }catch(e){setStatus('保存結果を読み込めませんでした。保存期間を過ぎている可能性があります。','err');return}
   }
   if(sid){
+    window.track&&window.track('plan_page_return',funnelCtx());   // Stripeから戻ってきた
     const r=await fetch(API_BASE+'/verify',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({session_id:sid,client_key:ck})});
     const d=await r.json();
     if(!d.ok){
+      window.track&&window.track('purchase_verify_failed',Object.assign({reason:d.error||'unknown'},funnelCtx()));
       const why=d.error==='browser_mismatch'?'決済した端末・ブラウザで開いてください（別の端末やプライベートモードでは確認できません）。':d.error==='payment_not_confirmed'?'決済がまだ完了していません。数分おいて再読み込みしてください。':'';
       setStatus('購入確認ができませんでした。'+why+' 解決しない場合は、Stripeからの領収メールを info@bridgecycleco.com へ転送してください。手動で確認します。','err');return
     }
     localStorage.setItem('akinai_plan_token',d.token);
+    trackPurchase(sid);                                            // 決済確認済み＝購入成立として計測
     history.replaceState({},'',location.pathname);
   }
   if(!token()){setStatus('購入確認が必要です。診断ページから決済してください。','err');return}
@@ -149,6 +180,7 @@ $('generate').addEventListener('click',async()=>{
     const r=await fetch(API_BASE+'/generate',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+token()},body:JSON.stringify({answers:a})});
     const d=await r.json(); if(!d.ok) throw new Error(d.error||'generate_failed');
     localStorage.setItem('akinai_last_result',JSON.stringify(d.result));render(d.result,d.result_id);
+    window.track&&window.track('paid_plans_generated',funnelCtx());   // 有料の成果物が表示された（購入→利用まで到達）
     if(d.result_id){
       const link=location.origin+location.pathname+'?result='+encodeURIComponent(d.result_id);
       const box=document.createElement('div');box.className='summary';box.innerHTML='<b>30日間の保存URL</b><p>スマホからPCへ移るときや、あとで見返すときに使えます。</p><input class="result-link" id="resultLink" value="'+esc(link)+'" readonly><p class="share-warning">※このURLを知っている人は結果を閲覧できます。第三者への共有にはご注意ください。</p><div class="actions"><button class="btn ghost" id="copyLink" type="button">URLをコピー</button></div>';
@@ -156,7 +188,7 @@ $('generate').addEventListener('click',async()=>{
       $('copyLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(link);$('copyLink').textContent='コピーしました'}catch(e){}});
     }
     setStatus('3つの商いプランができました。','ok');
-  }catch(e){setStatus(e.message==='generation_limit'?'生成回数の上限に達しました。':'生成できませんでした。時間をおいて再度お試しください。','err')}
+  }catch(e){window.track&&window.track('paid_generate_failed',Object.assign({reason:e.message||'unknown'},funnelCtx()));setStatus(e.message==='generation_limit'?'生成回数の上限に達しました。':'生成できませんでした。時間をおいて再度お試しください。','err')}
   finally{$('generate').disabled=false}
 });
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('resultBody').innerText);$('copy').textContent='コピーしました'}catch(e){}});

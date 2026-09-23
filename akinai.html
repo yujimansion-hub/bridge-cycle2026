@@ -5053,6 +5053,15 @@ document.addEventListener('click',function(e){
     paid_eligible:rr?.dataset.paidEligible||'unknown',
     funnel_version:window.AKINAI_FUNNEL_VERSION||''
   });
+  // 有料CTAを押した入口（mbar / body）を保存。purchase 側で「どの入口から買ったか」を判別する。
+  if(name==='paid_cta_click'){
+    try{
+      var f=JSON.parse(localStorage.getItem('akinai_funnel')||'{}');
+      f.paid_cta_loc=a.getAttribute('data-loc')||'body';
+      f.funnel_version=f.funnel_version||window.AKINAI_FUNNEL_VERSION||'';
+      localStorage.setItem('akinai_funnel',JSON.stringify(f));
+    }catch(e){}
+  }
 },true);
 </script>
 </head>
@@ -7017,6 +7026,15 @@ const CTX_LABELS={
       res.dataset.nextRoute=nb.route||'unknown';
       res.dataset.paidEligible=paidEligible?'1':'0';
     }
+    // 購入は別ページ（akinai-plan.html）で確定するため、ファネル文脈を端末に保存して purchase 側で読み出す。
+    // 「橋を見た人（paid_eligible=1）」と「自分で辿った人（0）」の購買率を分けて比較するための記録。
+    try{
+      localStorage.setItem('akinai_funnel',JSON.stringify({
+        funnel_version:window.AKINAI_FUNNEL_VERSION||'',
+        type:w||'', entre_level:er.level||'unknown', route:nb.route||'unknown',
+        paid_eligible:paidEligible?'1':'0', paid_cta_loc:'', result_at:Date.now()
+      }));
+    }catch(e){}
     // 結果末尾の「商い設計」への橋だけを条件表示。#price 自体は常時閲覧できる。
     if(paidBridge) paidBridge.style.display=paidEligible?'':'none';
     if(paidUpgrade) paidUpgrade.style.display=paidEligible?'':'none';
@@ -7411,7 +7429,12 @@ const CTX_LABELS={
   preflight();
 
   btn?.addEventListener('click',async()=>{
-    window.track&&window.track('checkout_start',{});
+    let fun={};try{fun=JSON.parse(localStorage.getItem('akinai_funnel')||'{}');}catch(e){}
+    window.track&&window.track('checkout_start',{
+      funnel_version:fun.funnel_version||window.AKINAI_FUNNEL_VERSION||'',
+      entre_level:fun.entre_level||'unknown', route:fun.route||'unknown',
+      paid_eligible:fun.paid_eligible||'unknown', paid_cta_loc:fun.paid_cta_loc||'direct'
+    });
     if(msg) msg.textContent='安全な決済ページを準備しています…';
     let ref='';
     try{
@@ -7517,7 +7540,10 @@ const CTX_LABELS={
       var key='akinai_purchase_tracked', done=localStorage.getItem(key)||'';
       var tid=sid;
       if(done!==sid){
-        window.track('purchase',{transaction_id:tid,value:3300,currency:'JPY',items:[{item_id:'akinai_web_plan',item_name:'わたしの商い設計 3つの商いプラン',price:3300,quantity:1}]});
+        var fun={};try{fun=JSON.parse(localStorage.getItem('akinai_funnel')||'{}');}catch(e){}
+        window.track('purchase',{transaction_id:tid,value:3300,currency:'JPY',items:[{item_id:'akinai_web_plan',item_name:'わたしの商い設計 3つの商いプラン',price:3300,quantity:1}],
+          funnel_version:fun.funnel_version||window.AKINAI_FUNNEL_VERSION||'',entre_level:fun.entre_level||'unknown',route:fun.route||'unknown',
+          paid_eligible:fun.paid_eligible||'unknown',paid_cta_loc:fun.paid_cta_loc||'direct',type:fun.type||''});
         localStorage.setItem(key,sid);
       }
     }
