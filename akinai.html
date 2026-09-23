@@ -4918,6 +4918,20 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .hvr-card.strength i{background:#f7dfdb;color:#b66e63}.hvr-card.strength b{color:#9c5e55}
 .hvr-card.release i{background:#e8eef1;color:#678195}.hvr-card.release b{color:#5b768a}
 .hvr-card.step i{background:#eaf0df;color:#66805d}.hvr-card.step b{color:#5c7654}
+.hvr-head-simple{max-width:100%;margin:0 0 15px;text-align:center}
+.hvr-head-simple small{margin-bottom:5px}
+.hvr-head-simple strong{font-size:clamp(19px,2.2vw,24px);line-height:1.5}
+.rg-body{display:grid;grid-template-columns:minmax(190px,.78fr) minmax(0,1.45fr);align-items:stretch;background:linear-gradient(135deg,#fdf8f4,#f6ece7)}
+.rg-art{position:relative;min-height:100%;overflow:hidden;background:#eee5de}
+.rg-art img{display:block;width:100%;height:100%;min-height:360px;object-fit:cover;object-position:center 28%}
+.rg-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 48%,rgba(79,58,48,.34) 100%);pointer-events:none}
+.rg-art span{position:absolute;z-index:2;left:18px;right:16px;bottom:16px;font-family:var(--serif);font-size:16px;line-height:1.55;color:#fff;text-shadow:0 1px 8px rgba(55,39,33,.25)}
+@media(max-width:700px){
+  .rg-body{grid-template-columns:1fr}
+  .rg-art{max-height:220px;min-height:0}
+  .rg-art img{min-height:0;height:220px;object-position:center 30%}
+  .rg-art span{font-size:14px;bottom:12px;left:14px}
+}
 @media(max-width:520px){
   .hv-result-preview{min-height:0;padding:16px 13px}
   .hvr-head{max-width:100%;margin-bottom:12px}
@@ -5105,10 +5119,9 @@ document.addEventListener('click',function(e){
         <div class="hero-visual-card" aria-label="無料診断で見える3つのこと">
           <span class="hv-kicker">3分後に見えること</span>
           <div class="hv-stage hv-result-preview" aria-label="無料診断の結果画面サンプル">
-            <div class="hvr-head">
-              <small>YOUR RESULT｜結果の一例</small>
-              <strong>暮らしを整えると、次に大切にしたいことが見えてくる人</strong>
-              <p>今ある暮らしや仕事を大切にしながら、時間や役割を少し整えると、自分が本当に大切にしたいことが見えやすくなる傾向があります。</p>
+            <div class="hvr-head hvr-head-simple">
+              <small>YOUR RESULT｜3分後のイメージ</small>
+              <strong>こんなふうに、今の自分が整理されます。</strong>
             </div>
             <div class="hvr-grid">
               <div class="hvr-card strength"><i>♡</i><span><b>私の強み</b><em>暮らしと仕事の<br>バランスを考えられる</em></span></div>
@@ -5269,6 +5282,10 @@ document.addEventListener('click',function(e){
                 <b>9問で見えてきたことを、まず一枚で。</b>
               </div>
               <div class="rg-body">
+                <div class="rg-art">
+                  <img src="assets/akinai-woman-clean.webp?v=20260923b" alt="これからの自分について静かに考える40代前後の女性" loading="lazy" decoding="async" width="320" height="430">
+                  <span>これからの私も、<br>悪くないかもしれない。</span>
+                </div>
                 <div class="rg-cards">
                   <p class="rg-lead">これからの私が、少し見えてきました。</p>
                   <div class="rg-card"><i class="rg-ic c1">✦</i><div><b>見つかる｜私の強み</b><span id="rgStrength">—</span></div></div>
@@ -5506,12 +5523,12 @@ document.addEventListener('click',function(e){
           </div>
             </details>
           <div class="free-paid-bridge">
-            <small>ここまでが、無料で分かること。</small>
-            <h3>自分のことは、少し見えてきた。<br><b>でも、まだ“仕事”にはなっていません。</b></h3>
-            <p>ここから先は、何を・誰に・いくらで・何件なら続けられるかまで具体化します。</p>
+            <small>ここまでで、「今の自分」は少し見えてきました。</small>
+            <h3>もし、この中に<br><b>「ちょっと形にしてみたい」があったら。</b></h3>
+            <p>ここから先は、仕事や小さな副業として試すなら「誰に・何を・いくらで・どのくらい」なら無理なく続けられるかを具体化します。今は動かない、ももちろん答えです。</p>
           </div>
           <div class="result-upgrade">
-            <span class="result-upgrade-label">今の結果では、副業・小さな商いも選択肢に残っています。</span>
+            <span class="result-upgrade-label">「少し試してみたい」と思った人へ。</span>
             <h3>思いつきのままにしない。</h3>
             <p><b>守る。活かす。育てる。</b><br>顧客・商品・価格・必要件数・90日の試し方まで、あなたの条件で3案にします。</p>
             <div class="result-upgrade-grid">
