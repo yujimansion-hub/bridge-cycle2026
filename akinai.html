@@ -5154,13 +5154,56 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
 window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";   /* ← GA4の測定ID（akinai-lounge.html と同じID）。空文字にすると計測停止・外部通信ゼロ */
-window.AKINAI_FUNNEL_VERSION = "20260923_1227_v1"; /* 2026-09-23 12:27以降の現行ファネル。以降の比較基準。 */
+window.AKINAI_FUNNEL_VERSION = "20260924_ads_v1"; /* 広告流入のUTM・hero_feelingを購入まで保持する計測版。 */
+
+/* 広告流入文脈を最初の着地時点で保存。Stripe等の外部遷移後も同じ端末・ブラウザなら保持されます。 */
+(function(){
+  try{
+    var u=new URL(location.href);
+    var f={};try{f=JSON.parse(localStorage.getItem('akinai_funnel')||'{}')||{};}catch(e){f={};}
+    var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    var hasUtm=false;
+    keys.forEach(function(k){
+      var v=u.searchParams.get(k);
+      if(v){f[k]=v;hasUtm=true;}
+    });
+    if(hasUtm){
+      f.landing_path=f.landing_path||location.pathname;
+      f.landing_query=f.landing_query||location.search;
+      f.first_landing_at=f.first_landing_at||new Date().toISOString();
+    }
+    f.funnel_version=window.AKINAI_FUNNEL_VERSION||f.funnel_version||'';
+    localStorage.setItem('akinai_funnel',JSON.stringify(f));
+  }catch(e){}
+})();
+
+function akinaiFunnelContext(){
+  var f={};try{f=JSON.parse(localStorage.getItem('akinai_funnel')||'{}')||{};}catch(e){}
+  return {
+    funnel_version:f.funnel_version||window.AKINAI_FUNNEL_VERSION||'',
+    utm_source:f.utm_source||'',
+    utm_medium:f.utm_medium||'',
+    utm_campaign:f.utm_campaign||'',
+    utm_content:f.utm_content||'',
+    utm_term:f.utm_term||'',
+    hero_feeling:f.hero_feeling||'',
+    paid_cta_loc:f.paid_cta_loc||'',
+    type:f.type||'',
+    entre_level:f.entre_level||'',
+    route:f.route||'',
+    paid_eligible:f.paid_eligible||''
+  };
+}
+
 (function(){
   var id=window.AKINAI_ANALYTICS_ID;
   window.dataLayer=window.dataLayer||[];
   window.gtag=function(){window.dataLayer.push(arguments);};
   window.track=function(name,params){
-    try{ if(window.AKINAI_ANALYTICS_ID) gtag('event',name,params||{}); }catch(e){}
+    try{
+      var merged=Object.assign({},akinaiFunnelContext(),params||{});
+      if(window.AKINAI_ANALYTICS_ID) gtag('event',name,merged);
+    }catch(e){}
   };
   if(!id) return;
   var g=document.createElement('script');
@@ -5178,6 +5221,12 @@ document.addEventListener('click',function(e){
   if(!hf) return;
   var feeling=hf.getAttribute('data-hero-feeling')||'';
   window.AKINAI_HERO_FEELING=feeling;
+  try{
+    var f=JSON.parse(localStorage.getItem('akinai_funnel')||'{}')||{};
+    f.hero_feeling=feeling;
+    f.funnel_version=f.funnel_version||window.AKINAI_FUNNEL_VERSION||'';
+    localStorage.setItem('akinai_funnel',JSON.stringify(f));
+  }catch(e){}
   window.track&&window.track('hero_feeling_click',{feeling:feeling});
 },true);
 document.addEventListener('click',function(e){
