@@ -4661,15 +4661,11 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 .mbar.mbar-free .btn:first-child{flex:1 1 100%}
 .maker-strip img,.maker-strip picture{width:80px;height:80px;flex:none}
 .maker-strip picture img{width:80px;height:80px;border-radius:50%;object-fit:cover;display:block}
-.paid-trust-row{display:flex;align-items:center;gap:14px;margin:16px 0 0}
-.paid-trust-row .paid-trust{margin:0!important}
-.paid-trust-row .paid-trust small{display:block;margin-top:4px;font-size:12px;color:#8a7f78;letter-spacing:.04em}
-.pt-face,.hn-face{flex:none;display:block}
-.pt-face img{width:56px;height:56px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 14px rgba(90,66,52,.14)}
+.hn-face{flex:none;display:block}
 .hn-head{display:flex;align-items:center;gap:14px;margin:0 0 14px}
 .hn-head .hn-lead{margin:0!important}
 .hn-face img{width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(255,255,255,.25)}
-@media(max-width:640px){.pt-face img{width:48px;height:48px}.hn-face img{width:44px;height:44px}}
+@media(max-width:640px){.hn-face img{width:44px;height:44px}}
 .shared-banner{display:none;margin:0 0 18px;padding:20px 22px;border-radius:18px;background:#fff;border:2px solid rgba(143,85,75,.28)}
 .res.shared-view .shared-banner{display:block}
 .shared-banner .sb-tag{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--rose,#8f554b);margin-bottom:8px}
@@ -5039,94 +5035,121 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .rg-art img{height:220px}
 }
 
-/* Fix paid-trust layout on mobile 2026-09-23 */
+/* Paid trust: consolidated responsive layout */
 .paid-trust-row{
   display:grid;
-  grid-template-columns:120px minmax(0,1fr);
+  grid-template-columns:96px minmax(0,1fr);
   gap:16px;
   align-items:center;
+  margin:18px 0 0;
 }
 .pt-face{
-  width:120px;
-  height:120px;
+  display:block;
+  width:96px;
+  height:96px;
   border-radius:50%;
   overflow:hidden;
-  flex:none;
-  margin:0;
+  background:#eee6df;
 }
 .pt-face img{
+  display:block;
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
+  border-radius:50%;
+  box-shadow:0 4px 14px rgba(90,66,52,.12);
 }
 .paid-trust{
   min-width:0;
-  margin:0;
-  width:auto;
-  writing-mode:horizontal-tb !important;
-  text-orientation:mixed !important;
+  width:100%;
+  margin:0!important;
+  writing-mode:horizontal-tb;
+  text-orientation:mixed;
   white-space:normal;
-  word-break:normal;
-  overflow-wrap:anywhere;
-}
-.paid-trust b,
-.paid-trust span,
-.paid-trust small{
-  display:block;
-  writing-mode:horizontal-tb !important;
-  text-orientation:mixed !important;
-  width:auto;
-  max-width:100%;
+  overflow-wrap:break-word;
 }
 .paid-trust b{
+  display:block;
+  margin:0 0 6px;
   font-family:var(--serif);
   font-size:18px;
-  line-height:1.7;
-  margin-bottom:6px;
+  line-height:1.6;
   color:var(--ink);
 }
 .paid-trust span{
+  display:block;
   font-size:13px;
   line-height:1.85;
   color:#665b54;
 }
 .paid-trust small{
-  margin-top:8px;
+  display:block;
+  margin-top:7px;
   font-size:11px;
+  line-height:1.5;
   color:var(--muted);
+  letter-spacing:.04em;
 }
-@media (max-width:768px){
+@media(max-width:640px){
   .paid-trust-row{
-    grid-template-columns:1fr !important;
-    gap:14px;
-    align-items:start;
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-top:16px;
   }
   .pt-face{
-    width:min(68vw,280px);
-    height:min(68vw,280px);
+    width:148px;
+    height:148px;
     margin:0 auto;
   }
   .paid-trust{
-    width:100% !important;
-    max-width:100% !important;
-    padding:0 4px;
+    padding:0 2px;
     text-align:left;
-    writing-mode:horizontal-tb !important;
   }
   .paid-trust b{
-    font-size:20px;
-    line-height:1.6;
+    font-size:19px;
+    line-height:1.55;
   }
   .paid-trust span{
-    font-size:14px;
-    line-height:1.9;
-  }
-  .paid-trust small{
-    font-size:11.5px;
+    font-size:13.5px;
+    line-height:1.85;
   }
 }
 
+/* Mobile result bar: one primary action, one lightweight back link */
+@media(max-width:640px){
+  .mbar{
+    align-items:center;
+    gap:10px;
+    padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+  }
+  .mbar.mbar-result .btn:first-child{
+    flex:0 0 auto;
+    min-height:42px;
+    padding:0 4px;
+    border:0;
+    background:transparent;
+    box-shadow:none;
+    color:#5f655f;
+    font-size:12px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .mbar.mbar-result .btn:first-child:before{
+    content:"↑ ";
+  }
+  .mbar.mbar-result .mbar-paid{
+    flex:1 1 auto;
+    min-height:48px;
+    padding:0 14px;
+    background:var(--ink);
+    border-color:var(--ink);
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+}
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
@@ -5857,7 +5880,7 @@ document.addEventListener('click',function(e){
           <small class="pct-note" id="paidTopNote">受付準備中</small>
         </div>
 
-        <div class="paid-trust-row"><span class="pt-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>大きく始めるより、暮らしを壊さず試せる形を。20年以上の相談現場で見てきた判断基準を、この3案に落とし込んでいます。</span><small>つくった人　中村裕二</small></p></div>
+        <div class="paid-trust-row"><span class="pt-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>暮らしを壊さず、小さく試せる形を考えます。</span><small>20年以上の相談現場から｜中村裕二</small></p></div>
       </div>
 
       <figure class="report-hero-image report-hero-top">
@@ -6132,7 +6155,7 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 
-<div class="mbar mbar-free"><a class="btn" href="#fortune" data-loc="mbar">無料で9問やってみる</a><a class="btn ghost mbar-paid" href="#price" data-loc="mbar">私ならどんな商い？ 3,300円</a></div>
+<div class="mbar mbar-free"><a class="btn" href="#fortune" data-loc="mbar">無料で9問やってみる</a><a class="btn ghost mbar-paid" href="#price" data-loc="mbar">私なら何ができそう？ 3,300円</a></div>
 <div class="toast" id="toast"></div>
 
 <script src="akinai-config.js"></script>
@@ -7310,7 +7333,7 @@ const CTX_LABELS={
     });
     // 仕様：結果表示後は全員に「弱い入口」として固定バーの3,300円リンクを表示。
     // 強い誘導（結果末尾の橋）は paidEligible の人だけ。これで mbar と body の反応を分けて検証する。
-    try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}}catch(e){}
+    try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');bar.classList.add('mbar-result');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果へ戻る';}}}catch(e){}
     res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
@@ -7333,6 +7356,7 @@ const CTX_LABELS={
   document.getElementById('sharedStart')?.addEventListener('click',()=>{
     try{history.replaceState(null,'',location.pathname);}catch(e){}
     res.classList.remove('on','shared-view');
+    try{const bar=document.querySelector('.mbar');if(bar){bar.classList.add('mbar-free');bar.classList.remove('mbar-result');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#fortune');mb.textContent='無料で9問やってみる';}}}catch(e){}
     document.getElementById('again')?.click();
   });
 
