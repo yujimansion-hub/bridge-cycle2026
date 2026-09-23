@@ -4933,6 +4933,52 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .hvr-card em{font-size:11px}
 }
 
+
+/* ===== 2026-09-23: shorter free-result journey / conditional paid path ===== */
+.maker-belief{padding:0 0 18px}
+.maker-belief-card{padding:11px 14px;gap:12px;border-radius:16px;box-shadow:none}
+.maker-belief-face{width:44px;height:44px}
+.maker-belief-copy small{font-size:10px;margin-bottom:2px}
+.maker-belief-copy b{font-size:14px;line-height:1.55}
+.maker-belief-copy p{display:none}
+.maker-belief a{font-size:11px}
+
+.result-details-primary,
+.post-context-details,
+.result-save-more{margin:14px 0;border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden}
+.result-details-primary>summary,
+.post-context-details>summary,
+.result-save-more>summary{cursor:pointer;list-style:none;padding:15px 17px;font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink)}
+.result-details-primary>summary::-webkit-details-marker,
+.post-context-details>summary::-webkit-details-marker,
+.result-save-more>summary::-webkit-details-marker{display:none}
+.result-details-primary>summary:after,
+.post-context-details>summary:after,
+.result-save-more>summary:after{content:"＋";float:right;color:var(--rose)}
+.result-details-primary[open]>summary:after,
+.post-context-details[open]>summary:after,
+.result-save-more[open]>summary:after{content:"−"}
+.result-details-primary>summary span{display:block;margin-top:3px;font-family:var(--sans);font-size:10.5px;font-weight:500;color:var(--muted)}
+.result-details-primary[open]>summary,
+.post-context-details[open]>summary,
+.result-save-more[open]>summary{border-bottom:1px solid var(--line);background:#fffaf7}
+.result-details-primary>div,
+.result-details-primary>p,
+.result-details-primary>span,
+.result-details-primary>section{margin-left:16px;margin-right:16px}
+.post-context-details .private-context{margin:0;border:0;border-radius:0;box-shadow:none}
+.result-save-more .share-now{margin:0;padding:18px;border:0;background:transparent}
+.result-choice-card.context{background:linear-gradient(135deg,#fff,#eef2ec);border-color:#d5ddd1}
+.result-choice-card.context small,.result-choice-card.context em{color:#687a61}
+.result-choice-card.context em{display:block;margin-top:8px;font-style:normal;font-size:12px;font-weight:700}
+@media(max-width:680px){
+  .maker-belief-card{grid-template-columns:auto 1fr auto!important}
+  .maker-belief-card>a{grid-column:auto!important}
+  .maker-belief-copy b{font-size:13px}
+  .result-choice-grid{grid-template-columns:1fr}
+  .result-choice-card{min-height:0}
+}
+
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
@@ -5027,7 +5073,7 @@ document.addEventListener('click',function(e){
           <div class="hv-stage hv-result-preview" aria-label="無料診断の結果画面サンプル">
             <div class="hvr-head">
               <small>YOUR RESULT｜結果の一例</small>
-              <strong>つながりで広がる、やってみる人</strong>
+              <strong>人と話すと、次の一歩が見えてくる人</strong>
               <p>人とのつながりや出会いの中でヒントを見つけ、小さく動きながら、自分に合う答えを見つけていくタイプです。</p>
             </div>
             <div class="hvr-grid">
@@ -5037,7 +5083,7 @@ document.addEventListener('click',function(e){
             </div>
           </div>
           <div class="hv-bottom">
-            <p>3分後、<b>あなた自身の言葉で、この3つが整理されます。</b></p>
+            <p>3分後、<b>あなたの回答から、この3つを整理します。</b></p>
           </div>
           <p class="hv-soft-note">「私にも、まだ何かあるかも。」<br>その感覚を、3分で言葉にします。</p>
         </div>
@@ -5052,9 +5098,8 @@ document.addEventListener('click',function(e){
           <picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二" loading="lazy" decoding="async" width="320" height="320"></picture>
         </span>
         <div class="maker-belief-copy">
-          <small>つくった人｜中村裕二　商工会20年以上｜500社以上の相談</small>
-          <b>起業を勧めるために、つくった診断ではありません。</b>
-          <p>始めた人も、迷った人も、やめた人も見てきた。だから先に「あなたは、どうしたい？」から考えます。</p>
+          <small>つくった人｜中村裕二</small>
+          <b>商工会などで20年以上、500社以上を支援。起業を勧めるための診断ではありません。</b>
         </div>
         <a href="akinai-profile.html">つくった人を見る →</a>
       </div>
@@ -5101,87 +5146,6 @@ document.addEventListener('click',function(e){
         <p style="margin-top:10px;font-size:14px;color:var(--muted)">転職・副業・起業・今の仕事を続ける・少し休む。答えを先に決めず、今のあなたから考えます。</p>
       </div>
 
-
-      <div class="private-context" id="privateContext">
-        <span class="pc-kicker">BEFORE THE 9 QUESTIONS｜ほんの3つだけ。</span>
-        <h3>まずは、「今のあなた」を<br>3つだけ教えてください。</h3>
-        <p class="pc-lead">全部きれいに答えなくて大丈夫です。3つともすぐ選べます。ここは履歴書ではなく、誰かに相談する前に、自分の頭の中を少しほどく場所です。</p>
-
-        <div class="pc-grid pc-core">
-          <label><span>① いま、どんな働き方？</span>
-            <select id="ctxWork">
-              <option value="">選ばなくてもOK</option>
-              <option value="employee">会社員・公務員</option>
-              <option value="part">パート・アルバイト</option>
-              <option value="self">個人事業・フリーランス</option>
-              <option value="leave">休職中・離職中</option>
-              <option value="home">家事・育児を中心にしている</option>
-              <option value="other">その他</option>
-            </select>
-          </label>
-
-          <label><span>② 今いちばん、頭の片隅にいるのは？</span>
-            <select id="ctxWorry">
-              <option value="">まだ分からない</option>
-              <option value="stay">今の仕事をこのまま続けるか</option>
-              <option value="change">転職・環境を変えるべきか</option>
-              <option value="money">収入・支出・将来のお金</option>
-              <option value="family">家族と自分の時間のバランス</option>
-              <option value="relation">職場や身近な人との人間関係</option>
-              <option value="self">自分が何をしたいのか分からない</option>
-              <option value="business">副業・起業をやってみたいが不安</option>
-              <option value="future">将来がなんとなく不安</option>
-            </select>
-          </label>
-
-          <label class="pc-wide"><span>③ これまで、いちばん長くやってきた仕事や役割は？ <small>任意・80文字まで</small></span>
-            <input id="ctxCareer" type="text" maxlength="80" placeholder="例：販売を15年／子育てしながら事務／営業と新人教育">
-          </label>
-        </div>
-
-        <details class="pc-more">
-          <summary>もう少し自分向けの結果にしたい方だけ、追加で教える</summary>
-          <p class="pc-more-lead">ここから先は全部任意です。飛ばしても9問診断はできます。</p>
-          <div class="pc-grid">
-            <label><span>あなたの年代は？</span>
-              <select id="ctxAge"><option value="">選ばなくてもOK</option><option value="20s">20代</option><option value="30s">30代</option><option value="40s">40代</option><option value="50s">50代</option><option value="60s">60代</option><option value="70p">70代以上</option></select>
-            </label>
-            <label><span>今の仕事、ひとことで言うと？</span><input id="ctxJob" type="text" maxlength="50" placeholder="例：営業事務／看護師／接客／経理"></label>
-            <label><span>どんな業界にいる？</span><input id="ctxIndustry" type="text" maxlength="50" placeholder="例：製造／医療／小売／教育／IT／福祉"></label>
-            <label><span>普段、どんなことを担当してる？</span><input id="ctxDuties" type="text" maxlength="80" placeholder="例：経理と請求、接客と発注、スタッフ管理"></label>
-            <label class="pc-wide"><span>「これは私、けっこうやってきたな」と思うことは？</span><input id="ctxAccumulated" type="text" maxlength="80" placeholder="例：人の話を聞く／段取りを整える／新人を育てる"></label>
-            <label><span>今の仕事、ほんとのところどう？</span>
-              <select id="ctxWorkFeel"><option value="">まだうまく言えない</option><option value="like">けっこう好き。できれば続けたい</option><option value="mixed">嫌いじゃない。でも、このまま？とは思う</option><option value="tired">正直、ちょっとしんどい</option><option value="leave">できれば離れたい気持ちがある</option><option value="lost">自分でもよく分からなくなってきた</option></select>
-            </label>
-            <label><span>家族のこと、今どれくらい気になる？</span>
-              <select id="ctxFamily"><option value="">選ばなくてもOK</option><option value="heavy">子育て・介護など、今かなり大きい</option><option value="some">家族への責任はあるが、少し余白もある</option><option value="light">比較的、自分で時間を決めやすい</option><option value="solo">一人暮らし・自分中心に決めやすい</option><option value="private">答えたくない</option></select>
-            </label>
-            <label><span>お子さんがいるなら、近いのは？</span>
-              <select id="ctxChildren"><option value="">いない／選ばなくてもOK</option><option value="preschool">未就学</option><option value="elementary">小学生</option><option value="teen">中学生・高校生</option><option value="adult">大学生以上・成人</option><option value="mixed">複数の年代がいる</option><option value="private">答えたくない</option></select>
-            </label>
-            <label><span>介護など、大きなケア責任は？</span>
-              <select id="ctxCare"><option value="">選ばなくてもOK</option><option value="yes">ある</option><option value="possible">これから増えそう</option><option value="no">今はない</option><option value="private">答えたくない</option></select>
-            </label>
-            <label><span>お金のこと、今どれくらい気になる？</span>
-              <select id="ctxMargin"><option value="">選ばなくてもOK</option><option value="deficit">赤字になる月がある</option><option value="tight">ほとんど残らない</option><option value="small">少しは残る</option><option value="room">ある程度余裕がある</option><option value="private">答えたくない</option></select>
-            </label>
-            <label><span>もし自分の収入が少し減ったら？</span>
-              <select id="ctxIncome"><option value="">選ばなくてもOK</option><option value="critical">家計がすぐ厳しくなる</option><option value="important">かなり影響する</option><option value="manageable">少しなら調整できる</option><option value="flexible">しばらくは対応できる</option><option value="private">答えたくない</option></select>
-            </label>
-            <label><span>この悩み、誰かに話せてる？</span>
-              <select id="ctxTalk"><option value="">選ばなくてもOK</option><option value="can">ある程度話せている</option><option value="partial">少しだけ話している</option><option value="hard">反対や心配があり、話しにくい</option><option value="none">まだ誰にも話していない</option><option value="private">答えたくない</option></select>
-            </label>
-            <label class="pc-wide"><span>「こうなったら、ちょっといいかも」は？</span>
-              <select id="ctxHope"><option value="">まだ言葉にならない</option><option value="stability">安心して暮らせる状態をつくりたい</option><option value="time">自分の時間を取り戻したい</option><option value="meaning">もっと納得できる仕事をしたい</option><option value="income">収入を増やしたい</option><option value="strength">自分の得意なことを活かしたい</option><option value="freedom">自分で決められる働き方に近づきたい</option><option value="unknown">まだ分からない。ただ、このままは嫌</option></select>
-            </label>
-            <label class="pc-wide"><span>もし誰にも止められなかったら、一度はやってみたいことある？</span><input id="ctxDream" type="text" maxlength="80" placeholder="例：小さなお店／もう一度勉強／特にまだない"></label>
-            <label class="pc-wide"><span>人には言いにくいけど、頭から離れないこと</span><textarea id="ctxMemo" maxlength="120" placeholder="書かなくても大丈夫です。"></textarea></label>
-          </div>
-        </details>
-
-        <div class="pc-privacy"><b>ここは「相談の前の整理」です。</b>入力内容は、このページ内で無料診断の結果を組み立てるために使います。答えたくない項目は飛ばして大丈夫です。</div>
-        <a class="btn pc-start" href="#qz">このまま9問に進む →</a>
-      </div>
 
       <div class="qz" id="qz">
         <div class="prog"><b id="pNow">1</b><span>/ 9</span><div class="bar"><i id="pBar"></i></div><span id="pTxt">今の自分</span></div>
@@ -5290,6 +5254,8 @@ document.addEventListener('click',function(e){
                 </div>
               </div>
             </figure>
+            <details class="result-details-primary" id="resultDetailsPrimary">
+              <summary>もう少し詳しく見る <span>現在地・今はしなくていいこと・今週の一歩</span></summary>
             <div class="gentle-relief gentle-relief-short">
               <p class="gentle-relief-lead">答えを急がなくていい。</p>
               <p>「私にも、まだ何かあるかもしれない」<br>そう思えたら、この9問は十分です。</p>
@@ -5384,22 +5350,108 @@ document.addEventListener('click',function(e){
             <p class="ws-body" id="wsBody">—</p>
             <p class="ws-note">断られても大丈夫です。そのとき返ってきた理由が、次の材料になります。読んで「今週は動かない」と決めても構いません。</p>
           </div>
+            </details>
           </div>
             <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
               <span class="result-choice-kicker">この結果、どうする？</span>
               <div class="result-choice-grid">
-                <a class="result-choice-card keep" href="#currentSummary" data-result-choice="keep">
+                <a class="result-choice-card keep" href="#resultSaveMore" data-result-choice="keep">
                   <small>01｜今日はここまで</small>
-                  <b>この結果を、<br>自分のために持っておく</b>
+                  <b>この結果を保存して、<br>今日は終わる</b>
                 </a>
-                <a class="result-choice-card paid" href="#price" data-result-choice="paid">
-                  <small>02｜もう少し形にする</small>
-                  <b>「ちょっとやってみたい」を、<br>3つの具体案にする</b>
-                  <em>3,300円 →</em>
+                <a class="result-choice-card context" href="#postContextDetails" data-result-choice="context">
+                  <small>02｜もう少し自分向けに</small>
+                  <b>仕事・家族・お金を<br>30秒だけ足す</b>
+                  <em>結果を更新 →</em>
                 </a>
               </div>
             </div>
-          <div class="share-now">
+            <details class="post-context-details" id="postContextDetails">
+              <summary>現在地を30秒で足す（任意）</summary>
+      <div class="private-context" id="privateContext">
+        <span class="pc-kicker">RESULT + 30 SEC｜必要な人だけ。</span>
+        <h3>結果を、もう少し<br>「私の場合」に。</h3>
+        <p class="pc-lead">仕事・家族・お金などの現在地を足すと、同じ9問でも結果がもう少し具体的になります。全部任意です。答えたくない項目は飛ばせます。</p>
+
+        <div class="pc-grid pc-core">
+          <label><span>① いま、どんな働き方？</span>
+            <select id="ctxWork">
+              <option value="">選ばなくてもOK</option>
+              <option value="employee">会社員・公務員</option>
+              <option value="part">パート・アルバイト</option>
+              <option value="self">個人事業・フリーランス</option>
+              <option value="leave">休職中・離職中</option>
+              <option value="home">家事・育児を中心にしている</option>
+              <option value="other">その他</option>
+            </select>
+          </label>
+
+          <label><span>② 今いちばん、頭の片隅にいるのは？</span>
+            <select id="ctxWorry">
+              <option value="">まだ分からない</option>
+              <option value="stay">今の仕事をこのまま続けるか</option>
+              <option value="change">転職・環境を変えるべきか</option>
+              <option value="money">収入・支出・将来のお金</option>
+              <option value="family">家族と自分の時間のバランス</option>
+              <option value="relation">職場や身近な人との人間関係</option>
+              <option value="self">自分が何をしたいのか分からない</option>
+              <option value="business">副業・起業をやってみたいが不安</option>
+              <option value="future">将来がなんとなく不安</option>
+            </select>
+          </label>
+
+          <label class="pc-wide"><span>③ これまで、いちばん長くやってきた仕事や役割は？ <small>任意・80文字まで</small></span>
+            <input id="ctxCareer" type="text" maxlength="80" placeholder="例：販売を15年／子育てしながら事務／営業と新人教育">
+          </label>
+        </div>
+
+        <details class="pc-more">
+          <summary>もう少し自分向けの結果にしたい方だけ、追加で教える</summary>
+          <p class="pc-more-lead">ここから先は全部任意です。飛ばしても9問診断はできます。</p>
+          <div class="pc-grid">
+            <label><span>あなたの年代は？</span>
+              <select id="ctxAge"><option value="">選ばなくてもOK</option><option value="20s">20代</option><option value="30s">30代</option><option value="40s">40代</option><option value="50s">50代</option><option value="60s">60代</option><option value="70p">70代以上</option></select>
+            </label>
+            <label><span>今の仕事、ひとことで言うと？</span><input id="ctxJob" type="text" maxlength="50" placeholder="例：営業事務／看護師／接客／経理"></label>
+            <label><span>どんな業界にいる？</span><input id="ctxIndustry" type="text" maxlength="50" placeholder="例：製造／医療／小売／教育／IT／福祉"></label>
+            <label><span>普段、どんなことを担当してる？</span><input id="ctxDuties" type="text" maxlength="80" placeholder="例：経理と請求、接客と発注、スタッフ管理"></label>
+            <label class="pc-wide"><span>「これは私、けっこうやってきたな」と思うことは？</span><input id="ctxAccumulated" type="text" maxlength="80" placeholder="例：人の話を聞く／段取りを整える／新人を育てる"></label>
+            <label><span>今の仕事、ほんとのところどう？</span>
+              <select id="ctxWorkFeel"><option value="">まだうまく言えない</option><option value="like">けっこう好き。できれば続けたい</option><option value="mixed">嫌いじゃない。でも、このまま？とは思う</option><option value="tired">正直、ちょっとしんどい</option><option value="leave">できれば離れたい気持ちがある</option><option value="lost">自分でもよく分からなくなってきた</option></select>
+            </label>
+            <label><span>家族のこと、今どれくらい気になる？</span>
+              <select id="ctxFamily"><option value="">選ばなくてもOK</option><option value="heavy">子育て・介護など、今かなり大きい</option><option value="some">家族への責任はあるが、少し余白もある</option><option value="light">比較的、自分で時間を決めやすい</option><option value="solo">一人暮らし・自分中心に決めやすい</option><option value="private">答えたくない</option></select>
+            </label>
+            <label><span>お子さんがいるなら、近いのは？</span>
+              <select id="ctxChildren"><option value="">いない／選ばなくてもOK</option><option value="preschool">未就学</option><option value="elementary">小学生</option><option value="teen">中学生・高校生</option><option value="adult">大学生以上・成人</option><option value="mixed">複数の年代がいる</option><option value="private">答えたくない</option></select>
+            </label>
+            <label><span>介護など、大きなケア責任は？</span>
+              <select id="ctxCare"><option value="">選ばなくてもOK</option><option value="yes">ある</option><option value="possible">これから増えそう</option><option value="no">今はない</option><option value="private">答えたくない</option></select>
+            </label>
+            <label><span>お金のこと、今どれくらい気になる？</span>
+              <select id="ctxMargin"><option value="">選ばなくてもOK</option><option value="deficit">赤字になる月がある</option><option value="tight">ほとんど残らない</option><option value="small">少しは残る</option><option value="room">ある程度余裕がある</option><option value="private">答えたくない</option></select>
+            </label>
+            <label><span>もし自分の収入が少し減ったら？</span>
+              <select id="ctxIncome"><option value="">選ばなくてもOK</option><option value="critical">家計がすぐ厳しくなる</option><option value="important">かなり影響する</option><option value="manageable">少しなら調整できる</option><option value="flexible">しばらくは対応できる</option><option value="private">答えたくない</option></select>
+            </label>
+            <label><span>この悩み、誰かに話せてる？</span>
+              <select id="ctxTalk"><option value="">選ばなくてもOK</option><option value="can">ある程度話せている</option><option value="partial">少しだけ話している</option><option value="hard">反対や心配があり、話しにくい</option><option value="none">まだ誰にも話していない</option><option value="private">答えたくない</option></select>
+            </label>
+            <label class="pc-wide"><span>「こうなったら、ちょっといいかも」は？</span>
+              <select id="ctxHope"><option value="">まだ言葉にならない</option><option value="stability">安心して暮らせる状態をつくりたい</option><option value="time">自分の時間を取り戻したい</option><option value="meaning">もっと納得できる仕事をしたい</option><option value="income">収入を増やしたい</option><option value="strength">自分の得意なことを活かしたい</option><option value="freedom">自分で決められる働き方に近づきたい</option><option value="unknown">まだ分からない。ただ、このままは嫌</option></select>
+            </label>
+            <label class="pc-wide"><span>もし誰にも止められなかったら、一度はやってみたいことある？</span><input id="ctxDream" type="text" maxlength="80" placeholder="例：小さなお店／もう一度勉強／特にまだない"></label>
+            <label class="pc-wide"><span>人には言いにくいけど、頭から離れないこと</span><textarea id="ctxMemo" maxlength="120" placeholder="書かなくても大丈夫です。"></textarea></label>
+          </div>
+        </details>
+
+        <div class="pc-privacy"><b>ここは「結果を自分向けにするための追加情報」です。</b>入力内容は、このページ内で無料診断の結果を組み立てるために使います。答えたくない項目は飛ばして大丈夫です。</div>
+        <a class="btn pc-start" href="#qz">現在地を足して、結果を更新する →</a>
+      </div>
+            </details>
+            <details class="result-save-more" id="resultSaveMore">
+              <summary>結果を保存・シェアする</summary>
+            <div class="share-now">
             <b>この言葉を、今の自分への小さなメモに。</b>
             <p>カードにすると「経験資産・大切にしたい価値観・今の自分への一言」が1枚になります。</p>
             <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
@@ -5419,6 +5471,7 @@ document.addEventListener('click',function(e){
             </div>
             <p class="share-hint">ボタンを押すと、スマホの共有メニューが開きます。そこからInstagram・LINE・写真への保存が選べます。Instagramのストーリーズに貼るときは、いったん保存してからでも大丈夫です。</p>
           </div>
+            </details>
           <div class="free-paid-bridge">
             <small>ここまでが、無料で分かること。</small>
             <h3>自分のことは、少し見えてきた。<br><b>でも、まだ“仕事”にはなっていません。</b></h3>
@@ -5629,7 +5682,7 @@ document.addEventListener('click',function(e){
     </div>
   </section>
 
-  <section id="price" class="paid-app">
+  <section id="price" class="paid-app" style="display:none">
     <div class="wrap paid-shell">
       <div class="paid-head paid-head-v2">
         <span class="step-pill" id="paidPill">わたしの商い設計 ／ 3,300円 ／ Web完結</span>
@@ -6698,6 +6751,7 @@ const CTX_LABELS={
     window.scrollTo({top:Math.max(0,y),behavior:'instant'});
     trackQuizReach(0);
   }
+  document.querySelectorAll('a[href="#postContextDetails"],a[href="#resultSaveMore"]').forEach(a=>a.addEventListener('click',()=>{const d=document.querySelector(a.getAttribute('href'));if(d&&d.tagName==='DETAILS')d.open=true;}));
   document.querySelectorAll('[data-hero-feeling],[data-go-quiz]').forEach(a=>a.addEventListener('click',e=>{
     e.preventDefault();
     const w=a.getAttribute('data-ctx-worry'),h=a.getAttribute('data-ctx-hope');
@@ -6983,6 +7037,7 @@ const CTX_LABELS={
         +(needCtx?'<div class="cs-add"><b>働き方・家族・お金を足すと、この結果は「私の場合」になります。</b><a href="#privateContext" class="btn sm" data-add-context="1">現在地を足す（30秒・任意）→</a></div>':'');
       const addLink=cs.querySelector('[data-add-context]');
       if(addLink)addLink.addEventListener('click',()=>{
+        const pd=document.getElementById('postContextDetails');if(pd)pd.open=true;
         const b=document.querySelector('.pc-start');if(b)b.textContent='結果を更新する →';
         window.track&&window.track('add_context_click',{});
       });
@@ -6993,6 +7048,13 @@ const CTX_LABELS={
     const er=entrepreneurshipResult();
     window.AKINAI_ENTRE_RESULT=er;
     if(res) res.dataset.entreLevel=er.level||'unknown';
+    const paidEligible=(er.level==='high'||er.level==='conditional');
+    const paidBridge=res&&res.querySelector('.free-paid-bridge');
+    const paidUpgrade=res&&res.querySelector('.result-upgrade');
+    const priceSection=document.getElementById('price');
+    if(paidBridge) paidBridge.style.display=paidEligible?'':'none';
+    if(paidUpgrade) paidUpgrade.style.display=paidEligible?'':'none';
+    if(priceSection) priceSection.style.display=paidEligible?'':'none';
     const et=document.getElementById('entreTitle'), em=document.getElementById('entreMeter'), erp=document.getElementById('entreReason'), ent=document.getElementById('entreNextTitle'), en=document.getElementById('entreNext'), eps=document.getElementById('entrePaths');
     if(et)et.textContent=er.title;
     if(em)em.style.width=er.pct+'%';
