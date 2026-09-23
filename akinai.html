@@ -4992,6 +4992,7 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
 window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";   /* ← GA4の測定ID（akinai-lounge.html と同じID）。空文字にすると計測停止・外部通信ゼロ */
+window.AKINAI_FUNNEL_VERSION = "20260923_1227_v1"; /* 2026-09-23 12:27以降の現行ファネル。以降の比較基準。 */
 (function(){
   var id=window.AKINAI_ANALYTICS_ID;
   window.dataLayer=window.dataLayer||[];
@@ -5028,7 +5029,14 @@ document.addEventListener('click',function(e){
 document.addEventListener('click',function(e){
   var rc=e.target.closest('[data-result-choice]');
   if(!rc) return;
-  window.track&&window.track('result_choice_click',{choice:rc.getAttribute('data-result-choice')||'',entre_level:(document.getElementById('res')?.dataset.entreLevel||'unknown')});
+  var rr=document.getElementById('res');
+  window.track&&window.track('result_choice_click',{
+    choice:rc.getAttribute('data-result-choice')||'',
+    entre_level:rr?.dataset.entreLevel||'unknown',
+    route:rr?.dataset.nextRoute||'unknown',
+    paid_eligible:rr?.dataset.paidEligible||'unknown',
+    funnel_version:window.AKINAI_FUNNEL_VERSION||''
+  });
 },true);
 document.addEventListener('click',function(e){
   var a=e.target.closest('a[href="#price"], a[href="#paidEngine"], #paidCheckoutBtn, a[href="#fortune"]');
@@ -5036,7 +5044,15 @@ document.addEventListener('click',function(e){
   var href=a.getAttribute('href')||'';
   var name = (a.id==='paidCheckoutBtn') ? 'checkout_click'
            : (href==='#fortune') ? 'free_start_click' : 'paid_cta_click';
-  window.track&&window.track(name,{label:(a.textContent||'').trim().slice(0,40),loc:a.getAttribute('data-loc')||'body'});
+  var rr=document.getElementById('res');
+  window.track&&window.track(name,{
+    label:(a.textContent||'').trim().slice(0,40),
+    loc:a.getAttribute('data-loc')||'body',
+    entre_level:rr?.dataset.entreLevel||'unknown',
+    route:rr?.dataset.nextRoute||'unknown',
+    paid_eligible:rr?.dataset.paidEligible||'unknown',
+    funnel_version:window.AKINAI_FUNNEL_VERSION||''
+  });
 },true);
 </script>
 </head>
@@ -6990,20 +7006,20 @@ const CTX_LABELS={
     const nb=nonStartupResult(w);
     window.AKINAI_NONBIZ_RESULT=nb;
 
-    // 有料の「商い設計」は、準備度だけでなく「今の次の一歩」が副業・小さな事業に向いている人だけに表示する。
-    // stay / change / learn / rest / undecided の人には営業導線を出さず、中立な診断として完結させる。
+    // 強い有料導線（結果末尾の橋）は、準備度と「今の次の一歩」が副業・小さな事業に向く人だけに表示する。
+    // #price は常時閲覧可。固定バーの3,300円は結果表示後の弱い入口として全員に残し、自発的な閲覧を妨げない。
     const explicitBusinessInterest=(ctx.worry==='business');
     const businessIntent=(nb.route==='side'||(explicitBusinessInterest&&(nb.route==='learn'||nb.route==='undecided')));
     const paidEligible=(er.level==='high'||er.level==='conditional')&&businessIntent;
     const paidBridge=res&&res.querySelector('.free-paid-bridge');
     const paidUpgrade=res&&res.querySelector('.result-upgrade');
-    const mbar=document.querySelector('.mbar');
-    if(res) res.dataset.nextRoute=nb.route||'unknown';
+    if(res){
+      res.dataset.nextRoute=nb.route||'unknown';
+      res.dataset.paidEligible=paidEligible?'1':'0';
+    }
     // 結果末尾の「商い設計」への橋だけを条件表示。#price 自体は常時閲覧できる。
     if(paidBridge) paidBridge.style.display=paidEligible?'':'none';
     if(paidUpgrade) paidUpgrade.style.display=paidEligible?'':'none';
-    // 固定バーの3,300円CTAは対象者にだけ表示。それ以外は無料診断CTAだけにする。
-    if(mbar) mbar.classList.toggle('mbar-free',!paidEligible);
 
     const et=document.getElementById('entreTitle'), em=document.getElementById('entreMeter'), erp=document.getElementById('entreReason'), ent=document.getElementById('entreNextTitle'), en=document.getElementById('entreNext'), eps=document.getElementById('entrePaths');
     if(et)et.textContent=er.title;
@@ -7158,8 +7174,18 @@ const CTX_LABELS={
     fillOtherTypes(document.getElementById('olTop'));
     const sharedView=!ans.length&&!window.AKINAI_VOICE_RESULT;
     res.classList.toggle('shared-view',sharedView);
-    res.classList.add('on'); track(sharedView?'shared_result_view':'free_result_shown',{type:w||''});
-    try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}}catch(e){} res.scrollIntoView({behavior:'smooth',block:'start'});
+    res.classList.add('on');
+    track(sharedView?'shared_result_view':'free_result_shown',{
+      type:w||'',
+      entre_level:res.dataset.entreLevel||'unknown',
+      route:res.dataset.nextRoute||'unknown',
+      paid_eligible:res.dataset.paidEligible||'unknown',
+      funnel_version:window.AKINAI_FUNNEL_VERSION||''
+    });
+    // 仕様：結果表示後は全員に「弱い入口」として固定バーの3,300円リンクを表示。
+    // 強い誘導（結果末尾の橋）は paidEligible の人だけ。これで mbar と body の反応を分けて検証する。
+    try{const bar=document.querySelector('.mbar');if(bar){bar.classList.remove('mbar-free');const mb=bar.querySelector('a');if(mb){mb.setAttribute('href','#res');mb.textContent='結果をもう一度見る';}}}catch(e){}
+    res.scrollIntoView({behavior:'smooth',block:'start'});
     try{history.replaceState(null,'',location.pathname+'?t='+w+(w2?'&s='+w2:'')+(f2?'&f2='+f2:''));}catch(e){}
   }
   function showPlan(w,idx,L){const c=CAND[w][idx],job=JOB[w][idx],model=MODEL[w][idx];document.getElementById('planLab').textContent=L+'案｜最初の小さなビジネスプラン';
