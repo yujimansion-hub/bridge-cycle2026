@@ -5021,6 +5021,23 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .hvr-grid-min .hvr-card i{width:38px;height:38px;font-size:19px}
   .hvr-grid-min .hvr-card b{font-size:12px}
 }
+
+/* Image reliability + polish */
+.rg-art,.maker-belief-face,.pt-face,.report-hero-image a{background:linear-gradient(135deg,#f7ebe6,#eee3dc)}
+.rg-art img,.maker-belief-face img,.pt-face img,.report-hero-image img{display:block;max-width:100%}
+.rg-art img{width:100%;height:100%;object-fit:cover}
+.maker-belief-face img,.pt-face img{width:100%;height:100%;object-fit:cover}
+.report-hero-image img{width:100%;height:auto;border-radius:18px}
+.img-unavailable{display:none!important}
+.image-fallback-state{position:relative;min-height:140px;overflow:hidden}
+.image-fallback-state:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.82),transparent 38%),linear-gradient(135deg,#f7e7e1,#ece4dc)}
+.image-fallback-state:after{content:"画像を読み込めませんでした";position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:18px;font-size:12px;color:#8a7f77;letter-spacing:.04em}
+.rg-art.image-fallback-state:after{content:"これからの私を、少し考える時間。";font-family:var(--serif);font-size:18px;color:#6f5349}
+.report-hero-image.image-fallback-state:after{content:"3つの具体案＋詳細レポート";font-family:var(--serif);font-size:20px;color:#6f5349}
+@media(max-width:700px){
+  .rg-art{min-height:220px}
+  .rg-art img{height:220px}
+}
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
@@ -5255,7 +5272,7 @@ document.addEventListener('click',function(e){
               </div>
               <div class="rg-body">
                 <div class="rg-art">
-                  <img src="assets/akinai-woman-clean.webp?v=20260923b" alt="これからの自分について静かに考える40代前後の女性" loading="lazy" decoding="async" width="320" height="430">
+                  <img src="assets/akinai-result-illustration-left.jpg?v=20260923e" data-fallback="assets/akinai-result-illustration.jpg?v=20260923e" alt="これからの自分について静かに考える40代前後の女性" loading="eager" decoding="async" width="320" height="430">
                   <span>これからの私も、<br>悪くないかもしれない。</span>
                 </div>
                 <div class="rg-cards">
@@ -5519,7 +5536,7 @@ document.addEventListener('click',function(e){
           <div class="maker-belief maker-belief-after-result" aria-label="この診断をつくった人">
             <div class="maker-belief-card">
               <span class="maker-belief-face">
-                <picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二" loading="lazy" decoding="async" width="320" height="320"></picture>
+                <img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二" loading="lazy" decoding="async" width="320" height="320">
               </span>
               <div class="maker-belief-copy">
                 <small>この診断をつくった人｜中村裕二</small>
@@ -5751,13 +5768,13 @@ document.addEventListener('click',function(e){
           <small class="pct-note" id="paidTopNote">受付準備中</small>
         </div>
 
-        <div class="paid-trust-row"><span class="pt-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>大きく始めるより、暮らしを壊さず試せる形を。20年以上の相談現場で見てきた判断基準を、この3案に落とし込んでいます。</span><small>つくった人　中村裕二</small></p></div>
+        <div class="paid-trust-row"><span class="pt-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>大きく始めるより、暮らしを壊さず試せる形を。20年以上の相談現場で見てきた判断基準を、この3案に落とし込んでいます。</span><small>つくった人　中村裕二</small></p></div>
       </div>
 
       <figure class="report-hero-image report-hero-top">
         <span class="rht-lead">実際に届くレポートのイメージ</span>
         <a href="assets/report-sample-3plans.webp" target="_blank" rel="noopener" aria-label="3案の概要と詳細レポートの画像を大きく見る">
-          <img src="assets/report-sample-3plans.png?v=20260920-d" alt="3,300円で届く3案と詳細レポートの実際の画面" loading="eager" decoding="async">
+          <img src="assets/report-sample-3plans.png?v=20260923e" data-fallback="assets/report-sample-3plans.webp?v=20260923e" alt="3,300円で届く3案と詳細レポートの実際の画面" loading="eager" decoding="async">
         </a>
         <figcaption>総合レポート ＋ 3案 ＋ 各案約3ページ（画像をクリックすると大きく表示できます）</figcaption>
       </figure>
@@ -5787,7 +5804,7 @@ document.addEventListener('click',function(e){
         </tbody>
       </table>
       <div class="host-note">
-        <div class="hn-head"><span class="hn-face"><picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture></span><p class="hn-lead">別に、起業した方がいいとは思ってません。</p></div>
+        <div class="hn-head"><span class="hn-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="hn-lead">別に、起業した方がいいとは思ってません。</p></div>
         <div class="hn-three"><span>「これは違う」</span><span>「これはちょっとやってみたい」</span><span>「これは今じゃない」</span></div>
         <p class="hn-body">その3つが見えれば十分です。20年以上、創業から廃業まで見てきたからこそ、無理に背中を押すより、<b>似合いそうな始め方が見えるようにする</b>ほうが大事だと思って、この診断を作りました。</p>
       </div>
@@ -5981,7 +5998,7 @@ document.addEventListener('click',function(e){
 
   <section class="maker-strip" aria-label="つくった人">
     <div class="wrap">
-      <picture><source srcset="assets/akinai-face-yuji.webp?v=2" type="image/webp"><img src="assets/akinai-face-yuji.jpg?v=2" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></picture>
+      <img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320">
       <p><b>今日は、あなたの話を聞く側に回ります。</b>つくっているのは、商工会で20年以上、創業から廃業まで500社以上の相談に関わってきた中村裕二です。起業を勧める立場ではなく、やめる判断にも立ち会ってきました。</p>
       <a href="akinai-profile.html">つくった人を見る →</a>
     </div>
@@ -7263,7 +7280,7 @@ const CTX_LABELS={
     else if(key==='tower'){L(31,82,69,82);L(36,82,40,32);L(64,82,60,32);L(40,32,60,32);L(42,32,42,23);L(58,32,58,23);L(42,23,58,23);L(46,23,46,13);L(54,23,54,13);L(46,13,54,13);L(41,47,59,47);L(39,61,61,61);L(46,82,46,69);L(54,82,54,69);L(46,69,54,69);C(50,39,3);}
     ctx.restore();
   }
-  const CARD_IMG=new Image();CARD_IMG.decoding='async';CARD_IMG.src='assets/akinai-result-illustration-banner.jpg?v=20260922d';
+  const CARD_IMG=new Image();CARD_IMG.decoding='async';CARD_IMG.src='assets/akinai-result-illustration-banner.jpg?v=20260923e';CARD_IMG.onerror=function(){if(!CARD_IMG.dataset.fallback){CARD_IMG.dataset.fallback='1';CARD_IMG.src='assets/akinai-result-illustration-banner.webp?v=20260923e';}};
   function drawCard(){
     // 結果サマリーカード：強み・モヤモヤ・今週の一歩の3つを1枚に（結果冒頭「まず一枚で」と同じ構成）
     const d=D[cur], d2=sub?D[sub]:null, c=document.getElementById('cv'), x=c.getContext('2d'), W=1080,H=1920;
@@ -7550,6 +7567,35 @@ const CTX_LABELS={
       }
     }
   }catch(e){}
+})();
+</script>
+
+<script>
+/* IMAGE RESILIENCE 2026-09-23: broken images never leave a blank block */
+(function(){
+  function applyFallback(img){
+    if(!img || img.dataset.fallbackTried==='1') return;
+    var fb=img.getAttribute('data-fallback');
+    if(fb){
+      img.dataset.fallbackTried='1';
+      img.src=fb;
+      return;
+    }
+    img.classList.add('img-unavailable');
+    var box=img.closest('.rg-art,.maker-belief-face,.pt-face,.report-hero-image');
+    if(box) box.classList.add('image-fallback-state');
+  }
+  document.querySelectorAll('img[data-fallback]').forEach(function(img){
+    img.addEventListener('error',function(){applyFallback(img);});
+    if(img.complete && !img.naturalWidth) applyFallback(img);
+  });
+  document.querySelectorAll('img:not([data-fallback])').forEach(function(img){
+    img.addEventListener('error',function(){
+      img.classList.add('img-unavailable');
+      var box=img.closest('.rg-art,.maker-belief-face,.pt-face,.report-hero-image');
+      if(box) box.classList.add('image-fallback-state');
+    });
+  });
 })();
 </script>
 </body>
