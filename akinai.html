@@ -3931,6 +3931,20 @@ p,
 .hv-bottom p{margin:0;font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink)}
 .hv-bottom p b{color:var(--rose);font-weight:600}
 .hv-bottom>small{display:block;margin-top:4px;font-size:11px;line-height:1.65;color:var(--muted)}
+.hv-soft-note{margin:11px 4px 2px;text-align:center;font-family:var(--serif);font-size:14px;line-height:1.75;color:#6a5d56}
+.hv-stage img{object-position:center 34%}
+#rArt,#rArtSub{display:none!important}
+.result-fit-feedback{margin:9px 0 0;padding:11px 10px 3px;text-align:center;border-top:1px solid rgba(196,127,116,.16)}
+.result-fit-feedback>small{display:block;font-size:10.5px;color:#7b6f68;margin-bottom:8px}
+.result-fit-feedback>div{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
+.result-fit-feedback button{appearance:none;border:1px solid #e5cec6;background:#fff;color:#6a5d56;border-radius:999px;padding:7px 12px;font-size:11px;font-weight:700;cursor:pointer}
+.result-fit-feedback button:hover,.result-fit-feedback button.on{background:var(--rose);border-color:var(--rose);color:#fff}
+.result-fit-feedback>span{display:block;min-height:18px;margin-top:6px;font-size:10.5px;color:var(--muted)}
+@media(max-width:700px){
+  .rg-art{max-height:280px}
+  .rg-art img{object-position:center 28%}
+  .result-fit-feedback button{font-size:10.5px;padding:7px 10px}
+}
 @media(max-width:900px){.hero-visual-card{padding:12px}.hv-stage{aspect-ratio:1.65/1}}
 @media(max-width:520px){
   .hero-visual-card{border-radius:22px;padding:10px}
@@ -4896,6 +4910,14 @@ document.addEventListener('click',function(e){
   window.track&&window.track('hero_feeling_click',{feeling:feeling});
 },true);
 document.addEventListener('click',function(e){
+  var rf=e.target.closest('[data-result-fit]');
+  if(!rf) return;
+  document.querySelectorAll('[data-result-fit]').forEach(function(b){b.classList.toggle('on',b===rf);});
+  var th=document.getElementById('resultFitThanks');
+  if(th) th.textContent=rf.getAttribute('data-result-fit')==='low'?'「違う」も大切な結果です。下で別の見方も選べます。':'ありがとう。この感覚も、これからを考える材料です。';
+  window.track&&window.track('result_fit_feedback',{fit:rf.getAttribute('data-result-fit')||'',type:(window.AKINAI_RESULT&&window.AKINAI_RESULT.main)||'',sub:(window.AKINAI_RESULT&&window.AKINAI_RESULT.sub)||''});
+},true);
+document.addEventListener('click',function(e){
   var rc=e.target.closest('[data-result-choice]');
   if(!rc) return;
   window.track&&window.track('result_choice_click',{choice:rc.getAttribute('data-result-choice')||'',entre_level:(document.getElementById('res')?.dataset.entreLevel||'unknown')});
@@ -4951,8 +4973,8 @@ document.addEventListener('click',function(e){
           <span class="hv-kicker">FREE RESULT SAMPLE｜無料結果の一例</span>
           <div class="hv-stage">
             <picture>
-              <source srcset="assets/akinai-result-illustration-banner.webp?v=20260922e" type="image/webp">
-              <img src="assets/akinai-result-illustration-banner.jpg?v=20260922e" alt="自分の強み、今のモヤモヤ、次の一歩が少しずつ見えてくる女性のイラスト" loading="eager" decoding="async" width="1280" height="640">
+              <source srcset="assets/akinai-woman-clean.webp?v=20260923a" type="image/webp">
+              <img src="assets/akinai-woman-clean.webp?v=20260923a" alt="これからの自分について静かに考える40代前後の女性" loading="eager" decoding="async" width="320" height="430">
             </picture>
             <div class="hv-badge b1"><i>✦</i><span>見つかる<small>私の強み</small></span></div>
             <div class="hv-badge b2"><i>◎</i><span>ほどける<small>今のモヤモヤ</small></span></div>
@@ -4961,13 +4983,7 @@ document.addEventListener('click',function(e){
           <div class="hv-bottom">
             <p>3分後、<b>この1枚が、あなたの言葉で出ます。</b></p>
           </div>
-          <div class="hv-sample" aria-label="結果の一例（手×舟タイプ）">
-            <span class="hv-sample-tag">例｜手×舟「好きなものを、形にして確かめる人」の場合</span>
-            <div class="hv-row"><i class="c1">✦</i><div><b>見つかる｜私の強み</b><span>頼まれると、必要以上にちゃんとやる。「最後まで形にする」力。</span></div></div>
-            <div class="hv-row"><i class="c2">◎</i><div><b>ほどける｜今のモヤモヤ</b><span>「これを仕事と呼んでいい」と、自分で認めにくいこと。</span></div></div>
-            <div class="hv-row"><i class="c3">→</i><div><b>決まる｜今週の一歩</b><span>今週30分だけ、最近人から頼まれたことを3つ書き出す。</span></div></div>
-          </div>
-          <a class="hv-cta" href="#qz" data-go-quiz="hero-card">私の1枚を見る →<small>無料・3分・登録なし</small></a>
+          <p class="hv-soft-note">「私にも、まだ何かあるかも。」<br>その感覚を、3分で言葉にします。</p>
         </div>
       </div>
     </div>
@@ -5199,13 +5215,22 @@ document.addEventListener('click',function(e){
                 <b>9問で見えてきたことを、まず一枚で。</b>
               </div>
               <div class="rg-body">
-                <div class="rg-art"><picture><source srcset="assets/akinai-result-illustration-left.webp?v=20260922c" type="image/webp"><img src="assets/akinai-result-illustration-left.jpg?v=20260922c" alt="" loading="lazy" decoding="async" width="588" height="912"></picture></div>
+                <div class="rg-art"><img src="assets/akinai-woman-clean.webp?v=20260923a" alt="これからの自分を静かに考える女性" loading="lazy" decoding="async" width="320" height="430"></div>
                 <div class="rg-cards">
                   <p class="rg-lead">これからの私が、少し見えてきました。</p>
                   <div class="rg-card"><i class="rg-ic c1">✦</i><div><b>見つかる｜私の強み</b><span id="rgStrength">—</span></div></div>
                   <div class="rg-card"><i class="rg-ic c2">◎</i><div><b>ほどける｜今のモヤモヤ</b><span id="rgRelease">—</span></div></div>
                   <div class="rg-card"><i class="rg-ic c3">→</i><div><b>決まる｜今週の一歩</b><span id="rgStep">—</span></div></div>
                   <p class="rg-quote">答えを急がなくていい。<br>今日は、自分のことを少し言葉にできた。</p>
+                  <div class="result-fit-feedback" aria-label="この結果の当てはまり具合">
+                    <small>この結果、どのくらい「私っぽい」ですか？</small>
+                    <div>
+                      <button type="button" data-result-fit="high">かなり近い</button>
+                      <button type="button" data-result-fit="mid">少し近い</button>
+                      <button type="button" data-result-fit="low">ちょっと違う</button>
+                    </div>
+                    <span id="resultFitThanks" aria-live="polite"></span>
+                  </div>
                 </div>
               </div>
             </figure>
@@ -5246,20 +5271,6 @@ document.addEventListener('click',function(e){
               <small>入力した内容に出てきた行動や言葉から見ています。占い部分と診断部分は別に扱っています。</small>
             </div>
             <div class="affirm" id="resultStrength"><span>01｜あなたが、もう持っている力</span><p id="rAffirm"></p></div>
-            <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
-              <span class="result-choice-kicker">この結果、どうする？</span>
-              <div class="result-choice-grid">
-                <a class="result-choice-card keep" href="#currentSummary" data-result-choice="keep">
-                  <small>01｜今日はここまで</small>
-                  <b>この結果を、<br>自分のために持っておく</b>
-                </a>
-                <a class="result-choice-card paid" href="#price" data-result-choice="paid">
-                  <small>02｜もう少し形にする</small>
-                  <b>「ちょっとやってみたい」を、<br>3つの商いにする</b>
-                  <em>3,300円 →</em>
-                </a>
-              </div>
-            </div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
             <div class="letgo" id="resultRisk"><b>03｜いま、無理をしやすいポイント</b><p id="rLetgo"></p></div>
@@ -5318,6 +5329,20 @@ document.addEventListener('click',function(e){
             <p class="ws-note">断られても大丈夫です。そのとき返ってきた理由が、次の材料になります。読んで「今週は動かない」と決めても構いません。</p>
           </div>
           </div>
+            <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
+              <span class="result-choice-kicker">この結果、どうする？</span>
+              <div class="result-choice-grid">
+                <a class="result-choice-card keep" href="#currentSummary" data-result-choice="keep">
+                  <small>01｜今日はここまで</small>
+                  <b>この結果を、<br>自分のために持っておく</b>
+                </a>
+                <a class="result-choice-card paid" href="#price" data-result-choice="paid">
+                  <small>02｜もう少し形にする</small>
+                  <b>「ちょっとやってみたい」を、<br>3つの具体案にする</b>
+                  <em>3,300円 →</em>
+                </a>
+              </div>
+            </div>
           <div class="share-now">
             <b>この言葉を、今の自分への小さなメモに。</b>
             <p>カードにすると「経験資産・大切にしたい価値観・今の自分への一言」が1枚になります。</p>
@@ -6230,6 +6255,22 @@ const VOICE_REFRAME={
   tower:"あなたは「しっかりしているだけ」「事務が苦にならないだけ」と思っているかもしれません。でも、話から見えるのは、誰かが困る前に抜けを見つけ、安心して動ける状態をつくってきた人です。あなたが積み重ねてきたのは、事務作業より「安心をつくる経験」です。"
 };
 
+const FRIENDLY_TYPE={
+  light:"気持ちをことばにする",
+  hand:"小さく形にして確かめる",
+  garden:"大切なものをゆっくり育てる",
+  bridge:"つながりから世界を広げる",
+  boat:"小さく試しながら進む",
+  tower:"暮らしを整えて進む"
+};
+const DISPLAY_PAIR={
+  light:{hand:"思いを、ちゃんと形にできる人",garden:"話を聞きながら、ゆっくり支えられる人",bridge:"話を聞いて、次の出会いにつなげる人",boat:"話しながら、小さく試していける人",tower:"気持ちを聞いて、すっきり整えられる人"},
+  hand:{light:"つくったものに、思いを添えられる人",garden:"好きなものを、長く育てていける人",bridge:"いいものを、合う人に届けられる人",boat:"小さくつくって、試しながら進む人",tower:"丁寧さを、続けやすい形にできる人"},
+  garden:{light:"人を支えながら、気持ちも言葉にできる人",hand:"大切なものを、手で形に残せる人",bridge:"人を支えながら、必要な出会いをつなげる人",boat:"会いに行きながら、関係を育てる人",tower:"無理なく続く関係を、整えられる人"},
+  bridge:{light:"出会いの理由を、言葉にできる人",hand:"人とものを、分かりやすくつなげられる人",garden:"つないだあとも、そっと見守れる人",boat:"人と一緒に、小さく始められる人",tower:"信頼できる流れを、つくれる人"},
+  boat:{light:"やってみたことを、誰かに伝えられる人",hand:"まず形にして、手応えを確かめる人",garden:"動きながら、関係も育てられる人",bridge:"つながりで広がる、やってみる人",tower:"試しながら、自分に合う形へ整える人"},
+  tower:{light:"考えを整えて、言葉にして渡せる人",hand:"暮らしも仕事も、形に整えられる人",garden:"安心して続くペースを、育てられる人",bridge:"人と情報を、安心してつなげられる人",boat:"整えながら、小さく試していける人"}
+};
 const LIFE_RESULT={
   light:{
     title:"灯｜気持ちを、ことばにして進む人",
@@ -6831,13 +6872,15 @@ const CTX_LABELS={
     cur=w; sub=w2; const d=D[w], d2=w2?D[w2]:null, life=LIFE_RESULT[w];
     scrs.forEach(s=>s.classList.remove('on')); qz.querySelector('.qnav').style.display='none';
     pNow.textContent=N;pBar.style.width='100%';pTxt.textContent='結果';back.style.visibility='hidden';
-    const cname=life.title.split('｜')[1];
+    const baseName=life.title.split('｜')[1];
+    const cname=(w2&&DISPLAY_PAIR[w]&&DISPLAY_PAIR[w][w2])?DISPLAY_PAIR[w][w2]:baseName;
+    const friendlyLine=FRIENDLY_TYPE[w]+(w2&&FRIENDLY_TYPE[w2]?' × '+FRIENDLY_TYPE[w2]:'');
     document.getElementById('rChara').textContent=cname;
-    BASE_RESULT=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';LAST_PLAN="";syncBookingResult();
-    window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:d.sym+(d2?'×'+d2.sym:'')};
-    document.getElementById('rStars').textContent='参考タイプ　'+d.sym+(d2?' × '+d2.sym:'')+(d2?'　主星・副星':'');
+    BASE_RESULT=cname;LAST_PLAN="";syncBookingResult();
+    window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:friendlyLine};
+    document.getElementById('rStars').textContent='あなたの傾向｜'+friendlyLine;
     const art=document.getElementById('rArt');art.className='star-art '+w;art.innerHTML=STAR_ART[w];
-    const artSub=document.getElementById('rArtSub');if(d2){artSub.style.display='flex';artSub.innerHTML='<span>主星 '+d.sym+'</span><i></i><span>副星 '+d2.sym+'</span>';}else{artSub.style.display='none';artSub.innerHTML='';}
+    const artSub=document.getElementById('rArtSub');if(artSub){artSub.style.display='none';artSub.innerHTML='';}
     document.getElementById('rOracleLetter').textContent=life.letter;
     document.getElementById('rAffirm').textContent=life.affirm;
     document.getElementById('rLetgo').textContent=life.letgo;
