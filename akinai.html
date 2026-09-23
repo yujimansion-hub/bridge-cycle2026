@@ -5038,6 +5038,95 @@ section[id],#paidEngine,#questionStage,#result3Stage,.pe-stage,h2[id],h3[id]{scr
   .rg-art{min-height:220px}
   .rg-art img{height:220px}
 }
+
+/* Fix paid-trust layout on mobile 2026-09-23 */
+.paid-trust-row{
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr);
+  gap:16px;
+  align-items:center;
+}
+.pt-face{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  overflow:hidden;
+  flex:none;
+  margin:0;
+}
+.pt-face img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.paid-trust{
+  min-width:0;
+  margin:0;
+  width:auto;
+  writing-mode:horizontal-tb !important;
+  text-orientation:mixed !important;
+  white-space:normal;
+  word-break:normal;
+  overflow-wrap:anywhere;
+}
+.paid-trust b,
+.paid-trust span,
+.paid-trust small{
+  display:block;
+  writing-mode:horizontal-tb !important;
+  text-orientation:mixed !important;
+  width:auto;
+  max-width:100%;
+}
+.paid-trust b{
+  font-family:var(--serif);
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:6px;
+  color:var(--ink);
+}
+.paid-trust span{
+  font-size:13px;
+  line-height:1.85;
+  color:#665b54;
+}
+.paid-trust small{
+  margin-top:8px;
+  font-size:11px;
+  color:var(--muted);
+}
+@media (max-width:768px){
+  .paid-trust-row{
+    grid-template-columns:1fr !important;
+    gap:14px;
+    align-items:start;
+  }
+  .pt-face{
+    width:min(68vw,280px);
+    height:min(68vw,280px);
+    margin:0 auto;
+  }
+  .paid-trust{
+    width:100% !important;
+    max-width:100% !important;
+    padding:0 4px;
+    text-align:left;
+    writing-mode:horizontal-tb !important;
+  }
+  .paid-trust b{
+    font-size:20px;
+    line-height:1.6;
+  }
+  .paid-trust span{
+    font-size:14px;
+    line-height:1.9;
+  }
+  .paid-trust small{
+    font-size:11.5px;
+  }
+}
+
 </style>
 <script>
 /* 計測：ANALYTICS_ID を入れたときだけGA4を読み込みます（空なら外部通信ゼロ） */
