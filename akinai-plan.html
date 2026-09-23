@@ -104,9 +104,21 @@ const API_BASE=(window.AKINAI_API_BASE||'').replace(/\/$/,'');
 const $=id=>document.getElementById(id), status=$('status'), form=$('formCard'), result=$('result');
 /* 診断ページが保存したファネル文脈（どの判定・どの入口から来たか）。purchase / plans_generated に付与する。 */
 function funnelCtx(){
-  let f={};try{f=JSON.parse(localStorage.getItem('akinai_funnel')||'{}');}catch(e){}
-  return {funnel_version:f.funnel_version||'',type:f.type||'',entre_level:f.entre_level||'unknown',route:f.route||'unknown',
-          paid_eligible:f.paid_eligible||'unknown',paid_cta_loc:f.paid_cta_loc||'direct'};
+  let f={};try{f=JSON.parse(localStorage.getItem('akinai_funnel')||'{}')||{};}catch(e){}
+  return {
+    funnel_version:f.funnel_version||'',
+    type:f.type||'',
+    entre_level:f.entre_level||'unknown',
+    route:f.route||'unknown',
+    paid_eligible:f.paid_eligible||'unknown',
+    paid_cta_loc:f.paid_cta_loc||'direct',
+    hero_feeling:f.hero_feeling||'',
+    utm_source:f.utm_source||'',
+    utm_medium:f.utm_medium||'',
+    utm_campaign:f.utm_campaign||'',
+    utm_content:f.utm_content||'',
+    utm_term:f.utm_term||''
+  };
 }
 function trackPurchase(sid){
   try{
