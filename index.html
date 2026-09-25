@@ -515,6 +515,45 @@ footer .fl b{color:#9FBBD6}
  .aw-choice-card:before{transition:none}
 }
 
+
+/* ===== CSSDA refinement pass 3: disappearing value + field proof ===== */
+.aw-dissolve{position:absolute;right:1.5%;top:14%;width:44%;height:68%;z-index:1;pointer-events:none;opacity:calc(.82 - var(--vanish,0)*.36);transform:translate3d(calc(var(--vanish,0)*12px),0,0);transition:opacity .08s linear}
+.aw-dissolve:before{content:"";position:absolute;inset:7% 4% 10% 12%;border:1px solid rgba(223,237,244,.34);border-radius:4px 30px 4px 4px;background:
+ linear-gradient(90deg,transparent 0 12%,rgba(223,237,244,.14) 12.2% 12.5%,transparent 12.7% 48%,rgba(223,237,244,.13) 48.2% 48.5%,transparent 48.7%),
+ linear-gradient(0deg,transparent 0 18%,rgba(223,237,244,.12) 18.2% 18.5%,transparent 18.7% 64%,rgba(223,237,244,.13) 64.2% 64.5%,transparent 64.7%);
+ box-shadow:inset 0 0 70px rgba(216,169,75,.08);clip-path:polygon(0 14%,82% 0,100% 10%,100% 100%,0 100%)}
+.aw-dissolve:after{content:"";position:absolute;right:-2%;top:4%;width:38%;height:92%;background:
+ radial-gradient(circle at 20% 15%,rgba(225,236,242,.58) 0 1px,transparent 1.7px),
+ radial-gradient(circle at 58% 27%,rgba(225,236,242,.40) 0 1px,transparent 1.8px),
+ radial-gradient(circle at 35% 48%,rgba(216,169,75,.45) 0 1px,transparent 1.8px),
+ radial-gradient(circle at 72% 62%,rgba(225,236,242,.46) 0 1px,transparent 1.8px),
+ radial-gradient(circle at 26% 78%,rgba(225,236,242,.38) 0 1px,transparent 1.8px);
+ background-size:28px 34px,42px 46px,36px 32px,48px 52px,30px 40px;
+ opacity:calc(.45 + var(--vanish,0)*.45);filter:blur(.1px);transform:translateX(calc(var(--vanish,0)*20px))}
+.aw-vanish-label{position:absolute;right:3.2%;bottom:8%;z-index:2;font-family:var(--serif);font-size:15px;line-height:1.8;letter-spacing:.12em;color:rgba(255,255,255,.72);writing-mode:vertical-rl}
+.field-proof{background:#0b2638;color:#fff;border-bottom:0}
+.field-proof .wrap{padding-top:72px;padding-bottom:72px}
+.field-proof .aw-section-tag{color:#d8b664}
+.field-proof-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:42px;align-items:end}
+.field-proof h2{color:#fff;font-size:clamp(30px,5vw,46px);margin:0}
+.field-proof p{color:#bdd0db;max-width:60ch}
+.field-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:34px}
+.field-card{border-top:1px solid rgba(255,255,255,.24);padding:18px 6px 4px}
+.field-card strong{display:block;font-family:var(--serif);font-size:clamp(30px,5vw,48px);line-height:1.1;color:#fff}
+.field-card strong em{font-style:normal;font-size:.38em;color:#d8b664;margin-left:3px}
+.field-card span{display:block;margin-top:8px;font-size:11.5px;line-height:1.55;color:#9fb7c6}
+.field-foot{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:11px;color:#87a1b1}
+@media(max-width:840px){
+ .aw-dissolve{width:58%;right:-14%;opacity:.48}.aw-vanish-label{display:none}
+ .field-proof-head{grid-template-columns:1fr;gap:12px}.field-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ .aw-dissolve{width:86%;right:-42%;top:18%;height:58%;opacity:.30}
+ .field-proof .wrap{padding-top:54px;padding-bottom:54px}.field-grid{gap:16px 10px}
+ .field-card strong{font-size:34px}
+}
+@media(prefers-reduced-motion:reduce){.aw-dissolve{transform:none!important;opacity:.52!important}.aw-dissolve:after{transform:none!important}}
+
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -531,6 +570,8 @@ footer .fl b{color:#9FBBD6}
 </div></nav>
 
 <header class="aw-hero">
+  <div class="aw-dissolve" aria-hidden="true"></div>
+  <div class="aw-vanish-label" aria-hidden="true">この店の価値が、消えてしまう前に。</div>
   <div class="wrap">
     <div class="aw-kicker">BEFORE CLOSING, THERE IS STILL A CHOICE</div>
     <h1>閉店を決める前に、<br><span>次へ渡す</span>という選択を。</h1>
@@ -591,10 +632,27 @@ footer .fl b{color:#9FBBD6}
 </section>
 
 <div class="aw-manifesto"><div class="wrap"><p class="aw-reveal">閉める前なら、まだ<b>渡せる。</b><br>店の価値が消える前に、次の選択肢をつくる。</p></div></div>
+
+<section class="field-proof" aria-labelledby="field-proof-title">
+  <div class="wrap">
+    <span class="aw-section-tag">04 / FIELD PROOF</span>
+    <div class="field-proof-head">
+      <h2 id="field-proof-title" class="aw-reveal">構想ではなく、<br>現場で始まっています。</h2>
+      <p class="aw-reveal">2026年9月時点。退店前の相談、継ぎ手候補、不動産オーナー・管理会社との連携を、小さく実証しながら仕組みに変えています。</p>
+    </div>
+    <div class="field-grid">
+      <div class="field-card aw-reveal"><strong>2<em>件</em></strong><span>承継案件<br>うち1件成立・1件支援中</span></div>
+      <div class="field-card aw-reveal"><strong>12<em>名</em></strong><span>継ぎ手候補<br>SNS・実証から形成</span></div>
+      <div class="field-card aw-reveal"><strong>3<em>社</em></strong><span>不動産管理会社との連携<br>退去予告から紹介へ</span></div>
+      <div class="field-card aw-reveal"><strong>4→1</strong><span>売り場レンタル出店4組から<br>店舗経営意向・候補登録1組</span></div>
+    </div>
+    <div class="field-foot">※数値は2026年9月時点の実証・活動実績。将来目標ではなく、現時点の進捗を掲載しています。</div>
+  </div>
+</section>
 <div class="stats"><div class="wrap">
-  <div><b>約<span class="cnt" data-n="20">20</span>年</b><span>商工会での経営指導</span></div>
-  <div><b><span class="cnt" data-n="500">500</span>社超</b><span>支援実績</span></div>
-  <div><b>認定支援機関</b><span>認定番号 109825000112</span></div>
+  <div><b>約<span class="cnt" data-n="20">20</span>年</b><span>経営支援の現場経験</span></div>
+  <div><b><span class="cnt" data-n="500">500</span>社超</b><span>創業・承継・経営支援</span></div>
+  <div><b>認定支援機関</b><span>国の認定経営革新等支援機関</span></div>
 </div></div>
 
 
@@ -783,7 +841,9 @@ footer .fl b{color:#9FBBD6}
       if(hero){
         var r=hero.getBoundingClientRect();
         var y=Math.max(-18,Math.min(18,-r.top*.035));
+        var p=Math.max(0,Math.min(1,(-r.top)/(Math.max(1,r.height*.72))));
         hero.style.setProperty('--hero-shift',y+'px');
+        hero.style.setProperty('--vanish',p.toFixed(3));
       }
       ticking=false;
     }
