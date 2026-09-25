@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>閉店を決める前に、次へ渡すという選択を。｜BRIDGE CYCLE</title>
-<meta name="description" content="閉店を決める前なら、店の価値を次へ渡せる。BRIDGE CYCLEは滋賀・京都の小規模店舗を対象に、設備・内装・賃貸条件などを整理し、退店前の段階から承継できる状態へ整えます。">
-<meta property="og:title" content="閉店を決める前に、次へ渡すという選択を。｜BRIDGE CYCLE">
-<meta property="og:description" content="店が閉まる前に、設備・内装・賃貸条件・お客さまとの関係を次へ。BRIDGE CYCLEの退店前承継。">
+<title>小さな商いの、入口も出口もつなぐ。｜BRIDGE CYCLE</title>
+<meta name="description" content="BRIDGE CYCLEは、小さな商いの「始める・試す・整える・続ける・渡す」を支える滋賀県大津市の事業支援会社です。退店前承継、わたしのこれから診断、売り場レンタル、見積のミカタ、補助金・資金調達支援を提供します。">
+<meta property="og:title" content="小さな商いの、入口も出口もつなぐ。｜BRIDGE CYCLE">
+<meta property="og:description" content="何か始めたい人も、店を渡したい人も。決める前の段階から、次の選択肢をつくるBRIDGE CYCLE。">
 <meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/">
 <meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -596,6 +596,52 @@ footer .fl b{color:#9FBBD6}
  .portfolio .wrap{padding-top:54px;padding-bottom:54px}.portfolio-card{min-height:210px}
 }
 
+
+/* ===== CSSDA pass 5: decision architecture ===== */
+.decision-hub{background:#f5f1e8;border-bottom:1px solid #ddd7cb}
+.decision-hub .wrap{max-width:1120px;padding-top:74px;padding-bottom:78px}
+.decision-intro{display:grid;grid-template-columns:.78fr 1.22fr;gap:40px;align-items:end}
+.decision-intro h2{font-size:clamp(34px,5.5vw,52px);line-height:1.35;margin:0}
+.decision-intro p{color:#535b61;max-width:62ch}
+.decision-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:34px}
+.decision-card{position:relative;overflow:hidden;border-radius:20px;padding:24px;text-decoration:none;color:#1c2d39;border:1px solid #d9d5ca;background:#fff;min-height:230px;display:flex;flex-direction:column;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s,border-color .28s}
+.decision-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(27,42,52,.12);border-color:#bca66f}
+.decision-card .d-no{font-size:10px;font-weight:800;letter-spacing:.18em;color:#91733a}
+.decision-card h3{font-family:var(--serif);font-size:clamp(21px,3vw,30px);line-height:1.38;margin:14px 0 8px;color:#162b39}
+.decision-card p{font-size:12.5px;line-height:1.75;color:#5c6267;max-width:34ch}
+.decision-card .d-link{margin-top:auto;padding-top:18px;font-weight:800;font-size:12px;color:#1b3b5f}
+.decision-card.close{grid-column:span 7;background:#102a3f;border-color:#102a3f;color:#fff}
+.decision-card.close .d-no,.decision-card.close h3,.decision-card.close p,.decision-card.close .d-link{color:#fff}
+.decision-card.close h3 span{color:#edc76d}
+.decision-card.future{grid-column:span 5;background:#e8e1d5}
+.decision-card.test{grid-column:span 4}
+.decision-card.quote{grid-column:span 4}
+.decision-card.fund{grid-column:span 4}
+.decision-card:after{content:"↗";position:absolute;right:18px;top:16px;font-size:18px;opacity:.38}
+.decision-card.close:before{content:"EXIT → NEXT";position:absolute;right:20px;bottom:14px;font:700 9px/1 sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.24)}
+.decision-card.future:before{content:"START → TRY";position:absolute;right:20px;bottom:14px;font:700 9px/1 sans-serif;letter-spacing:.18em;color:rgba(22,43,57,.22)}
+.micro-cta{margin-top:12px;display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}
+.micro-cta a{display:inline-flex;border-radius:999px;padding:8px 12px;text-decoration:none;font-size:11px;font-weight:800}
+.micro-cta .mc-main{background:#fff;color:#102a3f}.micro-cta .mc-sub{border:1px solid rgba(255,255,255,.32);color:#fff}
+.cycle-line{margin-top:32px;display:grid;grid-template-columns:repeat(5,1fr);position:relative;gap:6px}
+.cycle-line:before{content:"";position:absolute;left:7%;right:7%;top:19px;border-top:1px solid #c8c0b0}
+.cycle-node{position:relative;text-align:center;padding-top:38px;font-family:var(--serif);font-size:13px;color:#5d6060}
+.cycle-node:before{content:"";position:absolute;top:13px;left:50%;width:13px;height:13px;border-radius:50%;background:#f5f1e8;border:3px solid #96825c;transform:translateX(-50%);z-index:1}
+.cycle-node:nth-child(5):before{background:#102a3f;border-color:#102a3f}
+.cycle-node small{display:block;font-family:sans-serif;font-size:9px;letter-spacing:.12em;color:#918d84;margin-top:2px}
+.aw-hero-brand{font-family:var(--serif);font-size:13px;letter-spacing:.14em;color:#c7d5df;margin-bottom:10px}
+.aw-hero .aw-actions{display:none}
+.aw-hero .aw-textlink{margin-top:24px}
+.aw-hero .aw-note{margin-top:10px}
+@media(max-width:820px){
+ .decision-intro{grid-template-columns:1fr;gap:12px}
+ .decision-card.close,.decision-card.future,.decision-card.test,.decision-card.quote,.decision-card.fund{grid-column:1/-1}
+ .decision-grid{grid-template-columns:1fr}
+ .cycle-line{grid-template-columns:1fr;gap:0;margin-top:24px}
+ .cycle-line:before{left:18px;right:auto;top:8px;bottom:8px;border-top:0;border-left:1px solid #c8c0b0}
+ .cycle-node{text-align:left;padding:8px 8px 8px 44px}.cycle-node:before{left:12px;top:12px;transform:none}
+}
+
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -603,7 +649,7 @@ footer .fl b{color:#9FBBD6}
 
 <nav class="nav"><div class="wrap">
   <a class="logo" href="./">BRIDGE <b>CYCLE</b></a>
-  <a class="l" href="#aw-choice">選択肢</a>
+  <a class="l" href="#decision">今の悩みから探す</a>
   <a class="l" href="#business">サービス</a>
   <a class="l" href="#platform">しくみ</a>
   <a class="l" href="#company">私たちについて</a>
@@ -614,15 +660,12 @@ footer .fl b{color:#9FBBD6}
 <header class="aw-hero">
   <div class="wrap">
     <div class="aw-hero-copy">
-      <div class="aw-kicker">BEFORE CLOSING, THERE IS STILL A CHOICE</div>
-      <h1>閉店を決める前に、<br><span>次へ渡す</span>という選択を。</h1>
-      <p class="aw-lead">店を閉めた瞬間に、設備・内装・賃貸条件・お客さまとの関係は、一気に失われます。BRIDGE CYCLEは、閉店前の段階から店を「承継できる状態」に整え、次の担い手へつなぎます。</p>
-      <div class="aw-actions">
-        <a class="aw-primary" href="yameru.html">30秒で店の値打ちを見る <span>→</span></a>
-        <a class="aw-secondary" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">無料で相談する</a>
-      </div>
-      <a class="aw-textlink" href="#aw-choice">まだ決めていない方へ — 3つの選択肢を見る ↓</a>
-      <div class="aw-note">滋賀・京都の小規模店舗向け｜匿名試算・相談から開始できます</div>
+      <div class="aw-kicker">FROM FIRST IDEA TO NEXT OWNER</div>
+      <div class="aw-hero-brand">BRIDGE CYCLE / OTSU, SHIGA</div>
+      <h1>小さな商いの、<br><span>入口も出口も</span>つなぐ。</h1>
+      <p class="aw-lead">「何か始めたい」も、「この店をどうしよう」も、答えが出る前から相談できる場所へ。BRIDGE CYCLEは、商いの始まりから次の担い手へ渡すところまで、決める前の選択肢をつくります。</p>
+      <a class="aw-textlink" href="#decision">いまの自分に近いところから選ぶ ↓</a>
+      <div class="aw-note">滋賀・京都を中心に、小さな商いの意思決定を支援しています。</div>
     </div>
     <div class="aw-realphotos" aria-label="BRIDGE CYCLEの実証現場">
       <div class="aw-photo p1"></div>
@@ -634,9 +677,60 @@ footer .fl b{color:#9FBBD6}
   </div>
 </header>
 
+
+<section class="decision-hub" id="decision" aria-labelledby="decision-title">
+  <div class="wrap">
+    <span class="aw-section-tag">01 / WHERE ARE YOU NOW?</span>
+    <div class="decision-intro">
+      <h2 id="decision-title" class="aw-reveal">今のあなたに、<br>近いのはどれですか。</h2>
+      <p class="aw-reveal">サービス名を知らなくても大丈夫です。今の悩みから選ぶと、必要なページへ直接進めます。BRIDGE CYCLEは「相談するほどではない」段階を大切にしています。</p>
+    </div>
+    <div class="decision-grid">
+      <article class="decision-card close aw-reveal">
+        <span class="d-no">01 / HAND OVER</span>
+        <h3>店を閉めるか、<br><span>迷っている。</span></h3>
+        <p>まだ閉店を決めていなくても、設備・内装・賃貸条件など「今なら残せる価値」を整理できます。</p>
+        <div class="d-link">退店前承継を見る →</div>
+        <div class="micro-cta"><a class="mc-main" href="yameru.html">30秒で店の価値を見る</a><a class="mc-sub" href="matching.html">承継の仕組みを見る</a></div>
+      </article>
+      <a class="decision-card future aw-reveal" href="akinai.html">
+        <span class="d-no">02 / FIND MY NEXT</span>
+        <h3>何か始めたい。<br>でも、まだ決まっていない。</h3>
+        <p>3分の「わたしのこれから診断」で、自分の強みや暮らしから、仕事として表現できる方向を言葉にします。</p>
+        <span class="d-link">わたしのこれから診断へ →</span>
+      </a>
+      <a class="decision-card test aw-reveal" href="uriba-kokaido.html">
+        <span class="d-no">03 / TRY SMALL</span>
+        <h3>店を持つ前に、<br>まず試したい。</h3>
+        <p>小さく売って、反応を見てから次へ。売り場レンタルと創業実証。</p>
+        <span class="d-link">売り場レンタルへ →</span>
+      </a>
+      <a class="decision-card quote aw-reveal" href="https://mitsumori-mikata.com" target="_blank" rel="noopener">
+        <span class="d-no">04 / COMPARE</span>
+        <h3>この見積、<br>今決めていい？</h3>
+        <p>設備投資の中古・リース・融資・補助金・時期を契約前に比較。</p>
+        <span class="d-link">見積のミカタへ →</span>
+      </a>
+      <a class="decision-card fund aw-reveal" href="hojokin.html">
+        <span class="d-no">05 / FINANCE</span>
+        <h3>補助金や資金を、<br>整理したい。</h3>
+        <p>使える制度や資金調達を確認し、事業を進める順番を整えます。</p>
+        <span class="d-link">補助金・資金支援へ →</span>
+      </a>
+    </div>
+    <div class="cycle-line aw-reveal" aria-label="BRIDGE CYCLEが支える商いの循環">
+      <div class="cycle-node">考える<small>THINK</small></div>
+      <div class="cycle-node">試す<small>TRY</small></div>
+      <div class="cycle-node">始める<small>START</small></div>
+      <div class="cycle-node">続ける<small>GROW</small></div>
+      <div class="cycle-node">渡す<small>PASS ON</small></div>
+    </div>
+  </div>
+</section>
+
 <section class="aw-story" aria-labelledby="loss-title">
   <div class="wrap">
-    <span class="aw-section-tag">01 / VALUE BEFORE CLOSING</span>
+    <span class="aw-section-tag">02 / VALUE BEFORE CLOSING</span>
     <div class="aw-story-head aw-reveal">
       <h2 id="loss-title">店が閉まると、<br>何が消えるのか。</h2>
       <p class="intro">「まだ続けるかもしれない」と思っている間にこそ、残せる価値があります。退去通知や原状回復の後では、その多くを次の人へ渡せません。</p>
@@ -654,7 +748,7 @@ footer .fl b{color:#9FBBD6}
 
 <section class="aw-choice" id="aw-choice">
   <div class="wrap">
-    <span class="aw-section-tag">02 / THREE PATHS</span>
+    <span class="aw-section-tag">03 / THREE PATHS</span>
     <h2 class="aw-reveal">選べる道は、ひとつではありません。</h2>
     <p class="sub aw-reveal">BRIDGE CYCLEは「渡す」ことを押しつけません。続ける・渡す・閉める。その判断の前段階を一緒に整理します。</p>
     <div class="aw-choice-grid">
@@ -667,7 +761,7 @@ footer .fl b{color:#9FBBD6}
 
 <section class="aw-timeline">
   <div class="wrap">
-    <span class="aw-section-tag">03 / TIMING</span>
+    <span class="aw-section-tag">04 / TIMING</span>
     <h2 class="aw-reveal">早い相談ほど、選択肢は残ります。</h2>
     <div class="aw-steps aw-reveal">
       <div class="aw-step"><b>迷っている</b><small>選択肢が最も多い</small></div>
@@ -684,7 +778,7 @@ footer .fl b{color:#9FBBD6}
 
 <section class="field-proof" aria-labelledby="field-proof-title">
   <div class="wrap">
-    <span class="aw-section-tag">04 / FIELD PROOF</span>
+    <span class="aw-section-tag">05 / FIELD PROOF</span>
     <div class="field-proof-head">
       <h2 id="field-proof-title" class="aw-reveal">構想ではなく、<br>現場で始まっています。</h2>
       <p class="aw-reveal">2026年9月時点。退店前の相談、継ぎ手候補、不動産オーナー・管理会社との連携を、小さく実証しながら仕組みに変えています。</p>
@@ -701,7 +795,7 @@ footer .fl b{color:#9FBBD6}
 
 <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
   <div class="wrap">
-    <span class="aw-section-tag">05 / BUSINESS PORTFOLIO</span>
+    <span class="aw-section-tag">06 / BUSINESS PORTFOLIO</span>
     <div class="portfolio-head">
       <h2 id="portfolio-title" class="aw-reveal">「渡す」だけではなく、<br>「始める」「整える」まで。</h2>
       <p class="intro aw-reveal">退店前承継を旗艦事業に置きつつ、BRIDGE CYCLEは小さな商いの入口と出口を一つの循環として支えます。トップページでは3つの役割に整理し、それぞれのサービスへ案内します。</p>
@@ -721,13 +815,13 @@ footer .fl b{color:#9FBBD6}
       <article class="portfolio-card aw-reveal">
         <span class="no">02 / START</span>
         <h3>始める</h3>
-        <p>いきなり店舗を借りる前に、小さく売って試す。創業候補者を店舗経営へ近づけます。</p>
+        <p>「何かしたい」を言葉にし、小さく試してから始める。構想前から創業実証までをつなぎます。</p>
         <ul>
+          <li>わたしのこれから診断</li>
           <li>売り場レンタル</li>
-          <li>旧大津公会堂・銀工房</li>
           <li>段階型の創業実証</li>
         </ul>
-        <a href="uriba-kokaido.html">売り場レンタルを見る →</a>
+        <a href="akinai.html">まず「これから診断」を見る →</a>
       </article>
       <article class="portfolio-card aw-reveal">
         <span class="no">03 / PREPARE</span>
@@ -885,7 +979,7 @@ footer .fl b{color:#9FBBD6}
   </p>
 </div></footer>
 
-<div class="mbar" aria-label="スマホ用の導線"><a class="m1" href="yameru.html">店の値打ちを見る<small>30秒・匿名・送信なし</small></a><a class="m2" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで相談<small>まだ決めていなくてOK</small></a></div>
+<div class="mbar" aria-label="スマホ用の導線"><a class="m1" href="#decision">今の悩みから選ぶ<small>5つの入口から案内</small></a><a class="m2" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで相談<small>まだ決めていなくてOK</small></a></div>
 
 <script>
 (function(){
