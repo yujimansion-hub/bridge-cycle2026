@@ -554,6 +554,48 @@ footer .fl b{color:#9FBBD6}
 }
 @media(prefers-reduced-motion:reduce){.aw-dissolve{transform:none!important;opacity:.52!important}.aw-dissolve:after{transform:none!important}}
 
+
+/* ===== CSSDA refinement pass 4: real-photo editorial hero + business portfolio ===== */
+.aw-hero{background:#0a1b29;min-height:auto;padding:0}
+.aw-hero:before,.aw-hero:after,.aw-dissolve,.aw-vanish-label{display:none!important}
+.aw-hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center;max-width:1120px;padding-top:92px;padding-bottom:66px}
+.aw-hero-copy{position:relative;z-index:2}
+.aw-realphotos{position:relative;min-height:510px}
+.aw-photo{position:absolute;overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.14);box-shadow:0 22px 52px rgba(0,0,0,.28);background-size:cover;background-position:center}
+.aw-photo.p1{inset:2% 0 24% 10%;background-image:url('kokaido-hero.jpg')}
+.aw-photo.p2{width:48%;height:38%;left:0;bottom:2%;background-image:url('kokaido-02.jpg')}
+.aw-photo.p3{width:43%;height:34%;right:2%;bottom:0;background-image:url('kokaido-05.jpg')}
+.aw-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,17,27,.42))}
+.aw-photo-cap{position:absolute;z-index:3;right:4%;top:6%;font-size:10.5px;letter-spacing:.12em;color:#c7d5df;background:rgba(7,24,36,.70);padding:7px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+.aw-photo-note{position:absolute;z-index:3;left:15%;bottom:18%;font-family:var(--serif);font-size:13px;color:#fff;letter-spacing:.05em}
+.portfolio{background:#fff;border-bottom:1px solid var(--rule)}
+.portfolio .wrap{padding-top:72px;padding-bottom:72px}
+.portfolio-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:38px;align-items:end;margin-bottom:28px}
+.portfolio h2{font-size:clamp(30px,5vw,44px);margin:0}
+.portfolio .intro{color:#5b6066;max-width:58ch}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.portfolio-card{border:1px solid #dedbd2;border-radius:18px;padding:24px 22px;background:#faf9f6;min-height:240px;display:flex;flex-direction:column}
+.portfolio-card .no{font-size:10px;letter-spacing:.18em;font-weight:800;color:#8f7136}
+.portfolio-card h3{font-family:var(--serif);font-size:28px;margin:12px 0 8px;color:#20384a}
+.portfolio-card p{font-size:13px;color:#5b6167;line-height:1.85}
+.portfolio-card ul{list-style:none;margin-top:auto;padding-top:18px;display:grid;gap:6px}
+.portfolio-card li{font-size:12px;color:#394853;border-top:1px solid #e5e1d8;padding-top:7px}
+.portfolio-card a{margin-top:16px;font-weight:800;font-size:12.5px;color:#1b3b5f;text-decoration:none}
+.portfolio-card.flagship{background:#102a3f;border-color:#102a3f}
+.portfolio-card.flagship .no,.portfolio-card.flagship h3,.portfolio-card.flagship p,.portfolio-card.flagship li,.portfolio-card.flagship a{color:#fff}
+.portfolio-card.flagship li{border-color:rgba(255,255,255,.16)}
+.portfolio-note{margin-top:20px;font-size:12px;color:#777d82}
+@media(max-width:900px){
+ .aw-hero .wrap{grid-template-columns:1fr;padding-top:78px}.aw-realphotos{min-height:390px;max-width:620px;width:100%}
+ .portfolio-head{grid-template-columns:1fr;gap:12px}.portfolio-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+ .aw-hero .wrap{padding:68px 18px 42px;gap:26px}.aw-realphotos{min-height:300px}
+ .aw-photo.p1{inset:0 2% 20% 8%}.aw-photo.p2{width:49%;height:34%}.aw-photo.p3{width:44%;height:31%}
+ .aw-photo-cap{font-size:9px}.aw-photo-note{left:12%;bottom:16%;font-size:11px}
+ .portfolio .wrap{padding-top:54px;padding-bottom:54px}.portfolio-card{min-height:210px}
+}
+
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -570,18 +612,25 @@ footer .fl b{color:#9FBBD6}
 </div></nav>
 
 <header class="aw-hero">
-  <div class="aw-dissolve" aria-hidden="true"></div>
-  <div class="aw-vanish-label" aria-hidden="true">この店の価値が、消えてしまう前に。</div>
   <div class="wrap">
-    <div class="aw-kicker">BEFORE CLOSING, THERE IS STILL A CHOICE</div>
-    <h1>閉店を決める前に、<br><span>次へ渡す</span>という選択を。</h1>
-    <p class="aw-lead">店を閉めた瞬間に、設備・内装・賃貸条件・お客さまとの関係は、一気に失われます。BRIDGE CYCLEは、閉店前の段階から店を「承継できる状態」に整え、次の担い手へつなぎます。</p>
-    <div class="aw-actions">
-      <a class="aw-primary" href="yameru.html">30秒で店の値打ちを見る <span>→</span></a>
-      <a class="aw-secondary" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">無料で相談する</a>
+    <div class="aw-hero-copy">
+      <div class="aw-kicker">BEFORE CLOSING, THERE IS STILL A CHOICE</div>
+      <h1>閉店を決める前に、<br><span>次へ渡す</span>という選択を。</h1>
+      <p class="aw-lead">店を閉めた瞬間に、設備・内装・賃貸条件・お客さまとの関係は、一気に失われます。BRIDGE CYCLEは、閉店前の段階から店を「承継できる状態」に整え、次の担い手へつなぎます。</p>
+      <div class="aw-actions">
+        <a class="aw-primary" href="yameru.html">30秒で店の値打ちを見る <span>→</span></a>
+        <a class="aw-secondary" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">無料で相談する</a>
+      </div>
+      <a class="aw-textlink" href="#aw-choice">まだ決めていない方へ — 3つの選択肢を見る ↓</a>
+      <div class="aw-note">滋賀・京都の小規模店舗向け｜匿名試算・相談から開始できます</div>
     </div>
-    <a class="aw-textlink" href="#aw-choice">まだ決めていない方へ — 3つの選択肢を見る ↓</a>
-    <div class="aw-note">滋賀・京都の小規模店舗向け｜匿名試算・相談から開始できます</div>
+    <div class="aw-realphotos" aria-label="BRIDGE CYCLEの実証現場">
+      <div class="aw-photo p1"></div>
+      <div class="aw-photo p2"></div>
+      <div class="aw-photo p3"></div>
+      <div class="aw-photo-cap">REAL FIELD / OTSU</div>
+      <div class="aw-photo-note">実際の実証拠点・旧大津公会堂</div>
+    </div>
   </div>
 </header>
 
@@ -649,6 +698,53 @@ footer .fl b{color:#9FBBD6}
     <div class="field-foot">※数値は2026年9月時点の実証・活動実績。将来目標ではなく、現時点の進捗を掲載しています。</div>
   </div>
 </section>
+
+<section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+  <div class="wrap">
+    <span class="aw-section-tag">05 / BUSINESS PORTFOLIO</span>
+    <div class="portfolio-head">
+      <h2 id="portfolio-title" class="aw-reveal">「渡す」だけではなく、<br>「始める」「整える」まで。</h2>
+      <p class="intro aw-reveal">退店前承継を旗艦事業に置きつつ、BRIDGE CYCLEは小さな商いの入口と出口を一つの循環として支えます。トップページでは3つの役割に整理し、それぞれのサービスへ案内します。</p>
+    </div>
+    <div class="portfolio-grid">
+      <article class="portfolio-card flagship aw-reveal">
+        <span class="no">01 / PASS ON</span>
+        <h3>渡す</h3>
+        <p>閉店を決める前から価値を整理し、次の担い手へつなぐ。BRIDGE CYCLEの旗艦事業です。</p>
+        <ul>
+          <li>退店前承継・マッチング</li>
+          <li>店舗価値カルテ</li>
+          <li>承継事業化診断・実行支援</li>
+        </ul>
+        <a href="matching.html">退店前承継を見る →</a>
+      </article>
+      <article class="portfolio-card aw-reveal">
+        <span class="no">02 / START</span>
+        <h3>始める</h3>
+        <p>いきなり店舗を借りる前に、小さく売って試す。創業候補者を店舗経営へ近づけます。</p>
+        <ul>
+          <li>売り場レンタル</li>
+          <li>旧大津公会堂・銀工房</li>
+          <li>段階型の創業実証</li>
+        </ul>
+        <a href="uriba-kokaido.html">売り場レンタルを見る →</a>
+      </article>
+      <article class="portfolio-card aw-reveal">
+        <span class="no">03 / PREPARE</span>
+        <h3>整える</h3>
+        <p>設備投資・資金調達・補助制度を、契約や投資の前段階から整理します。</p>
+        <ul>
+          <li>補助金・資金調達サポート</li>
+          <li>見積のミカタ</li>
+          <li>設備投資の意思決定支援</li>
+        </ul>
+        <a href="hojokin.html">支援メニューを見る →</a>
+      </article>
+    </div>
+    <p class="portfolio-note">退店前承継を主役にするのは「他の事業をやめる」という意味ではなく、BRIDGE CYCLEの入口となるテーマを明確にするためです。</p>
+  </div>
+</section>
+
 <div class="stats"><div class="wrap">
   <div><b>約<span class="cnt" data-n="20">20</span>年</b><span>経営支援の現場経験</span></div>
   <div><b><span class="cnt" data-n="500">500</span>社超</b><span>創業・承継・経営支援</span></div>
@@ -841,9 +937,7 @@ footer .fl b{color:#9FBBD6}
       if(hero){
         var r=hero.getBoundingClientRect();
         var y=Math.max(-18,Math.min(18,-r.top*.035));
-        var p=Math.max(0,Math.min(1,(-r.top)/(Math.max(1,r.height*.72))));
         hero.style.setProperty('--hero-shift',y+'px');
-        hero.style.setProperty('--vanish',p.toFixed(3));
       }
       ticking=false;
     }
