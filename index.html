@@ -388,6 +388,73 @@ footer .fl b{color:#9FBBD6}
 .mikata .mk-name{display:block;font-family:'Shippori Mincho',serif;font-size:22px;font-weight:700;letter-spacing:.06em}
 .mikata .mk-go{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;background:#fff;color:#1B3B5F;padding:9px 14px;border-radius:4px}
 @media(max-width:640px){.mikata{flex-direction:column;align-items:flex-start}.mikata .mk-r{text-align:left}}
+
+/* ===== CSSDA draft redesign 2026-09-25 ===== */
+.aw-hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden;background:#0d2234;color:#fff;border-bottom:none}
+.aw-hero:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(90deg,rgba(8,22,34,.92) 0%,rgba(8,22,34,.72) 42%,rgba(8,22,34,.12) 72%),
+ linear-gradient(0deg,rgba(8,22,34,.78) 0%,transparent 48%),
+ url('images/hero-owner.jpg') center 34%/cover no-repeat;transform:scale(1.01)}
+.aw-hero:after{content:"";position:absolute;right:-5%;top:8%;width:48%;height:76%;opacity:.38;
+ background:linear-gradient(135deg,transparent 0 48%,rgba(255,255,255,.18) 48.2% 48.5%,transparent 48.8%),
+ repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px 38px),
+ repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 38px);
+ mask-image:linear-gradient(90deg,#000,transparent);pointer-events:none}
+.aw-hero .wrap{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:74px}
+.aw-kicker{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;color:#d8c08a;margin-bottom:18px}
+.aw-kicker:before{content:"";width:44px;border-top:1px solid currentColor}
+.aw-hero h1{font-family:var(--serif);font-size:clamp(38px,7vw,72px);line-height:1.22;letter-spacing:.01em;color:#fff;max-width:820px}
+.aw-hero h1 span{color:#e4bf69}
+.aw-lead{max-width:650px;margin-top:22px;font-size:15px;line-height:2;color:#e2e9ef}
+.aw-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.aw-primary,.aw-secondary{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 24px;text-decoration:none;font-weight:800}
+.aw-primary{background:#d8a94b;color:#172536;box-shadow:0 14px 32px rgba(0,0,0,.22)}
+.aw-secondary{border:1px solid rgba(255,255,255,.46);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+.aw-note{margin-top:14px;font-size:11.5px;color:#aebfcb}
+.aw-story{background:#f3f0e8;border-bottom:1px solid #ddd7cb}
+.aw-story .wrap{padding-top:72px;padding-bottom:72px}
+.aw-story-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:end;margin-bottom:28px}
+.aw-story h2{font-size:clamp(30px,5vw,46px);line-height:1.35;margin:0}
+.aw-story .intro{font-size:14px;color:#545963;max-width:56ch}
+.aw-loss-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.aw-loss{min-height:142px;background:#fff;border:1px solid #dedbd2;border-radius:16px;padding:18px 14px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+.aw-loss:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,50,.10)}
+.aw-loss i{font-style:normal;font-size:26px}
+.aw-loss b{font-family:var(--serif);font-size:15px;color:#27394b}
+.aw-choice{background:#102a3f;color:#fff;border-bottom:none}
+.aw-choice .wrap{padding-top:68px;padding-bottom:68px}
+.aw-choice h2{color:#fff;font-size:clamp(30px,5vw,44px);margin-bottom:10px}
+.aw-choice .sub{color:#bfd0db}
+.aw-choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.aw-choice-card{position:relative;overflow:hidden;min-height:210px;border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:24px;background:rgba(255,255,255,.06)}
+.aw-choice-card strong{display:block;font-family:var(--serif);font-size:30px;color:#fff;margin:8px 0}
+.aw-choice-card span{font-size:12px;letter-spacing:.14em;color:#9eb8c9}
+.aw-choice-card p{color:#d6e0e7;font-size:13px}
+.aw-choice-card.focus{background:#f3eee2;color:#1b2f3f;border-color:#d8a94b;box-shadow:0 0 0 1px #d8a94b inset}
+.aw-choice-card.focus strong{color:#9a6d17}.aw-choice-card.focus p{color:#4d5660}.aw-choice-card.focus span{color:#9a6d17}
+.aw-timeline{background:#fbfaf7}
+.aw-timeline .wrap{padding-top:68px;padding-bottom:70px}
+.aw-timeline h2{font-size:clamp(30px,5vw,44px);margin-bottom:26px}
+.aw-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.aw-steps:before{content:"";position:absolute;top:25px;left:8%;right:8%;height:8px;background:linear-gradient(90deg,#4a9070 0 58%,#d1a153 68%,#b65345 100%);border-radius:999px;opacity:.9}
+.aw-step{position:relative;padding:56px 10px 0;text-align:center}
+.aw-step:before{content:"";position:absolute;top:16px;left:50%;width:26px;height:26px;border-radius:50%;background:#fff;border:6px solid #4a9070;transform:translateX(-50%);z-index:2}
+.aw-step.late:before{border-color:#b65345}
+.aw-step b{display:block;font-family:var(--serif);font-size:15px;margin-bottom:3px}.aw-step small{font-size:11px;color:#7a7e84}
+.aw-timeline-note{margin-top:28px;background:#fff;border-left:4px solid #a8382c;padding:15px 18px;color:#525861;font-size:13px}
+.aw-manifesto{padding:62px 0;background:#efe9dc;text-align:center;border-bottom:1px solid #ddd5c8}
+.aw-manifesto p{font-family:var(--serif);font-size:clamp(23px,4.5vw,40px);line-height:1.7;color:#1f3445}
+.aw-manifesto p b{color:#9b6e16}
+@media(max-width:840px){
+ .aw-hero{min-height:72vh}.aw-story-head{grid-template-columns:1fr;gap:12px}.aw-loss-grid{grid-template-columns:repeat(3,1fr)}
+ .aw-choice-grid{grid-template-columns:1fr}.aw-steps{grid-template-columns:1fr}.aw-steps:before{display:none}.aw-step{padding:12px 10px 12px 54px;text-align:left}
+ .aw-step:before{left:20px;top:14px;transform:none}.aw-step b{font-size:17px}
+}
+@media(max-width:560px){
+ .aw-hero .wrap{padding-top:76px;padding-bottom:54px}.aw-hero h1{font-size:38px}.aw-lead{font-size:14px}
+ .aw-loss-grid{grid-template-columns:1fr 1fr}.aw-loss{min-height:120px}.aw-primary,.aw-secondary{width:100%;justify-content:center}
+}
+
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -403,55 +470,63 @@ footer .fl b{color:#9FBBD6}
   <span class="sp">滋賀県大津市｜認定経営革新等支援機関</span>
 </div></nav>
 
-<header class="hero2"><div class="wrap">
-  <div class="top">
-    <div>
-      <h1>閉めるか、<br><b>迷って</b>いませんか。</h1>
-      <p class="lead2">まだ決めなくていい。ただ、原状回復の見積りを取る前に、<b>いまの店の値打ち</b>だけは知っておいてください。迷っている1年で、約90万円減ります。</p>
-      <a class="go30" href="yameru.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2"/><rect x="8" y="5.5" width="8" height="4" rx=".8"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 17h.01M12 17h.01M15.5 17h.01"/></svg><span class="tx"><em>30</em>秒で<br>店の価値を知る<small>匿名・名前も店名も要りません・入力は送信されません</small></span><span class="ar">→</span></a>
-      <p class="sub2 a"><a href="soudan.html">数字で一緒に考える（60分・無料・決めなくてよい）</a>　<a href="tel:080-5309-9770">電話 080-5309-9770</a><br>相談したことは、貸主にも常連さんにも、誰にも伝わりません。</p>
+<header class="aw-hero">
+  <div class="wrap">
+    <div class="aw-kicker">BEFORE CLOSING, THERE IS STILL A CHOICE</div>
+    <h1>閉店を決める前に、<br><span>次へ渡す</span>という選択を。</h1>
+    <p class="aw-lead">店を閉めた瞬間に、設備・内装・賃貸条件・お客さまとの関係は、一気に失われます。BRIDGE CYCLEは、閉店前の段階から店を「承継できる状態」に整え、次の担い手へつなぎます。</p>
+    <div class="aw-actions">
+      <a class="aw-primary" href="yameru.html">30秒で、今の店の値打ちを見る <span>→</span></a>
+      <a class="aw-secondary" href="#business">退店前承継の仕組みを見る</a>
     </div>
-    <div class="ph" role="img" aria-label="カウンターで考え込む店主"><i>写真はイメージです</i></div>
+    <div class="aw-note">滋賀・京都の小規模店舗向け｜匿名試算・相談から開始できます</div>
   </div>
+</header>
 
-  <div class="conn" aria-hidden="true"><span></span><span></span><span></span></div>
-  <div class="three">
-    <a class="ch k" href="yameru.html">
-      <div class="cp" style="background-image:url('images/c-tsuzukeru.jpg')"></div>
-      <div class="cb"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 5 4h14l2 5.5"/><path d="M3 9.5a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></span><span class="nm">続ける</span><span class="ar">›</span><span class="am"><small>1年迷うと</small><b>▲約<span class="cu" data-n="90">0</span>万円</b>赤字と、造作の値打ちの減り</span></div>
-    </a>
-    <a class="ch w" href="matching.html">
-      <div class="cp" style="background-image:url('images/c-watasu.jpg')"></div>
-      <div class="cb"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 19a5.5 5.5 0 0 1 11 0"/><path d="M13.5 18.5a4 4 0 0 1 8 0"/></svg></span><span class="nm">渡す</span><span class="ar">›</span><span class="am"><small>いま渡すと</small><b>＋約<span class="cu" data-n="170">0</span>万円</b>造作を次の店主へ。営業したまま</span></div>
-    </a>
-    <a class="ch s" href="yameru.html">
-      <div class="cp" style="background-image:url('images/c-shimeru.jpg')"></div>
-      <div class="cb"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9v18H6z"/><path d="M15 5l5-1.5v17L15 19"/><path d="M12 12h.01"/></svg></span><span class="nm">閉める</span><span class="ar">›</span><span class="am"><small>そのまま閉めると</small><b>▲約<span class="cu" data-n="230">0</span>万円</b>原状回復して返す。厨房はゼロに</span></div>
-    </a>
+<section class="aw-story" aria-labelledby="loss-title">
+  <div class="wrap">
+    <div class="aw-story-head">
+      <h2 id="loss-title">店が閉まると、<br>何が消えるのか。</h2>
+      <p class="intro">「まだ続けるかもしれない」と思っている間にこそ、残せる価値があります。退去通知や原状回復の後では、その多くを次の人へ渡せません。</p>
+    </div>
+    <div class="aw-loss-grid">
+      <div class="aw-loss"><i>◫</i><b>設備</b></div>
+      <div class="aw-loss"><i>⌂</i><b>内装</b></div>
+      <div class="aw-loss"><i>▤</i><b>賃貸条件</b></div>
+      <div class="aw-loss"><i>✓</i><b>許認可の段取り</b></div>
+      <div class="aw-loss"><i>◎</i><b>お客さまとの関係</b></div>
+      <div class="aw-loss"><i>◇</i><b>地域の記憶</b></div>
+    </div>
   </div>
-  <p class="sub2 b"><a href="soudan.html">数字で一緒に考える（60分・無料・決めなくてよい）</a>　<a href="tel:080-5309-9770">電話 080-5309-9770</a><br>相談したことは、貸主にも常連さんにも、誰にも伝わりません。</p>
-  <p class="ex">金額は15坪・賃料15万円・内装600万円・月5万円の赤字の店の目安（幅のある試算の中央値）。あなたの店の数字は30秒で出ます。</p>
+</section>
 
-  <a class="case" href="matching.html">
-    <span class="tag">実例｜大津市</span>
-    <span class="t">この店は、壊されなかった。<small>営業したまま次の店主が決まり、厨房もカウンターもそのまま渡りました。</small></span>
-    <span class="ar">›</span>
-  </a>
+<section class="aw-choice">
+  <div class="wrap">
+    <h2>選べる道は、ひとつではありません。</h2>
+    <p class="sub">BRIDGE CYCLEは「渡す」ことを押しつけません。続ける・渡す・閉める。その判断の前段階を一緒に整理します。</p>
+    <div class="aw-choice-grid">
+      <div class="aw-choice-card"><span>01 / KEEP</span><strong>続ける</strong><p>立て直しや資金調達を含め、営業継続の可能性を整理します。</p></div>
+      <div class="aw-choice-card focus"><span>02 / PASS ON</span><strong>渡す</strong><p>設備・内装・条件・顧客関係を整理し、次の担い手へ引き継げる形をつくります。</p></div>
+      <div class="aw-choice-card"><span>03 / CLOSE</span><strong>閉める</strong><p>承継が適さない場合は、損失を抑えて閉じるための判断材料を整理します。</p></div>
+    </div>
+  </div>
+</section>
 
-  <div class="voices">
-    <a href="yameru.html"><i>→</i>今月も、自分の給料が出なかった。</a>
-    <a href="yameru.html"><i>→</i>体がついていかない。でも、常連さんに言えない。</a>
-    <a href="yameru.html"><i>→</i>原状回復にいくらかかるか、怖くて見積りを取れずにいる。</a>
-    <a href="yameru.html"><i>→</i>閉めたら、この厨房もカウンターも全部ゴミになる。</a>
-    <a href="yameru.html"><i>→</i>家族には「まだ大丈夫」と言っている。</a>
+<section class="aw-timeline">
+  <div class="wrap">
+    <h2>早い相談ほど、選択肢は残ります。</h2>
+    <div class="aw-steps">
+      <div class="aw-step"><b>迷っている</b><small>選択肢が最も多い</small></div>
+      <div class="aw-step"><b>続けるか悩む</b><small>承継準備ができる</small></div>
+      <div class="aw-step"><b>閉店を検討</b><small>まだ間に合う</small></div>
+      <div class="aw-step late"><b>退去通知</b><small>時間制約が強まる</small></div>
+      <div class="aw-step late"><b>原状回復</b><small>承継余地が小さい</small></div>
+    </div>
+    <div class="aw-timeline-note">退去通知や原状回復の段階では、承継できる余地が大きく減ります。だからBRIDGE CYCLEは「閉店決定後」ではなく、「迷いの段階」から関わります。</div>
   </div>
-  <div class="others" style="margin-top:14px">
-    <span>ほかの方はこちら</span>
-    <a href="matching.html#entry">店を持ちたい →</a>
-    <a href="#platform">管理会社・診断士・自治体 →</a>
-    <a href="matching.html">承継マッチングの仕組み →</a>
-  </div>
-</div></header>
+</section>
+
+<div class="aw-manifesto"><div class="wrap"><p>閉める前なら、まだ<b>渡せる。</b><br>店の価値が消える前に、次の選択肢をつくる。</p></div></div>
 <script>
 (function(){
   var cards=document.querySelectorAll('.hero2 .ch'),done=false;
