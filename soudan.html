@@ -67,6 +67,7 @@ footer{background:#132B45;color:#9FB4C9;padding:30px 0 40px;font-size:12px;text-
 footer .fl{font-family:var(--serif);font-weight:800;letter-spacing:.09em;font-size:15px;color:#fff;display:block;margin-bottom:6px}
 footer a{color:#C6D6E5}
 </style>
+<script src="bc-analytics.js"></script>
 </head>
 <body>
 
@@ -177,6 +178,7 @@ footer a{color:#C6D6E5}
       if(!r.ok)throw new Error('HTTP '+r.status);
       var j=await r.json().catch(function(){return {};});
       if(String(j.success)!=='true')throw new Error('not delivered');
+      if(window.bcTrack)bcTrack('generate_lead',{form:'soudan'});
       $('#f').innerHTML='<div style="text-align:center;padding:30px 6px"><div style="font-size:44px;line-height:1">✓</div>'
         +'<div style="font-size:18px;font-weight:800;margin-top:14px">受け付けました。</div>'
         +'<div style="font-size:13.5px;color:var(--ink2);margin-top:12px;line-height:1.9">1営業日以内に、ご記入の連絡先へ日程のご相談をお送りします。<br>それまで、原状回復の工事は発注しないでください。</div></div>';
