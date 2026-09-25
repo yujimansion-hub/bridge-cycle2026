@@ -455,6 +455,65 @@ footer .fl b{color:#9FBBD6}
  .aw-loss-grid{grid-template-columns:1fr 1fr}.aw-loss{min-height:120px}.aw-primary,.aw-secondary{width:100%;justify-content:center}
 }
 
+
+/* ===== CSSDA refinement pass 2 ===== */
+.nav{background:rgba(10,27,41,.94);border-bottom:1px solid rgba(255,255,255,.10);backdrop-filter:blur(14px)}
+.nav .logo{color:#fff}.nav .logo b{color:#d8c08a}.nav .l{color:#d7e1e8}.nav .l:hover{color:#fff}.nav .sp{color:#9fb2c1}
+.aw-hero:before{transform:scale(1.045) translate3d(0,var(--hero-shift,0px),0);transition:transform .08s linear}
+.aw-hero .wrap{max-width:1060px}
+.aw-hero h1{text-wrap:balance}
+.aw-lead{font-size:15.5px}
+.aw-primary,.aw-secondary{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.aw-primary:hover,.aw-secondary:hover{transform:translateY(-2px)}
+.aw-primary:hover{box-shadow:0 18px 38px rgba(0,0,0,.3)}
+.aw-textlink{display:inline-block;margin-top:15px;color:#c9d6df;text-decoration:none;font-size:12.5px;border-bottom:1px solid rgba(201,214,223,.5);padding-bottom:2px}
+.aw-section-tag{display:block;margin-bottom:12px;font-size:10.5px;letter-spacing:.22em;font-weight:800;color:#8d7440}
+.aw-story,.aw-timeline{content-visibility:auto;contain-intrinsic-size:800px}
+.aw-loss{position:relative;overflow:hidden;min-height:160px;padding:20px 16px}
+.aw-loss:after{content:"";position:absolute;inset:auto -28px -38px auto;width:92px;height:92px;border:1px solid #e7e2d8;border-radius:50%;opacity:.8}
+.aw-loss i{font-style:normal;font-family:var(--serif);font-size:12px;letter-spacing:.14em;color:#9a7b3f}
+.aw-loss b{font-size:16px;max-width:8em}
+.aw-choice-card{padding:0;min-height:330px;background:#102a3f;display:flex;flex-direction:column;justify-content:flex-end}
+.aw-choice-card:before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;opacity:.62;transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.aw-choice-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,20,31,.06) 15%,rgba(7,20,31,.9) 76%,rgba(7,20,31,.98))}
+.aw-choice-card.keep:before{background-image:url('images/c-tsuzukeru.jpg')}
+.aw-choice-card.pass:before{background-image:url('images/c-watasu.jpg')}
+.aw-choice-card.close:before{background-image:url('images/c-shimeru.jpg')}
+.aw-choice-card:hover:before{transform:scale(1.04);opacity:.78}
+.aw-choice-card>span,.aw-choice-card>strong,.aw-choice-card>p{position:relative;z-index:2;margin-left:24px;margin-right:24px}
+.aw-choice-card>p{margin-bottom:24px}
+.aw-choice-card.focus{background:#102a3f;border-color:#d8a94b;box-shadow:0 0 0 1px #d8a94b inset}
+.aw-choice-card.focus strong{color:#f0c86c}.aw-choice-card.focus p{color:#eef3f6}.aw-choice-card.focus span{color:#e2bd66}
+.aw-choice-card.focus:after{background:linear-gradient(180deg,rgba(7,20,31,.02) 18%,rgba(7,20,31,.84) 72%,rgba(7,20,31,.98))}
+.aw-timeline-note{max-width:760px;margin-left:auto;margin-right:auto}
+.aw-manifesto{position:relative;overflow:hidden}
+.aw-manifesto:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 50% 50%,rgba(216,169,75,.12),transparent 42%);pointer-events:none}
+.aw-manifesto .wrap{position:relative;z-index:1}
+.aw-reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.aw-reveal.is-visible{opacity:1;transform:none}
+.aw-loss-grid .aw-reveal:nth-child(2),.aw-choice-grid .aw-reveal:nth-child(2){transition-delay:.08s}
+.aw-loss-grid .aw-reveal:nth-child(3),.aw-choice-grid .aw-reveal:nth-child(3){transition-delay:.16s}
+.aw-loss-grid .aw-reveal:nth-child(4){transition-delay:.24s}.aw-loss-grid .aw-reveal:nth-child(5){transition-delay:.32s}.aw-loss-grid .aw-reveal:nth-child(6){transition-delay:.40s}
+.ctaband{background:#a24135}
+@media(max-width:640px){
+ .nav .wrap{padding:11px 16px}.aw-hero{min-height:76svh;align-items:flex-end}
+ .aw-hero:before{background-position:62% center}
+ .aw-hero .wrap{padding:74px 18px 48px}.aw-kicker{font-size:9.5px;letter-spacing:.14em;margin-bottom:14px}
+ .aw-kicker:before{width:28px}.aw-hero h1{font-size:36px;line-height:1.27}
+ .aw-lead{font-size:14px;line-height:1.85;margin-top:18px}.aw-actions{margin-top:22px}
+ .aw-note{line-height:1.6}.aw-story .wrap,.aw-choice .wrap,.aw-timeline .wrap{padding-top:52px;padding-bottom:54px}
+ .aw-story h2,.aw-choice h2,.aw-timeline h2{font-size:30px}
+ .aw-loss-grid{gap:8px}.aw-loss{min-height:110px;padding:14px 12px}.aw-loss b{font-size:13.5px}
+ .aw-choice-card{min-height:250px}.aw-choice-card>span,.aw-choice-card>strong,.aw-choice-card>p{margin-left:18px;margin-right:18px}
+ .aw-choice-card>p{margin-bottom:18px}.aw-choice-card strong{font-size:27px}
+ .aw-manifesto{padding:48px 0}.aw-manifesto p{font-size:24px}
+ .stats{padding:20px 0}
+}
+@media(prefers-reduced-motion:reduce){
+ .aw-hero:before{transform:none!important}.aw-reveal{opacity:1;transform:none;transition:none}
+ .aw-choice-card:before{transition:none}
+}
+
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -462,11 +521,11 @@ footer .fl b{color:#9FBBD6}
 
 <nav class="nav"><div class="wrap">
   <a class="logo" href="./">BRIDGE <b>CYCLE</b></a>
-  <a class="l" href="#business">できること</a>
+  <a class="l" href="#aw-choice">選択肢</a>
+  <a class="l" href="#business">サービス</a>
   <a class="l" href="#platform">しくみ</a>
-  <a class="l" href="partner-shien.html">パートナー募集</a>
-  <a class="l" href="#difference">約束</a>
-  <a class="l" href="#company">会社情報</a>
+  <a class="l" href="#company">私たちについて</a>
+  <a class="l" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">相談する</a>
   <span class="sp">滋賀県大津市｜認定経営革新等支援機関</span>
 </div></nav>
 
@@ -476,73 +535,61 @@ footer .fl b{color:#9FBBD6}
     <h1>閉店を決める前に、<br><span>次へ渡す</span>という選択を。</h1>
     <p class="aw-lead">店を閉めた瞬間に、設備・内装・賃貸条件・お客さまとの関係は、一気に失われます。BRIDGE CYCLEは、閉店前の段階から店を「承継できる状態」に整え、次の担い手へつなぎます。</p>
     <div class="aw-actions">
-      <a class="aw-primary" href="yameru.html">30秒で、今の店の値打ちを見る <span>→</span></a>
-      <a class="aw-secondary" href="#business">退店前承継の仕組みを見る</a>
+      <a class="aw-primary" href="yameru.html">30秒で店の値打ちを見る <span>→</span></a>
+      <a class="aw-secondary" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">無料で相談する</a>
     </div>
+    <a class="aw-textlink" href="#aw-choice">まだ決めていない方へ — 3つの選択肢を見る ↓</a>
     <div class="aw-note">滋賀・京都の小規模店舗向け｜匿名試算・相談から開始できます</div>
   </div>
 </header>
 
 <section class="aw-story" aria-labelledby="loss-title">
   <div class="wrap">
-    <div class="aw-story-head">
+    <span class="aw-section-tag">01 / VALUE BEFORE CLOSING</span>
+    <div class="aw-story-head aw-reveal">
       <h2 id="loss-title">店が閉まると、<br>何が消えるのか。</h2>
       <p class="intro">「まだ続けるかもしれない」と思っている間にこそ、残せる価値があります。退去通知や原状回復の後では、その多くを次の人へ渡せません。</p>
     </div>
     <div class="aw-loss-grid">
-      <div class="aw-loss"><i>◫</i><b>設備</b></div>
-      <div class="aw-loss"><i>⌂</i><b>内装</b></div>
-      <div class="aw-loss"><i>▤</i><b>賃貸条件</b></div>
-      <div class="aw-loss"><i>✓</i><b>許認可の段取り</b></div>
-      <div class="aw-loss"><i>◎</i><b>お客さまとの関係</b></div>
-      <div class="aw-loss"><i>◇</i><b>地域の記憶</b></div>
+      <div class="aw-loss aw-reveal"><i>01</i><b>設備</b></div>
+      <div class="aw-loss aw-reveal"><i>02</i><b>内装</b></div>
+      <div class="aw-loss aw-reveal"><i>03</i><b>賃貸条件</b></div>
+      <div class="aw-loss aw-reveal"><i>04</i><b>許認可の段取り</b></div>
+      <div class="aw-loss aw-reveal"><i>05</i><b>お客さまとの関係</b></div>
+      <div class="aw-loss aw-reveal"><i>06</i><b>地域の記憶</b></div>
     </div>
   </div>
 </section>
 
-<section class="aw-choice">
+<section class="aw-choice" id="aw-choice">
   <div class="wrap">
-    <h2>選べる道は、ひとつではありません。</h2>
-    <p class="sub">BRIDGE CYCLEは「渡す」ことを押しつけません。続ける・渡す・閉める。その判断の前段階を一緒に整理します。</p>
+    <span class="aw-section-tag">02 / THREE PATHS</span>
+    <h2 class="aw-reveal">選べる道は、ひとつではありません。</h2>
+    <p class="sub aw-reveal">BRIDGE CYCLEは「渡す」ことを押しつけません。続ける・渡す・閉める。その判断の前段階を一緒に整理します。</p>
     <div class="aw-choice-grid">
-      <div class="aw-choice-card"><span>01 / KEEP</span><strong>続ける</strong><p>立て直しや資金調達を含め、営業継続の可能性を整理します。</p></div>
-      <div class="aw-choice-card focus"><span>02 / PASS ON</span><strong>渡す</strong><p>設備・内装・条件・顧客関係を整理し、次の担い手へ引き継げる形をつくります。</p></div>
-      <div class="aw-choice-card"><span>03 / CLOSE</span><strong>閉める</strong><p>承継が適さない場合は、損失を抑えて閉じるための判断材料を整理します。</p></div>
+      <div class="aw-choice-card keep aw-reveal"><span>01 / KEEP</span><strong>続ける</strong><p>立て直しや資金調達を含め、営業継続の可能性を整理します。</p></div>
+      <div class="aw-choice-card pass focus aw-reveal"><span>02 / PASS ON</span><strong>渡す</strong><p>設備・内装・条件・顧客関係を整理し、次の担い手へ引き継げる形をつくります。</p></div>
+      <div class="aw-choice-card close aw-reveal"><span>03 / CLOSE</span><strong>閉める</strong><p>承継が適さない場合は、損失を抑えて閉じるための判断材料を整理します。</p></div>
     </div>
   </div>
 </section>
 
 <section class="aw-timeline">
   <div class="wrap">
-    <h2>早い相談ほど、選択肢は残ります。</h2>
-    <div class="aw-steps">
+    <span class="aw-section-tag">03 / TIMING</span>
+    <h2 class="aw-reveal">早い相談ほど、選択肢は残ります。</h2>
+    <div class="aw-steps aw-reveal">
       <div class="aw-step"><b>迷っている</b><small>選択肢が最も多い</small></div>
       <div class="aw-step"><b>続けるか悩む</b><small>承継準備ができる</small></div>
       <div class="aw-step"><b>閉店を検討</b><small>まだ間に合う</small></div>
       <div class="aw-step late"><b>退去通知</b><small>時間制約が強まる</small></div>
       <div class="aw-step late"><b>原状回復</b><small>承継余地が小さい</small></div>
     </div>
-    <div class="aw-timeline-note">退去通知や原状回復の段階では、承継できる余地が大きく減ります。だからBRIDGE CYCLEは「閉店決定後」ではなく、「迷いの段階」から関わります。</div>
+    <div class="aw-timeline-note aw-reveal">退去通知や原状回復の段階では、承継できる余地が大きく減ります。だからBRIDGE CYCLEは「閉店決定後」ではなく、「迷いの段階」から関わります。</div>
   </div>
 </section>
 
-<div class="aw-manifesto"><div class="wrap"><p>閉める前なら、まだ<b>渡せる。</b><br>店の価値が消える前に、次の選択肢をつくる。</p></div></div>
-<script>
-(function(){
-  var cards=document.querySelectorAll('.hero2 .ch'),done=false;
-  function countUp(el){var n=+el.getAttribute('data-n'),t0=null,d=900;
-    if(document.hidden){el.textContent=n;return;}
-    setTimeout(function(){el.textContent=n;},d+200);
-    function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/d);k=1-Math.pow(1-k,3);el.textContent=Math.round(n*k);if(k<1)requestAnimationFrame(step);}
-    requestAnimationFrame(step);}
-  function show(){if(done)return;done=true;cards.forEach(function(c){c.classList.add('in')});
-    document.querySelectorAll('.hero2 .cu').forEach(countUp);}
-  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show();io.disconnect();}})},{threshold:.2});
-    cards.forEach(function(c){io.observe(c)});}else show();
-  setTimeout(show,2500);
-})();
-</script>
-
+<div class="aw-manifesto"><div class="wrap"><p class="aw-reveal">閉める前なら、まだ<b>渡せる。</b><br>店の価値が消える前に、次の選択肢をつくる。</p></div></div>
 <div class="stats"><div class="wrap">
   <div><b>約<span class="cnt" data-n="20">20</span>年</b><span>商工会での経営指導</span></div>
   <div><b><span class="cnt" data-n="500">500</span>社超</b><span>支援実績</span></div>
@@ -683,7 +730,7 @@ footer .fl b{color:#9FBBD6}
   </p>
 </div></footer>
 
-<div class="mbar" aria-label="スマホ用の導線"><a class="m1" href="yameru.html">自分の店の値打ちを見る<small>30秒・匿名・送信されません</small></a><a class="m2" href="tel:080-5309-9770">電話する<small>代表・中村が出ます</small></a></div>
+<div class="mbar" aria-label="スマホ用の導線"><a class="m1" href="yameru.html">店の値打ちを見る<small>30秒・匿名・送信なし</small></a><a class="m2" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで相談<small>まだ決めていなくてOK</small></a></div>
 
 <script>
 (function(){
@@ -714,5 +761,38 @@ footer .fl b{color:#9FBBD6}
   els.forEach(function(e){io.observe(e);});
 })();
 </script>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.aw-reveal');
+  if(reduce||!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('is-visible');});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target);}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el);});
+  }
+  if(!reduce){
+    var hero=document.querySelector('.aw-hero'), ticking=false;
+    function paint(){
+      if(hero){
+        var r=hero.getBoundingClientRect();
+        var y=Math.max(-18,Math.min(18,-r.top*.035));
+        hero.style.setProperty('--hero-shift',y+'px');
+      }
+      ticking=false;
+    }
+    window.addEventListener('scroll',function(){
+      if(!ticking){requestAnimationFrame(paint);ticking=true;}
+    },{passive:true});
+    paint();
+  }
+})();
+</script>
+
 </body>
 </html>
