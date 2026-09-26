@@ -13,7 +13,9 @@
     /^(partner|fudosan)/.test(page) ? 'パートナー' :
     /^(uriba|kokaido|yoyaku|thanks-kokaido|kanryo|bridge-cycle-kokaido)/.test(page) ? '売り場レンタル' :
     /^yomu/.test(page) ? '閉める前に読む' :
-    /^hojokin/.test(page) ? '補助金' : 'その他';
+    /^hojokin/.test(page) ? '補助金' :
+    /^uchino/.test(page) ? 'うちのシェフ' :
+    /^akinai/.test(page) ? 'わたしのこれから診断' : 'その他';
 
   var ref='';
   try{
@@ -28,6 +30,8 @@
   s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(BC_ANALYTICS_ID);
   document.head.appendChild(s);
   gtag('js',new Date());
+  /* 自分のアクセスの印：一度 ?internal=1 付きで開いた端末・ブラウザは traffic_type=internal を送る（?internal=0 で解除） */
+  try{if(/[?&]internal=1\b/.test(location.search))localStorage.setItem('bc_internal','1');if(/[?&]internal=0\b/.test(location.search))localStorage.removeItem('bc_internal');if(localStorage.getItem('bc_internal')==='1')gtag('set',{traffic_type:'internal'});}catch(e){}
   gtag('config',BC_ANALYTICS_ID,{
     content_group: group,
     allow_google_signals:false,

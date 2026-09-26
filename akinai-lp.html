@@ -58,7 +58,10 @@ window.AKINAI_ANALYTICS_ID="G-GYGZ9W6FQ9";
   window.track=function(n,p){try{if(id)gtag("event",n,p||{})}catch(e){}};
   if(!id)return;
   var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(id);document.head.appendChild(s);
-  gtag("js",new Date());gtag("config",id);
+  gtag("js",new Date());
+  /* 自分のアクセスの印：一度 ?internal=1 付きで開いた端末・ブラウザは traffic_type=internal を送る（?internal=0 で解除） */
+  try{if(/[?&]internal=1\b/.test(location.search))localStorage.setItem('bc_internal','1');if(/[?&]internal=0\b/.test(location.search))localStorage.removeItem('bc_internal');if(localStorage.getItem('bc_internal')==='1')gtag('set',{traffic_type:'internal'});}catch(e){}
+  gtag("config",id,{content_group:"わたしのこれから診断"});
 })();
 </script>
 </head>

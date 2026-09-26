@@ -13,7 +13,10 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYGZ9W6FQ9"></script>
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-GYGZ9W6FQ9',{anonymize_ip:true});
+gtag('js',new Date());
+/* 自分のアクセスの印：一度 ?internal=1 付きで開いた端末・ブラウザは traffic_type=internal を送る（?internal=0 で解除） */
+try{if(/[?&]internal=1\b/.test(location.search))localStorage.setItem('bc_internal','1');if(/[?&]internal=0\b/.test(location.search))localStorage.removeItem('bc_internal');if(localStorage.getItem('bc_internal')==='1')gtag('set',{traffic_type:'internal'});}catch(e){}
+gtag('config','G-GYGZ9W6FQ9',{anonymize_ip:true,content_group:'わたしのこれから診断'});
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
