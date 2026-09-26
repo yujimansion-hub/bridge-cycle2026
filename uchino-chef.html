@@ -22,6 +22,52 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-size:22px;line-height:1;color:#173F68}
 details[open] summary::after{content:"−"}
 
+
+
+.who-type{position:relative;display:flex;flex-direction:column;gap:8px;padding:26px;border-radius:20px;background:#FBF7F0;border:1px solid #E6DDCF;color:#1C2733;text-decoration:none}
+.who-type:hover{color:#1C2733;border-color:#C9B996}
+.who-type b{font-family:'Zen Old Mincho',serif;font-size:24px;line-height:1.4}
+.who-type em{font-style:normal;font-size:14px;font-weight:700;color:#8A5A12}
+.who-badge{position:absolute;top:26px;right:26px;padding:2px 12px;border-radius:999px;color:#FFFFFF;font-size:13px;font-weight:700}
+.who-go{margin-top:4px;font-weight:700;color:#173F68}
+.who-tags{display:flex;flex-wrap:wrap;gap:8px}
+.who-tags a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;border:1.5px solid #D9C29A;background:#FFFFFF;color:#1C2733;font-size:14px;text-decoration:none}
+.who-tags a:hover{background:#8A5A12;border-color:#8A5A12;color:#FFFFFF}
+.who-faces{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px}
+.who-faces a{flex:0 0 200px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px;border-radius:16px;background:#FBF7F0;border:1px solid #E6DDCF;color:#1C2733;text-decoration:none;text-align:center;font-size:13px}
+.hero-ladder{display:flex;gap:8px;flex-wrap:wrap}
+.hero-ladder div{display:flex;flex-direction:column;padding:10px 14px;border-radius:12px;background:#FFFFFF;border:1px solid #E6DDCF;line-height:1.5}
+.hero-ladder span{font-size:13px;color:#56616D}.hero-ladder b{font-family:'Zen Old Mincho',serif;font-size:18px}
+.hero-ladder .hl-main{background:#173F68;border-color:#173F68;color:#FFFFFF}.hero-ladder .hl-main span{color:#DCE6F0}
+.hero-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-choice a{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-radius:14px;background:#173F68;color:#FFFFFF;text-decoration:none;line-height:1.5}
+.hero-choice a:last-child{background:#8A5A12}.hero-choice a b{font-size:18px}.hero-choice a span{font-size:13px;opacity:.9}
+.hero-choice a:hover{color:#FFFFFF;filter:brightness(1.1)}
+.f-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f-tabs button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:64px;padding:12px 18px;border-radius:14px;border:1.5px solid #C9B996;background:#FFFFFF;color:#1C2733;font-family:inherit;font-size:16px;cursor:pointer;text-align:left}
+.f-tabs button span{font-size:13px;color:#56616D}
+.f-tabs button[aria-pressed="true"]{background:#173F68;border-color:#173F68;color:#FFFFFF}.f-tabs button[aria-pressed="true"] span{color:#DCE6F0}
+.f-chips{display:flex;flex-wrap:wrap;gap:8px}
+.f-chips button{min-height:40px;padding:0 16px;border-radius:999px;border:1.5px solid #D9C29A;background:#FFFFFF;color:#1C2733;font-family:inherit;font-size:14px;cursor:pointer}
+.f-chips button[aria-pressed="true"]{background:#8A5A12;border-color:#8A5A12;color:#FFFFFF}
+.f-layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px;align-items:start}
+.f-cal{padding:16px;border-radius:18px;background:#FBF7F0;border:1px solid #E6DDCF}
+.f-cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.f-cal-head button{width:44px;height:44px;border-radius:50%;border:1px solid #E6DDCF;background:#FFFFFF;font-size:22px;cursor:pointer;color:#1C2733}
+.f-cal-head button:disabled{opacity:.3;cursor:default}
+.f-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.f-cal-grid .dow{text-align:center;font-size:12px;color:#56616D}
+.f-cal-grid button{position:relative;height:44px;border-radius:10px;border:1px solid transparent;background:transparent;font-family:inherit;font-size:15px;color:#1C2733;cursor:pointer}
+.f-cal-grid button.has{background:#FFFFFF;border-color:#E6DDCF;font-weight:700}
+.f-cal-grid button:disabled{color:#B8B1A6;cursor:default}
+.f-cal-grid button[aria-pressed="true"]{background:#173F68;color:#FFFFFF;border-color:#173F68}
+.f-cal-grid .dots{position:absolute;left:0;right:0;bottom:4px;display:flex;justify-content:center;gap:3px}
+.f-cal-grid .dots i{width:6px;height:6px;border-radius:50%}
+.f-cal-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:12px;color:#56616D;align-items:center}
+.f-cal-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
+.f-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.f-card{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:18px;background:#FBF7F0;border:1px solid #E6DDCF}
+.f-empty{grid-column:1/-1;padding:24px;border-radius:18px;background:#FBF7F0;border:1px dashed #C9B996;color:#56616D}
 html{scroll-behavior:smooth}
 img{max-width:100%}
 @media (max-width:860px){
@@ -37,7 +83,12 @@ img{max-width:100%}
  #steps [style*="align-items: stretch"] > div[style*="align-items: center"] svg{transform:rotate(90deg)}
  [style*="justify-content: center; gap: 28px"]{flex-wrap:wrap!important;gap:8px 14px!important;padding:18px!important}
  [style*="justify-content: center; gap: 28px"] b, [style*="justify-content: center; gap: 28px"] > span:last-child{font-size:22px!important}
- h1{font-size:38px!important}
+
+ .hero-choice,.f-tabs,.f-layout,.f-results{grid-template-columns:1fr!important}
+ .pc-only{display:none}
+ .hero-ladder div{flex:1 1 40%}
+ .f-cal-grid{grid-template-columns:repeat(7,1fr)!important}
+ h1{font-size:36px!important}
  h2{font-size:28px!important}
  h3{font-size:24px!important}
  [style*="display: flex; gap: 12px"]{flex-wrap:wrap!important}
@@ -56,34 +107,87 @@ img{max-width:100%}
 <div style="max-width: 1120px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; gap: 32px">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 20px; font-weight: 700; line-height: 1.3">うちのシェフ｜会ってから頼める出張作り置き</span>
 <nav style="display: flex; gap: 24px; flex-grow: 1; justify-content: flex-end; font-size: 14px; font-weight: 500">
-<a href="#next" style="color: #1C2733; text-decoration: none">今月会えるシェフ</a>
+<a href="#who" style="color: #1C2733; text-decoration: none">選べる料理人</a>
+<a href="#find" style="color: #1C2733; text-decoration: none">料理人を探す</a>
 <a href="#steps" style="color: #1C2733; text-decoration: none">料金</a>
 <a href="#safe" style="color: #1C2733; text-decoration: none">安心</a>
 <a href="#faq" style="color: #1C2733; text-decoration: none">質問</a>
 </nav>
-<a href="#next" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">次に会えるシェフを見る</a>
+<a href="#find" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">料理人を探す</a>
 </div>
 </header>
 
 <!-- HERO -->
-<section style="padding: 72px 0 80px">
-<div style="max-width: 1120px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: center">
-<div style="grid-column: span 7; display: flex; flex-direction: column; gap: 26px">
-<span style="align-self: flex-start; font-family: 'Zen Old Mincho', serif; font-size: 22px; font-weight: 700; color: #1C2733; border-bottom: 2px solid #D9C29A; padding-bottom: 6px">うちのシェフ<span style="color: #8A5A12">｜会ってから頼める出張作り置き</span></span>
-<h1 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 60px; line-height: 1.3; letter-spacing: 0; font-weight: 700">知らない人を、<br>いきなり家に呼ばない。</h1>
-<div style="display: flex; flex-direction: column; gap: 6px; font-size: 19px; font-weight: 500">
-<div style="display: flex; gap: 14px; align-items: baseline"><span style="font-family: 'Zen Old Mincho', serif; font-size: 16px; font-weight: 700; color: #8A5A12">01</span><span>瀬田・浜大津で、まず料理を食べる。</span></div>
-<div style="display: flex; gap: 14px; align-items: baseline"><span style="font-family: 'Zen Old Mincho', serif; font-size: 16px; font-weight: 700; color: #8A5A12">02</span><span>本人と話す。</span></div>
-<div style="display: flex; gap: 14px; align-items: baseline"><span style="font-family: 'Zen Old Mincho', serif; font-size: 16px; font-weight: 700; color: #8A5A12">03</span><span>気に入ったら、自宅でお願いする。</span></div>
+<section style="padding: 64px 0 72px">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; align-items: center">
+<div style="grid-column: span 7; display: flex; flex-direction: column; gap: 22px">
+<span style="align-self: flex-start; font-family: 'Zen Old Mincho', serif; font-size: 20px; font-weight: 700; color: #1C2733; border-bottom: 2px solid #D9C29A; padding-bottom: 6px">うちのシェフ<span style="color: #8A5A12">｜会ってから頼める出張作り置き</span></span>
+<h1 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 56px; line-height: 1.3; letter-spacing: 0; font-weight: 700">知らない人を、<br>いきなり家に呼ばない。</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.8">大津・草津の料理人の料理を<b>店で食べて</b>、<b>本人と話してから</b>、<br><b>自宅での作り置き</b>をお願いできるサービスです。</p>
+<div class="hero-ladder">
+<div><span>① 店で食べる</span><b>1,000円〜</b></div>
+<div><span>② 5品を持ち帰る</span><b>2,500円〜</b></div>
+<div class="hl-main"><span>③ 家で作ってもらう</span><b>3時間 10,000円〜</b></div>
 </div>
-<div style="display: flex; gap: 12px; align-items: center">
-<a href="#next" style="display: inline-flex; align-items: center; min-height: 58px; padding: 0 32px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">次に会えるシェフを見る</a>
-<a href="#line" style="display: inline-flex; align-items: center; min-height: 58px; padding: 0 26px; border-radius: 999px; border: 1.5px solid #173F68; color: #173F68; font-weight: 700; text-decoration: none">LINEで相談する</a>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E6DDCF">
+<span style="font-size: 15px; font-weight: 700">何をしたいですか？</span>
+<div class="hero-choice">
+<a href="#find" data-mode="shop"><b>まず店で食べてみたい</b><span>出店カレンダーから探す →</span></a>
+<a href="#find" data-mode="home"><b>家に来てほしい</b><span>料金・評価・こだわりで探す →</span></a>
+</div>
+<div style="display: flex; gap: 18px; flex-wrap: wrap"><a href="#who" style="font-size: 14px; font-weight: 700">どんな料理人がいる？ →</a><a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700">迷ったら、LINEで相談する →</a></div>
 </div>
 </div>
 <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 12px">
-<img src="images/uchino-seta.jpg" alt="瀬田まち路地スティックスの店内" style="display: block; width: 100%; height: 400px; object-fit: cover; border-radius: 20px">
+<img src="https://yujimansion-hub.github.io/bridge-cycle2026/images/uchino-seta.jpg" alt="瀬田まち路地スティックスの店内" style="display: block; width: 100%; height: 460px; object-fit: cover; border-radius: 20px">
 <p style="margin: 0; font-size: 13px; color: #56616D; text-align: right">毎月、瀬田まち路地スティックスと旧大津公会堂で出店しています</p>
+</div>
+</div>
+</section>
+
+<!-- 選べる料理人 -->
+<section id="who" style="padding: 80px 0; background: #FFFFFF; border-top: 1px solid #E6DDCF">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 820px">
+<span style="font-size: 13px; font-weight: 700; color: #8A5A12">選べる料理人</span>
+<h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 40px; line-height: 1.4">選べるのは、まちの店主も、<br class="pc-only">店を持つ前の料理人も、家庭料理が得意な人も。</h2>
+<p style="margin: 0; font-size: 17px; color: #56616D">家事代行のスタッフではなく、自分の料理と名前で選ばれる人たちです。店頭で味と人柄を確かめて、「この人に頼みたい」と思えた人を選べます。</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+<a href="#find" data-kind="店を営む料理人" class="who-type">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#173F68" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h18l-1.5-5h-15z"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-5h4v5"></path></svg>
+<span class="who-badge" style="background: #173F68">店主</span>
+<b>まちで店を営む料理人</b>
+<span>ふだんは大津・草津で店に立つ店主。いつもの店の味を、家の冷蔵庫に。</span>
+<em>味の確かさで選びたい方に</em>
+<span class="who-go">店主から探す →</span>
+</a>
+<a href="#find" data-kind="店を持つ前の料理人" class="who-type">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#8A5A12" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V11"></path><path d="M12 11c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6z"></path><path d="M12 14c0-2.8-2-5-5-5 0 2.8 2 5 5 5z"></path><path d="M8 21h8"></path></svg>
+<span class="who-badge" style="background: #8A5A12">開業準備中</span>
+<b>これから店を持つ料理人</b>
+<span>開業をめざし、瀬田・浜大津の出店で腕を試している料理人。まちの新しいお店を、最初のお客さんとして応援できます。</span>
+<em>新しい料理人を応援したい方に</em>
+<span class="who-go">開業準備中の料理人から探す →</span>
+</a>
+<a href="#find" data-kind="家庭料理が得意な人" class="who-type">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3F6B5A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M9 15h6"></path></svg>
+<span class="who-badge" style="background: #3F6B5A">家庭料理</span>
+<b>家庭料理が得意な人</b>
+<span>毎日の家庭料理をつくり続けてきた人。飾らない、いつものおかずを頼みたい方に。</span>
+<em>ふだんの味で選びたい方に</em>
+<span class="who-go">家庭料理の人から探す →</span>
+</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 15px; font-weight: 700">得意なことでも選べます</span>
+<div class="who-tags">
+<a href="#find" data-tag="子ども向け">子ども向け</a><a href="#find" data-tag="野菜たっぷり">野菜たっぷり</a><a href="#find" data-tag="ボリューム重視">ボリューム重視</a><a href="#find" data-tag="ヘルシー・減塩">ヘルシー・減塩</a><a href="#find" data-tag="やさしい味（産前産後・ご年配）">やさしい味（産前産後・ご年配）</a><a href="#find" data-tag="和食">和食</a><a href="#find" data-tag="洋食">洋食</a><a href="#find" data-tag="中華・エスニック">中華・エスニック</a>
+</div>
+</div>
+<div id="who-faces" style="display: none; flex-direction: column; gap: 12px">
+<span style="font-size: 15px; font-weight: 700">いま登録している料理人</span>
+<div id="who-faces-list" class="who-faces"></div>
 </div>
 </div>
 </section>
@@ -99,14 +203,14 @@ img{max-width:100%}
 </div>
 <div style="grid-column: span 6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
 <div style="display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #173F68; color: #FFFFFF">
-<img src="images/uchino-seta.jpg" alt="瀬田まち路地スティックスの店内" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: center 60%">
+<img src="https://yujimansion-hub.github.io/bridge-cycle2026/images/uchino-seta.jpg" alt="瀬田まち路地スティックスの店内" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: center 60%">
 <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 20px">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 22px; font-weight: 700; line-height: 1.4">瀬田で月1回。</span>
 <span style="font-size: 13px; color: #DCE6F0">瀬田まち路地スティックス｜店内の席で食べられます</span>
 </div>
 </div>
 <div style="display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #8A5A12; color: #FFFFFF">
-<img src="kokaido-hero.jpg" alt="旧大津公会堂の正面と前庭" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: center 40%">
+<img src="https://yujimansion-hub.github.io/bridge-cycle2026/kokaido-hero.jpg" alt="旧大津公会堂の正面と前庭" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: center 40%">
 <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 20px">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 22px; font-weight: 700; line-height: 1.4">旧大津公会堂で月1回。</span>
 <span style="font-size: 13px; color: #F6E9D2">大津市浜大津｜前庭で出店</span>
@@ -123,66 +227,43 @@ img{max-width:100%}
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 30px; font-weight: 700">毎月2回、実際に会えます。</span>
 </div>
 
-<div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E6DDCF; padding-top: 32px">
-<h3 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 30px">[◯]月、会えるシェフ</h3>
-<a href="#line" style="font-size: 14px; font-weight: 700">来月の出店日はLINEでお知らせ →</a>
+<div id="find" style="display: flex; flex-direction: column; gap: 20px; border-top: 1px solid #E6DDCF; padding-top: 36px; scroll-margin-top: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 32px">料理人を探す</h3>
+<p style="margin: 0; color: #56616D">目的とこだわりを選び、カレンダーから日付を選んでください。</p>
 </div>
-
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
-<article style="display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 20px; background: #FBF7F0; border: 1px solid #E6DDCF">
-<div style="display: flex; gap: 16px; align-items: center">
-<div style="width: 76px; height: 76px; flex-shrink: 0; border-radius: 50%; border: 1.5px dashed #C9B996; background: #F3ECDF; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #6B6255">[顔写真]</div>
-<div style="display: flex; flex-direction: column; line-height: 1.5"><span style="font-size: 21px; font-weight: 700">[料理人名]さん</span><span style="font-size: 14px; color: #56616D">[和食・野菜料理・子ども向け]</span></div>
+<div class="f-tabs" role="group" aria-label="目的">
+<button type="button" data-mode="shop" aria-pressed="true"><b>店で食べてみる</b><span>出店日に会いに行く</span></button>
+<button type="button" data-mode="home" aria-pressed="false"><b>家に来てもらう</b><span>自宅出張を相談する</span></button>
 </div>
-<p style="margin: 0; font-size: 15px">「[本人の一言：子どもが食べやすい味を大切にしています]」</p>
 <div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; font-weight: 700; color: #8A5A12">次に会える日</span>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF"><span style="font-size: 13px; font-weight: 700; color: #56616D">次回</span><span><b>[10/◯（◯）]</b>｜瀬田</span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF"><span style="font-size: 13px; font-weight: 700; color: #56616D">次々回</span><span><b>[10/◯（◯）]</b>｜旧大津公会堂</span></div>
-<a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="display: flex; align-items: center; justify-content: center; min-height: 50px; margin-top: 4px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-weight: 700; text-decoration: none">この日に食べに行く</a>
+<span style="font-size: 13px; font-weight: 700; color: #8A5A12">こだわり（複数選べます）</span>
+<div class="f-chips" role="group" aria-label="こだわり">
+<button type="button" data-tag="店を営む料理人" aria-pressed="false">店主</button>
+<button type="button" data-tag="店を持つ前の料理人" aria-pressed="false">開業準備中</button>
+<button type="button" data-tag="家庭料理が得意な人" aria-pressed="false">家庭料理</button>
+<button type="button" data-tag="子ども向け" aria-pressed="false">子ども向け</button>
+<button type="button" data-tag="野菜たっぷり" aria-pressed="false">野菜たっぷり</button>
+<button type="button" data-tag="ボリューム重視" aria-pressed="false">ボリューム重視</button>
+<button type="button" data-tag="ヘルシー・減塩" aria-pressed="false">ヘルシー・減塩</button>
+<button type="button" data-tag="やさしい味（産前産後・ご年配）" aria-pressed="false">やさしい味（産前産後・ご年配）</button>
+<button type="button" data-tag="和食" aria-pressed="false">和食</button>
+<button type="button" data-tag="洋食" aria-pressed="false">洋食</button>
+<button type="button" data-tag="中華・エスニック" aria-pressed="false">中華・エスニック</button>
 </div>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 14px; border-top: 1px solid #E6DDCF; padding-top: 12px">
-<span style="font-size: 12px; font-weight: 700; color: #8A5A12">出店メニュー</span>
-<span>[鶏の照り焼き＋副菜3品]　[1,200]円</span>
-<span style="color: #56616D">5品セットの持ち帰りもあります</span>
 </div>
-</article>
-<article style="display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 20px; background: #FBF7F0; border: 1px solid #E6DDCF">
-<div style="display: flex; gap: 16px; align-items: center">
-<div style="width: 76px; height: 76px; flex-shrink: 0; border-radius: 50%; border: 1.5px dashed #C9B996; background: #F3ECDF; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #6B6255">[顔写真]</div>
-<div style="display: flex; flex-direction: column; line-height: 1.5"><span style="font-size: 21px; font-weight: 700">[料理人名]さん</span><span style="font-size: 14px; color: #56616D">[ジャンル]</span></div>
+<div class="f-layout">
+<div class="f-cal" aria-label="カレンダー">
+<div class="f-cal-head"><button type="button" id="cal-prev" aria-label="前の月">‹</button><b id="cal-title"></b><button type="button" id="cal-next" aria-label="次の月">›</button></div>
+<div class="f-cal-grid" id="cal-grid"></div>
+<div class="f-cal-legend"><span><i style="background:#173F68"></i>瀬田</span><span><i style="background:#8A5A12"></i>旧大津公会堂</span><span id="cal-hint"></span></div>
 </div>
-<p style="margin: 0; font-size: 15px">「[本人の一言]」</p>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; font-weight: 700; color: #8A5A12">次に会える日</span>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF"><span style="font-size: 13px; font-weight: 700; color: #56616D">次回</span><span><b>[10/◯（◯）]</b>｜旧大津公会堂</span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF"><span style="font-size: 13px; font-weight: 700; color: #56616D">次々回</span><span><b>[10/◯（◯）]</b>｜瀬田</span></div>
-<a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="display: flex; align-items: center; justify-content: center; min-height: 50px; margin-top: 4px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-weight: 700; text-decoration: none">この日に食べに行く</a>
+<div style="display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<div id="find-summary" aria-live="polite" style="font-weight: 700"></div>
+<div id="find-results" class="f-results"></div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 14px; border-top: 1px solid #E6DDCF; padding-top: 12px">
-<span style="font-size: 12px; font-weight: 700; color: #8A5A12">出店メニュー</span>
-<span>[メニュー]　[価格]円</span>
-<span style="color: #56616D">5品セットの持ち帰りもあります</span>
 </div>
-</article>
-<article style="display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 20px; background: #FBF7F0; border: 1px solid #E6DDCF">
-<div style="display: flex; gap: 16px; align-items: center">
-<div style="width: 76px; height: 76px; flex-shrink: 0; border-radius: 50%; border: 1.5px dashed #C9B996; background: #F3ECDF; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #6B6255">[顔写真]</div>
-<div style="display: flex; flex-direction: column; line-height: 1.5"><span style="font-size: 21px; font-weight: 700">[料理人名]さん</span><span style="font-size: 14px; color: #56616D">[ジャンル]</span></div>
-</div>
-<p style="margin: 0; font-size: 15px">「[本人の一言]」</p>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; font-weight: 700; color: #8A5A12">次に会える日</span>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF"><span style="font-size: 13px; font-weight: 700; color: #56616D">次回</span><span><b>[10/◯（◯）]</b>｜瀬田</span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF"><span style="font-size: 13px; font-weight: 700; color: #56616D">次々回</span><span><b>[10/◯（◯）]</b>｜旧大津公会堂</span></div>
-<a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="display: flex; align-items: center; justify-content: center; min-height: 50px; margin-top: 4px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-weight: 700; text-decoration: none">この日に食べに行く</a>
-</div>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 14px; border-top: 1px solid #E6DDCF; padding-top: 12px">
-<span style="font-size: 12px; font-weight: 700; color: #8A5A12">出店メニュー</span>
-<span>[メニュー]　[価格]円</span>
-<span style="color: #56616D">5品セットの持ち帰りもあります</span>
-</div>
-</article>
+<div id="voices" style="display: none; flex-direction: column; gap: 12px"></div>
 </div>
 </div>
 </section>
@@ -213,7 +294,8 @@ img{max-width:100%}
 <p style="margin: 0; font-size: 14px; color: #56616D">5品を持ち帰り、いつもの食卓で家族の反応を確かめます。</p>
 <div style="margin-top: auto; border-top: 1px solid #EFE7DA; padding-top: 14px; display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 14px; color: #56616D">作り置き5品セット</span>
-<span style="font-family: 'Zen Old Mincho', serif; font-size: 28px; font-weight: 700; line-height: 1.3">3,000〜4,000<span style="font-size: 15px">円</span></span>
+<span style="font-family: 'Zen Old Mincho', serif; font-size: 28px; font-weight: 700; line-height: 1.3">2,500〜5,000<span style="font-size: 15px">円</span></span>
+<span style="font-size: 13px; color: #56616D">料理人ごとに設定</span>
 </div>
 </div>
 <div style="display: flex; align-items: center; color: #8A5A12"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
@@ -225,7 +307,8 @@ img{max-width:100%}
 <p style="margin: 0; font-size: 14px; color: #DCE6F0">3時間で7〜10品。冷蔵庫に、数日分のおかずがある安心を。</p>
 <div style="margin-top: auto; border-top: 1px solid #2E5A86; padding-top: 14px; display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 14px; color: #DCE6F0">自宅出張作り置き</span>
-<span style="font-family: 'Zen Old Mincho', serif; font-size: 28px; font-weight: 700; line-height: 1.3">12,000<span style="font-size: 15px">円前後＋交通費</span></span>
+<span style="font-family: 'Zen Old Mincho', serif; font-size: 28px; font-weight: 700; line-height: 1.3">10,000<span style="font-size: 15px">円〜＋交通費</span></span>
+<span style="font-size: 13px; color: #DCE6F0">料理人ごとに設定（3時間 10,000〜16,000円）</span>
 </div>
 </div>
 </div>
@@ -237,12 +320,22 @@ img{max-width:100%}
 <span>15kmまで <b>1,500円</b></span>
 <span style="font-size: 13px; color: #56616D; margin-left: auto">うちのシェフ共通ルール。15km超は個別相談・駐車場代は実費</span>
 </div>
+<form id="fare-form" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 18px 20px; border-radius: 14px; background: #FBF7F0; border: 1px solid #E6DDCF">
+<label for="fare-addr" style="font-weight: 700">ご住所を入れると、交通費がすぐわかります</label>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<input id="fare-addr" type="text" autocomplete="address-level2" placeholder="例：大津市一里山7丁目（町名まででOK）" style="flex: 1 1 280px; min-height: 48px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #C9B996; font-size: 16px; font-family: inherit; background: #FFFFFF; color: #1C2733">
+<button type="submit" style="min-height: 48px; padding: 0 24px; border-radius: 999px; border: none; background: #173F68; color: #FFFFFF; font-size: 16px; font-weight: 700; font-family: inherit; cursor: pointer">交通費を調べる</button>
+</div>
+<div id="fare-result" aria-live="polite" style="font-size: 15px"></div>
+<span style="font-size: 12px; color: #56616D">料理人の出発地（最寄り駅）からご住所までの直線距離で計算した目安です。確定額は予約時にご案内します。入力した住所は位置を調べるため国土地理院の住所検索に送られますが、運営には送信・保存されません。</span>
+</form>
 <span style="font-size: 13px; color: #56616D">食材費：[込み／別途 を記載]</span>
 </div>
 </div>
 </section>
 
 <!-- SAFETY -->
+
 <section id="safe" style="padding: 96px 0; background: #FFFFFF; border-top: 1px solid #E6DDCF; border-bottom: 1px solid #E6DDCF">
 <div style="max-width: 1120px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 40px; align-items: center">
 <div style="grid-column: span 6; display: flex; flex-direction: column; gap: 16px">
@@ -261,11 +354,15 @@ img{max-width:100%}
 </div>
 <div style="display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid #E6DDCF">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#173F68" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
-<div style="display: flex; flex-direction: column"><span style="font-weight: 700">料金を事前に表示</span><span style="font-size: 14px; color: #56616D">料金・交通費・キャンセル規定は全員共通です。</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 700">料金を事前に表示・事前決済</span><span style="font-size: 14px; color: #56616D">料金は料理人ごとに事前表示。交通費・キャンセル規定は全員共通です。</span></div>
 </div>
 <div style="display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid #E6DDCF">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#173F68" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-5.2A8 8 0 1 1 21 12Z"></path></svg>
 <div style="display: flex; flex-direction: column"><span style="font-weight: 700">出店実績と利用者の声を公開</span><span style="font-size: 14px; color: #56616D">料理人ごとの出店回数と、利用後の声を掲載していきます。</span></div>
+</div>
+<div style="display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid #E6DDCF">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#173F68" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px"><circle cx="12" cy="9" r="6"></circle><path d="m9 9 2 2 4-4"></path><path d="M8.5 14 7 22l5-3 5 3-1.5-8"></path></svg>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 700">家に伺うのは「出張認定」の料理人だけ</span><span style="font-size: 14px; color: #56616D">店頭出店の実績に加え、3時間で7〜10品をつくる実技確認・衛生チェック・訪問研修・賠償責任保険の確認を終えた料理人だけが、自宅出張を受けられます。</span></div>
 </div>
 </div>
 </div>
@@ -277,7 +374,7 @@ img{max-width:100%}
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 42px; line-height: 1.4">まずは、会いに来てください。</h2>
 <p style="margin: 0; color: #DCE6F0">今月の出店日から、会ってみたい料理人を選んでください。<br>「どの人が合うかわからない」「出張の条件だけ聞きたい」という方は、LINEでご相談ください。</p>
 <div style="display: flex; gap: 12px; margin-top: 6px">
-<a href="#next" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #FFFFFF; color: #173F68; font-size: 17px; font-weight: 700; text-decoration: none">今月会えるシェフを見る</a>
+<a href="#find" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #FFFFFF; color: #173F68; font-size: 17px; font-weight: 700; text-decoration: none">今月会えるシェフを見る</a>
 <a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 28px; border-radius: 999px; border: 1.5px solid #FFFFFF; color: #FFFFFF; font-weight: 700; text-decoration: none">LINEで相談する</a>
 </div>
 <a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="color: #DCE6F0; font-size: 14px">LINEで問い合わせる</a>
@@ -292,11 +389,12 @@ img{max-width:100%}
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 34px; line-height: 1.4">頼む前に、気になること。</h2>
 </div>
 <div>
-<details open=""><summary>家には誰が来ますか？</summary><p style="margin: 12px 0 0; color: #56616D">店頭であなたが会って選んだ料理人本人です。登録時に運営が本人確認・食品衛生の確認・PL保険等の加入を確認しています。</p></details>
+<details open=""><summary>家には誰が来ますか？</summary><p style="margin: 12px 0 0; color: #56616D">店頭であなたが会って選んだ料理人本人です。自宅に伺えるのは、運営の実技確認・衛生チェック・訪問研修を終え、賠償責任保険への加入を確認した「出張認定」の料理人だけです。</p></details>
 <details><summary>食材はどうなりますか？</summary><p style="margin: 12px 0 0; color: #56616D">[運用確定後に記載：料理人が購入して実費精算／利用者が用意 など]。保存容器（約10個）・基本の調味料・調理道具は、ご自宅のものを使います。</p></details>
-<details><summary>交通費はいくらですか？</summary><p style="margin: 12px 0 0; color: #56616D">うちのシェフ共通ルールで、料理人の拠点から5kmまで500円・10kmまで1,000円・15kmまで1,500円です。15kmを超える場合は個別にご相談ください。駐車場代は実費です。</p></details>
+<details><summary>交通費はいくらですか？</summary><p style="margin: 12px 0 0; color: #56616D">うちのシェフ共通ルールで、料理人の拠点から5kmまで500円・10kmまで1,000円・15kmまで1,500円です。15kmを超える場合は個別にご相談ください。駐車場代は実費です。料金の欄にご住所を入れると、目安をすぐ確認できます。</p></details>
 <details><summary>子ども向けの味つけにできますか？</summary><p style="margin: 12px 0 0; color: #56616D">ご相談時にお子さまの年齢や好みをお知らせください。子ども向けを得意とする料理人もいます。アレルギーがある場合は必ずお知らせください。対応できるかは料理人ごとに確認してご案内します。</p></details>
 <details><summary>キャンセル料はかかりますか？</summary><p style="margin: 12px 0 0; color: #56616D">自宅出張は3日前まで無料です。2日前30%・前日50%・当日100%。食材の購入後は食材の実費をいただくことがあります。料理人の都合で中止になった場合は全額返金します。</p></details>
+<details><summary>支払いはいつですか？</summary><p style="margin: 12px 0 0; color: #56616D">日程と金額が決まったら、運営からお送りするリンクからカードで事前にお支払いいただき、その時点で予約確定です。料金は料理人に代わって運営（BRIDGE CYCLE株式会社）がお預かりします。キャンセル規定に沿って返金する場合も、同じカードに返金します。</p></details>
 <details><summary>どこまで来てもらえますか？</summary><p style="margin: 12px 0 0; color: #56616D">大津市瀬田・石山・膳所・浜大津、草津市南草津周辺を中心に対応しています。それ以外の地域もご相談ください。</p></details>
 </div>
 </div>
@@ -312,7 +410,7 @@ img{max-width:100%}
 <span style="margin-top: 8px; font-size: 13px; color: #F2D49B">店じまいを、まちのはじまりに。</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-end">
-<a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="color: #FFFFFF; font-weight: 700">料理人として登録したい方へ →</a>
+<a href="uchino-chef-recruit.html" style="color: #FFFFFF; font-weight: 700">料理人として登録したい方へ →</a>
 <a href="tokushoho.html" style="color: #C8D5E2">特定商取引法に基づく表記</a>
 <a href="privacy.html" style="color: #C8D5E2">プライバシーポリシー</a>
 </div>
@@ -320,6 +418,266 @@ img{max-width:100%}
 </footer>
 
 </div>
+<script>
+/* ─────────────────────────────────────────────
+   うちのシェフ｜料理人を探す（公開シート連動）
+   ・Apps Script（uchino-chef-setup.gs）が作る「うちのシェフ_公開データ」を読み、
+     目的（店で食べる／家に来てもらう）・こだわり・カレンダーの日付で料理人を絞り込みます。
+   ・UCHINO_SHEET_ID が空、または読み込みに失敗した場合は「準備中」と LINE 登録の案内を出します。
+   ・シートの文字はすべてエスケープして表示します（料理人の入力をそのままHTMLにしない）。
+   ───────────────────────────────────────────── */
+(function(){
+  var UCHINO_SHEET_ID = "";   // ← setup 実行後に表示される「公開シートID」を貼る
+  var LINE_URL = "https://line.me/R/ti/p/@907kxssd";
+  var PLACE_COLOR = { "瀬田": "#173F68", "旧大津公会堂": "#8A5A12" };
+  var DOW = ["日","月","火","水","木","金","土"];
+
+  var root = document.getElementById("find"); if(!root) return;
+  var grid = document.getElementById("cal-grid"), title = document.getElementById("cal-title");
+  var prevB = document.getElementById("cal-prev"), nextB = document.getElementById("cal-next");
+  var results = document.getElementById("find-results"), summary = document.getElementById("find-summary"), hint = document.getElementById("cal-hint");
+
+  function esc(v){ return String(v == null ? "" : v).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function yen(v){ var n = Number(v); return isFinite(n) && n > 0 ? n.toLocaleString("ja-JP") : ""; }
+  function photoOk(u){ u = String(u||""); return /^https:\/\/[^\s"'<>]+$/i.test(u) || (/^images\/[A-Za-z0-9_\-./]+\.(jpg|jpeg|png|webp)$/i.test(u) && u.indexOf("..") < 0) ? u : ""; }
+  function face(photo, name, size){
+    var p = photoOk(photo);
+    return p ? '<img src="' + esc(p) + '" alt="' + esc(name) + 'さん" style="width:' + size + 'px;height:' + size + 'px;flex-shrink:0;border-radius:50%;object-fit:cover">'
+             : '<div style="width:' + size + 'px;height:' + size + 'px;flex-shrink:0;border-radius:50%;background:#F3ECDF;border:1.5px dashed #C9B996"></div>';
+  }
+  function pad(n){ return (n < 10 ? "0" : "") + n; }
+  function todayStr(){ var d = new Date(Date.now() + 9 * 3600000); return d.getUTCFullYear() + "-" + pad(d.getUTCMonth() + 1) + "-" + pad(d.getUTCDate()); }
+  function md(ds){ var m = String(ds).match(/^\d{4}-(\d{2})-(\d{2})/); if(!m) return esc(ds); var d = new Date(ds + "T00:00:00Z"); return (+m[1]) + "/" + (+m[2]) + "（" + DOW[d.getUTCDay()] + "）"; }
+  function place(p){ return p === "旧大津公会堂" ? "旧大津公会堂" : "瀬田"; }
+  function tagsOf(c){ return String(c.tags || "").split(/\s*[,、]\s*/).filter(Boolean); }
+
+  var TODAY = todayStr();
+  var st = { mode: "shop", tags: [], date: null, y: +TODAY.slice(0,4), m: +TODAY.slice(5,7) - 1 };
+  var minYM = st.y * 12 + st.m, maxYM = minYM + 2;
+  var data = { chefs: [], byId: {}, sched: [], voices: [], state: UCHINO_SHEET_ID ? "loading" : "none" };
+
+  function match(c){
+    if(!st.tags.length) return true;
+    var t = tagsOf(c), txt = [c.genre, c.tokui, c.hitokoto].join(" ");
+    return st.tags.every(function(g){ return c.kind === g || t.indexOf(g) >= 0 || (g.indexOf("料理人") < 0 && txt.indexOf(g.split(/[・（]/)[0]) >= 0); });
+  }
+  function events(){ return data.sched.filter(function(s){ return s.date >= TODAY && data.byId[s.id] && match(data.byId[s.id]); }); }
+
+  function renderCal(){
+    var evs = events(), byDay = {};
+    evs.forEach(function(e){ (byDay[e.date] = byDay[e.date] || []).push(e); });
+    title.textContent = st.y + "年" + (st.m + 1) + "月";
+    var ym = st.y * 12 + st.m; prevB.disabled = ym <= minYM; nextB.disabled = ym >= maxYM;
+    var first = new Date(Date.UTC(st.y, st.m, 1)).getUTCDay(), days = new Date(Date.UTC(st.y, st.m + 1, 0)).getUTCDate();
+    var h = DOW.map(function(d){ return '<span class="dow">' + d + '</span>'; }).join("");
+    for(var i = 0; i < first; i++) h += "<span></span>";
+    for(var d = 1; d <= days; d++){
+      var ds = st.y + "-" + pad(st.m + 1) + "-" + pad(d), ev = byDay[ds] || [];
+      var places = ev.map(function(e){ return place(e.place); }).filter(function(p, i, a){ return a.indexOf(p) === i; });
+      var off = ds < TODAY || (st.mode === "shop" && !ev.length);
+      var label = (st.m + 1) + "月" + d + "日" + (places.length ? "　" + places.join("・") + "に出店あり" : "");
+      h += '<button type="button" data-day="' + ds + '"' + (off ? " disabled" : "") + (ev.length ? ' class="has"' : "") + ' aria-pressed="' + (st.date === ds) + '" aria-label="' + label + '">' + d
+         + (places.length ? '<span class="dots">' + places.map(function(p){ return '<i style="background:' + PLACE_COLOR[p] + '"></i>'; }).join("") + "</span>" : "") + "</button>";
+    }
+    grid.innerHTML = h;
+    hint.textContent = st.mode === "shop" ? "印のある日に会えます" : "出張の希望日を選べます";
+  }
+
+  function empty(msg){ return '<div class="f-empty">' + msg + '</div>'; }
+  function lineBtn(text){ return '<a href="' + LINE_URL + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;margin-top:10px;padding:0 22px;border-radius:999px;background:#173F68;color:#FFFFFF;font-weight:700;text-decoration:none">' + text + '</a>'; }
+  function kindBadge(c){ return c.kind === "店を営む料理人" ? '<span style="font-size:12px;font-weight:700;padding:1px 10px;border-radius:999px;background:#173F68;color:#FFFFFF">店主</span>' : c.kind === "店を持つ前の料理人" ? '<span style="font-size:12px;font-weight:700;padding:1px 10px;border-radius:999px;background:#8A5A12;color:#FFFFFF">開業準備中</span>' : c.kind === "家庭料理が得意な人" ? '<span style="font-size:12px;font-weight:700;padding:1px 10px;border-radius:999px;background:#3F6B5A;color:#FFFFFF">家庭料理</span>' : ""; }
+  function certBadge(c){ return c.certified ? '<span style="font-size:12px;font-weight:700;padding:1px 10px;border-radius:999px;border:1.5px solid #173F68;color:#173F68;white-space:nowrap">出張認定</span>' : ""; }
+  function tagLine(c){ var t = tagsOf(c); return t.length ? '<div style="display:flex;flex-wrap:wrap;gap:6px">' + t.map(function(x){ return '<span style="font-size:12px;padding:2px 10px;border-radius:999px;background:#FFFFFF;border:1px solid #E6DDCF">' + esc(x) + '</span>'; }).join("") + '</div>' : ""; }
+  function rating(c){
+    var n = Number(c.count) || 0, avg = Number(c.avg);
+    return (c.avg !== "" && isFinite(avg)) ? '<span style="color:#8A5A12;font-weight:700">★ ' + avg.toFixed(1) + '</span><span style="color:#56616D">（' + n + '件）</span>'
+         : '<span style="color:#56616D">評価はこれから' + (n ? '（' + n + '件）' : '') + '</span>';
+  }
+  function nextOf(id){ var e = data.sched.filter(function(s){ return s.id === id && s.date >= TODAY; })[0]; return e ? "次に会える日：" + md(e.date) + " " + place(e.place) : "出店日は調整中"; }
+
+  function renderResults(){
+    var tagsTxt = st.tags.length ? "（" + st.tags.join("・") + "）" : "";
+    if(data.state !== "ok"){
+      summary.textContent = "";
+      results.innerHTML = data.state === "loading" ? empty("読み込んでいます…")
+        : empty("料理人の出店予定は準備中です。LINEに登録すると、決まりしだいお知らせします。<br>" + lineBtn("LINEで出店日を受け取る"));
+      return;
+    }
+    if(st.mode === "shop"){
+      var evs = events(), list = st.date ? evs.filter(function(e){ return e.date === st.date; }) : evs.slice(0, 6);
+      summary.textContent = (st.date ? md(st.date) + "に会える料理人" : "これからの出店") + tagsTxt + "：" + list.length + "件" + (!st.date && evs.length > 6 ? "（カレンダーで日付を選ぶと絞り込めます）" : "");
+      results.innerHTML = list.length ? list.map(function(e){
+        var c = data.byId[e.id], col = PLACE_COLOR[place(e.place)];
+        return '<article class="f-card" style="padding:0;overflow:hidden">'
+          + '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:' + col + ';color:#FFFFFF"><b style="font-family:\'Zen Old Mincho\',serif;font-size:20px">' + md(e.date) + '</b><span style="font-size:13px;font-weight:700">' + place(e.place) + (e.time ? "｜" + esc(e.time) : "") + '</span></div>'
+          + '<div style="display:flex;flex-direction:column;gap:12px;padding:0 20px 20px">'
+          + '<div style="display:flex;gap:14px;align-items:center">' + face(c.photo, c.name, 60) + '<div style="display:flex;flex-direction:column;line-height:1.5"><span style="font-size:19px;font-weight:700">' + esc(c.name) + 'さん ' + kindBadge(c) + ' ' + certBadge(c) + '</span><span style="font-size:13px">' + rating(c) + '</span></div></div>'
+          + (c.hitokoto ? '<p style="margin:0;font-size:14px">「' + esc(c.hitokoto) + '」</p>' : '') + tagLine(c)
+          + '<div style="font-size:14px;border-top:1px solid #E6DDCF;padding-top:10px"><span style="font-size:12px;font-weight:700;color:#8A5A12">この日のメニュー</span><br>' + esc(e.menu || c.menu) + (yen(e.price) ? "　" + yen(e.price) + "円" : "") + '<br><span style="color:#56616D">5品セット ' + yen(c.set5) + '円の持ち帰りもあります</span></div>'
+          + '<a href="' + LINE_URL + '" target="_blank" rel="noopener" data-chef="' + esc(c.id) + '" data-date="' + esc(e.date) + '" style="display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:999px;background:#173F68;color:#FFFFFF;font-weight:700;text-decoration:none">この日に食べに行く</a>'
+          + '</div></article>';
+      }).join("") : empty(st.tags.length ? "条件に合う出店がありません。こだわりを外すか、別の月を見てください。" : "この日の出店はありません。印のある日を選んでください。");
+    } else {
+      var chefs = data.chefs.filter(function(c){ return c.certified && match(c); });
+      summary.textContent = "出張を頼める料理人（出張認定）" + tagsTxt + "：" + chefs.length + "人" + (st.date ? "　希望日 " + md(st.date) + " の空きはLINEで確認します" : "");
+      results.innerHTML = chefs.length ? chefs.map(function(c){
+        return '<article class="f-card">'
+          + '<div style="display:flex;gap:14px;align-items:center">' + face(c.photo, c.name, 60) + '<div style="display:flex;flex-direction:column;line-height:1.5"><span style="font-size:19px;font-weight:700">' + esc(c.name) + 'さん ' + kindBadge(c) + ' ' + certBadge(c) + '</span><span style="font-size:13px">' + rating(c) + '</span></div></div>'
+          + tagLine(c)
+          + '<div style="display:flex;flex-direction:column;gap:2px;font-size:14px"><span>得意料理：' + esc(c.tokui) + '</span>' + (c.career ? '<span>経歴・資格：' + esc(c.career) + '</span>' : '') + '<span style="color:#56616D">対応エリア：' + esc(c.area) + '</span></div>'
+          + '<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #E6DDCF;padding-top:10px"><span style="font-size:14px;color:#56616D">自宅出張 3時間</span><span style="font-family:\'Zen Old Mincho\',serif;font-size:22px;font-weight:700">' + yen(c.price) + '<span style="font-size:13px">円＋交通費</span></span></div>'
+          + '<span data-fare-for="' + esc(c.id) + '" style="font-size:13px;font-weight:700;color:#8A5A12"></span>'
+          + '<span style="font-size:13px;color:#56616D">' + nextOf(c.id) + '</span>'
+          + '<a href="' + LINE_URL + '" target="_blank" rel="noopener" data-chef="' + esc(c.id) + '" style="display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:999px;background:#173F68;color:#FFFFFF;font-weight:700;text-decoration:none">' + (st.date ? md(st.date) + "に出張を相談" : "この料理人に出張を相談") + '</a>'
+          + '</article>';
+      }).join("") : empty(data.chefs.some(function(c){ return c.certified; }) ? "条件に合う料理人がいません。こだわりを減らしてみてください。" : "出張認定の料理人は、ただいま準備中です。店頭で会える料理人は「店で食べてみる」から探せます。");
+      if(window.uchinoFare) window.uchinoFare();
+    }
+  }
+  function renderAll(){
+    root.querySelectorAll(".f-tabs button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-mode") === st.mode)); });
+    root.querySelectorAll(".f-chips button").forEach(function(b){ b.setAttribute("aria-pressed", String(st.tags.indexOf(b.getAttribute("data-tag")) >= 0)); });
+    renderCal(); renderResults();
+  }
+  function setMode(mode){
+    st.mode = mode;
+    if(mode === "shop" && st.date && !events().some(function(e){ return e.date === st.date; })) st.date = null;
+    renderAll();
+  }
+
+  root.addEventListener("click", function(e){
+    var b = e.target.closest("button"); if(!b || !root.contains(b)) return;
+    if(b.hasAttribute("data-mode")) setMode(b.getAttribute("data-mode"));
+    else if(b.hasAttribute("data-tag")){
+      var t = b.getAttribute("data-tag"), i = st.tags.indexOf(t);
+      if(i >= 0) st.tags.splice(i, 1); else st.tags.push(t);
+      if(st.mode === "shop" && st.date && !events().some(function(x){ return x.date === st.date; })) st.date = null;
+      renderAll();
+    } else if(b.hasAttribute("data-day")){ var ds = b.getAttribute("data-day"); st.date = st.date === ds ? null : ds; renderAll(); }
+    else if(b === prevB || b === nextB){ var ym = st.y * 12 + st.m + (b === nextB ? 1 : -1); if(ym < minYM || ym > maxYM) return; st.y = Math.floor(ym / 12); st.m = ym % 12; renderCal(); }
+  });
+  document.querySelectorAll('a[data-mode]').forEach(function(a){ a.addEventListener("click", function(){ setMode(a.getAttribute("data-mode")); }); });
+  document.querySelectorAll('#who a[data-tag], #who a[data-kind]').forEach(function(a){ a.addEventListener("click", function(){
+    st.tags = [a.getAttribute("data-kind") || a.getAttribute("data-tag")];
+    if(st.mode === "shop" && st.date && !events().some(function(x){ return x.date === st.date; })) st.date = null;
+    renderAll();
+  }); });
+
+  renderAll();
+  if(!UCHINO_SHEET_ID || !window.fetch) return;
+
+  function load(sheet){
+    var u = "https://docs.google.com/spreadsheets/d/" + UCHINO_SHEET_ID + "/gviz/tq?tqx=out:json&headers=1&sheet=" + encodeURIComponent(sheet);
+    return fetch(u, {cache:"no-store"}).then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+    .then(function(t){
+      var m = t.match(/setResponse\(([\s\S]*)\);?\s*$/); if(!m) throw new Error("gviz形式ではありません");
+      var tb = JSON.parse(m[1]).table, cols = tb.cols.map(function(c){ return (c.label || c.id || "").trim(); });
+      return (tb.rows || []).map(function(r){ var o = {}; (r.c || []).forEach(function(c, i){ o[cols[i]] = c ? (c.v != null ? c.v : "") : ""; }); return o; })
+        .filter(function(o){ return o.id; });
+    });
+  }
+  Promise.all([load("料理人"), load("出店"), load("声").catch(function(){ return []; })]).then(function(res){
+    data.chefs = res[0].sort(function(a, b){ return (Number(a.rank) || 999) - (Number(b.rank) || 999); });
+    data.chefs.forEach(function(c){ data.byId[c.id] = c; });
+    data.sched = res[1].filter(function(s){ return /^\d{4}-\d{2}-\d{2}$/.test(String(s.date)); }).sort(function(a, b){ return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    data.voices = res[2];
+    data.state = data.chefs.length ? "ok" : "none";
+    window.UCHINO_CHEFS = data.chefs;
+    var up = events()[0];   // いちばん近い出店がある月から表示
+    if(up){ var ym = +up.date.slice(0,4) * 12 + (+up.date.slice(5,7) - 1); if(ym <= maxYM){ st.y = Math.floor(ym / 12); st.m = ym % 12; } }
+    renderAll();
+    var faces = document.getElementById("who-faces-list");
+    if(faces && data.chefs.length){
+      faces.innerHTML = data.chefs.slice(0, 12).map(function(c){
+        return '<a href="#find" data-face="' + esc(c.id) + '">' + face(c.photo, c.name, 72) + '<b style="font-size:16px">' + esc(c.name) + 'さん</b>' + kindBadge(c) + certBadge(c) + '<span style="color:#56616D">' + esc(tagsOf(c).slice(0, 2).join("・") || c.genre) + '</span><span style="color:#56616D">' + nextOf(c.id) + '</span></a>';
+      }).join("");
+      document.getElementById("who-faces").style.display = "flex";
+    }
+    if(data.voices.length){
+      var v = document.getElementById("voices");
+      v.innerHTML = '<span style="font-size:13px;font-weight:700;color:#8A5A12">利用された方の声</span>' + data.voices.slice(0, 6).map(function(x){
+        return '<div style="padding:16px 20px;border-radius:14px;background:#FBF7F0;border:1px solid #E6DDCF;font-size:15px"><span style="color:#8A5A12;font-weight:700">' + "★".repeat(Math.max(1, Math.min(5, Number(x.stars) || 0))) + '</span>　' + esc(x.comment) + '<span style="display:block;font-size:13px;color:#56616D;margin-top:4px">' + esc(x.name) + 'さんへの声｜' + esc(x.month) + '</span></div>';
+      }).join("");
+      v.style.display = "flex";
+    }
+  }).catch(function(e){
+    data.state = "none"; renderAll();
+    try{ console.warn("うちのシェフ：公開シートの読み込みに失敗", e && e.message); }catch(_){}
+  });
+})();
+</script>
+<script>
+/* ─────────────────────────────────────────────
+   交通費の目安（住所 → 国土地理院の住所検索で位置 → 出発地の駅から直線距離 → 共通ルールで金額）
+   ・料理人データ（公開シート）があれば料理人ごと、なければ主な出発地の駅での範囲を表示
+   ・住所は国土地理院へ位置検索のために送るだけで、運営・計測（GA4）には送らない
+   ───────────────────────────────────────────── */
+(function(){
+  var ORIGINS = {   // 国土地理院 住所検索の駅位置（2026年9月取得）
+    "瀬田駅":[34.98711,135.92597], "石山駅":[34.98165,135.89968], "膳所駅":[34.99926,135.87836],
+    "大津駅":[35.00286,135.86508], "びわ湖浜大津駅":[35.01111,135.86395], "南草津駅":[35.00375,135.94731],
+    "草津駅":[35.02235,135.96134], "堅田駅":[35.12101,135.91534]
+  };
+  var DEFAULT_ORIGINS = ["瀬田駅","石山駅","膳所駅","びわ湖浜大津駅","南草津駅"];
+  var BANDS = [[5,500],[10,1000],[15,1500]];   // うちのシェフ共通ルール
+  var form = document.getElementById("fare-form"); if(!form || !window.fetch) return;
+  var out = document.getElementById("fare-result"), input = document.getElementById("fare-addr");
+  var last = null;
+
+  function esc(v){ return String(v == null ? "" : v).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function km(a, b){
+    var R = 6371, r = Math.PI / 180, dLat = (b[0]-a[0])*r, dLng = (b[1]-a[1])*r;
+    var x = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dLng/2)*Math.sin(dLng/2);
+    return 2 * R * Math.asin(Math.sqrt(x));
+  }
+  function fare(d){ for(var i = 0; i < BANDS.length; i++){ if(d <= BANDS[i][0]) return BANDS[i][1]; } return null; }
+  function fareText(d){ var f = fare(d); return f === null ? "個別にご相談" : f.toLocaleString("ja-JP") + "円"; }
+
+  function render(){
+    if(!last) return;
+    var all = window.UCHINO_CHEFS || [], chefs = all.filter(function(c){ return ORIGINS[c.origin]; });
+    var html = '<div style="margin-bottom:6px;color:#56616D">検索した場所：' + esc(last.title) + '</div>';
+    if(chefs.length){
+      html += chefs.map(function(c){
+        var d = km(ORIGINS[c.origin], last.pt);
+        return '<div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid #E6DDCF"><span>' + esc(c.name) + 'さん（' + esc(c.origin) + 'から約' + d.toFixed(1) + 'km）</span><b style="white-space:nowrap">' + fareText(d) + '</b></div>';
+      }).join("");
+      html += all.filter(function(c){ return !ORIGINS[c.origin]; }).map(function(c){
+        return '<div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid #E6DDCF"><span>' + esc(c.name) + 'さん</span><b style="white-space:nowrap">個別にご案内</b></div>';
+      }).join("");
+      document.querySelectorAll("[data-fare-for]").forEach(function(el){
+        var c = chefs.filter(function(x){ return x.id === el.getAttribute("data-fare-for"); })[0];
+        el.textContent = c ? "あなたの住所まで約" + km(ORIGINS[c.origin], last.pt).toFixed(1) + "km｜交通費 " + fareText(km(ORIGINS[c.origin], last.pt)) : "交通費は出発地により個別にご案内";
+      });
+    } else {
+      var ds = DEFAULT_ORIGINS.map(function(n){ return km(ORIGINS[n], last.pt); });
+      var near = Math.min.apply(null, ds), far = Math.max.apply(null, ds);
+      var a = fareText(near), b = fareText(far);
+      html += '<div style="padding:8px 0;border-top:1px solid #E6DDCF">交通費の目安：<b>' + (a === b ? a : a + ' 〜 ' + b) + '</b><br><span style="font-size:13px;color:#56616D">料理人の出発地（瀬田・石山・膳所・浜大津・南草津）により変わります。いちばん近い出発地から約' + near.toFixed(1) + 'km。</span></div>';
+    }
+    out.innerHTML = html;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var q = (input.value || "").trim();
+    if(q.length < 2){ out.textContent = "ご住所を入力してください。"; return; }
+    if(!/滋賀|京都|大阪/.test(q)) q = "滋賀県" + q;
+    out.textContent = "調べています…";
+    fetch("https://msearch.gsi.go.jp/address-search/AddressSearch?q=" + encodeURIComponent(q))
+      .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function(list){
+        list = (list || []).filter(function(x){ return x && x.geometry && x.properties; });
+        var hit = list.filter(function(x){ return /^滋賀県/.test(x.properties.title); })[0] || list[0];
+        if(!hit){ last = null; out.textContent = "住所が見つかりませんでした。市町名から入力してみてください（例：大津市一里山）。"; return; }
+        last = { title: hit.properties.title, pt: [hit.geometry.coordinates[1], hit.geometry.coordinates[0]] };
+        render();
+      })
+      .catch(function(){ last = null; out.innerHTML = '交通費を調べられませんでした。お手数ですが <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINE</a> でご住所（町名まで）をお知らせください。'; });
+  });
+  window.uchinoFare = render;
+})();
+</script>
 <script src="bc-analytics.js"></script>
 </body>
 </html>
