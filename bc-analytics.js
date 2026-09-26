@@ -62,5 +62,28 @@
     document.addEventListener('input',function(){
       if(started) return; started=true; bcTrack('yameru_start');
     },true);
+
+    /* 試算の完了：主要10項目のうち5項目以上を自分の数字に変え、結果欄を見たときに1回だけ。
+       送るのは「変えた項目の数」だけで、入力値は送らない */
+    var MAIN=['tsubo','rent','dep','notice','lease','inv','yrs','staff','profit','wait'];
+    var touched={}, seen=false, done=false;
+    function tryDone(){
+      if(done) return;
+      var n=Object.keys(touched).length;
+      if(n>=5 && seen){ done=true; bcTrack('yameru_complete',{fields_changed:n}); }
+    }
+    document.addEventListener('input',function(e){
+      var id=e.target&&e.target.id; if(MAIN.indexOf(id)>=0){ touched[id]=1; tryDone(); }
+    },true);
+    document.addEventListener('change',function(e){
+      var id=e.target&&e.target.id; if(MAIN.indexOf(id)>=0){ touched[id]=1; tryDone(); }
+    },true);
+    var watchRes=function(){
+      var res=document.getElementById('res'); if(!res || !('IntersectionObserver' in window)) return;
+      new IntersectionObserver(function(es){
+        es.forEach(function(x){ if(x.isIntersecting){ seen=true; tryDone(); } });
+      },{threshold:0.3}).observe(res);
+    };
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',watchRes); else watchRes();
   }
 })();
