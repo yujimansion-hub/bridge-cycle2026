@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><title>relay</title><meta name="robots" content="noindex">
+<p id="s">relay</p>
+<script>
+// Ad-image relay: sends a local ad image to the opener window (used once for Ads Manager upload).
+(async()=>{const f=new URLSearchParams(location.search).get('f')||'akinai_ad_A_feed.jpg';
+if(!/^[\w.-]+\.jpg$/.test(f))return;
+const b=await (await fetch(f)).blob();
+const send=()=>{try{window.opener&&window.opener.postMessage({relay:f,blob:b},'*')}catch(e){}};
+send();setInterval(send,1000);document.getElementById('s').textContent='sent '+f+' '+b.size+(window.opener?' (opener ok)':' (no opener)');})();
+</script>
