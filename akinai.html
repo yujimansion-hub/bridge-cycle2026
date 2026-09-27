@@ -5483,6 +5483,48 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
   #res .result-upgrade{padding:26px 20px}
 }
 </style>
+
+<style id="akinai-20260927-paid-fold">
+/* 今日のナチュラルな空気感を崩さず、有料説明だけ必要な人に開く */
+.paid-detail-fold{
+  margin:18px 0;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,250,245,.78);
+  overflow:hidden;
+}
+.paid-detail-fold>summary{
+  list-style:none;
+  cursor:pointer;
+  padding:15px 18px;
+  font-family:var(--serif);
+  font-size:14px;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.paid-detail-fold>summary::-webkit-details-marker{display:none}
+.paid-detail-fold>summary:after{
+  content:"＋";
+  color:var(--rose);
+  font-family:inherit;
+  font-size:18px;
+  line-height:1;
+}
+.paid-detail-fold[open]>summary:after{content:"−"}
+.paid-detail-fold-body{
+  padding:0 18px 18px;
+  border-top:1px solid var(--line);
+}
+.paid-detail-fold-body>.paid-plan-cards{margin-top:18px}
+.paid-detail-fold-secondary{margin-top:24px}
+@media(max-width:680px){
+  .paid-detail-fold>summary{padding:14px 15px;font-size:13px}
+  .paid-detail-fold-body{padding:0 14px 14px}
+}
+</style>
 </head>
 <body>
 
@@ -5522,17 +5564,17 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
       <div class="v4-see-grid">
         <article>
           <h3><span>1.</span>自分では仕事だと<br>思っていなかったこと</h3>
-          <p>これまでの経験や好きなことから、新しい価値の見方に気づきます。</p>
+          <p>いつも普通にやっていたことの中から。</p>
           <img src="assets/akinai-v4/feat1.jpg?v=20260927b" alt="" width="622" height="264" loading="lazy">
         </article>
         <article>
           <h3><span>2.</span>小さく試せる<br>方向性</h3>
-          <p>今の暮らしに合わせて、無理なく始められる働き方がわかります。</p>
+          <p>今の暮らしを、大きく変えずに。</p>
           <img src="assets/akinai-v4/feat2.jpg?v=20260927b" alt="" width="588" height="264" loading="lazy">
         </article>
         <article>
           <h3><span>3.</span>今週できる<br>最初の一歩</h3>
-          <p>「誰に・何を・どう試すか」のヒントを、具体的な行動でお伝えします。</p>
+          <p>まずは、ひとつだけ。</p>
           <img src="assets/akinai-v4/feat3.jpg?v=20260927b" alt="" width="622" height="264" loading="lazy">
         </article>
       </div>
@@ -5560,7 +5602,7 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
         <h3>今週できる最初の一歩（例）</h3>
         <ol>
           <li><img src="assets/akinai-v4/step1b.jpg?v=20260927b" alt="" width="123" height="66" loading="lazy"><p>「どれがいいか分からない」と言っていた知人3人に、話を聞いてみる</p></li>
-          <li><img src="assets/akinai-v4/step2b.jpg?v=20260927b" alt="" width="123" height="69" loading="lazy"><p>理由つきで3つに絞る提案を1回だけ試してみる（例：1回5,000円）</p></li>
+          <li><img src="assets/akinai-v4/step2b.jpg?v=20260927b" alt="" width="123" height="69" loading="lazy"><p>理由つきで3つに絞る提案を、知人1人に試してみる</p></li>
           <li><img src="assets/akinai-v4/step3b.jpg?v=20260927b" alt="" width="123" height="70" loading="lazy"><p>紹介した相手に「その後どう？」と聞いて、感想を集めてみる</p></li>
         </ol>
       </div>
@@ -6136,7 +6178,10 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
           </div>
         </div>
 
-        <div class="paid-plan-cards" aria-label="3つの商いの考え方">
+        <details class="paid-detail-fold">
+          <summary>3つの案の考え方を見る</summary>
+          <div class="paid-detail-fold-body">
+<div class="paid-plan-cards" aria-label="3つの商いの考え方">
           <article class="ppc protect"><small>PLAN A</small><b>守る</b><p>今の暮らしを変えずに、小さく試す。</p></article>
           <article class="ppc use"><small>PLAN B</small><b>活かす</b><p>今ある経験・強みを、そのまま価値にする。</p></article>
           <article class="ppc grow"><small>PLAN C</small><b>育てる</b><p>3年後につながる形を、無理なく育てる。</p></article>
@@ -6147,6 +6192,10 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
         </ul>
 
         <div class="paid-principle"><small>この設計が大事にしていること</small><b>大きく始めるためではなく、<br>失敗しても暮らしが壊れない始め方を考えます。</b><span>「今はやらない」も、きちんとした答えのひとつです。</span></div>
+
+        
+          </div>
+        </details>
 
         <div class="paid-cta-top paid-cta-top-v2">
           <a class="btn" href="#paidEngine">私の3案を見る　3,300円 →</a>
@@ -6165,7 +6214,10 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
         <figcaption>総合レポート ＋ 3案 ＋ 各案約3ページ（画像をクリックすると大きく表示できます）</figcaption>
       </figure>
 
-      <div class="cond-box">
+      <details class="paid-detail-fold paid-detail-fold-secondary">
+        <summary>条件や、無料版との違いを見る</summary>
+        <div class="paid-detail-fold-body">
+<div class="cond-box">
         <p class="cond-lead">同じ答えでも、条件が違えば、出てくる案は変わります。</p>
         <div class="cond-keys" aria-label="提案を変える4つの条件">
           <span class="ck-lab">提案を変える4つの条件</span>
@@ -6189,6 +6241,10 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
           <tr><th></th><td>—</td><td class="on">90日プラン</td></tr>
         </tbody>
       </table>
+      
+        </div>
+      </details>
+
       <div class="host-note">
         <div class="hn-head"><span class="hn-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="hn-lead">別に、起業した方がいいとは思ってません。</p></div>
         <div class="hn-three"><span>「これは違う」</span><span>「これはちょっとやってみたい」</span><span>「これは今じゃない」</span></div>
