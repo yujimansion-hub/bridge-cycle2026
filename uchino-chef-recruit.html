@@ -255,7 +255,7 @@ span[style*="color: #B0654A"],a[style*="color: #B0654A"]{color:var(--natural-acc
 /* 2026-09-27 わたしのこれから診断と同じトーン（配色・明朝・余白）にそろえる */
 :root{--bc-bg:#f8f3ed;--bc-paper:#fffdf9;--bc-ink:#2f2925;--bc-body:#4a423c;--bc-line:#e8ddd2;--bc-brown:#7b4a36;--bc-brown-d:#643a2a;--bc-rust:#b0654a;--bc-sage:#e6ece4;--bc-mincho:"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif}
 body{background:var(--bc-bg)!important;color:var(--bc-ink)!important;letter-spacing:.02em}
-h1,h2,h3{font-family:var(--bc-mincho)!important;font-weight:500!important;letter-spacing:.05em!important;word-break:keep-all;overflow-wrap:anywhere}
+h1,h2,h3{font-family:var(--bc-mincho)!important;font-weight:500!important;letter-spacing:.05em!important;line-break:strict}
 h1{font-weight:400!important;line-height:1.5!important;letter-spacing:.12em!important}
 section h2{line-height:1.55!important}
 .natural-hero h1{font-size:clamp(30px,3.6vw,46px)!important;margin:0!important}
@@ -271,6 +271,33 @@ section h2{line-height:1.55!important}
 .natural-three article span{color:var(--bc-rust)!important;font-family:var(--bc-mincho)!important;font-size:26px!important}
 a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="background:#7B4A36"],button[style*="background:#7B4A36"]{border-radius:999px!important}
 @media(max-width:760px){.natural-hero h1{font-size:30px!important;letter-spacing:.08em!important}}
+</style>
+
+<style id="bc-soft-20260927c">
+/* 下部の濃い茶色ブロックを、生成り＋細い罫線に（2026-09-27） */
+.bc-soft{background:#f3ebe3!important;color:var(--bc-ink)!important;border:1px solid var(--bc-line)!important}
+div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06)!important}
+.bc-soft :is(h2,h3,b,strong){color:var(--bc-ink)!important}
+.bc-soft :is(p,li,small,span,div,td,th){color:var(--bc-body)!important}
+.bc-soft :is(span,small)[style*="font-weight: 700"]:first-child{color:var(--bc-rust)!important}
+.bc-soft a:not([style*="background: #FFFFFF"]){color:var(--bc-brown)!important;border-color:var(--bc-brown)!important}
+.bc-soft a[style*="background: #FFFFFF"]{background:var(--bc-brown)!important;color:#fff!important}
+.bc-soft img{opacity:1}
+.r-steps-dark div{background:#fffdf9!important;border:1px solid var(--bc-line)!important}
+.r-steps-dark div span{color:var(--bc-rust)!important;font-family:var(--bc-mincho)!important}
+.r-steps-dark div b{color:var(--bc-ink)!important}
+.r-steps-dark div p{color:var(--bc-body)!important}
+.r-pm-total{background:#f3ebe3!important;color:var(--bc-ink)!important;border-top:1px solid var(--bc-brown)!important}
+.r-pm-total *{color:var(--bc-ink)!important}
+/* 折りたたみ（わたしのこれから診断と同じ考え方：消さずに、必要な人だけ開く） */
+.bc-fold{border:1px solid var(--bc-line);border-radius:6px;background:#fffdf9;overflow:hidden}
+.bc-fold>summary{list-style:none;cursor:pointer;padding:16px 20px;font-family:var(--bc-mincho);font-size:15px;letter-spacing:.06em;color:var(--bc-ink);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.bc-fold>summary::-webkit-details-marker{display:none}
+.bc-fold>summary::after{content:"＋";color:var(--bc-rust);font-size:18px;line-height:1}
+.bc-fold[open]>summary::after{content:"−"}
+.bc-fold>.bc-fold-body{padding:4px 20px 22px;border-top:1px solid var(--bc-line)}
+.bc-fold>.bc-fold-body>*{margin-top:18px}
+@media(max-width:760px){.bc-fold>summary{padding:14px 16px;font-size:14px}.bc-fold>.bc-fold-body{padding:2px 14px 16px}}
 </style>
 </head>
 <body>
@@ -401,6 +428,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 36px; line-height: 1.4">まず「会えるシェフ」から。<br class="pc-only">家に伺うのは「出張認定」のあとです。</h2>
 <p style="margin: 0; color: #5A514A">家庭料理が上手なことと、他の家の台所で3時間に7〜10品をつくることは、別の技術です。経験を問わず募集するからこそ、出張は運営の確認を終えた人だけにしています。お客さまのLPにも「出張認定」の印が出ます。</p>
 </div>
+<details class="bc-fold"><summary>「会えるシェフ」と「出張認定シェフ」の条件を見る</summary><div class="bc-fold-body">
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
 <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DDD2">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 15px; font-weight: 700; color: #B0654A">LEVEL 1</span>
@@ -408,13 +436,14 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <span style="color: #5A514A">店頭で料理を出し、5品セットを売ることができます。</span>
 <div class="r-list"><div><b>本人確認・面談</b></div><div><b>食品衛生責任者・営業許可</b></div><div><b>店頭の料理に備える保険</b><span>食品営業賠償共済など（月あたり約230円〜）</span></div><div><b>顔写真とプロフィールの掲載</b></div><div><b>店頭出店・5品セット販売</b><span>お客さまとの出会いと、評価の準備</span></div></div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; background: #7B4A36; color: #FFFFFF">
+<div class="bc-soft" style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; background: #7B4A36; color: #FFFFFF">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 15px; font-weight: 700; color: #F2DCD2">LEVEL 2</span>
 <b style="font-family: 'Zen Old Mincho', serif; font-size: 26px">出張認定シェフ</b>
 <span style="color: #F3E7E0">自宅出張の相談を受けられます。LEVEL 1に加えて、次をクリアした人です。</span>
 <div class="r-list r-list-dark"><div><b>店頭出店の実績</b><span>瀬田・旧大津公会堂の両方での出店</span></div><div><b>5品セットの品質確認</b></div><div><b>実技確認</b><span>3時間で7〜10品をつくる調理テスト（運営が立ち会い）</span></div><div><b>衛生チェック・訪問研修</b><span>他の家の台所での衛生、道具の扱い、訪問時のマナー</span></div><div><b>出張中の事故に備える保険</b><span>フリーランス協会の賠償責任保険など（年会費10,000円は、出張1件ごとに2,000円ずつお返し。5件で全額）</span></div></div>
 </div>
 </div>
+</div></details>
 </div>
 </section>
 
@@ -426,7 +455,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 40px; line-height: 1.4">料金もプロフィールも、<br>あなたが決める。</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
-<div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 20px; background: #7B4A36; color: #FFFFFF">
+<div class="bc-soft" style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 20px; background: #7B4A36; color: #FFFFFF">
 <b style="font-size: 20px">あなたが決める</b>
 <div class="r-list r-list-dark">
 <div><b>自宅出張の料金</b><span>3時間 10,000〜16,000円の範囲で</span></div>
@@ -458,6 +487,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 36px; line-height: 1.4">評価は、実際に<br>頼んだ人だけがつける。</h2>
 <p style="margin: 0; color: #5A514A">表示順のしくみを公開しています。広告費や運営との関係で順位が変わることはありません。</p>
 </div>
+<details class="bc-fold" style="grid-column: span 7"><summary>評価と表示順のしくみを見る</summary><div class="bc-fold-body">
 <div style="grid-column: span 7; display: flex; flex-direction: column; border-top: 1px solid #E8DDD2">
 <div class="r-row"><b>評価できるのは予約した人だけ</b><span>事前決済が済んだ予約の番号がないと評価できません。1つの予約につき1件です。</span></div>
 <div class="r-row"><b>評価が少ないうちは控えめに計算</b><span>登録直後は全員が同じ4.0点から始まり、評価がたまるほど実際の点数に近づきます。1件の低評価で急に順位が落ちることはありません。</span></div>
@@ -465,6 +495,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <div class="r-row"><b>出店ルールも順位に入る</b><span>月2回の出店が2か月続けて未達だと順位が下がり、3か月続くと一時非掲載になります。</span></div>
 <div class="r-row"><b>感想は良くても厳しくても掲載</b><span>お客さまが掲載に同意した感想は、内容で選ばずに新しい順に載せます。</span></div>
 </div>
+</div></details>
 </div>
 </section>
 
@@ -474,8 +505,9 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 820px">
 <span style="font-size: 13px; font-weight: 700; color: #B0654A">お金のこと</span>
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 40px; line-height: 1.4">代金は事前決済。<br>手数料は、出張が決まったときだけ。</h2>
-<p style="margin: 0; color: #5A514A">登録料・月会費はかかりません。お客さまの代金はカードで事前にお支払いいただき、運営があなたに代わって受け取ります。手数料を差し引いて、[月末締め・翌月◯日]にお振り込みします。</p>
+<p style="margin: 0; color: #5A514A">登録料・月会費はかかりません。お客さまの代金はカードで事前にお支払いいただき、運営があなたに代わって受け取ります。手数料を差し引いてお振り込みします（締め日・振込日は登録時にご案内します）。</p>
 </div>
+<details class="bc-fold"><summary>手数料と、受取額の例を見る</summary><div class="bc-fold-body">
 <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 20px; align-items: start">
 <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 10px">
 <div class="r-fee"><span>運営手数料（初回のお客さま）</span><b>出張料金の20%</b></div>
@@ -483,7 +515,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <div class="r-fee"><span>カード決済手数料</span><b>決済額の3.6%</b></div>
 <div class="r-fee"><span>交通費</span><b>手数料なし・全額あなたへ</b></div>
 <div class="r-fee"><span>保険料のお返し（出張認定後、最初の5件の出張ごと）</span><b>1件ごとに＋2,000円</b></div>
-<p style="margin: 0; font-size: 13px; color: #5A514A">店頭での売上はあなたのものです（運営手数料はかかりません）。出店料は別途：[瀬田 ◯円／旧大津公会堂 ◯円]</p>
+<p style="margin: 0; font-size: 13px; color: #5A514A">店頭での売上はあなたのものです（運営手数料はかかりません）。出店料は別途かかります（場所ごとの金額は面談時にご案内します）。</p>
 </div>
 <div style="grid-column: span 7; border: 1px solid #E8DDD2; border-radius: 18px; overflow: hidden">
 <div class="r-tbl r-tbl-head"><span>受取額の例（3時間 12,000円・交通費 500円）</span><span>初めての<br>お客さま</span><span>2回目以降の<br>お客さま</span></div>
@@ -493,9 +525,10 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <div class="r-tbl"><span>保険料のお返し<br><small style="color:#5A514A">最初の5件の出張ごと。5件で年会費10,000円が全額戻る</small></span><span>＋2,000円</span><span>＋2,000円</span></div>
 <div class="r-tbl r-tbl-total" style="background:#FBF7F0"><span>あなたの受取額（最初の5件）</span><span>11,650円</span><span>12,850円</span></div>
 <div class="r-tbl r-tbl-total"><span>あなたの受取額（6件目から）</span><span>9,650円</span><span>10,850円</span></div>
-<p style="margin: 0; padding: 12px 18px; font-size: 13px; color: #5A514A; background: #FBF7F0">出張用保険の年会費10,000円は先にお支払いいただき、最初の5件の出張で2,000円ずつ受取額に上乗せしてお返しします（加入しただけではお返しは発生しません）。保険で毎年かかるのは、店頭用の共済（月あたり約230円〜）だけです。リピートのお客さまほど手取りが増える設計です。食材費の扱いは[確定後に記載]。</p>
+<p style="margin: 0; padding: 12px 18px; font-size: 13px; color: #5A514A; background: #FBF7F0">出張用保険の年会費10,000円は先にお支払いいただき、最初の5件の出張で2,000円ずつ受取額に上乗せしてお返しします（加入しただけではお返しは発生しません）。保険で毎年かかるのは、店頭用の共済（月あたり約230円〜）だけです。リピートのお客さまほど手取りが増える設計です。食材費の扱いは、面談時にご案内します。</p>
 </div>
 </div>
+</div></details>
 </div>
 </section>
 
@@ -507,6 +540,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 36px; line-height: 1.4">お客さまの家に<br>入る仕事だから。</h2>
 <p style="margin: 0; color: #5A514A">登録のときに、運営が次のことを確認します。</p>
 </div>
+<details class="bc-fold" style="grid-column: span 7"><summary>登録のときに確認することを見る</summary><div class="bc-fold-body">
 <div style="grid-column: span 7; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
 <div class="r-check">本人確認・連絡先の確認</div>
 <div class="r-check">食品衛生に関する資格・講習の確認</div>
@@ -519,6 +553,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <div class="r-check">代金を運営が代わりに受け取ることへの同意</div>
 <div class="r-check">お客さまと直接契約しないことへの同意（違反時は違約金）</div>
 </div>
+</div></details>
 </div>
 </section>
 
@@ -530,14 +565,16 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 34px; line-height: 1.4">許可の取り方は、<br class="pc-only">運営が一緒に進めます。</h2>
 <p style="margin: 0; color: #5A514A">店頭で料理を出すには、保健所の営業許可が必要です（許可は料理人ごとに取ります）。申請の段取りは面談のときに運営が一緒に確認するので、はじめての方でも大丈夫です。瀬田まち路地スティックスは飲食営業に必要な設備が整った施設なので、自分で設備を用意する必要はありません。</p>
 </div>
+<details class="bc-fold"><summary>必要な許可と、費用の目安を見る</summary><div class="bc-fold-body">
 <div style="border: 1px solid #E8DDD2; border-radius: 18px; overflow: hidden; background: #FFFFFF">
 <div class="r-pm r-pm-head"><span>必要なもの</span><span>費用（最初に一度だけ）</span><span>かかる時間</span></div>
 <div class="r-pm"><span><b>食品衛生責任者</b><br><small>1日の講習で取得。調理師・栄養士などの資格がある方は不要</small></span><span>10,000円<br><small>滋賀県食品衛生協会の講習（税込）</small></span><span>講習1日<br><small>大津会場は2026年10月29日・2027年3月17日。eラーニングもあり</small></span></div>
 <div class="r-pm"><span><b>瀬田まち路地スティックスでの飲食店営業許可</b><br><small>瀬田での店頭出店に必要</small></span><span>16,000円<br><small>新規の申請手数料</small></span><span>2〜4週間<br><small>事前相談 → 申請 → 施設検査 → 検査から約1週間（土日祝を除く）で許可証</small></span></div>
-<div class="r-pm"><span><b>旧大津公会堂での出店の許可</b><br><small>テントなら露店営業（特定簡易営業）、キッチンカーなら車での営業許可</small></span><span>[保健所に確認のうえ記載]</span><span>検査は1週間以上前に予約<br><small>検査場所は明日都浜大津</small></span></div>
+<div class="r-pm"><span><b>旧大津公会堂での出店の許可</b><br><small>テントなら露店営業（特定簡易営業）、キッチンカーなら車での営業許可</small></span><span>面談時にご案内します</span><span>検査は1週間以上前に予約<br><small>検査場所は明日都浜大津</small></span></div>
 <div class="r-pm r-pm-total"><span>最初に一度だけかかる費用<br><small>調理師・栄養士などの資格がある方は約16,000円〜</small></span><span>約26,000円〜<br><small>たとえば1食1,200円のメニューなら、店頭で約22食分</small></span><span>登録から最初の出店まで約1か月</span></div>
 </div>
 <p style="margin: 0; font-size: 13px; color: #5A514A">申請の順番や書類は、面談のときに運営が一緒に確認します。金額・日数は2026年9月時点の目安です（申請手数料は大津市内の行政書士事務所の案内による）。くわしくは大津市保健所 衛生課 食品指導係（077-522-8427）でも確認できます。</p>
+</div></details>
 </div>
 </section>
 
@@ -549,6 +586,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 34px; line-height: 1.4">万一の備えも、<br class="pc-only">月あたり約230円から。</h2>
 <p style="margin: 0; color: #5A514A">お客さまに安心して頼んでもらうために、「店頭で出した料理」と「お客さまの家での作業」の2つに保険で備えます。出張用の保険料は、出張をするたびに運営が少しずつお返しするので、5件の出張が終われば差し引き0円になります。</p>
 </div>
+<details class="bc-fold"><summary>保険の内容と、費用を見る</summary><div class="bc-fold-body">
 <div style="border: 1px solid #E8DDD2; border-radius: 18px; overflow: hidden; background: #FFFFFF">
 <div class="r-pm r-pm-head"><span>備える場面</span><span>入り方</span><span>費用</span></div>
 <div class="r-pm"><span><b>店頭で出した料理の事故</b><br><small>食中毒・異物混入など。LEVEL 1（会えるシェフ）から必要</small></span><span>食品衛生協会の「食品営業賠償共済」<br><small>営業許可を取るときに、地区の食品衛生協会で申し込み（協会の会員になるのが条件）</small></span><span>月あたり約230円〜<br><small>年2,700円〜（飲食店・レギュラーコース、1名5,000万円まで）＋協会の会費</small></span></div>
@@ -569,11 +607,12 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <div style="padding: 16px 20px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E8DDD2; font-size: 14px"><b style="display: block; font-size: 15px; margin-bottom: 4px">すでに保険に入っている方</b>店として保険に入っている店主の方は、店の外（お客さまの家）での調理も補償されるか確認してください。商工会・商工会議所の会員の方は、団体割引のある制度も使えます。</div>
 </div>
 <p style="margin: 0; font-size: 14px; color: #5A514A">どの保険に入ればよいかは、面談のときに運営が一緒に確認します（家の火災保険などに付く個人賠償責任特約は仕事中の事故には使えないため、上の保険で備えます）。金額は2026年9月時点で各団体が公開している目安です。</p>
+</div></details>
 </div>
 </section>
 
 <!-- FLOW -->
-<section style="padding: 88px 0; background: #7B4A36; color: #FFFFFF">
+<section class="bc-soft" style="padding: 88px 0; background: #7B4A36; color: #FFFFFF">
 <div style="max-width: 1120px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <span style="font-size: 13px; font-weight: 700; color: #F2DCD2">登録から出張開始まで</span>
@@ -603,10 +642,10 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <details><summary>顔を出さずに登録できますか？</summary><p style="margin: 12px 0 0; color: #5A514A">できません。お客さまが「この人なら家に呼べる」と判断するための大切な情報なので、顔写真の掲載は必須です。写真は面談のときに運営が撮影します。</p></details>
 <details><summary>月2回の出店は必須ですか？</summary><p style="margin: 12px 0 0; color: #5A514A">お客さまが「先に会える」ことがこのサービスの約束なので、原則として必須です。登録から3か月は準備期間として、両方の拠点での出店を経験してもらいます。</p></details>
 <details><summary>料金はあとから変えられますか？</summary><p style="margin: 12px 0 0; color: #5A514A">変えられます。登録フォームの「回答を編集」から変更し、運営の確認後に反映されます。すでに確定した予約の料金は変わりません。</p></details>
-<details><summary>お客さまと直接やりとりしてもいいですか？</summary><p style="margin: 12px 0 0; color: #5A514A">出張の日程や料理の相談は、運営を通してお願いします。うちのシェフで出会ったお客さまと、運営を通さずに出張の契約や支払いをすることは禁止で、発覚した時点で違約金が発生します（金額と対象期間は[登録規約]に定めます）。[登録前からの自店のお客さまは対象外]です。</p></details>
+<details><summary>お客さまと直接やりとりしてもいいですか？</summary><p style="margin: 12px 0 0; color: #5A514A">出張の日程や料理の相談は、運営を通してお願いします。うちのシェフで出会ったお客さまと、運営を通さずに出張の契約や支払いをすることは禁止で、発覚した時点で違約金が発生します（金額・対象期間・対象外となる場合は、登録時にお渡しする規約でご案内します）。</p></details>
 <details><summary>評価が低いとどうなりますか？</summary><p style="margin: 12px 0 0; color: #5A514A">表示順が下がりますが、評価が少ないうちは1件で大きく動かない計算にしています。気になる評価があれば、運営と一緒に原因と改善策を考えます。</p></details>
 <details><summary>出張先で事故が起きたら？</summary><p style="margin: 12px 0 0; color: #5A514A">出張認定の条件として、お客さまの家での事故に備える賠償責任保険（フリーランス協会の賠償責任保険など）への加入をお願いしています。年会費10,000円は先にお支払いいただき、最初の5件の出張で2,000円ずつ受取額に上乗せしてお返しします。万一のときは、加入している保険で対応し、運営も間に入ります。</p></details>
-<details><summary>お金はいつ振り込まれますか？</summary><p style="margin: 12px 0 0; color: #5A514A">[月末締め・翌月◯日]に、その月に実施した出張の受取額をまとめてお振り込みします。明細もお送りします。</p></details>
+<details><summary>お金はいつ振り込まれますか？</summary><p style="margin: 12px 0 0; color: #5A514A">その月に実施した出張の受取額を、まとめてお振り込みします（締め日・振込日は登録時にご案内します）。明細もお送りします。</p></details>
 </div>
 </div>
 </section>

@@ -216,7 +216,7 @@ span[style*="color: #B0654A"],a[style*="color: #B0654A"]{color:var(--natural-acc
 /* 2026-09-27 わたしのこれから診断と同じトーン（配色・明朝・余白）にそろえる */
 :root{--bc-bg:#f8f3ed;--bc-paper:#fffdf9;--bc-ink:#2f2925;--bc-body:#4a423c;--bc-line:#e8ddd2;--bc-brown:#7b4a36;--bc-brown-d:#643a2a;--bc-rust:#b0654a;--bc-sage:#e6ece4;--bc-mincho:"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif}
 body{background:var(--bc-bg)!important;color:var(--bc-ink)!important;letter-spacing:.02em}
-h1,h2,h3{font-family:var(--bc-mincho)!important;font-weight:500!important;letter-spacing:.05em!important;word-break:keep-all;overflow-wrap:anywhere}
+h1,h2,h3{font-family:var(--bc-mincho)!important;font-weight:500!important;letter-spacing:.05em!important;line-break:strict}
 h1{font-weight:400!important;line-height:1.5!important;letter-spacing:.12em!important}
 section h2{line-height:1.55!important}
 .natural-hero h1{font-size:clamp(30px,3.6vw,46px)!important;margin:0!important}
@@ -232,6 +232,33 @@ section h2{line-height:1.55!important}
 .natural-three article span{color:var(--bc-rust)!important;font-family:var(--bc-mincho)!important;font-size:26px!important}
 a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="background:#7B4A36"],button[style*="background:#7B4A36"]{border-radius:999px!important}
 @media(max-width:760px){.natural-hero h1{font-size:30px!important;letter-spacing:.08em!important}}
+</style>
+
+<style id="bc-soft-20260927c">
+/* 下部の濃い茶色ブロックを、生成り＋細い罫線に（2026-09-27） */
+.bc-soft{background:#f3ebe3!important;color:var(--bc-ink)!important;border:1px solid var(--bc-line)!important}
+div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06)!important}
+.bc-soft :is(h2,h3,b,strong){color:var(--bc-ink)!important}
+.bc-soft :is(p,li,small,span,div,td,th){color:var(--bc-body)!important}
+.bc-soft :is(span,small)[style*="font-weight: 700"]:first-child{color:var(--bc-rust)!important}
+.bc-soft a:not([style*="background: #FFFFFF"]){color:var(--bc-brown)!important;border-color:var(--bc-brown)!important}
+.bc-soft a[style*="background: #FFFFFF"]{background:var(--bc-brown)!important;color:#fff!important}
+.bc-soft img{opacity:1}
+.r-steps-dark div{background:#fffdf9!important;border:1px solid var(--bc-line)!important}
+.r-steps-dark div span{color:var(--bc-rust)!important;font-family:var(--bc-mincho)!important}
+.r-steps-dark div b{color:var(--bc-ink)!important}
+.r-steps-dark div p{color:var(--bc-body)!important}
+.r-pm-total{background:#f3ebe3!important;color:var(--bc-ink)!important;border-top:1px solid var(--bc-brown)!important}
+.r-pm-total *{color:var(--bc-ink)!important}
+/* 折りたたみ（わたしのこれから診断と同じ考え方：消さずに、必要な人だけ開く） */
+.bc-fold{border:1px solid var(--bc-line);border-radius:6px;background:#fffdf9;overflow:hidden}
+.bc-fold>summary{list-style:none;cursor:pointer;padding:16px 20px;font-family:var(--bc-mincho);font-size:15px;letter-spacing:.06em;color:var(--bc-ink);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.bc-fold>summary::-webkit-details-marker{display:none}
+.bc-fold>summary::after{content:"＋";color:var(--bc-rust);font-size:18px;line-height:1}
+.bc-fold[open]>summary::after{content:"−"}
+.bc-fold>.bc-fold-body{padding:4px 20px 22px;border-top:1px solid var(--bc-line)}
+.bc-fold>.bc-fold-body>*{margin-top:18px}
+@media(max-width:760px){.bc-fold>summary{padding:14px 16px;font-size:14px}.bc-fold>.bc-fold-body{padding:2px 14px 16px}}
 </style>
 </head>
 <body>
@@ -261,9 +288,9 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <h1 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 56px; line-height: 1.3; letter-spacing: 0; font-weight: 700">知らない人を、<br>いきなり家に<br>呼ばなくていい。<br><span class="natural-em">まず会って、<br>味を知って。</span></h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.8">まずは出店日に会って、料理を味わう。<br>「この人なら」と思えたら、出張作り置きをお願いできます。</p>
 <div class="hero-ladder">
-<div><span>① 店で食べる</span><b>1,000円〜</b></div>
-<div><span>② 5品を持ち帰る</span><b>2,500円〜</b></div>
-<div class="hl-main"><span>③ 家で作ってもらう</span><b>3時間 10,000円〜</b></div>
+<div><span>① 出店日に</span><b>会う</b></div>
+<div><span>② 持ち帰りで</span><b>味を試す</b></div>
+<div class="hl-main"><span>③ この人なら</span><b>家でお願いする</b></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E8DDD2">
 <span style="font-size: 15px; font-weight: 700">まずは、ここから。</span>
@@ -350,14 +377,14 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <p style="margin: 0; font-size: 16px; color: #5A514A">写真やレビューだけではなく、実際に料理を食べ、本人に会ってからお願いできます。</p>
 </div>
 <div style="grid-column: span 6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
-<div style="display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #7B4A36; color: #FFFFFF">
+<div class="bc-soft" style="display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #7B4A36; color: #FFFFFF">
 <img src="https://yujimansion-hub.github.io/bridge-cycle2026/images/uchino-seta.jpg" alt="瀬田まち路地スティックスの店内" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: center 60%">
 <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 20px">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 22px; font-weight: 700; line-height: 1.4">瀬田で月1回。</span>
 <span style="font-size: 13px; color: #F3E7E0">瀬田まち路地スティックス｜店内の席で食べられます</span>
 </div>
 </div>
-<div style="display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #B0654A; color: #FFFFFF">
+<div class="bc-soft" style="display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #B0654A; color: #FFFFFF">
 <img src="https://yujimansion-hub.github.io/bridge-cycle2026/kokaido-hero.jpg" alt="旧大津公会堂の正面と前庭" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: center 40%">
 <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 20px">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 22px; font-weight: 700; line-height: 1.4">旧大津公会堂で月1回。</span>
@@ -447,7 +474,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 </div>
 </div>
 <div style="display: flex; align-items: center; color: #B0654A"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
-<div style="flex: 1 1 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 26px; border-radius: 20px; background: #7B4A36; color: #FFFFFF">
+<div class="bc-soft" style="flex: 1 1 0; display: flex; flex-direction: column; gap: 12px; padding: 30px 26px; border-radius: 20px; background: #7B4A36; color: #FFFFFF">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 15px; font-weight: 700; color: #F2DCD2">STEP 3</span>
 <p style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 28px; font-weight: 700; line-height: 1.3">家に呼ぶ</p>
 <p style="margin: 0; font-size: 17px; font-weight: 500">「この人なら、お願いできる」</p>
@@ -477,7 +504,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 <div id="fare-result" aria-live="polite" style="font-size: 15px"></div>
 <span style="font-size: 12px; color: #5A514A">料理人の出発地（最寄り駅）からご住所までの直線距離で計算した目安です。確定額は予約時にご案内します。入力した住所は位置を調べるため国土地理院の住所検索に送られますが、運営には送信・保存されません。</span>
 </form>
-<span style="font-size: 13px; color: #5A514A">食材費：[込み／別途 を記載]</span>
+<span style="font-size: 13px; color: #5A514A">食材費の扱いは、料理人ごとに予約時にご案内します。</span>
 </div>
 </div>
 </section>
@@ -517,7 +544,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 </section>
 
 <!-- CTA -->
-<section id="line" style="padding: 96px 0; background: #7B4A36; color: #FFFFFF">
+<section id="line" class="bc-soft" style="padding: 96px 0; background: #7B4A36; color: #FFFFFF">
 <div style="max-width: 880px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 42px; line-height: 1.4">まずは、会いに来てください。</h2>
 <p style="margin: 0; color: #F3E7E0">今月の出店日から、会ってみたい料理人を選んでください。<br>「どの人が合うかわからない」「出張の条件だけ聞きたい」という方は、LINEでご相談ください。</p>
@@ -538,7 +565,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 </div>
 <div>
 <details open=""><summary>家には誰が来ますか？</summary><p style="margin: 12px 0 0; color: #5A514A">店頭であなたが会って選んだ料理人本人です。自宅に伺えるのは、運営の実技確認・衛生チェック・訪問研修を終え、賠償責任保険への加入を確認した「出張認定」の料理人だけです。</p></details>
-<details><summary>食材はどうなりますか？</summary><p style="margin: 12px 0 0; color: #5A514A">[運用確定後に記載：料理人が購入して実費精算／利用者が用意 など]。保存容器（約10個）・基本の調味料・調理道具は、ご自宅のものを使います。</p></details>
+<details><summary>食材はどうなりますか？</summary><p style="margin: 12px 0 0; color: #5A514A">食材の準備方法（料理人が購入するか、ご自宅で用意するか）は、予約時に料理人ごとにご案内します。保存容器（約10個）・基本の調味料・調理道具は、ご自宅のものを使います。</p></details>
 <details><summary>交通費はいくらですか？</summary><p style="margin: 12px 0 0; color: #5A514A">うちのシェフ共通ルールで、料理人の拠点から5kmまで500円・10kmまで1,000円・15kmまで1,500円です。15kmを超える場合は個別にご相談ください。駐車場代は実費です。料金の欄にご住所を入れると、目安をすぐ確認できます。</p></details>
 <details><summary>子ども向けの味つけにできますか？</summary><p style="margin: 12px 0 0; color: #5A514A">ご相談時にお子さまの年齢や好みをお知らせください。子ども向けを得意とする料理人もいます。アレルギーがある場合は必ずお知らせください。対応できるかは料理人ごとに確認してご案内します。</p></details>
 <details><summary>キャンセル料はかかりますか？</summary><p style="margin: 12px 0 0; color: #5A514A">自宅出張は3日前まで無料です。2日前30%・前日50%・当日100%。食材の購入後は食材の実費をいただくことがあります。料理人の都合で中止になった場合は全額返金します。</p></details>
@@ -570,7 +597,7 @@ a[style*="background: #7B4A36"],button[style*="background: #7B4A36"],a[style*="b
 /* ─────────────────────────────────────────────
    うちのシェフ｜料理人を探す（公開シート連動）
    ・Apps Script（uchino-chef-setup.gs）が作る「うちのシェフ_公開データ」を読み、
-     目的（店で食べる／家に来てもらう）・こだわり・カレンダーの日付で料理人を絞り込みます。
+     目的（出店日に味わう／家に来てもらう）・こだわり・カレンダーの日付で料理人を絞り込みます。
    ・UCHINO_SHEET_ID が空、または読み込みに失敗した場合は「準備中」と LINE 登録の案内を出します。
    ・シートの文字はすべてエスケープして表示します（料理人の入力をそのままHTMLにしない）。
    ───────────────────────────────────────────── */
