@@ -355,7 +355,7 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <script>
 /* 2026-09-27 出店日が未定のあいだは、主なボタンの行き先をLINE登録にする。
    公開シートに今日以降の出店日が入ると、自動で「料理人を探す」導線に戻る（ucGoLive）。 */
-window.ucGoLive=function(setMode){document.documentElement.classList.add('uc-live');
+window.ucGoLive=function(setMode){document.documentElement.classList.add('uc-live');document.querySelectorAll('.uc-swap').forEach(function(e){e.innerHTML=e.getAttribute('data-live-html');});
   document.querySelectorAll('.uc-pre').forEach(function(a){
     a.setAttribute('href',a.getAttribute('data-live-href'));a.removeAttribute('target');a.removeAttribute('rel');
     if(a.hasAttribute('data-live-html'))a.innerHTML=a.getAttribute('data-live-html');
@@ -969,6 +969,26 @@ footer a{font-weight:400!important}
 #line.bc-soft a[href*="line.me"]:not(.uc-pre){color:#FAF8F3!important}
 #line.bc-soft a.uc-pre{background:#FAF8F3!important;color:#4A423C!important;border-color:#FAF8F3!important}
 </style>
+<style id="uc-prelaunch-edit-20260927">
+/* 出店日が未定のあいだ（html に uc-live が付くまで）は、空の検索画面を畳む */
+html:not(.uc-live) #find > :not(.uc-pre-note){display:none!important}
+html:not(.uc-live) .uc-live-block,html:not(.uc-live) .who-go{display:none!important}
+.uc-live #find > .uc-pre-note{display:none!important}
+.uc-pre-note{padding:26px 0 6px}
+.uc-pre-note h3{margin:0 0 8px;font-family:"Zen Old Mincho",serif;font-weight:400;font-size:24px;letter-spacing:.06em;color:#393734}
+.uc-pre-note p{margin:0 0 18px;font-size:14px;line-height:1.95;color:#625E59}
+.uc-pre-note a{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:4px;background:#6F6258;color:#fff!important;font-size:14px;font-weight:700;text-decoration:none}
+/* 見出しの不自然な改行と、写真の角・影を周囲にそろえる */
+#safe h2{font-size:clamp(28px,2.6vw,36px)!important}
+#next .bc-soft{box-shadow:none!important;border-radius:2px!important}
+#next .bc-soft img{border-radius:0!important}
+/* PCで最初のボタンを画面内に：見出しを少し詰め、ナビと同じ文言の小見出しを省く */
+@media(min-width:761px){
+  section.natural-hero{padding-top:44px!important}
+  section.natural-hero h1{font-size:clamp(34px,3vw,44px)!important;line-height:1.45!important}
+  section.natural-hero > div > div:first-child > span:first-child{display:none!important}
+}
+</style>
 </head>
 <body>
 <div class="natural-shell-marker" aria-hidden="true"></div>
@@ -1012,21 +1032,11 @@ footer a{font-weight:400!important}
 </div>
 <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 12px">
 <img src="images/uchino-chef-hero-natural.jpg?v=20260927d" alt="料理人が作り置きの料理を説明し、利用者が笑顔で聞いている様子" width="1672" height="941" style="display: block; width: 100%; height: 460px; object-fit: cover; object-position: 90% center; border-radius: 20px">
-<p style="margin: 0; font-size: 13px; color: #5A514A; text-align: right">毎月、瀬田まち路地スティックスと旧大津公会堂で出店しています</p>
+<p class="uc-swap" data-live-html="毎月、瀬田まち路地スティックスと旧大津公会堂で出店しています（写真はイメージです）" style="margin: 0; font-size: 13px; color: #5A514A; text-align: right">これから、瀬田と旧大津公会堂で月2回の出店を予定しています（写真はイメージです）</p>
 </div>
 </div>
 </section>
-<section class="natural-three">
-  <div class="natural-wrap">
-    <p class="natural-kicker">HOW IT STARTS</p>
-    <h2>頼む前に、安心できる順番を。</h2>
-    <div class="natural-three-grid">
-      <article><span>01</span><h3>まず、会う。</h3><p>出店日に、料理人と直接話せます。</p></article>
-      <article><span>02</span><h3>味を、知る。</h3><p>気になったら、小さく試してみる。</p></article>
-      <article><span>03</span><h3>家で、お願いする。</h3><p>「この人なら」と思えた、そのあとに。</p></article>
-    </div>
-  </div>
-</section>
+<!-- 2026-09-27 「頼む前に、安心できる順番を。」は下のSTEP欄と重複のため削除（戻す場合はこのコミットをrevert） -->
 
 
 <!-- 選べる料理人 -->
@@ -1060,7 +1070,7 @@ footer a{font-weight:400!important}
 <span class="who-go">家庭料理の人から探す →</span>
 </a>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px">
+<div class="uc-live-block" style="display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 15px; font-weight: 700">料理の好みからも。</span>
 <div class="who-tags">
 <a href="#find" data-tag="子ども向け">子ども向け</a><a href="#find" data-tag="野菜たっぷり">野菜たっぷり</a><a href="#find" data-tag="ボリューム重視">ボリューム重視</a><a href="#find" data-tag="ヘルシー・減塩">ヘルシー・減塩</a><a href="#find" data-tag="やさしい味（産前産後・ご年配）">やさしい味（産前産後・ご年配）</a><a href="#find" data-tag="和食">和食</a><a href="#find" data-tag="洋食">洋食</a><a href="#find" data-tag="中華・エスニック">中華・エスニック</a>
@@ -1079,7 +1089,7 @@ footer a{font-weight:400!important}
 <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: center">
 <div style="grid-column: span 6; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 13px; font-weight: 700; color: #B0654A">会える場所</span>
-<h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 44px; line-height: 1.35">月2回、<br>会える場所があります。</h2>
+<h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 44px; line-height: 1.35" class="uc-swap" data-live-html="月2回、&lt;br&gt;会える場所があります。">月2回、<br>会える日をつくります。</h2>
 <p style="margin: 0; font-size: 16px; color: #5A514A">写真だけで決めずに、会ってから。</p>
 </div>
 <div style="grid-column: span 6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
@@ -1105,10 +1115,11 @@ footer a{font-weight:400!important}
 <span style="font-size: 26px; color: #B0654A">＋</span>
 <span style="font-size: 18px">旧大津公会堂 <b style="font-family: 'Zen Old Mincho', serif; font-size: 30px; color: #B0654A">月1回</b></span>
 <span style="font-size: 26px; color: #B0654A">＝</span>
-<span style="font-family: 'Zen Old Mincho', serif; font-size: 30px; font-weight: 700">毎月2回、実際に会えます。</span>
+<span class="uc-swap" data-live-html="毎月2回、実際に会えます。" style="font-family: 'Zen Old Mincho', serif; font-size: 30px; font-weight: 700">毎月2回、会える予定です。</span>
 </div>
 
 <div id="find" style="display: flex; flex-direction: column; gap: 20px; border-top: 1px solid #E8DDD2; padding-top: 36px; scroll-margin-top: 16px">
+<div class="uc-pre-note"><h3>出店日は、ただいま準備中です。</h3><p>日付が決まったら、ここに料理人と出店日が並びます。<br>先に知りたい方は、LINEでお知らせを受け取れます。</p><a id="uc-line-find" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで出店日を受け取る（無料）</a></div>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <h3 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 32px">会ってみたい人を探す</h3>
 <p style="margin: 0; color: #5A514A">気になる人や味から、ゆっくり見てください。</p>
