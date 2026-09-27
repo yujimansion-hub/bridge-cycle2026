@@ -5748,6 +5748,39 @@ section{scroll-margin-top:76px}
 .v4-hero-photo img{object-position:100% 50%!important}
 @media(max-width:760px){.v4-hero-photo img{object-position:100% 40%!important}}
 </style>
+<style id="akinai-layout-fix-20260927b">
+/* 2026-09-27 スマホ・タブレットの表示崩れ修正（配色は変更しない） */
+/* 1) 「見えてくること」：スマホでは縦線と字下げをなくして、縦にそろえる */
+@media(max-width:760px){
+  .v4-see-grid article{padding:0 0 26px!important;border-left:0!important}
+  .v4-see-grid article:last-child{padding-bottom:0!important}
+}
+/* 2) タブレット幅：見出しが写真に重ならないよう、写真を上・文字を下に並べる */
+@media(min-width:761px) and (max-width:1020px){
+  .v4-hero{min-height:0!important}
+  .v4-hero-photo{position:relative!important;inset:auto!important;top:auto!important;right:auto!important;bottom:auto!important;width:100%!important;height:380px!important}
+  .v4-hero-photo img{-webkit-mask-image:linear-gradient(180deg,#000 78%,transparent)!important;mask-image:linear-gradient(180deg,#000 78%,transparent)!important}
+  .v4-hero-inner{min-height:0!important}
+  .v4-hero-copy{max-width:640px!important;padding:6px 0 52px!important}
+  .v4-hero-photo img{object-position:100% 15%!important}
+}
+@media(max-width:760px){h1.v4-h1{line-height:1.5!important;font-size:28px!important;margin-bottom:14px!important}.v4-hero-photo{height:250px!important}.v4-lead{margin-bottom:14px!important}.v4-hero-copy .v4-badges{margin-bottom:18px!important}}
+/* 3) 画面下の固定ボタン：ヒーローのボタンが画面に見えている間だけ隠し、色をページに合わせる */
+.mbar{background:rgba(242,240,235,.96)!important;border-top:1px solid #D8D3CB!important;transition:transform .25s ease}
+.mbar .btn{background:var(--v4-brown)!important;border-color:var(--v4-brown)!important;color:#fff!important;border-radius:4px!important;box-shadow:none!important}
+.mbar .btn.ghost{background:transparent!important;color:var(--v4-brown)!important}
+.mbar.mbar-free.mbar-away{transform:translateY(120%)}
+</style>
+<script>
+(function(){
+  function init(){
+    var bar=document.querySelector('.mbar'), hero=document.querySelector('.v4-btn-hero');
+    if(!bar||!hero||!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(es){ es.forEach(function(e){ bar.classList.toggle('mbar-away', e.isIntersecting); }); },{threshold:0}).observe(hero);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
 </head>
 <body>
 
