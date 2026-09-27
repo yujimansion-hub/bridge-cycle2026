@@ -351,6 +351,33 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
   .customer-who>div>div[style*="grid-template-columns: repeat(3"]{gap:16px!important}
 }
 </style>
+
+<script>
+/* 2026-09-27 出店日が未定のあいだは、主なボタンの行き先をLINE登録にする。
+   公開シートに今日以降の出店日が入ると、自動で「料理人を探す」導線に戻る（ucGoLive）。 */
+window.ucGoLive=function(setMode){document.documentElement.classList.add('uc-live');
+  document.querySelectorAll('.uc-pre').forEach(function(a){
+    a.setAttribute('href',a.getAttribute('data-live-href'));a.removeAttribute('target');a.removeAttribute('rel');
+    if(a.hasAttribute('data-live-html'))a.innerHTML=a.getAttribute('data-live-html');
+    if(a.hasAttribute('data-live-text'))a.textContent=a.getAttribute('data-live-text');
+    var m=a.getAttribute('data-mode-live');if(m){a.setAttribute('data-mode',m);if(setMode)a.addEventListener('click',function(){setMode(m);});}
+  });
+  document.querySelectorAll('.uc-live-only').forEach(function(a){a.style.display='';});
+};
+</script>
+<style id="uc-prelaunch">.uc-live-only{display:none!important}.uc-live .uc-live-only{display:inline-flex!important}</style>
+<style id="uc-type-fix-20260927">
+.natural-three h2{max-width:none!important}
+.natural-hero h1{font-size:clamp(34px,3.2vw,44px)!important;line-height:1.42!important}
+@media(min-width:761px){.natural-hero>div>div:first-child{gap:18px!important}}
+.natural-hero{padding-top:48px!important}
+#uc-line-nav{white-space:nowrap}
+@media(max-width:760px){#uc-line-nav{padding:0 12px!important;font-size:12px!important;min-height:38px!important}.natural-hero{padding-top:36px!important}}
+@media(max-width:760px){
+  .natural-hero h1{font-size:33px!important;line-height:1.45!important;letter-spacing:.06em!important}
+  .natural-three h2,#who h2,#next h2,#steps h2,#safe h2,#line h2,#faq h2{font-size:26px!important;line-height:1.55!important}
+}
+</style>
 </head>
 <body>
 <div class="natural-shell-marker" aria-hidden="true"></div>
@@ -367,7 +394,7 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <a href="#safe" style="color: #2F2925; text-decoration: none">安心</a>
 <a href="#faq" style="color: #2F2925; text-decoration: none">質問</a>
 </nav>
-<a href="#find" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #7B4A36; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">料理人を探す</a>
+<a id="uc-line-nav" class="uc-pre" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-live-href="#find" data-live-text="料理人を探す" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #7B4A36; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">出店日を受け取る</a>
 </div>
 </header>
 
@@ -386,8 +413,8 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: 18px; background: #FFFFFF; border: 1px solid #E8DDD2">
 <span style="font-size: 15px; font-weight: 700">まずは、ここから。</span>
 <div class="hero-choice">
-<a href="#find" data-mode="shop"><b>出店日に会ってみる</b><span>料理人と味を知る →</span></a>
-<a href="#find" data-mode="home"><b>出張作り置きを見てみる</b><span>料理人から選ぶ →</span></a>
+<a id="uc-line-hero" class="uc-pre" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-live-href="#find" data-live-html="&lt;b&gt;出店日に会ってみる&lt;/b&gt;&lt;span&gt;料理人と味を知る →&lt;/span&gt;"><b>出店日を知らせてもらう</b><span>LINEで受け取る（無料）→</span></a>
+<a class="uc-pre" href="#steps" data-live-href="#find" data-mode-live="home" data-live-html="&lt;b&gt;出張作り置きを見てみる&lt;/b&gt;&lt;span&gt;料理人から選ぶ →&lt;/span&gt;"><b>料金と流れを見る</b><span>1,000円の味見から →</span></a>
 </div>
 <div style="display: flex; gap: 18px; flex-wrap: wrap"><a href="#who" style="font-size: 14px; font-weight: 700">どんな料理人がいる？ →</a><a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700">迷ったら、LINEで相談する →</a></div>
 </div>
@@ -461,7 +488,7 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: center">
 <div style="grid-column: span 6; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 13px; font-weight: 700; color: #B0654A">会える場所</span>
-<h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 44px; line-height: 1.35">月2回、会える場所があります。</h2>
+<h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 44px; line-height: 1.35">月2回、<br>会える場所があります。</h2>
 <p style="margin: 0; font-size: 16px; color: #5A514A">写真だけで決めずに、会ってから。</p>
 </div>
 <div style="grid-column: span 6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
@@ -496,7 +523,7 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <p style="margin: 0; color: #5A514A">目的とこだわりを選び、カレンダーから日付を選んでください。</p>
 </div>
 <div class="f-tabs" role="group" aria-label="目的">
-<button type="button" data-mode="shop" aria-pressed="true"><b>店で食べてみる</b><span>出店日に会いに行く</span></button>
+<button type="button" data-mode="shop" aria-pressed="true"><b>出店日に味わう</b><span>出店日に会いに行く</span></button>
 <button type="button" data-mode="home" aria-pressed="false"><b>家に来てもらう</b><span>自宅出張を相談する</span></button>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
@@ -544,7 +571,7 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <p style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 28px; font-weight: 700; line-height: 1.3">店で試す</p>
 <p style="margin: 0; font-size: 17px; font-weight: 500">「この人の料理、好きかな？」</p>
 <div style="margin-top: auto; border-top: 1px solid #EFE7DA; padding-top: 14px; display: flex; flex-direction: column; gap: 2px">
-<span style="font-size: 14px; color: #5A514A">店頭で食べる</span>
+<span style="font-size: 14px; color: #5A514A">出店日に味わう</span>
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 28px; font-weight: 700; line-height: 1.3">1,000〜1,500<span style="font-size: 15px">円</span></span>
 </div>
 </div>
@@ -637,10 +664,10 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 42px; line-height: 1.4">まずは、会ってみるところから。</h2>
 <p style="margin: 0; color: #F3E7E0">頼むかどうかは、そのあとで。<br>味見だけでも、話すだけでも大丈夫です。</p>
 <div style="display: flex; gap: 12px; margin-top: 6px">
-<a href="#find" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #FFFFFF; color: #7B4A36; font-size: 17px; font-weight: 700; text-decoration: none">次の出店日を見る</a>
-<a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 28px; border-radius: 999px; border: 1.5px solid #FFFFFF; color: #FFFFFF; font-weight: 700; text-decoration: none">LINEで相談する</a>
+<a id="uc-line-final" class="uc-pre" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-live-href="#find" data-live-text="次の出店日を見る" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #FFFFFF; color: #7B4A36; font-size: 17px; font-weight: 700; text-decoration: none">出店日が決まったら、知らせてもらう</a>
+<a class="uc-live-only" target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 28px; border-radius: 999px; border: 1.5px solid #FFFFFF; color: #FFFFFF; font-weight: 700; text-decoration: none">LINEで相談する</a>
 </div>
-<a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="color: #F3E7E0; font-size: 14px">LINEで問い合わせる</a>
+<a target="_blank" rel="noopener" href="https://line.me/R/ti/p/@907kxssd" style="color: #F3E7E0; font-size: 14px">質問だけでも、LINEでどうぞ</a>
 </div>
 </section>
 
@@ -849,6 +876,7 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
     var up = events()[0];   // いちばん近い出店がある月から表示
     if(up){ var ym = +up.date.slice(0,4) * 12 + (+up.date.slice(5,7) - 1); if(ym <= maxYM){ st.y = Math.floor(ym / 12); st.m = ym % 12; } }
     renderAll();
+    try{ if(data.sched.some(function(s){ return s.date >= TODAY; })) window.ucGoLive && window.ucGoLive(setMode); }catch(_){}
     var faces = document.getElementById("who-faces-list");
     if(faces && data.chefs.length){
       faces.innerHTML = data.chefs.slice(0, 12).map(function(c){
