@@ -522,20 +522,40 @@ footer .fl b{color:#9FBBD6}
       <div class="go">料金を見る →</div>
     </div>
   </a>
-  <!-- 2026-09-27 追加：わたしのこれから診断のカード。外す場合はこのコメントから次の </a> までを削除 -->
-  <a class="bz wide rv bz-akinai" href="akinai.html" id="bc-top-akinai" style="margin-top:18px">
-    <div class="ph" style="background-image:url('assets/akinai-v4/hero2.jpg');background-position:62% 40%"><span class="tag">見つける</span></div>
-    <div class="bd">
-      <h3>わたしのこれから診断</h3>
-      <p>店を持つ前の、そのまた前に。「何か始めてみたい。でも、何を？」を、9つの質問で整理します。会社やパートを辞めずに、小さく試す前提です。</p>
-      <div class="chips"><span class="chip g">無料</span><span class="chip k">3分・9問</span><span class="chip k">登録不要</span></div>
-      <div class="go">3分で見てみる →</div>
-    </div>
-  </a>
   <p style="margin:18px 0 4px;font-size:12.5px;color:var(--ink3)">設備やシステムの契約を検討中の方へ：契約前の30秒チェック <a href="https://mitsumori-mikata.com" target="_blank" rel="noopener" style="color:var(--ink2);font-weight:700">見積のミカタ（β・無料）→</a></p>
 
 </div></section>
 
+
+<!-- 2026-09-27 追加：わたしのこれから診断（飲食店の方とは別の、個人の方向け）。外す場合はこのコメントから次の </section> までを削除 -->
+<section id="akinai-band" class="ak-band"><div class="wrap">
+  <a class="ak-card" href="akinai.html" id="bc-top-akinai">
+    <div class="ak-ph" aria-hidden="true"></div>
+    <div class="ak-bd">
+      <p class="ak-for">お店を営む方ではなく、個人の方へ</p>
+      <h2 class="ak-h">「何か始めてみたい。<br>でも、何を？」</h2>
+      <p class="ak-p">仕事や家のことを優先してきて、自分のことは後回しだった方へ。9つの質問で、自分では仕事だと思っていなかった力と、今週できる最初の一歩を整理します。会社やパートを辞める前提ではありません。</p>
+      <p class="ak-meta"><span>無料</span><span>3分・9問</span><span>登録不要</span></p>
+      <span class="ak-go">わたしのこれから診断を見る →</span>
+    </div>
+  </a>
+  <p class="ak-note">BRIDGE CYCLEが運営する、個人向けの別サービスです。</p>
+</div></section>
+<style>
+.ak-band{background:#f8f3ed;border-top:1px solid #e8ddd2;border-bottom:1px solid #e8ddd2;padding:56px 0}
+.ak-card{display:grid;grid-template-columns:42% 1fr;background:#fffdf9;border:1px solid #e8ddd2;border-radius:6px;overflow:hidden;text-decoration:none;color:#2f2925;transition:box-shadow .2s}
+.ak-card:hover{box-shadow:0 14px 34px rgba(80,55,40,.12)}
+.ak-ph{background:url('assets/akinai-v4/hero2.jpg') 62% 40%/cover;min-height:280px}
+.ak-bd{padding:30px 34px}
+.ak-for{display:inline-block;margin:0 0 12px;font-size:12px;letter-spacing:.08em;color:#b0654a;border:1px solid #e3cfc2;border-radius:999px;padding:3px 12px}
+.ak-h{font-family:"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN",serif;font-weight:500;font-size:26px;line-height:1.55;letter-spacing:.08em;margin:0 0 12px;color:#2f2925}
+.ak-p{font-size:13.5px;line-height:1.95;color:#4a423c;margin:0 0 14px}
+.ak-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.ak-meta span{font-size:11.5px;background:#f5e3dc;color:#b0654a;border-radius:4px;padding:2px 10px}
+.ak-go{display:inline-flex;align-items:center;background:#7b4a36;color:#fff;border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700;letter-spacing:.06em}
+.ak-note{margin:10px 0 0;font-size:11.5px;color:#7d736b}
+@media(max-width:760px){.ak-band{padding:40px 0}.ak-card{grid-template-columns:1fr}.ak-ph{min-height:190px}.ak-bd{padding:22px 20px}.ak-h{font-size:22px}}
+</style>
 
 <section id="platform" style="background:var(--card2,#F4F4F0);border-bottom:1px solid var(--rule)"><div class="wrap">
   <p class="eyebrow">HOW IT WORKS</p>
