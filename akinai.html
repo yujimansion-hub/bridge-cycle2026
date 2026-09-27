@@ -5525,6 +5525,224 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
   .paid-detail-fold-body{padding:0 14px 14px}
 }
 </style>
+
+<style id="akinai-jusangatsu-refresh-20260927">
+/* 十三月の窓の空気感から抽出：
+   光、塗り壁、モルタル、古木、余白、静かな生活感。
+   既存の診断導線・JSは触らず、v4の見た目だけを調整。 */
+:root{
+  --v4-bg:#F2F0EB!important;
+  --v4-paper:#FAF8F3!important;
+  --v4-ink:#393734!important;
+  --v4-body:#625E59!important;
+  --v4-muted:#8C867F!important;
+  --v4-line:#D8D3CB!important;
+  --v4-rust:#8F6D5C!important;
+  --v4-brown:#6F6258!important;
+  --v4-sage:#D8DDD3!important;
+  --v4-sage-ink:#5E665C!important;
+  --v4-blush:#E9E1DA!important;
+}
+
+/* 全体を「雑貨店/カフェの静かな誌面」寄りに */
+body{background:#F2F0EB!important}
+header.nav.v4-nav{
+  background:rgba(242,240,235,.92)!important;
+  border-bottom:1px solid #D8D3CB!important;
+  backdrop-filter:blur(12px)!important;
+}
+.v4-logo{font-weight:500!important;letter-spacing:.14em!important}
+.v4-links .v4-navbtn{
+  background:#6F6258!important;
+  border-color:#6F6258!important;
+  border-radius:4px!important;
+  box-shadow:none!important;
+}
+
+/* HERO：大きな窓から光が入るような静けさ */
+.v4-hero{
+  background:#ECEAE5!important;
+  min-height:600px!important;
+  border-bottom:1px solid #D8D3CB!important;
+}
+.v4-hero-photo{
+  width:58%!important;
+  top:28px!important;
+  right:28px!important;
+  bottom:28px!important;
+  height:auto!important;
+}
+.v4-hero-photo img{
+  border-radius:1px!important;
+  object-position:60% 50%!important;
+  filter:saturate(.74) contrast(.94) brightness(.98)!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%)!important;
+  mask-image:linear-gradient(90deg,transparent 0,#000 18%)!important;
+}
+.v4-hero-inner{min-height:600px!important}
+.v4-hero-copy{max-width:485px!important;padding:64px 0 66px!important}
+h1.v4-h1{
+  font-size:clamp(35px,3.5vw,47px)!important;
+  line-height:1.62!important;
+  letter-spacing:.12em!important;
+  font-weight:400!important;
+  color:#393734!important;
+}
+.v4-h1 em{
+  color:#765E51!important;
+  font-weight:400!important;
+}
+.v4-lead{
+  font-size:14px!important;
+  line-height:2.05!important;
+  letter-spacing:.07em!important;
+  color:#625E59!important;
+  max-width:430px!important;
+}
+.v4-badges{
+  gap:8px 18px!important;
+  margin-bottom:28px!important;
+}
+.v4-badges li{
+  font-size:12.5px!important;
+  color:#625E59!important;
+}
+.v4-badges svg{width:18px!important;height:18px!important;stroke:#6B6762!important}
+.v4-btn,.v4-btn-hero{
+  border-radius:4px!important;
+  box-shadow:none!important;
+  background:#6F6258!important;
+  border-color:#6F6258!important;
+}
+.v4-btn:hover{background:#5F554D!important}
+
+/* 見えてくること：カード感を消し、展示棚のように */
+.v4-see{
+  background:#F2F0EB!important;
+  border-top:0!important;
+}
+.v4-see-main{padding:54px 34px 58px!important}
+.v4-center::after{background:#A59D95!important;width:34px!important}
+.v4-see-grid{
+  margin-top:32px!important;
+  gap:0!important;
+}
+.v4-see-grid article{
+  padding:0 28px!important;
+  border-left:1px solid #D4CEC6!important;
+}
+.v4-see-grid article:first-child{padding-left:0!important}
+.v4-see-grid article:last-child{padding-right:0!important}
+.v4-see-grid img{
+  height:104px!important;
+  opacity:.84!important;
+  filter:saturate(.72) contrast(.93)!important;
+}
+.v4-see-grid h3{
+  font-weight:400!important;
+  font-size:18px!important;
+}
+.v4-see-grid p{font-size:12.8px!important;color:#706A64!important}
+
+/* 結果サンプル：紙・木・モルタルの静かな質感 */
+.v4-sample{
+  background:#E9E7E2!important;
+  border-top:1px solid #D8D3CB!important;
+  border-bottom:1px solid #D8D3CB!important;
+  padding:58px 0 62px!important;
+}
+.v4-type-card,
+.v4-steps,
+.v4-paid-card{
+  background:#F8F6F1!important;
+  border:1px solid #D8D3CB!important;
+  border-radius:2px!important;
+  box-shadow:none!important;
+}
+.v4-type-card{transform:none!important}
+.v4-type-photo img{
+  border:0!important;
+  box-shadow:none!important;
+  filter:saturate(.78) contrast(.95)!important;
+}
+.v4-tags li{
+  border-radius:2px!important;
+  background:#D9DDD5!important;
+}
+.v4-tags li.rose{background:#E6DDD6!important}
+.v4-steps img{
+  border-radius:1px!important;
+  filter:saturate(.78) contrast(.95)!important;
+}
+
+/* 無料/有料：営業色を落として展示台のように */
+.v4-plans{
+  background:#F2F0EB!important;
+  padding:50px 0 58px!important;
+}
+.v4-free{border-right:1px solid #D4CEC6!important}
+.v4-h3{font-weight:400!important}
+.v4-round{
+  background:#E3DED8!important;
+  color:#765E51!important;
+}
+.v4-paid-card:hover{box-shadow:none!important}
+
+/* 有料詳細の折りたたみも静かに */
+.paid-detail-fold{
+  background:transparent!important;
+  border:1px solid #D8D3CB!important;
+  border-radius:2px!important;
+}
+.paid-detail-fold>summary{
+  background:#F4F1EC!important;
+  font-weight:500!important;
+}
+.paid-detail-fold[open]>summary{border-bottom:1px solid #D8D3CB!important}
+
+/* 診断部分以降も角丸/影を抑える */
+#qz .qcard,
+#res .rcard,
+#res>.value,
+.result-upgrade,
+.price-box,
+.panel,
+.closing,
+.bform{
+  border-radius:4px!important;
+  box-shadow:none!important;
+}
+#qz .qcard,#res .rcard,#res>.value,.panel,.closing,.bform{
+  background:#F8F6F1!important;
+  border-color:#D8D3CB!important;
+}
+.result-upgrade,.price-box{background:#474744!important}
+.btn{border-radius:4px!important;box-shadow:none!important}
+
+/* 余白感を強める */
+section{scroll-margin-top:76px}
+@media(min-width:761px){
+  .v4-wrap{max-width:1080px!important}
+}
+@media(max-width:760px){
+  .v4-hero{min-height:0!important}
+  .v4-hero-photo{
+    position:relative!important;
+    width:100%!important;
+    height:310px!important;
+    top:auto!important;right:auto!important;bottom:auto!important;
+  }
+  .v4-hero-photo img{
+    object-position:58% 45%!important;
+    -webkit-mask-image:linear-gradient(180deg,#000 76%,transparent)!important;
+    mask-image:linear-gradient(180deg,#000 76%,transparent)!important;
+  }
+  .v4-hero-copy{padding:0 0 42px!important;margin-top:-28px!important}
+  h1.v4-h1{font-size:30px!important;line-height:1.62!important;letter-spacing:.1em!important}
+  .v4-see-main{padding:42px 18px!important}
+  .v4-sample{padding:44px 0 50px!important}
+}
+</style>
 </head>
 <body>
 
