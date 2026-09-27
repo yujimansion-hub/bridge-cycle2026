@@ -1023,6 +1023,15 @@ html:not(.uc-live) .uc-live-block,html:not(.uc-live) .who-go{display:none!import
   .customer-who .who-variety-note p br{display:none}
 }
 </style>
+<style id="uc-variety-20260927">
+.uc-variety{margin:6px 0 0}
+.uc-variety-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.uc-variety-grid div{display:flex;flex-direction:column;gap:8px}
+.uc-variety-grid img{width:100%;aspect-ratio:9/7;height:auto;object-fit:cover;display:block;border-radius:0}
+.uc-variety-grid span{font-size:12.5px;letter-spacing:.06em;color:#625E59}
+.uc-variety figcaption{margin-top:10px;font-size:11px;color:#8C867F}
+@media(max-width:760px){.uc-variety-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+</style>
 </head>
 <body>
 <div class="natural-shell-marker" aria-hidden="true"></div>
@@ -1104,6 +1113,16 @@ html:not(.uc-live) .uc-live-block,html:not(.uc-live) .who-go{display:none!import
 <span class="who-go">家庭料理の人から探す →</span>
 </a>
 </div>
+<!-- 2026-09-27 店の多様さを見せる料理写真（Unsplash・無料ライセンス）。外す場合はこのコメントから次の </figure> までを削除 -->
+<figure class="uc-variety">
+  <div class="uc-variety-grid">
+    <div><img src="images/uchino-food/kissa-purin.jpg" alt="喫茶店の固めのプリン" width="900" height="700" loading="lazy"><span>喫茶店のプリン</span></div>
+    <div><img src="images/uchino-food/yoshoku-omurice.jpg" alt="洋食屋のオムライス" width="900" height="700" loading="lazy"><span>洋食屋のオムライス</span></div>
+    <div><img src="images/uchino-food/restaurant-plate.jpg" alt="レストランの一皿" width="900" height="700" loading="lazy"><span>こだわりの一皿</span></div>
+    <div><img src="images/uchino-food/shokudo-teishoku.jpg" alt="町の食堂の定食" width="900" height="700" loading="lazy"><span>町の食堂の定食</span></div>
+  </div>
+  <figcaption>写真はイメージです（Unsplash：Jay／Leo Okuyama／Urban Gyllström／Takafumi Yamashita）</figcaption>
+</figure>
 <div class="who-variety-note">
   <span>店の数だけ、味があります。</span>
   <p>丁寧に仕立てた一皿も、昔ながらのナポリタンも、飾らない家庭料理も。<br>その人が大切にしてきた味なら、同じ場所に並べます。</p>
