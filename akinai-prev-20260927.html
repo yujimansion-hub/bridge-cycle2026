@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ja">
 <head>
+<meta name="robots" content="noindex,nofollow"><!-- 2026-09-27 デザイン変更前の控え。戻す時はこのファイルの中身を akinai.html に上書き（この行の上の robots 行は削除） -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>わたしのこれから診断｜「これから、私はどうしたい？」を3分で整理する</title>
@@ -5285,274 +5286,55 @@ document.addEventListener('click',function(e){
   }
 },true);
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500&display=swap" rel="stylesheet">
-<style id="v4-design">
-/* ===== 2026-09-27 デザイン刷新（v4）。元に戻す場合は akinai-prev-20260927.html を参照 ===== */
-:root{--v4-bg:#f8f3ed;--v4-paper:#fffdf9;--v4-ink:#2f2925;--v4-body:#4a423c;--v4-muted:#7d736b;--v4-line:#e8ddd2;--v4-brown:#7b4a36;--v4-brown-d:#643a2a;--v4-rust:#b0654a;--v4-sage:#e6ece4;--v4-sage-ink:#5d6b5a;--v4-blush:#f5e3dc;--v4-mincho:"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif}
-body{background:var(--v4-bg)}
-.v4-wrap{max-width:1180px;margin:0 auto;padding:0 32px;box-sizing:border-box}
-/* nav */
-header.nav.v4-nav{background:rgba(250,246,241,.9)!important;border-bottom:1px solid rgba(232,221,210,.7)!important;backdrop-filter:blur(12px)}
-.v4-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px}
-.v4-logo{font-family:var(--v4-mincho);font-size:21px;letter-spacing:.2em;color:var(--v4-ink);text-decoration:none;white-space:nowrap}
-.v4-links{display:flex;align-items:center;gap:26px}
-.v4-links a{font-size:13px;letter-spacing:.14em;color:var(--v4-body);text-decoration:none}
-.v4-links a:hover{color:var(--v4-brown)}
-.v4-links .v4-navbtn{background:var(--v4-brown);color:#fff;border-radius:999px;padding:9px 22px;letter-spacing:.12em}
-.v4-links .v4-navbtn:hover{background:var(--v4-brown-d);color:#fff}
-/* buttons */
-.v4-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--v4-brown);color:#fff!important;text-decoration:none;border-radius:999px;font-family:var(--v4-mincho);font-size:19px;letter-spacing:.18em;padding:16px 40px;box-shadow:0 10px 24px rgba(100,58,42,.22);transition:background .2s,transform .2s}
-.v4-btn:hover{background:var(--v4-brown-d);transform:translateY(-1px)}
-/* hero */
-.v4-hero{position:relative;overflow:hidden;background:var(--v4-bg);min-height:560px}
-.v4-hero-photo{position:absolute;inset:0 0 0 auto;width:66%}
-.v4-hero-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;display:block;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
-.v4-hero-inner{position:relative;display:flex;align-items:center;min-height:560px}
-.v4-hero-copy{max-width:470px;padding:44px 0 52px}
-.v4-h1{font-family:var(--v4-mincho);font-weight:400;font-size:clamp(34px,4.2vw,50px);line-height:1.5;letter-spacing:.14em;color:var(--v4-ink);margin:0 0 22px}
-.v4-h1 em{font-style:normal;color:var(--v4-rust);font-size:1.12em}
-.v4-h1 em small{font-size:.72em}
-.v4-lead{font-size:15px;line-height:2;letter-spacing:.1em;color:var(--v4-body);margin:0 0 20px}
-.v4-badges{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding:0;margin:0 0 26px}
-.v4-badges li{display:flex;align-items:center;gap:7px;font-size:14px;letter-spacing:.08em;color:var(--v4-ink)}
-.v4-badges svg{width:22px;height:22px;fill:none;stroke:var(--v4-ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.v4-btn-hero{min-width:300px}
-/* see */
-.v4-see{display:grid;grid-template-columns:1fr 26%;background:var(--v4-bg);border-top:1px solid var(--v4-line)}
-.v4-see-main{padding:40px 32px 44px;max-width:900px;margin:0 auto;width:100%;box-sizing:border-box}
-.v4-h2{font-family:var(--v4-mincho);font-weight:400;font-size:clamp(24px,2.6vw,32px);letter-spacing:.16em;color:var(--v4-ink);margin:0 0 18px}
-.v4-center{text-align:center;font-size:clamp(20px,2.1vw,25px)}
-.v4-center::after{content:"";display:block;width:28px;height:1px;background:var(--v4-muted);margin:14px auto 0}
-.v4-see-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:22px}
-.v4-see-grid article{padding:0 22px;border-left:1px solid var(--v4-line)}
-.v4-see-grid article:first-child{border-left:0;padding-left:0}
-.v4-see-grid img{display:block;height:112px;width:auto;max-width:100%;margin:0 auto 12px;mix-blend-mode:multiply}
-.v4-see-grid h3{font-family:var(--v4-mincho);font-weight:500;font-size:19px;line-height:1.55;letter-spacing:.1em;color:var(--v4-ink);margin:0 0 10px}
-.v4-see-grid h3 span{margin-right:.4em}
-.v4-see-grid p{font-size:13.5px;line-height:1.95;color:var(--v4-body);margin:0}
-.v4-see-photo img{width:100%;height:100%;object-fit:cover;display:block}
-/* sample */
-.v4-sample{background:linear-gradient(180deg,#f3ece4,#f8f3ed);padding:44px 0 50px}
-.v4-sample-grid{display:grid;grid-template-columns:.8fr 1.3fr 1.3fr;gap:26px;align-items:start}
-.v4-sample-intro{padding-top:18px}
-.v4-sample-intro .v4-h2::after{content:"";display:block;width:28px;height:1px;background:var(--v4-ink);margin-top:16px}
-.v4-sample-intro p{font-size:15px;line-height:2;letter-spacing:.08em;color:var(--v4-body);margin:0 0 8px}
-.v4-sample-intro small{font-size:12.5px;color:var(--v4-muted)}
-.v4-type-card{position:relative;background:var(--v4-paper);border-radius:4px;box-shadow:0 14px 34px rgba(80,55,40,.1);padding:24px 22px 26px;display:grid;grid-template-columns:1fr 150px;gap:14px;transform:rotate(-1deg)}
-.v4-type-label{font-size:12.5px;letter-spacing:.1em;color:var(--v4-body)}
-.v4-type-name{display:block;font-family:var(--v4-mincho);font-weight:400;font-size:40px;letter-spacing:.14em;color:var(--v4-rust);line-height:1.3;margin:4px 0 2px}
-.v4-type-name i{font-style:normal;font-size:.6em;vertical-align:.15em}
-.v4-type-sub{display:block;font-family:var(--v4-mincho);color:var(--v4-rust);font-size:16px;letter-spacing:.08em;margin-bottom:12px}
-.v4-type-text p{font-size:13px;line-height:1.95;color:var(--v4-body);margin:0 0 14px}
-.v4-tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0}
-.v4-tags li{font-size:12px;letter-spacing:.06em;background:var(--v4-sage);color:var(--v4-sage-ink);padding:4px 12px;border-radius:4px}
-.v4-tags li.rose{background:var(--v4-blush);color:var(--v4-rust)}
-.v4-type-photo{margin:0;align-self:start}
-.v4-type-photo img{width:100%;display:block;border:5px solid #fff;box-shadow:0 6px 16px rgba(80,55,40,.12)}
-.v4-type-note{position:absolute;right:-12px;bottom:-22px;width:124px;margin:0;background:#fbf7f1;padding:14px 12px;font-family:var(--v4-mincho);font-size:12.5px;line-height:1.9;letter-spacing:.06em;color:var(--v4-body);box-shadow:0 8px 20px rgba(80,55,40,.12);transform:rotate(-6deg)}
-.v4-steps{background:var(--v4-paper);border-radius:4px;box-shadow:0 10px 28px rgba(80,55,40,.07);padding:20px 22px}
-.v4-steps h3{font-family:var(--v4-mincho);font-weight:500;font-size:16px;letter-spacing:.1em;margin:0 0 14px;color:var(--v4-ink)}
-.v4-steps ol{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:12px}
-.v4-steps li{counter-increment:s;display:grid;grid-template-columns:24px 104px 1fr;gap:12px;align-items:center}
-.v4-steps li::before{content:counter(s);font-family:var(--v4-mincho);font-size:26px;color:var(--v4-rust);text-align:center}
-.v4-steps img{width:104px;height:62px;object-fit:cover;border-radius:3px;display:block}
-.v4-steps p{font-size:13px;line-height:1.75;color:var(--v4-body);margin:0}
-/* plans */
-.v4-plans{background:var(--v4-bg);padding:34px 0 46px;border-top:1px solid var(--v4-line)}
-.v4-plans-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:0}
-.v4-free{padding-right:40px;border-right:1px solid var(--v4-line)}
-.v4-paid{padding-left:40px}
-.v4-h3{font-family:var(--v4-mincho);font-weight:500;font-size:20px;letter-spacing:.14em;color:var(--v4-ink);margin:0 0 12px}
-.v4-free-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
-.v4-checks{list-style:none;padding:0;margin:0;display:grid;gap:6px}
-.v4-checks li,.v4-checks>span{position:relative;padding-left:26px;font-size:14px;letter-spacing:.06em;color:var(--v4-body);display:block}
-.v4-checks li::before,.v4-checks>span::before{content:"";position:absolute;left:3px;top:.5em;width:11px;height:6px;border-left:1.6px solid var(--v4-rust);border-bottom:1.6px solid var(--v4-rust);transform:rotate(-45deg)}
-.v4-round{flex:0 0 auto;width:110px;height:110px;border-radius:50%;background:var(--v4-blush);display:grid;place-items:center;text-align:center;font-family:var(--v4-mincho);font-size:13.5px;line-height:1.7;color:var(--v4-rust)}
-.v4-free .v4-btn{width:100%;max-width:400px}
-.v4-paid-lead{font-size:13.5px;color:var(--v4-body);margin:-4px 0 12px}
-.v4-paid-card{display:grid;grid-template-columns:1fr 200px;gap:14px;align-items:center;background:var(--v4-paper);border-radius:4px;box-shadow:0 10px 26px rgba(80,55,40,.08);padding:16px 18px;text-decoration:none;color:inherit;transition:box-shadow .2s}
-.v4-paid-card:hover{box-shadow:0 14px 32px rgba(80,55,40,.14)}
-.v4-paid-body small{display:block;font-size:13px;color:var(--v4-ink);letter-spacing:.06em}
-.v4-paid-body b{display:block;font-size:22px;font-weight:700;color:var(--v4-ink);margin:2px 0 8px}
-.v4-paid-body b i{font-style:normal;font-size:12px;font-weight:400}
-.v4-checks-sm{display:grid;gap:3px}
-.v4-checks-sm>span{font-size:12.5px}
-.v4-paid-more{display:inline-block;margin-top:10px;font-size:13px;color:var(--v4-brown);letter-spacing:.08em}
-.v4-paid-card img{width:100%;display:block}
-/* responsive */
-@media(max-width:1020px){
-  .v4-links a:not(.v4-navbtn){display:none}
-  .v4-sample-grid{grid-template-columns:1fr 1fr}
-  .v4-sample-intro{grid-column:1/-1;padding-top:0}
-  .v4-sample-intro br{display:none}
-  .v4-see{grid-template-columns:1fr}
-  .v4-see-photo{display:none}
-}
-@media(max-width:760px){
-  .v4-wrap{padding:0 18px}
-  .v4-logo{font-size:17px;letter-spacing:.12em}
-  .v4-links .v4-navbtn{padding:8px 14px;font-size:12px;letter-spacing:.06em}
-  .v4-hero{min-height:0}
-  .v4-hero-photo{position:relative;width:100%;height:300px}
-  .v4-hero-photo img{object-position:62% 40%;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
-  .v4-hero-inner{min-height:0}
-  .v4-hero-copy{padding:0 0 36px;margin-top:-34px;max-width:none}
-  .v4-h1{font-size:31px;letter-spacing:.1em}
-  .v4-lead{font-size:14px;letter-spacing:.04em}
-  .v4-btn,.v4-btn-hero{width:100%;min-width:0;box-sizing:border-box;font-size:18px}
-  .v4-see-main{padding:34px 18px 36px}
-  .v4-see-grid{grid-template-columns:1fr;gap:22px}
-  .v4-see-grid article{border-left:0;padding:0 0 22px;border-bottom:1px solid var(--v4-line);display:grid;grid-template-columns:96px 1fr;gap:4px 14px}
-  .v4-see-grid article:last-child{border-bottom:0;padding-bottom:0}
-  .v4-see-grid img{grid-row:span 2;height:auto;width:96px;margin:0}
-  .v4-see-grid h3{font-size:17px}
-  .v4-sample-grid{grid-template-columns:1fr;gap:30px}
-  .v4-type-card{grid-template-columns:1fr 110px;transform:none;padding:20px 16px 34px}
-  .v4-type-name{font-size:34px}
-  .v4-type-note{right:6px;bottom:-26px}
-  .v4-steps li{grid-template-columns:20px 84px 1fr;gap:10px}
-  .v4-steps img{width:84px;height:56px}
-  .v4-plans-grid{grid-template-columns:1fr;gap:30px}
-  .v4-free{padding:0 0 30px;border-right:0;border-bottom:1px solid var(--v4-line)}
-  .v4-paid{padding:0}
-  .v4-paid-card{grid-template-columns:1fr}
-  .v4-paid-card img{max-width:260px;margin:0 auto}
-  .v4-round{width:92px;height:92px;font-size:12px}
-}
-/* v4: 既存の全体スタイルより優先 */
-section.v4-hero,section.v4-see,section.v4-sample,section.v4-plans{padding-left:0;padding-right:0}
-section.v4-hero{padding:0!important}
-section.v4-see{padding:0!important}
-section.v4-sample{padding:44px 0 50px!important}
-section.v4-plans{padding:34px 0 46px!important}
-header.nav.v4-nav{position:sticky;top:0;z-index:40;margin:0!important;border:0!important;border-bottom:1px solid rgba(232,221,210,.7)!important;border-radius:0!important;box-shadow:none!important;width:auto!important;max-width:none!important}
-h1.v4-h1{font-family:var(--v4-mincho)!important;font-weight:400!important;font-size:clamp(34px,3.6vw,46px)!important;line-height:1.5!important;letter-spacing:.14em!important;margin:0 0 22px!important;color:var(--v4-ink)!important}
-h2.v4-h2{font-family:var(--v4-mincho)!important;font-weight:400!important;font-size:clamp(26px,2.4vw,32px)!important;line-height:1.5!important;letter-spacing:.16em!important;margin:0 0 18px!important}
-h2.v4-h2.v4-center{font-size:clamp(20px,2vw,24px)!important}
-h2.v4-h3{font-family:var(--v4-mincho)!important;font-weight:500!important;font-size:20px!important;line-height:1.5!important;letter-spacing:.14em!important;margin:0 0 12px!important}
-.v4-see-grid h3,.v4-steps h3{letter-spacing:.08em!important;font-family:var(--v4-mincho)!important}
-.v4-see-grid h3{font-size:18px!important;line-height:1.55!important}
-.v4-steps h3{font-size:16px!important}
-.v4-hero-copy{max-width:500px}
-.v4-type-name{color:var(--v4-rust)!important;font-family:var(--v4-mincho)!important;font-weight:400!important}.v4-type-sub{font-size:15px!important}.v4-type-note{width:auto!important;white-space:nowrap;padding:12px 16px!important}.v4-type-card{grid-template-columns:1fr 140px!important}
-@media(max-width:760px){.v4-type-card{grid-template-columns:1fr 104px!important}h1.v4-h1{font-size:30px!important;letter-spacing:.1em!important}.v4-see-grid h3{font-size:16px!important}}
-</style>
 </head>
 <body>
 
-<header class="nav v4-nav">
-  <div class="v4-wrap v4-nav-inner">
-    <a class="v4-logo" href="#">わたしのこれから診断</a>
-    <nav class="v4-links" aria-label="ページ内メニュー">
-      <a href="akinai-about.html">診断について</a>
-      <a href="#sample">結果サンプル</a>
-      <a href="#price">料金プラン</a>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#"><span class="brand-mark">W</span><span>わたしのこれから診断<small>誰かに相談する前の、ひとり相談室</small></span></a>
+    <nav class="nav-links">
+      <a href="akinai-about.html">この診断について</a>
+      <a href="akinai-profile.html">つくった人</a>
       <a href="akinai-faq.html">よくある質問</a>
-      <a class="v4-navbtn" href="#qz" data-go-quiz="nav">診断をはじめる →</a>
+      <a class="btn" href="#fortune">無料で診断する</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="v4-hero">
-    <div class="v4-hero-photo" aria-hidden="true"><img src="assets/akinai-v4/hero.jpg?v=20260927" alt="" width="1364" height="1020" fetchpriority="high" decoding="async"></div>
-    <div class="v4-wrap v4-hero-inner">
-      <div class="v4-hero-copy">
-        <h1 class="v4-h1">いろいろなことを<br>優先してきた。<br>そろそろ、<br><em>自分<small>の</small>ことも</em><br>考えてみたい。</h1>
-        <p class="v4-lead">占いのように自分を知り、<br>創業相談のように現実に落とす。<br>辞めずに、小さく試す前提の3分診断です。</p>
-        <ul class="v4-badges" aria-label="診断の条件">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>約3分</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>9つの質問</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg>登録不要</li>
-        </ul>
-        <a class="v4-btn v4-btn-hero" href="#qz" data-go-quiz="hero">3分で見てみる →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="v4-see" aria-labelledby="v4SeeTitle">
-    <div class="v4-see-main">
-      <h2 id="v4SeeTitle" class="v4-h2 v4-center">この診断で見えてくること</h2>
-      <div class="v4-see-grid">
-        <article>
-          <img src="assets/akinai-v4/ill-person.jpg?v=20260927" alt="" width="212" height="130" loading="lazy">
-          <h3><span>1.</span>自分では仕事だと<br>思っていなかったこと</h3>
-          <p>これまでの経験や得意なことから、意外な強みや、価値のある視点を見つけます。</p>
-        </article>
-        <article>
-          <img src="assets/akinai-v4/ill-book.jpg?v=20260927" alt="" width="186" height="114" loading="lazy">
-          <h3><span>2.</span>小さく試せる<br>方向性</h3>
-          <p>今の暮らしに合わせて、無理なく始められる働き方の方向性がわかります。</p>
-        </article>
-        <article>
-          <img src="assets/akinai-v4/ill-vase.jpg?v=20260927" alt="" width="160" height="112" loading="lazy">
-          <h3><span>3.</span>今週できる<br>最初の一歩</h3>
-          <p>「誰に・何を・どう試すか」のヒントを、具体的な行動としてお伝えします。</p>
-        </article>
-      </div>
-    </div>
-    <div class="v4-see-photo" aria-hidden="true"><img src="assets/akinai-v4/side.jpg?v=20260927" alt="" width="584" height="650" loading="lazy"></div>
-  </section>
-
-  <section class="v4-sample" id="sample" aria-labelledby="v4SampleTitle">
-    <div class="v4-wrap v4-sample-grid">
-      <div class="v4-sample-intro">
-        <h2 id="v4SampleTitle" class="v4-h2">結果サンプル</h2>
-        <p>こんなふうに、<br>あなたのタイプと<br>具体的なヒントがわかります。</p>
-        <small>（実際の結果をもとにしたイメージです）</small>
-      </div>
-      <div class="v4-type-card">
-        <div class="v4-type-text">
-          <span class="v4-type-label">あなたのタイプ</span>
-          <b class="v4-type-name">縁 <i>×</i> 育</b>
-          <span class="v4-type-sub">「紹介した後も見守る人」</span>
-          <p>つなげられる。そして、その後も見ていられる人。紹介して終わりではなく、うまくいったかを確かめる。だから、次も頼まれる。</p>
-          <ul class="v4-tags"><li>つなぐ</li><li>理由を伝える</li><li class="rose">見守る</li></ul>
+  <section class="hero hero-v3">
+    <div class="wrap hero-v3-grid">
+      <div class="hero-v3-copy">
+        <div class="eyebrow">誰かに相談する前の、ひとり相談室 <span class="en">MY NEXT CHAPTER</span></div>
+        <h1 class="h1-v4"><span class="h1-context"><i>家族のこと。</i><i>仕事のこと。</i><i>お金のこと。</i><br><b>ずっと考えてきた。</b></span><span class="h1-punch"><i>で、私は？</i></span></h1>
+        <div class="hero-hook">
+          <span class="hero-hook-label">あなたの「？」に近いものを、ひとつ選ぶと始まります。</span>
+          <div class="hero-hook-choices" aria-label="今の気持ちを選ぶ">
+            <a href="#qz" data-hero-feeling="same" data-ctx-worry="stay">このままでいいのかな</a>
+            <a href="#qz" data-hero-feeling="unknown" data-ctx-worry="self">何かしたい。でも分からない</a>
+            <a href="#qz" data-hero-feeling="mytime" data-ctx-hope="time">自分の時間を取り戻したい</a>
+          </div>
+          <p><b>9問・3分。登録なし。答えを決めなくてOK。</b><br><span>向いている仕事を決める診断ではありません。今のあなたが、何を守って、何なら試せるかを見ます。</span></p>
         </div>
-        <figure class="v4-type-photo"><img src="assets/akinai-v4/woman.jpg?v=20260927" alt="" width="324" height="306" loading="lazy"></figure>
-        <p class="v4-type-note">つないだあとも、<br>そっと<br>見守れる人。</p>
-      </div>
-      <div class="v4-steps">
-        <h3>今週できる最初の一歩（例）</h3>
-        <ol>
-          <li><img src="assets/akinai-v4/step1.jpg?v=20260927" alt="" width="123" height="66" loading="lazy"><p>「どれがいいか分からない」と言っていた知人3人に、話を聞いてみる</p></li>
-          <li><img src="assets/akinai-v4/step2.jpg?v=20260927" alt="" width="123" height="69" loading="lazy"><p>理由つきで3つに絞る提案を1回だけ試してみる（例：1回5,000円）</p></li>
-          <li><img src="assets/akinai-v4/step3.jpg?v=20260927" alt="" width="123" height="70" loading="lazy"><p>紹介した相手に「その後どう？」と聞いて、感想を集めてみる</p></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="v4-plans" aria-label="無料診断と有料レポート">
-    <div class="v4-wrap v4-plans-grid">
-      <div class="v4-free">
-        <h2 class="v4-h3">無料診断でわかること</h2>
-        <div class="v4-free-row">
-          <ul class="v4-checks">
-            <li>あなたのタイプ（30通りの組み合わせ）</li>
-            <li>自分では仕事だと思っていなかったこと</li>
-            <li>今週できる最初の一歩</li>
-          </ul>
-          <div class="v4-round">約3分<br>9つの質問<br>登録不要</div>
+        <div class="hero-primary">
+          <a class="btn" href="#qz" data-go-quiz="hero">私の3つを見てみる →</a>
+          <small>無料・3分・メール不要</small>
         </div>
-        <a class="v4-btn" href="#qz" data-go-quiz="plans">3分で見てみる →</a>
+        <p class="hero-v3-sub">答えを出さなくていい。今日は、自分の番です。</p>
       </div>
-      <div class="v4-paid">
-        <h2 class="v4-h3">さらに詳しく知りたい方へ</h2>
-        <p class="v4-paid-lead">数字まで詰めた、あなただけの3つの事業プランを作成します。</p>
-        <a class="v4-paid-card" href="#price">
-          <span class="v4-paid-body">
-            <small>有料レポート（Web版）</small>
-            <b>3,300円<i>（税込）</i></b>
-            <span class="v4-checks v4-checks-sm">
-              <span>暮らしに合わせた3つの商いプラン</span>
-              <span>顧客・商品・価格・必要件数まで</span>
-              <span>最初の3人と90日の動き方</span>
-            </span>
-            <span class="v4-paid-more">内容と申込み →</span>
-          </span>
-          <img src="assets/akinai-v4/report.jpg?v=20260927" alt="有料レポートのイメージ" width="484" height="204" loading="lazy">
-        </a>
+
+      <div class="hero-v3-visual">
+        <div class="hero-visual-card hero-visual-min" aria-label="無料診断で見える3つのこと">
+          <span class="hv-kicker">3分後、こんなふうに整理されます。</span>
+          <div class="hv-stage hv-result-preview" aria-label="無料診断で見えること">
+            <div class="hvr-grid hvr-grid-min">
+              <div class="hvr-card strength"><i>♡</i><span><b>私の強み</b></span></div>
+              <div class="hvr-card release"><i>◎</i><span><b>今のモヤモヤ</b></span></div>
+              <div class="hvr-card step"><i>↗</i><span><b>今週の一歩</b></span></div>
+            </div>
+          </div>
+          <p class="hv-soft-note">9問から、あなたの「今」を整理します。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -6339,6 +6121,30 @@ h2.v4-h3{font-family:var(--v4-mincho)!important;font-weight:500!important;font-s
   </section>
 
   
+  <section class="how3" aria-label="診断の流れ">
+    <div class="wrap how3-grid">
+      <div class="how3-steps">
+        <span class="how3-tag">HOW IT WORKS</span>
+        <div class="how3-step"><i>01</i><div><b>答える</b><small>9問・約3分</small></div></div>
+        <div class="how3-line"></div>
+        <div class="how3-step"><i>02</i><div><b>見えてくる</b><small>経験・強み・仕事の種</small></div></div>
+        <div class="how3-line"></div>
+        <div class="how3-step"><i>03</i><div><b>小さく試す</b><small>商品・価格・最初の一歩</small></div></div>
+        <a class="btn how3-btn" href="#fortune">無料で9問に答える →</a>
+      </div>
+      <div class="how3-sample" aria-label="診断結果のイメージ">
+        <span class="hs-tag">RESULT SAMPLE｜無料診断の結果イメージ</span>
+        <div class="hs-block"><small>あなたが、もう持っている力</small><b>「人の話を整理して、次にやることに変える力」</b><p>職場でも家庭でも、まず話を聞く側にまわってきた経験が、そのまま価値になります。</p></div>
+        <div class="hs-grid">
+          <div><small>仕事の種</small><b>ひとり相談・少人数講座・伴走サポート</b></div>
+          <div><small>向いている進め方</small><b>まず1人ずつ、小さく試す</b></div>
+          <div class="wide"><small>最初の一歩</small><b>身近な1人に30分、試してみる</b></div>
+        </div>
+        <p class="hs-note">※イメージです。実際は回答内容から自動で作成されます。</p>
+      </div>
+    </div>
+  </section>
+
   <section class="detail-hub" aria-label="詳しい情報">
     <div class="wrap detail-hub-grid">
       <div class="detail-hub-intro">
