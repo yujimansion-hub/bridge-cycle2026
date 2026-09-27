@@ -6074,7 +6074,7 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
           </details>
 
           <details class="biz-optional">
-            <summary>起業・副業が合いそうな人へ｜どんな事業がありそう？</summary>
+            <summary>仕事にしてみたくなったら（任意）</summary>
             <div class="biz-optional-inner">
           <div class="turn"><span>ここから先は、仕事にしてみたい人向け</span></div>
 
@@ -6101,52 +6101,11 @@ section.v4-see{display:block;padding:34px 0 40px!important;background:linear-gra
             <small>最初から大きく始めないためのブレーキです。必要になった段階で足せば十分です。</small>
           </div>
 
-          <div class="cands">
-            <div class="lab">03｜最初に試す商い 3案</div>
-            <div class="cl" id="cl"></div>
-            <p class="pick">気になる案を1つ選ぶと、「仕事イメージ・商品・相手・価格・売上目安・今週やること」まで1枚にします。</p>
-          </div>
-
-          <!-- 注意：このプランカードは現在CSSで非表示（#res .plan）。無料/有料の境界を保つための意図的な停止です。 -->
-          <div class="plan" id="plan" style="display:none">
-            <div class="lab" id="planLab"></div>
-            <div class="pl"><span>仕事イメージ</span><b id="pJob"></b></div>
-            <div class="pl"><span>商いの形</span><b id="pModel"></b></div>
-            <div class="pl"><span>最初の商品</span><b id="pProd"></b></div>
-            <div class="pl"><span>最初に声をかける人</span><b id="pWho"></b></div>
-            <div class="pl"><span>まず試す価格</span><b id="pPrice"></b></div>
-            <div class="pl locked"><span>月3万・5万円に必要な人数</span><b>あなたの使える時間・地域・条件をもとに組み立てます<i>3,300円のプラン</i></b></div>
-            <div class="pl"><span>今週用意するもの</span><b id="pPrep"></b></div>
-            <div class="pl"><span>今はやらないこと</span><b id="pNo"></b></div>
-            <div class="pl brake"><span>先に決めること</span><b id="pRisk"></b></div>
-            <div class="biz-summary"><span>この案を一文で</span><p id="pSummary"></p></div>
-          </div>
-
-          <div class="week" id="week" style="display:none">
-            <div class="lab">まず7日で試すこと</div>
-            <p id="wText"></p>
-          </div>
-
-          <div class="cta45" id="cta45" style="display:none">
-            <p class="q1" id="paidHook">もう少し自分向けにするなら、現在地を30秒だけ追加。</p>
-            <p>仕事・家族・お金などを足すと、この結果をあなたの条件に合わせて更新できます。全部任意で、答えたくない項目は飛ばせます。</p>
-            <details class="paid-peek">
-              <summary>3,300円のWeb完結版では、ここから何が出る？</summary>
-              <div class="pp-in">
-                <p class="pp-head">無料診断の結果を引き継ぎ、追加質問に答えると、あなたの条件に合わせた「3つの商いプラン」までWeb上で出します。</p>
-                <div class="pp-grid">
-                  <div class="pp-cell"><span>無料で出た仮の商品</span><b id="peekProd">—</b></div>
-                  <div class="pp-cell"><span>仮の価格</span><b id="peekPrice">—</b></div>
-                  <div class="pp-cell"><span>Web版で整理する</span><b>最初に声をかける5人</b></div>
-                  <div class="pp-cell"><span>Web版で整理する</span><b>週に使える時間</b></div>
-                  <div class="pp-cell"><span>Web版で整理する</span><b>月3万・5万円に必要な人数</b></div>
-                  <div class="pp-cell"><span>Web版で整理する</span><b>90日後の「続ける／やめる」基準</b></div>
-                </div>
-                <p class="pp-note">面談はありません。時間・収入・地域・家族・自己資金・デジタル環境などを回答し、3つの案を比較できる形にします。</p>
-              </div>
-            </details>
-            <a class="btn" href="#postContextDetails">現在地を30秒足して、結果を更新する →</a>
-          </div>
+          <!-- 2026-09-27：無料結果の「3案・商品・価格・必要人数」は表示を止めているため、文言ごと削除（JSが参照するidだけ空で残す）。3,300円版と役割を分けるため。 -->
+          <div class="cands" hidden><div class="cl" id="cl"></div></div>
+          <div class="plan" id="plan" style="display:none" hidden><i id="planLab"></i><i id="pJob"></i><i id="pModel"></i><i id="pProd"></i><i id="pWho"></i><i id="pPrice"></i><i id="pPrep"></i><i id="pNo"></i><i id="pRisk"></i><i id="pSummary"></i><i id="wText"></i><i id="paidHook"></i><i id="peekProd"></i><i id="peekPrice"></i></div>
+          <div class="week" id="week" style="display:none" hidden></div>
+          <div class="cta45" id="cta45" style="display:none" hidden></div>
 
 
 
@@ -6956,7 +6915,7 @@ const TWIST={light:"あなたは「聞き上手」ではなく、「聞いた後
 const HEAD={light:["「相談」を売る人ではありません。","“整理して、次の一歩を作る”ことでお金になる人です。"],hand:["「器用さ」を売る人ではありません。","“この人に頼めば、ちゃんと仕上がる”という安心でお金になる人です。"],garden:["「優しさ」を売る人ではありません。","“この人となら、続けられる”という時間でお金になる人です。"],bridge:["「人脈」を売る人ではありません。","“あなたが選んだなら大丈夫”という判断でお金になる人です。"],boat:["「行動力」を売る人ではありません。","“まずやってみた人だけが持つ手応え”でお金になる人です。"],tower:["「事務作業」を売る人ではありません。","“任せておけば、抜けがない”という安心でお金になる人です。"]};
 const TSUMARI={light:"つまり、ただの「聞き上手」ではありません。相手の頭の中のごちゃごちゃを、“次に何をするか”まで整理できること。ここに、あなたの商いの種があります。",hand:"つまり、ただの「器用な人」ではありません。頼まれたものを、期待より少し上で仕上げて返せること。ここに、あなたの商いの種があります。",garden:"つまり、ただの「優しい人」ではありません。一度きりで終わらせず、相手が続けられる関係を作れること。ここに、あなたの商いの種があります。",bridge:"つまり、ただの「顔が広い人」ではありません。その人に合うものを、理由つきで選べること。ここに、あなたの商いの種があります。",boat:"つまり、ただの「フットワークが軽い人」ではありません。考える前に一回やって、手応えを持ち帰れること。ここに、あなたの商いの種があります。",tower:"つまり、ただの「しっかり者」ではありません。相手の抜けを先回りして、任せられる形に整えられること。ここに、あなたの商いの種があります。"};
 const IND7={hand:"お金は「一回の仕上がり」ごとに受け取りたい傾向。値段も一回分でつけるのが、あなたには自然です。",garden:"月ごと・回数券で受け取る形が納得しやすい傾向。だから最初の商品も「セット」にしています。",bridge:"紹介や仲介の手数料に抵抗がない傾向。「選んだ理由」を見せれば、それがそのまま値段になります。",boat:"一日で売り切る形が合う傾向。在庫より先に、日程を決めることが大事です。"};
-const IND8={tower:"不安なときは数字で安心する傾向なので、最初の商品にも「必要人数」を添えました。",boat:"不安なときほど小さく試して確かめる傾向。準備より、最初の1回を早く。",bridge:"不安なときは経験者に聞く傾向。最初の3人に、遠慮なく感想を聞いてください。",light:"不安なときは書き出して整理する傾向。今週やることを、まず紙に書いてから動くと進みます。"};
+const IND8={tower:"不安なときは数字で安心する傾向。動く前に「何人に届けば続けられるか」を数字で確かめると、進みやすくなります。",boat:"不安なときほど小さく試して確かめる傾向。準備より、最初の1回を早く。",bridge:"不安なときは経験者に聞く傾向。最初の3人に、遠慮なく感想を聞いてください。",light:"不安なときは書き出して整理する傾向。今週やることを、まず紙に書いてから動くと進みます。"};
 const PLAN={
  light:{prod:"30分・頭の中整理セッション",who:"やりたいことはあるけれど、何から始めればいいか分からない人",price:"3,000円",num:"月5万円なら17人／月3万円なら10人",prep:"Zoomかカフェ。A4の整理シート1枚",no:"ホームページ／資格／事務所／ロゴ",week:"身近な3人に、「30分3,000円で、頭の中を整理するのを試してるんだけど、やってみない？」と聞く。"},
  hand:{prod:"「頼まれ品」を1つ、10個限定で",who:"これまで頼んでくれた人と、その人の紹介",price:"材料費＋作業時間×1,000円（例：3,500円）",num:"月5万円なら15個／月3万円なら9個",prep:"材料と、値札1枚",no:"ネットショップ／屋号／ロゴ／包装",week:"過去に頼んでくれた3人に、「今回から値段をつけて受けることにした。○○円で、また頼んでもらえる？」と聞く。"},
@@ -7480,7 +7439,7 @@ const CTX_LABELS={
 
     const bo=document.querySelector('.biz-optional');
     const ov=document.getElementById('entreOverride'), ovBtn=document.getElementById('entreOverrideBtn'), ovAdvice=document.getElementById('entreOverrideAdvice'), ovList=document.getElementById('entreAdviceList'), ovBiz=document.getElementById('entreShowBiz');
-    if(bo){bo.style.display=er.level==='low'?'none':''; bo.open=er.level==='high';}
+    if(bo){bo.style.display=er.level==='low'?'none':''; bo.open=false;}
     if(ov){
       ov.style.display=er.level==='low'?'':'none';
       if(ovAdvice)ovAdvice.style.display='none';
