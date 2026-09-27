@@ -137,12 +137,128 @@ img{max-width:100%}
  #next > div > div[style*="align-items: baseline"]{flex-direction:column!important;gap:6px}
 }
 </style>
+
+<style id="natural-concept-20260927">
+:root{
+  --natural-bg:#F7F4EF;
+  --natural-paper:#FFFCF8;
+  --natural-ink:#3D3A36;
+  --natural-muted:#746C65;
+  --natural-line:#E7DDD4;
+  --natural-accent:#B98273;
+  --natural-accent-dark:#8C6659;
+  --natural-sage:#AEB8A7;
+}
+html{scroll-behavior:smooth}
+body{background:var(--natural-bg)!important;color:var(--natural-ink)!important}
+.natural-page{background:var(--natural-bg)!important;color:var(--natural-ink)!important}
+.natural-nav{
+  position:sticky;top:0;z-index:30;
+  background:rgba(247,244,239,.92)!important;
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--natural-line)!important;
+}
+.natural-nav a{color:var(--natural-ink)!important}
+.natural-nav>a,.natural-nav div>a:last-child{background:var(--natural-accent-dark)!important;color:#fff!important;border-color:var(--natural-accent-dark)!important}
+.natural-hero{padding:72px 0 78px!important;background:var(--natural-bg)!important}
+.natural-hero h1{
+  font-weight:500!important;
+  color:var(--natural-ink)!important;
+  letter-spacing:.01em!important;
+  line-height:1.38!important;
+}
+.natural-em{color:var(--natural-accent-dark);font-weight:500}
+.natural-hero p{color:#5E5751!important}
+.natural-hero img{
+  border-radius:28px!important;
+  box-shadow:0 18px 48px rgba(87,67,54,.10);
+}
+.hero-ladder div{
+  background:rgba(255,252,248,.88)!important;
+  border-color:var(--natural-line)!important;
+  border-radius:16px!important;
+}
+.hero-ladder .hl-main{
+  background:#6F665F!important;
+  border-color:#6F665F!important;
+}
+.hero-choice a{
+  background:#766A61!important;
+  border-radius:999px!important;
+  box-shadow:none!important;
+}
+.hero-choice a:last-child{background:var(--natural-accent)!important}
+.who-type,.chef-card,.step-card,.safe-card,.faq-item,
+.f-cal,.f-result,.money-card,.rule-card{
+  border-color:var(--natural-line)!important;
+  box-shadow:none!important;
+}
+.natural-three{
+  padding:76px 0;
+  background:#FFFDF9;
+  border-top:1px solid var(--natural-line);
+  border-bottom:1px solid var(--natural-line);
+}
+.natural-wrap{max-width:1120px;margin:0 auto;padding:0 40px}
+.natural-kicker{
+  margin:0 0 10px;
+  font-family:'Zen Old Mincho',serif;
+  color:var(--natural-accent);
+  font-size:12px;
+  letter-spacing:.15em;
+}
+.natural-three h2{
+  margin:0 0 30px;
+  font-family:'Zen Old Mincho',serif;
+  font-size:clamp(30px,4vw,42px);
+  line-height:1.45;
+  font-weight:500;
+}
+.natural-three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.natural-three-grid article{
+  background:transparent;
+  border-top:1px solid #CFC4BA;
+  padding:20px 6px 8px;
+}
+.natural-three-grid article>span{
+  display:block;
+  margin-bottom:14px;
+  color:var(--natural-accent);
+  font-family:'Zen Old Mincho',serif;
+  font-size:14px;
+}
+.natural-three-grid h3{
+  margin:0 0 8px;
+  font-family:'Zen Old Mincho',serif;
+  font-size:24px;
+  font-weight:500;
+}
+.natural-three-grid p{margin:0;color:var(--natural-muted);font-size:14px}
+section[style*="background: #FFFFFF"]{background:#FFFDF9!important}
+section[style*="background: #FBF7F0"]{background:var(--natural-bg)!important}
+a[style*="background: #173F68"]{background:#766A61!important}
+a[style*="color: #173F68"]{color:#766A61!important;border-color:#766A61!important}
+span[style*="color: #8A5A12"],a[style*="color: #8A5A12"]{color:var(--natural-accent-dark)!important}
+@media(max-width:820px){
+  .natural-hero{padding:44px 0 52px!important}
+  .natural-hero h1{font-size:40px!important}
+  .natural-wrap{padding:0 22px}
+  .natural-three{padding:54px 0}
+  .natural-three-grid{grid-template-columns:1fr}
+  .natural-three-grid article{padding-top:16px}
+}
+@media(max-width:560px){
+  .natural-hero h1{font-size:34px!important}
+  .natural-three h2{font-size:30px}
+}
+</style>
 </head>
 <body>
-<div style="width: 100%; background: #FBF7F0; color: #1C2733; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif; font-size: 16px; line-height: 1.85; letter-spacing: 0.02em">
+<div class="natural-shell-marker" aria-hidden="true"></div>
+<div class="natural-page" style="width: 100%; background: #FBF7F0; color: #1C2733; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif; font-size: 16px; line-height: 1.85; letter-spacing: 0.02em">
 
 <!-- NAV -->
-<header style="border-bottom: 1px solid #E6DDCF; background: #FBF7F0">
+<header class="natural-nav" style="border-bottom: 1px solid #E6DDCF; background: #FBF7F0">
 <div style="max-width: 1120px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; gap: 32px">
 <span style="font-family: 'Zen Old Mincho', serif; font-size: 20px; font-weight: 700; line-height: 1.3">うちのシェフ<span style="color: #8A5A12">｜料理人募集</span></span>
 <nav style="display: flex; gap: 24px; flex-grow: 1; justify-content: flex-end; font-size: 14px; font-weight: 500">
@@ -151,17 +267,17 @@ img{max-width:100%}
 <a href="#rules" style="color: #1C2733; text-decoration: none">条件</a>
 <a href="#faq" style="color: #1C2733; text-decoration: none">質問</a>
 </nav>
-<a href="#entry" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">登録する</a>
+<a href="#entry" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">まず話を聞く</a>
 </div>
 </header>
 
 <!-- HERO -->
-<section style="padding: 64px 0 72px">
+<section class="natural-hero" style="padding: 64px 0 72px">
 <div style="max-width: 1120px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; align-items: center">
 <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 22px">
 <span style="align-self: flex-start; font-size: 14px; font-weight: 700; color: #8A5A12; border: 1px solid #D9C29A; border-radius: 999px; padding: 4px 14px">大津・草津で、料理人を募集しています</span>
-<h1 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 48px; line-height: 1.35; letter-spacing: 0; font-weight: 700">料理だけでなく、<br>「あなた」を選んでもらう。</h1>
-<p style="margin: 0; font-size: 18px; line-height: 1.8">「うちのシェフ」は、お客さまが<b>店であなたの料理を食べ</b>、<b>あなたと話してから</b>、自宅での作り置きを頼むサービスです。集客の場所と、予約・決済の手間は運営が用意します。</p>
+<h1 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 48px; line-height: 1.35; letter-spacing: 0; font-weight: 700">料理を、<br>いきなり店にしなくていい。<br><span class="natural-em">まず、喜ばれるところから。</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.8">出店で会って、料理を知ってもらう。<br>小さく試しながら、自分の料理を仕事に育てる仕組みです。</p>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
 <span style="padding: 6px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF; font-size: 14px"><b>料金は自分で決める</b>（3時間 10,000〜16,000円）</span>
 <span style="padding: 6px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF; font-size: 14px"><b>登録料・月会費 0円</b>（登録は無料）</span>
@@ -170,7 +286,7 @@ img{max-width:100%}
 <span style="padding: 6px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E6DDCF; font-size: 14px"><b>許可・保険の手続きは運営がサポート</b></span>
 </div>
 <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center">
-<a href="#entry" style="display: inline-flex; align-items: center; min-height: 58px; padding: 0 32px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">登録条件を見て申し込む</a>
+<a href="#entry" style="display: inline-flex; align-items: center; min-height: 58px; padding: 0 32px; border-radius: 999px; background: #173F68; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">まず話を聞いてみる</a>
 <a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 58px; padding: 0 26px; border-radius: 999px; border: 1.5px solid #173F68; color: #173F68; font-weight: 700; text-decoration: none">まずLINEで相談する</a>
 </div>
 </div>
@@ -180,6 +296,18 @@ img{max-width:100%}
 </div>
 </div>
 </section>
+<section class="natural-three">
+  <div class="natural-wrap">
+    <p class="natural-kicker">START SMALL</p>
+    <h2>いきなり独立しない。<br>小さく、育てていく。</h2>
+    <div class="natural-three-grid">
+      <article><span>01</span><h3>出店して、会う。</h3><p>まずは料理と人柄を知ってもらう。</p></article>
+      <article><span>02</span><h3>小さく、試す。</h3><p>反応を見ながら、自分の強みを知る。</p></article>
+      <article><span>03</span><h3>仕事に、育てる。</h3><p>出張作り置きや次の仕事につなげる。</p></article>
+    </div>
+  </div>
+</section>
+
 
 <!-- WHO -->
 <section style="padding: 80px 0; background: #FFFFFF; border-top: 1px solid #E6DDCF; border-bottom: 1px solid #E6DDCF">
