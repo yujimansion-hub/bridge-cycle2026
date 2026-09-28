@@ -5782,6 +5782,10 @@ section{scroll-margin-top:76px}
 })();
 </script>
 <style id="roast-style">
+#roast .roast-face,.callname .cn-face{display:block;width:104px;height:104px;margin:0 auto 18px;padding:4px;border-radius:50%;background:#FAF8F3;border:1px solid #D8D3CB;object-fit:cover}
+.callname .cn-face{width:92px;height:92px;margin-bottom:16px}
+#roast.reveal .roast-face{animation:roastFade 1s ease-out 0s both}
+
 /* 十三月の窓：光・塗り壁・モルタル・古木・余白・静かな生活感。辛口は色ではなく、言葉と間で出す */
 .roast{position:relative;margin:0 0 26px;padding:40px 24px 28px;border-radius:4px;background:#FAF8F3;border:1px solid #D8D3CB;box-shadow:inset 0 0 0 7px #FAF8F3,inset 0 0 0 8px #E4DFD7;text-align:center;font-family:var(--serif)}
 #roast .roast-hook{display:flex;flex-direction:column;gap:6px;margin:0 0 22px;font-size:13.5px;letter-spacing:.08em;color:#8C867F!important}
@@ -6017,6 +6021,7 @@ section{scroll-margin-top:76px}
         <div class="qnav"><button type="button" id="back" style="visibility:hidden">← ひとつ戻る</button><span>登録なし・送信なし</span></div>
 
         <div class="callname" id="callName" role="dialog" aria-labelledby="callNameTitle">
+          <img class="cn-face" src="assets/roast-light.jpg?v=20260928" alt="" width="240" height="240" loading="lazy" decoding="async">
           <p class="cn-kicker">9問、おつかれさま。</p>
           <h3 id="callNameTitle">ここから先は、辛口です。</h3>
           <p>褒めて終わる診断じゃない。<br>9つの答えは、あなたの暮らし方そのもの。<br>そこから、<br>見ないふりをしてきたところを言います。</p>
@@ -6035,6 +6040,7 @@ section{scroll-margin-top:76px}
           </div>
           <div class="rcard" id="rcard">
             <section class="roast" id="roast" aria-label="あなたのあだ名とひとこと" hidden>
+              <img class="roast-face" id="roastFace" src="assets/roast-light.jpg?v=20260928" alt="" width="240" height="240" decoding="async">
               <p class="roast-hook"><span>9つの答え、読ませてもらった。</span><span id="roastWho">あんたを一言でいうと、</span></p>
               <p class="roast-name" id="roastName"></p>
               <p class="roast-line" id="roastLine"></p>
@@ -6331,10 +6337,10 @@ section{scroll-margin-top:76px}
               </span>
               <div class="maker-belief-copy">
                 <small>この診断をつくった人｜中村裕二</small>
-                <b>人に相談する前に、自分だけで少し整理できる場所があってもいい。</b>
-                <p>20年以上、500社以上の相談現場から生まれた診断です。起業を勧めるためのものではありません。</p>
+                <b>「辞めずに試せ」と言い続けて20年。自分は、辞めた。</b>
+                <p>商工会の窓口で500社以上。開業も店じまいも見てきたから、口が悪い。起業を勧めるための診断じゃない。</p>
               </div>
-              <a href="akinai-profile.html">つくった人を見る →</a>
+              <a href="akinai-profile.html">辛口の中の人を見る →</a>
             </div>
           </div>
           <details class="result-more" id="more">
@@ -7491,6 +7497,7 @@ const CTX_LABELS={
     document.getElementById('callNameSkip').onclick=()=>done(false);
     inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();done(true);}};
   }
+  window.ROAST_FACE=new Image(); window.ROAST_FACE.decoding='async';
   function fillRoast(w,w2,callname){
     const box=document.getElementById('roast'); if(!box||!ROAST[w])return;
     const k=(w2&&ROAST[w][w2])?w2:((PAIR[w]&&ROAST[w][PAIR[w][0]])?PAIR[w][0]:Object.keys(ROAST[w])[0]);
@@ -7499,6 +7506,8 @@ const CTX_LABELS={
     (function(){var el=document.getElementById('roastName');if(!el)return;el.textContent='';(r.b||r.t).split('／').forEach(function(x){var sp=document.createElement('span');sp.className='rn-seg';sp.textContent=x;el.appendChild(sp);});})(); put('roastLine',r.l); put('roastTo',who+'へ、ひとこと'); put('roastWho',who+'を一言でいうと、');put('roastEndWho',who);
     box.classList.remove('reveal'); void box.offsetWidth; box.classList.add('reveal');
     r.c.forEach((t,i)=>put('roastC'+i, callname?t.replace(/あんた/g,callname):t));
+    var fc=document.getElementById('roastFace'); if(fc){fc.src='assets/roast-'+w+'.jpg?v=20260928'; fc.alt='';}
+    window.AKINAI_ROAST={w:w,k:k}; window.ROAST_FACE.src='assets/roast-'+w+'.jpg?v=20260928';
     box.hidden=false;
   }
   function finish(){window.AKINAI_VOICE_RESULT=null;const {sc,order}=scoreOf(ans);const top=Math.max(...Object.values(sc),1);window.AKINAI_SCORE_MIX=order.filter(k=>sc[k]>0).slice(0,3).map(k=>({k,score:sc[k],pct:Math.round(sc[k]/top*100)}));render(order[0], sc[order[1]]>0?order[1]:null);}
@@ -8055,6 +8064,47 @@ const CTX_LABELS={
   }
   const CARD_IMG=new Image();CARD_IMG.decoding='async';CARD_IMG.src='assets/akinai-result-illustration-banner.jpg?v=20260923e';CARD_IMG.onerror=function(){if(!CARD_IMG.dataset.fallback){CARD_IMG.dataset.fallback='1';CARD_IMG.src='assets/akinai-result-illustration-banner.webp?v=20260923e';}};
   function drawCard(){
+    try{ if(window.AKINAI_ROAST && typeof ROAST!=='undefined' && ROAST[AKINAI_ROAST.w] && ROAST[AKINAI_ROAST.w][AKINAI_ROAST.k]) return drawRoastCard(ROAST[AKINAI_ROAST.w][AKINAI_ROAST.k]); }catch(e){}
+    return drawSummaryCard();
+  }
+  function drawRoastCard(r){
+    // あだ名カード（十三月の窓）：顔・あだ名・ひとこと・結び。名前は入れず「あんた」で固定
+    const c=document.getElementById('cv'), x=c.getContext('2d'), W=1080,H=1920;
+    const serif='"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif', sans='"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif';
+    x.textAlign='center'; x.textBaseline='alphabetic';
+    x.fillStyle='#F2F0EB';x.fillRect(0,0,W,H);
+    x.fillStyle='#FAF8F3';rr(x,60,60,960,1800,8);x.fill();
+    x.strokeStyle='#D8D3CB';x.lineWidth=2;rr(x,60,60,960,1800,8);x.stroke();
+    x.strokeStyle='#E4DFD7';x.lineWidth=2;rr(x,80,80,920,1760,4);x.stroke();
+    x.fillStyle='#6F6258';x.font='500 30px '+serif;x.fillText('わたしのこれから診断',540,168);
+    const cy=380, R=150;
+    x.beginPath();x.arc(540,cy,R+14,0,Math.PI*2);x.fillStyle='#FAF8F3';x.fill();x.strokeStyle='#D8D3CB';x.lineWidth=2;x.stroke();
+    const RF=window.ROAST_FACE;if(RF&&RF.complete&&RF.naturalWidth){x.save();x.beginPath();x.arc(540,cy,R,0,Math.PI*2);x.clip();x.drawImage(RF,540-R,cy-R,R*2,R*2);x.restore();}
+    else{x.beginPath();x.arc(540,cy,R,0,Math.PI*2);x.fillStyle='#E9E1DA';x.fill();}
+    x.fillStyle='#8C867F';x.font='400 32px '+serif;
+    x.fillText('9つの答え、読ませてもらった。',540,630);x.fillText('あんたを一言でいうと、',540,682);
+    const lines=(r.b||r.t).split('／'); let fs=108; x.font='600 '+fs+'px '+serif;
+    while(Math.max(...lines.map(l=>x.measureText(l).width))>820&&fs>56){fs-=4;x.font='600 '+fs+'px '+serif;}
+    let y=682+36+fs; x.fillStyle='#393734';
+    lines.forEach(l=>{x.fillText(l,540,y);y+=Math.round(fs*1.32);});
+    y+=10-Math.round(fs*0.32);
+    x.fillStyle='#625E59';x.font='400 36px '+serif;y+=44;y=wrap(x,r.l,540,y,820,54,'center');
+    y+=54; x.fillStyle='#8F6D5C';x.fillRect(510,y,60,2);
+    y+=50; x.font='400 29px '+serif;x.fillText('悪口じゃない。見抜いただけ。',540,y);
+    y+=40;
+    x.font='600 33px '+serif; let n=1,ln='';for(const ch of r.c[0]){if(x.measureText(ln+ch).width>720&&ln&&'。、」）！？…'.indexOf(ch)<0){n++;ln=ch;}else ln+=ch;}
+    const bh=96+n*52+34; x.fillStyle='#F2F0EB';rr(x,130,y,820,bh,4);x.fill();x.fillStyle='#D8D3CB';x.fillRect(130,y,820,2);
+    x.fillStyle='#6F6258';x.font='500 27px '+serif;x.fillText('あんたへ、ひとこと',540,y+60);
+    x.fillStyle='#393734';x.font='600 33px '+serif;wrap(x,r.c[0],540,y+118,720,52,'center');
+    x.textAlign='center';
+    let fy=Math.max(y+bh+64,1590);
+    x.fillStyle='#6F6258';x.font='400 29px '+serif;
+    x.fillText('センスは、うわべじゃない。',540,fy);x.fillText('生き方そのものだ。',540,fy+46);
+    x.fillStyle='#8F6D5C';x.font='500 27px '+sans;x.fillText('#わたしのこれから診断',540,fy+116);
+    x.fillStyle='#8C867F';x.font='400 22px '+sans;x.fillText('無料・9問・3分　'+SHARE_URL.replace(/^https?:\/\//,''),540,fy+156);
+    return c;
+  }
+  function drawSummaryCard(){
     // 結果サマリーカード：強み・モヤモヤ・今週の一歩の3つを1枚に（結果冒頭「まず一枚で」と同じ構成）
     const d=D[cur], d2=sub?D[sub]:null, c=document.getElementById('cv'), x=c.getContext('2d'), W=1080,H=1920;
     const serif='"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif', sans='"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif';
@@ -8096,7 +8146,7 @@ const CTX_LABELS={
     return c;
   }
   function rr(x,X,Y,w,h,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+h,r);x.arcTo(X+w,Y+h,X,Y+h,r);x.arcTo(X,Y+h,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath();}
-  function wrap(x,t,cx,y,mw,lh,al){x.textAlign=al;let line='',yy=y;for(const ch of t){const test=line+ch;if(x.measureText(test).width>mw&&line){x.fillText(line,cx,yy);line=ch;yy+=lh;}else line=test;}if(line)x.fillText(line,cx,yy);}
+  function wrap(x,t,cx,y,mw,lh,al){x.textAlign=al;let line='',yy=y;for(const ch of t){const test=line+ch;if(x.measureText(test).width>mw&&line&&'。、」）！？…'.indexOf(ch)<0){x.fillText(line,cx,yy);line=ch;yy+=lh;}else line=test;}if(line)x.fillText(line,cx,yy);return yy;}
   async function blob(){return new Promise(r=>drawCard().toBlob(r,'image/png'));}
   document.getElementById('btnSave').addEventListener('click',async()=>{const b=await blob();const f=new File([b],'akinai-'+cur+'.png',{type:'image/png'});
     if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'わたしのこれから診断',text:(window.instaCaption?window.instaCaption():'')});return;}catch(e){}}
