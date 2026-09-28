@@ -41,16 +41,20 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
   gtag('config',id,{content_group:'わたしのこれから診断'});
 })();
 </script>
+<style id="plan-host-20260928">
+.voice-btn{float:right;margin:-4px 0 0 10px;padding:6px 14px;border:1px solid #D8D3CB;border-radius:999px;background:#FAF8F3;color:#6F6258;font:inherit;font-size:12px;letter-spacing:.12em;cursor:pointer}
+.voice-btn.on{border-color:#8F6D5C;background:#F2F0EB}
+</style>
 </head>
 <body>
 <div class="nav"><div class="wrap"><b>わたしのこれから診断 → わたしの商い設計</b></div></div>
 <main class="wrap">
-<section class="hero"><span class="tag">PAID｜3,300円</span><h1>あなたの条件から、<br>3つの商いプランをつくります。</h1><p>同じ案の言い換えではなく、暮らし・強み・3年後の3方向から、商品・顧客・売り方・価格構造が異なる案を設計します。</p></section>
+<section class="hero"><span class="tag">PAID｜3,300円</span><h1>ここからは、<br><span style="display:inline-block">君の話を</span><span style="display:inline-block">ちゃんと聞かせて。</span></h1><p>来てくれてありがとう。君の暮らし・強み・3年後の3方向から、商品も、お客さんも、売り方も違う3つの案を、僕が本気で考えるね。同じ案の言い換えはしないよ。</p></section>
 <div id="status" class="status">購入情報を確認しています…</div>
 <section id="formCard" class="card" hidden>
   <div class="stepbox">
-    <h2>STEP 1｜これまでのあなた</h2>
-    <p>まず、すでに持っている経験や人から見た強みを教えてください。</p>
+    <h2>STEP 1｜これまでの君</h2>
+    <p>まずは、君がもう持ってるものから教えて。自分では「普通」だと思ってることほど、大事だったりするんだよ。</p>
     <div class="grid">
       <div><label>1｜これまでの仕事・経験</label><textarea id="experience"></textarea></div>
       <div><label>2｜資格・得意なこと</label><textarea id="skills"></textarea></div>
@@ -62,7 +66,7 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
 
   <div class="stepbox">
     <h2>STEP 2｜誰に、何を渡したい？</h2>
-    <p>まだ決まっていない項目は空欄でも構いません。</p>
+    <p>まだ決まってなくて大丈夫。空欄のままでいいよ。そこは僕が一緒に考えるから。</p>
     <div class="grid">
       <div class="full"><label>6｜提供したい商品・サービス</label><textarea id="product" placeholder="まだ決まっていなければ、できそうなことでもOK"></textarea></div>
       <div><label>7｜誰に提供したい？</label><input id="customer"></div>
@@ -73,8 +77,8 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
   </div>
 
   <div class="stepbox">
-    <h2>STEP 3｜暮らしの条件</h2>
-    <p>できることより、「無理なく続けられる条件」を優先します。</p>
+    <h2>STEP 3｜君の暮らしのこと</h2>
+    <p>頑張ればできることより、無理しないで続けられることを大事にしたいんだ。やりたくないことは、遠慮なく外していいよ。</p>
     <div class="grid">
       <div class="full"><label>11｜やりたくないこと（案から外します）</label><div class="checks" id="avoid"><label><input type="checkbox" value="飛び込み・電話営業">飛び込み・電話営業</label><label><input type="checkbox" value="SNS発信">SNS発信</label><label><input type="checkbox" value="顔出し">顔出し</label><label><input type="checkbox" value="在庫">在庫</label><label><input type="checkbox" value="夜・土日">夜・土日</label><label><input type="checkbox" value="大きな固定費">大きな固定費</label><label><input type="checkbox" value="雇用">人を雇う</label></div></div>
       <div><label>12｜週に使える時間</label><input id="hours" placeholder="例：週5時間"></div>
@@ -86,7 +90,7 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
 
   <div class="stepbox">
     <h2>STEP 4｜どこまで行きたい？</h2>
-    <p>大きな目標でなくて大丈夫です。「まず月3万円」でも十分です。</p>
+    <p>大きな夢じゃなくていいよ。「まず月3万円」って言ってくれたら、僕はそれで十分うれしい。</p>
     <div class="grid">
       <div><label>16｜目的</label><select id="purpose"><option>収入を少し増やしたい</option><option>会社以外の自分の仕事を持ちたい</option><option>将来の独立に備えたい</option><option>経験を生かしたい</option><option>好きなことを仕事にしたい</option><option>地域・人の役に立ちたい</option><option>まだ分からない</option></select></div>
       <div><label>17｜目標の月収・月売上</label><input id="targetIncome" placeholder="例：まず月3万円"></div>
@@ -97,7 +101,7 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
 
   <p class="note">途中内容はこの端末に自動保存されます。購入後30日間・最大5回まで生成できます。別端末へ移る場合、入力途中の内容は自動同期されません。</p>
   <div class="ai-note"><b>生成AIの利用について</b>入力した回答は、3つの商いプランを生成するために当社が利用するAIサービスへ送信されます。氏名・住所・電話番号・勤務先の個人名など、本人や第三者を直接特定できる情報は入力しないでください。<br><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシーを確認する →</a></div>
-  <button class="btn" id="generate">3つの商いプランをつくる</button>
+  <button class="btn" id="generate">僕に、3つの案を考えさせて</button>
 </section>
 <section id="result" class="card result"><div id="resultBody"></div><div class="actions"><button class="btn ghost" id="copy">結果をコピー</button><button class="btn ghost" onclick="print()">印刷・PDF保存</button></div></section>
 </main>
@@ -169,13 +173,13 @@ async function verify(){
     history.replaceState({},'',location.pathname);
   }
   if(!token()){setStatus('購入確認が必要です。診断ページから決済してください。','err');return}
-  setStatus('購入確認済み。回答を入力して、3つの商いプランを作成できます。','ok');form.hidden=false;
+  setStatus('ありがとう、確認できたよ。ゆっくりでいいから、君のことを教えてね。','ok');form.hidden=false;
 }
 function yen(n){return Number(n||0).toLocaleString('ja-JP')+'円'}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function render(data,id){
   const s=data.summary||{}, plans=data.plans||[];
-  let h='<div class="summary"><b>今回の設計原則</b><p>'+esc(s.principle||'')+'</p><p><b>強み：</b>'+esc((s.strengths||[]).join('／'))+'<br><b>制約：</b>'+esc((s.constraints||[]).join('／'))+'</p></div><div class="plans">';
+  let h='<div class="summary"><b>まず、君に伝えたいこと</b><button type="button" class="voice-btn" id="planVoice" hidden>▶ 声で聞く</button><p class="principle">'+esc(s.principle||'')+'</p><p><b>強み：</b>'+esc((s.strengths||[]).join('／'))+'<br><b>制約：</b>'+esc((s.constraints||[]).join('／'))+'</p></div><div class="plans">';
   for(const p of plans){
     h+='<article class="plan"><span class="tag">PLAN '+esc(p.id)+'</span><h3>'+esc(p.name)+'</h3><p class="one">'+esc(p.one_line)+'</p><p>'+esc(p.why)+'</p>'+
     '<div class="facts"><div><small>顧客</small><b>'+esc(p.customer)+'</b></div><div><small>困りごと</small><b>'+esc(p.problem)+'</b></div><div><small>商品</small><b>'+esc(p.offer)+'</b></div><div><small>価格 × 月件数</small><b>'+yen(p.price_yen)+' × '+esc(p.quantity_per_month)+'件 = '+yen(p.monthly_sales_yen)+'</b></div><div><small>売り方</small><b>'+esc(p.sales_method)+'</b></div><div><small>初期費用</small><b>'+yen(p.startup_cost_yen)+'</b></div><div><small>週の時間</small><b>'+esc(p.hours_per_week)+'</b></div><div><small>家族との両立</small><b>'+esc(p.family_fit)+'</b></div></div>'+
@@ -190,7 +194,7 @@ function render(data,id){
 }
 $('generate').addEventListener('click',async()=>{
   const a=answers(); if(!a.product&&!a.voice&&!a.experience){setStatus('商品・人から言われたこと・経験のいずれかを入力してください。','err');return}
-  $('generate').disabled=true;setStatus('回答から3つの商いプランを設計しています…');
+  $('generate').disabled=true;setStatus('君の答えを読みながら、3つの案を考えてるところ。少しだけ待っててね…');
   try{
     const r=await fetch(API_BASE+'/generate',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+token()},body:JSON.stringify({answers:a})});
     const d=await r.json(); if(!d.ok) throw new Error(d.error||'generate_failed');
@@ -202,11 +206,24 @@ $('generate').addEventListener('click',async()=>{
       $('resultBody').prepend(box);
       $('copyLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(link);$('copyLink').textContent='コピーしました'}catch(e){}});
     }
-    setStatus('3つの商いプランができました。','ok');
+    setStatus('できたよ。君のための3つの案、見てみて。','ok');
   }catch(e){window.track&&window.track('paid_generate_failed',Object.assign({reason:e.message||'unknown'},funnelCtx()));setStatus(e.message==='generation_limit'?'生成回数の上限に達しました。':'生成できませんでした。時間をおいて再度お試しください。','err')}
   finally{$('generate').disabled=false}
 });
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('resultBody').innerText);$('copy').textContent='コピーしました'}catch(e){}});
 verify();
+</script>
+<script>
+(function(){
+  var ss=window.speechSynthesis;
+  function pick(){var v=ss.getVoices().filter(function(x){return /^ja/i.test(x.lang)});var m=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});return {voice:m[0]||v[0]||null,male:!!m[0]};}
+  if(ss){try{ss.getVoices();}catch(e){}}
+  new MutationObserver(function(){var b=document.getElementById('planVoice');if(!b||b.dataset.bound||!ss||!window.SpeechSynthesisUtterance)return;b.dataset.bound='1';b.hidden=false;
+    b.addEventListener('click',function(){if(b.classList.contains('on')){ss.cancel();b.classList.remove('on');b.textContent='▶ 声で聞く';return;}
+      var box=b.closest('.summary');var t=Array.prototype.map.call(box.querySelectorAll('p'),function(p){return p.textContent}).join('。');
+      var p=pick();var u=new SpeechSynthesisUtterance('まず、君に伝えたいこと。'+t);u.lang='ja-JP';if(p.voice)u.voice=p.voice;u.rate=.92;u.pitch=p.male?1:.78;
+      u.onend=u.onerror=function(){b.classList.remove('on');b.textContent='▶ 声で聞く';};ss.cancel();ss.speak(u);b.classList.add('on');b.textContent='■ 止める';});
+  }).observe(document.body,{childList:true,subtree:true});
+})();
 </script>
 </body></html>
