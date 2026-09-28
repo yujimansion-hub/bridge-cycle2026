@@ -5793,21 +5793,50 @@ section{scroll-margin-top:76px}
 .ig-follow .igf-go{font-size:13px;font-weight:700;color:#6F6258;white-space:nowrap}
 </style>
 <style id="nick-20260928">
-.nick-card{margin:18px 0 6px;padding:22px 22px 18px;border:1px solid #D8D3CB;border-radius:4px;background:#FAF8F3;color:#393734;text-align:center;position:relative}
-.nick-card::before{content:"";position:absolute;inset:6px;border:1px solid #E4DFD7;border-radius:2px;pointer-events:none}
-.nick-card small{display:block;font-size:12px;letter-spacing:.08em;color:#8F6D5C}
-.nick-card .nk-name{display:block;white-space:nowrap;margin:10px 0 6px;font-family:var(--serif,serif);font-weight:600;font-size:clamp(26px,5.4vw,34px);line-height:1.35;color:#393734}
+/* あだ名カード：十三月の窓（光・塗り壁・モルタル・古木・余白・静かな生活感）。毒は色ではなく、言葉と間で出す */
+.nick-card{position:relative;overflow:hidden;margin:22px 0 8px;padding:46px 26px 30px;border:1px solid #D8D3CB;border-radius:4px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .38 0 0 0 0 .34 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(120% 90% at 88% -10%,rgba(255,253,246,.95) 0%,rgba(250,248,243,0) 55%),#F6F3EC;
+  box-shadow:inset 0 0 0 7px rgba(250,248,243,.7),inset 0 0 0 8px #E4DFD7;color:#393734;text-align:center;font-family:var(--serif,"Noto Serif JP",serif)}
+/* 窓から差す光：壁に落ちた四つ窓の影 */
+.nick-card .nk-light{position:absolute;top:-30px;right:-40px;width:230px;height:250px;pointer-events:none;opacity:.7;transform:skewX(-14deg) rotate(4deg);
+  background:linear-gradient(90deg,transparent calc(50% - 3px),rgba(111,98,88,.10) calc(50% - 3px),rgba(111,98,88,.10) calc(50% + 3px),transparent calc(50% + 3px)),
+             linear-gradient(0deg,transparent calc(50% - 3px),rgba(111,98,88,.10) calc(50% - 3px),rgba(111,98,88,.10) calc(50% + 3px),transparent calc(50% + 3px)),
+             linear-gradient(160deg,rgba(255,250,236,.9),rgba(255,250,236,.15));
+  filter:blur(1.5px);-webkit-mask:linear-gradient(200deg,#000 40%,transparent 95%);mask:linear-gradient(200deg,#000 40%,transparent 95%)}
+.nick-card>*:not(.nk-light){position:relative}
+.nick-card .nk-kicker{display:block;font-size:12.5px;line-height:1.9;letter-spacing:.16em;color:#8C867F}
+.nick-card .nk-name{display:block;white-space:nowrap;margin:22px 0 0;font-weight:600;font-size:clamp(26px,5.6vw,36px);line-height:1.35;letter-spacing:.06em;color:#393734}
 .nick-card .nk-name::before{content:"「"}.nick-card .nk-name::after{content:"」"}
-.nick-card .nk-doku{margin:0 0 14px;word-break:auto-phrase;text-wrap:balance;font-family:var(--serif,serif);font-size:16px;line-height:1.7;color:#625E59}
-.nick-card .nk-plain{margin:0 auto;max-width:34em;padding-top:12px;border-top:1px solid #E4DFD7;font-size:13.5px;line-height:1.8;color:#625E59;text-align:left}
-.nick-card .nk-plain span{display:table;margin:0 0 6px;padding:0 .5em;border:1px solid #D8D3CB;border-radius:2px;font-size:11.5px;color:#8F6D5C}
+.nick-card .nk-doku{margin:16px auto 0;max-width:24em;font-size:15.5px;line-height:1.95;color:#625E59;word-break:auto-phrase;text-wrap:balance}
+.nick-card .nk-rule{width:36px;height:1px;margin:28px auto 22px;border:0;background:#8F6D5C}
+.nick-card .nk-plain{margin:0 auto;max-width:30em;padding:2px 0 2px 14px;border-left:1px solid #8F6D5C;font-size:14px;line-height:1.95;color:#393734;text-align:left}
+.nick-card .nk-plain span{display:block;margin:0 0 4px;font-size:11px;letter-spacing:.24em;color:#8F6D5C}
 .nick-card .nk-plain em{font-style:normal;word-break:auto-phrase}
-.nick-card .nk-foot{margin:12px 0 0;word-break:auto-phrase;text-wrap:balance;font-size:12px;line-height:1.7;color:#8C867F}
-@media(max-width:480px){.nick-card{padding:18px 14px 16px}}
+.nick-card .nk-foot{margin:26px 0 0;font-size:12px;line-height:2;letter-spacing:.06em;color:#8C867F;word-break:auto-phrase;text-wrap:balance}
+/* 間：スクロールで静かに現れる */
+.nick-card.nk-wait .nk-kicker,.nick-card.nk-wait .nk-name,.nick-card.nk-wait .nk-doku,.nick-card.nk-wait .nk-rule,.nick-card.nk-wait .nk-plain,.nick-card.nk-wait .nk-foot{opacity:0}
+.nick-card.nk-in .nk-kicker{animation:nkFade 1s ease-out .1s both}
+.nick-card.nk-in .nk-name{animation:nkIn 1.3s ease-out .8s both}
+.nick-card.nk-in .nk-doku{animation:nkFade .9s ease-out 1.9s both}
+.nick-card.nk-in .nk-rule,.nick-card.nk-in .nk-plain{animation:nkFade .9s ease-out 2.7s both}
+.nick-card.nk-in .nk-foot{animation:nkFade 1s ease-out 3.3s both}
+@keyframes nkIn{from{opacity:0;letter-spacing:.26em;filter:blur(2px)}to{opacity:1;letter-spacing:.06em;filter:none}}
+@keyframes nkFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.nick-card *{animation:none!important;opacity:1!important}}
+@media(max-width:480px){.nick-card{padding:40px 16px 26px}.nick-card .nk-light{width:170px;height:200px}}
+#res .nick-card .nk-doku{font-size:15.5px!important;line-height:1.95!important;color:#625E59!important}
+#res .nick-card .nk-plain{font-size:14px!important;line-height:1.95!important;color:#393734!important}
+#res .nick-card .nk-foot span{display:inline-block}
+#res .nick-card .nk-foot{font-size:12px!important;line-height:2!important;color:#8C867F!important}
 </style>
 <script>
 window.__fitNick=function(){var n=document.getElementById('rNickName');if(!n||!n.offsetParent)return;n.style.fontSize='';var fs=parseFloat(getComputedStyle(n).fontSize);while(n.scrollWidth>n.clientWidth&&fs>16){fs-=1;n.style.fontSize=fs+'px';}};
 window.addEventListener('resize',function(){window.__fitNick();});
+window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.add('nk-wait');
+  if(!('IntersectionObserver' in window)){box.classList.remove('nk-wait');return;}
+  if(window.__nickIO)window.__nickIO.disconnect();
+  window.__nickIO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){box.classList.add('nk-in');box.classList.remove('nk-wait');window.__nickIO.disconnect();window.__fitNick&&window.__fitNick();}});},{threshold:.35});
+  window.__nickIO.observe(box);};
 </script>
 </head>
 <body>
@@ -6047,11 +6076,13 @@ window.addEventListener('resize',function(){window.__fitNick();});
               </div>
             </figure>
             <aside class="nick-card" id="rNick" style="display:none" aria-label="あだ名をつけるなら">
-              <small>口の悪い友人が、あだ名をつけるなら</small>
+              <span class="nk-light" aria-hidden="true"></span>
+              <small class="nk-kicker">口の悪い友人が、<br>あだ名をつけるなら</small>
               <b class="nk-name" id="rNickName"></b>
               <p class="nk-doku" id="rNickDoku"></p>
+              <hr class="nk-rule">
               <p class="nk-plain"><span>訳すと</span><em id="rNickPlain"></em></p>
-              <p class="nk-foot">ちょっと刺さったなら、たぶん当たっています。<br>言いたいのは「それ、もう価値です」ということ。</p>
+              <p class="nk-foot"><span>ちょっと刺さったなら、</span><span>たぶん当たっています。</span><br><span>言いたいのは</span><span>「それ、もう価値です」</span><span>ということ。</span></p>
             </aside>
             <details class="result-details-primary" id="resultDetailsPrimary">
               <summary>もう少しだけ見る <span>強みと、今の現在地</span></summary>
@@ -7688,7 +7719,7 @@ const CTX_LABELS={
     (function(){const box=document.getElementById('rNick');if(!box)return;const n=w2&&NICK[w]&&NICK[w][w2];
       if(!n){box.style.display='none';window.AKINAI_NICK=null;return;}
       document.getElementById('rNickName').textContent=n[0];document.getElementById('rNickDoku').textContent=n[1];document.getElementById('rNickPlain').textContent=n[2];
-      box.style.display='';window.AKINAI_NICK=n[0];window.__fitNick&&(requestAnimationFrame(window.__fitNick),setTimeout(window.__fitNick,300));})();
+      box.style.display='';window.AKINAI_NICK=n[0];window.__nickReveal&&window.__nickReveal(box);window.__fitNick&&(requestAnimationFrame(window.__fitNick),setTimeout(window.__fitNick,300));})();
     BASE_RESULT=cname;LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:friendlyLine};
     document.getElementById('rStars').textContent='あなたの傾向｜'+friendlyLine;
