@@ -5851,8 +5851,8 @@ window.addEventListener('resize',function(){window.__fitNick();});
 window.__nickVoice=(function(){
   var ss=window.speechSynthesis;if(!ss||!window.SpeechSynthesisUtterance)return null;
   function pick(){var v=ss.getVoices().filter(function(x){return /^ja/i.test(x.lang)});
-    var male=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});
-    return {voice:(male[0]||v[0]||null),male:!!male[0],any:v.length>0};}
+    var male=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|圭太|大智|直紀|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});
+    male.sort(function(a,b){return (/natural|online|enhanced|premium/i.test(b.name)?1:0)-(/natural|online|enhanced|premium/i.test(a.name)?1:0)});return {voice:(male[0]||v[0]||null),male:!!male[0],any:v.length>0};}
   return {pick:pick,ss:ss};})();
 window.__nickVoiceReset=function(){var b=document.getElementById('rNickVoice');if(!b)return;var V=window.__nickVoice;
   if(V){try{V.ss.cancel();}catch(e){}}b.classList.remove('on');b.querySelector('.nk-vt').textContent='声で聞く';b.querySelector('.nk-vi').textContent='▶';

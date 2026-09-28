@@ -216,7 +216,7 @@ verify();
 <script>
 (function(){
   var ss=window.speechSynthesis;
-  function pick(){var v=ss.getVoices().filter(function(x){return /^ja/i.test(x.lang)});var m=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});return {voice:m[0]||v[0]||null,male:!!m[0]};}
+  function pick(){var v=ss.getVoices().filter(function(x){return /^ja/i.test(x.lang)});var m=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|圭太|大智|直紀|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});m.sort(function(a,b){return (/natural|online|enhanced|premium/i.test(b.name)?1:0)-(/natural|online|enhanced|premium/i.test(a.name)?1:0)});return {voice:m[0]||v[0]||null,male:!!m[0]};}
   if(ss){try{ss.getVoices();}catch(e){}}
   new MutationObserver(function(){var b=document.getElementById('planVoice');if(!b||b.dataset.bound||!ss||!window.SpeechSynthesisUtterance)return;b.dataset.bound='1';b.hidden=false;
     b.addEventListener('click',function(){if(b.classList.contains('on')){ss.cancel();b.classList.remove('on');b.textContent='▶ 声で聞く';return;}
