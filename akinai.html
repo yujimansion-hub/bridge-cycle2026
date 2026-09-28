@@ -5245,6 +5245,7 @@ document.addEventListener('click',function(e){
       ?'それでいい。刺さった一行だけ、持って帰りな。'
       :'外れたなら、それも答えだ。違うと言える自分がいる。';
   }
+  (function(){var fit=rf.getAttribute('data-result-fit');var c=document.getElementById('fitCta');if(!c)return;c.hidden=(fit!=='high');})();
   window.track&&window.track('result_fit_feedback',{fit:rf.getAttribute('data-result-fit')||'',type:(window.AKINAI_RESULT&&window.AKINAI_RESULT.main)||'',sub:(window.AKINAI_RESULT&&window.AKINAI_RESULT.sub)||''});
 },true);
 document.addEventListener('click',function(e){
@@ -5782,6 +5783,38 @@ section{scroll-margin-top:76px}
 })();
 </script>
 <style id="roast-style">
+#res .nw{display:inline-block;white-space:nowrap}
+
+#res .brake{margin:0 0 26px;padding:30px 22px 26px;background:#FAF8F3;border:1px solid #D8D3CB;box-shadow:inset 0 0 0 7px #FAF8F3,inset 0 0 0 8px #E4DFD7;border-radius:4px}
+#res .brake-kicker{display:block;font-size:12px;letter-spacing:.14em;color:#8F6D5C}
+#res .brake-title{margin:10px 0 8px;font-family:var(--serif);font-size:clamp(22px,6vw,28px);line-height:1.5;font-weight:600;color:#393734}
+#res .brake-lead{margin:0 0 14px;font-size:14px;color:#8C867F}
+#res .brake-list{list-style:none;margin:0;padding:0;counter-reset:bk}
+#res .brake-list li{counter-increment:bk;position:relative;margin:0 0 10px;padding:14px 14px 12px 46px;background:#F2F0EB;border:1px solid #E4DFD7;border-radius:2px}
+#res .brake-list li:before{content:"0" counter(bk);position:absolute;left:14px;top:14px;font-family:var(--serif);font-size:14px;color:#8F6D5C}
+#res .brake-list b{display:block;font-size:16px;font-weight:600;color:#393734;line-height:1.6}
+#res .brake-list span{display:block;margin-top:4px;font-size:12.5px;color:#8C867F;line-height:1.7}
+#res .brake-twist{margin:18px 0 0;padding:0 0 0 12px;border-left:2px solid #8F6D5C}
+#res .brake-twist small{display:block;font-size:12.5px;color:#8F6D5C;margin-bottom:4px}
+#res .brake-twist p{margin:0;font-size:15.5px;line-height:1.9;font-weight:600;color:#393734}
+#res .brake-paid{margin:24px 0 0;padding:22px 0 0;border-top:1px solid #D8D3CB}
+#res .bp-head{display:block;font-family:var(--serif);font-size:19px;line-height:1.6;font-weight:600;color:#393734}
+#res .bp-lead{margin:8px 0 10px;font-size:14px;line-height:1.8;color:#625E59}
+#res .bp-keep{margin:0 0 14px;padding:0;list-style:none}
+#res .bp-keep li{position:relative;padding:0 0 0 20px;margin:0 0 6px;font-size:14.5px;color:#393734;line-height:1.7}
+#res .bp-keep li:before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:5px;border-left:2px solid #8F6D5C;border-bottom:2px solid #8F6D5C;transform:rotate(-45deg)}
+#res .bp-plans{display:grid;gap:8px;margin:0 0 12px}
+#res .bp-plans div{padding:12px 14px;background:#F2F0EB;border:1px solid #E4DFD7;border-radius:2px}
+#res .bp-plans small{display:block;font-size:11.5px;letter-spacing:.08em;color:#8F6D5C}
+#res .bp-plans b{display:block;margin-top:2px;font-size:14.5px;font-weight:600;color:#393734;line-height:1.6}
+#res .bp-lock{display:grid;grid-template-columns:6.5em 1fr;gap:6px 10px;align-items:center;margin:0 0 16px;padding:12px 14px;border:1px dashed #D8D3CB;border-radius:2px}
+#res .bp-lock span{font-size:12.5px;color:#8C867F}
+#res .bp-lock i{display:block;height:10px;border-radius:2px;background:linear-gradient(90deg,#E4DFD7,#EFEBE5 60%,#E4DFD7)!important}
+#res .bp-cta{display:block;text-align:center;padding:15px 12px!important;font-size:15.5px!important}
+#res .bp-note{display:block;margin-top:10px;font-size:12px;line-height:1.8;color:#8C867F}
+#res .fit-cta{display:block;margin-top:12px;font-size:14px;font-weight:600;color:#6F6258;text-decoration:underline;text-underline-offset:4px}
+#res.reveal-none{}
+
 #roast .roast-why{margin:26px 0 0;padding:18px 18px 14px;background:#F2F0EB;border:1px solid #E4DFD7;border-radius:2px;text-align:left}
 #roast .roast-why small,#roast .roast-point small{display:block;font-size:12.5px;letter-spacing:.08em;color:#8F6D5C;margin-bottom:10px}
 #roast .roast-why ul{list-style:none;margin:0;padding:0}
@@ -6134,6 +6167,28 @@ section{scroll-margin-top:76px}
                 <small>SENSE IS HOW YOU LIVE</small>
               </div>
             </section>
+            <section class="brake" id="brakeBox" aria-label="あんたを止めてるもの" hidden>
+              <span class="brake-kicker">BRAKE｜あんたを止めてるもの</span>
+              <h3 class="brake-title">能力の問題じゃない。<br>ブレーキの問題だ。</h3>
+              <p class="brake-lead">9つの答えのうち、ここがブレーキになってる。</p>
+              <ol class="brake-list" id="brakeList"></ol>
+              <div class="brake-twist" id="brakeTwist" hidden><small>それと、答えの中に矛盾がひとつあった。</small><p id="brakeTwistText"></p></div>
+              <div class="brake-paid" id="brakePaid">
+                <b class="bp-head"><span class="nw">ブレーキは、</span><span class="nw">外さなくていい。</span><br><span class="nw">踏んだまま</span><span class="nw">試せる形がある。</span></b>
+                <p class="bp-lead">3,300円版は、あんたの答えから、この条件を守ったまま試せる3案を出す。</p>
+                <ul class="bp-keep" id="brakeKeep"></ul>
+                <div class="bp-plans">
+                  <div><small>PLAN A｜守る</small><b id="bpPlanA">今の暮らしに手をつけずに試す案</b></div>
+                  <div><small>PLAN B｜活かす</small><b id="bpPlanB">もう持ってる力を、そのまま商品にする案</b></div>
+                  <div><small>PLAN C｜育てる</small><b id="bpPlanC">3年後につながる形に、少しずつ育てる案</b></div>
+                </div>
+                <div class="bp-lock" aria-hidden="true">
+                  <span>顧客</span><i></i><span>商品</span><i></i><span>価格</span><i></i><span>最初の3人</span><i></i><span>90日</span><i></i>
+                </div>
+                <a class="btn bp-cta" href="#price" data-loc="brake"><span class="nw">3案を出してもらう</span>　<span class="nw">3,300円 →</span></a>
+                <small class="bp-note">面談なし・自動継続なし。無料で終わってもいい。止まってる理由が分かっただけで、十分な収穫だ。</small>
+              </div>
+            </section>
             <div class="karte-bridge"><b>言いたいことは、言った。</b><span>ここから先は、あんたのカルテだ。</span></div>
             <div class="hero-choice-echo" id="heroChoiceEcho" style="display:none">
               <small>最初に選んだ気持ちから</small>
@@ -6163,6 +6218,7 @@ section{scroll-margin-top:76px}
                       <button type="button" data-result-fit="low">外れてる</button>
                     </div>
                     <span id="resultFitThanks" aria-live="polite"></span>
+                    <a class="fit-cta" id="fitCta" href="#brakeBox" data-loc="fit_high" hidden>当たってたなら、次は形だ。ブレーキを踏んだまま試せる案を見る →</a>
                   </div>
                 </div>
               </div>
@@ -7568,6 +7624,63 @@ const CTX_LABELS={
     inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();done(true);}};
   }
   window.ROAST_FACE=new Image(); window.ROAST_FACE.decoding='async';
+  function fillBrake(w,k,callname){
+    const box=document.getElementById('brakeBox'); if(!box) return;
+    const A=(typeof ans!=='undefined'&&Array.isArray(ans))?ans:[];
+    if(!A.filter(Boolean).length){ box.hidden=true; return; }
+    const who=callname||'あんた';
+    const qtext=function(i,v){const scr=document.querySelector('#qz .scr[data-i="'+i+'"]');const b=scr&&scr.querySelector('button[data-v="'+v+'"]');return b?(b.textContent||'').replace(/^\s*[A-D]\s*/,'').trim():'';};
+    // [質問index, 答え, ブレーキ名, 守る条件]
+    const RULES=[
+      [4,'tower','収入が揺れるのが怖い','今の収入には手をつけない'],
+      [4,'garden','生活費だけは守りたい','生活費に触れない範囲でやる'],
+      [5,'tower','時間の余裕がほとんどない','週1〜2時間でも回る大きさにする'],
+      [5,'garden','使える時間は週1〜2時間','その時間の中で回る形にする'],
+      [7,'light','お金をもらうのに後ろめたさがある','最初は少額の「お試し価格」から始める'],
+      [7,'hand','まだ自信が足りない気がしてる','身内の3人で試してから外に出す'],
+      [7,'tower','やる範囲が決まってない','やること・やらないことを先に決める'],
+      [2,'tower','条件がそろうまで動かない','条件がそろってなくても出せる、最小の一歩から'],
+      [3,'garden','家族や周りとのバランスが先','家族の予定に合わせた時間割で組む'],
+      [0,'tower','今すでに手一杯','何かを足す前に、減らすものも決める']
+    ];
+    const hits=RULES.filter(function(r){return A[r[0]]===r[1];}).slice(0,3);
+    const list=document.getElementById('brakeList'), keep=document.getElementById('brakeKeep');
+    list.textContent=''; keep.textContent='';
+    if(hits.length){
+      hits.forEach(function(r){
+        const li=document.createElement('li');
+        const b=document.createElement('b'); b.textContent=r[2];
+        const sp=document.createElement('span'); sp.textContent='Q'+(r[0]+1)+'で「'+qtext(r[0],r[1])+'」';
+        li.appendChild(b); li.appendChild(sp); list.appendChild(li);
+        const k2=document.createElement('li'); k2.textContent=r[3]; keep.appendChild(k2);
+      });
+    }else{
+      const li=document.createElement('li');
+      const b=document.createElement('b'); b.textContent='ブレーキは、ほとんど見当たらない';
+      const sp=document.createElement('span'); sp.textContent='止めてるのは、たぶん「何から始めるか」が決まってないことだけだ。';
+      li.appendChild(b); li.appendChild(sp); list.appendChild(li);
+      ['最初の3人を決める','90日で、続けるかやめるかを決める'].forEach(function(t){const k2=document.createElement('li');k2.textContent=t;keep.appendChild(k2);});
+    }
+    document.querySelector('#brakeBox .brake-lead').textContent=hits.length?'9つの答えのうち、ここがブレーキになってる。':'9つの答えを見る限り、';
+    // 矛盾
+    const wantAct=(A[0]==='hand'||A[0]==='boat'||A[8]==='hand'||A[8]==='boat');
+    const fear=(A[4]==='tower'||A[5]==='tower');
+    let tw='';
+    if(wantAct&&fear) tw='「やってみたい」と「崩したくない」。どっちも本気だから、止まってる。どっちかを捨てる必要はない。両方守れる大きさで始めればいい。';
+    else if(A[6]&&A[7]==='light') tw='喜ばれた経験は、ちゃんとある。なのに、お金をもらうのは怖い。価値がないんじゃない。値段をつける練習をしてないだけだ。';
+    else if(A[2]==='tower'&&A[3]==='boat') tw='「条件がそろうまで動かない」のに、「とりあえず一度やる」。……本当は、動きたいんだろ。';
+    else if(A[1]==='tower'&&A[8]==='boat') tw='収入が読めることは大事。でも、自分で選んだ仕事にも時間を使いたい。欲張りでいい。順番を決めればいい。';
+    const tb=document.getElementById('brakeTwist'); document.getElementById('brakeTwistText').textContent=callname?tw.replace(/あんた/g,callname):tw; tb.hidden=!tw;
+    // プラン見出しの個人化
+    const STR={light:'話しながら整理する力',hand:'作って形にする力',garden:'人を支えて見守る力',bridge:'人と人をつなぐ力',boat:'まず試してみる行動力',tower:'慎重に整える力'};
+    const tA={tower:'今の収入に手をつけずに',garden:'生活費に触れない範囲で'}[A[4]]||'今の暮らしを崩さずに';
+    const tH={tower:'週1〜2時間から',garden:'週1〜2時間で',hand:'週に半日で',boat:'週1日を使って'}[A[5]]||'';
+    document.getElementById('bpPlanA').textContent=tA+(tH?'、'+tH:'')+'試す案';
+    document.getElementById('bpPlanB').textContent=(STR[w]||'もう持ってる力')+'を、そのまま商品にする案';
+    document.getElementById('bpPlanC').textContent=(STR[k]&&k!==w?STR[k]+'も足して、':'')+'3年後につながる形に育てる案';
+    box.hidden=false;
+    window.track&&window.track('brake_shown',{brakes:hits.length,twist:tw?1:0,type:w,sub:k});
+  }
   function fillRoast(w,w2,callname){
     const box=document.getElementById('roast'); if(!box||!ROAST[w])return;
     const k=(w2&&ROAST[w][w2])?w2:((PAIR[w]&&ROAST[w][PAIR[w][0]])?PAIR[w][0]:Object.keys(ROAST[w])[0]);
@@ -7576,6 +7689,7 @@ const CTX_LABELS={
     (function(){var el=document.getElementById('roastName');if(!el)return;el.textContent='';(r.b||r.t).split('／').forEach(function(x){var sp=document.createElement('span');sp.className='rn-seg';sp.textContent=x;el.appendChild(sp);});})(); put('roastLine',r.l); put('roastTo',who+'へ、ひとこと'); put('roastWho',who+'を一言でいうと、');put('roastEndWho',who);
     box.classList.remove('reveal'); void box.offsetWidth; box.classList.add('reveal');
     r.c.forEach((t,i)=>put('roastC'+i, callname?t.replace(/あんた/g,callname):t));
+    try{ fillBrake(w,k,callname); }catch(e){}
     put('roastPoint', callname?String(r.p||'').replace(/あんた/g,callname):(r.p||''));
     try{
       const ev=document.getElementById('roastEvidence'), why=document.getElementById('roastWhy');
