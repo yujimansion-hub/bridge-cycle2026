@@ -5833,10 +5833,38 @@ section{scroll-margin-top:76px}
 #res .nick-card .nk-sign{margin:18px 0 0;font-size:11px!important;letter-spacing:.22em;color:#A39C94!important}
 #res .nick-card .nk-sign::before{content:"";display:inline-block;width:18px;height:1px;margin:0 .8em .3em 0;background:#A39C94;vertical-align:middle}
 .nick-card.nk-wait .nk-sign{opacity:0}.nick-card.nk-in .nk-sign{animation:nkFade 1s ease-out 3.8s both}
+.nick-card .nk-name{font-size:clamp(22px,4.8vw,30px)}
+#res .nick-card .nk-talk{margin:0 auto;max-width:27em;text-align:left;font-size:15px!important;line-height:2.05!important;color:#393734!important;word-break:auto-phrase;text-wrap:pretty}
+.nick-card .nk-rule{margin:26px auto 22px}
+.nick-card .nk-voice{display:inline-flex;align-items:center;gap:.6em;margin:22px auto 0;padding:9px 20px;border:1px solid #D8D3CB;border-radius:999px;background:#FAF8F3;color:#6F6258;font:inherit;font-size:13px;letter-spacing:.14em;cursor:pointer}
+.nick-card .nk-voice:hover{border-color:#8F6D5C;color:#393734}
+.nick-card .nk-voice .nk-vi{font-size:10px;color:#8F6D5C}
+.nick-card .nk-voice.on{background:#F2F0EB;border-color:#8F6D5C}
+.nick-card .nk-voice[hidden]{display:none}
+.nick-card.nk-wait .nk-voice{opacity:0}.nick-card.nk-in .nk-voice{animation:nkFade 1s ease-out 3.8s both}
+.nick-card.nk-in .nk-rule{animation:nkFade .9s ease-out 1.9s both}
+.nick-card.nk-in .nk-doku{animation:nkFade .9s ease-out 2.2s both}
 </style>
 <script>
 window.__fitNick=function(){var n=document.getElementById('rNickName');if(!n||!n.offsetParent)return;n.style.fontSize='';n.style.whiteSpace='';var fs=parseFloat(getComputedStyle(n).fontSize);while(n.scrollWidth>n.clientWidth&&fs>21){fs-=1;n.style.fontSize=fs+'px';}if(n.scrollWidth>n.clientWidth){n.style.fontSize='';n.style.whiteSpace='normal';}};
 window.addEventListener('resize',function(){window.__fitNick();});
+window.__nickVoice=(function(){
+  var ss=window.speechSynthesis;if(!ss||!window.SpeechSynthesisUtterance)return null;
+  function pick(){var v=ss.getVoices().filter(function(x){return /^ja/i.test(x.lang)});
+    var male=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});
+    return {voice:(male[0]||v[0]||null),male:!!male[0],any:v.length>0};}
+  return {pick:pick,ss:ss};})();
+window.__nickVoiceReset=function(){var b=document.getElementById('rNickVoice');if(!b)return;var V=window.__nickVoice;
+  if(V){try{V.ss.cancel();}catch(e){}}b.classList.remove('on');b.querySelector('.nk-vt').textContent='声で聞く';b.querySelector('.nk-vi').textContent='▶';
+  b.hidden=!V;if(!b.dataset.bound&&V){b.dataset.bound='1';b.addEventListener('click',function(){
+    var ss=V.ss;if(b.classList.contains('on')){ss.cancel();window.__nickVoiceReset();return;}
+    var p=V.pick();var name=(document.getElementById('rNickName')||{}).textContent||'';var talk=(document.getElementById('rNickDoku')||{}).textContent||'';
+    var u=new SpeechSynthesisUtterance(name+'。……'+talk+'……言いたいのは、ひとつだけ。君がしてきたことは、もう価値なんだよ。');
+    u.lang='ja-JP';if(p.voice)u.voice=p.voice;u.rate=0.92;u.pitch=p.male?1:0.78;
+    u.onend=u.onerror=function(){window.__nickVoiceReset();};
+    ss.cancel();ss.speak(u);b.classList.add('on');b.querySelector('.nk-vt').textContent='止める';b.querySelector('.nk-vi').textContent='■';
+    window.track&&window.track('nick_voice_play',{male:p.male?1:0});});}};
+if(window.speechSynthesis){try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=function(){};}catch(e){}}
 window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.add('nk-wait');
   if(!('IntersectionObserver' in window)){box.classList.remove('nk-wait');return;}
   if(window.__nickIO)window.__nickIO.disconnect();
@@ -6080,15 +6108,15 @@ window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.ad
                 </div>
               </div>
             </figure>
-            <aside class="nick-card" id="rNick" style="display:none" aria-label="十三月の窓から、あなたを呼ぶなら">
+            <aside class="nick-card" id="rNick" style="display:none" aria-label="十三月の窓で、あなたが言われるひとこと">
               <span class="nk-light" aria-hidden="true"></span>
-              <small class="nk-kicker"><span class="nk-k1">十三月の窓から、</span><span class="nk-k2">あなたを呼ぶなら</span></small>
+              <small class="nk-kicker"><span class="nk-k1">十三月の窓で、</span><span class="nk-k2">あなたが言われるひとこと</span></small>
               <b class="nk-name" id="rNickName"></b>
-              <p class="nk-doku" id="rNickDoku"></p>
               <hr class="nk-rule">
-              <p class="nk-plain"><span>訳すと</span><em id="rNickPlain"></em></p>
-              <p class="nk-foot"><span>ちょっと刺さったなら、</span><span>たぶん当たっています。</span><br><span>言いたいのは</span><span>「それ、もう価値です」</span><span>ということ。</span></p>
-              <p class="nk-sign">窓辺の、少し口の悪い友人より</p>
+              <p class="nk-doku nk-talk" id="rNickDoku"></p>
+              <p class="nk-foot"><span>言いたいのは、ひとつだけ。</span><br><span>君がしてきたことは、</span><span>もう価値なんだよ。</span></p>
+              <p class="nk-sign">十三月の窓の、君の味方より</p>
+              <button type="button" class="nk-voice" id="rNickVoice" hidden><span class="nk-vi" aria-hidden="true">▶</span><span class="nk-vt">声で聞く</span></button>
             </aside>
             <details class="result-details-primary" id="resultDetailsPrimary">
               <summary>もう少しだけ見る <span>強みと、今の現在地</span></summary>
@@ -7315,7 +7343,7 @@ const PLAN={
  tower:{prod:"「ここからここまで、定額」の月次整理",who:"書類・お金・予定がごちゃごちゃな、個人事業主や小さな店",price:"月10,000円",num:"月5万円なら5件／月3万円なら3件",prep:"チェックリスト1枚と、表計算シート",no:"資格／事務所／システム",week:"個人でやっている知人3人に、「月1回、書類とお金の整理を定額でやってみようと思ってる。月1万円で試させてもらえる？」と聞く。"}
 };
 const SUBTWEAK={light:"もう一つの傾向が「ことば」なので、やった後に「なぜそうしたか」を一言添えると、次の人につながります。",hand:"もう一つの傾向が「かたち」なので、成果物を一枚の形（シート・写真・メモ）にして渡すと、値段に納得してもらいやすくなります。",garden:"もう一つの傾向が「育てる」なので、単発で終わらせず「次回は？」と聞く。2回目から、あなたの商いになります。",bridge:"もう一つの傾向が「つながる」なので、最初の3人には「合いそうな人がいたら教えて」と一言。紹介で回り始めます。",boat:"もう一つの傾向が「試す」なので、完璧に準備しない。最初の1回は、いまある道具と場所で。",tower:"もう一つの傾向が「整える」なので、最初から「ここからここまで」を紙に書いておく。範囲が決まると、あなたは動けます。"};
-const NICK={"light":{"hand":["夜なべの相談帖","相談ひとつに、資料一式。重い。","なのに、そのためにかけた手間には、たぶん一円もつけてない。"],"garden":["お茶一杯の聞き窓","2時間聞いて、報酬はお茶一杯。安い。","その力を、時間も区切らずにタダで出し続けてないか。"],"bridge":["ひとの名を照らす灯り","人のことは大声、自分のことは無音。","人のことはうまく言えるのに、自分のことだけは言葉にしてない。"],"boat":["廊下の三分診療所","レジ待ち3分で診断して、処方までする。","立ち話で済ませて、仕事として扱ってないだろ。"],"tower":["自分の頁だけ白い手帖","人の謎は即解決、今夜の献立は迷宮入り。","人の悩みには答えを出すのに、自分のことは決めずに先送りしてる。"]},"hand":{"light":["添え書きの長い工房","説明は30分、値段は据え置き。損しかしてない。","こだわりは語れるのに、値段の話になると急に弱気になる。"],"garden":["おかわりの止まない台所","「また作って」で週末が消える。断れ。","何度頼まれても毎回「好意」で受けて、続けて頼める形にしてない。"],"bridge":["看板のない評判の店","何もしてないのに売れてる。腹立つ。","人が勝手に広めてくれてるのに、自分からは次の一歩を取りにいってない。"],"boat":["いつも完売の、控えめな棚","「売れない」と言いながら完売。詐欺。","それでもまだ人前に出してないなら、止めてるのは腕じゃない。自信だ。"],"tower":["包みまで作品の人","中身より袋が高い。本末転倒。","手間とこだわりの分を、値段に入れてない。"]},"garden":{"light":["前髪1センチに気づく窓","1センチ切っても通れない。怖い。","人の変化にはすぐ気づくのに、それを自分の強みに数えてない。"],"hand":["手土産に凝りすぎる台所","手土産に1時間、自分の昼は立ち食い。","人のためには手間を惜しまないのに、それを形として何も残してない。"],"bridge":["灯りを消さない集会所","誰も発言しないグループを、今日も守ってる。","人が集まる場を守ってるのに、続けるための仕組みは持ってない。"],"boat":["呼ばれる前に、玄関先","「近くまで来た」は、だいたい片道40分。","会いに行く行動力はあるのに、それを仕事の形にはしてない。"],"tower":["人の疲れだけ映る窓","人の疲れは一目で分かる。自分のは見ない。","人の疲れには気づくのに、自分の限界は見ないふりしてる。"]},"bridge":{"light":["熱のこもった推薦状","紹介の熱量だけ、深夜の通販番組。","人の良さは熱く語れるのに、それが自分の価値だとは思ってない。"],"hand":["頼まれない目利き","頼んでない。でも、センスはいい。悔しい。","組み合わせを選ぶセンスを、人に出す形にはしてない。"],"garden":["請求書のない縁結び","成功率は町内一、請求はゼロ。商売下手。","つないだ縁で周りは得してるのに、自分には何も残してない。"],"boat":["今度が、明日になる人","「今度ご飯」が通じない。もう予約してる。","すぐ動けるのに、周りの目を気にしてブレーキを踏んでないか。"],"tower":["合鍵を返せない幹事","一回やったら、一生やる羽目になる人。","段取りを全部引き受けて、「当たり前の役目」で終わらせてる。"]},"boat":{"light":["転んだ話が灯りになる人","成功談は誰も聞いてない。失敗談だけウケる。","転んだ経験こそ人の役に立つのに、表に出してない。"],"hand":["前の晩に仕上がる人","準備10分、本番で拍手。ずるい。","本番には強いのに、「準備が足りない」を理由に大きく出るのを避けてる。"],"garden":["すぐ縁側に通される人","初対面30分で、もう実家。","一度会った人がまた戻ってくるのに、そのつながりを次に生かしてない。"],"bridge":["議事録より先に動く人","会議の前にLINEで決める。会議の意味。","先に動けるのに、会議や周りに合わせて止めてないか。"],"tower":["三度目で窓が開く人","1回目は事故、3回目でプロ。極端。","3回目で上手くなるのに、1回目の出来を怖がって始めてない。"]},"tower":{"light":["いつでも開く取扱説明書","「ちょっと教えて」に年中無休で対応。暇か。","何度も聞かれることの答えを持ってるのに、それを形にしてない。"],"hand":["誕生日まで整う方眼紙","友達の誕生日まで、セルで管理。","人の役に立つ仕組みを作れるのに、「手抜きに見える」と思って出してない。"],"garden":["よその棚だけ片づく家","よその冷蔵庫は整える。自分の引き出しは地獄。","人のことは整えるのに、自分のことは後回しにしてる。"],"bridge":["みんなの予定が集まる壁","全員の予定を知ってる。本人の予定は誰も知らない。","連絡も調整も一人で抱えて、手を離す仕組みを作ってない。"],"boat":["渡らない石橋の番人","叩きすぎて、渡る前に壊す。","確かめるだけで、一歩目を出してない。石橋は、もう十分叩いた。"]}};
+const NICK={"light":{"hand":["そこまでしてくれるの、君だけだよ","相談ひとつに、資料まで作っちゃうでしょ。それ、普通の人はできないんだよ。君がかけてる手間には、ちゃんと値段がついていい。僕はそう思う。"],"garden":["僕の話も、2時間聞いてくれる？","みんな、君に話すと楽になるって知ってるんだよね。でも、君の2時間はタダじゃない。時間を区切っても、君の優しさは減らないから大丈夫。"],"bridge":["たまには、自分のことも推しなよ","人のいいところは、あんなに上手に話せるのに。自分の話になると急に黙るの、もったいないよ。君の良さは、僕がいくらでも言ってあげるけどね。"],"boat":["3分で元気にさせるの、反則でしょ","廊下の立ち話で、人の悩みを片づけちゃうんだもん。それ、もう立派な相談窓口だよ。「ちゃんと聞いてほしい」って言われた時の値段だけ、決めておこう。"],"tower":["人のことばっか。今日は君の話をしよう","人の答えは、いつもすぐ見つけてあげるよね。なのに自分のことは、後回しにしてるでしょ。今日くらい、君が先でいいんだよ。"]},"hand":{"light":["その話、朝まで聞いてられる","作ったものの話をしてる時の君、すごくいい顔してる。そのこだわり、値段の話になると急に小さくなるでしょ。説明できる分だけ、ちゃんと高くしていいんだよ。"],"garden":["また作ってって、僕も言っていい？","何度も頼まれるのは、君のが本当においしいから。毎回「好意」で受けてたら、君の週末がなくなっちゃう。「毎月でもいいよ」って、一言だけ言ってみて。"],"bridge":["何もしなくても、みんな君を探してる","売り込まなくても、紹介で広がってるでしょ。それ、才能だよ。あとは君から一歩だけ、「次も頼めるよ」って言えば十分。"],"boat":["売れないって言うの、もう禁止ね","「こんなの売れない」って言いながら、ちゃんと喜ばれてるじゃん。止めてるのは腕じゃなくて、ちょっとの自信だけ。僕は、君のが欲しいよ。"],"tower":["開ける前から、もううれしい","包みまで丁寧なの、君らしいよね。その手間も、ちゃんと君の作品の一部なんだよ。そこにかかった時間にも、値段をつけてあげて。"]},"garden":{"light":["…髪、切った？ 似合ってる","人のちょっとした変化に、いつも気づいてあげてるよね。それ、誰にでもできることじゃない。気づける人って、そばにいてほしい人なんだよ。"],"hand":["今日はちゃんと、自分のお昼食べた？","人のためには手間を惜しまないのに、自分のことは後回しでしょ。君が渡してきたもの、もう形になってるんだよ。たまには、君にも手土産があっていい。"],"bridge":["君がいるから、みんな帰ってくるんだよ","みんなの居場所、ずっと守ってきたんだね。それって、すごいことだよ。一人で抱えなくていいように、続け方だけ一緒に考えよう。"],"boat":["近くまで来たって、嘘でしょ。うれしい","会いに行くのを、面倒だと思わない人なんだよね。その身軽さ、ちゃんと仕事になるんだよ。まずは月に一回、会いに行く日を決めてみようか。"],"tower":["一番疲れてるの、君だよね","人の疲れには、すぐ気づいてあげるのに。自分の限界は、見ないふりしてるでしょ。休むのも、君の大事な仕事だよ。"]},"bridge":{"light":["その熱量、僕にも向けてよ","人を紹介する時の君、本当にいきいきしてる。その言葉の力、自分のためにも使っていいんだよ。君が一番推すべきなのは、君自身だから。"],"hand":["君が選んだなら、間違いない","選ぶセンス、本当にいいよね。頼まれてないのに、つい選んじゃうでしょ。そのセンス、人に渡せる形にしたら、みんな喜ぶよ。"],"garden":["みんなを幸せにして、君は誰に幸せにしてもらうの？","君がつないだ縁で、みんな得してるんだよ。なのに、君には何も残ってない。少しくらい、受け取っていいんだからね。"],"boat":["今度じゃなくて、今でしょ","「今度ご飯」を本当にしちゃう人、なかなかいないよ。その速さ、人の目を気にして止めなくていい。君が動くと、周りも動けるんだから。"],"tower":["今日は幹事、しなくていいから","いつも全部引き受けて、段取りしてくれてるよね。それ、当たり前の役目じゃないよ。君の段取りには、ちゃんと価値がある。"]},"boat":{"light":["失敗した話のときが、一番いい顔してる","転んだ話で人を笑顔にできるの、君の才能だよ。その経験、誰かの一歩になるんだ。隠さないで、もっと聞かせて。"],"hand":["本番の君、ずるいくらいかっこいい","準備が足りないって言いながら、本番で決めちゃうでしょ。君は、準備より本番で伸びる人なんだよ。だから、先に出ちゃっていいんだって。"],"garden":["初めて会った気がしないんだけど","一度会った人が、また君に会いに戻ってくるんだよね。それ、すごく大事な力だよ。そのつながり、次につなげてみよう。"],"bridge":["君が来ると、空気が変わるんだよね","誰より先に動けるのに、周りに合わせて待ってない？ 君が先に動いても、誰も困らないよ。むしろ、みんな助かるから。"],"tower":["3回目の君、絶対見たいから","1回目は、うまくいかなくて当たり前だよ。君は3回目で化ける人なんだから。1回目を怖がらないで。僕は、ちゃんと見てるから。"]},"tower":{"light":["困ったら君。…でも、君は誰に頼るの？","何度も聞かれることの答え、全部持ってるよね。それ、一枚にまとめたら、君の時間も守れるよ。たまには、君が頼る側になってもいいんだよ。"],"hand":["誕生日、覚えててくれたんだ","人の予定まで覚えて、整えてくれるよね。その仕組み、手抜きなんかじゃないよ。人に渡したら、きっと喜ばれる。"],"garden":["散らかってても、僕は気にしないよ","人のことは、いつもきれいに整えてあげてるよね。自分のことが後回しでも、全然いいんだよ。でも、たまには君の番にしよう。"],"bridge":["みんなの予定より、君の予定を教えて","連絡も調整も、一人で全部抱えてない？ 手を離しても、みんなちゃんと集まれるよ。君が楽になっていいんだよ。"],"boat":["大丈夫。渡るときは隣にいるから","慎重なのは、大事にしたいものがあるからだよね。もう十分、確かめてきたよ。一歩目は、小さくていいから。"]}};
 const NAME={
  light:{hand:["聞いて、作っちゃう人",["相談されると、つい資料まで作る","「そこまでしなくても」と言われがち","自分のことは、いつも後回し"]],
         garden:["長話を引き受ける相談窓口",["「ちょっといい？」が2時間になる","同じ人から、何年も相談される","聞いた話を、ちゃんと覚えている"]],
@@ -7724,7 +7752,7 @@ const CTX_LABELS={
     document.getElementById('rChara').textContent=cname;
     (function(){const box=document.getElementById('rNick');if(!box)return;const n=w2&&NICK[w]&&NICK[w][w2];
       if(!n){box.style.display='none';window.AKINAI_NICK=null;return;}
-      document.getElementById('rNickName').textContent=n[0];document.getElementById('rNickDoku').textContent=n[1];document.getElementById('rNickPlain').textContent=n[2];
+      document.getElementById('rNickName').textContent=n[0];document.getElementById('rNickDoku').textContent=n[1];window.__nickVoiceReset&&window.__nickVoiceReset();
       box.style.display='';window.AKINAI_NICK=n[0];window.__nickReveal&&window.__nickReveal(box);window.__fitNick&&(requestAnimationFrame(window.__fitNick),setTimeout(window.__fitNick,300));})();
     BASE_RESULT=cname;LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:friendlyLine};
