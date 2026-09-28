@@ -41,16 +41,33 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
   gtag('config',id,{content_group:'わたしのこれから診断'});
 })();
 </script>
+<style id="plan-jusangatsu">
+/* 十三月の窓 */
+:root{--bg:#F2F0EB;--paper:#FAF8F3;--ink:#393734;--muted:#8C867F;--line:#D8D3CB;--rose:#8F6D5C;--pale:#F2F0EB}
+body{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.nav{background:rgba(242,240,235,.92)!important}
+.hero{text-align:left}.hero-face{display:block;width:88px;height:88px;margin:0 0 14px;padding:4px;border-radius:50%;background:#FAF8F3;border:1px solid #D8D3CB;object-fit:cover}
+.hero h1,.stepbox>h2,.plan h3{font-family:"Noto Serif JP","Yu Mincho",serif!important;font-weight:600}
+.tag{color:#8F6D5C!important;letter-spacing:.1em}
+.card,.stepbox,.plan,.status,.summary,.facts div,.steps div,.ai-note,input,textarea,select{border-radius:4px!important;box-shadow:none!important}
+.card{box-shadow:inset 0 0 0 7px #FAF8F3,inset 0 0 0 8px #E4DFD7!important}
+.checks label{border-radius:2px!important}
+.btn{border-radius:4px!important;background:#6F6258!important;letter-spacing:.08em}
+.actions .ghost{background:#FAF8F3!important;color:#393734!important;border:1px solid #D8D3CB!important}
+.ai-note{background:#F2F0EB!important;border-color:#D8D3CB!important;color:#625E59!important}
+.status.ok{background:#F2F0EB!important}.status.err{background:#FAF8F3!important;border-color:#8F6D5C!important}
+.facts div{background:#F2F0EB!important}.plan .one{color:#6F6258!important}
+</style>
 </head>
 <body>
 <div class="nav"><div class="wrap"><b>わたしのこれから診断 → わたしの商い設計</b></div></div>
 <main class="wrap">
-<section class="hero"><span class="tag">PAID｜3,300円</span><h1>あなたの条件から、<br>3つの商いプランをつくります。</h1><p>同じ案の言い換えではなく、暮らし・強み・3年後の3方向から、商品・顧客・売り方・価格構造が異なる案を設計します。</p></section>
-<div id="status" class="status">購入情報を確認しています…</div>
+<section class="hero"><img class="hero-face" src="assets/roast-light.jpg?v=20260928" alt="" width="240" height="240"><span class="tag">PAID｜3,300円</span><h1>ここから先は、<br>本気で詰める。</h1><p>同じ案の言い換えはしない。暮らし・強み・3年後の3方向から、商品・顧客・売り方・値段の組み立てが違う3案を出す。</p></section>
+<div id="status" class="status">購入を確認してる…</div>
 <section id="formCard" class="card" hidden>
   <div class="stepbox">
-    <h2>STEP 1｜これまでのあなた</h2>
-    <p>まず、すでに持っている経験や人から見た強みを教えてください。</p>
+    <h2>STEP 1｜これまでのあんた</h2>
+    <p>まず、もう持ってる経験と、人から見た強みを書いてくれ。</p>
     <div class="grid">
       <div><label>1｜これまでの仕事・経験</label><textarea id="experience"></textarea></div>
       <div><label>2｜資格・得意なこと</label><textarea id="skills"></textarea></div>
@@ -62,9 +79,9 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
 
   <div class="stepbox">
     <h2>STEP 2｜誰に、何を渡したい？</h2>
-    <p>まだ決まっていない項目は空欄でも構いません。</p>
+    <p>決まってないところは、空欄でいい。</p>
     <div class="grid">
-      <div class="full"><label>6｜提供したい商品・サービス</label><textarea id="product" placeholder="まだ決まっていなければ、できそうなことでもOK"></textarea></div>
+      <div class="full"><label>6｜提供したい商品・サービス</label><textarea id="product" placeholder="決まってなければ、できそうなことでいい"></textarea></div>
       <div><label>7｜誰に提供したい？</label><input id="customer"></div>
       <div><label>8｜どんな困りごと・欲求？</label><input id="need"></div>
       <div><label>9｜地域</label><input id="region" placeholder="例：滋賀県大津市／オンライン"></div>
@@ -74,9 +91,9 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
 
   <div class="stepbox">
     <h2>STEP 3｜暮らしの条件</h2>
-    <p>できることより、「無理なく続けられる条件」を優先します。</p>
+    <p>できることより、「無理なく続けられる条件」を優先する。</p>
     <div class="grid">
-      <div class="full"><label>11｜やりたくないこと（案から外します）</label><div class="checks" id="avoid"><label><input type="checkbox" value="飛び込み・電話営業">飛び込み・電話営業</label><label><input type="checkbox" value="SNS発信">SNS発信</label><label><input type="checkbox" value="顔出し">顔出し</label><label><input type="checkbox" value="在庫">在庫</label><label><input type="checkbox" value="夜・土日">夜・土日</label><label><input type="checkbox" value="大きな固定費">大きな固定費</label><label><input type="checkbox" value="雇用">人を雇う</label></div></div>
+      <div class="full"><label>11｜やりたくないこと（案から外す）</label><div class="checks" id="avoid"><label><input type="checkbox" value="飛び込み・電話営業">飛び込み・電話営業</label><label><input type="checkbox" value="SNS発信">SNS発信</label><label><input type="checkbox" value="顔出し">顔出し</label><label><input type="checkbox" value="在庫">在庫</label><label><input type="checkbox" value="夜・土日">夜・土日</label><label><input type="checkbox" value="大きな固定費">大きな固定費</label><label><input type="checkbox" value="雇用">人を雇う</label></div></div>
       <div><label>12｜週に使える時間</label><input id="hours" placeholder="例：週5時間"></div>
       <div><label>13｜最初に使える自己資金</label><input id="funds" placeholder="例：5万円以内"></div>
       <div><label>14｜家族・生活上の条件</label><textarea id="family" placeholder="例：平日昼のみ／家族時間優先"></textarea></div>
@@ -86,7 +103,7 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
 
   <div class="stepbox">
     <h2>STEP 4｜どこまで行きたい？</h2>
-    <p>大きな目標でなくて大丈夫です。「まず月3万円」でも十分です。</p>
+    <p>大きな目標じゃなくていい。「まず月3万円」で十分だ。</p>
     <div class="grid">
       <div><label>16｜目的</label><select id="purpose"><option>収入を少し増やしたい</option><option>会社以外の自分の仕事を持ちたい</option><option>将来の独立に備えたい</option><option>経験を生かしたい</option><option>好きなことを仕事にしたい</option><option>地域・人の役に立ちたい</option><option>まだ分からない</option></select></div>
       <div><label>17｜目標の月収・月売上</label><input id="targetIncome" placeholder="例：まず月3万円"></div>
@@ -95,9 +112,9 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
     </div>
   </div>
 
-  <p class="note">途中内容はこの端末に自動保存されます。購入後30日間・最大5回まで生成できます。別端末へ移る場合、入力途中の内容は自動同期されません。</p>
-  <div class="ai-note"><b>生成AIの利用について</b>入力した回答は、3つの商いプランを生成するために当社が利用するAIサービスへ送信されます。氏名・住所・電話番号・勤務先の個人名など、本人や第三者を直接特定できる情報は入力しないでください。<br><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシーを確認する →</a></div>
-  <button class="btn" id="generate">3つの商いプランをつくる</button>
+  <p class="note">途中の内容は、この端末に自動で保存される。購入後30日間・最大5回まで作り直せる。別の端末に移ると、入力途中の内容は引き継がれない。</p>
+  <div class="ai-note"><b>生成AIの利用について</b>入力した回答は、3つの商いプランを作るために、当社が使うAIサービスへ送られる。氏名・住所・電話番号・勤務先の個人名など、本人や他人を直接特定できる情報は入れないこと。<br><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシーを確認する →</a></div>
+  <button class="btn" id="generate">3つの商いを出してもらう</button>
 </section>
 <section id="result" class="card result"><div id="resultBody"></div><div class="actions"><button class="btn ghost" id="copy">結果をコピー</button><button class="btn ghost" onclick="print()">印刷・PDF保存</button></div></section>
 </main>
@@ -169,7 +186,7 @@ async function verify(){
     history.replaceState({},'',location.pathname);
   }
   if(!token()){setStatus('購入確認が必要です。診断ページから決済してください。','err');return}
-  setStatus('購入確認済み。回答を入力して、3つの商いプランを作成できます。','ok');form.hidden=false;
+  setStatus('購入を確認した。答えを入れれば、3つの商いを出す。','ok');form.hidden=false;
 }
 function yen(n){return Number(n||0).toLocaleString('ja-JP')+'円'}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
@@ -189,8 +206,8 @@ function render(data,id){
   $('resultBody').innerHTML=h;result.classList.add('on');result.scrollIntoView({behavior:'smooth'});
 }
 $('generate').addEventListener('click',async()=>{
-  const a=answers(); if(!a.product&&!a.voice&&!a.experience){setStatus('商品・人から言われたこと・経験のいずれかを入力してください。','err');return}
-  $('generate').disabled=true;setStatus('回答から3つの商いプランを設計しています…');
+  const a=answers(); if(!a.product&&!a.voice&&!a.experience){setStatus('商品・人から言われたこと・経験のどれか一つは書いてくれ。','err');return}
+  $('generate').disabled=true;setStatus('あんたの答えから、3つの商いを組み立ててる…');
   try{
     const r=await fetch(API_BASE+'/generate',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+token()},body:JSON.stringify({answers:a})});
     const d=await r.json(); if(!d.ok) throw new Error(d.error||'generate_failed');
@@ -202,7 +219,7 @@ $('generate').addEventListener('click',async()=>{
       $('resultBody').prepend(box);
       $('copyLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(link);$('copyLink').textContent='コピーしました'}catch(e){}});
     }
-    setStatus('3つの商いプランができました。','ok');
+    setStatus('3つ、出た。気になる順じゃなく、試せる順で読んでくれ。','ok');
   }catch(e){window.track&&window.track('paid_generate_failed',Object.assign({reason:e.message||'unknown'},funnelCtx()));setStatus(e.message==='generation_limit'?'生成回数の上限に達しました。':'生成できませんでした。時間をおいて再度お試しください。','err')}
   finally{$('generate').disabled=false}
 });

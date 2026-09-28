@@ -5240,10 +5240,10 @@ document.addEventListener('click',function(e){
   if(th){
     var fit=rf.getAttribute('data-result-fit');
     th.textContent=fit==='high'
-      ?'たぶん、もう自分の中では少し分かっていたのかもしれません。'
+      ?'だろうな。本当は、自分でも分かってたはずだ。'
       :fit==='mid'
-      ?'全部当てはまらなくて大丈夫。引っかかった言葉だけ残してください。'
-      :'違うと感じたことも、大切な答えです。';
+      ?'それでいい。刺さった一行だけ、持って帰りな。'
+      :'外れたなら、それも答えだ。違うと言える自分がいる。';
   }
   window.track&&window.track('result_fit_feedback',{fit:rf.getAttribute('data-result-fit')||'',type:(window.AKINAI_RESULT&&window.AKINAI_RESULT.main)||'',sub:(window.AKINAI_RESULT&&window.AKINAI_RESULT.sub)||''});
 },true);
@@ -5782,6 +5782,67 @@ section{scroll-margin-top:76px}
 })();
 </script>
 <style id="roast-style">
+/* === 結果〜有料：十三月の窓で統一（2026-09-28） === */
+@media(max-width:680px){
+#price .report-volume{display:block!important}
+#price .report-volume .pages{display:block!important;writing-mode:horizontal-tb!important;width:auto!important;margin:0 0 10px!important;font-size:22px!important;line-height:1.4!important}
+#price .report-volume .pages small{display:block;font-size:12px}
+#price .detail-table{display:grid!important;grid-template-columns:1fr!important;gap:0!important}
+#price .detail-table>div{display:grid!important;grid-template-columns:7em 1fr!important;gap:10px!important;padding:8px 0!important;border-bottom:1px solid #E4DFD7!important}
+#price .report-detail{display:block!important}
+}
+
+#price *:not(img){background-image:none!important}
+#price .ppc,#price .paid-principle,#price .detail-90,#price .report-overview-title span,#price .report-detail-title span{background:#FAF8F3!important}
+#price .detail-90{border-left:2px solid #8F6D5C!important}
+#price table.cmp2{border-radius:4px!important;overflow:hidden}
+#price .pe-status,#price [class*=badge],#price [class*=pill]:not(.step-pill){background:#F2F0EB!important;color:#6F6258!important;border-radius:2px!important}
+#price .paid-items li{border-radius:2px!important;background:#FAF8F3!important;border-color:#D8D3CB!important}
+
+#price :is(div,article,details,summary,a,button):not([class*=face]):not([class*=avatar]){border-radius:4px!important}
+#price :is(div,article,details,summary,a,button):not([class*=face]){border-color:#D8D3CB!important;box-shadow:none!important}
+#price .paid-head,#price .paid-head-v2{border-color:#8F6D5C!important}
+
+#res .rg-quote,#res .result-fit-feedback,#res details>summary,#res .result-details-primary>summary{background:#F2F0EB!important;background-image:none!important}
+#res .week-solo .ws-job small{color:#8C867F!important}
+
+#res .rg-lead,#res .rg-quote,#res .gentle-relief,#res .warm-note,#res .msg,#res .belly,#res .takeout,#res .pair,#res .result-choice-card,#res .oracle-letter,#res .current-summary,#res .cs-lines>*,#res .affirm,#res .letgo,#res .insight-item,#res .status-direction,#res .share-now,#res .mcard,#res .tako,#res .free-paid-bridge,#res .result-upgrade,#res .nonbiz-result,#res .nb-card,#res .entre-result,#res .private-context,#res .post-context-details,#res .result-save-more,#res .result-more,#res .maker-belief-card{background:#FAF8F3!important;background-image:none!important;border-color:#D8D3CB!important}
+#res .rg-lead{border-radius:2px!important;color:#6F6258!important;font-family:var(--serif)}
+#res .week-solo{background:#F2F0EB!important;background-image:none!important;color:#393734!important;border:1px solid #D8D3CB!important}
+#res .week-solo *{color:inherit}
+#res .week-solo .ws-tag{color:#8F6D5C!important}
+#res .week-solo h3,#res .week-solo b{color:#393734!important}
+#res .week-solo .ws-body,#res .week-solo .ws-note{color:#625E59!important}
+#res .tk-list span,#res .pair .sym{background:transparent!important;color:#8F6D5C!important;border:1px solid #D8D3CB!important}
+#res .tag.active,#res .direction-tags .active{background:#6F6258!important;color:#FAF8F3!important;border-color:#6F6258!important}
+#res .tag{background:#F2F0EB!important;color:#625E59!important;border-color:#D8D3CB!important}
+#res [class*=kicker],#res [class*=label],#res [class*=lab],#res .olabel,#res .cs-kicker,#res .er-kicker,#res .nb-kicker,#res .pc-kicker,#res .ws-tag,#res .crlab,#res .rrlab{font-style:normal!important;color:#8F6D5C!important}
+#res .gentle-relief-last b{color:#393734!important}
+#res #rChara2,#res #rComboName,#res #rAru,#res #rMsg{display:none!important}
+#res .warm-note:before,#res .warm-note:after{display:none!important}
+
+#res,#price{--rose:#8F6D5C;--terracotta:#8F6D5C;--art:#8F6D5C;--accent:#8F6D5C;--gold:#A39079;--sage:#8C867F;--olive:#6F6258;--ink:#393734;--body:#625E59;--muted:#8C867F;--line:#D8D3CB;--paper:#FAF8F3;--surface:#FAF8F3;--radius:4px;--shadow:none}
+#res .karte-bridge{margin:6px 0 26px;padding:22px 0 20px;border-top:1px solid #D8D3CB;border-bottom:1px solid #D8D3CB;text-align:center;font-family:var(--serif)}
+#res .karte-bridge b{display:block;font-size:19px;font-weight:600;color:#393734;letter-spacing:.04em}
+#res .karte-bridge span{display:block;margin-top:6px;font-size:14px;color:#8C867F;letter-spacing:.06em}
+#res .rg-art{display:none!important}
+#res .rg-body{display:block!important;grid-template-columns:1fr!important}
+#res .result-illustration{border-radius:4px!important;box-shadow:none!important;background:#FAF8F3!important;border:1px solid #D8D3CB!important}
+#res .result-illustration-head{background:#F2F0EB!important;border-bottom:1px solid #D8D3CB!important}
+#res .result-illustration-head small{color:#8F6D5C!important;letter-spacing:.14em!important}
+#res .rg-ic{background:transparent!important;color:#8F6D5C!important;border:1px solid #D8D3CB!important;font-style:normal;font-family:var(--serif);font-size:13px!important;letter-spacing:.04em;box-shadow:none!important}
+#res .rg-card{background:#FAF8F3!important;border:1px solid #E4DFD7!important;border-radius:4px!important;box-shadow:none!important}
+#res .rg-card b{color:#6F6258!important}
+#res .rg-quote{color:#393734!important;font-family:var(--serif)}
+#res .result-fit-feedback button{border-radius:4px!important;background:#FAF8F3!important;border:1px solid #D8D3CB!important;color:#393734!important}
+#res .result-fit-feedback button.on{background:#6F6258!important;color:#FAF8F3!important;border-color:#6F6258!important}
+#res details>summary{border-radius:4px!important}
+#res .affirm,#res .letgo,#res .current-summary,#res .entre-result,#res .nonbiz-result,#res .week-solo,#res .context-result,#res .reality-result,#res .voice-reveal,#res .private-context,#res .share-now,#res .free-paid-bridge,#res .result-upgrade,#res .maker-belief-card,#res .gentle-relief,#res .oracle-letter,#res .status-direction,#res .insight-box,#res .belly,#res .warm-note,#res .takeout,#res .mcard,#res .pair,#res .tako,#res .result-choice-card,#res .nb-card,#res .value,#res .why,#res .occupation-hint,#res .result-nogo,#res .result-save-more,#res .post-context-details,#res .result-details-primary,#res .result-more,#res .biz-optional{border-radius:4px!important;box-shadow:none!important}
+#res .btn,#price .btn,#res .sapp,#res .share-main{border-radius:4px!important;box-shadow:none!important}
+#res .btn:not(.ghost),#price .btn:not(.ghost){background:#6F6258!important;border-color:#6F6258!important;color:#FAF8F3!important}
+#res .tag,#res .direction-tags span,#res .range span,#res .decision-lines span,#price .hn-three span{border-radius:2px!important}
+#price .ppc,#price .paid-takeaway,#price .paid-principle,#price .paid-trust-row,#price .paid-detail-fold,#price .step-pill{border-radius:4px!important;box-shadow:none!important}
+
 #roast .roast-face,.callname .cn-face{display:block;width:104px;height:104px;margin:0 auto 18px;padding:4px;border-radius:50%;background:#FAF8F3;border:1px solid #D8D3CB;object-fit:cover}
 .callname .cn-face{width:92px;height:92px;margin-bottom:16px}
 #roast.reveal .roast-face{animation:roastFade 1s ease-out 0s both}
@@ -6057,15 +6118,15 @@ section{scroll-margin-top:76px}
                 <small>SENSE IS HOW YOU LIVE</small>
               </div>
             </section>
-            <div class="lab">9問に答えてくれて、ありがとうございます。</div>
+            <div class="karte-bridge"><b>言いたいことは、言った。</b><span>ここから先は、あんたのカルテだ。</span></div>
             <div class="hero-choice-echo" id="heroChoiceEcho" style="display:none">
               <small>最初に選んだ気持ちから</small>
               <p id="heroChoiceEchoText"></p>
             </div>
             <figure class="result-illustration result-glance" aria-label="9問で見えてきたことの要約">
               <div class="result-illustration-head">
-                <small>YOUR RESULT, AT A GLANCE</small>
-                <b>9問で見えてきたことを、まず一枚で。</b>
+                <small>KARTE｜カルテ</small>
+                <b>3行で言うと、こうだ。</b>
               </div>
               <div class="rg-body">
                 <div class="rg-art">
@@ -6073,17 +6134,17 @@ section{scroll-margin-top:76px}
                   <span>これからの私も、<br>悪くないかもしれない。</span>
                 </div>
                 <div class="rg-cards">
-                  <p class="rg-lead">これからの私が、少し見えてきました。</p>
-                  <div class="rg-card"><i class="rg-ic c1">✦</i><div><b>見つかる｜私の強み</b><span id="rgStrength">—</span></div></div>
-                  <div class="rg-card"><i class="rg-ic c2">◎</i><div><b>ほどける｜今のモヤモヤ</b><span id="rgRelease">—</span></div></div>
-                  <div class="rg-card"><i class="rg-ic c3">→</i><div><b>決まる｜今週の一歩</b><span id="rgStep">—</span></div></div>
-                  <p class="rg-quote">答えを急がなくていい。<br>今日は、自分のことを少し言葉にできた。</p>
+                  <p class="rg-lead">持ってるもの。止めてるもの。今週やること。</p>
+                  <div class="rg-card"><i class="rg-ic c1">01</i><div><b>もう持ってるもの</b><span id="rgStrength">—</span></div></div>
+                  <div class="rg-card"><i class="rg-ic c2">02</i><div><b>足を止めてるもの</b><span id="rgRelease">—</span></div></div>
+                  <div class="rg-card"><i class="rg-ic c3">03</i><div><b>今週、やること</b><span id="rgStep">—</span></div></div>
+                  <p class="rg-quote">急がなくていい。<br>でも、止まったままにはするな。</p>
                   <div class="result-fit-feedback" aria-label="この結果の当てはまり具合">
-                    <small>この結果、どのくらい「私っぽい」ですか？</small>
+                    <small>で、当たってたか？　正直に。</small>
                     <div>
-                      <button type="button" data-result-fit="high">かなり近い</button>
-                      <button type="button" data-result-fit="mid">少し近い</button>
-                      <button type="button" data-result-fit="low">ちょっと違う</button>
+                      <button type="button" data-result-fit="high">悔しいけど、当たり</button>
+                      <button type="button" data-result-fit="mid">半分くらい</button>
+                      <button type="button" data-result-fit="low">外れてる</button>
                     </div>
                     <span id="resultFitThanks" aria-live="polite"></span>
                   </div>
@@ -6091,18 +6152,14 @@ section{scroll-margin-top:76px}
               </div>
             </figure>
             <details class="result-details-primary" id="resultDetailsPrimary">
-              <summary>もう少しだけ見る <span>強みと、今の現在地</span></summary>
-            <div class="gentle-relief gentle-relief-short">
-              <p class="gentle-relief-lead">答えを急がなくていい。</p>
-              <p>「私にも、まだ何かあるかもしれない」<br>そう思えたら、この9問は十分です。</p>
-            </div>
-            <span class="result-section-label" id="resultCore">9つの答えを見て、まず「あなたらしい」と思ったところ</span>
+              <summary>カルテの続きを見る <span>持ってる力と、いまの現在地</span></summary>
+                        <span class="result-section-label" id="resultCore">9つの答えから見えた、あんたの芯</span>
             <h3 class="chara" id="rChara"></h3>
             <div class="stars2" id="rStars"></div>
             <div class="star-art" id="rArt" aria-hidden="true"></div>
             <div class="star-art-sub" id="rArtSub" style="display:none"></div>
             <div class="context-result" id="rContextResult" style="display:none">
-              <span class="crlab">YOU ALREADY HAVE｜あなたが、もう持っているもの</span>
+              <span class="crlab">YOU ALREADY HAVE｜もう持ってるもの</span>
               <p><b>これまで：</b><span id="rExperience"></span></p>
               <p><b>いま気になっていること：</b><span id="rWantedProduct"></span></p>
             </div>
@@ -6113,7 +6170,7 @@ section{scroll-margin-top:76px}
                 <div><small>いま考えている目安</small><b id="rIncomeLabel"></b></div>
               </div>
               <p id="rRealityCalc"></p>
-              <small class="rrnote">数字は、人生の答えではなく、無理のない選択を考えるための参考情報です。</small>
+              <small class="rrnote">数字は答えじゃない。無理しないための目安だ。</small>
             </div>
             <div class="voice-reveal" id="rVoiceReveal" style="display:none">
               <span class="vrlab">自分の記憶と、周りから見た事実を重ねた3つの自分</span>
@@ -6124,23 +6181,23 @@ section{scroll-margin-top:76px}
               </div>
               <div class="voice-cross"><span class="vclab">CHECK｜診断と実際の経験を照らし合わせると</span><div id="rVoiceCross"></div></div>
               <div class="vrwords" id="rVoiceWords"></div>
-              <span class="voice-hidden-label">診断から見えた、まだ名前のなかったあなた</span>
+              <span class="voice-hidden-label">まだ名前のついてない、あんたの一面</span>
               <p id="rVoiceInsight"></p>
               <small>入力した内容に出てきた行動や言葉から見ています。この補助要素と診断本体は別に扱っています。</small>
             </div>
-            <div class="affirm" id="resultStrength"><span>01｜あなたが、もう持っている力</span><p id="rAffirm"></p></div>
+            <div class="affirm" id="resultStrength"><span>01｜もう持ってる力</span><p id="rAffirm"></p></div>
             <div class="hl" id="rHook"></div>
             <p class="twist" id="rTwist"></p>
-            <div class="letgo" id="resultRisk"><b>03｜いま、無理をしやすいポイント</b><p id="rLetgo"></p></div>
+            <div class="letgo" id="resultRisk"><b>03｜無理しやすいところ</b><p id="rLetgo"></p></div>
             <div class="current-summary" id="currentSummary">
-              <span class="cs-kicker">YOUR CURRENT POSITION｜今のあなたの現在地</span>
-              <h3>まず、ここを無視しないで考えます。</h3>
+              <span class="cs-kicker">YOUR CURRENT POSITION｜現在地</span>
+              <h3>ここを無視して始めると、だいたい転ぶ。</h3>
               <div class="cs-lines" id="currentSummaryLines"></div>
               <p id="currentMemoEcho" class="cs-memo" style="display:none"></p>
             </div>
             <div class="entre-result" id="entreResult">
-              <span class="er-kicker">START A BUSINESS?｜起業も、起業しない道も、選択肢です</span>
-              <h3 id="entreTitle">今、小さく試せる余白はどのくらい？</h3>
+              <span class="er-kicker">START A BUSINESS?｜起業する？しない？ どっちも答えだ</span>
+              <h3 id="entreTitle">小さく試せる余白は、どのくらいある？</h3>
               <div class="er-meter"><i id="entreMeter"></i></div>
               <p id="entreReason"></p>
               <div class="er-next">
@@ -6149,30 +6206,30 @@ section{scroll-margin-top:76px}
               </div>
               <div class="er-paths" id="entrePaths"></div>
               <div class="er-override" id="entreOverride" style="display:none">
-                <p><b>それでも、起業を進めたいですか？</b><br>診断は「やめた方がいい」と決めるためのものではありません。進むなら、今の弱点を先に守りに変えます。</p>
-                <button class="btn ghost" type="button" id="entreOverrideBtn">それでも起業を進めたい →</button>
+                <p><b>それでも、やりたいか？</b><br>止めるための診断じゃない。進むなら、弱いところを先に固める。</p>
+                <button class="btn ghost" type="button" id="entreOverrideBtn">それでも、進めたい →</button>
                 <div class="er-override-advice" id="entreOverrideAdvice" style="display:none">
                   <span class="er-advice-label">IF YOU STILL WANT TO GO｜進むなら、この順番で</span>
                   <h4>会社を辞める前に、起業を「試す」。</h4>
                   <div class="er-advice-list" id="entreAdviceList"></div>
-                  <p class="er-advice-note">向いていないのではなく、今は守る条件が多い状態です。その条件を一つずつ整えれば、起業は後からでも選べます。</p>
-                  <button class="btn sm" type="button" id="entreShowBiz">私に合う事業の方向も見る →</button>
+                  <p class="er-advice-note">向いてないんじゃない。今は、守るものが多いだけだ。一つずつ片づければ、起業はあとからでも選べる。</p>
+                  <button class="btn sm" type="button" id="entreShowBiz">合いそうな商いの方向も見る →</button>
                 </div>
               </div>
-              <small>※性格や「向き・不向き」を決めるものではありません。今の時間・家計・生活の余白と、小さく試せる状態かどうかを見ています。</small>
+              <small>※向き・不向きを決めるものじゃない。時間・家計・暮らしの余白と、小さく試せる状態かを見てるだけだ。</small>
             </div>
             <div class="nonbiz-result" id="nonBizResult">
-              <span class="nb-kicker">IF YOU DON'T START A BUSINESS｜起業しない道も、ちゃんとあります</span>
-              <h3 id="nonBizTitle">今のあなたに合う、もう一つの進み方</h3>
+              <span class="nb-kicker">IF YOU DON'T START A BUSINESS｜起業しない道も、ちゃんとある</span>
+              <h3 id="nonBizTitle">起業しないなら、この進み方</h3>
               <p class="nb-lead" id="nonBizLead"></p>
               <div class="nb-grid">
                 <div class="nb-card"><span>01｜今の状態</span><p id="nonBizNow"></p></div>
                 <div class="nb-card"><span>02｜今、優先したいこと</span><p id="nonBizPriority"></p></div>
-                <div class="nb-card"><span>03｜今は、しなくていいこと</span><p id="nonBizNotNow"></p></div>
+                <div class="nb-card"><span>03｜今は、やらなくていいこと</span><p id="nonBizNotNow"></p></div>
               </div>
               <div class="nb-actions">
                 <div><b>この30日でやること</b><ol id="nonBiz30"></ol></div>
-                <div><b>3か月後に、もう一度考えること</b><p id="nonBiz90"></p></div>
+                <div><b>3か月後に、もう一回考えること</b><p id="nonBiz90"></p></div>
               </div>
               <div class="nb-other">
                 <b>ほかに考えられる道</b>
@@ -6181,19 +6238,19 @@ section{scroll-margin-top:76px}
             </div>
           <div class="week-solo" id="weekSolo" style="display:none">
             <span class="ws-tag">THIS WEEK｜まず7日で試すこと</span>
-            <h3>今週、これだけ<br class="sp">試してみてください。</h3>
-            <p class="ws-job"><small>あなたに合いやすい仕事イメージ</small><b id="wsJob">—</b></p>
+            <h3>今週は、これだけ<br class="sp">やってみな。</h3>
+            <p class="ws-job"><small>あんたに合いやすい仕事</small><b id="wsJob">—</b></p>
             <p class="ws-body" id="wsBody">—</p>
-            <p class="ws-note">断られても大丈夫です。そのとき返ってきた理由が、次の材料になります。読んで「今週は動かない」と決めても構いません。</p>
+            <p class="ws-note">断られてもいい。返ってきた理由が、次の材料になる。「今週は動かない」と決めるのも、ありだ。</p>
           </div>
             </details>
           </div>
             <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
-              <span class="result-choice-kicker">この結果、どうする？</span>
+              <span class="result-choice-kicker">で、この結果、どうする？</span>
               <div class="result-choice-grid">
                 <a class="result-choice-card keep" href="#resultSaveMore" data-result-choice="keep">
                   <small>01｜結果を残す</small>
-                  <b>この結果を残して、<br>今日はここまで</b>
+                  <b>残して、<br>今日はここまで</b>
                 </a>
                 <a class="result-choice-card context" href="#postContextDetails" data-result-choice="context">
                   <small>02｜もう少し自分向けに</small>
@@ -6206,8 +6263,8 @@ section{scroll-margin-top:76px}
               <summary>現在地を30秒で足す（任意）</summary>
       <div class="private-context" id="privateContext">
         <span class="pc-kicker">RESULT + 30 SEC｜必要な人だけ。</span>
-        <h3>結果を、もう少し<br>「私の場合」に。</h3>
-        <p class="pc-lead">仕事・家族・お金などの現在地を足すと、同じ9問でも結果がもう少し具体的になります。全部任意です。答えたくない項目は飛ばせます。</p>
+        <h3>もう少し、<br>「あんたの場合」に。</h3>
+        <p class="pc-lead">仕事・家族・お金の現在地を足すと、同じ9問でもカルテが具体的になる。全部任意。答えたくないところは飛ばしていい。</p>
 
         <div class="pc-grid pc-core">
           <label><span>① いま、どんな働き方？</span>
@@ -6242,8 +6299,8 @@ section{scroll-margin-top:76px}
         </div>
 
         <details class="pc-more">
-          <summary>もう少し自分向けの結果にしたい方だけ、追加で教える</summary>
-          <p class="pc-more-lead">ここから先は全部任意です。飛ばしても9問診断はできます。</p>
+          <summary>もっと自分向けにしたい人だけ、追加で教える</summary>
+          <p class="pc-more-lead">ここから先は全部任意。飛ばしても診断はできる。</p>
           <div class="pc-grid">
             <label><span>あなたの年代は？</span>
               <select id="ctxAge"><option value="">選ばなくてもOK</option><option value="20s">20代</option><option value="30s">30代</option><option value="40s">40代</option><option value="50s">50代</option><option value="60s">60代</option><option value="70p">70代以上</option></select>
@@ -6277,24 +6334,24 @@ section{scroll-margin-top:76px}
               <select id="ctxHope"><option value="">まだ言葉にならない</option><option value="stability">安心して暮らせる状態をつくりたい</option><option value="time">自分の時間を取り戻したい</option><option value="meaning">もっと納得できる仕事をしたい</option><option value="income">収入を増やしたい</option><option value="strength">自分の得意なことを活かしたい</option><option value="freedom">自分で決められる働き方に近づきたい</option><option value="unknown">まだ分からない。ただ、このままは嫌</option></select>
             </label>
             <label class="pc-wide"><span>もし誰にも止められなかったら、一度はやってみたいことある？</span><input id="ctxDream" type="text" maxlength="80" placeholder="例：小さなお店／もう一度勉強／特にまだない"></label>
-            <label class="pc-wide"><span>人には言いにくいけど、頭から離れないこと</span><textarea id="ctxMemo" maxlength="120" placeholder="書かなくても大丈夫です。"></textarea></label>
+            <label class="pc-wide"><span>人には言いにくいけど、頭から離れないこと</span><textarea id="ctxMemo" maxlength="120" placeholder="書かなくていい。"></textarea></label>
           </div>
         </details>
 
-        <div class="pc-privacy"><b>ここは「結果を自分向けにするための追加情報」です。</b>入力内容は、このページ内で無料診断の結果を組み立てるために使います。答えたくない項目は飛ばして大丈夫です。</div>
-        <a class="btn pc-start" href="#qz">現在地を足して、結果を更新する →</a>
+        <div class="pc-privacy"><b>ここに書いたことは、どこにも送らない。</b>このページの中で、あんたのカルテを組み立てるためだけに使う。</div>
+        <a class="btn pc-start" href="#qz">現在地を足して、カルテを書き直す →</a>
       </div>
             </details>
             <details class="result-save-more" id="resultSaveMore">
-              <summary>結果を残しておく</summary>
+              <summary>あだ名を、1枚に残す</summary>
             <div class="share-now">
-            <b>「私これだった。」を、1枚に。</b>
-            <p>強みと今週の一歩だけを残した、シェアしやすい結果カードです。</p>
-            <label class="card-name">カードに名前・ニックネームを入れる（任意）<input id="cardName" type="text" maxlength="20" placeholder="例：hana / @hana"><small>カード画像にだけ使います。送信されません。</small></label>
+            <b>「私、こう言われた。」を、1枚に。</b>
+            <p>あだ名と、ひとことを1枚にした画像。名前は入らない。「あんた」のままだ。</p>
+            <input id="cardName" type="hidden" value="">
             <div class="share share-v2">
               <button class="btn share-main" type="button" id="btnSaveTop">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
-                <span><b>「私これだった」カードを保存</b><small>Instagram・LINEにも使えます</small></span>
+                <span><b>あだ名カードを保存</b><small>ストーリーズ・LINEにそのまま貼れる</small></span>
               </button>
               <details class="share-more">
                 <summary>アプリを選んで送る</summary>
@@ -6305,18 +6362,18 @@ section{scroll-margin-top:76px}
                 </div>
               </details>
             </div>
-            <p class="share-hint">まず画像として残しておけます。よければ、InstagramのストーリーズやLINEで「私これだった」と共有してください。</p>
+            <p class="share-hint">悔しかったら、晒してみな。友だちも、たぶん何か言われる。</p>
           </div>
             </details>
           <div class="free-paid-bridge">
-            <small>ここまでで、「今の私」が少し見えてきました。</small>
-            <h3>ここで終わっても大丈夫です。<br><b>もし「これ、何か形にできるのかな」と思ったら。</b></h3>
-            <p>ここから先は、その続きを考えます。仕事や小さな副業として試すなら、誰に・何を・どんな形で・いくらくらいで・最初にどう試すかを、あなたの条件で整理します。</p>
+            <small>ここで終わってもいい。</small>
+            <h3>言われっぱなしで、終わるか。<br><b>ひとつ、形にしてみるか。</b></h3>
+            <p>試すなら、誰に・何を・どんな形で・いくらで・最初にどう動くか。あんたの条件で、そこまで詰める。</p>
           </div>
           <div class="result-upgrade">
-            <span class="result-upgrade-label">もう少し形にしたくなったら。</span>
+            <span class="result-upgrade-label">形にしたくなったら。</span>
             <h3>ここからは、数字まで。</h3>
-            <p>無料は「私に何がある？」まで。3,300円版では、顧客・商品・価格・90日を3つの案にします。</p>
+            <p>無料で分かるのは「何を持ってるか」まで。3,300円版は、顧客・商品・価格・90日を3つの案にする。</p>
             <div class="result-upgrade-grid">
               <div><small>FREE</small><b>経験・強み・方向性</b></div>
               <span>→</span>
@@ -6328,7 +6385,7 @@ section{scroll-margin-top:76px}
               <span>「今はまだ動かない」</span>
             </div>
             <a class="btn" href="#price">3つの案を見る → <small>3,300円</small></a>
-            <p class="result-upgrade-note">3つを並べて、「これは違う」「これなら試せそう」「これは今じゃない」を見つけます。</p>
+            <p class="result-upgrade-note">3つ並べて、「違う」「これなら試せる」「今じゃない」を自分で決める。</p>
           </div>
           <div class="maker-belief maker-belief-after-result" aria-label="この診断をつくった人">
             <div class="maker-belief-card">
@@ -6344,22 +6401,16 @@ section{scroll-margin-top:76px}
             </div>
           </div>
           <details class="result-more" id="more">
-            <summary>もう少し見てみる（任意）</summary>
-            <div class="rm-note">ここからは、気になる人だけ。</div>
+            <summary>カルテの余白（任意）</summary>
+            <div class="rm-note">ここからは、気になる人だけ読めばいい。</div>
             <div class="gentle-relief gentle-relief-long">
-              <p class="gentle-relief-lead">この診断で、人生が変わるとは思っていません。</p>
-              <p>でも、</p>
-              <blockquote>
-                <span>「私にも、まだ何かあるかもしれない」</span>
-                <span>「これまでの時間も、無駄じゃなかったかもしれない」</span>
-                <span>「もう一度、自分のことを考えてもいいかもしれない」</span>
-              </blockquote>
-              <p>そう思えたら、少しだけ気持ちが軽くなることがあると思っています。</p>
-              <p class="gentle-relief-last">次の答えを決める前に、<b>自分を少し取り戻す。</b><br>この9問が、そのきっかけになればと思っています。</p>
+              <p class="gentle-relief-lead">9問で、人生は変わらない。</p>
+              <p>でも、あんたがどう暮らしてきたかは、ちゃんと答えに出てた。</p>
+              <p class="gentle-relief-last">センスは、うわべじゃない。<b>生き方そのものだ。</b><br>頭で考えるのは、そのあとでいい。</p>
             </div>
-            <p class="result-basis">今の仕事、これまでの経歴、家族、お金、言いにくい悩み、そして「本当はこうしたい」を9つの回答と重ねて、これからの選択肢を整理します。転職や起業を先に決めるためではなく、専門サービスへ行く前に、自分の考えを言葉にするための結果です。</p>
+            <p class="result-basis">仕事、経歴、家族、お金、言いにくいこと、「本当はこうしたい」。それを9つの答えと重ねて、選択肢を並べてる。転職や起業を決めさせるためじゃない。誰かに相談する前に、自分の考えを言葉にするためのカルテだ。</p>
             <div class="result-roadmap" aria-label="無料結果で分かること">
-              <span>このあと、5つだけ見ていきます。</span>
+              <span>カルテの中身は、この5つ。</span>
               <div>
                 <a href="#rAffirm">01 力</a>
                 <a href="#currentSummary">02 現在地</a>
@@ -6373,45 +6424,45 @@ section{scroll-margin-top:76px}
               <div><span>もう一つの傾向</span><b id="rDrawStarResult"></b><small id="rDrawStarResultText"></small></div>
             </div></details>
             <div class="oracle-letter">
-              <span class="olabel">ANOTHER VIEW｜経験を別の角度から見るヒント</span>
+              <span class="olabel">ANOTHER VIEW｜別の角度から</span>
               <p id="rOracleLetter"></p>
-              <small>診断結果とは別の、読み物としての補助要素です。未来予測や適性判定には使っていません。</small>
+              <small>ここは読み物。未来を当てたり、適性を決めたりはしてない。</small>
             </div>
             <div class="status-direction" id="rCompass">
-              <span class="direction-label">今の自分に置いておきたい3つのこと</span>
+              <span class="direction-label">手元に置いておく、3つの言葉</span>
               <div class="direction-tags" id="rDirectionTags"></div>
             </div>
             <div class="insight-box">
-              <div class="insight-item"><span class="insight-label">🌿 大切にしたい価値観</span><p class="insight-text" id="rValue"></p></div>
-              <div class="insight-item"><span class="insight-label">🕯️ 心を緩めるキーワード</span><p class="insight-text" id="rKeyword"></p></div>
+              <div class="insight-item"><span class="insight-label">大事にしてること</span><p class="insight-text" id="rValue"></p></div>
+              <div class="insight-item"><span class="insight-label">力を抜くための言葉</span><p class="insight-text" id="rKeyword"></p></div>
             </div>
             <div class="belly" id="rBelly" style="display:none">
-              <span class="blab">9つの答えを「これからの言葉」にすると</span>
+              <span class="blab">9つの答えを、ひとつの話にすると</span>
               <p id="rStory"></p>
               <p class="bend" id="rStoryEnd"></p>
             </div>
             <div class="warm-note" id="rWarm" style="display:none">
-              <span class="wlab">ここまでやってきた、あなたへ</span>
+              <span class="wlab">ここまでやってきた、あんたへ</span>
               <p id="rWarmText"></p>
-              <small>新しく何かにならなくていい。これまでの中に、これからを選ぶヒントがあります。</small>
+              <small>新しい何かに、ならなくていい。答えは、これまでの中にある。</small>
             </div>
           <div class="takeout">
-            <b>この結果は、ここから先でも使えます。</b>
-            <p>診断で出た言葉は、そのまま「今の自分の説明」になります。仕事、家族、これからの暮らし。考えたい場所に持っていってください。</p>
+            <b>このカルテは、持ち出していい。</b>
+            <p>ここに出た言葉は、そのまま「今の自分の説明」になる。仕事でも、家族でも、考えたい場所に持っていけ。</p>
             <div class="tk-list">
-              <div><span>01</span><b>ひとりで考えるとき</b><p>迷ったときに結果を見返すと、「私は何を大切にしたかったか」に戻れます。</p></div>
-              <div><span>02</span><b>AIに相談するとき</b><p>AIに「私に何ができますか」と聞いても、一般論しか返りません。あなたの経験と条件を渡すと、答えが具体的に変わります。</p></div>
-              <div><span>03</span><b>家族や身近な人に話すとき</b><p>「なんとなくモヤモヤする」ではなく、今の自分が何を大切にしたいのかを言葉にして共有できます。</p></div>
+              <div><span>01</span><b>ひとりで考えるとき</b><p>迷ったら見返せ。「何を大事にしたかったか」に戻れる。</p></div>
+              <div><span>02</span><b>AIに相談するとき</b><p>「私に何ができる？」とだけ聞いても、一般論しか返ってこない。経験と条件を渡せば、答えが変わる。</p></div>
+              <div><span>03</span><b>家族や身近な人に話すとき</b><p>「なんかモヤモヤする」じゃなく、何を大事にしたいかを言葉で渡せる。</p></div>
             </div>
             <button class="btn ghost" type="button" id="btnAiPrompt">AIに相談する文をコピー</button>
-            <p class="tk-note" id="aiPromptNote">ChatGPTなどに貼り付けるだけで、あなたの前提を踏まえた相談ができます。</p>
+            <p class="tk-note" id="aiPromptNote">ChatGPTなどに貼るだけ。あんたの前提ごと相談できる。</p>
           </div>
           <details class="result-alt">
-            <summary>「少し違うかも」と思ったら、ほかの傾向も見る</summary>
+            <summary>「外れてる」と思ったら、ほかの傾向も見る</summary>
             <div class="ol" id="olTop"></div>
           </details>
             <div class="mcard">
-              <div class="lab">SNS用カード</div>
+              <div class="lab">共有するなら</div>
               <div class="chara" id="rChara2"></div>
               <div class="cn" id="rComboName"></div>
               <ul class="aru" id="rAru"></ul>
@@ -6419,7 +6470,7 @@ section{scroll-margin-top:76px}
               <div class="share share-v2">
                 <button class="btn share-main" type="button" id="btnSave">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
-                  <span><b>結果を画像でシェア</b><small>Instagram・LINEも、ここから</small></span>
+                  <span><b>あだ名カードでシェア</b><small>Instagram・LINEも、ここから</small></span>
                 </button>
                 <details class="share-more">
                   <summary>アプリを選んで送る</summary>
@@ -6431,12 +6482,12 @@ section{scroll-margin-top:76px}
                   </div>
                 </details>
               </div>
-              <p class="share-note">画像は「これからカルテ」です。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
+              <p class="share-note">画像は、あだ名カード。ストーリーズにそのまま貼れる。文章は投稿前に好きに書き換えていい。</p>
             </div>
-            <div class="pair" id="rPair"><b>この結果と一緒に、残しておきたい言葉</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>誰かと比べるためではなく、迷った日に戻ってこられる言葉として。</small></div>
+            <div class="pair" id="rPair"><b>カルテの最後に、ひとこと</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>比べるための言葉じゃない。迷った日に戻ってくる場所だ。</small></div>
             <div class="tako" id="rTako">
               <b>私って、本当に「<span id="tSym"></span>」？</b>
-              <p>自分では「普通」と思っていることほど、周りは頼りにしています。友達に4問だけ答えてもらうと、「友達から見た私」が出ます。</p>
+              <p>自分で「普通」だと思ってることほど、周りは頼りにしてる。友だちに4問だけ答えてもらえば、「友だちから見たあんた」が出る。</p>
               <div class="share"><a class="btn" id="btnTakoLine" href="#" target="_blank" rel="noopener">LINEで友達に頼む</a><button class="btn ghost" type="button" id="btnTakoCopy">リンクをコピー</button></div>
               <div class="fview" id="fview" style="display:none"><span>自分から見た私</span><b id="fvSelf"></b><span>友達から見た私</span><b id="fvFriend"></b><p id="fvNote"></p></div>
             </div>
@@ -6462,13 +6513,13 @@ section{scroll-margin-top:76px}
           <div class="occupation-hint">
             <b>仕事の形にすると近いのは</b>
             <p id="rOccupation"></p>
-            <small>職業名を決める診断ではありません。あなたの経験を仕事にした場合の「近い形」です。実際に始める際は、業種ごとの資格・許認可を確認します。</small>
+            <small>職業を決める診断じゃない。経験を仕事にしたら近い形、というだけだ。始めるなら、業種ごとの資格・許認可は必ず確かめること。</small>
           </div>
 
           <div class="result-nogo">
             <span>04｜今はやらない方がいいこと</span>
             <p id="rNoGo"></p>
-            <small>最初から大きく始めないためのブレーキです。必要になった段階で足せば十分です。</small>
+            <small>最初から大きく始めないためのブレーキだ。要るようになってから足せばいい。</small>
           </div>
 
           <!-- 2026-09-27：無料結果の「3案・商品・価格・必要人数」は表示を止めているため、文言ごと削除（JSが参照するidだけ空で残す）。3,300円版と役割を分けるため。 -->
@@ -6485,7 +6536,7 @@ section{scroll-margin-top:76px}
           <div class="qnav"><button type="button" id="again">最初から</button><span></span></div>
         </div>
       </div>
-      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※診断の中心は、あなた自身の経験と回答です。追加の読み物は任意です。この結果は進路を決めつけるものではなく、自分の考えを整理するための材料です。</p>
+      <p class="fortune-note" style="max-width:640px;margin:14px auto 0">※診断の中心は、あんた自身の経験と答え。読み物の部分は任意。進路を決めつけるものじゃなく、考えを整理するための材料だ。</p>
       <canvas class="hid" id="cv" width="1080" height="1920"></canvas>
     </div>
   </section>
@@ -6494,13 +6545,13 @@ section{scroll-margin-top:76px}
     <div class="wrap paid-shell">
       <div class="paid-head paid-head-v2">
         <span class="step-pill" id="paidPill">わたしの商い設計 ／ 3,300円 ／ Web完結</span>
-        <h2>「ちょっとやってみたい」を、<br>暮らしを壊さず試せる形に。</h2>
-        <p class="paid-sub"><b>無料で「私に何がある？」まで。</b><br>ここからは、「じゃあ、どうやる？」を3つの商いにします。</p>
+        <h2>「じゃあ、どうやる？」を、<br>3つの商いにする。</h2>
+        <p class="paid-sub"><b>無料で分かったのは「何を持ってるか」まで。</b><br>ここからは、暮らしを壊さずに試せる形まで詰める。</p>
 
         <div class="paid-takeaway" aria-label="3,300円で持ち帰れるもの">
           <span class="ptw-kicker">3,300円で持ち帰る、3つ。</span>
           <div class="ptw-grid">
-            <div><i>01</i><b>私に合う<br>3つの商い</b><span>守る・活かす・育てる</span></div>
+            <div><i>01</i><b>あんたに合う<br>3つの商い</b><span>守る・活かす・育てる</span></div>
             <div><i>02</i><b>顧客・商品・価格まで<br>入った具体案</b><span>必要件数・時間・資金も</span></div>
             <div><i>03</i><b>最初の3人と<br>90日の動き方</b><span>続ける／やめる基準まで</span></div>
           </div>
@@ -6519,7 +6570,7 @@ section{scroll-margin-top:76px}
           <li>顧客</li><li>商品</li><li>価格</li><li>必要件数</li><li>時間</li><li>家族</li><li>最初の3人</li><li>90日</li>
         </ul>
 
-        <div class="paid-principle"><small>この設計が大事にしていること</small><b>大きく始めるためではなく、<br>失敗しても暮らしが壊れない始め方を考えます。</b><span>「今はやらない」も、きちんとした答えのひとつです。</span></div>
+        <div class="paid-principle"><small>この設計が大事にしていること</small><b>大きく始めるためじゃない。<br>転んでも、暮らしが壊れない始め方を出す。</b><span>「今はやらない」も、ちゃんとした答えだ。</span></div>
 
         
           </div>
@@ -6531,37 +6582,37 @@ section{scroll-margin-top:76px}
           <small class="pct-note" id="paidTopNote">受付準備中</small>
         </div>
 
-        <div class="paid-trust-row"><span class="pt-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>暮らしを壊さず、小さく試せる形を考えます。</span><small>20年以上の相談現場から｜中村裕二</small></p></div>
+        <div class="paid-trust-row"><span class="pt-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="paid-trust"><b>売れる案より、続けられる案を。</b><span>暮らしを壊さずに、小さく試せる形を出す。</span><small>20年以上の相談現場から｜中村裕二</small></p></div>
       </div>
 
       <figure class="report-hero-image report-hero-top">
-        <span class="rht-lead">実際に届くレポートのイメージ</span>
+        <span class="rht-lead">出てくるレポートは、こんな感じだ。</span>
         <a href="assets/report-sample-3plans.webp" target="_blank" rel="noopener" aria-label="3案の概要と詳細レポートの画像を大きく見る">
           <img src="assets/report-sample-3plans.png?v=20260923e" data-fallback="assets/report-sample-3plans.webp?v=20260923e" alt="3,300円で届く3案と詳細レポートの実際の画面" loading="eager" decoding="async">
         </a>
-        <figcaption>総合レポート ＋ 3案 ＋ 各案約3ページ（画像をクリックすると大きく表示できます）</figcaption>
+        <figcaption>総合レポート ＋ 3案 ＋ 各案 約3ページ（画像をタップすると大きく見られる）</figcaption>
       </figure>
 
       <details class="paid-detail-fold paid-detail-fold-secondary">
         <summary>条件や、無料版との違いを見る</summary>
         <div class="paid-detail-fold-body">
 <div class="cond-box">
-        <p class="cond-lead">同じ答えでも、条件が違えば、出てくる案は変わります。</p>
+        <p class="cond-lead">同じ答えでも、条件が違えば、出てくる案は変わる。</p>
         <div class="cond-keys" aria-label="提案を変える4つの条件">
           <span class="ck-lab">提案を変える4つの条件</span>
           <div><b>時間</b></div><div><b>資金</b></div><div><b>家族</b></div><div><b>地域</b></div>
         </div>
         <div class="cond-grid">
-          <div><small>週2時間・資金5万円</small><b>固定費を持たない案</b><span>いま持っているもので、予約だけ受ける形から。</span></div>
-          <div><small>週10時間・資金30万円</small><b>販売テストから育てる案</b><span>小さく売って反応を見てから、投資を判断する形。</span></div>
+          <div><small>週2時間・資金5万円</small><b>固定費を持たない案</b><span>いま持ってるもので、予約だけ受ける形から。</span></div>
+          <div><small>週10時間・資金30万円</small><b>販売テストから育てる案</b><span>小さく売って反応を見てから、金をかけるか決める形。</span></div>
         </div>
-        <p class="cond-note">ひな形を当てはめるのではなく、回答した条件をもとに提案内容を組み立てます。</p>
+        <p class="cond-note">ひな形の当てはめじゃない。あんたが答えた条件から、案を組み立てる。</p>
       </div>
 
       <table class="cmp2">
         <thead><tr><th></th><th>無料</th><th class="on">3,300円</th></tr></thead>
         <tbody>
-          <tr><th>分かること</th><td>私に、何がある？</td><td class="on">どう仕事にする？</td></tr>
+          <tr><th>分かること</th><td>何を持ってる？</td><td class="on">どう仕事にする？</td></tr>
           <tr><th></th><td>経験</td><td class="on">顧客</td></tr>
           <tr><th></th><td>強み</td><td class="on">商品</td></tr>
           <tr><th></th><td>仕事の種</td><td class="on">価格</td></tr>
@@ -6574,18 +6625,18 @@ section{scroll-margin-top:76px}
       </details>
 
       <div class="host-note">
-        <div class="hn-head"><span class="hn-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="hn-lead">別に、起業した方がいいとは思ってません。</p></div>
+        <div class="hn-head"><span class="hn-face"><img src="assets/akinai-face-yuji.jpg?v=20260923e" data-fallback="assets/akinai-face-yuji.png?v=20260923e" alt="中村裕二の顔写真" loading="lazy" decoding="async" width="320" height="320"></span><p class="hn-lead">起業しろ、とは言わない。</p></div>
         <div class="hn-three"><span>「これは違う」</span><span>「これはちょっとやってみたい」</span><span>「これは今じゃない」</span></div>
-        <p class="hn-body">その3つが見えれば十分です。20年以上、創業から廃業まで見てきたからこそ、無理に背中を押すより、<b>似合いそうな始め方が見えるようにする</b>ほうが大事だと思って、この診断を作りました。</p>
+        <p class="hn-body">この3つが見えれば十分だ。20年以上、開業も店じまいも見てきた。無理に背中を押すより、<b>似合う始め方が見えるようにする</b>ほうが大事だ。だから、この診断をつくった。</p>
       </div>
 
       <div class="fit-box">
         <div class="fit yes">
-          <b>こんな気持ちなら、たぶん合います</b>
+          <b>こういう人なら、たぶん合う</b>
           <ul><li>まだ起業するか決めていない</li><li>人に相談する前に、自分で整理したい</li><li>大きなお金をかけず、小さく試したい</li></ul>
         </div>
         <div class="fit no">
-          <b>向いていない人</b>
+          <b>向いてない人</b>
           <ul><li>すぐに融資用の完成した事業計画書が欲しい</li><li>売上の保証を求めている</li><li>誰かに全部決めてほしい</li></ul>
         </div>
       </div>
@@ -6594,8 +6645,8 @@ section{scroll-margin-top:76px}
         <div class="web-consult-head">
           <div>
             <span class="tag">WEB COMPLETE｜申込みから3案提示まで、Webだけ</span>
-            <h3>人と話さなくても、ここまで具体化します。</h3>
-            <p>決済 → 回答 → 3案確認までWeb上で完結。Zoom・電話・対面でのヒアリングはありません。</p>
+            <h3>人と話さなくても、ここまで具体にする。</h3>
+            <p>決済 → 回答 → 3案の確認まで、全部Webで終わる。Zoomも電話も対面もない。</p>
           </div>
           <div class="web-consult-price">3,300<small>円（税込）</small></div>
         </div>
@@ -6606,7 +6657,7 @@ section{scroll-margin-top:76px}
           <summary>実物を見る｜焼き菓子の例</summary>
           <div class="report-overview-title">
             <span>①</span>
-            <div><h5>まず、3案の概要</h5><small>「今の自分なら、どれが試せそうか」を見比べます。</small></div>
+            <div><h5>まず、3案の概要</h5><small>「今の自分なら、どれが試せるか」を見比べる。</small></div>
           </div>
 
           <div class="report-overview-grid">
@@ -6629,12 +6680,12 @@ section{scroll-margin-top:76px}
 
           <div class="report-detail-title">
             <span>②</span>
-            <div><h5>次に、各案の詳細レポート</h5><small>概要だけでなく、「なぜこの案か」「どう始めるか」まで文章で整理します。</small></div>
+            <div><h5>次に、各案の詳細レポート</h5><small>概要だけじゃない。「なぜこの案か」「どう始めるか」まで文章にする。</small></div>
           </div>
 
           <div class="report-volume">
             <div class="pages">1案 約3ページ<small>3案で合計 約9ページ相当</small></div>
-            <p><b>A4換算の目安です（回答内容により前後します）。</b> 長さより、顧客・競合・強み・地域・時間・家族・資金・90日検証まで、次の行動に使える形になっていることを大事にしています。</p>
+            <p><b>A4換算の目安（回答で前後する）。</b> 長さより、顧客・競合・強み・地域・時間・家族・資金・90日の検証まで、次に動ける形になってるかを大事にしてる。</p>
           </div>
 
           <div class="report-detail">
@@ -6670,7 +6721,7 @@ section{scroll-margin-top:76px}
             <div><b>商工会・専門家</b><small>相談資料として</small></div>
             <div><b>補助金・融資の準備</b><small>計画のたたき台</small></div>
           </div>
-          <p class="report-volume-note">※上記はサンプルです。実際のレポートは、ご入力いただいた回答をもとにこのページ上で自動作成され、その場で表示されます。市場・競合・売上は仮説を含み、実行前の確認が必要です。</p>
+          <p class="report-volume-note">※上はサンプル。実際のレポートは、あんたの回答からこのページ上で自動で作られ、その場で出る。市場・競合・売上には仮説が入るから、動く前に必ず確かめること。</p>
           </details>
         </div>
 
@@ -6678,8 +6729,8 @@ section{scroll-margin-top:76px}
           <div class="pe-head">
             <div>
               <span class="tag">3,300円｜クレジットカード決済</span>
-              <h4>決済後、すぐに「わたしの商い設計」へ進めます。</h4>
-              <p>カード決済後、そのまま専用ページで回答できます。面談や予約は必要ありません。</p>
+              <h4>払ったら、そのまま「わたしの商い設計」に進める。</h4>
+              <p>決済が済めば、専用ページで質問に答えるだけ。面談も予約もいらない。</p>
             </div>
             <span class="pe-status" id="paidStatus">決済前</span>
           </div>
@@ -6688,39 +6739,39 @@ section{scroll-margin-top:76px}
               <button class="btn" type="button" id="paidCheckoutBtn" disabled>準備中</button>
             </div>
             <p class="pe-message" id="payMessage"></p>
-            <p class="web-consult-note">決済後すぐ利用できます ／ 面談なし ／ 自動継続なし</p>
+            <p class="web-consult-note">決済後すぐ使える ／ 面談なし ／ 自動継続なし</p>
           </div>
         </div>
 
         <div class="plan3">
-          <span>OUTPUT｜答えは1つに決めません</span>
-          <h4>3案を比較し、各案を詳細レポートまで具体化。</h4>
+          <span>OUTPUT｜答えは1つに決めない</span>
+          <h4>3案を並べて、それぞれ詳細レポートまで出す。</h4>
           <div class="plan3-grid">
             <div><b>PLAN A｜今の暮らしを守る商い</b><p>固定費と初期投資を抑え、今ある時間・環境で小さく試す案。</p></div>
             <div><b>PLAN B｜あなたらしさを生かす商い</b><p>顧客の声・頼まれてきたこと・他者評価から、価値が伝わりやすい形にする案。</p></div>
             <div><b>PLAN C｜3年後まで育てる商い</b><p>最初は小さく始めながら、将来の販路・設備・収益の広がりまで考える案。</p></div>
           </div>
-          <p class="web-consult-note">3案を同じ形式で比較したうえで、各案を顧客／価格／売り方／地域／競合／強み／必要時間／必要資金／家族への影響／月売上の目安／最初の3人／90日で確認することまで文章で整理します（1案A4約3ページ、3案で約9ページ相当が目安）。</p>
-          <p class="web-consult-note"><b>3案は「見るだけ」の結果ではありません。</b>そのままAI相談・補助金の準備・融資相談・商工会での相談に使える「事業の基礎データ」として整理します。</p>
+          <p class="web-consult-note">3案を同じ形式で並べたうえで、各案を顧客／価格／売り方／地域／競合／強み／必要時間／必要資金／家族への影響／月売上の目安／最初の3人／90日で確かめることまで文章にする（1案A4約3ページ、3案で約9ページが目安）。</p>
+          <p class="web-consult-note"><b>見て終わりの結果じゃない。</b>AI相談、補助金の準備、融資の相談、商工会での相談に、そのまま使える「事業の基礎データ」にしておく。</p>
         </div>
       </div>
 
       <div class="grant-option">
         <div class="grant-tag">ONE OUTPUT, MANY USES｜3,300円の結果を、そのまま次へ</div>
-        <h3>作って終わりではなく、次の行動に使える事業データに。</h3>
-        <p>3つの商いプランには、顧客・提供価値・商品・価格・売り方・地域・競合・強み・必要時間・必要資金・家族への影響・売上目安・最初の3人・90日で確認することまで整理します。</p>
+        <h3>作って終わりじゃない。<br>次に動くための、事業データだ。</h3>
+        <p>3つの商いプランには、顧客・提供価値・商品・価格・売り方・地域・競合・強み・必要時間・必要資金・家族への影響・売上目安・最初の3人・90日で確かめることまで入れてある。</p>
         <div class="grant-grid">
-          <div><b>AIで使う</b><p>ChatGPTなどに貼り付けて、弱点確認、文章化、販促案、価格検討などの追加分析に使えます。</p></div>
-          <div><b>補助金の準備に使う</b><p>経営計画や補助事業計画を考える前段として、顧客・市場・競合・強み・取組・必要経費の材料を整理できます。</p></div>
-          <div><b>融資・支援相談に使う</b><p>金融機関、商工会・商工会議所、専門家などへ相談するときに、事業内容を一から説明する負担を減らせます。</p></div>
-          <div><b>自分で比較して決める</b><p>3案を同じ項目で比べ、「一番儲かりそう」ではなく「今の自分が実際に試せる案」を自分で選びます。</p></div>
+          <div><b>AIで使う</b><p>ChatGPTなどに貼れば、弱点の洗い出し、文章化、販促案、価格の検討まで追加でできる。</p></div>
+          <div><b>補助金の準備に使う</b><p>経営計画や補助事業計画を考える前の材料として、顧客・市場・競合・強み・取組・必要経費をそろえておける。</p></div>
+          <div><b>融資・支援相談に使う</b><p>金融機関、商工会・商工会議所、専門家に相談するとき、事業の中身を一から説明しなくて済む。</p></div>
+          <div><b>自分で比較して決める</b><p>3案を同じ項目で比べて、「一番儲かりそう」じゃなく「今の自分が本当に試せる案」を自分で選ぶ。</p></div>
         </div>
         <p class="grant-law"><b>ご注意：</b>3,300円のWeb完結プランは、事業の整理と事業計画のたたき台づくりを支援するものです。補助金の採択、融資、事業の成功を保証するものではなく、正式な補助金申請書類の作成代行ではありません。</p>
       </div>
 
       <details class="method" id="about">
-        <summary>診断のしくみを知りたい方へ</summary>
-        <div class="mi"><b>無料診断</b>では、9問とあなた自身の経験・回答から「仕事の種」を見つけます。有料は<b>Web完結プラン 3,300円</b>の1つだけ。回答内容から、比較できる<b>3つの商いプラン</b>と、それぞれを文章で整理したレポートを作ります。Zoom・電話・対面相談はありません。結果はAIでの追加検討、補助金申請の準備、融資、商工会・専門家への相談などに自分で活用できます。</div>
+        <summary>診断のしくみ</summary>
+        <div class="mi"><b>無料診断</b>は、9問とあんた自身の経験から「仕事の種」を見つける。有料は<b>Web完結プラン 3,300円</b>の1つだけ。回答から、比べられる<b>3つの商いプラン</b>と、それぞれを文章にしたレポートを作る。Zoom・電話・対面の相談はない。結果は、AIでの追加検討、補助金の準備、融資、商工会・専門家への相談に、自分で使っていい。</div>
       </details>
     </div>
   </section>
@@ -6961,10 +7012,13 @@ function renderCompass(main,season){
   const tags=(season&&SEASON_DIRECTION[season])||ORACLE_DIRECTION[main]||[];
   box.innerHTML=tags.map((t,i)=>'<span class="tag '+(i===0?'active':'')+'">'+t+'</span>').join('');
 }
+function roastNow(){try{const q=window.AKINAI_ROAST;return (q&&typeof ROAST!=='undefined'&&ROAST[q.w]&&ROAST[q.w][q.k])?ROAST[q.w][q.k]:null;}catch(e){return null;}}
 function sharePayload(){
   const r=window.AKINAI_RESULT;
   if(!r)return null;
   const url=SHARE_URL+"?t="+r.main+(r.sub?"&s="+r.sub:"");
+  const ro=roastNow();
+  if(ro){return {url,text:"『わたしのこれから診断』で、あだ名をつけられた。\n\n【"+ro.t+"】\n"+ro.l+"\n\n……悪口じゃない。見抜いただけ、らしい。\n悔しいけど、当たってる。\n\n#わたしのこれから診断 #辛口診断 #これからの私"};}
   const title=LAST_SEASON_TITLE||r.name;
   const seasonLine=LAST_SEASON?("\n"+r.stars+"／"+LAST_SEASON):("\n"+r.stars);
   const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||""):AFFIRM[r.main];
@@ -7798,7 +7852,7 @@ const CTX_LABELS={
       cs.innerHTML=(rows.length
         ? rows.map(r=>'<div><b>'+r[0]+'：</b>'+r[1]+'</div>').join('')
         : '<div><b>現在地：</b>まだはっきり言葉になっていません。それも今の大切な情報です。</div>')
-        +(needCtx?'<div class="cs-add"><b>働き方・家族・お金を足すと、この結果は「私の場合」になります。</b><a href="#privateContext" class="btn sm" data-add-context="1">現在地を足す（30秒・任意）→</a></div>':'');
+        +(needCtx?'<div class="cs-add"><b>働き方・家族・お金を足せば、このカルテは「あんたの場合」になる。</b><a href="#privateContext" class="btn sm" data-add-context="1">現在地を足す（30秒・任意）→</a></div>':'');
       const addLink=cs.querySelector('[data-add-context]');
       if(addLink)addLink.addEventListener('click',()=>{
         const pd=document.getElementById('postContextDetails');if(pd)pd.open=true;
@@ -7983,7 +8037,7 @@ const CTX_LABELS={
     const u=PAGE_URL+'?t='+w+(w2?'&s='+w2:'');
     refreshShareLinks();
     const fu=PAGE_URL+'?f=1&t='+w+(w2?'&s='+w2:'');
-    const ft='4問だけ答えて！「わたしのこれから診断」で、私は「'+cname+'」って出たんだけど、友達から見たらどう見える？ '+fu;
+    const _ro=roastNow(); const ft=_ro?('4問だけ答えて！「わたしのこれから診断」で、私「'+_ro.t+'」ってあだ名つけられたんだけど、友達から見てどう？ '+fu):('4問だけ答えて！「わたしのこれから診断」で、私は「'+cname+'」って出たんだけど、友達から見たらどう見える？ '+fu);
     document.getElementById('btnTakoLine').href='https://line.me/R/share?text='+encodeURIComponent(ft);
     document.getElementById('btnTakoCopy').onclick=async()=>{try{await navigator.clipboard.writeText(ft);showToast('リンクをコピーしました');}catch(e){showToast('コピーできませんでした');}};
     const fv=document.getElementById('fview'); const f2=qp.get('f2'); if(f2&&/^[a-z]+-[a-z]*$/.test(f2)){const [a,b2]=f2.split('-');if(D[a]){fv.style.display='';document.getElementById('more').open=true;document.getElementById('fvSelf').textContent=cname+'（'+d.sym+(d2?'×'+d2.sym:'')+'）';document.getElementById('fvFriend').textContent=(b2&&D[b2]&&b2!==a?NAME[a][b2][0]:D[a].title.split('｜')[1])+'（'+D[a].sym+(b2&&D[b2]?'×'+D[b2].sym:'')+'）';document.getElementById('fvNote').textContent=(a===w)?'自分の見立てと、友達の見立てが一致。「'+D[a].sym+'」は、周りにもそう見えています。':'友達には「'+D[a].sym+'」が見えています。あなたが「普通」だと思っていた「'+CORE[a]+'」力は、外からは仕事に見えているのかもしれません。';}}else fv.style.display='none';
@@ -8160,6 +8214,8 @@ const CTX_LABELS={
   // Instagram用キャプション（画像に添える短い文）
   window.instaCaption=function(){
     const r=window.AKINAI_RESULT; if(!r) return '';
+    const ro=roastNow();
+    if(ro) return '「わたしのこれから診断」で、あだ名をつけられた。\n\n【'+ro.t+'】\n'+ro.l+'\n\n悪口じゃない。見抜いただけ、らしい。\n……悔しいけど、当たってる。\n\n無料・9問・3分。プロフィールのリンクから。\n#わたしのこれから診断 #辛口診断 #これからの私 #40代の働き方 #小さく始める';
     const title=LAST_SEASON_TITLE||r.name;
     const now=LAST_SEASON?(SEASON_AFFIRM[LAST_SEASON]||''):(AFFIRM[r.main]||'');
     return '「わたしのこれから診断」をやってみました。\n\n'
