@@ -5828,6 +5828,11 @@ section{scroll-margin-top:76px}
 #res .nick-card .nk-plain{font-size:14px!important;line-height:1.95!important;color:#393734!important}
 #res .nick-card .nk-foot span{display:inline-block}
 #res .nick-card .nk-foot{font-size:12px!important;line-height:2!important;color:#8C867F!important}
+.nick-card .nk-kicker .nk-k1{display:block;font-size:11.5px;letter-spacing:.32em;color:#A39C94}
+.nick-card .nk-kicker .nk-k2{display:block;margin-top:6px;font-size:15px;letter-spacing:.18em;color:#6F6258}
+#res .nick-card .nk-sign{margin:18px 0 0;font-size:11px!important;letter-spacing:.22em;color:#A39C94!important}
+#res .nick-card .nk-sign::before{content:"";display:inline-block;width:18px;height:1px;margin:0 .8em .3em 0;background:#A39C94;vertical-align:middle}
+.nick-card.nk-wait .nk-sign{opacity:0}.nick-card.nk-in .nk-sign{animation:nkFade 1s ease-out 3.8s both}
 </style>
 <script>
 window.__fitNick=function(){var n=document.getElementById('rNickName');if(!n||!n.offsetParent)return;n.style.fontSize='';var fs=parseFloat(getComputedStyle(n).fontSize);while(n.scrollWidth>n.clientWidth&&fs>16){fs-=1;n.style.fontSize=fs+'px';}};
@@ -6075,14 +6080,15 @@ window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.ad
                 </div>
               </div>
             </figure>
-            <aside class="nick-card" id="rNick" style="display:none" aria-label="あだ名をつけるなら">
+            <aside class="nick-card" id="rNick" style="display:none" aria-label="十三月の窓から、あなたを呼ぶなら">
               <span class="nk-light" aria-hidden="true"></span>
-              <small class="nk-kicker">口の悪い友人が、<br>あだ名をつけるなら</small>
+              <small class="nk-kicker"><span class="nk-k1">十三月の窓から、</span><span class="nk-k2">あなたを呼ぶなら</span></small>
               <b class="nk-name" id="rNickName"></b>
               <p class="nk-doku" id="rNickDoku"></p>
               <hr class="nk-rule">
               <p class="nk-plain"><span>訳すと</span><em id="rNickPlain"></em></p>
               <p class="nk-foot"><span>ちょっと刺さったなら、</span><span>たぶん当たっています。</span><br><span>言いたいのは</span><span>「それ、もう価値です」</span><span>ということ。</span></p>
+              <p class="nk-sign">窓辺の、少し口の悪い友人より</p>
             </aside>
             <details class="result-details-primary" id="resultDetailsPrimary">
               <summary>もう少しだけ見る <span>強みと、今の現在地</span></summary>
