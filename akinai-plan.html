@@ -41,10 +41,6 @@ window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";
   gtag('config',id,{content_group:'わたしのこれから診断'});
 })();
 </script>
-<style id="plan-host-20260928">
-.voice-btn{float:right;margin:-4px 0 0 10px;padding:6px 14px;border:1px solid #D8D3CB;border-radius:999px;background:#FAF8F3;color:#6F6258;font:inherit;font-size:12px;letter-spacing:.12em;cursor:pointer}
-.voice-btn.on{border-color:#8F6D5C;background:#F2F0EB}
-</style>
 </head>
 <body>
 <div class="nav"><div class="wrap"><b>わたしのこれから診断 → わたしの商い設計</b></div></div>
@@ -179,7 +175,7 @@ function yen(n){return Number(n||0).toLocaleString('ja-JP')+'円'}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function render(data,id){
   const s=data.summary||{}, plans=data.plans||[];
-  let h='<div class="summary"><b>まず、君に伝えたいこと</b><button type="button" class="voice-btn" id="planVoice" hidden>▶ 声で聞く</button><p class="principle">'+esc(s.principle||'')+'</p><p><b>強み：</b>'+esc((s.strengths||[]).join('／'))+'<br><b>制約：</b>'+esc((s.constraints||[]).join('／'))+'</p></div><div class="plans">';
+  let h='<div class="summary"><b>まず、君に伝えたいこと</b><p class="principle">'+esc(s.principle||'')+'</p><p><b>強み：</b>'+esc((s.strengths||[]).join('／'))+'<br><b>制約：</b>'+esc((s.constraints||[]).join('／'))+'</p></div><div class="plans">';
   for(const p of plans){
     h+='<article class="plan"><span class="tag">PLAN '+esc(p.id)+'</span><h3>'+esc(p.name)+'</h3><p class="one">'+esc(p.one_line)+'</p><p>'+esc(p.why)+'</p>'+
     '<div class="facts"><div><small>顧客</small><b>'+esc(p.customer)+'</b></div><div><small>困りごと</small><b>'+esc(p.problem)+'</b></div><div><small>商品</small><b>'+esc(p.offer)+'</b></div><div><small>価格 × 月件数</small><b>'+yen(p.price_yen)+' × '+esc(p.quantity_per_month)+'件 = '+yen(p.monthly_sales_yen)+'</b></div><div><small>売り方</small><b>'+esc(p.sales_method)+'</b></div><div><small>初期費用</small><b>'+yen(p.startup_cost_yen)+'</b></div><div><small>週の時間</small><b>'+esc(p.hours_per_week)+'</b></div><div><small>家族との両立</small><b>'+esc(p.family_fit)+'</b></div></div>'+
@@ -212,18 +208,5 @@ $('generate').addEventListener('click',async()=>{
 });
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('resultBody').innerText);$('copy').textContent='コピーしました'}catch(e){}});
 verify();
-</script>
-<script>
-(function(){
-  var ss=window.speechSynthesis;
-  function pick(){var v=ss.getVoices().filter(function(x){return /^ja/i.test(x.lang)});var m=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|圭太|大智|直紀|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});m.sort(function(a,b){return (/natural|online|enhanced|premium/i.test(b.name)?1:0)-(/natural|online|enhanced|premium/i.test(a.name)?1:0)});return {voice:m[0]||v[0]||null,male:!!m[0]};}
-  if(ss){try{ss.getVoices();}catch(e){}}
-  new MutationObserver(function(){var b=document.getElementById('planVoice');if(!b||b.dataset.bound||!ss||!window.SpeechSynthesisUtterance)return;b.dataset.bound='1';b.hidden=false;
-    b.addEventListener('click',function(){if(b.classList.contains('on')){ss.cancel();b.classList.remove('on');b.textContent='▶ 声で聞く';return;}
-      var box=b.closest('.summary');var t=Array.prototype.map.call(box.querySelectorAll('p'),function(p){return p.textContent}).join('。');
-      var p=pick();var u=new SpeechSynthesisUtterance('まず、君に伝えたいこと。'+t);u.lang='ja-JP';if(p.voice)u.voice=p.voice;u.rate=.92;u.pitch=p.male?1:.78;
-      u.onend=u.onerror=function(){b.classList.remove('on');b.textContent='▶ 声で聞く';};ss.cancel();ss.speak(u);b.classList.add('on');b.textContent='■ 止める';});
-  }).observe(document.body,{childList:true,subtree:true});
-})();
 </script>
 </body></html>

@@ -5836,35 +5836,12 @@ section{scroll-margin-top:76px}
 .nick-card .nk-name{font-size:clamp(22px,4.8vw,30px)}
 #res .nick-card .nk-talk{margin:0 auto;max-width:27em;text-align:left;font-size:15px!important;line-height:2.05!important;color:#393734!important;word-break:auto-phrase;text-wrap:pretty}
 .nick-card .nk-rule{margin:26px auto 22px}
-.nick-card .nk-voice{display:inline-flex;align-items:center;gap:.6em;margin:22px auto 0;padding:9px 20px;border:1px solid #D8D3CB;border-radius:999px;background:#FAF8F3;color:#6F6258;font:inherit;font-size:13px;letter-spacing:.14em;cursor:pointer}
-.nick-card .nk-voice:hover{border-color:#8F6D5C;color:#393734}
-.nick-card .nk-voice .nk-vi{font-size:10px;color:#8F6D5C}
-.nick-card .nk-voice.on{background:#F2F0EB;border-color:#8F6D5C}
-.nick-card .nk-voice[hidden]{display:none}
-.nick-card.nk-wait .nk-voice{opacity:0}.nick-card.nk-in .nk-voice{animation:nkFade 1s ease-out 3.8s both}
 .nick-card.nk-in .nk-rule{animation:nkFade .9s ease-out 1.9s both}
 .nick-card.nk-in .nk-doku{animation:nkFade .9s ease-out 2.2s both}
 </style>
 <script>
 window.__fitNick=function(){var n=document.getElementById('rNickName');if(!n||!n.offsetParent)return;n.style.fontSize='';n.style.whiteSpace='';var fs=parseFloat(getComputedStyle(n).fontSize);while(n.scrollWidth>n.clientWidth&&fs>21){fs-=1;n.style.fontSize=fs+'px';}if(n.scrollWidth>n.clientWidth){n.style.fontSize='';n.style.whiteSpace='normal';}};
 window.addEventListener('resize',function(){window.__fitNick();});
-window.__nickVoice=(function(){
-  var ss=window.speechSynthesis;if(!ss||!window.SpeechSynthesisUtterance)return null;
-  function pick(){var v=ss.getVoices().filter(function(x){return /^ja/i.test(x.lang)});
-    var male=v.filter(function(x){return /otoya|hattori|ichiro|keita|daichi|naoki|takumi|kenji|圭太|大智|直紀|male|男性/i.test(x.name)&&!/female|女性/i.test(x.name)});
-    male.sort(function(a,b){return (/natural|online|enhanced|premium/i.test(b.name)?1:0)-(/natural|online|enhanced|premium/i.test(a.name)?1:0)});return {voice:(male[0]||v[0]||null),male:!!male[0],any:v.length>0};}
-  return {pick:pick,ss:ss};})();
-window.__nickVoiceReset=function(){var b=document.getElementById('rNickVoice');if(!b)return;var V=window.__nickVoice;
-  if(V){try{V.ss.cancel();}catch(e){}}b.classList.remove('on');b.querySelector('.nk-vt').textContent='声で聞く';b.querySelector('.nk-vi').textContent='▶';
-  b.hidden=!V;if(!b.dataset.bound&&V){b.dataset.bound='1';b.addEventListener('click',function(){
-    var ss=V.ss;if(b.classList.contains('on')){ss.cancel();window.__nickVoiceReset();return;}
-    var p=V.pick();var name=(document.getElementById('rNickName')||{}).textContent||'';var talk=(document.getElementById('rNickDoku')||{}).textContent||'';
-    var u=new SpeechSynthesisUtterance(name+'。……'+talk+'……言いたいのは、ひとつだけ。君がしてきたことは、もう価値なんだよ。');
-    u.lang='ja-JP';if(p.voice)u.voice=p.voice;u.rate=0.92;u.pitch=p.male?1:0.78;
-    u.onend=u.onerror=function(){window.__nickVoiceReset();};
-    ss.cancel();ss.speak(u);b.classList.add('on');b.querySelector('.nk-vt').textContent='止める';b.querySelector('.nk-vi').textContent='■';
-    window.track&&window.track('nick_voice_play',{male:p.male?1:0});});}};
-if(window.speechSynthesis){try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=function(){};}catch(e){}}
 window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.add('nk-wait');
   if(!('IntersectionObserver' in window)){box.classList.remove('nk-wait');return;}
   if(window.__nickIO)window.__nickIO.disconnect();
@@ -6116,7 +6093,6 @@ window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.ad
               <p class="nk-doku nk-talk" id="rNickDoku"></p>
               <p class="nk-foot"><span>言いたいのは、ひとつだけ。</span><br><span>君がしてきたことは、</span><span>もう価値なんだよ。</span></p>
               <p class="nk-sign">いつも、君の味方より</p>
-              <button type="button" class="nk-voice" id="rNickVoice" hidden><span class="nk-vi" aria-hidden="true">▶</span><span class="nk-vt">声で聞く</span></button>
             </aside>
             <details class="result-details-primary" id="resultDetailsPrimary">
               <summary>もう少しだけ見る <span>強みと、今の現在地</span></summary>
@@ -7752,7 +7728,7 @@ const CTX_LABELS={
     document.getElementById('rChara').textContent=cname;
     (function(){const box=document.getElementById('rNick');if(!box)return;const n=w2&&NICK[w]&&NICK[w][w2];
       if(!n){box.style.display='none';window.AKINAI_NICK=null;return;}
-      document.getElementById('rNickName').textContent=n[0];document.getElementById('rNickDoku').textContent=n[1];window.__nickVoiceReset&&window.__nickVoiceReset();
+      document.getElementById('rNickName').textContent=n[0];document.getElementById('rNickDoku').textContent=n[1];
       box.style.display='';window.AKINAI_NICK=n[0];window.__nickReveal&&window.__nickReveal(box);window.__fitNick&&(requestAnimationFrame(window.__fitNick),setTimeout(window.__fitNick,300));})();
     BASE_RESULT=cname;LAST_PLAN="";syncBookingResult();
     window.AKINAI_RESULT={main:w,sub:w2,name:cname,stars:friendlyLine};
