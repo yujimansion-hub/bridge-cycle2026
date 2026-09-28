@@ -533,7 +533,7 @@ footer .fl b{color:#9FBBD6}
     <div class="ak-ph" aria-hidden="true"></div>
     <div class="ak-bd">
       <p class="ak-for">お店を営む方ではなく、個人の方へ</p>
-      <h2 class="ak-h">いろいろなことを<br>優先してきた。<br>そろそろ、<br><em>自分のことも</em><br>考えてみたい。</h2>
+      <h2 class="ak-h">いろいろなことを<br>優先してきた。<br>そろそろ、<br class="ak-sp"><em>自分のことも</em><br>考えてみたい。</h2>
       <p class="ak-p">占いのように自分を知り、創業相談のように現実に落とす。辞めずに、小さく試す前提の3分診断です。</p>
       <p class="ak-meta"><span>約3分</span><span>9つの質問</span><span>登録不要</span></p>
       <span class="ak-go">わたしのこれから診断へ →</span>
@@ -544,19 +544,22 @@ footer .fl b{color:#9FBBD6}
 <style>
 /* 2026-09-28 わたしのこれから診断のデザイン（生成り・モルタル調の灰茶・細い明朝・罫線・彩度を落とした写真）に合わせる */
 .ak-band{background:#ECEAE5;border-top:1px solid #D8D3CB;border-bottom:1px solid #D8D3CB;padding:64px 0}
-.ak-card{display:grid;grid-template-columns:46% 1fr;background:#FAF8F3;border:1px solid #D8D3CB;border-radius:2px;overflow:hidden;text-decoration:none;color:#393734;transition:border-color .2s}
+.ak-card{display:grid;grid-template-columns:54% 1fr;background:#FAF8F3;border:1px solid #D8D3CB;border-radius:2px;overflow:hidden;text-decoration:none;color:#393734;transition:border-color .2s}
 .ak-card:hover{border-color:#A59D95}
 .ak-card:hover .ak-go{background:#5E5249}
-.ak-ph{background:url('assets/akinai-v4/hero2.jpg') 100% 50%/cover;min-height:340px;filter:saturate(.74) contrast(.94) brightness(.98)}
-.ak-bd{padding:40px 44px;display:flex;flex-direction:column;justify-content:center}
+.ak-ph{background:url('assets/akinai-v4/hero2.jpg') 100% 50%/cover;min-height:360px;filter:saturate(.74) contrast(.94) brightness(.98)}
+.ak-bd{padding:36px 40px;display:flex;flex-direction:column;justify-content:center}
 .ak-for{margin:0 0 18px;font-size:11.5px;letter-spacing:.2em;color:#8C7B6F;padding-bottom:10px;border-bottom:1px solid #D8D3CB;align-self:flex-start}
-.ak-h{font-family:"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN",serif;font-weight:400;font-size:28px;line-height:1.62;letter-spacing:.12em;margin:0 0 16px;color:#393734}
+.ak-sp{display:none}
+.ak-h{font-family:"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(22px,2vw,27px);line-height:1.62;letter-spacing:.12em;margin:0 0 16px;color:#393734}
 .ak-h em{font-style:normal;color:#765E51}
 .ak-p{font-size:13.5px;line-height:2.05;letter-spacing:.06em;color:#625E59;margin:0 0 16px}
 .ak-meta{display:flex;flex-wrap:wrap;margin:0 0 22px;font-size:12px;letter-spacing:.08em;color:#625E59}
 .ak-meta span+span::before{content:"";display:inline-block;width:1px;height:10px;background:#CFC8BF;margin:0 12px;vertical-align:-1px}
 .ak-go{align-self:flex-start;display:inline-flex;align-items:center;background:#6F6258;color:#fff;border-radius:3px;padding:13px 26px;font-size:14px;font-weight:500;letter-spacing:.12em;transition:background .2s}
 .ak-note{margin:12px 0 0;font-size:11.5px;letter-spacing:.04em;color:#8C867F}
+@media(max-width:1020px){.ak-sp{display:inline}.ak-card{grid-template-columns:46% 1fr}.ak-ph{background-position:22% 50%}}
+@media(max-width:760px){.ak-ph{background-position:100% 40%}}
 @media(max-width:760px){.ak-band{padding:44px 0}.ak-card{grid-template-columns:1fr}.ak-ph{min-height:220px}.ak-bd{padding:26px 22px 30px}.ak-h{font-size:23px;letter-spacing:.08em}.ak-go{align-self:stretch;justify-content:center}}
 </style>
 
