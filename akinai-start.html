@@ -46,7 +46,19 @@ h1 span{color:var(--accent)}
 .who b{font-family:var(--serif);font-size:15px;font-weight:500}
 footer{padding:28px 0 46px;font-size:11.5px;line-height:1.9;color:#6b716a}
 footer a{text-decoration:underline}
-</style></head><body>
+</style><!-- 計測：GA4（akinai.html と同じID）。?internal=1 で開いた端末は自分のアクセスとして区別 -->
+<script>
+(function(){
+  var id="G-GYGZ9W6FQ9";
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){window.dataLayer.push(arguments);};
+  var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(g);
+  gtag('js',new Date());
+  try{if(/[?&]internal=1\b/.test(location.search))localStorage.setItem('bc_internal','1');if(/[?&]internal=0\b/.test(location.search))localStorage.removeItem('bc_internal');if(localStorage.getItem('bc_internal')==='1')gtag('set',{traffic_type:'internal'});}catch(e){}
+  gtag('config',id,{content_group:'わたしのこれから診断'});
+})();
+</script>
+</head><body>
 <main><div class="wrap">
   <div class="eyebrow">AKINAI FINDER</div>
   <h1>「私にも、何かできるかも」<br><span>で止まっている人へ。</span></h1>
@@ -103,7 +115,12 @@ footer a{text-decoration:underline}
     document.getElementById("friendBox").style.display="";
   }
   // 診断へ進むとき、紹介元の型は引き継がない（自分の結果を出すため）
-  document.querySelector(".cta").addEventListener("click",function(){try{sessionStorage.setItem("akinai_from_share","1");}catch(e){}});
+  document.querySelector(".cta").addEventListener("click",function(){try{sessionStorage.setItem("akinai_from_share","1");}catch(e){}try{gtag('event','start_cta_click',{});}catch(e){}});
+  // どこから来たか（utm_〜）を、診断ページへ進むリンクにも引き継ぐ
+  var keep=new URLSearchParams();
+  q.forEach(function(v,k){if(/^utm_/.test(k))keep.set(k,v);});
+  var qs=keep.toString();
+  if(qs){document.querySelectorAll('a[href^="akinai.html"]').forEach(function(a){var h=a.getAttribute("href"),i=h.indexOf("#");a.setAttribute("href",(i<0?h:h.slice(0,i))+"?"+qs+(i<0?"":h.slice(i)));});}
 })();
 </script>
 </body></html>
