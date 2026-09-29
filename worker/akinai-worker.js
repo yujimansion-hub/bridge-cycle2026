@@ -56,6 +56,8 @@ async function createCheckout(env,clientKey){
   p.set('success_url',site+'/akinai-plan.html?session_id={CHECKOUT_SESSION_ID}');
   p.set('cancel_url',site+'/akinai.html#paidEngine');
   p.set('metadata[product]','akinai_plan');
+  // モニター向け：Stripeで作成した100%オフのプロモーションコードを入力できるようにする
+  p.set('allow_promotion_codes','true');
   const r=await fetch('https://api.stripe.com/v1/checkout/sessions',{
     method:'POST',
     headers:{Authorization:'Bearer '+env.STRIPE_SECRET_KEY,'content-type':'application/x-www-form-urlencoded'},
@@ -207,7 +209,7 @@ export default {
           env.AKINAI_KV &&
           /^price_/.test(String(env.STRIPE_PRICE_ID||''))
         );
-        return json({ok:true,ready,version:'2026-09-22'},200,headers);
+        return json({ok:true,ready,version:'2026-09-29'},200,headers);
       }
       if(u.pathname==='/checkout'&&req.method==='POST'){
         const {client_key}=await req.json();
@@ -219,14 +221,22 @@ export default {
         const {session_id,client_key}=await req.json();
         if(!session_id||!client_key) return json({ok:false,error:'missing_parameters'},400,headers);
         const s=await stripeSession(env,session_id);
-        if(s.payment_status!=='paid') return json({ok:false,error:'payment_not_confirmed'},402,headers);
         if(s.metadata?.product!=='akinai_plan') return json({ok:false,error:'wrong_product'},403,headers);
-        if(Number(s.amount_total)!==3300 || String(s.currency||'').toLowerCase()!=='jpy') return json({ok:false,error:'wrong_amount_or_currency'},403,headers);
+        if(String(s.currency||'').toLowerCase()!=='jpy') return json({ok:false,error:'wrong_amount_or_currency'},403,headers);
+        const paidFull = s.payment_status==='paid' && Number(s.amount_total)===3300;
+        // モニター：100%オフのプロモーションコードで0円完了したセッションのみ許可
+        const monitorFree = s.status==='complete' && s.payment_status==='no_payment_required'
+          && Number(s.amount_subtotal)===3300 && Number(s.amount_total)===0
+          && Number(s.total_details?.amount_discount)===3300;
+        if(!paidFull && !monitorFree){
+          if(s.payment_status!=='paid'&&s.payment_status!=='no_payment_required') return json({ok:false,error:'payment_not_confirmed'},402,headers);
+          return json({ok:false,error:'wrong_amount_or_currency'},403,headers);
+        }
         if(!s.client_reference_id||s.client_reference_id!==client_key) return json({ok:false,error:'browser_mismatch'},403,headers);
         const payload={sid:s.id,ref:client_key,exp:Date.now()+30*24*60*60*1000};
         const token=await makeToken(env,payload);
-        if(env.AKINAI_KV) await env.AKINAI_KV.put('verified:'+s.id,'1',{expirationTtl:31*24*60*60});
-        return json({ok:true,token,expires_in_days:30,max_generations:5},200,headers);
+        if(env.AKINAI_KV) await env.AKINAI_KV.put('verified:'+s.id,monitorFree?'monitor':'1',{expirationTtl:31*24*60*60});
+        return json({ok:true,token,expires_in_days:30,max_generations:5,monitor:monitorFree},200,headers);
       }
       if(u.pathname==='/generate'&&req.method==='POST'){
         const auth=(req.headers.get('Authorization')||'').replace(/^Bearer\s+/i,'');
