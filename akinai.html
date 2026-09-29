@@ -6478,7 +6478,7 @@ window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.ad
                   </div>
                 </details>
               </div>
-              <p class="share-note">画像は「これからカルテ」です。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
+              <p class="share-note">画像は、あなたの「これから」を一文にしたカードです。Instagramはストーリーズへ、そのまま貼れます。文章は投稿前に自由に書き換えられます。</p>
             </div>
             <div class="pair" id="rPair"><b>この結果と一緒に、残しておきたい言葉</b><div class="ps"><span class="sym" id="pSym">✦</span><span id="pTxt2"></span></div><small>誰かと比べるためではなく、迷った日に戻ってこられる言葉として。</small></div>
             <div class="tako" id="rTako">
@@ -8106,45 +8106,45 @@ const CTX_LABELS={
     ctx.restore();
   }
   const CARD_IMG=new Image();CARD_IMG.decoding='async';CARD_IMG.src='assets/akinai-result-illustration-banner.jpg?v=20260923e';CARD_IMG.onerror=function(){if(!CARD_IMG.dataset.fallback){CARD_IMG.dataset.fallback='1';CARD_IMG.src='assets/akinai-result-illustration-banner.webp?v=20260923e';}};
+  // 一文カード：「〜」から、「〜」へ移る途中らしい。（2026-09-29）
+  const SHIFT={
+    light:[['「ちゃんとした答えが','出るまで黙っている」から、'],['「本音を言葉に','しながら進む」へ']],
+    hand:[['「自信がつくまで、','形にしない」から、'],['「小さく作って','確かめる」へ']],
+    garden:[['「変わるなら、','全部変えなきゃ」から、'],['「大切なものを','残して育てる」へ']],
+    bridge:[['「ひとりで','答えを探す」から、'],['「出会いの中から','選ぶ」へ']],
+    boat:[['「後悔しないと','分かるまで動かない」から、'],['「小さく試して、','選び直す」へ']],
+    tower:[['「何か変えなきゃと','焦る」から、'],['「暮らしを整えて','から進む」へ']]
+  };
   function drawCard(){
-    // 結果サマリーカード：強み・モヤモヤ・今週の一歩の3つを1枚に（結果冒頭「まず一枚で」と同じ構成）
     const d=D[cur], d2=sub?D[sub]:null, c=document.getElementById('cv'), x=c.getContext('2d'), W=1080,H=1920;
-    const serif='"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif', sans='"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif';
-    const t=id=>(document.getElementById(id)?.textContent||'').trim();
+    const serif='"Noto Serif JP","Shippori Mincho","Yu Mincho","Hiragino Mincho ProN",serif', sans='"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif';
     const life=LIFE_RESULT[cur]||{};
     const name=(life.title||'').split('｜')[1]||'';
-    const strength=t('rgStrength')||(name+'。'+(life.directions||[]).join('・'));
-    const release=t('rgRelease')||life.letgo||'';
-    const step=t('rgStep')||t('wsBody')||'';
-    x.fillStyle='#f4ece4';x.fillRect(0,0,W,H);
-    x.fillStyle='#fffaf5';rr(x,60,140,960,1700,48);x.fill();
-    x.strokeStyle='rgba(196,127,116,.35)';x.lineWidth=2;rr(x,60,140,960,1700,48);x.stroke();
-    x.textAlign='center';
-    x.fillStyle='#3b332e';x.font='500 46px '+serif;x.fillText('わたしのこれから診断',540,92);
-    x.fillStyle='#c47f74';x.font='700 22px '+sans;x.fillText('YOUR RESULT, AT A GLANCE｜9問で見えてきたことを、まず一枚で。',540,128);
-    // イラスト（2:1）
-    if(CARD_IMG.complete&&CARD_IMG.naturalWidth){x.save();rr(x,100,180,880,440,32);x.clip();x.drawImage(CARD_IMG,100,180,880,440);x.restore();}
-    else{const g=x.createLinearGradient(100,180,980,620);g.addColorStop(0,'#fdf8f4');g.addColorStop(1,'#f3e1db');x.fillStyle=g;rr(x,100,180,880,440,32);x.fill();}
+    const sh=SHIFT[cur]||[['「誰かの期待に','応える人生」から、'],['「自分で選ぶ','人生」へ']];
     const nick=(document.getElementById('cardName')?.value||'').trim().slice(0,20);
-    x.fillStyle='#8a7f77';x.font='500 24px '+sans;x.fillText((nick?nick+' さんの':'')+'参考傾向　'+d.sym+(d2?' × '+d2.sym:''),540,680);
-    x.fillStyle='#3b332e';x.font='500 '+(name.length>14?46:name.length>11?52:58)+'px '+serif;wrap(x,name,540,748,880,66,'center');
-    drawStarArt(x,cur,955,655,64);
-    // 3カード
-    const cards=[['✦','見つかる｜私の強み',strength,'#e3b6ae'],['◎','ほどける｜今のモヤモヤ',release,'#aeb9a3'],['→','決まる｜今週の一歩',step,'#d1b98e']];
-    let cy=870;
-    cards.forEach(([ic,lab,body,col])=>{
-      x.fillStyle='#fff';rr(x,110,cy,860,215,26);x.fill();x.strokeStyle='#eadfd8';x.lineWidth=2;rr(x,110,cy,860,215,26);x.stroke();
-      x.fillStyle=col;x.beginPath();x.arc(185,cy+70,38,0,Math.PI*2);x.fill();
-      x.fillStyle='#fff';x.font='700 32px '+sans;x.textAlign='center';x.fillText(ic,185,cy+82);
-      x.textAlign='left';x.fillStyle='#7d4a41';x.font='700 27px '+serif;x.fillText(lab,250,cy+66);
-      x.fillStyle='#4f4640';x.font='500 25px '+sans;wrap(x,body,250,cy+112,690,37,'left');
-      cy+=240;
-    });
+    x.clearRect(0,0,W,H);
+    x.fillStyle='#f4ece4';x.fillRect(0,0,W,H);
+    x.fillStyle='#fffaf5';rr(x,60,120,960,1680,48);x.fill();
+    x.strokeStyle='rgba(196,127,116,.35)';x.lineWidth=2;rr(x,60,120,960,1680,48);x.stroke();
+    // 本文ブロックの高さを先に計算して、上下中央に置く
+    const LH1=82, LH2=98, blockH=90+sh[0].length*LH1+36+sh[1].length*LH2+30+70+(nick?70:0);
+    const top=250+180+60, bottom=1440;
+    drawStarArt(x,cur,540-90,Math.max(250,top+((bottom-top)-blockH)/2-240),180);
     x.textAlign='center';
-    x.fillStyle='#f7e4df';rr(x,140,1600,800,120,30);x.fill();
-    x.fillStyle='#5a4f49';x.font='500 27px '+serif;x.fillText('答えを急がなくていい。',540,1648);x.fillText('今日は、自分のことを少し言葉にできた。',540,1692);
-    x.fillStyle='#c47f74';x.font='700 28px '+sans;x.fillText('#わたしのこれから診断',540,1768);
-    x.fillStyle='#8a7f77';x.font='400 22px '+sans;x.fillText('無料・9問・3分　'+SHARE_URL.replace(/^https?:\/\//,''),540,1808);
+    let y=top+((bottom-top)-blockH)/2+50;
+    x.fillStyle='#5a4f49';x.font='500 48px '+serif;x.fillText('私は、',540,y);y+=100;
+    x.fillStyle='#3b332e';x.font='500 58px '+serif;sh[0].forEach(l=>{x.fillText(l,540,y);y+=LH1;});
+    y+=36;
+    x.fillStyle='#a8574c';x.font='700 70px '+serif;sh[1].forEach(l=>{x.fillText(l,540,y);y+=LH2;});
+    y+=30;
+    x.fillStyle='#3b332e';x.font='500 58px '+serif;x.fillText('移る途中らしい。',540,y);
+    if(nick){x.fillStyle='#8a7f77';x.font='500 30px '+sans;x.fillText('— '+nick,540,y+80);}
+    // 下部：小さく
+    x.strokeStyle='#eadfd8';x.lineWidth=2;x.beginPath();x.moveTo(300,1500);x.lineTo(780,1500);x.stroke();
+    x.fillStyle='#8a7f77';x.font='500 26px '+sans;x.fillText('参考傾向　'+d.sym+(d2?' × '+d2.sym:'')+'｜'+name,540,1560);
+    x.fillStyle='#3b332e';x.font='500 36px '+serif;x.fillText('わたしのこれから診断',540,1655);
+    x.fillStyle='#c47f74';x.font='700 26px '+sans;x.fillText('#わたしのこれから診断　無料・9問・3分',540,1705);
+    x.fillStyle='#a79c94';x.font='400 20px '+sans;x.fillText(SHARE_URL.replace(/^https?:\/\//,''),540,1745);
     return c;
   }
   function rr(x,X,Y,w,h,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+h,r);x.arcTo(X+w,Y+h,X,Y+h,r);x.arcTo(X,Y+h,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath();}
