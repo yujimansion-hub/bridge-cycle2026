@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原状回復費用の計算｜飲食店・店舗の閉店前に30秒で目安（業種別の相場つき）｜BRIDGE CYCLE</title>
+<meta name="description" content="飲食店・店舗を閉めるときの原状回復（スケルトン戻し）費用を、業種・広さ・条件から30秒で計算。業種別の坪単価の相場、高くなる条件、費用をなくす方法（居抜きで渡す）まで。匿名・入力は送信されません。滋賀・大津の認定経営革新等支援機関が作成。">
+<link rel="canonical" href="https://yujimansion-hub.github.io/bridge-cycle2026/genjo-kaifuku.html">
+<meta property="og:title" content="原状回復費用の計算｜閉店前に30秒で目安">
+<meta property="og:description" content="業種・広さ・条件を選ぶだけ。原状回復の費用の幅と、居抜きで渡した場合との差が分かります。">
+<meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/genjo-kaifuku.html">
+<meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/ogp.png">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--paper:#EDEEEA;--card:#fff;--card2:#F4F4F0;--ink:#15171C;--ink2:#4A4C52;--ink3:#767870;--rule:#D9DAD3;--rule2:#C3C4BC;--ai:#1B3B5F;--aimid:#3D6389;--aipale:#E7EEF5;--shu:#A8382C;--shupale:#F6E7E4;--mid:#2E6B4F;--midpale:#E3EFE9;--kin:#8A6D1F;--kinpale:#F5F0E0;--serif:"Shippori Mincho",serif;--shadow:0 1px 2px rgba(20,22,26,.06),0 10px 28px rgba(20,22,26,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:15px;line-height:1.85;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+a{color:var(--aimid)}
+b{color:var(--ai)}
+.nav{border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;padding:13px 18px}
+.logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}
+.logo b{color:var(--aimid)}
+.nav .sp{margin-left:auto;font-size:11px;color:var(--ink3)}
+.hero{padding:38px 0 22px}
+.hero .badge{display:inline-block;font-size:11px;letter-spacing:.14em;color:var(--mid);font-weight:700;border:1.5px solid var(--mid);background:#fff;border-radius:999px;padding:5px 14px;margin-bottom:14px}
+.hero h1{font-family:var(--serif);font-size:clamp(27px,7vw,38px);line-height:1.4;font-weight:800}
+.hero h1 u{text-decoration:none;border-bottom:5px solid var(--shu);padding-bottom:2px}
+.hero .lead{margin-top:12px;color:var(--ink2);font-size:14.5px}
+.anon{display:flex;gap:10px;align-items:flex-start;background:var(--midpale);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--mid);margin-top:14px;line-height:1.7}
+.anon::before{content:"🔒";flex:none}
+.anon b{color:var(--mid)}
+
+.calc .see{display:block;margin:16px 0 4px;text-align:center;background:var(--ai);color:#fff;font-weight:800;font-size:15px;border-radius:12px;padding:13px 10px;text-decoration:none}
+.calc .more{margin-top:10px;border-top:1px dashed var(--rule2);padding-top:10px}
+.calc .more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--aimid);padding:6px 0}
+.hero{padding:20px 0 8px}
+.hero .lead{margin-top:8px}
+.calc{background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--ai);border-radius:18px;padding:22px 20px 18px;box-shadow:var(--shadow);margin-top:18px}
+.calc h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:4px}
+.calc .sub{font-size:12.5px;color:var(--ink3);margin-bottom:14px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.g{grid-template-columns:1fr}}
+.fld label{display:block;font-size:12.5px;font-weight:700;margin-bottom:4px}
+.fld .in{display:flex;align-items:center;border:1.5px solid var(--rule2);border-radius:10px;background:#fff;overflow:hidden}
+.fld .in:focus-within{outline:2px solid var(--aimid);border-color:var(--aimid)}
+.fld input,.fld select{flex:1;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border:none;background:transparent;color:var(--ink);text-align:right}
+.fld select{text-align:left;appearance:auto}
+.fld .u{font-size:12px;color:var(--ink3);padding:0 12px 0 4px;white-space:nowrap}
+.fld .hint{font-size:11px;color:var(--ink3);margin-top:3px;line-height:1.5}
+
+.res{margin-top:22px}
+.res h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:10px}
+.cmp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.c.wait{border:1.5px dashed var(--kin);background:var(--kinpale)}
+.c.wait h3{color:var(--kin)}
+.c .wnote{margin-top:10px;font-size:12px;color:var(--ink2);background:#fff;border-radius:8px;padding:8px 10px;line-height:1.7}
+.c .wnote b{color:var(--kin)}
+.c{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.c.on{border:1.5px solid var(--shu);background:#fff}
+.c h3{font-size:12px;letter-spacing:.12em;font-weight:800;color:var(--ink3);margin-bottom:8px}
+.c.on h3{color:var(--shu)}
+.c .big{font-family:var(--serif);font-weight:800;font-size:clamp(22px,5.4vw,30px);line-height:1.2;color:var(--ink)}
+.c .big.minus{color:var(--shu)}.c .big.plus{color:var(--mid)}
+.c .lbl{font-size:12px;color:var(--ink3);margin-top:2px}
+.c table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12.5px}
+.c td{padding:5px 0;border-top:1px dashed var(--rule);vertical-align:top}
+.c td:last-child{text-align:right;white-space:nowrap;font-weight:700;color:var(--ink)}
+.c td .s{display:block;font-size:10.5px;color:var(--ink3);font-weight:400;line-height:1.4}
+.c tr.sum td{border-top:1.5px solid var(--rule2);font-weight:800}
+.diff{margin-top:14px;background:var(--ai);color:#fff;border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 12px 30px rgba(27,59,95,.25)}
+.diff .t{font-size:12px;letter-spacing:.12em;color:#C9D7E6;font-weight:700}
+.diff .n{font-family:var(--serif);font-weight:800;font-size:clamp(30px,8vw,44px);line-height:1.2;margin:4px 0 2px}
+.diff .d{font-size:12.5px;color:#C9D7E6;line-height:1.7}
+.cta{margin-top:14px;display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:15px 20px;font-weight:800;font-size:15.5px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+.btn.shu{background:var(--shu);color:#fff;box-shadow:0 6px 16px rgba(168,56,44,.28)}
+.btn.gh{border:1.5px solid var(--rule2);color:var(--ink2);background:#fff}
+.btn small{font-weight:600;font-size:11.5px;opacity:.85}
+.caut{margin-top:14px;font-size:12px;color:var(--ink2);background:var(--card2);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;line-height:1.75}
+.caut b{color:var(--shu)}
+
+details.asm{margin-top:14px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:0 16px}
+details.asm summary{cursor:pointer;list-style:none;padding:12px 0;font-weight:800;font-size:13.5px}
+details.asm summary::-webkit-details-marker{display:none}
+details.asm summary::after{content:"変える ＋";float:right;color:var(--aimid);font-size:12px}
+details.asm[open] summary::after{content:"閉じる －"}
+details.asm .body{padding:2px 0 14px}
+details.asm .g{gap:10px}
+details.asm .fld label{font-size:12px}
+details.asm .fld input{font-size:15px;padding:8px 10px}
+.why{margin-top:26px}
+.why h2{font-family:var(--serif);font-size:18px;font-weight:800;margin-bottom:8px}
+.why p{font-size:13.5px;color:var(--ink2);margin-bottom:8px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(237,238,234,.94);backdrop-filter:blur(8px);border-top:1px solid var(--rule);padding:9px 14px;display:flex;gap:8px;justify-content:center}
+.bar a{flex:1;max-width:340px;display:flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 12px;font-weight:800;font-size:13.5px;text-decoration:none}
+.bar .p{background:var(--shu);color:#fff}.bar .t{border:1.5px solid var(--rule2);background:#fff;color:var(--ink)}
+footer{background:#132B45;color:#9FB4C9;padding:28px 0 36px;font-size:12px;text-align:center;margin-top:36px}
+footer .fl{font-family:var(--serif);font-weight:800;letter-spacing:.09em;font-size:15px;color:#fff;display:block;margin-bottom:6px}
+footer a{color:#C6D6E5}
+</style>
+<style>
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{flex:1;min-width:92px;border:1.5px solid var(--rule2);border-radius:10px;background:#fff;padding:9px 8px;text-align:center;font-size:13px;font-weight:700;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){border-color:var(--ai);background:var(--aipale);color:var(--ai)}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-top:8px}
+.chk input{margin-top:5px}
+.q{margin-top:14px}.q>b{display:block;font-size:12.5px;margin-bottom:6px}
+.res-big{margin-top:18px;background:var(--ai);color:#fff;border-radius:16px;padding:20px;text-align:center;box-shadow:0 12px 30px rgba(27,59,95,.25)}
+.res-big .t{font-size:12px;letter-spacing:.12em;color:#C9D7E6;font-weight:700}
+.res-big .n{font-family:var(--serif);font-weight:800;font-size:clamp(30px,8.5vw,46px);line-height:1.2;margin:6px 0}
+.res-big .d{font-size:12.5px;color:#C9D7E6;line-height:1.7}
+.brk{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;background:#fff;border-radius:12px;overflow:hidden}
+.brk td{padding:8px 12px;border-top:1px solid var(--rule)}.brk td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.alt{margin-top:14px;border:1.5px solid var(--mid);background:var(--midpale);border-radius:16px;padding:16px 18px}
+.alt h3{font-size:14px;color:var(--mid);margin-bottom:6px}.alt p{font-size:13px;color:var(--ink2)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 6px;background:#fff}
+.tbl th,.tbl td{border:1px solid var(--rule);padding:7px 9px;text-align:left}.tbl th{background:var(--card2);font-size:12px}
+.faq details{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:0 14px;margin-bottom:8px}
+.faq summary{cursor:pointer;padding:11px 0;font-weight:800;font-size:13.5px}
+.faq p{font-size:13.5px;color:var(--ink2);padding:0 0 12px}
+.why ul{padding-left:1.2em;font-size:13.5px;color:var(--ink2);margin-bottom:8px}.why li{margin-bottom:4px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "原状回復とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "お店を借りたときの状態に戻して、貸主に返すことです。どこまで戻すか（何もない「スケルトン」まで戻すのか、内装を残してよいのか）は、賃貸借契約書の「原状回復」や「明渡し」の条に書かれています。"}}, {"@type": "Question", "name": "スケルトン戻しとは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "床・壁・天井の仕上げや設備をすべて撤去し、コンクリートの躯体だけの状態に戻すことです。飲食店では、厨房・ダクト・給排水の撤去も含まれるため、費用が大きくなりやすい工事です。"}}, {"@type": "Question", "name": "原状回復の費用は敷金（保証金）から引かれますか？", "acceptedAnswer": {"@type": "Answer", "text": "多くの契約では、敷金・保証金から原状回復費用や未払い賃料を差し引いた残りが返還されます。償却（返ってこない分）が決まっている契約もあるため、契約書の敷金・保証金の条を確認してください。"}}, {"@type": "Question", "name": "原状回復をしなくてよい方法はありますか？", "acceptedAnswer": {"@type": "Answer", "text": "次にお店をする人に内装や設備をそのまま引き継ぐ「居抜き」で渡せれば、原状回復工事が不要になったり、小さくなったりします。ただし、貸主の承諾が必要です。当社は、閉める前にこの可能性を一緒に確かめる無料相談を行っています。"}}, {"@type": "Question", "name": "計算結果はどれくらい正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "業種・広さ・戻し方ごとの一般的な単価の幅から出した目安です。実際の金額は、建物の条件や指定業者の有無、解体時に見つかる状態で変わります。正確な金額は、複数の業者から見積りを取って確認してください。"}}]}</script>
+<script src="bc-analytics.js"></script>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="./">BRIDGE <b>CYCLE</b></a>
+  <span class="sp">滋賀県大津市｜認定経営革新等支援機関</span>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <span class="badge">匿名・30秒・送信なし</span>
+  <h1>原状回復、<br>いくらかかるか。</h1>
+  <p class="lead">お店を閉めるときの原状回復（スケルトン戻し）の費用を、業種と広さから計算します。見積りを取る前に、おおよその幅をつかんでください。</p>
+</div></header>
+<main><div class="wrap">
+<section class="calc" aria-label="入力">
+  <h2>4つ選ぶだけで、目安が出ます</h2>
+  <p class="sub">おおよそで構いません。🔒入力はこの画面の中だけで計算し、どこにも送られません。</p>
+  <div class="q"><b>1. 業種</b><div class="seg"><label><input type="radio" name="biz" value="retail">物販・サービス</label><label><input type="radio" name="biz" value="light" checked>カフェ・軽飲食</label><label><input type="radio" name="biz" value="heavy">焼肉・ラーメン等</label></div></div>
+  <div class="q"><div class="fld"><label for="tsubo">2. お店の広さ</label><div class="in"><input id="tsubo" type="number" inputmode="decimal" min="1" step="1" value="15"><span class="u">坪</span></div><div class="hint">1坪 ≒ 3.3㎡（㎡÷3.3）<span id="m2"></span></div></div></div>
+  <div class="q"><b>3. 契約上の戻し方</b><div class="seg"><label><input type="radio" name="back" value="skel">スケルトンまで</label><label><input type="radio" name="back" value="part">内装は残してよい</label><label><input type="radio" name="back" value="unk" checked>分からない</label></div><div class="hint" style="font-size:11px;color:var(--ink3);margin-top:4px">賃貸借契約書の「原状回復」「明渡し」の条に書かれています。分からない場合は高い側で計算します</div></div>
+  <div class="q"><b>4. 当てはまるもの（任意）</b>
+    <label class="chk"><input type="checkbox" id="bld">ビルやショッピングセンターの中で、工事業者が指定されている</label>
+    <label class="chk"><input type="checkbox" id="upper">2階以上で、エレベーターがない（搬出に手間がかかる）</label>
+    <label class="chk" id="rowDuct"><input type="checkbox" id="duct" checked>排気ダクト・グリストラップなど厨房の設備がある</label>
+  </div>
+  <div class="res-big" id="res" aria-live="polite">
+    <div class="t">原状回復費用の目安</div>
+    <div class="n" id="out">―</div>
+    <div class="d" id="outd"></div>
+  </div>
+  <table class="brk" id="brk"></table>
+  <div class="alt">
+    <h3>居抜きで渡せた場合は、この工事が不要になることがあります</h3>
+    <p>次にお店をする人へ内装や設備を引き継げれば、原状回復の工事をしなくて済んだり、小さくできたりします。さらに内装や設備に値段がつくこともあります（貸主の承諾が必要です）。「いま渡した場合」と「閉めた場合」の差は、店の値打ちの試算で比べられます。</p>
+    <div class="cta"><a class="btn shu" href="yameru.html?utm_source=genjo&utm_medium=tool">渡した場合と比べる（30秒・匿名）</a><a class="btn gh" href="soudan.html">見積りを取る前に相談する<small>（60分・無料）</small></a></div>
+  </div>
+  <p class="caut">この金額は、一般的な単価の幅から出した<b>目安</b>です。実際の費用は、建物の条件、指定業者の有無、解体して分かる状態で変わります。正確な金額は複数の業者の見積りで確認してください。</p>
+</section>
+
+<section class="why">
+  <h2>業種別の原状回復費用の相場（坪あたり）</h2>
+  <table class="tbl"><tr><th>業種</th><th>スケルトンまで戻す</th><th>内装を残してよい</th></tr>
+  <tr><td>物販・サービス</td><td>3〜6万円</td><td>1〜3万円</td></tr>
+  <tr><td>カフェ・軽飲食</td><td>6〜10万円</td><td>3〜6万円</td></tr>
+  <tr><td>焼肉・ラーメン等の重飲食</td><td>10〜18万円</td><td>5〜9万円</td></tr></table>
+  <p style="font-size:12px;color:var(--ink3)">当社の相談現場で見てきた金額と、業界で一般に示される単価の幅から作成した目安です。ダクトやグリストラップの撤去、指定業者、搬出条件で上がります。</p>
+  <h2>費用が高くなる5つの条件</h2>
+  <ul><li>契約がスケルトン戻しで、厨房・給排水・ガスまで撤去が必要</li><li>排気ダクトやグリストラップなど、飲食の設備が大きい</li><li>ビルの指定業者でしか工事ができない（相見積りができない）</li><li>2階以上でエレベーターがなく、搬出に人手がかかる</li><li>閉店が決まってから急いで発注し、業者を比べる時間がない</li></ul>
+  <h2>費用を抑える・なくす方法</h2>
+  <ul><li><b>契約書で「どこまで戻すか」を先に確かめる</b>：内装を残してよい契約なら、費用は大きく下がります</li><li><b>見積りは複数とる</b>：指定業者でなければ、比べるだけで差が出ます</li><li><b>居抜きで渡す</b>：次の店主に引き継げれば、工事そのものが不要になることがあります。まだ営業しているうちに動くのが条件です</li></ul>
+  <p>当社は、閉めるかどうかを決める前の段階で、貸主の承諾、リースの名義、原状回復の範囲の3点を一緒に確かめています。原状回復の見積りを取る前に、一度ご相談ください。</p>
+</section>
+
+<section class="why faq">
+  <h2>よくある質問</h2>
+  <details><summary>原状回復とは何ですか？</summary><p>お店を借りたときの状態に戻して、貸主に返すことです。どこまで戻すか（何もない「スケルトン」まで戻すのか、内装を残してよいのか）は、賃貸借契約書の「原状回復」や「明渡し」の条に書かれています。</p></details><details><summary>スケルトン戻しとは何ですか？</summary><p>床・壁・天井の仕上げや設備をすべて撤去し、コンクリートの躯体だけの状態に戻すことです。飲食店では、厨房・ダクト・給排水の撤去も含まれるため、費用が大きくなりやすい工事です。</p></details><details><summary>原状回復の費用は敷金（保証金）から引かれますか？</summary><p>多くの契約では、敷金・保証金から原状回復費用や未払い賃料を差し引いた残りが返還されます。償却（返ってこない分）が決まっている契約もあるため、契約書の敷金・保証金の条を確認してください。</p></details><details><summary>原状回復をしなくてよい方法はありますか？</summary><p>次にお店をする人に内装や設備をそのまま引き継ぐ「居抜き」で渡せれば、原状回復工事が不要になったり、小さくなったりします。ただし、貸主の承諾が必要です。当社は、閉める前にこの可能性を一緒に確かめる無料相談を行っています。</p></details><details><summary>計算結果はどれくらい正確ですか？</summary><p>業種・広さ・戻し方ごとの一般的な単価の幅から出した目安です。実際の金額は、建物の条件や指定業者の有無、解体時に見つかる状態で変わります。正確な金額は、複数の業者から見積りを取って確認してください。</p></details>
+</section>
+</div></main>
+
+<div class="bar"><a class="p" href="soudan.html">無料相談を予約する</a><a class="t" href="tel:080-5309-9770">電話する</a></div>
+<footer><div class="wrap">
+  <span class="fl">BRIDGE <b style="color:#9FBBD6">CYCLE</b></span>
+  株式会社｜滋賀県大津市｜国の認定経営革新等支援機関（認定番号 109825000112）<br>
+  <a href="./">トップ</a>｜<a href="yameru.html">店の値打ちの試算</a>｜<a href="matching.html">マッチング</a>｜<a href="matching.html#legal-privacy">プライバシーポリシー</a>
+</div></footer>
+<script>
+(function(){
+  var U={retail:{skel:[3,6],part:[1,3]},light:{skel:[6,10],part:[3,6]},heavy:{skel:[10,18],part:[5,9]}};
+  function v(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:'';}
+  function f(x){return Math.round(x).toLocaleString('ja-JP');}
+  var started=false;
+  function calc(){
+    var biz=v('biz'),back=v('back'),t=Math.max(1,parseFloat(document.getElementById('tsubo').value)||0);
+    document.getElementById('rowDuct').style.display=biz==='retail'?'none':'';
+    document.getElementById('m2').textContent='　約'+f(t*3.3)+'㎡';
+    var u=back==='part'?U[biz].part:U[biz].skel, note=back==='unk'?'（戻し方が分からないため、スケルトンまで戻す場合で計算）':'';
+    var lo=u[0]*t, hi=u[1]*t, rows=[['工事の基本（'+u[0]+'〜'+u[1]+'万円/坪 × '+t+'坪）',lo,hi]];
+    if(document.getElementById('bld').checked){rows.push(['指定業者による割増（2〜3割）',lo*0.2,hi*0.3]);}
+    if(document.getElementById('upper').checked){rows.push(['搬出の手間（1割）',lo*0.1,hi*0.1]);}
+    if(biz!=='retail'&&document.getElementById('duct').checked&&back!=='part'){rows.push(['ダクト・グリストラップ等の撤去',20,50]);}
+    var L=0,H=0; rows.forEach(function(r){L+=r[1];H+=r[2];});
+    L=Math.max(L,20); H=Math.max(H,40);
+    document.getElementById('out').textContent=f(L)+'〜'+f(H)+'万円';
+    document.getElementById('outd').textContent='広さ'+t+'坪の場合の目安'+note;
+    document.getElementById('brk').innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+f(r[1])+'〜'+f(r[2])+'万円</td></tr>';}).join('');
+  }
+  document.addEventListener('input',function(){calc();if(!started){started=true;window.bcTrack&&bcTrack('genjo_start');}});
+  document.addEventListener('change',calc);
+  calc();
+})();
+</script>
+</body></html>
