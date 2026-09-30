@@ -9,9 +9,9 @@
 <meta property="og:title" content="わたしのこれから診断｜「これから、私はどうしたい？」を3分で整理する">
 <meta property="og:description" content="9問・無料・登録なし。強み・価値観・今の違和感を整理して、これからの方向を言葉にします。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://yujimansion-hub.github.io/bridge-cycle2026/assets/akinai-ogp.png?v=20260921">
+<meta property="og:image" content="https://www.bridgecycleco.com/assets/akinai-ogp.png?v=20260921">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:url" content="https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html">
+<meta property="og:url" content="https://www.bridgecycleco.com/akinai.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f6f5f2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -6218,7 +6218,7 @@ const BOOKING_URL = "";                                   // 旧予約導線（�
 const PAID_CHECKOUT_URL = "https://buy.stripe.com/dRm28tajZdf9bFA3ky3gk07";                              // 旧Stripe Payment Link（3,300円商品では未使用。決済はWorker /checkout 経由。worker/README.md 参照）
 const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認ページ」に指定する戻り先のパラメータ（下のREADME参照）
 /* Stripe Payment Link の「支払い後」URLは次を設定:
-   https://yujimansion-hub.github.io/bridge-cycle2026/akinai-plan.html?session_id={CHECKOUT_SESSION_ID}
+   https://www.bridgecycleco.com/akinai-plan.html?session_id={CHECKOUT_SESSION_ID}
    決済リンクには、このページが client_reference_id を付与します。
    支払い確認は Cloudflare Worker が Stripe API へ照会し、クライアント側のフラグだけでは解錠しません。
    詳細: worker/README.md */
@@ -6226,8 +6226,8 @@ const PAID_RETURN_PARAM = "paid";                          // Stripeの「確認
    例：window.AKINAI_ANALYTICS_ID = "G-GYGZ9W6FQ9";　空のままなら外部通信は一切しません。 */
 const PAID_ACCESS_CODE  = "[廃止済み]";                   // お支払い確認後にLINEでお伝えする受付コード（変更可）
 const LINE_URL    = "https://line.me/R/ti/p/@907kxssd";   // LINE公式（質問・相談の受け皿）
-const PAGE_URL    = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai.html";  // 診断ページ本体
-const SHARE_URL   = "https://yujimansion-hub.github.io/bridge-cycle2026/akinai-start.html";  // 共有・SNSプロフィール用の軽い入口ページ
+const PAGE_URL    = "https://www.bridgecycleco.com/akinai.html";  // 診断ページ本体
+const SHARE_URL   = "https://www.bridgecycleco.com/akinai-start.html";  // 共有・SNSプロフィール用の軽い入口ページ
 // ====================
 document.getElementById("year").textContent = new Date().getFullYear();
 const toast=document.getElementById("toast");
