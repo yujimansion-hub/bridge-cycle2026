@@ -124,6 +124,37 @@ footer a{color:#C6D6E5}
 .faq summary{cursor:pointer;padding:11px 0;font-weight:800;font-size:13.5px}
 .faq p{font-size:13.5px;color:var(--ink2);padding:0 0 12px}
 .why ul{padding-left:1.2em;font-size:13.5px;color:var(--ink2);margin-bottom:8px}.why li{margin-bottom:4px}
+.keep{margin-top:16px;background:var(--kinpale);border:1.5px solid #D9C99A;border-radius:16px;padding:18px}
+.keep h3{font-family:var(--serif);font-size:17px;font-weight:800;margin-bottom:4px}
+.keep .s{font-size:12.5px;color:var(--ink2);margin-bottom:12px}
+.keep .row{display:grid;gap:12px}
+.keep .k{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:14px}
+.keep .k b{display:block;font-size:14px;margin-bottom:2px}
+.keep .k p{font-size:12.5px;color:var(--ink2);margin-bottom:10px}
+.keep .btn{font-size:14.5px;padding:12px 16px;width:100%}
+.btn.ai{background:var(--ai);color:#fff}
+.keep iframe{width:100%;height:150px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+.keep .n{font-size:11px;color:var(--ink3);margin-top:6px;line-height:1.6}
+.pr{display:none}
+@media print{
+ @page{size:A4;margin:14mm}
+ body{background:#fff;padding:0;font-size:11pt}
+ .nav,.hero,.bar,footer,.why,.keep,.alt .cta,.seg,.q,.calc>h2,.calc .sub,.caut{display:none!important}
+ .calc{box-shadow:none;border:none;padding:0;margin:0}
+ .res-big{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .brk,.alt{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .pr{display:block}
+ .pr-h{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ai);padding-bottom:6px;margin-bottom:12px}
+ .pr-h .lg{font-family:var(--serif);font-weight:800;letter-spacing:.08em;font-size:15pt;color:var(--ai)}
+ .pr-h .tg{font-size:9pt;color:var(--ink3)}
+ .pr h1{font-family:var(--serif);font-size:18pt;margin:6px 0 2px}
+ .pr .meta{font-size:9.5pt;color:var(--ink2);margin-bottom:8px}
+ .pr table{width:100%;border-collapse:collapse;font-size:10pt;margin:6px 0}
+ .pr td{border:1px solid var(--rule);padding:5px 8px}
+ .pr h2{font-size:12pt;margin:14px 0 4px;color:var(--ai)}
+ .pr ol{padding-left:1.3em;font-size:10pt}.pr li{margin-bottom:3px}
+ .pr-f{margin-top:14px;border-top:1px solid var(--rule2);padding-top:6px;font-size:8.5pt;color:var(--ink3)}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "原状回復とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "お店を借りたときの状態に戻して、貸主に返すことです。どこまで戻すか（何もない「スケルトン」まで戻すのか、内装を残してよいのか）は、賃貸借契約書の「原状回復」や「明渡し」の条に書かれています。"}}, {"@type": "Question", "name": "スケルトン戻しとは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "床・壁・天井の仕上げや設備をすべて撤去し、コンクリートの躯体だけの状態に戻すことです。飲食店では、厨房・ダクト・給排水の撤去も含まれるため、費用が大きくなりやすい工事です。"}}, {"@type": "Question", "name": "原状回復の費用は敷金（保証金）から引かれますか？", "acceptedAnswer": {"@type": "Answer", "text": "多くの契約では、敷金・保証金から原状回復費用や未払い賃料を差し引いた残りが返還されます。償却（返ってこない分）が決まっている契約もあるため、契約書の敷金・保証金の条を確認してください。"}}, {"@type": "Question", "name": "原状回復をしなくてよい方法はありますか？", "acceptedAnswer": {"@type": "Answer", "text": "次にお店をする人に内装や設備をそのまま引き継ぐ「居抜き」で渡せれば、原状回復工事が不要になったり、小さくなったりします。ただし、貸主の承諾が必要です。当社は、閉める前にこの可能性を一緒に確かめる無料相談を行っています。"}}, {"@type": "Question", "name": "計算結果はどれくらい正確ですか？", "acceptedAnswer": {"@type": "Answer", "text": "業種・広さ・戻し方ごとの一般的な単価の幅から出した目安です。実際の金額は、建物の条件や指定業者の有無、解体時に見つかる状態で変わります。正確な金額は、複数の業者から見積りを取って確認してください。"}}]}</script>
 <script src="bc-analytics.js"></script>
@@ -140,6 +171,12 @@ footer a{color:#C6D6E5}
 </div></header>
 <main><div class="wrap">
 <section class="calc" aria-label="入力">
+  <div class="pr" id="prHead">
+    <div class="pr-h"><span class="lg">BRIDGE CYCLE</span><span class="tg">店じまいを、まちのはじまりに。</span></div>
+    <h1>原状回復費用の試算メモ</h1>
+    <div class="meta" id="prMeta"></div>
+    <table id="prIn"></table>
+  </div>
   <h2>4つ選ぶだけで、目安が出ます</h2>
   <p class="sub">おおよそで構いません。🔒入力はこの画面の中だけで計算し、どこにも送られません。</p>
   <div class="q"><b>1. 業種</b><div class="seg"><label><input type="radio" name="biz" value="retail">物販・サービス</label><label><input type="radio" name="biz" value="light" checked>カフェ・軽飲食</label><label><input type="radio" name="biz" value="heavy">焼肉・ラーメン等</label></div></div>
@@ -160,6 +197,25 @@ footer a{color:#C6D6E5}
     <h3>居抜きで渡せた場合は、この工事が不要になることがあります</h3>
     <p>次にお店をする人へ内装や設備を引き継げれば、原状回復の工事をしなくて済んだり、小さくできたりします。さらに内装や設備に値段がつくこともあります（貸主の承諾が必要です）。「いま渡した場合」と「閉めた場合」の差は、店の値打ちの試算で比べられます。</p>
     <div class="cta"><a class="btn shu" href="yameru.html?utm_source=genjo&utm_medium=tool">渡した場合と比べる（30秒・匿名）</a><a class="btn gh" href="soudan.html">見積りを取る前に相談する<small>（60分・無料）</small></a></div>
+  </div>
+  <div class="keep" id="keep">
+    <h3>この試算を、手元に残す</h3>
+    <p class="s">閉店の判断は、多くの方が半年〜1年かけて進めます。今日の数字を保存しておくと、見積りが届いたときの比べる基準になります。</p>
+    <div class="row">
+      <div class="k"><b>① PDFで保存する</b><p>入力条件・金額の内訳・「次にやること」を1枚にまとめます。印刷画面で「PDFに保存」を選んでください。入力内容はどこにも送られません。</p><button type="button" class="btn ai" id="savePdf">試算メモをPDFで保存</button></div>
+      <div class="k"><b>② 閉める前に知っておくことを、メールで受け取る</b><p>原状回復・解約予告・居抜きの進め方など、損をしないための話を、中村裕二（認定経営革新等支援機関）がお届けします。無料・いつでも解除できます。</p><iframe src="https://nakamurayuji.substack.com/embed" title="ニュースレター「戻れる始め方」の登録" loading="lazy" scrolling="no"></iframe><p class="n">メールアドレスは、ニュースレター配信サービス（Substack）での配信にだけ使われます。この画面の試算内容は送られません。</p></div>
+    </div>
+  </div>
+  <div class="pr" id="prNext">
+    <h2>次にやること（閉店を決める前に）</h2>
+    <ol>
+      <li>賃貸借契約書で「原状回復」「明渡し」の条を読み、どこまで戻す契約かを確かめる</li>
+      <li>解約予告の期限（多くは退去の3〜6か月前）を確かめ、カレンダーに書き込む</li>
+      <li>工事業者が指定されていないなら、見積りを2社以上から取る</li>
+      <li>居抜きで引き継げないか、貸主に承諾の可能性を聞く（営業中に動くのが条件）</li>
+      <li>リース中の設備があれば、名義と残債をリース会社に確かめる</li>
+    </ol>
+    <div class="pr-f">この金額は一般的な単価の幅から出した目安です。実際の費用は建物の条件・指定業者の有無・解体時の状態で変わります。<br>BRIDGE CYCLE株式会社（滋賀県大津市・国の認定経営革新等支援機関）｜無料相談：https://www.bridgecycleco.com/soudan.html｜電話 080-5309-9770｜info@bridgecycleco.com</div>
   </div>
   <p class="caut">この金額は、一般的な単価の幅から出した<b>目安</b>です。実際の費用は、建物の条件、指定業者の有無、解体して分かる状態で変わります。正確な金額は複数の業者の見積りで確認してください。</p>
 </section>
@@ -211,6 +267,16 @@ footer a{color:#C6D6E5}
     document.getElementById('outd').textContent='広さ'+t+'坪の場合の目安'+note;
     document.getElementById('brk').innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+f(r[1])+'〜'+f(r[2])+'万円</td></tr>';}).join('');
   }
+  function lbl(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.parentNode.textContent.trim():'';}
+  function prep(){
+    var d=new Date();
+    document.getElementById('prMeta').textContent='作成日：'+d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日　／　www.bridgecycleco.com の計算ツールで作成';
+    var ex=[];['bld','upper','duct'].forEach(function(id){var e=document.getElementById(id);if(e&&e.checked&&e.offsetParent!==null)ex.push(e.parentNode.textContent.trim());});
+    document.getElementById('prIn').innerHTML='<tr><td>業種</td><td>'+lbl('biz')+'</td></tr><tr><td>広さ</td><td>'+document.getElementById('tsubo').value+'坪</td></tr><tr><td>契約上の戻し方</td><td>'+lbl('back')+'</td></tr><tr><td>当てはまる条件</td><td>'+(ex.join('<br>')||'なし')+'</td></tr>';
+  }
+  window.addEventListener('beforeprint',prep);
+  document.getElementById('savePdf').addEventListener('click',function(){prep();window.bcTrack&&bcTrack('genjo_pdf');window.print();});
+  if('IntersectionObserver' in window){var seen=false;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;window.bcTrack&&bcTrack('genjo_keep_view');}});},{threshold:.5}).observe(document.getElementById('keep'));}
   document.addEventListener('input',function(){calc();if(!started){started=true;window.bcTrack&&bcTrack('genjo_start');}});
   document.addEventListener('change',calc);
   calc();
