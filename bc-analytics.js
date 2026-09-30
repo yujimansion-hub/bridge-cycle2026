@@ -9,7 +9,7 @@
 
   var page = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/,'') || 'index';
   var group =
-    /^(index|yameru|genjo|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite)/.test(page) ? '退店前承継' :
+    /^(index|yameru|genjo|taiten|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite)/.test(page) ? '退店前承継' :
     /^(partner|fudosan)/.test(page) ? 'パートナー' :
     /^(uriba|kokaido|yoyaku|thanks-kokaido|kanryo|bridge-cycle-kokaido)/.test(page) ? '売り場レンタル' :
     /^yomu/.test(page) ? '閉める前に読む' :
