@@ -99,6 +99,7 @@ footer a{text-decoration:underline}
     <b>つくった人：中村裕二</b><br>
     商工会の経営指導員として20年以上、創業から廃業までの相談に関わってきました。国の認定経営革新等支援機関（BRIDGE CYCLE株式会社）です。起業を勧めるためのサイトではありません。
     <br><a style="text-decoration:underline" href="akinai-profile.html">つくった人を詳しく見る →</a>
+    <br><a style="text-decoration:underline" href="https://nakamurayuji.substack.com/?utm_source=bridgecycle&utm_medium=site&utm_campaign=substack&utm_content=akinai_start" target="_blank" rel="noopener" data-sub="start">週1本の読みもの「戻れる始め方」（Substack・無料）→</a>
   </div>
 </div></main>
 <footer><div class="wrap">
@@ -114,6 +115,7 @@ footer a{text-decoration:underline}
     document.getElementById("fName").textContent=D[t].t;
     document.getElementById("friendBox").style.display="";
   }
+  document.querySelectorAll('[data-sub]').forEach(function(a){a.addEventListener('click',function(){try{gtag('event','substack_click',{loc:a.getAttribute('data-sub')});}catch(e){}});});
   // 診断へ進むとき、紹介元の型は引き継がない（自分の結果を出すため）
   document.querySelector(".cta").addEventListener("click",function(){try{sessionStorage.setItem("akinai_from_share","1");}catch(e){}try{gtag('event','start_cta_click',{});}catch(e){}});
   // どこから来たか（utm_〜）を、診断ページへ進むリンクにも引き継ぐ

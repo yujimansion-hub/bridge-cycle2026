@@ -5260,6 +5260,7 @@ document.addEventListener('click',function(e){
   });
 },true);
 document.addEventListener('click',function(e){var g=e.target.closest('[data-ig]');if(!g)return;window.track&&window.track('instagram_click',{loc:g.getAttribute('data-ig')||''});},true);
+document.addEventListener('click',function(e){var g=e.target.closest('[data-sub]');if(!g)return;window.track&&window.track('substack_click',{loc:g.getAttribute('data-sub')||''});},true);
 document.addEventListener('click',function(e){
   var a=e.target.closest('a[href="#price"], a[href="#paidEngine"], #paidCheckoutBtn, a[href="#fortune"]');
   if(!a) return;
@@ -6390,6 +6391,11 @@ window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.ad
               <a href="akinai-profile.html">つくった人を見る →</a>
             </div>
           </div>
+          <a class="ig-follow sub-follow" href="https://nakamurayuji.substack.com/?utm_source=bridgecycle&utm_medium=site&utm_campaign=substack&utm_content=akinai_result" target="_blank" rel="noopener" data-sub="result">
+            <span class="igf-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
+            <span class="igf-text"><small>Substack｜戻れる始め方（無料）</small><b>週に1本、読みもので届けます。</b><em>「うまくいかなくても戻れる始め方」を、20年の相談現場から。登録はメールアドレスだけです。</em></span>
+            <span class="igf-go">読んでみる →</span>
+          </a>
           <details class="result-more" id="more">
             <summary>もう少し見てみる（任意）</summary>
             <div class="rm-note">ここからは、気になる人だけ。</div>
@@ -6830,6 +6836,7 @@ window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.ad
   <div class="wrap footer-row">
     <div>© <span id="year"></span> わたしのこれから診断</div>
     <a class="ig-foot" href="https://www.instagram.com/korekara_shindan/" target="_blank" rel="noopener" data-ig="footer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram　@korekara_shindan</span></a>
+    <a class="ig-foot" href="https://nakamurayuji.substack.com/?utm_source=bridgecycle&utm_medium=site&utm_campaign=substack&utm_content=akinai_footer" target="_blank" rel="noopener" data-sub="footer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>読みもの　戻れる始め方（Substack）</span></a>
     <div class="foot-legal">
       運営：BRIDGE CYCLE株式会社（滋賀県大津市・国の認定経営革新等支援機関）<br>
       <a href="tokushoho.html">特定商取引法に基づく表記</a>　<a href="privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>
