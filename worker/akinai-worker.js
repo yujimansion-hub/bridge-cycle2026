@@ -6,7 +6,7 @@
  *   OPENAI_API_KEY
  *   TOKEN_SECRET
  * Vars:
- *   ALLOWED_ORIGIN=https://yujimansion-hub.github.io
+ *   ALLOWED_ORIGIN=https://www.bridgecycleco.com,https://yujimansion-hub.github.io
  *   OPENAI_MODEL=gpt-5.6-luna
  * Optional KV binding:
  *   AKINAI_KV  (generation count + saved result)
@@ -42,12 +42,12 @@ async function readToken(env,token){
 }
 function cors(env,req){
   const origin=req.headers.get('Origin')||'';
-  const allowed=(env.ALLOWED_ORIGIN||'https://yujimansion-hub.github.io').split(',').map(s=>s.trim());
+  const allowed=(env.ALLOWED_ORIGIN||'https://www.bridgecycleco.com,https://yujimansion-hub.github.io').split(',').map(s=>s.trim());
   return allowed.includes(origin)?origin:allowed[0];
 }
 async function createCheckout(env,clientKey){
   if(!env.STRIPE_PRICE_ID) throw new Error('stripe_price_not_configured');
-  const site=(env.SITE_BASE||'https://yujimansion-hub.github.io/bridge-cycle2026').replace(/\/$/,'');
+  const site=(env.SITE_BASE||'https://www.bridgecycleco.com').replace(/\/$/,'');
   const p=new URLSearchParams();
   p.set('mode','payment');
   p.set('line_items[0][price]',env.STRIPE_PRICE_ID);
