@@ -15,6 +15,7 @@
     /^yomu/.test(page) ? '閉める前に読む' :
     /^hojokin/.test(page) ? '補助金' :
     /^uchino/.test(page) ? 'うちのシェフ' :
+    /^kasu/.test(page) ? '空きスペース貸し' :
     /^akinai/.test(page) ? 'わたしのこれから診断' : 'その他';
 
   var ref='';

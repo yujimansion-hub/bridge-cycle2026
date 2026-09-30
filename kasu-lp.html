@@ -9,16 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
-<!-- ===== 計測タグ（gtag.js：GA4 ＋ Google広告）===== -->
-<!-- ↓↓ 下記3つのIDをあなたのアカウントの値に差し替えてください ↓↓ -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');   /* ① GA4 測定ID（G-から始まる） */
-  gtag('config', 'AW-XXXXXXXXXX');  /* ② Google広告 コンバージョンID（AW-から始まる） */
-</script>
+<!-- 計測：サイト共通のGA4（bc-analytics.js）。Google広告を使う場合はAW-のIDを別途追加 -->
+<script src="bc-analytics.js"></script>
 <style>
   :root{
     --ink:#15302e;--paper:#e9edeb;--paper-2:#dfe5e2;--surface:#fff;--line:#cdd6d1;
