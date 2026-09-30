@@ -101,6 +101,40 @@ details.asm .fld input{font-size:15px;padding:8px 10px}
 footer{background:#132B45;color:#9FB4C9;padding:28px 0 36px;font-size:12px;text-align:center;margin-top:36px}
 footer .fl{font-family:var(--serif);font-weight:800;letter-spacing:.09em;font-size:15px;color:#fff;display:block;margin-bottom:6px}
 footer a{color:#C6D6E5}
+.keep{margin-top:16px;background:var(--kinpale,#F5F0E0);border:1.5px solid #D9C99A;border-radius:16px;padding:18px}
+.keep h3{font-family:var(--serif);font-size:17px;font-weight:800;margin-bottom:4px}
+.keep .s{font-size:12.5px;color:var(--ink2);margin-bottom:12px}
+.keep .row{display:grid;gap:12px}
+.keep .k{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:14px}
+.keep .k b{display:block;font-size:14px;margin-bottom:2px}
+.keep .k p{font-size:12.5px;color:var(--ink2);margin-bottom:10px}
+.keep .kb{display:block;width:100%;border:none;border-radius:999px;padding:12px 16px;font-weight:800;font-size:14.5px;font-family:inherit;cursor:pointer;background:var(--ai,#1B3B5F);color:#fff}
+.keep iframe{width:100%;height:150px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+.keep .n{font-size:11px;color:var(--ink3);margin-top:6px;line-height:1.6}
+.pr{display:none}
+@media print{
+ @page{size:A4;margin:12mm}
+ body{background:#fff!important;padding:0!important;font-size:10pt}
+ .nav,.hero,.bar,footer,.keep,.calc,.cta,.asm,.why,section:not(.res){display:none!important}
+ .res{box-shadow:none!important;border:none!important;padding:0!important;margin:0!important}
+ .res>h2,.res>.sub{display:none}
+ .cmp,.cmp .c,.diff,.big{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .res{zoom:.74}
+ .cmp{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px!important}
+ .cmp .c{break-inside:avoid;padding:10px!important}
+ .res .caut{font-size:8.5pt}
+ .pr{display:block}
+ .pr-h{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ai,#1B3B5F);padding-bottom:6px;margin-bottom:10px}
+ .pr-h .lg{font-family:var(--serif);font-weight:800;letter-spacing:.08em;font-size:15pt;color:var(--ai,#1B3B5F)}
+ .pr-h .tg{font-size:9pt;color:var(--ink3)}
+ .pr h1{font-family:var(--serif);font-size:17pt;margin:4px 0 2px}
+ .pr .meta{font-size:9pt;color:var(--ink2);margin-bottom:6px}
+ .pr table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:4px 0 10px}
+ .pr td{border:1px solid var(--rule);padding:4px 7px}
+ .pr h2{font-size:11.5pt;margin:12px 0 4px;color:var(--ai,#1B3B5F)}
+ .pr ol{padding-left:1.3em;font-size:9.5pt}.pr li{margin-bottom:2px}
+ .pr-f{margin-top:10px;border-top:1px solid var(--rule2);padding-top:5px;font-size:8pt;color:var(--ink3)}
+}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -142,6 +176,12 @@ footer a{color:#C6D6E5}
   </section>
 
   <section class="res" id="res" aria-live="polite">
+    <div class="pr">
+      <div class="pr-h"><span class="lg">BRIDGE CYCLE</span><span class="tg">店じまいを、まちのはじまりに。</span></div>
+      <h1>店の値打ちの試算メモ</h1>
+      <div class="meta" id="prMeta"></div>
+      <table id="prIn"></table>
+    </div>
     <h2>試算の結果</h2>
     <p class="sub" style="font-size:12.5px;color:var(--ink3);margin:-4px 0 10px">「いま」の2つの閉め方と、「先延ばししてから渡す」を並べています。数字はすべて幅のある目安です。</p>
     <div class="cmp">
@@ -200,6 +240,25 @@ footer a{color:#C6D6E5}
     </div>
     <div class="caut"><b>盛っていない数字にするために。</b>承継は、継ぎ手が見つかること、貸主が承諾すること、リース会社が名義変更に応じることが前提で、必ず成立するものではありません。造作の価格は当社が査定するのではなく、店主ご自身が決めます。ここで出る譲渡収入は「取得額×経過年数の残存率」の目安で、実際は立地と設備の状態、継ぎ手の業態で上下します。相談ではこの前提を一つずつ確かめます。</div>
 
+    <div class="keep" id="keep">
+      <h3>この試算を、手元に残す</h3>
+      <p class="s">閉めるか続けるかは、多くの方が半年〜1年かけて決めます。今日の数字を保存しておくと、半年後に「どれだけ変わったか」を比べられます。</p>
+      <div class="row">
+        <div class="k"><b>① PDFで保存する</b><p>入力した数字・3つの閉め方の比較・「次にやること」を1枚にまとめます。印刷画面で「PDFに保存」を選んでください。数字はどこにも送られません。</p><button type="button" class="kb" id="savePdf">試算メモをPDFで保存</button></div>
+        <div class="k"><b>② 閉める前に知っておくことを、メールで受け取る</b><p>解約予告・原状回復・居抜きの進め方など、損をしないための話を、中村裕二（認定経営革新等支援機関）がお届けします。無料・いつでも解除できます。</p><iframe src="https://nakamurayuji.substack.com/embed" title="ニュースレター「戻れる始め方」の登録" loading="lazy" scrolling="no"></iframe><p class="n">メールアドレスは、ニュースレター配信サービス（Substack）での配信にだけ使われます。この画面の数字は送られません。</p></div>
+      </div>
+    </div>
+    <div class="pr">
+      <h2>次にやること（決める前に）</h2>
+      <ol>
+        <li>賃貸借契約書で「解約予告の期間」と「原状回復の範囲」を確かめる</li>
+        <li>貸主に、居抜きで次の店主へ引き継ぐことの承諾の可能性を聞く（営業中に動くのが条件）</li>
+        <li>リース中の設備は、名義と残債をリース会社に確かめる</li>
+        <li>原状回復の見積りは、継ぎ手を探す前には発注しない（発注した時点で造作の値打ちがゼロになる）</li>
+        <li>半年後にもう一度この試算をして、今日のメモと比べる</li>
+      </ol>
+      <div class="pr-f">この試算は目安です。承継は継ぎ手・貸主の承諾・リースの名義変更が前提で、必ず成立するものではありません。<br>BRIDGE CYCLE株式会社（滋賀県大津市・国の認定経営革新等支援機関）｜無料相談：https://www.bridgecycleco.com/soudan.html｜電話 080-5309-9770｜info@bridgecycleco.com</div>
+    </div>
     <details class="asm">
       <summary>試算の前提（坪単価・残存率など）</summary>
       <div class="body">
@@ -322,6 +381,16 @@ footer a{color:#C6D6E5}
     $('#dBig').textContent=(d>=0?'＋':'▲')+Math.abs(Math.round(d)).toLocaleString('ja-JP')+'万円';
     $('#dTxt').textContent=d>=0?'通常の閉店より、これだけ手元に残る計算です（両方の幅の中央値で比較）。造作譲渡額と、リース・従業員の引き継ぎの有無で変わります。':'この条件では承継しても差が出にくい計算です。前提を変えるか、相談で個別に確かめてください。';
   }
+  function prep(){
+    var d=new Date();
+    $('#prMeta').textContent='作成日：'+d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日　／　www.bridgecycleco.com の試算ツールで作成';
+    var F=[['tsubo','広さ','坪'],['rent','月額賃料','万円'],['inv','内装・設備にかけた金額','万円'],['yrs','それから経った年数','年'],['dep','敷金・保証金','万円'],['notice','解約予告の期間','か月前'],['lease','リース残債','万円'],['staff','正社員の人数','人'],['profit','月の手残り','万円/月'],['wait','先延ばしの期間','か月']];
+    var h='',c=0;F.forEach(function(f){var e=document.getElementById(f[0]);if(!e)return;if(c%2===0)h+='<tr>';h+='<td>'+f[1]+'</td><td>'+e.value+f[2]+'</td>';if(c%2===1)h+='</tr>';c++;});
+    $('#prIn').innerHTML=h;
+  }
+  window.addEventListener('beforeprint',prep);
+  $('#savePdf').addEventListener('click',function(){prep();window.bcTrack&&bcTrack('yameru_pdf');window.print();});
+  if('IntersectionObserver' in window){var seen=false;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;window.bcTrack&&bcTrack('yameru_keep_view');}});},{threshold:.5}).observe($('#keep'));}
   document.querySelectorAll('input,select').forEach(function(el){if(el.id!=='rate')el.addEventListener('input',calc);});
   calc();
 })();
