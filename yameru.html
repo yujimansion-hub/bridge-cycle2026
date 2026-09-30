@@ -33,6 +33,11 @@ b{color:var(--ai)}
 .anon::before{content:"🔒";flex:none}
 .anon b{color:var(--mid)}
 
+.calc .see{display:block;margin:16px 0 4px;text-align:center;background:var(--ai);color:#fff;font-weight:800;font-size:15px;border-radius:12px;padding:13px 10px;text-decoration:none}
+.calc .more{margin-top:10px;border-top:1px dashed var(--rule2);padding-top:10px}
+.calc .more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--aimid);padding:6px 0}
+.hero{padding:20px 0 8px}
+.hero .lead{margin-top:8px}
 .calc{background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--ai);border-radius:18px;padding:22px 20px 18px;box-shadow:var(--shadow);margin-top:18px}
 .calc h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:4px}
 .calc .sub{font-size:12.5px;color:var(--ink3);margin-bottom:14px}
@@ -107,28 +112,33 @@ footer a{color:#C6D6E5}
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <span class="badge">匿名・30秒・入力はどこにも送信されません</span>
+  <span class="badge">匿名・3つの数字で30秒・送信なし</span>
   <h1>迷っている今、<br>店の<u>値打ち</u>はいくらか。</h1>
-  <p class="lead">続けるか、渡すか、閉めるか。まだ決めなくて構いません。ただ、迷っている間にも、内装や厨房の値打ちは毎月少しずつ減り、原状回復の見積りを取った瞬間にゼロになります。いま渡した場合、いま閉めた場合、そして決めるのを先延ばしした場合を、同じ物差しで並べます。</p>
-  <div class="anon"><span><b>名前も店名も連絡先も要りません。</b>計算はこの画面の中だけで行い、入力した数字は当社を含めどこにも送られません。</span></div>
+  <p class="lead">続けるか、渡すか、閉めるか。まだ決めなくて構いません。迷っている間に減っていく店の値打ちを、「いま渡す」「いま閉める」「先延ばしする」の3つで並べます。</p>
 </div></header>
 
 <main><div class="wrap">
   <section class="calc" aria-label="入力">
-    <h2>9つの数字を入れてください</h2>
-    <p class="sub">おおよそで構いません。分からない項目は、初期値のままで結構です。</p>
+    <h2>まず、3つだけ入れてください</h2>
+    <p class="sub">おおよそで構いません。ほかの項目には目安の数字が入っています。🔒名前も店名も要らず、数字はどこにも送られません。</p>
     <div class="g">
       <div class="fld"><label for="tsubo">お店の広さ</label><div class="in"><input id="tsubo" type="number" inputmode="decimal" min="1" step="1" value="15"><span class="u">坪</span></div><div class="hint">1坪 ≒ 3.3㎡（㎡÷3.3）</div></div>
       <div class="fld"><label for="rent">月額賃料（共益費込み）</label><div class="in"><input id="rent" type="number" inputmode="numeric" min="0" step="1" value="15"><span class="u">万円</span></div></div>
+      <div class="fld"><label for="inv">内装・設備にかけた金額</label><div class="in"><input id="inv" type="number" inputmode="numeric" min="0" step="1" value="600"><span class="u">万円</span></div><div class="hint">開業時＋その後の改装・入替の合計</div></div>
+    </div>
+    <a class="see" href="#res" onclick="window.bcTrack&&bcTrack('yameru_see_result')">この3つで結果を見る ↓</a>
+    <details class="more" id="calcMore">
+      <summary>もっと正確にする（あと7項目・分かるものだけ）</summary>
+    <div class="g" style="margin-top:12px">
       <div class="fld"><label for="dep">敷金・保証金の預け額</label><div class="in"><input id="dep" type="number" inputmode="numeric" min="0" step="1" value="90"><span class="u">万円</span></div><div class="hint">償却分がある場合は差し引いた額</div></div>
       <div class="fld"><label for="notice">解約予告の期間</label><div class="in"><select id="notice"><option value="1">1か月前</option><option value="2">2か月前</option><option value="3">3か月前</option><option value="4">4か月前</option><option value="5">5か月前</option><option value="6" selected>6か月前（分からない場合）</option></select></div><div class="hint">賃貸借契約書の「解約」の条に書かれています</div></div>
       <div class="fld"><label for="lease">リース・割賦の残債</label><div class="in"><input id="lease" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="u">万円</span></div><div class="hint">厨房機器・食洗機・POSなど。なければ0</div></div>
-      <div class="fld"><label for="inv">内装・設備にかけた金額</label><div class="in"><input id="inv" type="number" inputmode="numeric" min="0" step="1" value="600"><span class="u">万円</span></div><div class="hint">開業時＋その後の改装・入替の合計</div></div>
       <div class="fld"><label for="yrs">それから経った年数</label><div class="in"><input id="yrs" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="u">年</span></div></div>
       <div class="fld"><label for="staff">正社員の人数（自分以外）</label><div class="in"><input id="staff" type="number" inputmode="numeric" min="0" step="1" value="1"><span class="u">人</span></div><div class="hint">パート・アルバイトは含めない</div></div>
       <div class="fld"><label for="profit">いまの月の手残り（自分の給料を引いた後）</label><div class="in"><input id="profit" type="number" inputmode="numeric" step="1" value="-5"><span class="u">万円/月</span></div><div class="hint">赤字なら「-5」のようにマイナスで。自分の生活費を先に引いた残りが目安</div></div>
       <div class="fld"><label for="wait">決めるのを、あとどれくらい先延ばしにしそうか</label><div class="in"><select id="wait"><option value="6">半年</option><option value="12" selected>1年</option><option value="24">2年</option></select></div><div class="hint">「様子を見る」期間。この間の損益と、造作の値打ちの減りを計算します</div></div>
     </div>
+    </details>
   </section>
 
   <section class="res" id="res" aria-live="polite">
