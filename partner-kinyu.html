@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>金融機関の方へ｜連携のご案内｜BRIDGE CYCLE</title>
-<meta name="description" content="地域の地銀・信用金庫・信用組合の方へ。取引先の廃業を事業承継に転換できるかもしれません。BRIDGE CYCLEとの情報連携についてご案内します。">
+<meta name="description" content="地域の金融機関の方へ。飲食店の造作承継で、次の店主の事業計画・資金計画を実測データと診断つきで整え、融資申込まで伴走します。BRIDGE CYCLEとの連携のご案内。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -44,6 +44,17 @@ form{display:flex;flex-direction:column;gap:16px}
 .fine{font-size:13px;color:var(--ink-muted);margin-top:16px;line-height:1.9}
 footer{padding:30px 0 36px;text-align:center;color:var(--ink-soft);font-size:14px;letter-spacing:.04em;border-top:1px solid var(--line)}
 footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:block;margin-bottom:8px}
+.resp{width:100%;min-width:520px;border-collapse:collapse;font-size:13.5px;background:var(--cream-2);line-height:1.75}
+.resp th,.resp td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+.resp thead th{background:var(--cream-3);font-size:13px}
+.resp td:first-child{font-weight:700;white-space:nowrap}
+.respwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.card-no{font-family:"Shippori Mincho",serif;color:var(--vermillion);font-size:15px;min-width:22px}
+.card-body ul{margin:8px 0 0 1.2em}.card-body li{margin:2px 0}
+.stat{display:flex;gap:10px 28px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:var(--ink-soft)}
+.stat b{font-family:"Shippori Mincho",serif;font-size:24px;color:var(--teal);margin:0 3px}
+.route{font-size:13px;letter-spacing:.14em;color:var(--vermillion);font-weight:700;margin:26px 0 4px}
+.route:first-of-type{margin-top:0}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -52,67 +63,107 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
 
 <section class="hero"><div class="wrap">
   <span class="eyebrow">金融機関の方へ ／ 連携のご案内</span>
-  <div class="tag">地方銀行・信用金庫・信用組合</div>
-  <h1>取引先の廃業が、<br><em>承継に変わる</em>かもしれない。</h1>
-  <p class="hero-lead">地域の金融機関は、取引先の閉店・廃業の動きをどこよりも早く察知できる立場にあります。BRIDGE CYCLEとの連携により、「廃業せざるを得ない」と思っていた経営者に、もう一つの道を示せる可能性があります。</p>
+  <div class="tag">地方銀行・信用金庫・信用組合・政府系金融機関</div>
+  <h1>次の店主の創業融資を、<br><em>審査に出せる形</em>で持ち込みます。</h1>
+  <p class="hero-lead">BRIDGE CYCLEは、閉店を考えている飲食店の造作を、営業中のうちに次の店主へ渡す「退店前承継」を支援しています。国の認定経営革新等支援機関として、次の店主（継ぎ手）の事業計画・資金計画づくりと融資申込に伴走します。</p>
   <div class="alert-box">
-    <p>取引先の廃業は、<strong>融資残高の回収・取引関係の消滅・地域雇用の喪失</strong>を意味します。承継が成立すれば、事業継続・雇用維持・融資関係の継承が可能です。</p>
+    <p>当社が扱うのは、<strong>営業中の店舗の造作・厨房設備等（動産）の譲渡</strong>です（譲渡額300万円まで）。屋号・事業そのもの・賃貸借契約上の地位・既存の借入は引き継がれません。継ぎ手への融資は、<strong>新規の創業融資</strong>としてご審査ください。</p>
   </div>
+  <div class="stat"><span>継ぎ手候補<b>12</b>名</span><span>連携する不動産管理会社<b>3</b>社</span></div>
+  <p class="fine" style="margin-top:6px">2026年9月末時点。継ぎ手候補は当社と公式LINE・電話でつながっている方の数です。</p>
 </div></section>
 
 <section><div class="wrap">
   <div class="section-label">金融機関にとっての価値</div>
   <div class="card-grid">
     <div class="card">
-      <div class="card-title"><span class="icon">🏦</span>取引関係の継続</div>
-      <div class="card-body">承継者が事業を引き継いだ場合、<strong>既存の取引関係が継続されるケースがあります。</strong>新規開拓と比べ、承継者との取引開始コストは低く、信用情報も引き継ぎやすい。</div>
+      <div class="card-title"><span class="card-no">01</span>申告ではなく、実測と診断のついた融資相談</div>
+      <div class="card-body">継ぎ手の融資申込にあたり、ご本人の同意のうえで次の材料を添えます。
+        <ul>
+          <li>店前人流の7日間実測（AIカメラ。店主の申告値とはラベルを分けて記載）</li>
+          <li>承継事業化診断：必要客数と見込み客数の比較による判定（GO／条件つき／おすすめしない）</li>
+          <li>売り場レンタルでの試し営業の客数・売上（実施した場合）</li>
+          <li>ご本人が作成し、当社が支援した事業計画・資金計画</li>
+        </ul>
+        計画づくりは、代表が商工会の経営指導員として支援してきた事業計画300件以上（うち小規模事業者持続化補助金100件以上）の経験をもとに行います。
+      </div>
     </div>
     <div class="card">
-      <div class="card-title"><span class="icon">💼</span>承継者への新規融資機会</div>
-      <div class="card-body">事業を引き継いだ承継者には、<strong>設備更新・運転資金・リフォームなどのニーズが発生します。</strong>BRIDGE CYCLEが紹介した承継者との関係構築の機会になります。</div>
+      <div class="card-title"><span class="card-no">02</span>「多く借りさせる」動機を持たない報酬設計</div>
+      <div class="card-body">当社の報酬は<strong>造作譲渡額だけを基準</strong>とし、<strong>融資額には連動させません</strong>。価格は店主が決め、当社は査定をしません。譲渡額の上限は300万円です。<br>承継事業化診断が「おすすめしない」と判定した計画は、そのままの条件で成約に進めるための支援をお引き受けしません。<br>継ぎ手の当社報酬は開業経費として資金計画に計上し、<strong>融資申込の資料上で開示</strong>します。</div>
     </div>
     <div class="card">
-      <div class="card-title"><span class="icon">🌏</span>地域経済への貢献</div>
-      <div class="card-body">地域金融機関の使命である<strong>「地域経済の持続的発展への貢献」</strong>と、BRIDGE CYCLEの目的は一致しています。事業承継支援は、地域への社会的インパクトとして発信できます。</div>
+      <div class="card-title"><span class="card-no">03</span>取引先の閉店時の持ち出しを減らす</div>
+      <div class="card-body">閉店して原状回復すれば、工事・撤去の費用が出ていきます。営業中に造作を渡せれば、<strong>その支出が造作の譲渡代金に置き換わる可能性</strong>があります。取引先の手元資金と返済原資の見通しが変わります（貸主の同意と原状回復義務の範囲によります）。</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="card-no">04</span>空き店舗にせず、同じ場所で次の開業へ</div>
+      <div class="card-body">厨房設備を壊さず次の店主が使うことで、開業時の設備投資を抑え、空き店舗期間を短くします。地域の創業支援・空き店舗対策としても位置づけられます。</div>
     </div>
   </div>
 </div></section>
 
 <section><div class="wrap">
+  <div class="section-label">当社がすること・しないこと</div>
+  <div class="respwrap">
+    <table class="resp">
+      <thead><tr><th>場面</th><th>当社がすること</th><th>当社がしないこと</th></tr></thead>
+      <tbody>
+        <tr><td>造作の価格</td><td>造作の一覧・状態・リース残の確認、計画上の回収可能性の試算</td><td>査定・価格の算定（価格は店主が決定）</td></tr>
+        <tr><td>事業計画・資金計画</td><td>ご本人の作成を支援し、融資申込まで伴走</td><td>代わって作成する・融資を約束する</td></tr>
+        <tr><td>お金の流れ</td><td>三者合意の支払指図書の用意</td><td>譲渡代金を預かる（決済は当事者間で直接）</td></tr>
+        <tr><td>物件・賃貸借</td><td>貸主・管理会社への説明材料の用意</td><td>賃貸借の媒介・代理</td></tr>
+        <tr><td>承継後</td><td>開業準備までの伴走</td><td>業績・存続の保証</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fine">詳細は<a href="matching.html#legal-terms" style="color:var(--teal)">利用規約</a>・<a href="matching.html#legal-tokusho" style="color:var(--teal)">特定商取引法に基づく表記</a>をご覧ください。</p>
+</div></section>
+
+<section><div class="wrap">
   <div class="privacy-box">
     <h3>守秘義務について</h3>
-    <p>金融機関が取引先の情報を直接提供することは守秘義務上困難なケースがあります。BRIDGE CYCLEとの連携では、<strong>金融機関が直接情報を提供するのではなく、「BRIDGE CYCLEという選択肢を取引先に紹介する」という形</strong>が中心になります。経営者本人がBRIDGE CYCLEに相談するルートを作ることで、守秘義務の問題を回避できます。</p>
+    <p>金融機関が取引先の情報を当社へ直接提供していただく必要はありません。連携は、<strong>「BRIDGE CYCLEという選択肢を取引先にご紹介いただく」形</strong>が中心です。経営者ご本人が当社に相談するルートのため、守秘義務上の問題は生じません。当社から金融機関への情報共有も、ご本人の同意がある場合に限ります。</p>
   </div>
 </div></section>
 
 <section class="flow-bg"><div class="wrap">
   <div class="section-label">連携の流れ（一例）</div>
+  <p class="route">A　閉店を考えている取引先がいるとき</p>
   <div class="step">
     <div class="step-no">1</div>
     <div>
-      <div class="step-title">BRIDGE CYCLEを取引先に紹介する</div>
-      <div class="step-body">廃業・閉店を検討している取引先に対して、「こういうサービスがあります」とBRIDGE CYCLEを紹介していただきます。チラシや案内カードもご用意できます。</div>
+      <div class="step-title">BRIDGE CYCLEを取引先にご紹介</div>
+      <div class="step-body">「閉める前に、渡すという方法もある」とご紹介ください。案内カードをご用意します。</div>
     </div>
   </div>
   <div class="step">
     <div class="step-no">2</div>
     <div>
-      <div class="step-title">経営者がBRIDGE CYCLEに相談</div>
-      <div class="step-body">経営者自身がBRIDGE CYCLEに連絡します。守秘義務の問題は発生しません。BRIDGE CYCLEが承継可能性を評価し、継ぎ手候補に匿名で打診します。</div>
+      <div class="step-title">経営者ご本人が当社に相談</div>
+      <div class="step-body">閉店した場合と承継した場合の持ち出しを、数字で比べます。進める場合は、匿名のまま継ぎ手候補と出会える場に載せます。</div>
+    </div>
+  </div>
+  <p class="route">B　継ぎ手の融資申込のとき</p>
+  <div class="step">
+    <div class="step-no">1</div>
+    <div>
+      <div class="step-title">継ぎ手ご本人と計画をつくる</div>
+      <div class="step-body">実測データと承継事業化診断をもとに、事業計画・資金計画をご本人と一緒に組み立てます。</div>
     </div>
   </div>
   <div class="step">
-    <div class="step-no">3</div>
+    <div class="step-no">2</div>
     <div>
-      <div class="step-title">マッチングの進捗を共有（希望する場合）</div>
-      <div class="step-body">経営者の同意を得た上で、マッチングの進捗を金融機関の担当者にもご共有します。承継後の資金ニーズに備えた準備が可能です。</div>
+      <div class="step-title">融資のご相談に同行</div>
+      <div class="step-body">ご本人の同意のうえで、計画書・実測データ・診断書を添えてご相談に伺います。審査は貴機関のご判断です。</div>
     </div>
   </div>
 </div></section>
 
 <section class="form-section"><div class="wrap">
   <h2>情報交換・連携のご相談</h2>
-  <p class="sub">まずは非公式な情報交換から歓迎します。担当者から2営業日以内にご連絡します。</p>
+  <p class="sub">まずは非公式な情報交換から歓迎します。代表の中村から2営業日以内にご連絡します。</p>
   <form action="https://formspree.io/f/xykqvdbp" method="POST">
     <input type="hidden" name="partner_type" value="金融機関">
     <div class="field">
