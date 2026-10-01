@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>店舗の出口30秒チェック｜閉店費用と「渡せた場合」を3つの数字で比較｜BRIDGE CYCLE</title>
+<meta name="description" content="広さ・家賃・内装設備にかけた金額の3つだけで、原状回復して閉めた場合と、営業中に次の店主へ渡せた場合を比較します。匿名・登録不要・入力した数字は送信されません。">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.bridgecycleco.com/yameru.html">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--paper:#EDEEEA;--card:#fff;--card2:#F4F4F0;--ink:#15171C;--ink2:#4A4C52;--ink3:#767870;--rule:#D9DAD3;--rule2:#C3C4BC;--ai:#1B3B5F;--aimid:#3D6389;--aipale:#E7EEF5;--shu:#A8382C;--shupale:#F6E7E4;--mid:#2E6B4F;--midpale:#E3EFE9;--kin:#8A6D1F;--kinpale:#F5F0E0;--serif:"Shippori Mincho",serif;--shadow:0 1px 2px rgba(20,22,26,.06),0 10px 28px rgba(20,22,26,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:15px;line-height:1.85;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+a{color:var(--aimid)}
+b{color:var(--ai)}
+.nav{border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;padding:13px 18px}
+.logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}
+.logo b{color:var(--aimid)}
+.nav .sp{margin-left:auto;font-size:11px;color:var(--ink3)}
+.hero{padding:38px 0 22px}
+.hero .badge{display:inline-block;font-size:11px;letter-spacing:.14em;color:var(--mid);font-weight:700;border:1.5px solid var(--mid);background:#fff;border-radius:999px;padding:5px 14px;margin-bottom:14px}
+.hero h1{font-family:var(--serif);font-size:clamp(27px,7vw,38px);line-height:1.4;font-weight:800}
+.hero h1 u{text-decoration:none;border-bottom:5px solid var(--shu);padding-bottom:2px}
+.hero .lead{margin-top:12px;color:var(--ink2);font-size:14.5px}
+.anon{display:flex;gap:10px;align-items:flex-start;background:var(--midpale);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--mid);margin-top:14px;line-height:1.7}
+.anon::before{content:"🔒";flex:none}
+.anon b{color:var(--mid)}
+
+.calc .see{display:block;margin:16px 0 4px;text-align:center;background:var(--ai);color:#fff;font-weight:800;font-size:15px;border-radius:12px;padding:13px 10px;text-decoration:none}
+.calc .more{margin-top:10px;border-top:1px dashed var(--rule2);padding-top:10px}
+.calc .more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--aimid);padding:6px 0}
+.hero{padding:20px 0 8px}
+.hero .lead{margin-top:8px}
+.calc{background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--ai);border-radius:18px;padding:22px 20px 18px;box-shadow:var(--shadow);margin-top:18px}
+.calc h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:4px}
+.calc .sub{font-size:12.5px;color:var(--ink3);margin-bottom:14px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.g{grid-template-columns:1fr}}
+.fld label{display:block;font-size:12.5px;font-weight:700;margin-bottom:4px}
+.fld .in{display:flex;align-items:center;border:1.5px solid var(--rule2);border-radius:10px;background:#fff;overflow:hidden}
+.fld .in:focus-within{outline:2px solid var(--aimid);border-color:var(--aimid)}
+.fld input,.fld select{flex:1;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border:none;background:transparent;color:var(--ink);text-align:right}
+.fld select{text-align:left;appearance:auto}
+.fld .u{font-size:12px;color:var(--ink3);padding:0 12px 0 4px;white-space:nowrap}
+.fld .hint{font-size:11px;color:var(--ink3);margin-top:3px;line-height:1.5}
+
+.res{margin-top:22px}
+.res h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:10px}
+.cmp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.c.wait{border:1.5px dashed var(--kin);background:var(--kinpale)}
+.c.wait h3{color:var(--kin)}
+.c .wnote{margin-top:10px;font-size:12px;color:var(--ink2);background:#fff;border-radius:8px;padding:8px 10px;line-height:1.7}
+.c .wnote b{color:var(--kin)}
+.c{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.c.on{border:1.5px solid var(--shu);background:#fff}
+.c h3{font-size:12px;letter-spacing:.12em;font-weight:800;color:var(--ink3);margin-bottom:8px}
+.c.on h3{color:var(--shu)}
+.c .big{font-family:var(--serif);font-weight:800;font-size:clamp(22px,5.4vw,30px);line-height:1.2;color:var(--ink)}
+.c .big.minus{color:var(--shu)}.c .big.plus{color:var(--mid)}
+.c .lbl{font-size:12px;color:var(--ink3);margin-top:2px}
+.c table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12.5px}
+.c td{padding:5px 0;border-top:1px dashed var(--rule);vertical-align:top}
+.c td:last-child{text-align:right;white-space:nowrap;font-weight:700;color:var(--ink)}
+.c td .s{display:block;font-size:10.5px;color:var(--ink3);font-weight:400;line-height:1.4}
+.c tr.sum td{border-top:1.5px solid var(--rule2);font-weight:800}
+.diff{margin-top:14px;background:var(--ai);color:#fff;border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 12px 30px rgba(27,59,95,.25)}
+.diff .t{font-size:12px;letter-spacing:.12em;color:#C9D7E6;font-weight:700}
+.diff .n{font-family:var(--serif);font-weight:800;font-size:clamp(30px,8vw,44px);line-height:1.2;margin:4px 0 2px}
+.diff .d{font-size:12.5px;color:#C9D7E6;line-height:1.7}
+.cta{margin-top:14px;display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:15px 20px;font-weight:800;font-size:15.5px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+.btn.shu{background:var(--shu);color:#fff;box-shadow:0 6px 16px rgba(168,56,44,.28)}
+.btn.gh{border:1.5px solid var(--rule2);color:var(--ink2);background:#fff}
+.btn small{font-weight:600;font-size:11.5px;opacity:.85}
+.caut{margin-top:14px;font-size:12px;color:var(--ink2);background:var(--card2);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;line-height:1.75}
+.caut b{color:var(--shu)}
+
+details.asm{margin-top:14px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:0 16px}
+details.asm summary{cursor:pointer;list-style:none;padding:12px 0;font-weight:800;font-size:13.5px}
+details.asm summary::-webkit-details-marker{display:none}
+details.asm summary::after{content:"変える ＋";float:right;color:var(--aimid);font-size:12px}
+details.asm[open] summary::after{content:"閉じる －"}
+details.asm .body{padding:2px 0 14px}
+details.asm .g{gap:10px}
+details.asm .fld label{font-size:12px}
+details.asm .fld input{font-size:15px;padding:8px 10px}
+.why{margin-top:26px}
+.why h2{font-family:var(--serif);font-size:18px;font-weight:800;margin-bottom:8px}
+.why p{font-size:13.5px;color:var(--ink2);margin-bottom:8px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(237,238,234,.94);backdrop-filter:blur(8px);border-top:1px solid var(--rule);padding:9px 14px;display:flex;gap:8px;justify-content:center}
+.bar a{flex:1;max-width:340px;display:flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 12px;font-weight:800;font-size:13.5px;text-decoration:none}
+.bar .p{background:var(--shu);color:#fff}.bar .t{border:1.5px solid var(--rule2);background:#fff;color:var(--ink)}
+footer{background:#132B45;color:#9FB4C9;padding:28px 0 36px;font-size:12px;text-align:center;margin-top:36px}
+footer .fl{font-family:var(--serif);font-weight:800;letter-spacing:.09em;font-size:15px;color:#fff;display:block;margin-bottom:6px}
+footer a{color:#C6D6E5}
+</style>
+<style>
+body{padding-bottom:20px}
+.box{max-width:560px;margin:14px auto;background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--ai);border-radius:18px;padding:20px 18px 16px;box-shadow:var(--shadow)}
+.k{font-size:11px;letter-spacing:.14em;color:var(--mid);font-weight:700}
+h1{font-family:var(--serif);font-size:clamp(21px,5.6vw,26px);line-height:1.45;font-weight:800;margin:4px 0 6px}
+.lead{font-size:13.5px;color:var(--ink2)}
+.safe{font-size:11.5px;color:var(--mid);background:var(--midpale);border-radius:10px;padding:7px 10px;margin:10px 0 12px}
+.f{margin-bottom:12px}
+.f label{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:4px}
+.f label output{font-family:var(--serif);font-size:17px;color:var(--ai)}
+.f input[type=range]{width:100%;accent-color:#1B3B5F}
+.f .h{font-size:11px;color:var(--ink3)}
+.go{display:block;width:100%;border:none;border-radius:999px;background:var(--ai);color:#fff;font:inherit;font-weight:800;font-size:15.5px;padding:13px;cursor:pointer;margin-top:4px}
+#res{display:none;margin-top:16px}
+.card{border:1px solid var(--rule);border-radius:14px;padding:12px 14px;margin-bottom:10px;background:#fff}
+.card .t{font-size:12px;font-weight:800;color:var(--ink3);letter-spacing:.06em}
+.card .n{font-family:var(--serif);font-weight:800;font-size:clamp(22px,6vw,28px);line-height:1.3}
+.card .d{font-size:11.5px;color:var(--ink3);line-height:1.6}
+.card.a .n{color:var(--shu)}.card.b{border:1.5px solid var(--mid)}.card.b .n{color:var(--mid)}.card.c{border:1.5px dashed var(--kin);background:var(--kinpale)}.card.c .n{color:var(--kin)}
+.msg{font-family:var(--serif);font-weight:800;font-size:16.5px;text-align:center;margin:14px 0 10px}
+.cta{display:grid;gap:9px}
+.cta a{display:flex;flex-direction:column;align-items:center;border-radius:999px;padding:12px 14px;text-decoration:none;font-weight:800;font-size:14.5px}
+.cta a small{font-weight:600;font-size:11px;opacity:.85}
+.cta .p{background:var(--shu);color:#fff}.cta .s{border:1.5px solid var(--rule2);background:#fff;color:var(--ink)}
+.asm{font-size:10.5px;color:var(--ink3);margin-top:10px;line-height:1.6}
+.by{max-width:560px;margin:4px auto 0;text-align:right;font-size:11px;color:var(--ink3)}
+.by a{color:var(--ink3)}
+body.em{background:transparent}body.em .box{margin:0 auto;box-shadow:none}
+</style>
+<script src="bc-analytics.js"></script>
+</head>
+<body>
+<div class="wrap">
+<div class="box" id="box">
+  <div class="k" id="kicker">店舗の出口30秒チェック</div>
+  <h1 id="ttl">閉店費用、いくらかかる？</h1>
+  <p class="lead" id="lead">営業中の今なら、「原状回復して閉める」以外の方法が残っているかもしれません。3つの数字で比べます。</p>
+  <div class="safe">🔒 店名・氏名は不要。入力した数字はこの画面の中だけで計算し、どこにも送られません。</div>
+  <div class="f"><label for="tsubo">お店の広さ<output id="oT">15坪</output></label><input type="range" id="tsubo" min="3" max="60" step="1" value="15"><div class="h">1坪 ≒ 3.3㎡</div></div>
+  <div class="f"><label for="rent">月額賃料（共益費込み）<output id="oR">15万円</output></label><input type="range" id="rent" min="3" max="60" step="1" value="15"></div>
+  <div class="f"><label for="inv">内装・厨房設備にかけた総額<output id="oI">600万円</output></label><input type="range" id="inv" min="50" max="3000" step="50" value="600"><div class="h">開業時＋改装＋厨房機器のおおよその合計でOK</div></div>
+  <button class="go" id="go" type="button">結果を見る</button>
+
+  <div id="res" aria-live="polite">
+    <div class="card a"><div class="t">原状回復して閉めた場合</div><div class="n" id="rA">—</div><div class="d">原状回復・解約予告期間の家賃などから、戻る敷金を引いた持ち出しの目安</div></div>
+    <div class="card b"><div class="t">営業中に、次の店主へ渡せた場合</div><div class="n" id="rB">—</div><div class="d">原状回復が不要になり、内装・設備に値段がつく場合の手元の目安（貸主の承諾・継ぎ手が前提）</div></div>
+    <div class="card c"><div class="t">1年様子を見た場合</div><div class="n" id="rC">—</div><div class="d">内装・設備の値打ちは年々下がります。1年で減る分の目安です</div></div>
+    <p class="msg">閉店を決める前なら、まだ比べられます。</p>
+    <div class="cta">
+      <a class="s" id="toDetail" target="_blank" rel="noopener">もう少し正確に計算する<small>敷金・解約予告・リースなどを入れて精度を上げる（匿名）</small></a>
+      <a class="p" id="toCheck" target="_blank" rel="noopener">この店が渡せるか確認する<small>閉店を決める必要はありません・無料・誰にも伝えません</small></a>
+    </div>
+    <p class="asm">計算の前提：飲食店のスケルトン戻し10〜15万円/坪、敷金は賃料6か月分、解約予告6か月、開業から4年、正社員1人、リース残債なし。内装・設備の値段は「かけた金額×経過年数の残存率」の参考の幅で、査定額ではありません。値段は店主ご自身が決めます。結果は目安で、承継が必ず成立するものではありません。</p>
+  </div>
+</div>
+<p class="by">Powered by <a href="https://www.bridgecycleco.com/taiten-zen-shokei.html" target="_blank" rel="noopener">BRIDGE CYCLE</a>（滋賀県大津市・認定経営革新等支援機関）</p>
+</div>
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s);};
+  var q=new URLSearchParams(location.search);
+  var ref=(q.get('ref')||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20);
+  var forv=(q.get('for')||'general').replace(/[^a-z]/g,'');
+  if(q.get('embed')==='1')document.body.classList.add('em');
+  /* 相手ごとに入口の言葉だけを変える（中身の計算は同じ） */
+  var V={
+    kitchen:['設備の買い替え前チェック','100万円かける前に、30秒。','この設備投資の前に、店を「続ける・渡す・閉める」で数字を並べてみませんか。3つの数字で比べます。'],
+    tax:['続けるか迷ったときのチェック','閉店を決める前に、数字だけ確認。','続ける・渡す・閉める。決めるのはまだ先で構いません。3つの数字で、それぞれの手元の差を並べます。'],
+    estate:['原状回復の前のチェック','原状回復を始める前に、一度だけ。','厨房・カウンター・内装を、そのまま次の店主へ引き継げる場合があります。3つの数字で、閉めた場合と比べます。'],
+    shokokai:['店の選択肢チェック','廃業の相談ではありません。','今の店に残っている選択肢を、3つの数字で確かめるツールです。閉める・渡す・様子を見る、を並べます。'],
+    general:['店舗の出口30秒チェック','閉店費用、いくらかかる？','営業中の今なら、「原状回復して閉める」以外の方法が残っているかもしれません。3つの数字で比べます。']
+  };
+  var v=V[forv]||V.general; $('#kicker').textContent=v[0]; $('#ttl').textContent=v[1]; $('#lead').textContent=v[2];
+  var track=function(n){window.bcTrack&&bcTrack(n,{check_for:forv,partner:ref||'none'});};
+  track('check_view');
+  /* yameru.html の初期値と同じ前提 */
+  var D={dep:6,notice:6,yrs:4,staff:1,staffCost:30,proc:15,pLo:10,pHi:15,mTake:3,lease:0}, RATE=[100,70,55,45,35,28,20];
+  function f(x){return Math.abs(Math.round(x)).toLocaleString('ja-JP');}
+  function rg(lo,hi){var a=Math.min(lo,hi),b=Math.max(lo,hi);if(b<0)return '▲'+f(b)+'〜'+f(a)+'万円';if(a>=0)return '＋'+f(a)+'〜'+f(b)+'万円';return '▲'+f(a)+'万円〜＋'+f(b)+'万円';}
+  var started=false;
+  function vals(){return {t:+$('#tsubo').value,r:+$('#rent').value,i:+$('#inv').value};}
+  function show(){var x=vals();$('#oT').textContent=x.t+'坪';$('#oR').textContent=x.r+'万円';$('#oI').textContent=x.i.toLocaleString('ja-JP')+'万円';if(!started){started=true;track('check_start');}}
+  function calc(){
+    var x=vals(), dep=x.r*D.dep, notice=D.notice*x.r, staffC=D.staff*D.staffCost;
+    var aHi=dep-(x.t*D.pLo+notice+D.lease+staffC+D.proc), aLo=dep-(x.t*D.pHi+notice+D.lease+staffC+D.proc);
+    var rate=RATE[D.yrs]/100, sHi=x.i*rate, sLo=sHi/2, bN=Math.min(D.notice,D.mTake)*x.r;
+    var bHi=dep+sHi-bN-D.proc, bLo=dep+sLo-bN-D.proc-D.lease-staffC;
+    var r2=RATE[D.yrs+1]/100, drop=((sLo+sHi)/2)-((x.i*r2/2+x.i*r2)/2);
+    $('#rA').textContent=rg(aLo,aHi); $('#rB').textContent=rg(bLo,bHi); $('#rC').textContent='値打ちが約'+f(drop)+'万円減る';
+    var u='&tsubo='+x.t+'&rent='+x.r+'&inv='+x.i+(ref?'&ref='+ref:'')+'&utm_source=check&utm_medium=partner&utm_campaign='+forv+(ref?'&utm_content='+ref:'');
+    $('#toDetail').href='https://www.bridgecycleco.com/yameru.html?from=check'+u;
+    $('#toCheck').href='https://www.bridgecycleco.com/soudan.html?from=check'+(ref?'&ref='+ref:'')+'&utm_source=check&utm_medium=partner&utm_campaign='+forv;
+  }
+  ['tsubo','rent','inv'].forEach(function(id){$('#'+id).addEventListener('input',function(){show();if($('#res').style.display==='block')calc();});});
+  $('#go').addEventListener('click',function(){show();calc();$('#res').style.display='block';$('#go').textContent='数字を動かすと結果も変わります';track('check_complete');try{$('#res').scrollIntoView({behavior:'smooth',block:'start'});}catch(e){}});
+  $('#toDetail').addEventListener('click',function(){track('check_detail_click');});
+  $('#toCheck').addEventListener('click',function(){track('check_confirm_click');});
+  show(); started=false;
+})();
+</script>
+</body>
+</html>

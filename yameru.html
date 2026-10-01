@@ -299,6 +299,8 @@ footer a{color:#C6D6E5}
   try{var m=location.search.match(/[?&]ref=([A-Za-z0-9_-]{2,20})/);if(m){ref=m[1].toUpperCase();localStorage.setItem('bc_ref',ref);localStorage.setItem('bc_ref_at',new Date().toISOString());}else{ref=localStorage.getItem('bc_ref')||'';}}catch(e){}
   if(ref){$('#ctaSoudan').href='soudan.html?ref='+ref;$('#barSoudan').href='soudan.html?ref='+ref;}
 
+  /* 外部チェック（check.html）から来た場合：3つの数字を引き継ぐ */
+  try{var qp=new URLSearchParams(location.search);['tsubo','rent','inv'].forEach(function(k){var v=parseFloat(qp.get(k));if(!isNaN(v)&&v>0&&v<100000){var e=document.getElementById(k);if(e)e.value=v;if(k==='rent'){var d=document.getElementById('dep');if(d)d.value=Math.round(v*6);}}});}catch(e){}
   var RATE=[100,70,55,45,35,28,20];
   function num(id){var v=parseFloat($(id).value);return isNaN(v)?0:v;}
   function man(v){v=Math.round(v);var s=(v<0?'▲':'')+Math.abs(v).toLocaleString('ja-JP')+'万円';return s;}
