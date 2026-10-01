@@ -31,6 +31,11 @@ h1{font-family:var(--serif);font-size:clamp(23px,6vw,30px);line-height:1.5;font-
 .dl{display:grid;gap:8px;margin-top:6px}
 .dl a{padding:10px 14px;justify-content:space-between;background:#fff;color:var(--brown);border:1.5px solid var(--line)}
 .dl a small{color:var(--muted);font-weight:600}
+.code{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--rose-pale);border-radius:12px;padding:10px 12px;font-size:13px}
+.code input{font:inherit;font-size:15px;font-weight:800;letter-spacing:.06em;border:1.5px solid var(--line);border-radius:8px;padding:6px 10px;width:150px;text-transform:uppercase}
+.code button{border:none;border-radius:8px;background:var(--rose);color:#fff;font:inherit;font-weight:800;font-size:12.5px;padding:7px 12px;cursor:pointer}
+.emb{margin-top:10px;border:1px dashed var(--line);border-radius:12px;padding:8px;background:#fff}
+.emb iframe{display:block;width:100%;height:330px;border:0}
 .warn{background:#fff6e5;border:1.5px solid #e9cf96;border-radius:12px;padding:12px 14px;font-size:13px;color:#5d4b2a}
 .warn b{color:#8a5a12}
 ul.p li{font-size:13.5px;color:#5d534d;margin-left:1.2em;margin-bottom:3px}
@@ -38,6 +43,7 @@ footer{margin-top:30px;padding:24px 0 36px;text-align:center;font-size:12px;colo
 </style>
 <script>window.AKINAI_ANALYTICS_ID="G-GYGZ9W6FQ9";</script>
 <script src="bc-analytics.js"></script>
+<script src="qrcode.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -46,6 +52,13 @@ footer{margin-top:30px;padding:24px 0 36px;text-align:center;font-size:12px;colo
   <h1>お客様やフォロワーに<br>「わたしのこれから診断」をご紹介いただくためのキット</h1>
   <p class="lead">9問・3分・無料・登録不要の診断です。リンクを1本、どこかに置いていただくだけで構いません。</p>
 </header>
+
+<section class="st">
+  <span class="no">紹介コード</span>
+  <h2>あなたの紹介コード</h2>
+  <div class="code"><span>コード</span><input id="codeIn" maxlength="20" placeholder="例：A-K7Q2M" autocomplete="off"><button id="codeSet">反映する</button></div>
+  <p style="margin-top:8px;font-size:12.5px" id="codeNote"></p>
+</section>
 
 <section class="st">
   <span class="no">まず選ぶ</span>
@@ -69,7 +82,6 @@ footer{margin-top:30px;padding:24px 0 36px;text-align:center;font-size:12px;colo
 <section class="st">
   <span class="no">方法2</span>
   <h2>レジ横・受付・チラシにQRコード</h2>
-  <p id="qrnote" style="display:none">あなた専用のQRコードは、BRIDGE CYCLEからお送りします（info@bridgecycleco.com）。</p>
   <div class="qr"><img id="qrimg" alt="わたしのこれから診断のQRコード"><div><p>画像を長押し（右クリック）で保存できます。</p><div class="dl"><a id="qrdl" download>QRコードを保存<small>PNG</small></a></div></div></div>
 </section>
 
@@ -82,6 +94,15 @@ footer{margin-top:30px;padding:24px 0 36px;text-align:center;font-size:12px;colo
   <p style="margin-top:8px">リンクだけ（文字リンク用のURL）</p>
   <div class="cp"><input id="url" readonly><button data-c="url">コピー</button></div>
   <div class="ok" id="ok-url"></div>
+</section>
+
+<section class="st">
+  <span class="no">方法4</span>
+  <h2>ホームページ・ブログに「診断カード」を埋め込む</h2>
+  <p>下のコードを貼ると、あなたのページの中にこのカードが表示されます。押すと診断が新しいタブで開きます。紹介コードは入っています。</p>
+  <div class="cp"><textarea id="emb" rows="3" readonly></textarea><button data-c="emb">コピー</button></div>
+  <div class="ok" id="ok-emb"></div>
+  <div class="emb"><iframe id="embPrev" title="わたしのこれから診断（見本）" loading="lazy"></iframe></div>
 </section>
 
 <section class="st">
@@ -101,7 +122,7 @@ footer{margin-top:30px;padding:24px 0 36px;text-align:center;font-size:12px;colo
     <li>9問の診断は無料です。登録・メールアドレスの入力はありません</li>
     <li>有料は2つだけ（3,300円の3案、29,800円の30日伴走）。自動継続・月額課金はありません</li>
     <li>こちらから営業の連絡をすることはありません</li>
-    <li>ご紹介くださった方には、有料版（3,300円）を無料でお試しいただけます。ご希望の方は下の連絡先へ</li>
+    <li>ご紹介くださった方には、有料版（3,300円）を無料でお試しいただけます。紹介コード経由で有料版が購入された場合のお礼は、<a href="partners.html">紹介パートナー制度のページ</a>のとおりです</li>
   </ul>
   <p style="margin-top:8px">BRIDGE CYCLE株式会社　中村裕二｜080-5309-9770｜<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>｜<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINE</a></p>
 </section>
@@ -111,7 +132,9 @@ footer{margin-top:30px;padding:24px 0 36px;text-align:center;font-size:12px;colo
 (function(){
   var $=function(s){return document.querySelector(s);};
   var q=new URLSearchParams(location.search);
-  var ref=(q.get('ref')||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20);
+  var clean=function(v){return (v||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20);};
+  var ref=clean(q.get('ref'));
+  if(!ref){try{ref=clean(localStorage.getItem('bc_my_code'));}catch(e){}}
   var D={
     salon:['施術中の会話のきっかけに。「最近どう？」の延長で、お客様が自分のこれからを考える3分です。','髪を変える前に、これからのことも少し考えてみませんか。9問・3分・無料・登録不要の「わたしのこれから診断」です。'],
     career:['面談の前の自己整理に。強み・価値観・今の違和感を、相談者さんが自分の言葉にできます。','転職するかどうかを決める前に。9問・3分で、強みと「これからどうしたいか」を一文にする無料の診断です（登録不要）。'],
@@ -121,17 +144,22 @@ footer{margin-top:30px;padding:24px 0 36px;text-align:center;font-size:12px;colo
   var f=(q.get('for')||'salon').replace(/[^a-z]/g,''); if(!D[f])f='salon';
   function render(){
     document.querySelectorAll('#seg button').forEach(function(b){b.classList.toggle('on',b.dataset.f===f);});
-    var url='https://www.bridgecycleco.com/akinai.html?utm_source=partner&utm_medium=referral&utm_campaign=korekara_'+f+(ref?'&utm_content='+ref:'');
+    var url='https://www.bridgecycleco.com/akinai.html?utm_source=partner&utm_medium=referral&utm_campaign=korekara_'+f+(ref?'&utm_content='+ref+'&ref='+ref:'');
     $('#desc').textContent=D[f][0];
     $('#msg').value=D[f][1]+'\n'+url;
     $('#url').value=url;
     $('#ban').value='<a href="'+url+'" target="_blank" rel="noopener"><img src="https://www.bridgecycleco.com/share/korekara-banner.jpg" alt="わたしのこれから診断｜9問・3分・無料・登録不要" width="1200" height="400" loading="lazy" style="width:100%;max-width:1200px;height:auto;border-radius:12px"></a>';
-    var known=ref&&KNOWN.indexOf(ref)>=0;
-    var qr=known?'share/qr/'+ref+'.png':'share/qr/korekara-'+f+'.png';
+    var c=qrcode(0,'M');c.addData(url.replace('utm_medium=referral','utm_medium=qr'));c.make();var n=c.getModuleCount(),m=4,sz=Math.max(4,Math.floor(600/(n+2*m)));var cv=document.createElement('canvas');cv.width=cv.height=sz*(n+2*m);var x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.fillStyle='#000';for(var r=0;r<n;r++)for(var k=0;k<n;k++)if(c.isDark(r,k))x.fillRect((k+m)*sz,(r+m)*sz,sz,sz);var qr=cv.toDataURL('image/png');
     $('#qrimg').src=qr;$('#qrdl').href=qr;$('#qrdl').setAttribute('download','わたしのこれから診断_QR_'+(ref||f)+'.png');
-    $('.qr').style.display=(ref&&!known)?'none':''; $('#qrnote').style.display=(ref&&!known)?'':'none';
+    $('#codeIn').value=ref;
+    $('#codeNote').innerHTML=ref?'下の文・QR・バナー・埋め込みには、すべてこのコードが入っています。':'コードがなくても使えますが、お礼の対象になりません。<a href="partners.html">紹介パートナー制度のページ</a>で1分で発行できます。';
+    var es='https://www.bridgecycleco.com/korekara-embed.html'+(ref?'?ref='+ref:'');
+    $('#emb').value='<iframe src="'+es+'" title="わたしのこれから診断" width="100%" height="330" style="border:0;max-width:580px;display:block;margin:0 auto" loading="lazy"></iframe>';
+    if(!$('#embPrev').getAttribute('src'))$('#embPrev').src='korekara-embed.html';
+    if(ref)$('#msg').value=$('#msg').value+'\n#PR';
+    $('#ban').value=$('#ban').value.replace('rel="noopener"','rel="sponsored noopener"');
   }
-  var KNOWN=[];
+  $('#codeSet').addEventListener('click',function(){ref=clean($('#codeIn').value);try{if(ref)localStorage.setItem('bc_my_code',ref);}catch(e){}render();});
   document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){f=b.dataset.f;render();});});
   document.querySelectorAll('[data-c]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.c,el=document.getElementById(id);el.select();try{navigator.clipboard.writeText(el.value);}catch(e){document.execCommand('copy');}document.getElementById('ok-'+id).textContent='コピーしました';window.bcTrack&&bcTrack('korekara_kit_copy',{kit_item:id,partner_type:f,partner:ref||'none'});});});
   window.bcTrack&&bcTrack('korekara_kit_view',{partner:ref||'none'});

@@ -135,7 +135,7 @@ footer a{color:#C6D6E5}
       <tr><th>お礼</th><td><b class="rw" data-rw="korekara">1件 1,000円</b><br><span style="font-size:12.5px;color:var(--ink3)">パートナーになった方は、有料版をご自身で無料でお試しいただけます</span></td></tr>
       <tr><th>向いている方</th><td>美容・ネイル・エステのサロン、キャリア相談、FP、コミュニティ運営、ブロガー</td></tr>
     </table>
-    <a class="go" id="kitKorekara" href="akinai.html">診断を見てみる</a>
+    <a class="go" id="kitKorekara" href="korekara-kit.html">これから診断のキットを開く</a>
   </div>
 </div>
 
@@ -215,6 +215,7 @@ footer a{color:#C6D6E5}
     $('#kitTaiten').href='partner-kit.html?ref='+code;
     $('#kitUriba').href='uriba-kit.html?ref='+code;
     $('#kitShutten').href='shutten-kit.html?ref='+code;
+    $('#kitKorekara').href='korekara-kit.html?ref='+code;
     var msg='紹介パートナー登録\nコード：'+code+'\nお名前・屋号：'+(name||'')+'\n紹介する場所（サイト・SNS・教室など）：\n紹介したいサービス：退店前承継／売り場レンタル／これから診断';
     $('#regLine').href='https://line.me/R/oaMessage/%40907kxssd/?'+encodeURIComponent(msg);
     $('#regMail').href='mailto:info@bridgecycleco.com?subject='+encodeURIComponent('紹介パートナー登録（'+code+'）')+'&body='+encodeURIComponent(msg);
