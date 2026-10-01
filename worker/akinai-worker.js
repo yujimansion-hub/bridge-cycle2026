@@ -56,7 +56,7 @@ async function createCheckout(env,clientKey){
   p.set('success_url',site+'/akinai-plan.html?session_id={CHECKOUT_SESSION_ID}');
   p.set('cancel_url',site+'/akinai.html#paidEngine');
   p.set('metadata[product]','akinai_plan');
-  // モニター向け：Stripeで作成した100%オフのプロモーションコードを入力できるようにする
+  // プロモーションコード入力欄：モニター（100%オフ）と紹介コード（一部値引き）の両方に使う
   p.set('allow_promotion_codes','true');
   const r=await fetch('https://api.stripe.com/v1/checkout/sessions',{
     method:'POST',
@@ -224,11 +224,15 @@ export default {
         if(s.metadata?.product!=='akinai_plan') return json({ok:false,error:'wrong_product'},403,headers);
         if(String(s.currency||'').toLowerCase()!=='jpy') return json({ok:false,error:'wrong_amount_or_currency'},403,headers);
         const paidFull = s.payment_status==='paid' && Number(s.amount_total)===3300;
+        // 紹介コード（一部値引きのプロモーションコード）での購入：定価3,300円から当社発行のコードで値引きし、残額を支払ったセッションを許可
+        const paidDiscounted = s.status==='complete' && s.payment_status==='paid'
+          && Number(s.amount_subtotal)===3300 && Number(s.amount_total)>0 && Number(s.amount_total)<3300
+          && Number(s.total_details?.amount_discount)===3300-Number(s.amount_total);
         // モニター：100%オフのプロモーションコードで0円完了したセッションのみ許可
         const monitorFree = s.status==='complete' && s.payment_status==='no_payment_required'
           && Number(s.amount_subtotal)===3300 && Number(s.amount_total)===0
           && Number(s.total_details?.amount_discount)===3300;
-        if(!paidFull && !monitorFree){
+        if(!paidFull && !paidDiscounted && !monitorFree){
           if(s.payment_status!=='paid'&&s.payment_status!=='no_payment_required') return json({ok:false,error:'payment_not_confirmed'},402,headers);
           return json({ok:false,error:'wrong_amount_or_currency'},403,headers);
         }
@@ -236,7 +240,7 @@ export default {
         const payload={sid:s.id,ref:client_key,exp:Date.now()+30*24*60*60*1000};
         const token=await makeToken(env,payload);
         if(env.AKINAI_KV) await env.AKINAI_KV.put('verified:'+s.id,monitorFree?'monitor':'1',{expirationTtl:31*24*60*60});
-        return json({ok:true,token,expires_in_days:30,max_generations:5,monitor:monitorFree},200,headers);
+        return json({ok:true,token,expires_in_days:30,max_generations:5,monitor:monitorFree,amount_paid:Number(s.amount_total)||0},200,headers);
       }
       if(u.pathname==='/generate'&&req.method==='POST'){
         const auth=(req.headers.get('Authorization')||'').replace(/^Bearer\s+/i,'');

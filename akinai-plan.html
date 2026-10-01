@@ -123,7 +123,8 @@ function funnelCtx(){
     utm_term:f.utm_term||''
   };
 }
-function trackPurchase(sid,monitor){
+function trackPurchase(sid,monitor,paid){
+  const v=(paid>0&&paid<=3300)?paid:3300;  // 紹介コードで値引きされた場合は実際の支払額
   try{
     const key='akinai_purchase_tracked';
     if(localStorage.getItem(key)===sid) return;           // 同じ決済は1回だけ
@@ -131,8 +132,8 @@ function trackPurchase(sid,monitor){
       window.track&&window.track('monitor_redeem',Object.assign({transaction_id:sid},funnelCtx()));
       localStorage.setItem(key,sid); return;
     }
-    window.track&&window.track('purchase',Object.assign({transaction_id:sid,value:3300,currency:'JPY',
-      items:[{item_id:'akinai_web_plan',item_name:'わたしの商い設計 3つの商いプラン',price:3300,quantity:1}]},funnelCtx()));
+    window.track&&window.track('purchase',Object.assign({transaction_id:sid,value:v,currency:'JPY',
+      items:[{item_id:'akinai_web_plan',item_name:'わたしの商い設計 3つの商いプラン',price:v,quantity:1}]},funnelCtx()));
     localStorage.setItem(key,sid);
   }catch(e){}
 }
@@ -169,7 +170,7 @@ async function verify(){
       setStatus('購入確認ができませんでした。'+why+' 解決しない場合は、Stripeからの領収メールを info@bridgecycleco.com へ転送してください。手動で確認します。','err');return
     }
     localStorage.setItem('akinai_plan_token',d.token);
-    trackPurchase(sid,!!d.monitor);                                            // 決済確認済み＝購入成立として計測
+    trackPurchase(sid,!!d.monitor,Number(d.amount_paid)||0);                                            // 決済確認済み＝購入成立として計測
     history.replaceState({},'',location.pathname);
   }
   if(!token()){setStatus('購入確認が必要です。診断ページから決済してください。','err');return}
