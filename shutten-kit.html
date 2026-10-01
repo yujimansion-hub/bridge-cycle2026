@@ -62,7 +62,7 @@ footer{background:#132B45;color:#9FB4C9;padding:24px 0 30px;font-size:12px;text-
   <span class="no">1　入力する</span>
   <div class="f"><label for="nm">屋号</label><input id="nm" maxlength="24" placeholder="例：〇〇コーヒー"></div>
   <div class="g2">
-    <div class="f"><label for="dt">出店日</label><input type="date" id="dt"></div>
+    <div class="f"><label for="dt">出店日</label><input type="date" id="dt" required><div class="h">決済が済んだ出店日を選んでください</div></div>
     <div class="f"><label for="tm">時間帯</label><select id="tm"><option value="昼の部 9:00〜15:00">昼の部 9:00〜15:00</option><option value="夜の部 15:00〜21:00">夜の部 15:00〜21:00</option><option value="終日 9:00〜21:00">終日 9:00〜21:00</option></select></div>
   </div>
   <div class="f"><label for="it">何を売りますか（ひとこと）</label><input id="it" maxlength="32" placeholder="例：自家焙煎コーヒーと焼き菓子"><div class="h">32字まで。画像にそのまま入ります</div></div>
@@ -113,11 +113,11 @@ footer{background:#132B45;color:#9FB4C9;padding:24px 0 30px;font-size:12px;text-
   var saved={}; try{saved=JSON.parse(localStorage.getItem('bc_shutten')||'{}');}catch(e){}
   $('#nm').value=q.get('name')||saved.nm||''; $('#it').value=q.get('item')||saved.it||''; $('#ig').value=q.get('ig')||saved.ig||'';
   if(saved.tm) $('#tm').value=saved.tm;
-  var d0=new Date(Date.now()+7*864e5); $('#dt').value=q.get('date')||(d0.getFullYear()+'-'+('0'+(d0.getMonth()+1)).slice(-2)+'-'+('0'+d0.getDate()).slice(-2));
+  $('#dt').value=q.get('date')||'';
   var photo=new Image(), base=new Image(), tab='ig';
   base.src='kokaido-04.jpg';
   function dateLabel(){
-    var v=$('#dt').value; if(!v) return '出店日';
+    var v=$('#dt').value; if(!v) return '（出店日を入力）';
     var p=v.split('-'),d=new Date(+p[0],+p[1]-1,+p[2]);
     return (d.getMonth()+1)+'月'+d.getDate()+'日（'+'日月火水木金土'[d.getDay()]+'）';
   }
@@ -174,7 +174,9 @@ footer{background:#132B45;color:#9FB4C9;padding:24px 0 30px;font-size:12px;text-
   function render(){
     clearTimeout(t);t=setTimeout(function(){
       draw($('#cP'),false);draw($('#cS'),true);
-      try{$('#dP').href=$('#cP').toDataURL('image/jpeg',.9);$('#dS').href=$('#cS').toDataURL('image/jpeg',.9);}catch(e){}
+      var ready=!!$('#dt').value && !!$('#nm').value.trim();
+      ['#dP','#dS'].forEach(function(id){var a=$(id);a.style.opacity=ready?'':'.45';a.style.pointerEvents=ready?'':'none';a.textContent=ready?'画像を保存':'出店日と屋号を入れると保存できます';});
+      try{if(ready){$('#dP').href=$('#cP').toDataURL('image/jpeg',.9);$('#dS').href=$('#cS').toDataURL('image/jpeg',.9);}else{$('#dP').removeAttribute('href');$('#dS').removeAttribute('href');}}catch(e){}
       var fn=($('#dt').value||'date')+'_'+($('#nm').value||'shop');$('#dP').download='出店告知_投稿_'+fn+'.jpg';$('#dS').download='出店告知_ストーリーズ_'+fn+'.jpg';
       $('#cap').value=caption();
       try{localStorage.setItem('bc_shutten',JSON.stringify({nm:$('#nm').value,it:$('#it').value,ig:$('#ig').value,tm:$('#tm').value}));}catch(e){}
