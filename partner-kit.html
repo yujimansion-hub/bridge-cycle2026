@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご紹介用キット｜店舗の出口30秒チェック｜BRIDGE CYCLE</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--paper:#EDEEEA;--card:#fff;--card2:#F4F4F0;--ink:#15171C;--ink2:#4A4C52;--ink3:#767870;--rule:#D9DAD3;--rule2:#C3C4BC;--ai:#1B3B5F;--aimid:#3D6389;--aipale:#E7EEF5;--shu:#A8382C;--shupale:#F6E7E4;--mid:#2E6B4F;--midpale:#E3EFE9;--kin:#8A6D1F;--kinpale:#F5F0E0;--serif:"Shippori Mincho",serif;--shadow:0 1px 2px rgba(20,22,26,.06),0 10px 28px rgba(20,22,26,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:15px;line-height:1.85;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+a{color:var(--aimid)}
+b{color:var(--ai)}
+.nav{border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:12px;padding:13px 18px}
+.logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}
+.logo b{color:var(--aimid)}
+.nav .sp{margin-left:auto;font-size:11px;color:var(--ink3)}
+.hero{padding:38px 0 22px}
+.hero .badge{display:inline-block;font-size:11px;letter-spacing:.14em;color:var(--mid);font-weight:700;border:1.5px solid var(--mid);background:#fff;border-radius:999px;padding:5px 14px;margin-bottom:14px}
+.hero h1{font-family:var(--serif);font-size:clamp(27px,7vw,38px);line-height:1.4;font-weight:800}
+.hero h1 u{text-decoration:none;border-bottom:5px solid var(--shu);padding-bottom:2px}
+.hero .lead{margin-top:12px;color:var(--ink2);font-size:14.5px}
+.anon{display:flex;gap:10px;align-items:flex-start;background:var(--midpale);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--mid);margin-top:14px;line-height:1.7}
+.anon::before{content:"🔒";flex:none}
+.anon b{color:var(--mid)}
+
+.calc .see{display:block;margin:16px 0 4px;text-align:center;background:var(--ai);color:#fff;font-weight:800;font-size:15px;border-radius:12px;padding:13px 10px;text-decoration:none}
+.calc .more{margin-top:10px;border-top:1px dashed var(--rule2);padding-top:10px}
+.calc .more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--aimid);padding:6px 0}
+.hero{padding:20px 0 8px}
+.hero .lead{margin-top:8px}
+.calc{background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--ai);border-radius:18px;padding:22px 20px 18px;box-shadow:var(--shadow);margin-top:18px}
+.calc h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:4px}
+.calc .sub{font-size:12.5px;color:var(--ink3);margin-bottom:14px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.g{grid-template-columns:1fr}}
+.fld label{display:block;font-size:12.5px;font-weight:700;margin-bottom:4px}
+.fld .in{display:flex;align-items:center;border:1.5px solid var(--rule2);border-radius:10px;background:#fff;overflow:hidden}
+.fld .in:focus-within{outline:2px solid var(--aimid);border-color:var(--aimid)}
+.fld input,.fld select{flex:1;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border:none;background:transparent;color:var(--ink);text-align:right}
+.fld select{text-align:left;appearance:auto}
+.fld .u{font-size:12px;color:var(--ink3);padding:0 12px 0 4px;white-space:nowrap}
+.fld .hint{font-size:11px;color:var(--ink3);margin-top:3px;line-height:1.5}
+
+.res{margin-top:22px}
+.res h2{font-family:var(--serif);font-size:19px;font-weight:800;margin-bottom:10px}
+.cmp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.c.wait{border:1.5px dashed var(--kin);background:var(--kinpale)}
+.c.wait h3{color:var(--kin)}
+.c .wnote{margin-top:10px;font-size:12px;color:var(--ink2);background:#fff;border-radius:8px;padding:8px 10px;line-height:1.7}
+.c .wnote b{color:var(--kin)}
+.c{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.c.on{border:1.5px solid var(--shu);background:#fff}
+.c h3{font-size:12px;letter-spacing:.12em;font-weight:800;color:var(--ink3);margin-bottom:8px}
+.c.on h3{color:var(--shu)}
+.c .big{font-family:var(--serif);font-weight:800;font-size:clamp(22px,5.4vw,30px);line-height:1.2;color:var(--ink)}
+.c .big.minus{color:var(--shu)}.c .big.plus{color:var(--mid)}
+.c .lbl{font-size:12px;color:var(--ink3);margin-top:2px}
+.c table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12.5px}
+.c td{padding:5px 0;border-top:1px dashed var(--rule);vertical-align:top}
+.c td:last-child{text-align:right;white-space:nowrap;font-weight:700;color:var(--ink)}
+.c td .s{display:block;font-size:10.5px;color:var(--ink3);font-weight:400;line-height:1.4}
+.c tr.sum td{border-top:1.5px solid var(--rule2);font-weight:800}
+.diff{margin-top:14px;background:var(--ai);color:#fff;border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 12px 30px rgba(27,59,95,.25)}
+.diff .t{font-size:12px;letter-spacing:.12em;color:#C9D7E6;font-weight:700}
+.diff .n{font-family:var(--serif);font-weight:800;font-size:clamp(30px,8vw,44px);line-height:1.2;margin:4px 0 2px}
+.diff .d{font-size:12.5px;color:#C9D7E6;line-height:1.7}
+.cta{margin-top:14px;display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:15px 20px;font-weight:800;font-size:15.5px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+.btn.shu{background:var(--shu);color:#fff;box-shadow:0 6px 16px rgba(168,56,44,.28)}
+.btn.gh{border:1.5px solid var(--rule2);color:var(--ink2);background:#fff}
+.btn small{font-weight:600;font-size:11.5px;opacity:.85}
+.caut{margin-top:14px;font-size:12px;color:var(--ink2);background:var(--card2);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;line-height:1.75}
+.caut b{color:var(--shu)}
+
+details.asm{margin-top:14px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:0 16px}
+details.asm summary{cursor:pointer;list-style:none;padding:12px 0;font-weight:800;font-size:13.5px}
+details.asm summary::-webkit-details-marker{display:none}
+details.asm summary::after{content:"変える ＋";float:right;color:var(--aimid);font-size:12px}
+details.asm[open] summary::after{content:"閉じる －"}
+details.asm .body{padding:2px 0 14px}
+details.asm .g{gap:10px}
+details.asm .fld label{font-size:12px}
+details.asm .fld input{font-size:15px;padding:8px 10px}
+.why{margin-top:26px}
+.why h2{font-family:var(--serif);font-size:18px;font-weight:800;margin-bottom:8px}
+.why p{font-size:13.5px;color:var(--ink2);margin-bottom:8px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(237,238,234,.94);backdrop-filter:blur(8px);border-top:1px solid var(--rule);padding:9px 14px;display:flex;gap:8px;justify-content:center}
+.bar a{flex:1;max-width:340px;display:flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 12px;font-weight:800;font-size:13.5px;text-decoration:none}
+.bar .p{background:var(--shu);color:#fff}.bar .t{border:1.5px solid var(--rule2);background:#fff;color:var(--ink)}
+footer{background:#132B45;color:#9FB4C9;padding:28px 0 36px;font-size:12px;text-align:center;margin-top:36px}
+footer .fl{font-family:var(--serif);font-weight:800;letter-spacing:.09em;font-size:15px;color:#fff;display:block;margin-bottom:6px}
+footer a{color:#C6D6E5}
+</style>
+<style>
+.hero{padding:26px 0 8px}
+.hero h1{font-size:clamp(23px,6vw,30px)}
+.st{margin-top:18px;background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.st h2{font-family:var(--serif);font-size:17px;font-weight:800;margin-bottom:6px}
+.st p{font-size:13.5px;color:var(--ink2);margin-bottom:8px}
+.no{display:inline-block;background:var(--ai);color:#fff;border-radius:999px;font-size:11px;font-weight:800;padding:2px 10px;margin-bottom:6px}
+.cp{display:flex;gap:8px;align-items:stretch}
+.cp textarea,.cp input{flex:1;font:inherit;font-size:13px;border:1.5px solid var(--rule2);border-radius:10px;padding:9px 10px;background:#fff;color:var(--ink);resize:vertical}
+.cp button,.dl a{border:none;border-radius:10px;background:var(--ai);color:#fff;font:inherit;font-weight:800;font-size:13px;padding:0 14px;cursor:pointer;white-space:nowrap;text-decoration:none;display:flex;align-items:center}
+.qr{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.qr img{width:160px;height:160px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+.dl{display:grid;gap:8px;margin-top:6px}
+.dl a{padding:10px 14px;justify-content:space-between;background:#fff;color:var(--ai);border:1.5px solid var(--rule2)}
+.dl a small{color:var(--ink3);font-weight:600}
+.ok{font-size:12px;color:var(--mid);min-height:1.2em}
+.prom li{font-size:13.5px;color:var(--ink2);margin-left:1.2em;margin-bottom:3px}
+sel{font:inherit}
+.seg2{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.seg2 button{border:1.5px solid var(--rule2);background:#fff;border-radius:999px;padding:6px 12px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer}
+.seg2 button.on{border-color:var(--ai);background:var(--aipale);color:var(--ai)}
+</style>
+<script src="bc-analytics.js"></script>
+</head>
+<body>
+<nav class="nav"><div class="wrap"><a class="logo" href="./">BRIDGE <b>CYCLE</b></a><span class="sp">ご紹介用キット</span></div></nav>
+<header class="hero"><div class="wrap">
+  <span class="badge">設置費・月額・紹介料 すべて0円</span>
+  <h1>お客様に「30秒チェック」を<br>ご案内いただくためのキット</h1>
+  <p class="lead" id="who">リンクを1本、どこかに置いていただくだけです。下のどれか1つで十分です。</p>
+</div></header>
+<main><div class="wrap">
+<section class="st">
+  <span class="no">まず選ぶ</span>
+  <h2>お客様はどんな方ですか</h2>
+  <div class="seg2" id="seg">
+    <button data-f="estate">店舗のテナント様（不動産・管理）</button>
+    <button data-f="tax">顧問先の店主様（税理士・会計）</button>
+    <button data-f="kitchen">設備のお客様（厨房設備）</button>
+    <button data-f="shokokai">会員・相談者様（商工会・商店街）</button>
+  </div>
+  <p id="desc"></p>
+</section>
+
+<section class="st">
+  <span class="no">方法1　いちばん簡単</span>
+  <h2>メール・LINE・お知らせに、この文を貼る</h2>
+  <div class="cp"><textarea id="msg" rows="5" readonly></textarea><button data-c="msg">コピー</button></div>
+  <div class="ok" id="ok-msg"></div>
+</section>
+
+<section class="st">
+  <span class="no">方法2</span>
+  <h2>窓口・チラシ・名刺にQRコード</h2>
+  <div class="qr"><img id="qrimg" alt="30秒チェックのQRコード"><div><p>画像を長押し（右クリック）で保存できます。印刷物に使えます。</p><div class="dl"><a id="qrdl" download>QRコードを保存<small>PNG</small></a></div></div></div>
+  <p id="noqr" style="display:none">専用のQRコードは、BRIDGE CYCLEからお送りします。お手数ですが info@bridgecycleco.com までご連絡ください。</p>
+</section>
+
+<section class="st">
+  <span class="no">方法3</span>
+  <h2>ホームページにバナーやリンクを貼る</h2>
+  <p>バナー（そのまま貼れるHTML）</p>
+  <div class="cp"><textarea id="ban" rows="4" readonly></textarea><button data-c="ban">コピー</button></div>
+  <div class="ok" id="ok-ban"></div>
+  <p style="margin-top:8px">リンクだけ（文字リンク用のURL）</p>
+  <div class="cp"><input id="url" readonly><button data-c="url">コピー</button></div>
+  <div class="ok" id="ok-url"></div>
+</section>
+
+<section class="st">
+  <span class="no">SNSで紹介する場合</span>
+  <h2>画像（そのまま投稿に使えます）</h2>
+  <div class="dl">
+    <a href="share/mise-neuchi-1080x1350.jpg" download>Instagram・Facebook用（縦長）<small>1080×1350</small></a>
+    <a href="share/mise-neuchi-1080x1080.jpg" download>正方形・LINE用<small>1080×1080</small></a>
+    <a href="share/mise-neuchi-1080x1920.jpg" download>ストーリーズ用<small>1080×1920</small></a>
+    <a href="share/mise-neuchi-1200x630.jpg" download>X・ブログ見出し用<small>1200×630</small></a>
+  </div>
+  <p style="margin-top:8px;font-size:12px;color:var(--ink3)">画像の数字は試算の一例です。「目安であり査定ではありません」の表記は消さずにお使いください。</p>
+</section>
+
+<section class="st">
+  <h2>BRIDGE CYCLEのお約束</h2>
+  <ul class="prom">
+    <li>お客様が入力した数字は、どこにも送られません（当社にも届きません）</li>
+    <li>閉店を勧めるツールではありません。続ける・渡す・閉めるを並べるだけです</li>
+    <li>毎月、御社経由の利用件数をご報告します。店名・氏名は、店主ご本人の同意がある場合だけお伝えします</li>
+    <li>承継が決まったときは、次の店主ご本人の同意のうえで、御社の本業につながる案件を優先的にご紹介します</li>
+  </ul>
+  <p style="margin-top:8px">ご不明な点は 080-5309-9770／<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>（BRIDGE CYCLE株式会社 中村裕二）</p>
+</section>
+</div></main>
+<footer><div class="wrap"><span class="fl">BRIDGE <b style="color:#9FBBD6">CYCLE</b></span>株式会社｜滋賀県大津市｜国の認定経営革新等支援機関（認定番号 109825000112）<br>店じまいを、まちのはじまりに。</div></footer>
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s);};
+  var q=new URLSearchParams(location.search);
+  var ref=(q.get('ref')||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20);
+  var KNOWN=['P-DAISEI','P-HOUSEMILE','P-NISHIMURA','P-ZEZE','P-SHOKO01','P-TAX01','P-KITCHEN01'];
+  var D={
+    estate:['退去のご相談を受けたときに。原状回復を始める前に、内装・設備を次の店主へ引き継げる可能性を、テナント様ご自身が30秒で確かめられます。','原状回復を始める前に、内装・厨房設備を次の店主へ引き継げる可能性を、30秒で確かめられる無料のチェックがあります（匿名・登録不要・入力した数字は送信されません）。'],
+    tax:['赤字が続く顧問先から「もうやめた方がいいか」と聞かれたときに。続ける・渡す・閉めるの数字を、店主ご自身で並べられます。','閉店を決める前に、続ける・渡す・閉めるの数字だけを確かめられる30秒のチェックがあります（匿名・登録不要・入力した数字は送信されません）。閉店を勧めるものではありません。'],
+    kitchen:['高額な設備の見積りの前に。お客様が、この先何年お店を続けるかを数字で考えられます。','設備の買い替えを決める前に、お店を「続ける・渡す・閉める」で比べられる30秒のチェックがあります（匿名・登録不要・入力した数字は送信されません）。'],
+    shokokai:['経営相談の入口に。廃業の相談ではなく、今の店に残っている選択肢を数字で確かめるツールです。','今のお店に残っている選択肢を、3つの数字で確かめられる30秒のチェックがあります。廃業の相談ではありません（匿名・登録不要・入力した数字は送信されません）。']
+  };
+  var f=(q.get('for')||'estate').replace(/[^a-z]/g,''); if(!D[f])f='estate';
+  function render(){
+    document.querySelectorAll('#seg button').forEach(function(b){b.classList.toggle('on',b.dataset.f===f);});
+    var url='https://www.bridgecycleco.com/check.html?for='+f+(ref?'&ref='+ref:'');
+    $('#desc').textContent=D[f][0];
+    $('#msg').value=D[f][1]+'\n'+url;
+    $('#url').value=url;
+    $('#ban').value='<a href="'+url+'" target="_blank" rel="noopener"><img src="https://www.bridgecycleco.com/share/mise-neuchi-banner-1200x400.jpg" alt="店の値打ちレポート｜3つの数字で30秒、匿名・登録不要" width="1200" height="400" loading="lazy" style="width:100%;max-width:1200px;height:auto;border-radius:12px"></a>';
+    var has=KNOWN.indexOf(ref)>=0;
+    $('#qrimg').parentNode.style.display=has?'':'none'; $('#noqr').style.display=has?'none':'';
+    if(has){$('#qrimg').src='share/qr/'+ref+'.png';$('#qrdl').href='share/qr/'+ref+'.png';$('#qrdl').setAttribute('download','BRIDGECYCLE_30秒チェック_QR_'+ref+'.png');}
+  }
+  document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){f=b.dataset.f;render();});});
+  document.querySelectorAll('[data-c]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.c,el=document.getElementById(id);el.select();try{navigator.clipboard.writeText(el.value);}catch(e){document.execCommand('copy');}document.getElementById('ok-'+id).textContent='コピーしました';window.bcTrack&&bcTrack('kit_copy',{kit_item:id,check_for:f,partner:ref||'none'});});});
+  window.bcTrack&&bcTrack('kit_view',{partner:ref||'none'});
+  render();
+})();
+</script>
+</body>
+</html>
