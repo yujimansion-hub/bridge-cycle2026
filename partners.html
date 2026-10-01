@@ -124,6 +124,7 @@ footer a{color:#C6D6E5}
       <tr><th>向いている方</th><td>料理・製菓教室、マルシェ・イベント主催者、創業支援機関、出店者さん</td></tr>
     </table>
     <a class="go" id="kitUriba" href="uriba-kit.html">売り場レンタルのキットを開く</a>
+    <p style="margin-top:8px;font-size:12.5px">出店者さんは、<a href="shutten-kit.html" id="kitShutten">出店日の告知キット</a>で、告知の投稿に「出店者募集」の一文を入れられます。</p>
   </div>
 
   <div class="pg k">
@@ -214,6 +215,7 @@ footer a{color:#C6D6E5}
     var L=links(code); ['l1','l2','l3'].forEach(function(k){$('#'+k).value=L[k];});
     $('#kitTaiten').href='partner-kit.html?ref='+code;
     $('#kitUriba').href='uriba-kit.html?ref='+code;
+    $('#kitShutten').href='shutten-kit.html?ref='+code;
     var msg='紹介パートナー登録\nコード：'+code+'\nお名前・屋号：'+(name||'')+'\n紹介する場所（サイト・SNS・教室など）：\n紹介したいサービス：退店前承継／売り場レンタル／これから診断';
     $('#regLine').href='https://line.me/R/oaMessage/%40907kxssd/?'+encodeURIComponent(msg);
     $('#regMail').href='mailto:info@bridgecycleco.com?subject='+encodeURIComponent('紹介パートナー登録（'+code+'）')+'&body='+encodeURIComponent(msg);
