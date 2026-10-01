@@ -179,6 +179,10 @@ window.FB_PIXEL_ID = "1370343645272166";
       var cur = new URLSearchParams(location.search);
       var qs = [];
       cur.forEach(function(v,k){ if(/^utm_/i.test(k)) qs.push(encodeURIComponent(k)+"="+encodeURIComponent(v)); });
+      /* 紹介パートナー経由の申込は、紹介コードをStripeの「client_reference_id」に載せます。
+         Stripeの支払い一覧で、どの紹介から決済まで進んだかを確認できます（報酬の確認用）。 */
+      var r = (window.bcRefActive || "").replace(/[^A-Za-z0-9_-]/g, "").slice(0, 40);
+      if(r) qs.push("client_reference_id=" + encodeURIComponent(r));
       if(!qs.length) return u;
       return u + (u.indexOf("?") >= 0 ? "&" : "?") + qs.join("&");
     }catch(e){ return u; }

@@ -87,4 +87,23 @@
     };
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',watchRes); else watchRes();
   }
+
+  /* 紹介コードを申込・登録フォームに添える（紹介パートナーへの報酬の確認用）。
+     有効期間は最後に紹介リンクを開いてから180日。新しい紹介リンクを開くと上書き（最後の紹介を優先）。
+     送るのはコード（例：P-DAISEI）だけで、紹介した人に申込内容は伝わりません。 */
+  var REF_DAYS=180;
+  var refActive='';
+  try{
+    var at=Date.parse(localStorage.getItem('bc_ref_at')||'');
+    if(ref && (isNaN(at) || Date.now()-at < REF_DAYS*864e5)) refActive=ref;
+  }catch(e){ refActive=ref; }
+  window.bcRefActive=refActive;
+  var addRef=function(){
+    if(!refActive) return;
+    document.querySelectorAll('form[action*="formsubmit.co"],form[action*="formspree.io"]').forEach(function(f){
+      if(f.querySelector('input[name="紹介コード"]')) return;
+      var i=document.createElement('input'); i.type='hidden'; i.name='紹介コード'; i.value=refActive; f.appendChild(i);
+    });
+  };
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addRef); else addRef();
 })();

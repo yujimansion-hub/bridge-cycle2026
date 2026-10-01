@@ -120,11 +120,12 @@ sel{font:inherit}
 .seg2 button.on{border-color:var(--ai);background:var(--aipale);color:var(--ai)}
 </style>
 <script src="bc-analytics.js"></script>
+<script src="qrcode.min.js"></script>
 </head>
 <body>
 <nav class="nav"><div class="wrap"><a class="logo" href="./">BRIDGE <b>CYCLE</b></a><span class="sp">ご紹介用キット</span></div></nav>
 <header class="hero"><div class="wrap">
-  <span class="badge">設置費・月額・紹介料 すべて0円</span>
+  <span class="badge">設置費・月額・作業 すべて0円</span>
   <h1>お客様に「30秒チェック」を<br>ご案内いただくためのキット</h1>
   <p class="lead" id="who">リンクを1本、どこかに置いていただくだけです。下のどれか1つで十分です。</p>
 </div></header>
@@ -152,7 +153,7 @@ sel{font:inherit}
   <span class="no">方法2</span>
   <h2>窓口・チラシ・名刺にQRコード</h2>
   <div class="qr"><img id="qrimg" alt="30秒チェックのQRコード"><div><p>画像を長押し（右クリック）で保存できます。印刷物に使えます。</p><div class="dl"><a id="qrdl" download>QRコードを保存<small>PNG</small></a></div></div></div>
-  <p id="noqr" style="display:none">専用のQRコードは、BRIDGE CYCLEからお送りします。お手数ですが info@bridgecycleco.com までご連絡ください。</p>
+  <p id="noqr" style="display:none">紹介コードがないQRコードです。お礼の対象にするには、<a href="partners.html#join">紹介パートナー制度のページ</a>でコードを発行してから、このページを開き直してください。</p>
 </section>
 
 <section class="st">
@@ -164,6 +165,14 @@ sel{font:inherit}
   <p style="margin-top:8px">リンクだけ（文字リンク用のURL）</p>
   <div class="cp"><input id="url" readonly><button data-c="url">コピー</button></div>
   <div class="ok" id="ok-url"></div>
+</section>
+
+<section class="st">
+  <span class="no">方法4</span>
+  <h2>ホームページの中で、チェックをそのまま使ってもらう（埋め込み）</h2>
+  <p>下のコードをページのHTMLに貼ると、訪問者が御社のページの中で30秒チェックを使えます。紹介コードは入っています。</p>
+  <div class="cp"><textarea id="emb" rows="4" readonly></textarea><button data-c="emb">コピー</button></div>
+  <div class="ok" id="ok-emb"></div>
 </section>
 
 <section class="st">
@@ -210,9 +219,13 @@ sel{font:inherit}
     $('#msg').value=D[f][1]+'\n'+url;
     $('#url').value=url;
     $('#ban').value='<a href="'+url+'" target="_blank" rel="noopener"><img src="https://www.bridgecycleco.com/share/mise-neuchi-banner-1200x400.jpg" alt="店の値打ちレポート｜3つの数字で30秒、匿名・登録不要" width="1200" height="400" loading="lazy" style="width:100%;max-width:1200px;height:auto;border-radius:12px"></a>';
-    var has=KNOWN.indexOf(ref)>=0;
-    $('#qrimg').parentNode.style.display=has?'':'none'; $('#noqr').style.display=has?'none':'';
-    if(has){$('#qrimg').src='share/qr/'+ref+'.png';$('#qrdl').href='share/qr/'+ref+'.png';$('#qrdl').setAttribute('download','BRIDGECYCLE_30秒チェック_QR_'+ref+'.png');}
+    var has=KNOWN.indexOf(ref)>=0, qsrc='';
+    if(has){qsrc='share/qr/'+ref+'.png';}
+    else if(window.qrcode){var c=qrcode(0,'M');c.addData(url);c.make();var n=c.getModuleCount(),m=4,sz=Math.max(4,Math.floor(600/(n+2*m)));var cv=document.createElement('canvas');cv.width=cv.height=sz*(n+2*m);var x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.fillStyle='#000';for(var r=0;r<n;r++)for(var k=0;k<n;k++)if(c.isDark(r,k))x.fillRect((k+m)*sz,(r+m)*sz,sz,sz);qsrc=cv.toDataURL('image/png');}
+    $('#qrimg').parentNode.style.display=qsrc?'':'none'; $('#noqr').style.display=ref?'none':'';
+    if(qsrc){$('#qrimg').src=qsrc;$('#qrdl').href=qsrc;$('#qrdl').setAttribute('download','BRIDGECYCLE_30秒チェック_QR_'+(ref||f)+'.png');}
+    var es='https://www.bridgecycleco.com/check.html?embed=1&for='+f+(ref?'&ref='+ref+'&utm_source=partner&utm_medium=embed&utm_campaign=check_'+f+'&utm_content='+ref:'');
+    $('#emb').value='<iframe src="'+es+'" title="店舗の出口30秒チェック（BRIDGE CYCLE）" width="100%" height="640" style="border:0;max-width:560px;display:block;margin:0 auto" loading="lazy"></iframe>';
   }
   document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){f=b.dataset.f;render();});});
   document.querySelectorAll('[data-c]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.c,el=document.getElementById(id);el.select();try{navigator.clipboard.writeText(el.value);}catch(e){document.execCommand('copy');}document.getElementById('ok-'+id).textContent='コピーしました';window.bcTrack&&bcTrack('kit_copy',{kit_item:id,check_for:f,partner:ref||'none'});});});
