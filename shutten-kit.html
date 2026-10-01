@@ -54,7 +54,7 @@ footer{background:#132B45;color:#9FB4C9;padding:24px 0 30px;font-size:12px;text-
 <nav class="nav"><div class="wrap"><a class="logo" href="./">BRIDGE <b>CYCLE</b></a><span class="sp">出店者さん向け</span></div></nav>
 <header class="hero"><div class="wrap">
   <h1>出店日の告知を、1分で。</h1>
-  <p class="lead">旧大津公会堂に出店される方向けです。出店日と屋号を入れると、Instagram・ストーリーズ用の画像と投稿文ができます。入力した内容と写真は、このスマホの中だけで処理され、どこにも送られません。</p>
+  <p class="lead"><b style="color:var(--shu)">出店日が確定し、お支払いが済んでから告知してください。</b><br>旧大津公会堂に出店される方向けです。出店日と屋号を入れると、Instagram・ストーリーズ用の画像と投稿文ができます。入力した内容と写真は、このスマホの中だけで処理され、どこにも送られません。</p>
 </div></header>
 <main><div class="wrap">
 
@@ -70,7 +70,7 @@ footer{background:#132B45;color:#9FB4C9;padding:24px 0 30px;font-size:12px;text-
     <div class="f"><label for="ig">InstagramのID（任意）</label><input id="ig" maxlength="30" placeholder="例：@your_shop"></div>
     <div class="f"><label for="ph">写真（任意）</label><input type="file" id="ph" accept="image/*"><div class="h">商品やお店の写真。なければ公会堂の写真になります</div></div>
   </div>
-  <label class="chk"><input type="checkbox" id="rec"><span>投稿の最後に「ここで出店してみたい方へ」の一文を入れる<br><small style="color:var(--ink3)">このリンクから出店が決まると、紹介のお礼があります（そのため投稿に「#PR」が付きます）</small></span></label>
+  <label class="chk"><input type="checkbox" id="rec"><span>投稿の最後に「ここで出店してみたい方へ」の一文を入れる<br><small style="color:var(--ink3)">運営のBRIDGE CYCLEから紹介のお礼を受け取る場合は、法律（景品表示法）で「#PR」の表示が必要なため、この一文には「#PR」を付けています。お礼の内容は、別途ご案内します。</small></span></label>
 </section>
 
 <section class="st">
@@ -164,8 +164,8 @@ footer{background:#132B45;color:#9FB4C9;padding:24px 0 30px;font-size:12px;text-
   function caption(){
     var nm=$('#nm').value||'（屋号）',it=$('#it').value,dl=dateLabel(),tm=$('#tm').value,ig=$('#ig').value.trim(),rec=$('#rec').checked;
     var tag='#旧大津公会堂 #浜大津 #大津グルメ #大津テイクアウト #滋賀グルメ #びわ湖';
-    var r='\n\n――\nこの場所、半日1,500円から出店できます。出してみたい方はこちら（許可などの条件あり）\n'+REC+'\n#PR';
-    if(tab==='ig') return dl+' '+tm+'、旧大津公会堂の前庭に出店します。\n'+(it?'\n'+it+'\n':'')+'\n場所：旧大津公会堂 前庭（京阪びわ湖浜大津駅すぐ）\n時間：'+tm.replace(/^.+? /,'')+'\n地図はストーリーズのリンクから\n\n'+tag+(rec?'\n\n――\nこの場所、半日1,500円から出店できます。出してみたい方は @bridgecycle_otsu へ。「'+nm+'の投稿を見た」と伝えてください（許可などの条件あり）\n#PR':'');
+    var r='\n\n――\nこの場所、半日1,500円から出店できます（2026年12月31日までのキャンペーン価格）。出してみたい方はこちら（許可などの条件あり）\n'+REC+'\n#PR';
+    if(tab==='ig') return dl+' '+tm+'、旧大津公会堂の前庭に出店します。\n'+(it?'\n'+it+'\n':'')+'\n場所：旧大津公会堂 前庭（京阪びわ湖浜大津駅すぐ）\n時間：'+tm.replace(/^.+? /,'')+'\n地図はストーリーズのリンクから\n\n'+tag+(rec?'\n\n――\nこの場所、半日1,500円から出店できます（2026年12月31日までのキャンペーン価格）。出してみたい方は @bridgecycle_otsu へ。「'+nm+'の投稿を見た」と伝えてください（許可などの条件あり）\n#PR':'');
     if(tab==='th') return dl+' '+tm+'、浜大津の旧大津公会堂の前庭に「'+nm+'」で出店します。'+(it?'\n'+it:'')+'\n地図：'+MAP+(rec?r:'');
     return '【出店のお知らせ】\n'+dl+' '+tm+'\n旧大津公会堂 前庭（京阪びわ湖浜大津駅すぐ）に「'+nm+'」で出店します。'+(it?'\n'+it:'')+'\nお近くの方はぜひお立ち寄りください。\n地図：'+MAP+(rec?r:'');
   }
