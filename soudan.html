@@ -137,6 +137,13 @@ footer a{color:#C6D6E5}
     if(m){ref=m[1].toUpperCase();localStorage.setItem('bc_ref',ref);localStorage.setItem('bc_ref_at',new Date().toISOString());}
     else{ref=localStorage.getItem('bc_ref')||'';}
   }catch(e){}
+  /* 流入元（utm_*）：URLにあれば端末に保持し、なければ90日以内の保持分を使う */
+  var src='';
+  try{
+    var sp=new URLSearchParams(location.search),parts=['utm_source','utm_medium','utm_campaign','utm_content'].map(function(k){return (sp.get(k)||'').slice(0,40);});
+    if(parts[0]){src=parts.filter(Boolean).join(' / ');localStorage.setItem('bc_src',src);localStorage.setItem('bc_src_at',new Date().toISOString());}
+    else{var s0=localStorage.getItem('bc_src')||'',t0=Date.parse(localStorage.getItem('bc_src_at')||'');if(s0&&!isNaN(t0)&&Date.now()-t0<90*864e5)src=s0+'（'+new Date(t0).toLocaleDateString('ja-JP')+'に来訪）';}
+  }catch(e){}
   if(ref){$('#refcode').textContent=ref;$('#refbox').classList.add('on');}
   else{$('#disclosewrap').style.display='none';}
 
@@ -158,6 +165,7 @@ footer a{color:#C6D6E5}
       '業態':$('#gyo').value||'（未選択）',
       '時期':$('#when').value||'（未選択）',
       'ご状況':$('#msg').value.trim()||'（未記入）',
+      '流入元':src||'（不明）',
       '送信ページ':location.href,
       '_subject':'【相談予約】'+(ref?ref+'／':'')+name,
       '_template':'table'
