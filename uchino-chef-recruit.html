@@ -402,6 +402,23 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 .r-tbl,.r-pm{background:#FFFDF9!important}
 .r-tbl-head,.r-pm-head{background:#ECE5DE!important;color:#3F3934!important}
 
+/* 料理人応募フォーム（LINEを使わない人向け） */
+.chef-form{box-sizing:border-box;width:100%;max-width:620px;margin:18px auto 6px;text-align:left;background:#FFFCF8;border:1px solid #E7DDD4;border-radius:10px;padding:30px 28px;scroll-margin-top:90px}
+.chef-form h3{margin:0 0 6px;font-family:'Zen Old Mincho',serif;font-size:22px;font-weight:600;color:#3D3A36}
+.chef-form .cf-sub{margin:0 0 18px!important;font-size:13px!important;color:#746C65}
+.cf-fld{margin:0 0 14px}
+.cf-fld label{display:block;font-size:13.5px;font-weight:700;color:#3D3A36;margin-bottom:6px}
+.cf-req,.cf-opt{font-size:11px;font-weight:700;margin-left:8px;padding:2px 7px;border-radius:4px}
+.cf-req{background:#B98273;color:#fff}.cf-opt{background:#EFE9E2;color:#746C65}
+.cf-fld input,.cf-fld select,.cf-fld textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:11px 12px;border:1px solid #D9CFC5;border-radius:6px;background:#fff;color:#3D3A36}
+.cf-fld input:focus,.cf-fld select:focus,.cf-fld textarea:focus{outline:2px solid #B98273;outline-offset:1px}
+.cf-chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.7;color:#5A514A;margin:6px 0 18px}
+.cf-chk input{margin-top:4px;width:18px;height:18px;flex:none}
+.cf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.cf-btn{width:100%;min-height:54px;border:0;border-radius:6px;background:#7B4A36;color:#fff;font:inherit;font-size:16px;font-weight:700;cursor:pointer}
+.cf-btn:disabled{opacity:.6;cursor:default}
+.cf-out{margin-top:12px;font-size:14px;line-height:1.7}
+@media(max-width:600px){.chef-form{padding:24px 18px}}
 /* CTA: quiet confidence, not recruitment-ad energy */
 #entry{background:#F5F1EB!important;padding:108px 0!important}
 #entry h2{font-size:clamp(32px,4.3vw,48px)!important;font-weight:500!important;max-width:700px}
@@ -784,11 +801,25 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 <section id="entry" style="padding: 96px 0; background: #FFFFFF; border-top: 1px solid #E8DDD2">
 <div style="max-width: 880px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
 <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 42px; line-height: 1.4">料理を仕事にするかどうか。<br>まだ、決めなくていい。</h2>
-<p style="margin: 0; color: #5A514A">まずは、自分の料理を誰かに届けてみる。<br>条件が合うか知りたいだけでも、LINEで相談できます。</p>
+<p style="margin: 0; color: #5A514A">まずは、自分の料理を誰かに届けてみる。<br>条件が合うか知りたいだけでも、LINEかフォームで相談できます。</p>
 <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px">
-<a data-form-link href="https://line.me/R/oaMessage/@907kxssd/?%E3%82%B7%E3%82%A7%E3%83%95" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #7B4A36; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">まず相談してみる</a>
+<a data-form-link href="#chef-form" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #7B4A36; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">フォームで申し込む（LINE不要）</a>
 <a href="https://line.me/R/oaMessage/@907kxssd/?%E3%82%B7%E3%82%A7%E3%83%95" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 28px; border-radius: 999px; border: 1.5px solid #7B4A36; color: #7B4A36; font-weight: 700; text-decoration: none">LINEで相談する</a>
 </div>
+<form id="chef-form" class="chef-form" novalidate autocomplete="on">
+<h3>フォームで申し込む</h3>
+<p class="cf-sub">2分で終わります。1営業日以内に、ご記入の連絡先へ運営からご連絡します。この時点で登録は確定しません。</p>
+<div class="cf-fld"><label for="cfName">お名前<span class="cf-req">必須</span></label><input id="cfName" type="text" autocomplete="name" placeholder="例：中村 裕二"></div>
+<div class="cf-fld"><label for="cfContact">連絡先（メールまたは電話番号）<span class="cf-req">必須</span></label><input id="cfContact" type="text" autocomplete="email" inputmode="email" placeholder="例：you@example.com／090-1234-5678"></div>
+<div class="cf-fld"><label for="cfStatus">いまの状況<span class="cf-opt">任意</span></label><select id="cfStatus"><option value="">選択してください</option><option>店主（いま店を営んでいる）</option><option>開業準備中</option><option>家庭料理が得意</option><option>その他</option></select></div>
+<div class="cf-fld"><label for="cfDish">得意な料理<span class="cf-opt">任意</span></label><input id="cfDish" type="text" placeholder="例：和食の定食、焼き菓子、スパイスカレー"></div>
+<div class="cf-fld"><label for="cfDays">出店できそうな曜日・時間帯<span class="cf-opt">任意</span></label><input id="cfDays" type="text" placeholder="例：平日の昼、日曜の午前"></div>
+<div class="cf-fld"><label for="cfMsg">聞いてみたいこと<span class="cf-opt">任意</span></label><textarea id="cfMsg" rows="3" placeholder="例：営業許可の取り方を相談したい"></textarea></div>
+<label class="cf-chk"><input type="checkbox" id="cfAgree"><span>「<a href="matching.html#legal-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>」に同意します。いただいた情報は、料理人登録のご案内にのみ使います。</span></label>
+<input class="cf-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="button" id="cfSend" class="cf-btn">この内容で申し込む</button>
+<div id="cfOut" class="cf-out" aria-live="polite"></div>
+</form>
 <a href="uchino-chef.html" style="font-size: 14px">お客さま向けのページを見る →</a>
 </div>
 </section>
@@ -820,5 +851,52 @@ div.bc-soft{background:#fffdf9!important;box-shadow:0 8px 22px rgba(80,55,40,.06
 })();
 </script>
 <script src="bc-analytics.js"></script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var send=$('cfSend'); if(!send) return;
+  var src='';
+  try{
+    var sp=new URLSearchParams(location.search),parts=['utm_source','utm_medium','utm_campaign','utm_content'].map(function(k){return (sp.get(k)||'').slice(0,40);});
+    if(parts[0]){src=parts.filter(Boolean).join(' / ');localStorage.setItem('bc_src',src);localStorage.setItem('bc_src_at',new Date().toISOString());}
+    else{var s0=localStorage.getItem('bc_src')||'',t0=Date.parse(localStorage.getItem('bc_src_at')||'');if(s0&&!isNaN(t0)&&Date.now()-t0<90*864e5)src=s0+'（'+new Date(t0).toLocaleDateString('ja-JP')+'に来訪）';}
+  }catch(e){}
+  send.onclick=async function(){
+    var out=$('cfOut'),name=$('cfName').value.trim(),contact=$('cfContact').value.trim(),miss=[];
+    if(!name)miss.push('お名前'); if(!contact)miss.push('連絡先'); if(!$('cfAgree').checked)miss.push('プライバシーポリシーへの同意');
+    if(miss.length){out.style.color='#A8382C';out.textContent='未入力：'+miss.join('／');return;}
+    if(document.querySelector('#chef-form .cf-hp').value)return;
+    var data={
+      '種別':'料理人応募（うちのシェフ）',
+      'お名前':name,'連絡先':contact,
+      'いまの状況':$('cfStatus').value||'（未選択）',
+      '得意な料理':$('cfDish').value.trim()||'（未記入）',
+      '出店できそうな曜日・時間帯':$('cfDays').value.trim()||'（未記入）',
+      '聞いてみたいこと':$('cfMsg').value.trim()||'（未記入）',
+      '紹介コード':(window.bcRefActive||'（なし）'),
+      '流入元':src||'（不明）',
+      '送信ページ':location.href,
+      '_subject':'【料理人応募】うちのシェフ／'+name,
+      '_template':'table'
+    };
+    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)){
+      data['_replyto']=contact;
+      data['_autoresponse']='【うちのシェフ】料理人へのお申し込みを受け付けました。\n\n'+name+' 様\n\n1営業日以内に、ご記入の連絡先へ運営からご連絡します。この時点で登録は確定していません。条件や進め方をお話ししたうえで、ご判断ください。\n\nご質問はこのメールに返信いただくか、公式LINE（https://line.me/R/ti/p/@907kxssd）へ。\n\nうちのシェフ｜会ってから頼める出張作り置き\n運営：BRIDGE CYCLE株式会社（滋賀県大津市）\n店じまいを、まちのはじまりに。';
+    }
+    send.disabled=true;send.textContent='送信しています…';
+    try{
+      var r=await fetch('https://formsubmit.co/ajax/info@bridgecycleco.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      var j=await r.json().catch(function(){return {};});
+      if(String(j.success)!=='true')throw new Error('not delivered');
+      if(window.bcTrack)bcTrack('generate_lead',{form:'chef'});
+      $('chef-form').innerHTML='<div style="text-align:center;padding:24px 6px"><div style="font-size:40px;line-height:1;color:#7B4A36">✓</div><div style="font-size:18px;font-weight:700;margin-top:12px">受け付けました。</div><div style="font-size:14px;color:#5A514A;margin-top:10px;line-height:1.9">1営業日以内に、ご記入の連絡先へ運営からご連絡します。<br>この時点で登録は確定していません。</div></div>';
+    }catch(e){
+      send.disabled=false;send.textContent='この内容で申し込む';
+      out.style.color='#A8382C';out.innerHTML='送信できませんでした。時間をおいてもう一度お試しいただくか、<a href="https://line.me/R/oaMessage/@907kxssd/?%E3%82%B7%E3%82%A7%E3%83%95" target="_blank" rel="noopener">LINE</a>またはお電話（080-5309-9770）でご連絡ください。';
+    }
+  };
+})();
+</script>
 </body>
 </html>
