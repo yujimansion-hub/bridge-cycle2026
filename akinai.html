@@ -6231,6 +6231,11 @@ window.__nickReveal=function(box){box.classList.remove('nk-in');box.classList.ad
           </div>
             </details>
           </div>
+            <div class="chef-invite" id="chefInvite" style="display:none;margin:18px 0;padding:16px 18px;border:1.5px solid #E7DDD4;border-radius:14px;background:#FFFCF8;line-height:1.8">
+              <small style="color:#8C6659;font-weight:700">作るのが料理なら</small>
+              <p style="margin:4px 0 8px">「また作って」と言われる料理には、もう値段がついていい。大津・草津で、月2回の出店から料理を仕事に育てる「うちのシェフ」の料理人を募集しています。</p>
+              <a id="chefInviteLink" href="uchino-chef-recruit.html?utm_source=akinai&amp;utm_medium=result&amp;utm_campaign=chef_recruit" style="color:#8C6659;font-weight:700">料理人募集の条件を見る →</a>
+            </div>
             <div class="result-choice" id="resultChoice" aria-label="この結果をどう使うか">
               <span class="result-choice-kicker">この結果、どうする？</span>
               <div class="result-choice-grid">
@@ -8023,6 +8028,7 @@ const CTX_LABELS={
       if(rgR)rgR.textContent=life.letgo||'';
       if(rgW&&so)rgW.textContent=CAND[w][so.idx].week;
     }catch(e){}
+    try{(function(){var bx=document.getElementById('chefInvite');if(!bx)return;bx.style.display=(w==='hand'&&(w2==='garden'||w2==='boat'))?'':'none';var ln=document.getElementById('chefInviteLink');if(ln&&!ln.dataset.bound){ln.dataset.bound='1';ln.addEventListener('click',function(){window.track&&window.track('chef_recruit_click',{});});}})();}catch(e){}
     document.getElementById('pRisk').textContent=d.risk;
     // もっと楽しむ
     document.getElementById('rChara2').textContent=cname;document.getElementById('rComboName').textContent=d.sym+(d2?' × '+d2.sym+'　「'+COMBO[w][w2][0]+'」':'');
