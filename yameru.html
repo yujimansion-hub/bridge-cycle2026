@@ -234,9 +234,9 @@ footer a{color:#C6D6E5}
       <div class="d" id="dWait" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);color:#F3E7C6"></div>
     </div>
     <div class="cta">
-      <a class="btn shu" id="ctaSoudan" href="soudan.html">続けるか渡すか、数字で一緒に考える<small>60分・無料・その場で決めなくてよい・誰にも伝えません</small></a>
-      <a class="btn gh" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">この結果の見方を、LINEで聞く<small>匿名のまま・「試算」と送るだけ・売り込みはしません</small></a>
-      <a class="btn gh" href="tel:080-5309-9770">電話で聞く　080-5309-9770<small>代表・中村が出ます</small></a>
+      <a class="btn shu" id="ctaLine" data-ev="click_line" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A9%A6%E7%AE%97" target="_blank" rel="noopener">この結果の見方を、LINEで聞く<small>匿名のまま・「試算」と入った状態で開きます・売り込みはしません</small></a>
+      <a class="btn gh" id="ctaSoudan" data-ev="click_soudan" href="soudan.html">続けるか渡すか、数字で一緒に考える<small>60分・無料・その場で決めなくてよい・誰にも伝えません</small></a>
+      <a class="btn gh" data-ev="click_tel" href="tel:080-5309-9770">電話で聞く　080-5309-9770<small>代表・中村が出ます</small></a>
     </div>
     <div class="caut"><b>盛っていない数字にするために。</b>承継は、継ぎ手が見つかること、貸主が承諾すること、リース会社が名義変更に応じることが前提で、必ず成立するものではありません。造作の価格は当社が査定するのではなく、店主ご自身が決めます。ここで出る譲渡収入は「取得額×経過年数の残存率」の目安で、実際は立地と設備の状態、継ぎ手の業態で上下します。相談ではこの前提を一つずつ確かめます。</div>
 
@@ -283,7 +283,7 @@ footer a{color:#C6D6E5}
   </section>
 </div></main>
 
-<div class="bar"><a class="p" id="barSoudan" href="soudan.html">無料相談を予約する</a><a class="t" href="tel:080-5309-9770">電話する</a></div>
+<div class="bar"><a class="p" id="barLine" data-ev="click_line_bar" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A9%A6%E7%AE%97" target="_blank" rel="noopener">匿名でLINEで聞く</a><a class="t" id="barSoudan" data-ev="click_soudan_bar" href="soudan.html">無料相談</a></div>
 
 <footer><div class="wrap">
   <span class="fl">BRIDGE <b style="color:#9FBBD6">CYCLE</b></span>
@@ -298,6 +298,17 @@ footer a{color:#C6D6E5}
   var ref='';
   try{var m=location.search.match(/[?&]ref=([A-Za-z0-9_-]{2,20})/);if(m){ref=m[1].toUpperCase();localStorage.setItem('bc_ref',ref);localStorage.setItem('bc_ref_at',new Date().toISOString());}else{ref=localStorage.getItem('bc_ref')||'';}}catch(e){}
   if(ref){$('#ctaSoudan').href='soudan.html?ref='+ref;$('#barSoudan').href='soudan.html?ref='+ref;}
+  /* 流入元（utm_*）を相談予約へ引き継ぐ：どの投稿から申込が来たかを残す */
+  try{var up=new URLSearchParams(location.search),keep=new URLSearchParams();if(ref)keep.set('ref',ref);['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){var v=up.get(k);if(v)keep.set(k,v);});var qs=keep.toString();if(qs){$('#ctaSoudan').href='soudan.html?'+qs;$('#barSoudan').href='soudan.html?'+qs;}}catch(e){}
+
+  /* 計測：GA4の測定IDを入れると有効になる（空のままなら何も送らない） */
+  var GA_ID='';
+  if(GA_ID){var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(g);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',GA_ID);}
+  function ev(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-ev]');if(a)ev(a.getAttribute('data-ev'));});
+  var pdfBtn=document.getElementById('savePdf');if(pdfBtn)pdfBtn.addEventListener('click',function(){ev('save_pdf');});
+  /* 結果欄が画面に入ったら「試算完了」とみなす（1回だけ） */
+  try{var resEl=document.getElementById('res');if(resEl&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){ev('calc_view');io.disconnect();}});},{threshold:0.3});io.observe(resEl);}}catch(e){}
 
   /* 外部チェック（check.html）から来た場合：3つの数字を引き継ぐ */
   try{var qp=new URLSearchParams(location.search);['tsubo','rent','inv'].forEach(function(k){var v=parseFloat(qp.get(k));if(!isNaN(v)&&v>0&&v<100000){var e=document.getElementById(k);if(e)e.value=v;if(k==='rent'){var d=document.getElementById('dep');if(d)d.value=Math.round(v*6);}}});}catch(e){}
