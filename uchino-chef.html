@@ -1550,9 +1550,14 @@ section:not(.natural-hero) h2{font-family:"Zen Old Mincho",serif!important;font-
     });
   }
   Promise.all([load("料理人"), load("出店"), load("声").catch(function(){ return []; })]).then(function(res){
-    data.chefs = res[0].sort(function(a, b){ return (Number(a.rank) || 999) - (Number(b.rank) || 999); });
-    data.chefs.forEach(function(c){ data.byId[c.id] = c; });
     data.sched = res[1].filter(function(s){ return /^\d{4}-\d{2}-\d{2}$/.test(String(s.date)); }).sort(function(a, b){ return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    // 表示順は「次に会える順」：これからの出店日が近い料理人から。出店日が未定の人は後ろに、登録順のまま並べる（評価では順位をつけない）
+    var nextDay = {};
+    data.sched.forEach(function(s){ if(s.date >= TODAY && !nextDay[s.id]) nextDay[s.id] = s.date; });
+    data.chefs = res[0].map(function(c, i){ return {c:c, i:i, d:nextDay[c.id] || "9999-99-99"}; })
+      .sort(function(a, b){ return a.d < b.d ? -1 : a.d > b.d ? 1 : a.i - b.i; })
+      .map(function(x){ return x.c; });
+    data.chefs.forEach(function(c){ data.byId[c.id] = c; });
     data.voices = res[2];
     data.state = data.chefs.length ? "ok" : "none";
     window.UCHINO_CHEFS = data.chefs;
