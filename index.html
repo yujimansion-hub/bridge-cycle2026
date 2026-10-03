@@ -25,6 +25,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+[id]{scroll-margin-top:70px}
 body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:15px;line-height:1.95}
 .wrap{max-width:920px;margin:0 auto;padding:0 22px}
 a{color:var(--aimid)}
@@ -34,9 +35,12 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--aimid);outline-off
 .nav .wrap{display:flex;align-items:center;gap:16px;padding:13px 22px}
 .logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}
 .logo b{color:var(--aimid)}
-.nav .tel{margin-left:auto;font-size:13px;font-weight:800;color:var(--ink);text-decoration:none}
+.nav .navl{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--ink2);text-decoration:none;border:1px solid var(--rule2);border-radius:999px;padding:4px 12px;background:rgba(255,255,255,.7)}
+.nav .navl:hover{border-color:var(--aimid);color:var(--ai)}
+.nav .tel{font-size:13px;font-weight:800;color:var(--ink);text-decoration:none}
 .nav .tel small{font-weight:600;color:var(--ink3);font-size:11px;margin-left:6px}
-@media(max-width:560px){.nav .tel small{display:none}}
+.logo,.nav .navl,.nav .tel{white-space:nowrap}
+@media(max-width:560px){.nav .tel small{display:none}.nav .tel{display:none}}
 
 section{padding:56px 0;border-bottom:1px solid var(--rule)}
 .eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--aimid);font-weight:700;margin-bottom:6px}
@@ -74,8 +78,13 @@ h2{font-family:var(--serif);font-size:clamp(23px,4vw,32px);font-weight:800;line-
 .oc span.d{font-size:13px;color:var(--ink2);line-height:1.75;margin-top:4px;flex:1}
 .oc em{font-style:normal;font-weight:800;font-size:13px;color:var(--aimid);margin-top:8px}
 .oc.t1{border-top:4px solid var(--mid)}.oc.t1 .tg{background:var(--midpale);color:var(--mid)}
-.oc.t2{border-top:4px solid #B98273}.oc.t2 .tg{background:#F3E6E1;color:#8E5A4B}
-.oc.t3{border-top:4px solid var(--aimid)}.oc.t3 .tg{background:var(--aipale);color:var(--ai)}
+.oc.t3{border-top:4px solid #B98273}.oc.t3 .tg{background:#F3E6E1;color:#8E5A4B}
+.oc.t2{border-top:4px solid var(--aimid)}.oc.t2 .tg{background:var(--aipale);color:var(--ai)}
+.oc .op2{display:grid;grid-template-columns:1fr 1fr;height:120px}.oc .op2 div{background:#ccc center/cover no-repeat}.oc .op2 div+div{border-left:2px solid #fff}
+.vn2{display:flex;align-items:center;gap:10px;margin-top:8px;border:1.5px solid var(--rule);border-radius:10px;padding:8px 12px;text-decoration:none;color:var(--ink);background:var(--card2);font-size:12px;line-height:1.5}
+.vn2:hover{border-color:var(--aimid);background:var(--aipale)}
+.vn2 b{display:block;font-family:inherit;font-size:13px}
+.vn2 i{margin-left:auto;font-style:normal;font-weight:800;color:var(--aimid);white-space:nowrap}
 .om{margin-top:14px;font-size:13px;color:var(--ink2)}
 .om a{color:var(--ink2);font-weight:700;margin-right:16px;display:inline-block}
 /* 信頼の帯 */
@@ -185,6 +194,7 @@ footer .co{line-height:1.9}
 
 <nav class="nav"><div class="wrap">
   <a class="logo" href="./">BRIDGE <b>CYCLE</b></a>
+  <a class="navl" href="#uriba">売り場レンタル</a>
   <a class="tel" href="tel:080-5309-9770">080-5309-9770<small>代表・中村が出ます（平日10〜17時）</small></a>
 </div></nav>
 
@@ -312,10 +322,12 @@ footer .co{line-height:1.9}
   <h2>お店を営む方のほかに、こんな方も。</h2>
   <div class="og">
     <a class="oc t1" href="matching.html#entry"><div class="op" style="background-image:url('images/taker.jpg')"></div><div class="ob"><span class="tg">店を持ちたい方</span><b>ゼロから作るより、活きた店を継ぐ。</b><span class="d">待機リストに登録すると、合いそうな店を代表がご紹介します。資金の確認から融資の計画まで一緒に。</span><em>待機リストに登録する →</em></div></a>
-    <a class="oc t2" href="uchino-chef-recruit.html"><div class="op" style="background-image:url('images/uchino-chef-hero-natural.jpg')"></div><div class="ob"><span class="tg">まず試したい方</span><b>店を持つ前に、売ってみる。</b><span class="d">旧大津公会堂・銀工房の売り場は半日から。料理人の方は「うちのシェフ」で、月2回の出店から始められます。</span><em>うちのシェフを見る →</em></div></a>
-    <a class="oc t3" href="partner-fudosan.html"><div class="op" style="background-image:url('images/partner.jpg')"></div><div class="ob"><span class="tg">管理会社・支援機関の方</span><b>退去予告を、次の開業の入口に。</b><span class="d">管理会社・大家さん、診断士、自治体・商工会、金融機関の方と連携しています。費用はかかりません。</span><em>連携について見る →</em></div></a>
+    <div class="oc t2" id="uriba"><div class="op op2"><div style="background-image:url('kokaido-hero.jpg')"></div><div style="background-image:url('images/ginkobo-card.jpg')"></div></div><div class="ob"><span class="tg">売り場レンタル</span><b>店を持つ前に、1日だけ売ってみる。</b><span class="d">外れても、失うのは1日。テント1区画やキッチンカーで出店できます。</span>
+      <a class="vn2" href="uriba-kokaido.html"><span><b>旧大津公会堂</b>浜大津駅すぐ｜平日 半日1,500円〜</span><i>空き枠 →</i></a>
+      <a class="vn2" href="uriba-ginkobo.html"><span><b>銀工房</b>JR比良駅すぐ｜土日祝 1日1,000円</span><i>空き枠 →</i></a></div></div>
+    <a class="oc t3" href="uchino-chef-recruit.html"><div class="op" style="background-image:url('images/uchino-chef-hero-natural.jpg')"></div><div class="ob"><span class="tg">料理人の方</span><b>料理を、いきなり店にしなくていい。</b><span class="d">「うちのシェフ」は、月2回の出店で顔と味を知ってもらい、出張作り置きの仕事に育てていく仕組みです。登録料・月会費0円。</span><em>料理人の募集を見る →</em></div></a>
   </div>
-  <p class="om"><a href="uriba-kokaido.html">売り場レンタルの空き枠 →</a><a href="hojokin.html">補助金を使いたい方 →</a><a href="akinai.html">個人の方（わたしのこれから診断）→</a></p>
+  <p class="om"><a href="partner-fudosan.html">管理会社・診断士・自治体・金融機関の方 →</a><a href="hojokin.html">補助金を使いたい方 →</a><a href="akinai.html">個人の方（わたしのこれから診断）→</a></p>
 </div></section>
 
 <footer><div class="wrap">
