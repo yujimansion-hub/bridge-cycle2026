@@ -233,10 +233,30 @@ footer a{color:#C6D6E5}
       <div class="d" id="dTxt">通常の閉店との差額。造作譲渡額の幅と、リース・従業員の引き継ぎの有無で変わります。</div>
       <div class="d" id="dWait" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);color:#F3E7C6"></div>
     </div>
+    <!-- 2026-10 追加：結果を見たあとの3択（トップから移設） -->
+    <style>
+      .pick3{margin-top:20px}
+      .pick3 .ph3{font-family:var(--serif,"Shippori Mincho",serif);font-weight:800;font-size:19px;margin-bottom:10px}
+      .pick3 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+      @media(max-width:640px){.pick3 .g3{grid-template-columns:1fr}}
+      .pick3 a{display:block;background:#fff;border:1.5px solid #D9DAD3;border-radius:14px;padding:14px 16px;text-decoration:none;color:#15171C}
+      .pick3 a:hover{border-color:#3D6389}
+      .pick3 a b{display:block;font-family:var(--serif,"Shippori Mincho",serif);font-size:20px}
+      .pick3 a span{font-size:12.5px;color:#4A4C52;line-height:1.7}
+      .pick3 .k b{color:#1B3B5F}.pick3 .w b{color:#2E6B4F}.pick3 .s b{color:#A8382C}
+    </style>
+    <div class="pick3">
+      <p class="ph3">この数字を見て、どうしますか。</p>
+      <div class="g3">
+        <a class="k" href="tsuzukeru.html"><b>続ける ›</b><span>数字で続ける計画を立てる。費用の3分の2は国の制度で支援できる場合があります。</span></a>
+        <a class="w" href="matching.html"><b>渡す ›</b><span>店名を伏せたまま、代表が次の店主を紹介。店主の方は0円です。</span></a>
+        <a class="s" href="shimekata.html"><b>閉める ›</b><span>壊す前に引き取る人を探し、閉めたあとの仕事まで一緒に考える。</span></a>
+      </div>
+    </div>
     <div class="cta">
       <a class="btn shu" id="ctaLine" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A9%A6%E7%AE%97" target="_blank" rel="noopener">この結果の見方を、LINEで聞く<small>匿名のまま・「試算」と入った状態で開きます・売り込みはしません</small></a>
       <a class="btn gh" id="ctaSoudan" href="soudan.html">続けるか渡すか、数字で一緒に考える<small>60分・無料・その場で決めなくてよい・誰にも伝えません</small></a>
-      <a class="btn gh" href="tel:080-5309-9770">電話で聞く　080-5309-9770<small>代表・中村が出ます</small></a>
+      <a class="btn gh" href="tel:080-5309-9770">電話で聞く　080-5309-9770<small>代表・中村が出ます（平日10〜17時）</small></a>
     </div>
     <div class="caut"><b>盛っていない数字にするために。</b>承継は、継ぎ手が見つかること、貸主が承諾すること、リース会社が名義変更に応じることが前提で、必ず成立するものではありません。造作の価格は当社が査定するのではなく、店主ご自身が決めます。ここで出る譲渡収入は「取得額×経過年数の残存率」の目安で、実際は立地と設備の状態、継ぎ手の業態で上下します。相談ではこの前提を一つずつ確かめます。</div>
 
