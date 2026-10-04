@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>店じまい相談の取次店カード｜BRIDGE CYCLE</title>
+<meta name="description" content="商店街のお店・事務所のカウンターに置く、店じまい相談のカードを印刷できます。紹介コード入りのQRつき。設置費・作業費は0円です。">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#EDEEEA;--card:#fff;--ink:#15171C;--ink2:#4A4C52;--ink3:#767870;--rule:#D9DAD3;--rule2:#C3C4BC;--ai:#1B3B5F;--aimid:#3D6389;--aipale:#E7EEF5;--shu:#A8382C;--mid:#2E6B4F;--midpale:#E3EFE9;--serif:"Shippori Mincho",serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:14.5px;line-height:1.9}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+a{color:var(--aimid)}
+.nav{border-bottom:1px solid var(--rule);padding:13px 0}
+.logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}.logo b{color:var(--aimid)}
+.hd{padding:34px 0 18px}
+.eb{font-size:11.5px;letter-spacing:.18em;color:var(--aimid);font-weight:700}
+h1{font-family:var(--serif);font-size:clamp(24px,4.4vw,34px);line-height:1.45;margin:6px 0 10px}
+.lead{color:var(--ink2);max-width:62ch}
+.zero{display:inline-block;margin-top:12px;background:var(--midpale);color:var(--mid);font-weight:800;border-radius:999px;padding:4px 14px;font-size:13px}
+.panel{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:20px 22px;margin:18px 0}
+.panel h2{font-family:var(--serif);font-size:19px;margin-bottom:10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+label{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin-bottom:4px}
+input{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--rule2);border-radius:10px;background:#fff}
+.hint{font-size:11.5px;color:var(--ink3);margin-top:4px}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.seg button{font:inherit;font-size:13px;font-weight:700;border:1.5px solid var(--rule2);background:#fff;border-radius:999px;padding:8px 16px;cursor:pointer}
+.seg button.on{border-color:var(--ai);background:var(--aipale);color:var(--ai)}
+.pbtn{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;background:var(--shu);color:#fff;border:none;border-radius:999px;padding:13px 30px;font:inherit;font-weight:800;font-size:15.5px;cursor:pointer}
+.steps{list-style:none;counter-reset:s;display:grid;gap:8px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:13.5px;color:var(--ink2)}
+.steps li:before{content:counter(s);width:26px;height:26px;border-radius:50%;background:var(--ai);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.steps b{color:var(--ink)}
+.prevlbl{font-size:12px;color:var(--ink3);margin:18px 0 8px}
+
+/* ===== 印刷物 ===== */
+.sheet{background:#fff;margin:0 auto 30px;box-shadow:0 10px 30px rgba(20,22,26,.12);display:grid}
+.sheet.pop{width:210mm;height:297mm;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.sheet.biz{width:210mm;height:297mm;grid-template-columns:91mm 91mm;grid-auto-rows:55mm;justify-content:center;align-content:center;column-gap:4mm;row-gap:0}
+.pc{border:.2mm dashed #C3C4BC;padding:9mm 9mm 7mm;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.pc .k{font-size:9pt;letter-spacing:.12em;color:#3D6389;font-weight:700}
+.pc .h{font-family:var(--serif);font-weight:800;font-size:23pt;line-height:1.35;margin-top:3mm}
+.pc .h b{color:#A8382C}
+.pc .s{font-size:10pt;color:#4A4C52;line-height:1.7;margin-top:3mm}
+.pc .s b{color:#15171C}
+.pc .q{display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:center;margin-top:auto;padding-top:4mm}
+.pc .q img{width:30mm;height:30mm;display:block}
+.pc .q p{font-size:9.5pt;line-height:1.6;color:#15171C}
+.pc .q p strong{display:block;font-family:var(--serif);font-size:12.5pt}
+.pc .f{border-top:.3mm solid #D9DAD3;margin-top:4mm;padding-top:2.5mm;font-size:8pt;color:#767870;line-height:1.6}
+.pc .f b{color:#15171C;letter-spacing:.06em}
+.pc .by{font-size:8.5pt;color:#2E6B4F;font-weight:700;margin-top:2mm}
+.bc{border:.2mm dashed #C3C4BC;padding:4mm 5mm;display:grid;grid-template-columns:1fr 22mm;gap:3mm;align-items:center}
+.bc .h{font-family:var(--serif);font-weight:800;font-size:12pt;line-height:1.35}
+.bc .h b{color:#A8382C}
+.bc .s{font-size:7.2pt;color:#4A4C52;line-height:1.55;margin-top:1.5mm}
+.bc .f{font-size:6.6pt;color:#767870;margin-top:1.5mm;line-height:1.5}
+.bc .f b{color:#15171C}
+.bc img{width:22mm;height:22mm}
+@media screen and (max-width:900px){.sheetwrap{overflow-x:auto;padding-bottom:10px}}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .noprint{display:none!important}
+  .sheet{box-shadow:none;margin:0}
+  .sheetwrap{overflow:visible}
+}
+</style>
+<script src="bc-analytics.js"></script>
+</head>
+<body>
+<div class="noprint">
+<nav class="nav"><div class="wrap"><a class="logo" href="./">BRIDGE <b>CYCLE</b></a></div></nav>
+<header class="hd"><div class="wrap">
+  <p class="eb">FOR NEIGHBORHOOD SHOPS</p>
+  <h1>お店のカウンターに、<br>1枚置いていただけませんか。</h1>
+  <p class="lead">閉めるか迷っている店主が最初に話すのは、ネットではなく、顔見知りのお店の方です。そのとき、そっと渡せるカードです。説明していただく必要はありません。</p>
+  <span class="zero">設置費・作業費 0円</span>
+</div></header>
+
+<div class="wrap">
+  <section class="panel">
+    <h2>1. カードをつくる</h2>
+    <div class="row">
+      <div><label for="ref">紹介コード</label><input id="ref" placeholder="例：P-ZEZE" maxlength="20" autocomplete="off"><p class="hint">当社からお伝えしたコードを入れてください。どのお店から相談が来たかを数えるためのものです。<a href="partners.html">コードの発行はこちら</a></p></div>
+      <div><label for="shop">置いてくださるお店の名前（任意）</label><input id="shop" placeholder="例：〇〇商店" maxlength="24" autocomplete="off"><p class="hint">入れると、カードの下に「このカードは〇〇さんに置かせていただいています」と入ります。</p></div>
+    </div>
+    <label style="margin-top:12px">大きさ</label>
+    <div class="seg" id="seg"><button type="button" data-m="pop" class="on">カウンター用（A6・A4に4枚）</button><button type="button" data-m="biz">名刺サイズ（A4に10枚）</button></div>
+    <button type="button" class="pbtn" id="print">印刷する</button>
+    <p class="hint">印刷画面で「用紙 A4」「余白なし（またはなし）」「倍率100%」を選んでください。点線で切り分けます。</p>
+  </section>
+
+  <section class="panel">
+    <h2>2. 置いたあとのこと</h2>
+    <ol class="steps">
+      <li><span><b>何もしなくて大丈夫です。</b>聞かれたら「迷ってるなら、これ30秒でできるみたいよ」と渡すだけで十分です。</span></li>
+      <li><span><b>相談した人の名前は、お店にも伝わりません。</b>カードから相談があった件数だけを、月に1回ご報告します。</span></li>
+      <li><span><b>カードがなくなったら</b>、お電話かLINEで。代表の中村が持っていきます。</span></li>
+    </ol>
+  </section>
+  <p class="prevlbl">↓ 印刷される見本（紹介コードを入れると、QRに反映されます）</p>
+</div>
+</div>
+
+<div class="sheetwrap"><div class="sheet pop" id="sheet"></div></div>
+
+<div class="noprint"><div class="wrap" style="padding:10px 20px 40px;font-size:12px;color:var(--ink3)">
+  BRIDGE CYCLE株式会社｜滋賀県大津市におの浜2-1-28｜代表取締役 中村裕二｜国の認定経営革新等支援機関（認定番号 109825000112）｜080-5309-9770（平日10〜17時）｜<a href="partner-kit.html">ほかのご紹介方法（メール文・バナー・埋め込み）</a>
+</div></div>
+
+<script src="qrcode.min.js"></script>
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)};
+  var q=new URLSearchParams(location.search);
+  var clean=function(v){return (v||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20)};
+  var esc=function(t){return t.replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+  $('#ref').value=clean(q.get('ref'));
+  $('#shop').value=(q.get('shop')||'').slice(0,24);
+  var mode=q.get('size')==='biz'?'biz':'pop';
+  function qr(url){
+    if(!window.qrcode)return '';
+    var c=qrcode(0,'M');c.addData(url);c.make();
+    var n=c.getModuleCount(),m=2,sz=10,cv=document.createElement('canvas');
+    cv.width=cv.height=sz*(n+2*m);var x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.fillStyle='#000';
+    for(var r=0;r<n;r++)for(var k=0;k<n;k++)if(c.isDark(r,k))x.fillRect((k+m)*sz,(r+m)*sz,sz,sz);
+    return cv.toDataURL('image/png');
+  }
+  function render(){
+    var ref=clean($('#ref').value), shop=$('#shop').value.trim().slice(0,24);
+    var url='https://www.bridgecycleco.com/yameru.html?'+(ref?'ref='+ref+'&':'')+'utm_source=toritsugi&utm_medium=print&utm_campaign=card'+(ref?'&utm_content='+ref:'');
+    var img=qr(url), by=shop?'<p class="by">このカードは、'+esc(shop)+'さんに置かせていただいています。</p>':'';
+    var s=$('#sheet'); s.className='sheet '+mode; var h='';
+    if(mode==='pop'){
+      var one='<div class="pc"><p class="k">店じまいを、まちのはじまりに。</p><p class="h">閉めるか、<br><b>迷って</b>いませんか。</p>'+
+      '<p class="s">まだ決めなくて大丈夫です。<br>原状回復の見積りを取る前に、<b>いまの店の値打ち</b>だけ知っておいてください。厨房もカウンターも、次の店主へそのまま渡せることがあります。</p>'+
+      '<div class="q"><img alt="30秒の試算ページのQRコード" src="'+img+'"><p><strong>30秒で、試算する</strong>匿名・登録不要。<br>入力した数字は、どこにも送られません。</p></div>'+
+      '<div class="f"><b>BRIDGE CYCLE</b>　電話 080-5309-9770（平日10〜17時・代表 中村）<br>相談したことは、貸主にも常連さんにも伝わりません。'+(ref?'　'+ref:'')+'</div>'+by+'</div>';
+      for(var i=0;i<4;i++)h+=one;
+    }else{
+      var b='<div class="bc"><div><p class="h">閉めるか、<br><b>迷って</b>いませんか。</p><p class="s">いまの店の値打ちを30秒で。匿名・入力は送信されません。</p><p class="f"><b>BRIDGE CYCLE</b> 080-5309-9770（平日10〜17時）'+(ref?'｜'+ref:'')+'</p></div><img alt="QRコード" src="'+img+'"></div>';
+      for(var j=0;j<10;j++)h+=b;
+    }
+    s.innerHTML=h;
+    document.querySelectorAll('#seg button').forEach(function(x){x.classList.toggle('on',x.dataset.m===mode)});
+  }
+  $('#ref').addEventListener('input',render);$('#shop').addEventListener('input',render);
+  document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){mode=b.dataset.m;render()})});
+  $('#print').addEventListener('click',function(){window.bcTrack&&bcTrack('toritsugi_print',{partner:clean($('#ref').value)||'none',size:mode});window.print()});
+  window.bcTrack&&bcTrack('toritsugi_view',{partner:clean($('#ref').value)||'none'});
+  render();
+})();
+</script>
+</body>
+</html>
