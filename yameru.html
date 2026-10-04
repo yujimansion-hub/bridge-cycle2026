@@ -212,8 +212,8 @@ footer a{color:#C6D6E5}
         <table>
           <tr><td>原状回復工事<span class="s">継ぎ手が造作ごと引き受ける</span></td><td>0円</td></tr>
           <tr><td id="bNoticeL">解約予告期間の賃料<span class="s" id="bNoticeS"></span></td><td id="bNotice">—</td></tr>
-          <tr><td>リース残債<span class="s">継ぎ手が引き継げば0、精算なら同額</span></td><td id="bLease">—</td></tr>
-          <tr><td>従業員<span class="s">継ぎ手が雇用を続ければ0</span></td><td id="bStaff">—</td></tr>
+          <tr><td>リース残債<span class="s">継ぎ手が引き継げば0、精算なら同額（中央値では半分として計算）</span></td><td id="bLease">—</td></tr>
+          <tr><td>従業員<span class="s">継ぎ手が雇用を続ければ0（中央値では半分として計算）</span></td><td id="bStaff">—</td></tr>
           <tr><td>廃業の手続き費用</td><td id="bProc">—</td></tr>
           <tr><td>造作譲渡の収入<span class="s" id="bSaleS"></span></td><td id="bSale">—</td></tr>
           <tr><td>当社の手数料<span class="s">譲渡額の12%（最低8万円）。譲渡代金から精算</span></td><td id="bFee">—</td></tr>
@@ -299,7 +299,7 @@ footer a{color:#C6D6E5}
           <div class="fld"><label for="proc">廃業の手続き費用</label><div class="in"><input id="proc" type="number" min="0" step="1" value="15"><span class="u">万円</span></div><div class="hint">廃業の届出・最終の決算申告・許認可の返納・法人なら解散登記など。個人なら5〜10万、法人なら20〜40万が目安</div></div>
           <div class="fld"><label for="staffCost">正社員1人あたりの解雇関連費用</label><div class="in"><input id="staffCost" type="number" min="0" step="1" value="30"><span class="u">万円</span></div><div class="hint">解雇予告手当（平均賃金30日分）＋有給の買い取り・退職金があれば加算</div></div>
           <div class="fld"><label>当社の手数料（渡す場合）</label><div class="in" style="font-size:13px;padding:8px 0">造作譲渡額の12%（最低8万円・税別）。譲渡代金から精算するので持ち出しはありません</div></div>
-          <div class="fld"><label for="rate">造作の残存率（経過年数から自動）</label><div class="in"><input id="rate" type="number" min="0" max="100" step="1"><span class="u">%</span></div><div class="hint">目安：1年70％・2年55％・3年45％・4年35％・5年28％・6年20％・8年14％・10年以上10％。<b>実際の値段は、継ぎ手が払える額（立地・家賃・継ぎ手の資金）で決まります。</b>当社は査定しません。高い側は当社が扱う上限の300万円まで、安い側は高い側の4割（10年以上は0円）で計算します</div></div>
+          <div class="fld"><label for="rate">造作の残存率（経過年数から自動）</label><div class="in"><input id="rate" type="number" min="0" max="100" step="1"><span class="u">%</span></div><div class="hint">目安：1年70％・2年55％・3年45％・4年35％・5年28％・6年20％・8年14％・10年以上10％。<b>実際の値段は、継ぎ手が払える額（立地・家賃・継ぎ手の資金）で決まります。</b>当社は査定しません。高い側は当社が扱う上限の300万円まで、継ぎ手が払いやすい額として、内装の残りの値打ち（上限300万円）の7割を中心に、前後2割の幅で計算します</div></div>
         </div>
       </div>
     </details>
@@ -342,7 +342,9 @@ footer a{color:#C6D6E5}
   var RATE=[100,70,55,45,35,28,20,17,14,12,10];
   var U={retail:[3,6],light:[6,10],heavy:[10,18]},biz='light',pTouched=false,CAP=300;
   function fee(v){return v>0?Math.min(v,Math.max(8,v*0.12)):0;}
-  function sale(inv,r,yy){var hi=Math.min(inv*r,CAP);var lo=yy>=10?0:hi*0.4;return [lo,hi];}
+  function sale(inv,r,yy){var c=Math.min(inv*r,CAP)*0.7;return [c*0.8,Math.min(c*1.2,CAP)];}
+  function about(lo,hi){var m=Math.round(((lo+hi)/2)/5)*5;return (m<0?'▲約':m>0?'＋約':'約')+Math.abs(m).toLocaleString('ja-JP')+'万円';}
+  function wid(lo,hi){return '目安の幅：'+range(lo,hi);}
   function num(id){var v=parseFloat($(id).value);return isNaN(v)?0:v;}
   function man(v){v=Math.round(v);var s=(v<0?'▲':'')+Math.abs(v).toLocaleString('ja-JP')+'万円';return s;}
   function range(lo,hi){
@@ -381,16 +383,16 @@ footer a{color:#C6D6E5}
     $('#aProc').textContent=man(proc);
     $('#aDep').textContent=man(dep);
     $('#aSum').textContent=range(aSumLo,aSumHi);
-    $('#aBig').textContent=range(aSumLo,aSumHi);
-    $('#aBig').className='big '+(aSumHi<0?'minus':'plus');
-    $('#aLbl').textContent=lbl(aSumLo,aSumHi,'手元に残る額（目安）','持ち出し（敷金を差し引いた後の目安）');
+    $('#aBig').textContent=about(aSumLo,aSumHi);
+    $('#aBig').className='big '+((aSumLo+aSumHi)<0?'minus':'plus');
+    $('#aLbl').textContent=((aSumLo+aSumHi)<0?'持ち出し（敷金を差し引いた後）':'手元に残る額')+'｜'+wid(aSumLo,aSumHi);
 
     /* 退店前承継 */
     var bNoticeM=Math.min(notice,mTake), bNotice=op?(-Math.min(0,profit)*bNoticeM):bNoticeM*rent;
     var yy=Math.round(yrs), sv=sale(inv,rate,yy), saleLo=sv[0], saleHi=sv[1], feeLo=fee(saleLo), feeHi=fee(saleHi);
     /* 楽観側：リース・従業員を継ぎ手が引き継ぐ／慎重側：精算 */
-    var bSumHi=dep+saleHi-feeHi-bNotice-proc;
-    var bSumLo=dep+saleLo-feeLo-bNotice-proc-lease-staffC;
+    var bSumHi=dep+saleHi-feeHi-bNotice-proc-(lease+staffC)*0.25;
+    var bSumLo=dep+saleLo-feeLo-bNotice-proc-(lease+staffC)*0.75;
     $('#bNotice').textContent=man(bNotice);
     $('#bNoticeL').firstChild.textContent=op?'承継までの赤字':'解約予告期間の賃料';
     $('#bNoticeS').textContent=op?('承継まで'+bNoticeM+'か月、営業を続ける想定'):(bNoticeM+'か月 × '+rent+'万円（承継まで'+mTake+'か月の想定）');
@@ -398,18 +400,18 @@ footer a{color:#C6D6E5}
     $('#bLease').textContent=lease?('0〜'+man(lease)):'0円';
     $('#bStaff').textContent=staffC?('0〜'+man(staffC)):'0円';
     $('#bProc').textContent=man(proc);
-    $('#bSale').textContent=range(saleLo,saleHi); $('#bSaleS').textContent='継ぎ手が払える額で決まる。目安：'+inv+'万円 × 残存率'+Math.round(rate*100)+'%'+(inv*rate>CAP?'（上限300万円）':'')+(yy>=10?'・安い側は0円':'・安い側はその4割');
+    $('#bSale').textContent=range(saleLo,saleHi); $('#bSaleS').textContent='継ぎ手が払える額で決まる。目安：'+inv+'万円 × 残存率'+Math.round(rate*100)+'%'+(inv*rate>CAP?'（上限300万円）':'')+'の7割を中心に±2割';
     $('#bDep').textContent=man(dep);
     $('#bSum').textContent=range(bSumLo,bSumHi);
-    $('#bBig').textContent=range(bSumLo,bSumHi);
-    $('#bBig').className='big '+(bSumHi>=0?'plus':'minus');
-    $('#bLbl').textContent=lbl(bSumLo,bSumHi,'手元に残る額（幅で表示）','持ち出し（幅で表示）');
+    $('#bBig').textContent=about(bSumLo,bSumHi);
+    $('#bBig').className='big '+((bSumLo+bSumHi)>=0?'plus':'minus');
+    $('#bLbl').textContent=((bSumLo+bSumHi)>=0?'手元に残る額（手数料を引いた後）':'持ち出し')+'｜'+wid(bSumLo,bSumHi);
 
     /* 先延ばし：手残りの累計＋そのときの残存率で渡す */
     var yrs2=yrs+wait/12, y2=Math.max(0,Math.min(10,Math.round(yrs2))), rate2=rateTouched?Math.max(0,rate-(RATE[Math.max(0,Math.min(10,Math.round(yrs)))]-RATE[y2])/100):RATE[y2]/100;
     var prof=profit*wait;
     var sv2=sale(inv,rate2,Math.round(yrs2)), sale2Lo=sv2[0], sale2Hi=sv2[1], fee2Lo=fee(sale2Lo), fee2Hi=fee(sale2Hi);
-    var wSumHi=dep+sale2Hi-fee2Hi-bNotice-proc+prof, wSumLo=dep+sale2Lo-fee2Lo-bNotice-proc-lease-staffC+prof;
+    var wSumHi=dep+sale2Hi-fee2Hi-bNotice-proc-(lease+staffC)*0.25+prof, wSumLo=dep+sale2Lo-fee2Lo-bNotice-proc-(lease+staffC)*0.75+prof;
     $('#wFee').textContent=fee2Hi?('▲'+range(fee2Lo,fee2Hi).replace('▲','')):'0円';
     var dropMid=((saleLo-feeLo+saleHi-feeHi)/2)-((sale2Lo-fee2Lo+sale2Hi-fee2Hi)/2);
     $('#wLbl').textContent=(wait>=12?(wait/12)+'年':wait+'か月'); 
@@ -419,9 +421,9 @@ footer a{color:#C6D6E5}
     $('#wSame').textContent=man(-(bNotice+proc));
     $('#wDep').textContent=man(dep);
     $('#wSum').textContent=range(wSumLo,wSumHi);
-    $('#wBig').textContent=range(wSumLo,wSumHi);
-    $('#wBig').className='big '+(wSumHi>=0?'plus':'minus');
-    $('#wLbl2').textContent=lbl(wSumLo,wSumHi,'手元に残る額（先延ばし期間の損益込み）','持ち出し（先延ばし期間の損益込み）');
+    $('#wBig').textContent=about(wSumLo,wSumHi);
+    $('#wBig').className='big '+((wSumLo+wSumHi)>=0?'plus':'minus');
+    $('#wLbl2').textContent=((wSumLo+wSumHi)>=0?'手元に残る額（先延ばし期間の損益込み）':'持ち出し（先延ばし期間の損益込み）')+'｜'+wid(wSumLo,wSumHi);
     var wMid=(wSumLo+wSumHi)/2, bMid0=(bSumLo+bSumHi)/2, costWait=bMid0-wMid;
     $('#wNote').innerHTML=costWait>0
       ? '<b>迷っている'+wait+'か月で、中央値で約'+Math.round(costWait).toLocaleString('ja-JP')+'万円減ります。</b>'+(profit<0?'赤字の累計と、造作の値打ちの減りの合計です。':'造作の値打ちが減る分が、月の手残りより大きい計算です。')+'継ぎ手が決まる前に原状回復の見積りを取ると、造作の値はその時点でゼロになります。'
