@@ -135,6 +135,10 @@ footer a{color:#C6D6E5}
  .pr ol{padding-left:1.3em;font-size:9.5pt}.pr li{margin-bottom:2px}
  .pr-f{margin-top:10px;border-top:1px solid var(--rule2);padding-top:5px;font-size:8pt;color:var(--ink3)}
 }
+.biz3{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
+.biz3 span{font-size:12.5px;font-weight:700;color:var(--ink2);margin-right:4px}
+.biz3 button{font:inherit;font-size:13px;font-weight:700;border:1.5px solid var(--rule2);background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--ink)}
+.biz3 button.on{border-color:var(--ai);background:var(--aipale);color:var(--ai)}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -155,6 +159,7 @@ footer a{color:#C6D6E5}
   <section class="calc" aria-label="入力">
     <h2>まず、3つだけ入れてください</h2>
     <p class="sub">おおよそで構いません。ほかの項目には目安の数字が入っています。🔒名前も店名も要らず、数字はどこにも送られません。</p>
+    <div class="biz3" role="group" aria-label="お店の種類"><span>お店の種類</span><button type="button" data-b="retail">物販・サービス</button><button type="button" data-b="light" class="on">カフェ・喫茶・軽飲食</button><button type="button" data-b="heavy">焼肉・ラーメン・居酒屋など</button></div>
     <div class="g">
       <div class="fld"><label for="tsubo">お店の広さ</label><div class="in"><input id="tsubo" type="number" inputmode="decimal" min="1" step="1" value="15"><span class="u">坪</span></div><div class="hint">1坪 ≒ 3.3㎡（㎡÷3.3）</div></div>
       <div class="fld"><label for="rent">月額賃料（共益費込み）</label><div class="in"><input id="rent" type="number" inputmode="numeric" min="0" step="1" value="15"><span class="u">万円</span></div></div>
@@ -164,8 +169,10 @@ footer a{color:#C6D6E5}
     <details class="more" id="calcMore">
       <summary>もっと正確にする（あと7項目・分かるものだけ）</summary>
     <div class="g" style="margin-top:12px">
-      <div class="fld"><label for="dep">敷金・保証金の預け額</label><div class="in"><input id="dep" type="number" inputmode="numeric" min="0" step="1" value="90"><span class="u">万円</span></div><div class="hint">償却分がある場合は差し引いた額</div></div>
+      <div class="fld"><label for="dep">敷金・保証金の預け額</label><div class="in"><input id="dep" type="number" inputmode="numeric" min="0" step="1" value="90"><span class="u">万円</span></div><div class="hint">敷引き・償却がある場合は、<b>戻ってくる額だけ</b>を入れてください（滋賀・京都では償却のある契約がよくあります）</div></div>
       <div class="fld"><label for="notice">解約予告の期間</label><div class="in"><select id="notice"><option value="1">1か月前</option><option value="2">2か月前</option><option value="3">3か月前</option><option value="4">4か月前</option><option value="5">5か月前</option><option value="6" selected>6か月前（分からない場合）</option></select></div><div class="hint">賃貸借契約書の「解約」の条に書かれています</div></div>
+      <div class="fld"><label for="nmode">解約を伝えるのは</label><div class="in"><select id="nmode"><option value="op" selected>営業を続けながら伝える</option><option value="closed">先に店を閉めてから伝える</option></select></div><div class="hint">営業を続けながら伝えれば、予告期間の家賃は売上でまかなえます。閉めてから伝えると、その間の家賃がまるごと持ち出しになります</div></div>
+      <div class="fld"><label for="loan">事業の借入の残り（金融機関から）</label><div class="in"><input id="loan" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="u">万円</span></div><div class="hint">閉めても渡しても、借入は店主に残ります。返したあとの手元も表示します</div></div>
       <div class="fld"><label for="lease">リース・割賦の残債</label><div class="in"><input id="lease" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="u">万円</span></div><div class="hint">厨房機器・食洗機・POSなど。なければ0</div></div>
       <div class="fld"><label for="yrs">それから経った年数</label><div class="in"><input id="yrs" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="u">年</span></div></div>
       <div class="fld"><label for="staff">正社員の人数（自分以外）</label><div class="in"><input id="staff" type="number" inputmode="numeric" min="0" step="1" value="1"><span class="u">人</span></div><div class="hint">パート・アルバイトは含めない</div></div>
@@ -190,7 +197,7 @@ footer a{color:#C6D6E5}
         <div class="big minus" id="aBig">—</div><div class="lbl" id="aLbl">持ち出し（敷金を差し引いた後）</div>
         <table>
           <tr><td>原状回復工事<span class="s" id="aRestS">スケルトン戻し</span></td><td id="aRest">—</td></tr>
-          <tr><td>解約予告期間の賃料<span class="s" id="aNoticeS"></span></td><td id="aNotice">—</td></tr>
+          <tr><td id="aNoticeL">解約予告期間の賃料<span class="s" id="aNoticeS"></span></td><td id="aNotice">—</td></tr>
           <tr><td>リース残債の一括精算</td><td id="aLease">—</td></tr>
           <tr><td>従業員の解雇予告手当など<span class="s" id="aStaffS"></span></td><td id="aStaff">—</td></tr>
           <tr><td>廃業の手続き費用<span class="s">税務・許認可・登記など</span></td><td id="aProc">—</td></tr>
@@ -204,11 +211,12 @@ footer a{color:#C6D6E5}
         <div class="big" id="bBig">—</div><div class="lbl" id="bLbl">手元に残る額（幅で表示）</div>
         <table>
           <tr><td>原状回復工事<span class="s">継ぎ手が造作ごと引き受ける</span></td><td>0円</td></tr>
-          <tr><td>解約予告期間の賃料<span class="s" id="bNoticeS"></span></td><td id="bNotice">—</td></tr>
+          <tr><td id="bNoticeL">解約予告期間の賃料<span class="s" id="bNoticeS"></span></td><td id="bNotice">—</td></tr>
           <tr><td>リース残債<span class="s">継ぎ手が引き継げば0、精算なら同額</span></td><td id="bLease">—</td></tr>
           <tr><td>従業員<span class="s">継ぎ手が雇用を続ければ0</span></td><td id="bStaff">—</td></tr>
           <tr><td>廃業の手続き費用</td><td id="bProc">—</td></tr>
           <tr><td>造作譲渡の収入<span class="s" id="bSaleS"></span></td><td id="bSale">—</td></tr>
+          <tr><td>当社の手数料<span class="s">譲渡額の12%（最低8万円）。譲渡代金から精算</span></td><td id="bFee">—</td></tr>
           <tr><td>戻ってくる敷金<span class="s">原状回復の差し引きなし</span></td><td id="bDep">—</td></tr>
           <tr class="sum"><td>差引</td><td id="bSum">—</td></tr>
         </table>
@@ -219,6 +227,7 @@ footer a{color:#C6D6E5}
         <table>
           <tr><td>先延ばし期間の手残りの累計<span class="s" id="wProfS"></span></td><td id="wProf">—</td></tr>
           <tr><td>造作譲渡の収入（そのときの値打ち）<span class="s" id="wSaleS"></span></td><td id="wSale">—</td></tr>
+          <tr><td>当社の手数料</td><td id="wFee">—</td></tr>
           <tr><td>値打ちの減り<span class="s">いま渡した場合との差</span></td><td id="wDrop">—</td></tr>
           <tr><td>解約予告期間の賃料・手続き費用<span class="s">いま渡す場合と同じ</span></td><td id="wSame">—</td></tr>
           <tr><td>戻ってくる敷金</td><td id="wDep">—</td></tr>
@@ -231,6 +240,7 @@ footer a{color:#C6D6E5}
       <div class="t" id="dT">閉め方でこれだけ変わる（目安）</div>
       <div class="n" id="dBig">—</div>
       <div class="d" id="dTxt">通常の閉店との差額。造作譲渡額の幅と、リース・従業員の引き継ぎの有無で変わります。</div>
+      <div class="d" id="dLoan" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);display:none"></div>
       <div class="d" id="dWait" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);color:#F3E7C6"></div>
     </div>
     <!-- 2026-10 追加：結果を見たあとの3択（トップから移設） -->
@@ -283,12 +293,13 @@ footer a{color:#C6D6E5}
       <summary>試算の前提（坪単価・残存率など）</summary>
       <div class="body">
         <div class="g">
-          <div class="fld"><label for="pLo">原状回復の坪単価（安い側）</label><div class="in"><input id="pLo" type="number" min="0" step="1" value="10"><span class="u">万円/坪</span></div></div>
-          <div class="fld"><label for="pHi">原状回復の坪単価（高い側）</label><div class="in"><input id="pHi" type="number" min="0" step="1" value="15"><span class="u">万円/坪</span></div><div class="hint">飲食のスケルトン戻しは10〜15万円/坪が目安。躯体まで戻す契約や重飲食はさらに高い</div></div>
-          <div class="fld"><label for="mTake">承継が決まるまでの期間</label><div class="in"><input id="mTake" type="number" min="0" step="1" value="3"><span class="u">か月</span></div><div class="hint">この期間分の賃料は承継でもかかる（予告期間より短ければ短縮）</div></div>
+          <div class="fld"><label for="pLo">原状回復の坪単価（安い側）</label><div class="in"><input id="pLo" type="number" min="0" step="1" value="6"><span class="u">万円/坪</span></div></div>
+          <div class="fld"><label for="pHi">原状回復の坪単価（高い側）</label><div class="in"><input id="pHi" type="number" min="0" step="1" value="10"><span class="u">万円/坪</span></div><div class="hint">お店の種類から自動で入ります（物販3〜6、軽飲食6〜10、重飲食10〜18万円/坪）。躯体まで戻す契約や重飲食はさらに高い</div></div>
+          <div class="fld"><label for="mTake">承継が決まるまでの期間</label><div class="in"><input id="mTake" type="number" min="0" step="1" value="3"><span class="u">か月</span></div><div class="hint">「閉めてから伝える」場合は、この期間分の家賃が承継でもかかります。「営業しながら」の場合は、この期間の月の手残りで計算します</div></div>
           <div class="fld"><label for="proc">廃業の手続き費用</label><div class="in"><input id="proc" type="number" min="0" step="1" value="15"><span class="u">万円</span></div><div class="hint">廃業の届出・最終の決算申告・許認可の返納・法人なら解散登記など。個人なら5〜10万、法人なら20〜40万が目安</div></div>
           <div class="fld"><label for="staffCost">正社員1人あたりの解雇関連費用</label><div class="in"><input id="staffCost" type="number" min="0" step="1" value="30"><span class="u">万円</span></div><div class="hint">解雇予告手当（平均賃金30日分）＋有給の買い取り・退職金があれば加算</div></div>
-          <div class="fld"><label for="rate">造作の残存率（経過年数から自動）</label><div class="in"><input id="rate" type="number" min="0" max="100" step="1"><span class="u">%</span></div><div class="hint">目安：1年70％・2年55％・3年45％・4年35％・5年28％・6年以上20％。安い側はこの半分</div></div>
+          <div class="fld"><label>当社の手数料（渡す場合）</label><div class="in" style="font-size:13px;padding:8px 0">造作譲渡額の12%（最低8万円・税別）。譲渡代金から精算するので持ち出しはありません</div></div>
+          <div class="fld"><label for="rate">造作の残存率（経過年数から自動）</label><div class="in"><input id="rate" type="number" min="0" max="100" step="1"><span class="u">%</span></div><div class="hint">目安：1年70％・2年55％・3年45％・4年35％・5年28％・6年20％・8年14％・10年以上10％。<b>実際の値段は、継ぎ手が払える額（立地・家賃・継ぎ手の資金）で決まります。</b>当社は査定しません。高い側は当社が扱う上限の300万円まで、安い側は高い側の4割（10年以上は0円）で計算します</div></div>
         </div>
       </div>
     </details>
@@ -328,7 +339,10 @@ footer a{color:#C6D6E5}
 
   /* 外部チェック（check.html）から来た場合：3つの数字を引き継ぐ */
   try{var qp=new URLSearchParams(location.search);['tsubo','rent','inv'].forEach(function(k){var v=parseFloat(qp.get(k));if(!isNaN(v)&&v>0&&v<100000){var e=document.getElementById(k);if(e)e.value=v;if(k==='rent'){var d=document.getElementById('dep');if(d)d.value=Math.round(v*6);}}});}catch(e){}
-  var RATE=[100,70,55,45,35,28,20];
+  var RATE=[100,70,55,45,35,28,20,17,14,12,10];
+  var U={retail:[3,6],light:[6,10],heavy:[10,18]},biz='light',pTouched=false,CAP=300;
+  function fee(v){return v>0?Math.min(v,Math.max(8,v*0.12)):0;}
+  function sale(inv,r,yy){var hi=Math.min(inv*r,CAP);var lo=yy>=10?0:hi*0.4;return [lo,hi];}
   function num(id){var v=parseFloat($(id).value);return isNaN(v)?0:v;}
   function man(v){v=Math.round(v);var s=(v<0?'▲':'')+Math.abs(v).toLocaleString('ja-JP')+'万円';return s;}
   function range(lo,hi){
@@ -342,21 +356,26 @@ footer a{color:#C6D6E5}
   function lbl(lo,hi,plusTxt,minusTxt){var a=Math.min(lo,hi),b=Math.max(lo,hi);if(b<0)return minusTxt;if(a>=0)return plusTxt;return '条件によって持ち出しにも、手元に残る側にもなります';}
   var rateTouched=false;
   $('#rate').addEventListener('input',function(){rateTouched=true;calc();});
+  ['#pLo','#pHi'].forEach(function(id){$(id).addEventListener('input',function(){pTouched=true;});});
+  document.querySelectorAll('.biz3 button').forEach(function(b){b.addEventListener('click',function(){biz=b.dataset.b;pTouched=false;document.querySelectorAll('.biz3 button').forEach(function(x){x.classList.toggle('on',x===b);});window.bcTrack&&bcTrack('yameru_biz',{biz:biz});calc();});});
   function calc(){
     var tsubo=num('#tsubo'),rent=num('#rent'),dep=num('#dep'),notice=num('#notice'),lease=num('#lease'),inv=num('#inv'),yrs=num('#yrs'),staff=num('#staff'),profit=num('#profit'),wait=num('#wait');
-    var pLo=num('#pLo'),pHi=num('#pHi'),mTake=num('#mTake'),proc=num('#proc'),staffCost=num('#staffCost');
-    if(!rateTouched){var y=Math.max(0,Math.min(6,Math.round(yrs)));$('#rate').value=RATE[y];}
+    if(!pTouched){$('#pLo').value=U[biz][0];$('#pHi').value=U[biz][1];}
+    var pLo=num('#pLo'),pHi=num('#pHi'),mTake=num('#mTake'),proc=num('#proc'),staffCost=num('#staffCost'),loan=num('#loan'),op=$('#nmode').value==='op';
+    if(!rateTouched){var y=Math.max(0,Math.min(10,Math.round(yrs)));$('#rate').value=RATE[y];}
     var rate=num('#rate')/100;
 
     /* 通常の閉店 */
     var restLo=tsubo*pLo,restHi=tsubo*pHi;
-    var noticeCost=notice*rent;
+    var noticeCost=op?(rent-Math.min(0,profit)*notice):notice*rent;
     var staffC=staff*staffCost;
     var costLo=restLo+noticeCost+lease+staffC+proc, costHi=restHi+noticeCost+lease+staffC+proc;
     var aSumHi=dep-costLo, aSumLo=dep-costHi; /* 手元に残る額（マイナス＝持ち出し） */
     $('#aRest').textContent=range(restLo,restHi);
     $('#aRestS').textContent='スケルトン戻し '+pLo+'〜'+pHi+'万円/坪 × '+tsubo+'坪';
-    $('#aNotice').textContent=man(noticeCost); $('#aNoticeS').textContent=notice+'か月 × '+rent+'万円';
+    $('#aNotice').textContent=man(noticeCost);
+    $('#aNoticeL').firstChild.textContent=op?'閉めるまでの家賃と赤字':'解約予告期間の賃料';
+    $('#aNoticeS').textContent=op?('工事期間1か月の家賃'+rent+'万円'+(profit<0?'＋予告'+notice+'か月の赤字':'')):(notice+'か月 × '+rent+'万円');
     $('#aLease').textContent=man(lease);
     $('#aStaff').textContent=man(staffC); $('#aStaffS').textContent=staff+'人 × '+staffCost+'万円';
     $('#aProc').textContent=man(proc);
@@ -367,16 +386,19 @@ footer a{color:#C6D6E5}
     $('#aLbl').textContent=lbl(aSumLo,aSumHi,'手元に残る額（目安）','持ち出し（敷金を差し引いた後の目安）');
 
     /* 退店前承継 */
-    var bNoticeM=Math.min(notice,mTake), bNotice=bNoticeM*rent;
-    var saleHi=inv*rate, saleLo=inv*rate/2;
+    var bNoticeM=Math.min(notice,mTake), bNotice=op?(-Math.min(0,profit)*bNoticeM):bNoticeM*rent;
+    var yy=Math.round(yrs), sv=sale(inv,rate,yy), saleLo=sv[0], saleHi=sv[1], feeLo=fee(saleLo), feeHi=fee(saleHi);
     /* 楽観側：リース・従業員を継ぎ手が引き継ぐ／慎重側：精算 */
-    var bSumHi=dep+saleHi-bNotice-proc;
-    var bSumLo=dep+saleLo-bNotice-proc-lease-staffC;
-    $('#bNotice').textContent=man(bNotice); $('#bNoticeS').textContent=bNoticeM+'か月 × '+rent+'万円（承継まで'+mTake+'か月の想定）';
+    var bSumHi=dep+saleHi-feeHi-bNotice-proc;
+    var bSumLo=dep+saleLo-feeLo-bNotice-proc-lease-staffC;
+    $('#bNotice').textContent=man(bNotice);
+    $('#bNoticeL').firstChild.textContent=op?'承継までの赤字':'解約予告期間の賃料';
+    $('#bNoticeS').textContent=op?('承継まで'+bNoticeM+'か月、営業を続ける想定'):(bNoticeM+'か月 × '+rent+'万円（承継まで'+mTake+'か月の想定）');
+    $('#bFee').textContent=feeHi?('▲'+range(feeLo,feeHi).replace('▲','')):'0円';
     $('#bLease').textContent=lease?('0〜'+man(lease)):'0円';
     $('#bStaff').textContent=staffC?('0〜'+man(staffC)):'0円';
     $('#bProc').textContent=man(proc);
-    $('#bSale').textContent=range(saleLo,saleHi); $('#bSaleS').textContent=inv+'万円 × 残存率'+Math.round(rate*100)+'%（安い側はその半分）';
+    $('#bSale').textContent=range(saleLo,saleHi); $('#bSaleS').textContent='継ぎ手が払える額で決まる。目安：'+inv+'万円 × 残存率'+Math.round(rate*100)+'%'+(inv*rate>CAP?'（上限300万円）':'')+(yy>=10?'・安い側は0円':'・安い側はその4割');
     $('#bDep').textContent=man(dep);
     $('#bSum').textContent=range(bSumLo,bSumHi);
     $('#bBig').textContent=range(bSumLo,bSumHi);
@@ -384,11 +406,12 @@ footer a{color:#C6D6E5}
     $('#bLbl').textContent=lbl(bSumLo,bSumHi,'手元に残る額（幅で表示）','持ち出し（幅で表示）');
 
     /* 先延ばし：手残りの累計＋そのときの残存率で渡す */
-    var yrs2=yrs+wait/12, y2=Math.max(0,Math.min(6,Math.round(yrs2))), rate2=rateTouched?Math.max(0,rate-(RATE[Math.max(0,Math.min(6,Math.round(yrs)))]-RATE[y2])/100):RATE[y2]/100;
+    var yrs2=yrs+wait/12, y2=Math.max(0,Math.min(10,Math.round(yrs2))), rate2=rateTouched?Math.max(0,rate-(RATE[Math.max(0,Math.min(10,Math.round(yrs)))]-RATE[y2])/100):RATE[y2]/100;
     var prof=profit*wait;
-    var sale2Hi=inv*rate2, sale2Lo=inv*rate2/2;
-    var wSumHi=dep+sale2Hi-bNotice-proc+prof, wSumLo=dep+sale2Lo-bNotice-proc-lease-staffC+prof;
-    var dropMid=((saleLo+saleHi)/2)-((sale2Lo+sale2Hi)/2);
+    var sv2=sale(inv,rate2,Math.round(yrs2)), sale2Lo=sv2[0], sale2Hi=sv2[1], fee2Lo=fee(sale2Lo), fee2Hi=fee(sale2Hi);
+    var wSumHi=dep+sale2Hi-fee2Hi-bNotice-proc+prof, wSumLo=dep+sale2Lo-fee2Lo-bNotice-proc-lease-staffC+prof;
+    $('#wFee').textContent=fee2Hi?('▲'+range(fee2Lo,fee2Hi).replace('▲','')):'0円';
+    var dropMid=((saleLo-feeLo+saleHi-feeHi)/2)-((sale2Lo-fee2Lo+sale2Hi-fee2Hi)/2);
     $('#wLbl').textContent=(wait>=12?(wait/12)+'年':wait+'か月'); 
     $('#wProf').textContent=man(prof); $('#wProfS').textContent=profit+'万円/月 × '+wait+'か月';
     $('#wSale').textContent=range(sale2Lo,sale2Hi); $('#wSaleS').textContent=inv+'万円 × 残存率'+Math.round(rate2*100)+'%（'+wait+'か月後）';
@@ -407,13 +430,14 @@ footer a{color:#C6D6E5}
     /* 差額：中央値どうし */
     var aMid=(aSumLo+aSumHi)/2, bMid=(bSumLo+bSumHi)/2, d=bMid-aMid;
     $('#dWait').textContent=costWait>0?'先延ばしの'+wait+'か月では、さらに約'+Math.round(costWait).toLocaleString('ja-JP')+'万円（中央値）が減る計算です。決めるのは今でなくても、造作の値打ちが残っているうちに「渡せるか」だけは確かめておく価値があります。':'先延ばしの'+wait+'か月で手元は減らない計算です。焦る必要はありません。ただし貸主の承諾・リースの名義・原状回復の範囲は、早めに確かめておくと選択肢が残ります。';
+    if(loan>0){$('#dLoan').style.display='block';$('#dLoan').innerHTML='<b>借入の残り'+man(loan)+'は、閉めても渡しても店主に残ります。</b>返したあとの手元（中央値）は、閉める：'+man(aMid-loan)+'／いま渡す：'+man(bMid-loan)+'。造作や設備が借入の担保になっている場合や、補助金で買った設備がある場合は、売る前に金融機関・補助金の窓口への確認が必要です。';}else{$('#dLoan').style.display='none';}
     $('#dBig').textContent=(d>=0?'＋':'▲')+Math.abs(Math.round(d)).toLocaleString('ja-JP')+'万円';
     $('#dTxt').textContent=d>=0?'通常の閉店より、これだけ手元に残る計算です（両方の幅の中央値で比較）。造作譲渡額と、リース・従業員の引き継ぎの有無で変わります。':'この条件では承継しても差が出にくい計算です。前提を変えるか、相談で個別に確かめてください。';
   }
   function prep(){
     var d=new Date();
     $('#prMeta').textContent='作成日：'+d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日　／　www.bridgecycleco.com の試算ツールで作成';
-    var F=[['tsubo','広さ','坪'],['rent','月額賃料','万円'],['inv','内装・設備にかけた金額','万円'],['yrs','それから経った年数','年'],['dep','敷金・保証金','万円'],['notice','解約予告の期間','か月前'],['lease','リース残債','万円'],['staff','正社員の人数','人'],['profit','月の手残り','万円/月'],['wait','先延ばしの期間','か月']];
+    var F=[['tsubo','広さ','坪'],['rent','月額賃料','万円'],['inv','内装・設備にかけた金額','万円'],['yrs','それから経った年数','年'],['dep','敷金・保証金','万円'],['notice','解約予告の期間','か月前'],['lease','リース残債','万円'],['staff','正社員の人数','人'],['profit','月の手残り','万円/月'],['loan','事業の借入の残り','万円'],['wait','先延ばしの期間','か月']];
     var h='',c=0;F.forEach(function(f){var e=document.getElementById(f[0]);if(!e)return;if(c%2===0)h+='<tr>';h+='<td>'+f[1]+'</td><td>'+e.value+f[2]+'</td>';if(c%2===1)h+='</tr>';c++;});
     $('#prIn').innerHTML=h;
   }
