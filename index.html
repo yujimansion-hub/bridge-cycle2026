@@ -36,12 +36,12 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--aimid);outline-off
 .nav .wrap{display:flex;align-items:center;gap:16px;padding:13px 22px}
 .logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}
 .logo b{color:var(--aimid)}
-.nav .navl{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--ink2);text-decoration:none;border:1px solid var(--rule2);border-radius:999px;padding:4px 12px;background:rgba(255,255,255,.7)}
+.nav .navl{margin-left:auto;font-size:12px;font-weight:600;color:var(--ink3);text-decoration:none;border:none;border-bottom:1px solid var(--rule2);border-radius:0;padding:2px 0;background:none!important;padding:4px 12px;background:rgba(255,255,255,.7)}
 .nav .navl:hover{border-color:var(--aimid);color:var(--ai)}
 .nav .tel{font-size:13px;font-weight:800;color:var(--ink);text-decoration:none}
 .nav .tel small{font-weight:600;color:var(--ink3);font-size:11px;margin-left:6px}
 .logo,.nav .navl,.nav .tel{white-space:nowrap}
-@media(max-width:560px){.nav .tel small{display:none}.nav .tel{display:none}}
+@media(max-width:560px){.nav .navl{font-size:11.5px}}
 
 section{padding:56px 0;border-bottom:1px solid var(--rule)}
 .eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--aimid);font-weight:700;margin-bottom:6px}
@@ -191,14 +191,14 @@ footer .co{line-height:1.9}
 .mbar .m2{border:1.5px solid var(--rule2);background:#fff;color:var(--ink)}
 @media(max-width:640px){.mbar{display:flex}body{padding-bottom:70px}.hero{padding-top:16px}.cta{display:flex;font-size:16px;padding:15px 18px}}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "name": "BRIDGE CYCLE株式会社", "url": "https://www.bridgecycleco.com/", "telephone": "+81-80-5309-9770", "email": "info@bridgecycleco.com", "address": {"@type": "PostalAddress", "addressRegion": "滋賀県", "addressLocality": "大津市", "streetAddress": "におの浜2-1-28", "addressCountry": "JP"}, "areaServed": ["大津市", "滋賀県", "京都府"], "description": "飲食店の退店前承継（閉める前に、厨房・内装を次の店主へ）。国の認定経営革新等支援機関。", "openingHours": "Mo-Fr 10:00-17:00", "founder": {"@type": "Person", "name": "中村裕二"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "常連さんや従業員に、知られずに進められますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。店名を伏せて次の店主を探し、店の名前を伝えるのは、秘密を守る契約を結んだ人だけです。いつ、誰に伝えるかは店主さまが決めます。"}}, {"@type": "Question", "name": "貸主（大家さん）には、いつ話せばいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "造作を渡すには、貸主の了承が必要です。次の店主の候補が見えてから、話し方と順番を一緒に考えます。賃貸の手続きは、管理会社と連携して進めます。"}}, {"@type": "Question", "name": "いくらで渡せますか？", "acceptedAnswer": {"@type": "Answer", "text": "値段を決めるのは店主さまです。当社は査定をしません。そのかわり、次の店主が実際に払える金額の目安をお伝えするので、現実的な値段を決められます。"}}, {"@type": "Question", "name": "次の人が見つからなかったら？", "acceptedAnswer": {"@type": "Answer", "text": "費用は0円です。予定どおり閉めていただいて大丈夫です。閉め方や、閉めたあとのことも相談できます。"}}, {"@type": "Question", "name": "誰が担当しますか？", "acceptedAnswer": {"@type": "Answer", "text": "原則として、代表の中村が担当します。現地での設備の確認や顔合わせへの同席など一部を、秘密保持の契約を結んだ中小企業診断士にお願いする場合は、事前にご説明して了承をいただきます。誰と誰を会わせるかの判断は、必ず代表が行います。"}}, {"@type": "Question", "name": "どの地域の店が対象ですか？", "acceptedAnswer": {"@type": "Answer", "text": "大津市と、京都の周辺部の飲食店です。駅前の一等地より、まちなかの小さな店を中心にお引き受けしています。近くの地域の方も、まずはご相談ください。"}}, {"@type": "Question", "name": "まだ閉めるか決めていません。相談してもいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "もちろんです。「続ける」「渡す」「閉める」を数字で比べてから決める方がほとんどです。まずは30秒の試算からどうぞ。"}}]}]}</script>
 <script src="bc-analytics.js"></script>
 </head>
 <body>
 
 <nav class="nav"><div class="wrap">
   <a class="logo" href="./">BRIDGE <b>CYCLE</b></a>
-  <a class="navl" href="#uriba">売り場レンタル</a>
-  <a class="tel" href="tel:080-5309-9770">080-5309-9770<small>代表・中村が出ます（平日10〜17時）</small></a>
+  <a class="navl" href="#others">店を持ちたい方・売り場レンタル</a>
 </div></nav>
 
 <!-- 1. 一言 -->
@@ -277,6 +277,7 @@ footer .co{line-height:1.9}
     </div>
   </div>
   <div class="zero"><b>持ち出しは、0円。</b><span>当社の手数料は、次の店主が払う譲渡代金の中から精算します。渡せなかったときは、1円もかかりません。</span></div>
+  <p class="ex" style="margin-bottom:6px"><a href="genjo-kaifuku.html">原状回復の費用だけを、業種と広さから計算する →</a>　<a href="taiten-zen-shokei.html">退店前承継とは →</a></p>
   <p class="ex">金額は、カフェ・喫茶の15坪・賃料15万円・内装600万円・開業4年・月5万円の赤字・正社員1人の店を、営業しながら解約を伝えた場合の試算の中央値です。造作の値段は継ぎ手が払える額で決まり、これより低くなることもあります。手数料は造作譲渡額の12%（最低8万円・税別）。店舗価値カルテは無料です。対象は譲渡額300万円までの店です。値段は当社ではなく、店主ご本人が決めます。</p>
 </div></section>
 
@@ -326,7 +327,7 @@ footer .co{line-height:1.9}
 </div></section>
 
 <!-- ほかの方へ（店主の導線のあと） -->
-<section class="oth"><div class="wrap">
+<section class="oth" id="others"><div class="wrap">
   <p class="ot">FOR OTHERS</p>
   <h2>お店を営む方のほかに、こんな方も。</h2>
   <div class="og">
