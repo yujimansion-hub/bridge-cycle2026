@@ -160,7 +160,7 @@ footer a{color:#C6D6E5}
   <section class="calc" aria-label="入力">
     <h2>まず、3つだけ入れてください</h2>
     <p class="sub">おおよそで構いません。ほかの項目には目安の数字が入っています。🔒名前も店名も要らず、数字はどこにも送られません。</p>
-    <div class="biz3" role="group" aria-label="お店の種類"><span>お店の種類</span><button type="button" data-b="retail">物販・サービス</button><button type="button" data-b="light" class="on">カフェ・喫茶・軽飲食</button><button type="button" data-b="heavy">焼肉・ラーメン・居酒屋など</button></div>
+    <div class="biz3" role="group" aria-label="お店の種類"><span>お店の種類</span><button type="button" data-b="retail">物販・サービス</button><button type="button" data-b="light" class="on">カフェ・喫茶・軽飲食</button><button type="button" data-b="heavy">焼肉・ラーメン・居酒屋など</button><button type="button" data-b="beauty">美容室・サロン</button><button type="button" data-b="clinic">クリニック・歯科</button></div>
     <div class="g">
       <div class="fld"><label for="tsubo">お店の広さ</label><div class="in"><input id="tsubo" type="number" inputmode="decimal" min="1" step="1" value="15"><span class="u">坪</span></div><div class="hint">1坪 ≒ 3.3㎡（㎡÷3.3）</div></div>
       <div class="fld"><label for="rent">月額賃料（共益費込み）</label><div class="in"><input id="rent" type="number" inputmode="numeric" min="0" step="1" value="15"><span class="u">万円</span></div></div>
@@ -174,7 +174,7 @@ footer a{color:#C6D6E5}
       <div class="fld"><label for="notice">解約予告の期間</label><div class="in"><select id="notice"><option value="1">1か月前</option><option value="2">2か月前</option><option value="3">3か月前</option><option value="4">4か月前</option><option value="5">5か月前</option><option value="6" selected>6か月前（分からない場合）</option></select></div><div class="hint">賃貸借契約書の「解約」の条に書かれています</div></div>
       <div class="fld"><label for="nmode">解約を伝えるのは</label><div class="in"><select id="nmode"><option value="op" selected>営業を続けながら伝える</option><option value="closed">先に店を閉めてから伝える</option></select></div><div class="hint">営業を続けながら伝えれば、予告期間の家賃は売上でまかなえます。閉めてから伝えると、その間の家賃がまるごと持ち出しになります</div></div>
       <div class="fld"><label for="loan">事業の借入の残り（金融機関から）</label><div class="in"><input id="loan" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="u">万円</span></div><div class="hint">閉めても渡しても、借入は店主に残ります。返したあとの手元も表示します</div></div>
-      <div class="fld"><label for="lease">リース・割賦の残債</label><div class="in"><input id="lease" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="u">万円</span></div><div class="hint">厨房機器・食洗機・POSなど。なければ0</div></div>
+      <div class="fld"><label for="lease">リース・割賦の残債</label><div class="in"><input id="lease" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="u">万円</span></div><div class="hint">厨房機器・シャンプー台・医療機器・POSなど。なければ0</div></div>
       <div class="fld"><label for="yrs">それから経った年数</label><div class="in"><input id="yrs" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="u">年</span></div></div>
       <div class="fld"><label for="staff">正社員の人数（自分以外）</label><div class="in"><input id="staff" type="number" inputmode="numeric" min="0" step="1" value="1"><span class="u">人</span></div><div class="hint">パート・アルバイトは含めない</div></div>
       <div class="fld"><label for="profit">いまの月の手残り（自分の給料を引いた後）</label><div class="in"><input id="profit" type="number" inputmode="numeric" step="1" value="-5"><span class="u">万円/月</span></div><div class="hint">赤字なら「-5」のようにマイナスで。自分の生活費を先に引いた残りが目安</div></div>
@@ -296,7 +296,7 @@ footer a{color:#C6D6E5}
       <div class="body">
         <div class="g">
           <div class="fld"><label for="pLo">原状回復の坪単価（安い側）</label><div class="in"><input id="pLo" type="number" min="0" step="1" value="6"><span class="u">万円/坪</span></div></div>
-          <div class="fld"><label for="pHi">原状回復の坪単価（高い側）</label><div class="in"><input id="pHi" type="number" min="0" step="1" value="10"><span class="u">万円/坪</span></div><div class="hint">お店の種類から自動で入ります（物販3〜6、軽飲食6〜10、重飲食10〜18万円/坪）。躯体まで戻す契約や重飲食はさらに高い</div></div>
+          <div class="fld"><label for="pHi">原状回復の坪単価（高い側）</label><div class="in"><input id="pHi" type="number" min="0" step="1" value="10"><span class="u">万円/坪</span></div><div class="hint">お店の種類から自動で入ります（物販3〜6、軽飲食6〜10、重飲食10〜18、美容室4〜8、クリニック6〜12万円/坪）。躯体まで戻す契約や重飲食、X線室のあるクリニックはさらに高い</div></div>
           <div class="fld"><label for="mTake">承継が決まるまでの期間</label><div class="in"><input id="mTake" type="number" min="0" step="1" value="3"><span class="u">か月</span></div><div class="hint">「閉めてから伝える」場合は、この期間分の家賃が承継でもかかります。「営業しながら」の場合は、この期間の月の手残りで計算します</div></div>
           <div class="fld"><label for="proc">廃業の手続き費用</label><div class="in"><input id="proc" type="number" min="0" step="1" value="15"><span class="u">万円</span></div><div class="hint">廃業の届出・最終の決算申告・許認可の返納・法人なら解散登記など。個人なら5〜10万、法人なら20〜40万が目安</div></div>
           <div class="fld"><label for="staffCost">正社員1人あたりの解雇関連費用</label><div class="in"><input id="staffCost" type="number" min="0" step="1" value="30"><span class="u">万円</span></div><div class="hint">解雇予告手当（平均賃金30日分）＋有給の買い取り・退職金があれば加算</div></div>
@@ -340,9 +340,10 @@ footer a{color:#C6D6E5}
   try{var pb=document.getElementById('savePdf');if(pb)pb.addEventListener('click',function(){if(window.bcTrack)bcTrack('yameru_pdf_save');});}catch(e){}
 
   /* 外部チェック（check.html）から来た場合：3つの数字を引き継ぐ */
+  try{var tq=(new URLSearchParams(location.search).get('type')||'').toLowerCase(),TMAP={food:'light',cafe:'light',light:'light',heavy:'heavy',izakaya:'heavy',retail:'retail',beauty:'beauty',salon:'beauty',clinic:'clinic',dental:'clinic'};if(TMAP[tq]){var bb=document.querySelector('.biz3 button[data-b="'+TMAP[tq]+'"]');if(bb){document.addEventListener('DOMContentLoaded',function(){bb.click();});if(document.readyState!=='loading')setTimeout(function(){bb.click();},0);}}}catch(e){}
   try{var qp=new URLSearchParams(location.search);['tsubo','rent','inv'].forEach(function(k){var v=parseFloat(qp.get(k));if(!isNaN(v)&&v>0&&v<100000){var e=document.getElementById(k);if(e)e.value=v;if(k==='rent'){var d=document.getElementById('dep');if(d)d.value=Math.round(v*6);}}});}catch(e){}
   var RATE=[100,70,55,45,35,28,20,17,14,12,10];
-  var U={retail:[3,6],light:[6,10],heavy:[10,18]},biz='light',pTouched=false,CAP=300;
+  var U={retail:[3,6],light:[6,10],heavy:[10,18],beauty:[4,8],clinic:[6,12]},biz='light',pTouched=false,CAP=300;
   function fee(v){return v>0?Math.min(v,Math.max(8,v*0.12)):0;}
   function sale(inv,r,yy){var c=Math.min(inv*r,CAP)*0.7;return [c*0.8,Math.min(c*1.2,CAP)];}
   function about(lo,hi){var m=Math.round(((lo+hi)/2)/5)*5;return (m<0?'▲約':m>0?'＋約':'約')+Math.abs(m).toLocaleString('ja-JP')+'万円';}
