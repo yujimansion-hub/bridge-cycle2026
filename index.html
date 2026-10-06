@@ -366,6 +366,26 @@
   .trustsec{background:#f6fbef;border-bottom:1px solid var(--rule);padding:6px 0}
   .trust{border-bottom:none}
   .trust b{font-size:18px}
+  .dia3{display:grid;grid-template-columns:1fr 64px 1.1fr 64px 1fr;align-items:center;margin:44px 0 0;padding:36px 0;border-top:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25)}
+  .d3n,.d3c{text-align:center}
+  .d3n span,.d3c span{display:block;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#c9d2e3}
+  .d3n b{display:block;font-family:var(--serif);font-weight:800;font-size:clamp(20px,2.4vw,27px);margin-top:8px;color:#fff}
+  .d3g span{color:var(--tape)}
+  .d3c{border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:14px 10px}
+  .d3c span{color:var(--tape);font-size:13.5px}
+  .d3c b{display:block;margin-top:4px;font-size:15px;font-weight:500;color:#fff;letter-spacing:.06em}
+  .d3a{position:relative;height:1px;background:rgba(255,255,255,.7);margin:0 6px}
+  .d3a::after{content:"";position:absolute;right:-1px;top:-4px;border-left:8px solid rgba(255,255,255,.85);border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+  .d3rev{margin:18px 0 0;text-align:center;font-size:15px;color:#e6ebf4}
+  .d3rev i{font-style:normal;font-size:11px;font-weight:800;background:var(--tape);color:var(--ai);border-radius:3px;padding:1px 6px;margin-right:8px;vertical-align:2px}
+  .d3rev b{color:var(--tape);margin-right:8px}
+  @media (max-width:760px){
+    .dia3{grid-template-columns:1fr;padding:28px 0;gap:0}
+    .d3a{width:1px;height:34px;margin:10px auto}
+    .d3a::after{right:auto;left:-4px;top:auto;bottom:-1px;border-left:4.5px solid transparent;border-right:4.5px solid transparent;border-top:8px solid rgba(255,255,255,.85);border-bottom:0}
+    .d3c{max-width:300px;margin:0 auto;width:100%}
+    .d3rev span{display:block;margin-top:4px}
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -429,15 +449,14 @@
     <div class="w">
       <p class="kicker">いちばん力を入れていること｜退店前承継</p>
       <h2 class="sec">閉める店と、始めたい人をつなぐ。</h2>
-      <div class="dia2" role="img" aria-label="店主から相談を受けて継ぐ人を探す流れと、継ぎ手の希望を気になる店の店主に匿名で伝える流れを、BRIDGE CYCLEがつなぐ">
-        <div class="dn"><span class="dn-k">店主</span><b>「閉めようかな」</b><small>閉める店・営業中の店</small></div>
-        <div class="dmid">
-          <div class="dar dar-r"><span>店主から相談：継ぐ人を探す</span></div>
-          <div class="dbc">BRIDGE CYCLE</div>
-          <div class="dar dar-l"><span><i>NEW</i>継ぎ手から：気になる店の店主に、匿名で承継希望を伝える</span></div>
-        </div>
-        <div class="dn dn-g"><span class="dn-k">継ぎ手</span><b>「この店を継ぎたい」</b><small>店を始めたい人</small></div>
+      <div class="dia3" role="img" aria-label="店主の「閉めようかな…」から、BRIDGE CYCLEが整理し、つなぎ、動かして、継ぎ手の「この店を継ぎたい」へ。継ぎ手からも始められる">
+        <div class="d3n"><span>店主</span><b>「閉めようかな…」</b></div>
+        <div class="d3a" aria-hidden="true"></div>
+        <div class="d3c"><span>BRIDGE CYCLE</span><b>整理する・つなぐ・動かす</b></div>
+        <div class="d3a" aria-hidden="true"></div>
+        <div class="d3n d3g"><span>継ぎ手</span><b>「この店を継ぎたい」</b></div>
       </div>
+      <p class="d3rev"><i>NEW</i><b>継ぎ手からも始められる。</b><span>気になる店の店主に、匿名で承継希望を伝える。</span></p>
       <p class="ask2">あなたは、どれですか？</p>
       <div class="pick3 light">
         <a href="zousaku.html" data-t="hub_hero_seller"><b>店を閉めるか迷っている</b><span>内装・設備を次の人へ。原状回復費を減らせる可能性があります。</span></a>
