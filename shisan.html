@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閉店の原状回復費、30秒で試算｜業種と坪数だけ（BRIDGE CYCLE）</title>
+<meta name="description" content="飲食店・美容室・クリニックを閉めるときの原状回復（内装を壊して返す）費用を、業種と坪数だけで試算。京都市の相場にもとづく目安です。匿名・入力内容は送信されません。">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.bridgecycleco.com/genjo-kaifuku.html">
+<style>
+:root{--ai:#1d2b4f;--ai-2:#4a5674;--mist:#eef2f7;--rule:#d5dce8;--tape:#9bcf53;--tape-d:#3f6f12;--red:#b42318}
+*{box-sizing:border-box}
+html,body{margin:0;background:transparent}
+body{color:var(--ai);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;font-size:15px;line-height:1.7}
+.card{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--rule);border-top:5px solid var(--ai);border-radius:14px;padding:18px 18px 12px}
+body:not(.em){background:var(--mist);padding:20px 12px}
+.k{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--tape-d);margin:0}
+h1{font-family:"Shippori Mincho","Hiragino Mincho ProN",serif;font-size:22px;line-height:1.45;margin:4px 0 6px}
+.lead{font-size:13.5px;color:var(--ai-2);margin:0 0 12px}
+.q{margin:0 0 12px}.q>b{display:block;font-size:14px;margin-bottom:6px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg label{border:1.5px solid var(--rule);border-radius:999px;padding:6px 12px;font-size:13.5px;cursor:pointer;background:#fff}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){border-color:var(--ai);background:var(--ai);color:#fff}
+.seg label:has(input:focus-visible){outline:3px solid var(--tape)}
+.rg{display:flex;align-items:center;gap:12px}
+.rg input{flex:1;accent-color:var(--ai)}
+.rg output{min-width:4.5em;text-align:right;font-weight:700;font-size:17px}
+.res{background:var(--mist);border-radius:10px;padding:14px;margin:6px 0 10px}
+.res .l{font-size:13px;color:var(--ai-2);margin:0}
+.res .v{font-family:"Shippori Mincho",serif;font-weight:800;font-size:28px;color:var(--red);margin:0;line-height:1.3}
+.res .alt{margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--rule);font-size:14px}
+.res .alt b{color:var(--tape-d)}
+.cta{display:grid;gap:8px}
+.cta a{display:block;text-align:center;text-decoration:none;border-radius:10px;padding:11px 10px;font-weight:700;font-size:15px}
+.cta a small{display:block;font-weight:400;font-size:12px;opacity:.9}
+.cta .p{background:var(--tape-d);color:#fff}
+.cta .s{border:1.5px solid var(--ai);color:var(--ai)}
+.src{font-size:11.5px;color:var(--ai-2);margin:10px 0 0;line-height:1.6}.src a{color:inherit}
+.by{font-size:11.5px;color:var(--ai-2);text-align:center;margin:8px 0 0}.by a{color:inherit}
+.share{max-width:560px;margin:12px auto 0;text-align:center;font-size:13px}
+body.em .share{display:none}
+</style>
+</head>
+<body>
+<div class="card" id="w">
+  <p class="k">閉店の費用30秒チェック</p>
+  <h1>閉めるとき、内装を壊す費用はいくら？</h1>
+  <p class="lead">業種と広さだけで、原状回復（内装を壊して返す）の目安を出します。匿名・入力した数字はどこにも送られません。</p>
+  <div class="q"><b>1. 業種</b>
+    <div class="seg" role="radiogroup" aria-label="業種">
+      <label><input type="radio" name="t" value="heavy" checked>居酒屋・ラーメンなど</label>
+      <label><input type="radio" name="t" value="light">カフェ・軽飲食</label>
+      <label><input type="radio" name="t" value="beauty">美容室・サロン</label>
+      <label><input type="radio" name="t" value="clinic">クリニック・歯科</label>
+      <label><input type="radio" name="t" value="retail">物販・サービス</label>
+    </div>
+  </div>
+  <div class="q"><b>2. 広さ</b>
+    <div class="rg"><input type="range" id="ts" min="5" max="60" step="1" value="20" aria-label="坪数"><output id="to">20坪</output></div>
+  </div>
+  <div class="res" aria-live="polite">
+    <p class="l">壊して返す場合の工事費の目安</p>
+    <p class="v" id="rv">160〜400万円</p>
+    <p class="alt">次の店主へ<b>そのまま渡せた場合</b>、この工事はいらなくなる可能性があります。内装に値段がつくこともあります。</p>
+  </div>
+  <div class="cta">
+    <a class="p" id="c1" target="_blank" rel="noopener">渡せるか、写真で無料確認<small>閉めると決める必要はありません・誰にも伝えません</small></a>
+    <a class="s" id="c2" target="_blank" rel="noopener">家賃・解約予告まで入れて詳しく計算</a>
+  </div>
+  <p class="src">京都市の店舗の原状回復の坪単価（重飲食 坪8〜20万円、軽飲食 坪5〜10万円、美容室・サロン 坪3〜15万円、クリニック 坪3〜8万円、物販 坪3〜8万円）に坪数をかけた目安です。建物と契約で大きく変わります。出典：<a href="https://www.mukai-asset.jp/blog/entry-656164/" target="_blank" rel="noopener">ムカイ・エンタープライズ（2025年7月）</a></p>
+  <p class="by" id="by">提供：<a id="byl" target="_blank" rel="noopener">BRIDGE CYCLE株式会社</a>（滋賀県大津市・認定経営革新等支援機関）</p>
+</div>
+<p class="share"><a href="shisan-kit.html">この試算を、あなたのサイトやブログに貼る →</a></p>
+<script src="bc-analytics.js"></script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search), $=function(s){return document.querySelector(s);};
+  var ref=(q.get('ref')||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20);
+  var em=q.get('embed')==='1'; if(em) document.body.classList.add('em');
+  var U={heavy:[8,20],light:[5,10],beauty:[3,15],clinic:[3,8],retail:[3,8]};
+  var TM={food:'heavy',heavy:'heavy',light:'light',cafe:'light',beauty:'beauty',salon:'beauty',clinic:'clinic',dental:'clinic',retail:'retail'};
+  var t0=TM[(q.get('type')||'').toLowerCase()]; if(t0){var r=document.querySelector('input[name="t"][value="'+t0+'"]'); if(r) r.checked=true;}
+  var ts0=parseInt(q.get('tsubo'),10); if(ts0>=5&&ts0<=60) $('#ts').value=ts0;
+  var B='https://www.bridgecycleco.com/', src=em?'embed':'direct';
+  var started=true;
+  function T(n,p){try{var o={partner:ref||'none',place:src};for(var k in (p||{}))o[k]=p[k];window.bcTrack&&bcTrack(n,o);}catch(e){}}
+  function u(path,camp){
+    var s='utm_source='+(ref?'partner':'shisan')+'&utm_medium='+src+'&utm_campaign='+camp+(ref?'&utm_content='+ref+'&ref='+ref:'');
+    var i=path.indexOf('#'), b=i<0?path:path.slice(0,i), h=i<0?'':path.slice(i);
+    return B+b+(b.indexOf('?')<0?'?':'&')+s+h;
+  }
+  function calc(){
+    var t=document.querySelector('input[name="t"]:checked').value, n=+$('#ts').value, r=U[t];
+    $('#to').textContent=n+'坪';
+    $('#rv').textContent=(r[0]*n).toLocaleString('ja-JP')+'〜'+(r[1]*n).toLocaleString('ja-JP')+'万円';
+    var tt={heavy:'food',light:'food',beauty:'beauty',clinic:'clinic',retail:'retail'}[t];
+    $('#c1').href=u('zousaku.html#photo','shisan_photo');
+    $('#c2').href=u('genjo-kaifuku.html?type='+t+'&tsubo='+n,'shisan_detail');
+    $('#byl').href=u('taiten-zen-shokei.html','shisan_by');
+    if(!started){started=true;T('shisan_start',{biz:t});}
+    size();
+  }
+  document.querySelectorAll('input[name="t"]').forEach(function(x){x.addEventListener('change',calc);});
+  $('#ts').addEventListener('input',calc);
+  $('#c1').addEventListener('click',function(){T('shisan_photo_click');});
+  $('#c2').addEventListener('click',function(){T('shisan_detail_click');});
+  /* 埋め込み先の高さに合わせる */
+  function size(){try{if(em&&window.parent!==window){window.parent.postMessage({bcShisan:1,h:document.documentElement.scrollHeight},'*');}}catch(e){}}
+  window.addEventListener('resize',size);
+  calc(); started=false; T('shisan_view');
+  setTimeout(size,300);
+})();
+</script>
+</body>
+</html>

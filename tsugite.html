@@ -817,6 +817,7 @@
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){msg.textContent='ご連絡先のメールアドレスを入力してください。';document.getElementById('ct').focus();return;}
       msg.style.color='';
       const data=Object.fromEntries(fd.entries()); delete data._honey;
+      try{const rc=window.bcRef&&bcRef(); if(rc) data['紹介コード']=rc;}catch(e){}
       const keep=b?['登録の種類','継ぎたい店','店の場所','店のURL・SNS','継ぎたい理由','継ぎたい時期','引き継ぎたい範囲','呼び名','email','ひとこと']:['登録の種類','業種','時期','希望エリア','経験','呼び名','email','ひとこと'];
       Object.keys(data).forEach(k=>{if(!keep.includes(k)) delete data[k];});
       const name=data['呼び名']||'ご登録者';
