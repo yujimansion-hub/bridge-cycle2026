@@ -386,6 +386,14 @@
     .d3c{max-width:300px;margin:0 auto;width:100%}
     .d3rev span{display:block;margin-top:4px}
   }
+  .dia3{grid-template-areas:"a1 r1 bc r2 b1" "a2 r3 bc r4 b2";row-gap:30px}
+  .d3s b{font-size:clamp(17px,2vw,22px)}
+  .d3s span i{font-style:normal;font-size:10.5px;font-weight:800;background:var(--tape);color:var(--ai);border-radius:3px;padding:0 5px;margin-left:4px;letter-spacing:0}
+  .d3ag{background:var(--tape)}
+  .d3ag::after{border-left-color:var(--tape)}
+  .d3c{align-self:center}
+  @media (min-width:761px){.d3rev{display:none}}
+  @media (max-width:760px){.dia3{grid-template-areas:"a1" "r1" "bc" "r2" "b1"}.d3s,.d3ag{display:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -449,12 +457,16 @@
     <div class="w">
       <p class="kicker">いちばん力を入れていること｜退店前承継</p>
       <h2 class="sec">閉める店と、始めたい人をつなぐ。</h2>
-      <div class="dia3" role="img" aria-label="店主の「閉めようかな…」から、BRIDGE CYCLEが整理し、つなぎ、動かして、継ぎ手の「この店を継ぎたい」へ。継ぎ手からも始められる">
-        <div class="d3n"><span>店主</span><b>「閉めようかな…」</b></div>
-        <div class="d3a" aria-hidden="true"></div>
-        <div class="d3c"><span>BRIDGE CYCLE</span><b>整理する・つなぐ・動かす</b></div>
-        <div class="d3a" aria-hidden="true"></div>
-        <div class="d3n d3g"><span>継ぎ手</span><b>「この店を継ぎたい」</b></div>
+      <div class="dia3" role="img" aria-label="店主の「閉めようかな…」から継ぎ手へ、継ぎ手の「この店を継ぎたい」から営業中の店主へ。どちらもBRIDGE CYCLEが中央で整理し、つなぎ、動かす">
+        <div class="d3n" style="grid-area:a1"><span>店主</span><b>「閉めようかな…」</b></div>
+        <div class="d3a" style="grid-area:r1" aria-hidden="true"></div>
+        <div class="d3c" style="grid-area:bc"><span>BRIDGE CYCLE</span><b>整理する｜つなぐ｜動かす</b></div>
+        <div class="d3a" style="grid-area:r2" aria-hidden="true"></div>
+        <div class="d3n d3g" style="grid-area:b1"><span>継ぎ手</span><b>「この店を継ぎたい」</b></div>
+        <div class="d3n d3g d3s" style="grid-area:a2"><span>継ぎ手 <i>NEW</i></span><b>「この店を継ぎたい」</b></div>
+        <div class="d3a d3ag" style="grid-area:r3" aria-hidden="true"></div>
+        <div class="d3a d3ag" style="grid-area:r4" aria-hidden="true"></div>
+        <div class="d3n d3s" style="grid-area:b2"><span>営業中の店主</span><b>匿名で承継希望が届く</b></div>
       </div>
       <p class="d3rev"><i>NEW</i><b>継ぎ手からも始められる。</b><span>気になる店の店主に、匿名で承継希望を伝える。</span></p>
       <p class="ask2">あなたは、どれですか？</p>
