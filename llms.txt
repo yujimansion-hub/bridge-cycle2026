@@ -29,3 +29,4 @@
 - [飲食店の承継](https://www.bridgecycleco.com/shokei-inshokuten.html): 閉める前に内装・厨房設備を次の店主へ（滋賀・大津・京都）
 - [美容室の承継](https://www.bridgecycleco.com/shokei-biyoshitsu.html): シャンプー台・セット面を次の美容師へ
 - [クリニック・歯科の承継（内装・造作）](https://www.bridgecycleco.com/shokei-clinic.html): 閉院前に次の医師へ。医療機器・法人の譲渡は扱わない
+- [逆指名承継（NEW）](https://www.bridgecycleco.com/gyaku-shimei.html): 売りに出ていない営業中の店に「この店を継ぎたい」を匿名で一度だけ届ける。登録・最初の連絡0円
