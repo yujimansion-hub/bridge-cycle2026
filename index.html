@@ -215,6 +215,20 @@
   @media (max-width:900px){.choice{flex-direction:column}.choice .ph{width:auto;height:150px;min-height:0;flex:none}}
   @media (max-width:700px){.choices{grid-template-columns:1fr}
     .flowline{grid-template-columns:1fr 18px 1fr 18px 1fr}.flowline .dir{grid-column:1/-1;margin-bottom:4px}.fa{margin:0 2px}.fn{padding:8px 4px}.fn b{font-size:13.5px}.fn span{font-size:11px}}
+  .choice.duo{padding:0}
+  .choice.duo .main{display:flex;flex-direction:column;flex:1;text-decoration:none;color:inherit}
+  .choice.duo .sub{display:block;text-decoration:none;color:var(--ai);border-top:2px dashed var(--rule);background:#f6fbef;padding:14px 18px 16px}
+  .choice.duo .sub:hover{background:#eef7e2}
+  .choice.duo .sub .sk{display:inline-block;font-size:11.5px;font-weight:700;background:var(--tape);padding:1px 8px;border-radius:3px}
+  .choice.duo .sub b{display:block;font-size:16px;margin:6px 0 2px}
+  .choice.duo .sub span:not(.sk){display:block;font-size:13.5px;color:var(--ai-2)}
+  .choice.duo .sub em{display:inline-block;margin-top:8px;font-style:normal;font-weight:700;color:var(--tape-d)}
+  .choice.duo .sub em::after{content:" →"}
+  .choice.duo:hover{transform:none;box-shadow:5px 5px 0 var(--ai)}
+  .choice.duo .tools2{background:var(--mist)}
+  .tools2 .sk2{display:block;font-size:12.5px;font-weight:700;color:var(--ai-2);margin-bottom:4px}
+  .tools2 a{display:block;font-weight:700;color:var(--ai);text-decoration:none;padding:6px 0}
+  .tools2 a:hover{text-decoration:underline}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -290,7 +304,8 @@
 
       <p class="ask">あなたは、どちらですか？</p>
       <div class="choices">
-        <a class="choice" href="zousaku.html" data-t="hub_door_seller">
+        <div class="choice duo">
+          <a class="main" href="zousaku.html" data-t="hub_door_seller">
           <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=900&q=70');background-position:60% 55%"></div>
           <div class="bd">
             <span class="who">店を閉めようか、迷っている</span>
@@ -300,25 +315,33 @@
             <span class="btn-c">店を閉める方へ</span>
           </div>
         </a>
-        <a class="choice" href="tsugite.html" data-t="hub_door_taker">
-          <div class="ph" style="background-image:url('images/partner.jpg');background-position:center 40%"></div>
-          <div class="bd">
-            <span class="who">自分の店を、始めたい</span>
-            <h3>閉める前の店を、<br>引き継いで始める</h3>
-            <p>内装と厨房にかかるお金を、小さくできます。</p>
-            <p class="also">探している店が、もうある方も。まだ売りに出ていない営業中のお店でも、「いつか、この店を継げたら」という希望を届けられます。</p>
-            <span class="price">登録・紹介は0円</span>
-            <span class="btn-c">店を始めたい方へ</span>
+          <div class="sub tools2">
+            <span class="sk2">まずは数字で（無料・匿名）</span>
+            <a href="yameru.html">30秒で、店の値打ちを試算 →</a>
+            <a href="genjo-kaifuku.html">原状回復の費用を計算 →</a>
           </div>
-        </a>
+        </div>
+        <div class="choice duo">
+          <a class="main" href="tsugite.html" data-t="hub_door_taker">
+            <div class="ph" style="background-image:url('images/partner.jpg');background-position:center 40%"></div>
+            <div class="bd">
+              <span class="who">自分の店を、始めたい</span>
+              <h3>閉める前の店を、<br>引き継いで始める</h3>
+              <p>内装と厨房にかかるお金を、小さくできます。</p>
+              <span class="price">登録・紹介は0円</span>
+              <span class="btn-c">店を始めたい方へ</span>
+            </div>
+          </a>
+          <a class="sub" href="tsugite.html#shimei" data-t="hub_nominate">
+            <span class="sk">新しい試み</span>
+            <b>探している店が、もうある方へ</b>
+            <span>まだ売りに出ていない営業中のお店でも、「この店を継ぎたい」という希望を届けられます。</span>
+            <em>この店を継ぎたい</em>
+          </a>
+        </div>
       </div>
 
-      <div class="freetools">
-        <span class="ft-h">店を閉める方の無料ツール</span>
-        <a href="yameru.html">30秒で、店の値打ちを試算</a>
-        <a href="genjo-kaifuku.html">原状回復の費用を計算</a>
-        <a class="ft-about" href="taiten-zen-shokei.html">退店前承継とは</a>
-      </div>
+      <p class="about-link"><a href="taiten-zen-shokei.html">退店前承継とは（しくみ・お金の流れ・進め方）→</a></p>
     </div>
   </section>
 
