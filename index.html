@@ -229,6 +229,16 @@
   .tools2 .sk2{display:block;font-size:12.5px;font-weight:700;color:var(--ai-2);margin-bottom:4px}
   .tools2 a{display:block;font-weight:700;color:var(--ai);text-decoration:none;padding:6px 0}
   .tools2 a:hover{text-decoration:underline}
+  .nomband{display:grid;grid-template-columns:220px 1fr auto;align-items:center;gap:24px;margin-top:28px;text-decoration:none;color:var(--ai);border:2px solid var(--tape-d);border-radius:10px;overflow:hidden;background:#f6fbef;box-shadow:5px 5px 0 var(--tape-d);transition:transform .15s,box-shadow .15s}
+  .nomband:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--tape-d)}
+  .nb-ph{align-self:stretch;min-height:150px;background-size:cover;background-position:center 40%}
+  .nb-tx{padding:20px 0}
+  .nb-k{display:inline-block;font-size:12.5px;font-weight:700;background:var(--tape);padding:2px 10px;border-radius:3px}
+  .nomband b{display:block;font-family:var(--serif);font-weight:800;font-size:clamp(22px,2.8vw,28px);margin:8px 0 4px;line-height:1.4}
+  .nb-d{display:block;font-size:15px;color:var(--ai-2)}
+  .nb-btn{margin-right:24px;background:var(--tape-d);color:#fff;font-weight:700;border-radius:6px;padding:14px 20px;white-space:nowrap}
+  .nb-btn::after{content:" →"}
+  @media (max-width:800px){.nomband{grid-template-columns:1fr;gap:0}.nb-ph{min-height:130px}.nb-tx{padding:18px 18px 8px}.nb-btn{margin:8px 18px 18px;text-align:center}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -332,15 +342,18 @@
               <span class="btn-c">店を始めたい方へ</span>
             </div>
           </a>
-          <a class="sub" href="tsugite.html#shimei" data-t="hub_nominate">
-            <span class="sk">新しい試み</span>
-            <b>探している店が、もうある方へ</b>
-            <span>まだ売りに出ていない営業中のお店でも、「この店を継ぎたい」という希望を届けられます。</span>
-            <em>この店を継ぎたい</em>
-          </a>
         </div>
       </div>
 
+      <a class="nomband" href="tsugite.html#shimei" data-t="hub_nominate">
+        <div class="nb-ph" style="background-image:url('images/hero-cafe.jpg')"></div>
+        <div class="nb-tx">
+          <span class="nb-k">新しい入口｜この店を継ぎたい</span>
+          <b>好きなお店を、いつか継ぎたい。</b>
+          <span class="nb-d">営業中のお店でも、匿名で承継の希望を届けられます。<br>店主への連絡はBRIDGE CYCLEから、一度だけ。</span>
+        </div>
+        <span class="nb-btn">気になる店を登録する</span>
+      </a>
       <p class="about-link"><a href="taiten-zen-shokei.html">退店前承継とは（しくみ・お金の流れ・進め方）→</a></p>
     </div>
   </section>

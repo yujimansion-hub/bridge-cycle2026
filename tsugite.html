@@ -375,6 +375,20 @@
   .howb-h{margin:0 0 6px;font-weight:700}
   .howb ol{margin:0;padding-left:1.3em;font-size:14.5px}
   .howb li{margin:4px 0}
+  .fork{margin:8px 0 28px}
+  .fork-q{font-family:var(--serif);font-weight:800;font-size:20px;margin:0 0 12px}
+  .fork-in{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .fk{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ai);border:2px solid var(--ai);border-radius:10px;padding:18px 20px;background:var(--paper);box-shadow:4px 4px 0 var(--ai)}
+  .fk:hover{transform:translate(-1px,-1px)}
+  .fk-k{align-self:flex-start;font-size:12.5px;font-weight:700;background:var(--mist);padding:2px 10px;border-radius:3px}
+  .fk b{font-family:var(--serif);font-weight:800;font-size:21px;line-height:1.45}
+  .fk span:not(.fk-k){font-size:14px;color:var(--ai-2)}
+  .fk em{margin-top:auto;padding-top:6px;font-style:normal;font-weight:700}
+  .fk em::after{content:" →"}
+  .fk-n{border-color:var(--tape-d);box-shadow:4px 4px 0 var(--tape-d);background:#f6fbef}
+  .fk-n .fk-k{background:var(--tape)}
+  .fk-n em{color:var(--tape-d)}
+  @media (max-width:700px){.fork-in{grid-template-columns:1fr}}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -424,7 +438,6 @@
       </div>
       <p class="facts-src">いずれも公開されている相場・事例で、2026年10月時点で当社が確認したものです。地域・規模・設備の状態・改装の範囲・賃貸借の条件によって大きく変わり、保証するものではありません。</p>
       <p class="hero-sub">表に出る前の「閉める前の店」も、<br>地域のつながりからご紹介します。</p>
-      <a class="nominate" href="#shimei" onclick="window.bcTrack&&bcTrack('tsugite_shimei_jump',{place:'hero'})"><b>探している店が、もうありますか？</b><span>まだ売りに出ていない営業中のお店でも構いません。「いつか、この店を継げたら」という希望を届けられます →</span></a>
     </div>
     <form class="quick" id="quick" action="#touroku">
       <h2 data-b="1分で、閉店前の店情報を受け取る">1分で、継ぎ手として登録</h2>
@@ -444,6 +457,26 @@
       <button class="go" id="go" type="submit" disabled data-b="続けて受け取る（無料）">続けて登録する（無料）</button>
       <p class="note">登録・案件のご紹介は無料です。営業の電話はしません。</p>
     </form>
+  </div>
+
+  <div class="w">
+    <div class="fork">
+      <p class="fork-q">登録のしかたを選んでください</p>
+      <div class="fork-in">
+        <a class="fk" href="#touroku" onclick="window.bcTrack&&bcTrack('tsugite_fork',{to:'jouken'})">
+          <span class="fk-k">ふつうの登録</span>
+          <b>条件に合う店を、<br>紹介してほしい</b>
+          <span>業種・エリア・時期を登録すると、閉める前の店が出たときにご案内します。</span>
+          <em>条件で登録する</em>
+        </a>
+        <a class="fk fk-n" href="#shimei" onclick="window.bcTrack&&bcTrack('tsugite_fork',{to:'shimei'})">
+          <span class="fk-k">新しい入口｜この店を継ぎたい</span>
+          <b>すでに、<br>気になる店がある</b>
+          <span>売りに出ていなくても大丈夫です。営業中のお店に、あなたの名前を出さずに「いつか継ぎたい」を一度だけ届けます。</span>
+          <em>気になる店を登録する</em>
+        </a>
+      </div>
+    </div>
   </div>
 
   <div class="w">
@@ -728,6 +761,7 @@
     const pickB=()=>{f.querySelector('input[value="この店を継ぎたい"]').checked=true; sync();};
     if(location.hash==='#shimei') pickB();
     document.querySelectorAll('a[href="#shimei"]').forEach(a=>a.addEventListener('click',pickB));
+    document.querySelectorAll('.fk[href="#touroku"]').forEach(a=>a.addEventListener('click',()=>{f.querySelector('input[value="条件で探す"]').checked=true; sync();}));
     window.addEventListener('hashchange',()=>{if(location.hash==='#shimei') pickB();});
     f.addEventListener('submit',async e=>{
       e.preventDefault(); msg.style.color='var(--red)';
