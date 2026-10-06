@@ -177,7 +177,7 @@
   .about-link a{font-weight:700}
   .sl-h{margin:0;padding:10px 2px 2px;font-size:12.5px;font-weight:700;color:var(--ai-2);letter-spacing:.04em}
   /* 退店前承継：3つの入口 */
-  .flowline{display:grid;grid-template-columns:1fr 92px 1fr 92px 1fr;align-items:center;margin:8px 0 40px}
+  .flowline{display:grid;grid-template-columns:88px 1fr 48px 1fr 48px 1fr;align-items:center}
   .fn{border:1.5px solid var(--rule);border-radius:8px;padding:14px 10px;text-align:center;background:var(--paper)}
   .fn b{display:block;font-size:17px}
   .fn span{display:block;font-size:12.5px;color:var(--ai-2)}
@@ -186,7 +186,7 @@
   .fa::after{content:"";position:absolute;right:-2px;top:-5px;border-left:9px solid var(--ai);border-top:6px solid transparent;border-bottom:6px solid transparent}
   .fa span{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:11.5px;line-height:1.4;color:var(--ai-2)}
   .ask{font-family:var(--serif);font-weight:800;font-size:clamp(20px,2.6vw,26px);margin:0 0 16px}
-  .choices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .choices{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
   .choice{display:flex;flex-direction:column;border:2px solid var(--ai);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ai);background:var(--paper);box-shadow:5px 5px 0 var(--ai);transition:transform .15s,box-shadow .15s}
   .choice:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ai)}
   .choice .ph{height:150px;background-size:cover;position:relative}
@@ -206,7 +206,15 @@
   .freetools .ft-about{margin-left:auto;font-weight:500}
   @media (max-width:900px){.choices{grid-template-columns:1fr}.choice{flex-direction:row}.choice .ph{width:34%;height:auto;min-height:100%}.choice h3{font-size:19px}}
   @media (max-width:520px){.choice{flex-direction:column}.choice .ph{width:auto;height:120px;min-height:0;flex:none}.fn{padding:10px}
-    .flowline{grid-template-columns:1fr;gap:0}.fa{width:2px;height:40px;margin:0 auto}.fa::after{right:-5px;top:auto;bottom:-2px;border-top:9px solid var(--ai);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:0}.fa span{left:14px;right:auto;bottom:auto;top:8px;text-align:left;white-space:nowrap}.fa span br{display:none}.freetools .ft-about{margin-left:0}}
+    .freetools .ft-about{margin-left:0}}
+  .flow-lead{margin:0 0 14px;font-size:16px;font-weight:700}
+  .flows{display:grid;gap:12px;margin:0 0 40px}
+  .dir{font-size:12.5px;font-weight:700;color:var(--ai-2)}
+  .fn span{font-size:13px}
+  .choice .also{font-size:13.5px;border-left:3px solid var(--tape-d);padding-left:10px;color:var(--ai)}
+  @media (max-width:900px){.choice{flex-direction:column}.choice .ph{width:auto;height:150px;min-height:0;flex:none}}
+  @media (max-width:700px){.choices{grid-template-columns:1fr}
+    .flowline{grid-template-columns:1fr 18px 1fr 18px 1fr}.flowline .dir{grid-column:1/-1;margin-bottom:4px}.fa{margin:0 2px}.fn{padding:8px 4px}.fn b{font-size:13.5px}.fn span{font-size:11px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28-1302","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -260,15 +268,27 @@
     <div class="w">
       <p class="kicker">CORE｜退店前承継</p>
       <h2 class="sec">閉める店と、始めたい人をつなぐ。</h2>
-      <div class="flowline" aria-label="閉める店の内装と厨房を、BRIDGE CYCLEがつないで、始めたい人へ引き継ぐ">
-        <div class="fn"><b>閉める店</b><span>内装・厨房が残っている</span></div>
-        <div class="fa"><span>内装・厨房を<br>そのまま</span></div>
-        <div class="fn me"><b>BRIDGE CYCLE</b><span>相手探し・計画・融資</span></div>
-        <div class="fa"><span>壊さずに<br>引き継ぐ</span></div>
-        <div class="fn"><b>始めたい人</b><span>開業のお金が小さくなる</span></div>
+      <p class="flow-lead">閉めようと思った店主からも、継ぎたいと思った人からも、承継は始められます。</p>
+      <div class="flows">
+        <div class="flowline">
+          <span class="dir">店主から</span>
+          <div class="fn"><b>店主</b><span>「閉めようかな」</span></div>
+          <div class="fa"></div>
+          <div class="fn me"><b>BRIDGE CYCLE</b><span>名前を伏せて相手を探す</span></div>
+          <div class="fa"></div>
+          <div class="fn"><b>継ぎ手</b><span>「この店を継ぎたい」</span></div>
+        </div>
+        <div class="flowline">
+          <span class="dir">継ぎ手から</span>
+          <div class="fn"><b>継ぎ手</b><span>「この店を継ぎたい」</span></div>
+          <div class="fa"></div>
+          <div class="fn me"><b>BRIDGE CYCLE</b><span>名前を伏せて手紙を一度</span></div>
+          <div class="fa"></div>
+          <div class="fn"><b>営業中の店主</b><span>「将来なら、考えてもいい」</span></div>
+        </div>
       </div>
 
-      <p class="ask">あなたは、どれにあてはまりますか？</p>
+      <p class="ask">あなたは、どちらですか？</p>
       <div class="choices">
         <a class="choice" href="zousaku.html" data-t="hub_door_seller">
           <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=900&q=70');background-position:60% 55%"></div>
@@ -286,18 +306,9 @@
             <span class="who">自分の店を、始めたい</span>
             <h3>閉める前の店を、<br>引き継いで始める</h3>
             <p>内装と厨房にかかるお金を、小さくできます。</p>
+            <p class="also">探している店が、もうある方も。まだ売りに出ていない営業中のお店でも、「いつか、この店を継げたら」という希望を届けられます。</p>
             <span class="price">登録・紹介は0円</span>
             <span class="btn-c">店を始めたい方へ</span>
-          </div>
-        </a>
-        <a class="choice nom" href="tsugite.html#shimei" data-t="hub_nominate">
-          <div class="ph" style="background-image:url('images/hero-cafe.jpg');background-position:center 40%"><i>新しい試み</i></div>
-          <div class="bd">
-            <span class="who">好きなお店を、いつか継ぎたい</span>
-            <h3>営業中のお店を、<br>指名して登録する</h3>
-            <p>あなたの名前は出さずに、店主へ手紙で一度だけ伝えます。</p>
-            <span class="price">登録は0円</span>
-            <span class="btn-c">お店を指名する</span>
           </div>
         </a>
       </div>
