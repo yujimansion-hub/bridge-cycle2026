@@ -40,6 +40,13 @@
   });
   if(ref) gtag('set','user_properties',{ref_code:ref});
 
+
+  /* Metricool のサイト計測（閲覧数・訪問者数・流入元・ページ別。SNSの分析と同じ画面で見るため）。自分のアクセス（?internal=1 済みの端末）は数えない */
+  try{ if(localStorage.getItem('bc_internal')!=='1'){
+    var mc=document.createElement('script'); mc.async=true; mc.src='https://tracker.metricool.com/resources/be.js';
+    mc.onload=function(){ try{ window.beTracker&&beTracker.t({hash:'ac63abb6a3d652c64478fbabcc7b338e'}); }catch(e){} };
+    document.head.appendChild(mc);
+  } }catch(e){}
   window.bcTrack=function(name,params){
     var p={page_name:page,content_group:group}; if(ref)p.ref_code=ref;
     for(var k in (params||{})) p[k]=params[k];
