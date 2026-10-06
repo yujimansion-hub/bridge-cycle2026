@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <script>
 /* SNSのリンク欄などで「#」が「%23」に変わったURLを、本来のページへ戻す */
-(function(){try{var p=location.pathname;if(/%23/i.test(p)){var d=decodeURIComponent(p),i=d.indexOf('#');location.replace(d.slice(0,i)+location.search+d.slice(i));}}catch(e){}})();
+(function(){try{var d=location.pathname,n=0;while(/%(23|25)/i.test(d)&&n<4){d=decodeURIComponent(d);n++;}var i=d.indexOf('#');if(i>0){location.replace(d.slice(0,i)+location.search+d.slice(i));}}catch(e){}})();
 </script>
 <style>body{margin:0;font-family:"Noto Sans JP","Hiragino Sans",sans-serif;color:#1d2b4f;text-align:center;padding:64px 20px;line-height:1.9;background:#fff}a{color:#1d2b4f;font-weight:700}h1{font-size:22px}ul{list-style:none;padding:0}li{margin:6px 0}</style>
 </head>
