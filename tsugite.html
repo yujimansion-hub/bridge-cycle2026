@@ -389,6 +389,19 @@
   .fk-n .fk-k{background:var(--tape)}
   .fk-n em{color:var(--tape-d)}
   @media (max-width:700px){.fork-in{grid-template-columns:1fr}}
+  .qtabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:-8px -6px 18px}
+  .qtab{font:inherit;font-weight:700;font-size:15px;padding:10px 6px;border:2px solid var(--rule);background:var(--paper);color:var(--ai-2);border-radius:6px;cursor:pointer}
+  .qtab[aria-selected="true"]{border-color:var(--ai);background:var(--ai);color:#fff}
+  .qtab-n i{font-style:normal;font-size:11px;background:var(--tape);color:var(--ai);border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:2px}
+  .qtab-n[aria-selected="true"]{border-color:var(--tape-d);background:var(--tape-d)}
+  .qb-k{display:inline-block;font-size:12px;font-weight:700;background:var(--tape);padding:2px 10px;border-radius:3px}
+  .qb h2{margin:10px 0 6px}
+  .qb-strong{margin:0;font-weight:700;font-size:16px}
+  .qb-d{margin:8px 0 16px;font-size:14.5px;color:var(--ai-2)}
+  .go-n{display:block;text-align:center;text-decoration:none;background:var(--tape-d);color:#fff}
+  .go-n::after{content:" →"}
+  .fk-n{background:#eef7e2;border-width:3px}
+  .fk-s{font-size:15.5px}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -440,6 +453,11 @@
       <p class="hero-sub">表に出る前の「閉める前の店」も、<br>地域のつながりからご紹介します。</p>
     </div>
     <form class="quick" id="quick" action="#touroku">
+      <div class="qtabs" role="tablist" aria-label="登録のしかた">
+        <button type="button" class="qtab" role="tab" aria-selected="true" data-q="a">店を探す</button>
+        <button type="button" class="qtab qtab-n" role="tab" aria-selected="false" data-q="b"><i>NEW</i>店を指名する</button>
+      </div>
+      <div class="qa">
       <h2 data-b="1分で、閉店前の店情報を受け取る">1分で、継ぎ手として登録</h2>
       <div class="progress" aria-hidden="true"><i id="p1"></i><i id="p2"></i></div>
       <p class="q">始めたいお店</p>
@@ -456,6 +474,15 @@
       </div>
       <button class="go" id="go" type="submit" disabled data-b="続けて受け取る（無料）">続けて登録する（無料）</button>
       <p class="note">登録・案件のご紹介は無料です。営業の電話はしません。</p>
+      </div>
+      <div class="qb" hidden>
+        <span class="qb-k">NEW｜逆指名承継</span>
+        <h2>探している店が、もうありますか？</h2>
+        <p class="qb-strong">まだ売りに出ていなくても大丈夫です。</p>
+        <p class="qb-d">営業中のお店に、「いつか、この店を継げたら」を匿名で届けられます。店主への連絡はBRIDGE CYCLEから、手紙で一度だけ。</p>
+        <a class="go go-n" href="#shimei" onclick="window.bcTrack&&bcTrack('tsugite_shimei_jump',{place:'quick'})">この店を継ぎたい</a>
+        <p class="note">登録は0円。あなたの名前は店主に出しません。</p>
+      </div>
     </form>
   </div>
 
@@ -470,10 +497,11 @@
           <em>条件で登録する</em>
         </a>
         <a class="fk fk-n" href="#shimei" onclick="window.bcTrack&&bcTrack('tsugite_fork',{to:'shimei'})">
-          <span class="fk-k">新しい入口｜この店を継ぎたい</span>
-          <b>すでに、<br>気になる店がある</b>
-          <span>売りに出ていなくても大丈夫です。営業中のお店に、あなたの名前を出さずに「いつか継ぎたい」を一度だけ届けます。</span>
-          <em>気になる店を登録する</em>
+          <span class="fk-k">NEW｜逆指名承継</span>
+          <b>探している店が、<br>もうありますか？</b>
+          <strong class="fk-s">まだ売りに出ていなくても大丈夫です。</strong>
+          <span>営業中のお店に、「いつか、この店を継げたら」を匿名で届けられます。</span>
+          <em>この店を継ぎたい</em>
         </a>
       </div>
     </div>
@@ -733,6 +761,13 @@
   }
   document.querySelectorAll('.ktab').forEach(t=>t.addEventListener('click',()=>{showK(t.dataset.k);T('tsugite_cost_tab',{k:t.dataset.k});}));
   (function(){const q=new URLSearchParams(location.search).get('type'); if(q&&document.querySelector('.kpane[data-k="'+q+'"]')) showK(q);})();
+  // 1分カードのタブ：店を探す／店を指名する
+  document.querySelectorAll('.qtab').forEach(t=>t.addEventListener('click',()=>{
+    const b=t.dataset.q==='b';
+    document.querySelectorAll('.qtab').forEach(x=>x.setAttribute('aria-selected',String(x===t)));
+    document.querySelector('.qa').hidden=b; document.querySelector('.qb').hidden=!b;
+    T('tsugite_quick_tab',{tab:b?'shimei':'jouken'});
+  }));
   // 1分登録カード：2問に答えると、下の登録フォームへ引き継ぐ
   const pick={biz:'',when:''}; let started=false;
   document.querySelectorAll('.quick .opts').forEach(g=>g.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
