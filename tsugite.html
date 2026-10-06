@@ -402,6 +402,7 @@
   .go-n::after{content:" →"}
   .fk-n{background:#eef7e2;border-width:3px}
   .fk-s{font-size:15.5px}
+  @media (max-width:520px){.qtab{font-size:14px;padding:8px 4px;white-space:nowrap}.qtab-n i{display:block;width:max-content;margin:0 auto 2px}.qtabs{align-items:stretch}}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -454,8 +455,8 @@
     </div>
     <form class="quick" id="quick" action="#touroku">
       <div class="qtabs" role="tablist" aria-label="登録のしかた">
-        <button type="button" class="qtab" role="tab" aria-selected="true" data-q="a">店を探す</button>
-        <button type="button" class="qtab qtab-n" role="tab" aria-selected="false" data-q="b"><i>NEW</i>店を指名する</button>
+        <button type="button" class="qtab" role="tab" aria-selected="true" data-q="a">条件から探す</button>
+        <button type="button" class="qtab qtab-n" role="tab" aria-selected="false" data-q="b"><i>NEW</i>この店を継ぎたい</button>
       </div>
       <div class="qa">
       <h2 data-b="1分で、閉店前の店情報を受け取る">1分で、継ぎ手として登録</h2>
@@ -491,13 +492,13 @@
       <p class="fork-q">登録のしかたを選んでください</p>
       <div class="fork-in">
         <a class="fk" href="#touroku" onclick="window.bcTrack&&bcTrack('tsugite_fork',{to:'jouken'})">
-          <span class="fk-k">ふつうの登録</span>
+          <span class="fk-k">通常承継｜いい店を探したい</span>
           <b>条件に合う店を、<br>紹介してほしい</b>
           <span>業種・エリア・時期を登録すると、閉める前の店が出たときにご案内します。</span>
           <em>条件で登録する</em>
         </a>
         <a class="fk fk-n" href="#shimei" onclick="window.bcTrack&&bcTrack('tsugite_fork',{to:'shimei'})">
-          <span class="fk-k">NEW｜逆指名承継</span>
+          <span class="fk-k">NEW｜逆指名承継｜この店を継ぎたい</span>
           <b>探している店が、<br>もうありますか？</b>
           <strong class="fk-s">まだ売りに出ていなくても大丈夫です。</strong>
           <span>営業中のお店に、「いつか、この店を継げたら」を匿名で届けられます。</span>
