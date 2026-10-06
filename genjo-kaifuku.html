@@ -104,7 +104,7 @@ footer a{color:#C6D6E5}
 </style>
 <style>
 .seg{display:flex;flex-wrap:wrap;gap:8px}
-.seg label{flex:1;min-width:92px;border:1.5px solid var(--rule2);border-radius:10px;background:#fff;padding:9px 8px;text-align:center;font-size:13px;font-weight:700;cursor:pointer}
+.seg label{flex:1 1 auto;min-width:92px;white-space:nowrap;border:1.5px solid var(--rule2);border-radius:10px;background:#fff;padding:9px 8px;text-align:center;font-size:13px;font-weight:700;cursor:pointer}
 .seg input{position:absolute;opacity:0;pointer-events:none}
 .seg label:has(input:checked){border-color:var(--ai);background:var(--aipale);color:var(--ai)}
 .chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-top:8px}
@@ -179,13 +179,13 @@ footer a{color:#C6D6E5}
   </div>
   <h2>4つ選ぶだけで、目安が出ます</h2>
   <p class="sub">おおよそで構いません。🔒入力はこの画面の中だけで計算し、どこにも送られません。</p>
-  <div class="q"><b>1. 業種</b><div class="seg"><label><input type="radio" name="biz" value="retail">物販・サービス</label><label><input type="radio" name="biz" value="light" checked>カフェ・軽飲食</label><label><input type="radio" name="biz" value="heavy">焼肉・ラーメン等</label></div></div>
+  <div class="q"><b>1. 業種</b><div class="seg"><label><input type="radio" name="biz" value="retail">物販・サービス</label><label><input type="radio" name="biz" value="light" checked>カフェ・軽飲食</label><label><input type="radio" name="biz" value="heavy">焼肉・ラーメン等</label><label><input type="radio" name="biz" value="beauty">美容室・サロン</label><label><input type="radio" name="biz" value="clinic">クリニック・歯科</label></div></div>
   <div class="q"><div class="fld"><label for="tsubo">2. お店の広さ</label><div class="in"><input id="tsubo" type="number" inputmode="decimal" min="1" step="1" value="15"><span class="u">坪</span></div><div class="hint">1坪 ≒ 3.3㎡（㎡÷3.3）<span id="m2"></span></div></div></div>
   <div class="q"><b>3. 契約上の戻し方</b><div class="seg"><label><input type="radio" name="back" value="skel">スケルトンまで</label><label><input type="radio" name="back" value="part">内装は残してよい</label><label><input type="radio" name="back" value="unk" checked>分からない</label></div><div class="hint" style="font-size:11px;color:var(--ink3);margin-top:4px">賃貸借契約書の「原状回復」「明渡し」の条に書かれています。分からない場合は高い側で計算します</div></div>
   <div class="q"><b>4. 当てはまるもの（任意）</b>
     <label class="chk"><input type="checkbox" id="bld">ビルやショッピングセンターの中で、工事業者が指定されている</label>
     <label class="chk"><input type="checkbox" id="upper">2階以上で、エレベーターがない（搬出に手間がかかる）</label>
-    <label class="chk" id="rowDuct"><input type="checkbox" id="duct" checked>排気ダクト・グリストラップなど厨房の設備がある</label>
+    <label class="chk" id="rowDuct"><input type="checkbox" id="duct" checked><span id="ductTxt">排気ダクト・グリストラップなど厨房の設備がある</span></label>
   </div>
   <div class="res-big" id="res" aria-live="polite">
     <div class="t">原状回復費用の目安</div>
@@ -225,8 +225,10 @@ footer a{color:#C6D6E5}
   <table class="tbl"><tr><th>業種</th><th>スケルトンまで戻す</th><th>内装を残してよい</th></tr>
   <tr><td>物販・サービス</td><td>3〜6万円</td><td>1〜3万円</td></tr>
   <tr><td>カフェ・軽飲食</td><td>6〜10万円</td><td>3〜6万円</td></tr>
-  <tr><td>焼肉・ラーメン等の重飲食</td><td>10〜18万円</td><td>5〜9万円</td></tr></table>
-  <p style="font-size:12px;color:var(--ink3)">当社の相談現場で見てきた金額と、業界で一般に示される単価の幅から作成した目安です。ダクトやグリストラップの撤去、指定業者、搬出条件で上がります。</p>
+  <tr><td>焼肉・ラーメン等の重飲食</td><td>10〜18万円</td><td>5〜9万円</td></tr>
+  <tr><td>美容室・サロン</td><td>4〜8万円</td><td>2〜4万円</td></tr>
+  <tr><td>クリニック・歯科</td><td>6〜12万円</td><td>3〜6万円</td></tr></table>
+  <p style="font-size:12px;color:var(--ink3)">当社の相談現場で見てきた金額と、業界で一般に示される単価の幅から作成した目安です。ダクトやグリストラップ、シャンプー台の配管、X線室の遮蔽の撤去、指定業者、搬出条件で上がります。美容室・クリニックの数字は参考値で、建物と設備によって大きく変わります。</p>
   <h2>費用が高くなる5つの条件</h2>
   <ul><li>契約がスケルトン戻しで、厨房・給排水・ガスまで撤去が必要</li><li>排気ダクトやグリストラップなど、飲食の設備が大きい</li><li>ビルの指定業者でしか工事ができない（相見積りができない）</li><li>2階以上でエレベーターがなく、搬出に人手がかかる</li><li>閉店が決まってから急いで発注し、業者を比べる時間がない</li></ul>
   <h2>費用を抑える・なくす方法</h2>
@@ -248,19 +250,23 @@ footer a{color:#C6D6E5}
 </div></footer>
 <script>
 (function(){
-  var U={retail:{skel:[3,6],part:[1,3]},light:{skel:[6,10],part:[3,6]},heavy:{skel:[10,18],part:[5,9]}};
+  var U={retail:{skel:[3,6],part:[1,3]},light:{skel:[6,10],part:[3,6]},heavy:{skel:[10,18],part:[5,9]},beauty:{skel:[4,8],part:[2,4]},clinic:{skel:[6,12],part:[3,6]}};
+  /* 業種ごとの「設備の撤去」：飲食＝ダクト・グリスト、美容＝シャンプー台の給排水、クリニック＝X線室の遮蔽 */
+  var EQ={light:['排気ダクト・グリストラップなど厨房の設備がある','ダクト・グリストラップ等の撤去',20,50],heavy:['排気ダクト・グリストラップなど厨房の設備がある','ダクト・グリストラップ等の撤去',20,50],beauty:['シャンプー台の給排水・床下の配管がある','シャンプー台の配管・給排水の撤去',10,30],clinic:['X線室（鉛の遮蔽）や歯科ユニットの床下配管がある','X線室の遮蔽・床下配管の撤去',30,80]};
+  try{var tq=(new URLSearchParams(location.search).get('type')||'').toLowerCase(),TM={food:'light',cafe:'light',light:'light',heavy:'heavy',retail:'retail',beauty:'beauty',salon:'beauty',clinic:'clinic',dental:'clinic'};if(TM[tq]){var ri=document.querySelector('input[name="biz"][value="'+TM[tq]+'"]');if(ri)ri.checked=true;}}catch(e){}
   function v(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:'';}
   function f(x){return Math.round(x).toLocaleString('ja-JP');}
   var started=false;
   function calc(){
     var biz=v('biz'),back=v('back'),t=Math.max(1,parseFloat(document.getElementById('tsubo').value)||0);
     document.getElementById('rowDuct').style.display=biz==='retail'?'none':'';
+    if(EQ[biz])document.getElementById('ductTxt').textContent=EQ[biz][0];
     document.getElementById('m2').textContent='　約'+f(t*3.3)+'㎡';
     var u=back==='part'?U[biz].part:U[biz].skel, note=back==='unk'?'（戻し方が分からないため、スケルトンまで戻す場合で計算）':'';
     var lo=u[0]*t, hi=u[1]*t, rows=[['工事の基本（'+u[0]+'〜'+u[1]+'万円/坪 × '+t+'坪）',lo,hi]];
     if(document.getElementById('bld').checked){rows.push(['指定業者による割増（2〜3割）',lo*0.2,hi*0.3]);}
     if(document.getElementById('upper').checked){rows.push(['搬出の手間（1割）',lo*0.1,hi*0.1]);}
-    if(biz!=='retail'&&document.getElementById('duct').checked&&back!=='part'){rows.push(['ダクト・グリストラップ等の撤去',20,50]);}
+    if(EQ[biz]&&document.getElementById('duct').checked&&back!=='part'){rows.push([EQ[biz][1],EQ[biz][2],EQ[biz][3]]);}
     var L=0,H=0; rows.forEach(function(r){L+=r[1];H+=r[2];});
     L=Math.max(L,20); H=Math.max(H,40);
     document.getElementById('out').textContent=f(L)+'〜'+f(H)+'万円';
