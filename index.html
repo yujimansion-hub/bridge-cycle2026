@@ -149,6 +149,21 @@ h2{font-family:var(--serif);font-size:clamp(23px,4vw,32px);font-weight:800;line-
 /* 5. 違い */
 .diff{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media(max-width:760px){.diff{grid-template-columns:1fr}}
+.rk{display:grid;grid-template-columns:1fr auto 1.15fr auto 1fr;align-items:stretch;gap:0;margin:6px 0 26px}
+.rk .rc{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 16px}
+.rk .rc.us{border:2px solid var(--ai);background:var(--aipale)}
+.rk .rc b{display:block;font-family:var(--serif);font-size:17px;color:var(--ai);margin-bottom:6px}
+.rk .rc ul{list-style:none}
+.rk .rc li{font-size:13px;color:var(--ink2);line-height:1.75;padding-left:14px;position:relative;margin-top:3px}
+.rk .rc li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--aimid)}
+.rk .ar{display:flex;align-items:center;justify-content:center;width:34px;color:var(--aimid);font-size:20px}
+@media(max-width:760px){.rk{grid-template-columns:1fr}.rk .ar{width:auto;height:30px;transform:rotate(90deg)}}
+.rkr{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 22px;margin-top:18px}
+.rkr h3{font-size:15px;margin-bottom:6px}
+.rkr li{font-size:13.5px;color:var(--ink2);line-height:1.85;list-style:none;padding-left:20px;position:relative}
+.rkr li::before{content:"✓";position:absolute;left:0;color:var(--mid);font-weight:700}
+.rkl{margin-top:16px;font-size:14px;font-weight:700}
+.rkl a{color:var(--ai)}
 .df{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--aimid);border-radius:14px;padding:20px}
 .df b{display:block;font-family:var(--serif);font-size:18px;line-height:1.45;margin-bottom:6px;color:var(--ai)}
 .df span{font-size:13.5px;color:var(--ink2);line-height:1.85}
@@ -245,7 +260,7 @@ footer .co{line-height:1.9}
   <p class="eyebrow">HOW</p>
   <h2>やることは、3つだけ。</h2>
   <ol class="steps">
-    <li><b>話す</b><span>電話かLINEで、店の様子を聞かせてください。まだ閉めると決めていなくて大丈夫です。</span></li>
+    <li><b>話す</b><span>LINEで、店の様子を聞かせてください（ご希望ならこちらからお電話します）。まだ閉めると決めていなくて大丈夫です。</span></li>
     <li><b>探す</b><span>店名を伏せたまま、代表が合いそうな人を選んで紹介します。お互いが「会いたい」と言ったときだけ、店の名前を伝えます。営業は、いつもどおり続けてください。</span></li>
     <li><b>渡す</b><span>厨房もカウンターも、そのまま次の店主へ。壊して返す原状回復は、いりません。</span></li>
   </ol>
@@ -292,6 +307,36 @@ footer .co{line-height:1.9}
   </div>
 </div></section>
 
+<!-- 5-2. 大家さん・管理会社との連携 -->
+<section id="renkei"><div class="wrap">
+  <p class="eyebrow">PARTNERS</p>
+  <h2>大家さん・管理会社と、組んで進めます。</h2>
+  <p class="sub">店を次の人へ渡すには、貸主の了承が欠かせません。当社は大津の管理会社3社と連携し、退去の前から一緒に動いています。</p>
+  <div class="rk">
+    <div class="rc"><b>店主（あなた）</b><ul><li>相談と試算は、名前を出さずにできます</li><li>店の名前を出す時期は、あなたが決めます</li></ul></div>
+    <div class="ar" aria-hidden="true">⇄</div>
+    <div class="rc us"><b>BRIDGE CYCLE</b><ul><li>次の店主を探し、借入の見込みまで確かめます</li><li>造作の値段と引き渡しの段取りを調整します</li><li>賃貸の仲介はしません</li></ul></div>
+    <div class="ar" aria-hidden="true">⇄</div>
+    <div class="rc"><b>大家さん・管理会社</b><ul><li>次の店主と賃貸借の契約を結びます</li><li>空室の期間と、撤去の手間が減ります</li></ul></div>
+  </div>
+  <div class="diff">
+    <div class="df"><b>空室が短くなる。</b><span>退去が決まる前から次の店主を探すので、店が閉まってから次が入るまでの空白を縮められます。</span></div>
+    <div class="df"><b>撤去の調整が減る。</b><span>厨房や内装を残して、次の店がそのまま使います。原状回復の工事と立ち会いの手間が減ります。</span></div>
+    <div class="df"><b>家賃を払える人か、先に確かめる。</b><span>次の店主の事業計画と借入の見込みを当社が確かめてから、貸主にご紹介します。</span></div>
+  </div>
+  <div class="rkr">
+    <h3>連携のきまり</h3>
+    <ul>
+      <li>連携のルールは「退去前情報提供に関する覚書」にまとめています。無報酬・非独占で、いつでも見直せます。</li>
+      <li>店主の相談の内容は、ご本人の同意なく大家さん・管理会社に伝えません。</li>
+      <li>管理会社からのご紹介で相談があったときも、ご報告するのは件数だけです。店名は、店主の同意があるときだけお伝えします。</li>
+      <li>賃貸借の仲介は行いません。契約は貸主と次の店主が、管理会社を通じて結びます。</li>
+      <li>膳所駅前商店街振興組合の賛助会員として、商店街とも連携しています。</li>
+    </ul>
+  </div>
+  <p class="rkl"><a href="partner-fudosan.html">管理会社・オーナーの方へ（連携のご案内）→</a></p>
+</div></section>
+
 <!-- 6. よくある質問 -->
 <section class="faq"><div class="wrap">
   <p class="eyebrow">Q&amp;A</p>
@@ -322,7 +367,7 @@ footer .co{line-height:1.9}
   <h2>迷っている今が、いちばん選択肢が多い。</h2>
   <p>決めていなくて大丈夫です。相談は無料です。</p>
   <a class="cta" href="yameru.html">いまの店の値打ちを、30秒で知る<small>匿名・入力は送信されません</small></a>
-  <p class="note-tel">電話は平日10時〜17時。出られないときは、その日のうちに折り返します。名乗らなくても大丈夫です。</p>
+  <p class="note-tel">LINEは24時間受け付けています。お電話をご希望の方は、都合のよい時間を送ってください。代表からおかけします。名乗らなくても大丈夫です。</p>
   <p class="row"><a href="https://line.me/R/msg/text/?%E9%96%89%E3%82%81%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AA%E3%82%89%E3%80%81%E3%81%93%E3%82%8C30%E7%A7%92%E3%81%A7%E5%BA%97%E3%81%AE%E5%80%A4%E6%89%93%E3%81%A1%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%8B%E3%82%89%E3%81%97%E3%81%84%E3%82%88%E3%80%82%E5%8C%BF%E5%90%8D%E3%81%A7%E3%80%81%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E6%95%B0%E5%AD%97%E3%81%AF%E3%81%A9%E3%81%93%E3%81%AB%E3%82%82%E9%80%81%E3%82%89%E3%82%8C%E3%81%AA%E3%81%84%E3%81%A3%E3%81%A6%E3%80%82%0Ahttps%3A//www.bridgecycleco.com/yameru.html%3Futm_source%3Dline%26utm_medium%3Dshare%26utm_campaign%3Dsotto" target="_blank" rel="noopener" onclick="window.bcTrack&&bcTrack('sotto_share',{place:'last'})">知り合いの店主に、そっと送る</a><a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINEで相談</a><a href="soudan.html">相談を予約</a></p>
 </div></section>
 
