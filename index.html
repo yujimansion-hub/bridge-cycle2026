@@ -239,6 +239,16 @@
   .nb-btn{margin-right:24px;background:var(--tape-d);color:#fff;font-weight:700;border-radius:6px;padding:14px 20px;white-space:nowrap}
   .nb-btn::after{content:" →"}
   @media (max-width:800px){.nomband{grid-template-columns:1fr;gap:0}.nb-ph{min-height:130px}.nb-tx{padding:18px 18px 8px}.nb-btn{margin:8px 18px 18px;text-align:center}}
+  .ways2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 40px}
+  .w2{border:2px solid var(--ai);border-radius:10px;padding:18px 20px;background:var(--paper)}
+  .w2-h{margin:0 0 10px;font-family:var(--serif);font-weight:800;font-size:19px;line-height:1.5}
+  .w2-h i{font-style:normal;font-family:var(--sans);font-size:11.5px;font-weight:700;background:var(--tape);border-radius:3px;padding:1px 7px;margin-right:8px;vertical-align:3px}
+  .w2 ol{list-style:none;margin:0;padding:0;counter-reset:w}
+  .w2 li{counter-increment:w;position:relative;padding:8px 0 8px 38px;font-size:15px;border-top:1px dashed var(--rule)}
+  .w2 li::before{content:counter(w);position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:var(--ai);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .w2-n{border-color:var(--tape-d);background:#f6fbef}
+  .w2-n li::before{background:var(--tape-d)}
+  @media (max-width:760px){.ways2{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -292,23 +302,23 @@
     <div class="w">
       <p class="kicker">CORE｜退店前承継</p>
       <h2 class="sec">閉める店と、始めたい人をつなぐ。</h2>
-      <p class="flow-lead">閉めようと思った店主からも、継ぎたいと思った人からも、承継は始められます。</p>
-      <div class="flows">
-        <div class="flowline">
-          <span class="dir">店主から</span>
-          <div class="fn"><b>店主</b><span>「閉めようかな」</span></div>
-          <div class="fa"></div>
-          <div class="fn me"><b>BRIDGE CYCLE</b><span>名前を伏せて相手を探す</span></div>
-          <div class="fa"></div>
-          <div class="fn"><b>継ぎ手</b><span>「この店を継ぎたい」</span></div>
+      <p class="flow-lead">承継の始まり方は、2つあります。</p>
+      <div class="ways2">
+        <div class="w2">
+          <p class="w2-h">店主が「閉めようかな」と思ったら</p>
+          <ol>
+            <li>店主が、名前を伏せたまま当社に相談する</li>
+            <li>当社が、その店を継ぎたい人を探す</li>
+            <li>内装と厨房を壊さずに、次の人へ引き継ぐ</li>
+          </ol>
         </div>
-        <div class="flowline">
-          <span class="dir">継ぎ手から</span>
-          <div class="fn"><b>継ぎ手</b><span>「この店を継ぎたい」</span></div>
-          <div class="fa"></div>
-          <div class="fn me"><b>BRIDGE CYCLE</b><span>名前を伏せて手紙を一度</span></div>
-          <div class="fa"></div>
-          <div class="fn"><b>営業中の店主</b><span>「将来なら、考えてもいい」</span></div>
+        <div class="w2 w2-n">
+          <p class="w2-h"><i>NEW</i>継ぎ手が「この店を継ぎたい」と思ったら</p>
+          <ol>
+            <li>継ぎ手が、営業中の気になる店を登録する</li>
+            <li>当社が、店主に手紙で一度だけ伝える（継ぎ手の名前は出さない）</li>
+            <li>店主が「将来なら」と思えば、そこから話が始まる</li>
+          </ol>
         </div>
       </div>
 
