@@ -357,6 +357,11 @@
   @media (max-width:600px){.cmp thead{display:none}.cmp tr{display:block;border-bottom:1px solid var(--rule);padding:8px 0}.cmp td{display:block;border:0;width:auto!important;padding:6px 4px}.cmp td[data-label]::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--ai-2);margin-bottom:2px}.cmp td:first-child{font-size:16px}}
   @media (max-width:800px){.why{grid-template-columns:1fr}.cmp th,.cmp td{padding:10px 6px;font-size:13.5px}}
   .incl{font-weight:700;font-size:16px;background:var(--paper);border-left:4px solid var(--tape);padding:8px 12px;margin:12px 0 0!important}
+  .shimei{border-top:1px solid var(--rule)}
+  .shimei .kick{display:inline-block;font-size:13px;font-weight:700;background:var(--tape);color:var(--ai);padding:2px 10px;border-radius:3px;margin:0 0 10px}
+  .pills.col{flex-direction:column;align-items:stretch}
+  .to-shimei{margin:18px 0 0;font-size:15px}
+  .to-shimei a{font-weight:700}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -526,6 +531,7 @@
             <li><b>資金や信用情報は、ここでは聞きません</b>診断のときに、ご本人の同意のうえで確認します</li>
             <li><b>いつでも登録をやめられます</b>メールかLINEで一言送るだけです</li>
           </ul>
+          <p class="to-shimei">継ぎたい営業中のお店が、もうある方は <a href="#shimei" onclick="window.bcTrack&&bcTrack('tsugite_shimei_jump')">お店を指名して登録 →</a></p>
         </div>
         <form class="reg bk" id="bk" novalidate>
           <div class="fld"><span class="lb">始めたいお店</span>
@@ -551,6 +557,58 @@
           <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
           <button class="send" id="send" type="submit" data-b="無料で受け取る">無料で登録する</button>
           <p class="msg" id="msg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="shimei" class="shimei">
+    <div class="w">
+      <div class="book">
+        <div>
+          <p class="kick">営業中のお店を、指名する</p>
+          <h2 class="sec">気になる営業中のお店がありますか。</h2>
+          <p class="sec-lead" style="margin-bottom:0">「いつか、この店を継げたら」という希望も登録できます。店主には、あなたの名前を出さずに、当社から「将来この店を引き継ぎたい方がいます」とだけお伝えします。</p>
+          <ul class="ways">
+            <li><b>「今すぐ売ってください」という話ではありません</b>店主には、いつか引退や移転を考えるときの選択肢としてお伝えします</li>
+            <li><b>登録も、店主へお伝えするのも0円です</b>店主が「話を聞いてもいい」となったら、ふだんの流れ（診断・秘密を守る約束・見学）に進みます</li>
+            <li><b>店主へのご連絡は、手紙を1回だけ</b>電話や、営業中のお店への訪問はしません。お伝えする前に、代表が一度お話を伺います（無料・オンライン）</li>
+            <li><b>扱うのは、店舗・内装・設備を引き継ぐところまで</b>会社や株式の売買は扱いません</li>
+          </ul>
+        </div>
+        <form class="reg" id="sm" novalidate>
+          <div class="fld"><label for="sm-shop">お店の名前</label><input type="text" id="sm-shop" name="指名する店" required placeholder="例：〇〇食堂"></div>
+          <div class="fld"><label for="sm-place">場所<span class="opt-note">市区町村・最寄り駅など</span></label><input type="text" id="sm-place" name="店の場所" required placeholder="例：大津市・膳所駅の近く"></div>
+          <div class="fld"><span class="lb">お店の業種</span>
+            <div class="pills">
+              <label><input type="radio" name="指名する店の業種" value="飲食店" checked>飲食店</label>
+              <label><input type="radio" name="指名する店の業種" value="美容室">美容室</label>
+              <label><input type="radio" name="指名する店の業種" value="クリニック・歯科">クリニック・歯科</label>
+              <label><input type="radio" name="指名する店の業種" value="その他">その他</label>
+            </div>
+          </div>
+          <div class="fld"><span class="lb">どう引き継ぎたいですか</span>
+            <div class="pills col">
+              <label><input type="radio" name="希望する引き継ぎ方" value="この店そのものを継ぎたい">この店そのものを継ぎたい</label>
+              <label><input type="radio" name="希望する引き継ぎ方" value="この場所・内装だけ継ぎたい">この場所・内装だけ継ぎたい</label>
+              <label><input type="radio" name="希望する引き継ぎ方" value="店主から技術を教わって継ぎたい">店主から技術を教わって継ぎたい</label>
+              <label><input type="radio" name="希望する引き継ぎ方" value="将来閉めるときに声をかけてほしい" checked>将来閉めるときに、声をかけてほしい</label>
+            </div>
+          </div>
+          <div class="fld"><span class="lb">希望の時期</span>
+            <div class="pills">
+              <label><input type="radio" name="指名の希望時期" value="1年以内">1年以内</label>
+              <label><input type="radio" name="指名の希望時期" value="2〜3年のうちに">2〜3年のうちに</label>
+              <label><input type="radio" name="指名の希望時期" value="店主の都合に合わせる" checked>店主の都合に合わせる</label>
+            </div>
+          </div>
+          <div class="fld"><label for="sm-why">なぜ、このお店を継ぎたいですか</label><textarea id="sm-why" name="継ぎたい理由" required placeholder="例：学生のころから通っている店で、この味とカウンターの雰囲気を残したい。"></textarea></div>
+          <div class="fld"><label for="sm-nm">お呼びする名前<span class="opt-note">呼び名だけで構いません</span></label><input type="text" id="sm-nm" name="呼び名" autocomplete="nickname"></div>
+          <div class="fld"><label for="sm-ct">ご連絡先（メール）</label><input type="email" id="sm-ct" name="email" autocomplete="email" required placeholder="例：tsugu@example.jp"></div>
+          <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          <button class="send" id="sm-send" type="submit">このお店を登録する（無料）</button>
+          <p class="note">お店の名前は当社だけが確認し、公開しません。</p>
+          <p class="msg" id="sm-msg" role="status"></p>
         </form>
       </div>
     </div>
@@ -685,6 +743,43 @@
         f.innerHTML='<div class="done"><div style="font-size:40px">✓</div><b>登録を受け付けました。</b><span class="fine">確認のメールを '+mail.replace(/[<>&"]/g,'')+' へお送りしました。<br>近いうちに、代表の中村から一度ご連絡します。</span></div>';
       }catch(err){
         btn.disabled=false; btn.textContent=btn.dataset.label||'無料で登録する'; msg.style.color='var(--red)';
+        msg.textContent=location.protocol==='file:'?'このファイルを直接開いているため送信できません。公開後のページでお試しください。':'送信できませんでした。お手数ですが、公式LINEかメール（info@bridgecycleco.com）でご連絡ください。';
+      }
+    });
+  })();
+  // 指名登録：継ぎたい営業中のお店を、店名を伏せずに当社へ（公開はしない）
+  (function(){
+    const f=document.getElementById('sm'), msg=document.getElementById('sm-msg'), btn=document.getElementById('sm-send');
+    let started=false; f.addEventListener('focusin',()=>{if(!started){started=true;T('tsugite_shimei_start');}});
+    f.addEventListener('submit',async e=>{
+      e.preventDefault(); msg.style.color='var(--red)';
+      const fd=new FormData(f); if(fd.get('_honey')) return;
+      const need=[['指名する店','sm-shop','お店の名前を入力してください。'],['店の場所','sm-place','お店の場所を入力してください。'],['継ぎたい理由','sm-why','継ぎたい理由をひとこと書いてください。']];
+      for(const [k,id,t] of need){ if(!(fd.get(k)||'').trim()){msg.textContent=t;document.getElementById(id).focus();return;} }
+      const mail=(fd.get('email')||'').trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){msg.textContent='ご連絡先のメールアドレスを入力してください。';document.getElementById('sm-ct').focus();return;}
+      msg.style.color='';
+      const data=Object.fromEntries(fd.entries()); delete data._honey;
+      const name=data['呼び名']||'ご登録者';
+      data['登録の種類']='指名登録（営業中のお店）';
+      data._subject='【指名登録】'+data['店の場所']+'／'+data['指名する店の業種']+'／'+data['希望する引き継ぎ方'];
+      data._template='table'; data._captcha='false';
+      data._autoresponse='【BRIDGE CYCLE】継ぎたいお店のご登録を受け付けました。\n\n'+name+' 様\n\n'
+        +'ご登録のお店：'+data['指名する店']+'（'+data['店の場所']+'）\n希望する引き継ぎ方：'+data['希望する引き継ぎ方']+'\n希望の時期：'+data['指名の希望時期']+'\n\n'
+        +'店主へお伝えする前に、代表の中村から一度ご連絡し、オンラインでお話を伺います（無料）。お伝えするかどうか、いつ、どう伝えるかは、そのときに一緒に決めます。\n'
+        +'あなたの名前を店主に出すことはありません。お店の名前も公開しません。\n'
+        +'店主へのご連絡は手紙を1回だけで、電話や営業中のお店への訪問はしません。\n\n'
+        +'登録をやめたいときは、このメールに返信してください。\n\n'
+        +'公式LINE：https://line.me/R/ti/p/@907kxssd\n\nBRIDGE CYCLE株式会社（滋賀県大津市）\n店じまいを、まちのはじまりに。';
+      btn.disabled=true; btn.textContent='送信しています…';
+      try{
+        const r=await fetch('https://formsubmit.co/ajax/info@bridgecycleco.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+        const j=await r.json().catch(()=>({}));
+        if(!r.ok||String(j.success)!=='true') throw new Error('not delivered');
+        if(window.bcTrack){bcTrack('generate_lead',{form:'tsugite_shimei'});T('tsugite_shimei_register',{biz:data['指名する店の業種'],scope:data['希望する引き継ぎ方']});}
+        f.innerHTML='<div class="done"><div style="font-size:40px">✓</div><b>お店の登録を受け付けました。</b><span class="fine">確認のメールを '+mail.replace(/[<>&"]/g,'')+' へお送りしました。<br>店主へお伝えする前に、代表の中村から一度ご連絡します。</span></div>';
+      }catch(err){
+        btn.disabled=false; btn.textContent='このお店を登録する（無料）'; msg.style.color='var(--red)';
         msg.textContent=location.protocol==='file:'?'このファイルを直接開いているため送信できません。公開後のページでお試しください。':'送信できませんでした。お手数ですが、公式LINEかメール（info@bridgecycleco.com）でご連絡ください。';
       }
     });
