@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閉めるお店の内装、次の人に渡せます｜BRIDGE CYCLE</title>
+<meta name="description" content="飲食店・美容室・クリニックを閉める前に、内装と設備を次の人へ。壊す費用を減らし、内装に値段をつける。着手金0円。大津・京都。">
+<link rel="canonical" href="https://www.bridgecycleco.com/zousaku.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="閉めるお店の内装、次の人に渡せます｜BRIDGE CYCLE">
+<meta property="og:description" content="飲食店・美容室・クリニックを閉める前に、内装と設備を次の人へ。壊す費用を減らし、内装に値段をつける。着手金0円。大津・京都。">
+<meta property="og:url" content="https://www.bridgecycleco.com/zousaku.html">
+<meta property="og:image" content="https://www.bridgecycleco.com/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* 色：藍（図面・のれん）、白、霞、養生テープの黄緑、出費の赤 */
+  :root{
+    --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+    --ai:#1d2b4f;       /* 藍：文字・見出し */
+    --ai-2:#4a5674;     /* 藍の薄い文字 */
+    --paper:#ffffff;
+    --mist:#eef2f7;     /* 図面の地色 */
+    --rule:#d5dce8;
+    --tape:#9bcf53;     /* 養生テープの黄緑 */
+    --tape-d:#3f6f12;   /* テープ上の文字・プラスの金額 */
+    --red:#b42318;      /* 出ていくお金 */
+    --line:#06c755;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  .nb{white-space:nowrap}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--paper);color:var(--ai);font-family:var(--sans);font-size:16.5px;line-height:1.9;padding-bottom:80px}
+  a{color:var(--ai)}
+  :focus-visible{outline:3px solid var(--tape);outline-offset:2px}
+  .w{max-width:1040px;margin:0 auto;padding:0 20px}
+  .narrow{max-width:720px}
+  .draft{background:var(--ai);color:#fff;text-align:center;font-size:13px;padding:6px}
+  .disp{font-family:var(--serif);font-weight:800;letter-spacing:.02em;font-feature-settings:"palt"}
+
+  header{border-bottom:1px solid var(--rule)}
+  header .w{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .brand{font-family:var(--sans);font-weight:700;letter-spacing:.08em;font-size:16px;text-decoration:none}
+  .brand small{font-family:var(--sans);font-weight:400;letter-spacing:0;font-size:12px;color:var(--ai-2);margin-left:10px}
+  .hdr-line{white-space:nowrap;font-size:14px;font-weight:700;text-decoration:none;border:1.5px solid var(--ai);border-radius:999px;padding:6px 14px}
+
+  /* ─ ヒーロー：左に見出し、右に「2問で試算」カード ─ */
+  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(100deg,rgba(29,43,79,.94) 0%,rgba(29,43,79,.84) 46%,rgba(29,43,79,.30) 100%),url('https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=1800&q=70') 70% 60%/cover no-repeat}
+  .hero h1{color:#fff}
+  .hero p.lead{color:#e6ebf4}
+  .hero .fact{color:var(--ai)}
+  .hero .facts-src{color:#c9d2e3}
+  .hero .quick{color:var(--ai)}
+  .hero .credit{position:absolute;left:12px;bottom:6px;font-size:11px;color:rgba(255,255,255,.7)}
+  .hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:64px}
+  .hero h1{text-shadow:0 2px 12px rgba(0,0,0,.25);font-size:clamp(30px,4.6vw,48px);line-height:1.3;margin:0 0 20px}
+  .tape{display:inline;color:inherit;background:linear-gradient(transparent 68%,rgba(155,207,83,.75) 68%);padding:0 2px}
+  .hero p.lead{font-size:18px;margin:0 0 18px;max-width:30em}
+  .fact{display:flex;gap:12px;align-items:baseline;background:var(--paper);border-left:6px solid var(--red);padding:12px 16px;max-width:30em}
+  .fact b{font-family:var(--sans);font-weight:700;font-variant-numeric:tabular-nums;color:var(--red);font-size:24px;white-space:nowrap}
+  .fact span{font-size:15px}
+  .facts-src{font-size:12px;color:var(--ai-2);margin-top:6px}
+
+  .quick{background:var(--paper);border:2px solid var(--ai);border-radius:6px;padding:24px 22px;box-shadow:8px 8px 0 var(--ai)}
+  .quick h2{font-size:20px;margin:0 0 4px}
+  .progress{display:flex;gap:6px;margin:10px 0 18px}
+  .progress i{flex:1;height:6px;background:var(--rule);border-radius:3px}
+  .progress i.on{background:var(--tape)}
+  .quick .q{font-weight:700;margin:0 0 8px;font-size:16px}
+  .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+  .opt{border:1.5px solid var(--rule);background:var(--paper);border-radius:6px;padding:12px 4px;font:inherit;font-size:15px;color:var(--ai);cursor:pointer;line-height:1.4}
+  .opt[aria-pressed="true"]{border-color:var(--ai);background:var(--ai);color:#fff;font-weight:700}
+  .go{display:block;width:100%;border:none;background:var(--tape);color:var(--ai);font:inherit;font-weight:700;font-size:18px;padding:16px;border-radius:6px;cursor:pointer}
+  .go:disabled{background:var(--rule);color:var(--ai-2);cursor:not-allowed}
+  .quick .note{text-align:center;font-size:13px;color:var(--ai-2);margin:10px 0 0}
+
+  .numbers{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .numbers div{padding:18px 12px;text-align:center}
+  .numbers div+div{border-left:1px solid var(--rule)}
+  .numbers b{display:block;font-family:var(--sans);font-weight:700;font-variant-numeric:tabular-nums;font-size:28px;line-height:1.3}
+  .numbers span{font-size:13px;color:var(--ai-2)}
+
+  section{padding:72px 0}
+  section.alt{background:var(--mist)}
+  h2.sec{font-family:var(--serif);font-weight:800;font-feature-settings:"palt";font-size:clamp(24px,4vw,34px);line-height:1.45;margin:0 0 10px}
+  .sec-lead{color:var(--ai-2);margin:0 0 32px;max-width:36em}
+
+  /* ─ 試算例：2枚のレシート ─ */
+  .receipts{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  .receipt{background:var(--paper);padding:26px 24px 30px;border:1px solid var(--rule);position:relative;font-size:15px}
+  .receipt::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:radial-gradient(circle at 8px -2px,transparent 8px,var(--paper) 9px) repeat-x;background-size:16px 10px}
+  .receipt h3{font-size:18px;margin:0 0 4px}
+  .receipt .sub{font-size:13px;color:var(--ai-2);margin:0 0 14px}
+  .receipt .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--rule)}
+  .receipt .row small{display:block;color:var(--ai-2);font-size:12px}
+  .receipt .row b{white-space:nowrap}
+  .receipt .total{border-bottom:none;border-top:2px solid var(--ai);margin-top:6px;padding-top:12px;font-size:17px}
+  .minus{color:var(--red)} .plus{color:var(--tape-d)}
+  .receipt.give{border:2px solid var(--tape-d)}
+  .gap{margin:36px 0 0;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .gap .big{background:none!important;border-bottom:4px solid var(--tape);padding:0 2px!important;font-family:var(--sans);font-weight:700;font-variant-numeric:tabular-nums;font-size:clamp(28px,5vw,40px);background:var(--tape);padding:0 12px}
+  .fine{font-size:13px;color:var(--ai-2);margin-top:16px;max-width:46em}
+
+  /* ─ 渡せるもの ─ */
+  .seg{display:inline-flex;border:1.5px solid var(--ai);border-radius:6px;overflow:hidden;margin-bottom:20px}
+  .seg button{font:inherit;font-size:15px;border:none;background:var(--paper);color:var(--ai);padding:9px 18px;cursor:pointer}
+  .seg button+button{border-left:1.5px solid var(--ai)}
+  .seg button[aria-selected="true"]{background:var(--ai);color:#fff;font-weight:700}
+  .give-list{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
+  .give-list h3{font-size:17px;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--ai)}
+  .give-list ul{list-style:none;margin:0;padding:0}
+  .give-list li{padding:8px 0;border-bottom:1px solid var(--rule)}
+  .give-list .yes li::before{content:"";display:inline-block;width:10px;height:10px;background:var(--tape);margin-right:10px}
+  .give-list .check li::before{content:"";display:inline-block;width:10px;height:10px;border:2px solid var(--ai-2);margin-right:10px}
+
+  /* ─ 流れ（順番があるので番号を使う） ─ */
+  .flow{list-style:none;margin:0;padding:0;counter-reset:f}
+  .flow li{counter-increment:f;display:grid;grid-template-columns:110px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--rule)}
+  .flow .when{font-weight:700;color:var(--ai-2);font-size:14px;padding-top:3px}
+  .flow b{font-size:18px;display:block}
+  .flow b::before{content:counter(f) ".";margin-right:8px;font-variant-numeric:tabular-nums}
+  .flow span{font-size:15px;color:var(--ai-2)}
+
+  /* ─ 料金：手取りの早見表 ─ */
+  .fee{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+  .fee .rule-big{font-family:var(--serif);font-weight:800;font-size:clamp(30px,5vw,44px);line-height:1.35;margin:0}
+  .fee .rule-big .zero{display:block}
+  .fee p{margin:12px 0 0;font-size:15px}
+  table{width:100%;border-collapse:collapse;font-size:16px}
+  th,td{padding:12px 10px;text-align:right;border-bottom:1px solid var(--rule)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-size:13px;color:var(--ai-2);font-weight:500;border-bottom:2px solid var(--ai)}
+  td.take{font-weight:700;color:var(--tape-d)}
+
+  /* ─ 用意するもの ─ */
+  .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)}
+  .docs div{padding:18px 16px 18px 0;border-bottom:1px solid var(--rule)}
+  .docs b{display:block}
+  .docs span{font-size:14px;color:var(--ai-2)}
+
+  /* ─ 運営者 ─ */
+  .person{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start}
+  .photo{width:150px;height:186px;border-radius:6px;overflow:hidden;background:var(--mist)}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+  .person h3{margin:0;font-size:22px}
+  .person .role{font-size:14px;color:var(--ai-2)}
+  .person p{margin:12px 0 0}
+  .not{margin-top:20px;font-size:14px;color:var(--ai-2)}
+  .not ul{margin:6px 0 0;padding-left:1.2em}
+
+  details{border-bottom:1px solid var(--rule);padding:16px 0}
+  summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"＋";color:var(--ai-2)}
+  details[open] summary::after{content:"−"}
+  details p{margin:10px 0 0;color:var(--ai-2);font-size:15px}
+
+  .last{background:var(--ai);color:#fff;text-align:center}
+  .tab-ph{grid-column:1/-1;width:100%;height:280px;object-fit:cover;object-position:center 65%;border-radius:6px;display:block;margin-bottom:8px}
+  @media (max-width:800px){.tab-ph{height:200px}}
+  .last{background:linear-gradient(rgba(29,43,79,.88),rgba(29,43,79,.88)),url('https://images.unsplash.com/photo-1693822998952-b8d18c61043b?auto=format&fit=crop&w=1600&q=70') center/cover no-repeat}
+
+  .last h2.sec{color:#fff}
+  .last p{color:#c9d2e3}
+  .last .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+  .btn{display:inline-block;padding:15px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:17px}
+  .btn-tape{background:var(--tape);color:var(--ai)}
+  .btn-line{background:var(--line);color:#fff}
+  .others{font-size:14px;color:var(--ai-2);text-align:center;padding:28px 20px}
+
+  footer{border-top:1px solid var(--rule);padding:28px 0;font-size:14px;color:var(--ai-2);text-align:center}
+  footer .disp{display:block;color:var(--ai);font-size:16px;margin-bottom:6px}
+
+  .sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);border-top:1px solid var(--rule);padding:10px 14px;display:flex;gap:10px;justify-content:center;z-index:10}
+  .sticky a{flex:1;max-width:260px;text-align:center;padding:12px 8px;border-radius:6px;font-weight:700;text-decoration:none;font-size:15px}
+  .tbd{background:#fff3cd;color:#7a5b00;font-size:12px;padding:1px 6px;border-radius:3px}
+
+  @media (max-width:800px){
+    .hero .w,.receipts,.give-list,.fee,.person{grid-template-columns:1fr}
+    .hero .w{padding-top:36px;padding-bottom:44px;gap:28px}
+    .docs{grid-template-columns:1fr 1fr}
+    .flow li{grid-template-columns:1fr;gap:2px}
+    .numbers b{font-size:22px}
+    section{padding:56px 0}
+  }
+  @media (min-width:801px){.sticky{display:none}body{padding-bottom:0}}
+  @media (max-width:600px){.brand small{display:none}}
+  @media (max-width:480px){.trustbar{grid-template-columns:1fr}.trustbar>div+div{border-left:none;border-top:1px solid var(--rule)}.docs{grid-template-columns:1fr}.seg button{padding:9px 12px}}
+
+  /* ─ 信頼の帯：公的な認定と、お金・契約の決まり ─ */
+  .trustbar{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;border-bottom:1px solid var(--rule)}
+  .trustbar>div{padding:18px 16px;display:flex;gap:12px;align-items:flex-start}
+  .trustbar>div+div{border-left:1px solid var(--rule)}
+  .trustbar b{display:block;font-size:15px;line-height:1.5}
+  .trustbar span{font-size:12.5px;color:var(--ai-2);line-height:1.6;display:block}
+  .seal{flex:0 0 52px;height:52px;border:2px solid var(--ai);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10.5px;line-height:1.25;font-weight:700;outline:1px solid var(--ai);outline-offset:3px}
+  .trustbar span.ico,.trustbar span.seal{display:flex;color:var(--ai);line-height:1.25}
+  .trustbar span.ico{font-size:14px}
+  .trustbar span.seal{font-size:10.5px}
+  .ico{flex:0 0 28px;height:28px;border-radius:50%;background:var(--tape);color:var(--ai);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+
+  /* ─ 安心の決まり ─ */
+  section.safe{border-top:1px solid var(--rule)}
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .rule{padding:18px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:28px 1fr;gap:14px}
+  .rule b{display:block;font-size:17px}
+  .rule p{margin:2px 0 0;font-size:15px;color:var(--ai-2)}
+  .money{margin-top:40px;border:1.5px solid var(--ai);border-radius:6px;padding:24px 20px;background:var(--paper)}
+  .money h3{margin:0 0 4px;font-size:18px}
+  .money .cap{font-size:14px;color:var(--ai-2);margin:0 0 18px}
+  .flowmap{display:grid;grid-template-columns:1fr 1.3fr 1fr;align-items:center;gap:8px;text-align:center}
+  .node{border:1.5px solid var(--ai);border-radius:6px;padding:14px 8px;font-weight:700;background:var(--mist)}
+  .node small{display:block;font-weight:400;font-size:12px;color:var(--ai-2)}
+  .arrows{display:grid;gap:10px}
+  .arw{position:relative;font-size:13.5px;padding:6px 18px 6px 6px;border-bottom:2px solid var(--ai);line-height:1.5}
+  .arw::after{content:"";position:absolute;right:-1px;bottom:-7px;border-left:10px solid var(--ai);border-top:6px solid transparent;border-bottom:6px solid transparent}
+  .arw b{color:var(--tape-d)}
+  .us{margin-top:14px;text-align:center;font-size:14px}
+  .us span{display:inline-block;border:1.5px dashed var(--ai-2);border-radius:6px;padding:8px 14px}
+
+  /* ─ 会社概要 ─ */
+  .company{width:100%;border-collapse:collapse;font-size:15px}
+  .company th,.company td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+  .company th{width:28%;font-weight:700;color:var(--ai-2);background:var(--mist)}
+  .company a{color:var(--ai)}
+  .legal-links{margin-top:14px;font-size:14px}
+  .legal-links a{margin-right:16px}
+  footer nav{margin:10px 0 6px;font-size:13px}
+  footer nav a{margin:0 8px;color:var(--ai-2)}
+
+  @media (max-width:800px){
+    .trustbar{grid-template-columns:1fr 1fr}
+    .trustbar>div:nth-child(3){border-left:none}
+    .trustbar>div:nth-child(n+3){border-top:1px solid var(--rule)}
+    .rules{grid-template-columns:1fr}
+    .flowmap{grid-template-columns:1fr}
+    .arw{padding-right:6px;border-bottom:none;border-left:2px solid var(--ai);text-align:left;padding-left:14px}
+    .arw::after{display:none}
+    .company th{width:34%}
+  }
+  @media (max-width:480px){.trustbar{grid-template-columns:1fr}.trustbar>div+div{border-left:none!important;border-top:1px solid var(--rule)}}
+
+  .tri{display:grid;grid-template-columns:1fr 40px 1.15fr 40px 1fr;align-items:stretch;margin:4px 0 28px}
+  .tri .nd{border:1.5px solid var(--rule);border-radius:6px;padding:16px;background:var(--paper)}
+  .tri .nd.me{border:2px solid var(--ai);background:var(--mist)}
+  .tri .nd b{display:block;font-size:17px;margin-bottom:4px}
+  .tri .nd ul{margin:0;padding-left:1.1em;font-size:14px;color:var(--ai-2)}
+  .tri .lk{display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--ai-2)}
+  @media (max-width:800px){.tri{grid-template-columns:1fr}.tri .lk{height:28px;transform:rotate(90deg)}}
+
+  /* ─ オンライン化：工程ごとの区分、予約フォーム、写真チェック ─ */
+  .tag{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:2px}
+  .tag.on{background:var(--tape);color:var(--ai)}
+  .tag.off{background:var(--paper);border:1.5px solid var(--ai);color:var(--ai)}
+  .tally{display:flex;gap:16px;flex-wrap:wrap;margin:-10px 0 24px;font-size:15px}
+  .tally b{font-size:22px;font-variant-numeric:tabular-nums}
+  .book{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+  .book ul.ways{list-style:none;margin:16px 0 0;padding:0}
+  .book ul.ways li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
+  .book ul.ways b{display:block}
+  form.bk{background:var(--paper);border:1.5px solid var(--ai);border-radius:6px;padding:24px 22px}
+  .fld{margin-bottom:16px}
+  .fld>label,.fld>.lb{display:block;font-weight:700;font-size:15px;margin-bottom:6px}
+  .fld .opt-note{font-weight:400;font-size:12px;color:var(--ai-2);margin-left:6px}
+  .fld input[type=text],.fld input[type=email],.fld input[type=date],.fld select,.fld textarea{width:100%;font:inherit;font-size:16px;color:var(--ai);border:1.5px solid var(--rule);border-radius:6px;padding:10px 12px;background:#fff}
+  .fld textarea{min-height:84px}
+  .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .pills label{border:1.5px solid var(--rule);border-radius:6px;padding:8px 12px;font-size:14.5px;cursor:pointer;display:flex;gap:6px;align-items:center}
+  .pills input{accent-color:var(--ai)}
+  .pills label:has(input:checked){border-color:var(--ai);background:var(--mist);font-weight:700}
+  .slots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hp{position:absolute;left:-9999px}
+  .send{display:block;width:100%;border:none;background:var(--ai);color:#fff;font:inherit;font-weight:700;font-size:17px;padding:15px;border-radius:6px;cursor:pointer}
+  .send:disabled{opacity:.6;cursor:wait}
+  .msg{font-size:14px;margin-top:10px;min-height:1em}
+  .done{text-align:center;padding:24px 6px}
+  .done b{display:block;font-size:19px;margin:8px 0}
+  .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;margin:0;padding:0;list-style:none}
+  .shots li{border-bottom:1px solid var(--rule)}
+  .shots label{display:flex;gap:12px;align-items:flex-start;padding:12px 0;cursor:pointer}
+  .shots input{width:20px;height:20px;margin-top:3px;accent-color:var(--tape-d);flex:0 0 auto}
+  .shots small{display:block;color:var(--ai-2);font-size:13px}
+  .shotbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px;padding:16px 18px;border:1.5px solid var(--ai);border-radius:6px;background:var(--paper)}
+  .shotbar .cnt{font-weight:700}
+  .shotbar a{margin-left:auto}
+  @media (max-width:800px){.book{grid-template-columns:1fr}.shots{grid-template-columns:1fr}.shotbar a{margin-left:0}}
+  @media (max-width:420px){.slots{grid-template-columns:1fr}}
+
+  /* ─ ヒーロー：写真を見せる帯＋その下に試算カードを重ねる ─ */
+  .hero{min-height:440px;position:relative;background:var(--ai)}
+  .hero-bg{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;z-index:0}
+  .hero-bg div{background-size:cover;background-repeat:no-repeat}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,43,79,.8) 0%,rgba(29,43,79,.55) 42%,rgba(29,43,79,.2) 100%)}
+  .hero .w.hero-in,.hero .credit{position:relative;z-index:1}
+  .hero .credit{position:absolute}
+  .hero .w.hero-in{display:block;padding:76px 20px 160px}
+  .hero-act{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  .hero-act .quick{margin-top:-140px;position:relative;z-index:2}
+  .fact-wrap{padding-top:28px}
+  .hero-sub{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.7;margin:22px 0 0}
+  @media (max-width:800px){
+    .hero{min-height:0}
+    .hero .w.hero-in{padding:44px 20px 64px}
+    .hero-act{grid-template-columns:1fr;gap:20px}
+    .hero-act .quick{margin-top:0}
+    .fact-wrap{padding-top:22px}
+    .hero-sub{font-size:17px;margin-top:14px}
+  }
+
+  /* ─ ヒーロー下：3業種の工事代 ─ */
+  .costs{background:var(--paper);border:1.5px solid var(--rule);border-left:6px solid var(--red);border-radius:4px;padding:12px 18px;max-width:32em}
+  .costs-h{margin:0 0 4px;font-size:14px;font-weight:700;color:var(--ai-2)}
+  .crow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-top:1px dashed var(--rule);transition:background .2s}
+  .crow span{font-size:15px}
+  .crow small{margin-left:8px;color:var(--ai-2);font-size:12.5px}
+  .crow b{color:var(--red);font-size:21px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .crow.on{background:#fdf1ef;margin:0 -10px;padding:8px 10px}
+  .costs.picked .crow:not(.on){opacity:.45}
+  @media (max-width:800px){.hero-bg{grid-template-columns:1fr 1fr 1fr}.crow b{font-size:18px}}
+  .gap-sub{margin:10px 0 0;font-size:16px;max-width:40em}
+  .trial{display:inline-block;font-style:normal;font-size:11.5px;font-weight:700;color:var(--ai);border:1.5px solid var(--ai);border-radius:3px;padding:0 6px;margin-left:8px;vertical-align:1px}
+  .trial-note{grid-column:1/-1;margin:0;font-size:14px;background:var(--paper);border:1.5px dashed var(--ai-2);border-radius:6px;padding:10px 14px}
+  .minfee{font-size:.5em;font-weight:700;margin-left:4px;white-space:nowrap}
+  .tab-ph2{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+  .tab-ph2 figure{margin:0}
+  .tab-ph2 img{width:100%;height:240px;object-fit:cover;border-radius:6px;display:block}
+  .tab-ph2 figcaption{font-size:13px;color:var(--ai-2);margin-top:4px}
+  @media (max-width:800px){.tab-ph2 img{height:160px}}
+</style>
+<script src="bc-analytics.js"></script>
+</head>
+<body>
+
+<header><div class="w">
+  <a class="brand" href="./">BRIDGE CYCLE<small>店じまいを、まちのはじまりに。</small></a>
+  <a class="hdr-line" href="https://line.me/R/oaMessage/@907kxssd/?%E5%86%85%E8%A3%85%E3%81%AE%E5%86%99%E7%9C%9F%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E3%81%8A%E3%81%8A%E3%82%88%E3%81%9D%E3%81%AE%E5%BA%83%E3%81%95%EF%BC%9A%0A%EF%BC%88%E3%81%93%E3%81%AE%E3%81%82%E3%81%A8%E5%86%99%E7%9C%9F%E3%81%A8%E6%9B%B8%E9%A1%9E%E3%82%92%E9%80%81%E3%82%8A%E3%81%BE%E3%81%99%EF%BC%89" target="_blank" rel="noopener">LINEで写真を送る</a>
+</div></header>
+
+<main>
+  <div class="hero">
+    <div class="hero-bg" aria-hidden="true"><div style="background-image:url('https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=900&q=70');background-position:60% 55%"></div><div style="background-image:url('https://images.unsplash.com/photo-1626383126210-15c15e62d9ba?auto=format&fit=crop&w=900&q=70');background-position:center 45%"></div><div style="background-image:url('https://images.unsplash.com/photo-1643916800611-1302e8d27c38?auto=format&fit=crop&w=900&q=70');background-position:center 70%"></div></div>
+    <div class="w hero-in">
+      <h1 class="disp"><span class="nb">閉めるお店の内装、</span><br><span class="tape nb">次の人に渡せます。</span></h1>
+      <p class="lead">壊して返す前に、使ってくれる人を探しませんか。<br>片づけのお金が減り、内装に値段がつくこともあります。</p>
+    </div>
+    <span class="credit">写真：Unsplash（イメージ）</span>
+  </div>
+  <div class="w hero-act">
+    <div class="fact-wrap">
+      <div class="costs" id="costs">
+        <p class="costs-h">壊して返すときの工事代の目安（京都市の相場で試算）</p>
+        <div class="crow" data-k="food"><span>居酒屋・ラーメン店<small>30坪</small></span><b>240〜600万円</b></div>
+        <div class="crow" data-k="beauty"><span>美容室<small>20坪</small></span><b>60〜300万円</b></div>
+        <div class="crow" data-k="clinic"><span>クリニック・歯科<small>30坪</small><em class="trial">試験受付中</em></span><b>90〜240万円</b></div>
+      </div>
+      <p class="facts-src">京都市の店舗の原状回復の坪単価（重飲食 坪8〜20万円、美容室・サロン 坪3〜15万円、クリニック 坪3〜8万円）に坪数をかけた目安です。医療機器・美容機器の撤去は別にかかることがあります。実際の費用は建物と契約で変わります。出典：<a href="https://www.mukai-asset.jp/blog/entry-656164/" target="_blank" rel="noopener" style="color:inherit">ムカイ・エンタープライズ「京都市で店舗の原状回復費用はどれくらい？」（2025年7月）</a>。<a href="genjo-kaifuku.html" style="color:inherit">算定の根拠と計算を見る</a></p>
+      <p class="hero-sub">厨房も、シャンプー台も、診察室も。<br>壊す前に、次に使ってくれる人へ。</p>
+    </div>
+      <form class="quick" action="yameru.html" method="get" id="quick">
+        <h2>2問で、閉めるお金を試算</h2>
+        <div class="progress" aria-hidden="true"><i id="p1"></i><i id="p2"></i></div>
+        <p class="q">どのお店ですか</p>
+        <div class="opts" data-name="type" data-step="p1">
+          <button type="button" class="opt" data-v="food" aria-pressed="false">飲食店</button>
+          <button type="button" class="opt" data-v="beauty" aria-pressed="false">美容室</button>
+          <button type="button" class="opt" data-v="clinic" aria-pressed="false"><span class="nb">クリニック</span><span class="nb">・歯科</span></button>
+        </div>
+        <p class="q">閉めるのはいつごろ</p>
+        <div class="opts" data-name="when" data-step="p2">
+          <button type="button" class="opt" data-v="3m" aria-pressed="false">3か月以内</button>
+          <button type="button" class="opt" data-v="1y" aria-pressed="false">1年以内</button>
+          <button type="button" class="opt" data-v="undecided" aria-pressed="false">迷っている</button>
+        </div>
+        <input type="hidden" name="type" id="f-type"><input type="hidden" name="when" id="f-when">
+        <button class="go" id="go" type="submit" disabled>試算する（無料）</button>
+        <p class="note">名前も店名も入力しません。結果は送信されません。</p>
+        <p class="note"><a href="#photo">試算をとばして、写真で無料確認する</a></p>
+      </form>
+  </div>
+
+  <div class="w">
+    <div class="numbers">
+      <div><b>着手まで0円</b><span>相談・試算・写真の確認・着手金</span></div>
+      <div><b>滋賀・京都</b><span>候補者リストと地域の窓口で<br>次の人を探します</span></div>
+      <div><b>500社超</b><span>経営支援の実績<br>（代表・商工会での20年）</span></div>
+    </div>
+  </div>
+
+  <div class="w">
+    <div class="trustbar">
+      <div><span class="seal">国の<br>認定</span><div><b>認定経営革新等支援機関</b><span>中小企業庁の認定<br>認定番号 109825000112</span></div></div>
+      <div><span class="ico">¥</span><div><b>お金を預かりません</b><span>代金は次の人からあなたへ直接</span></div></div>
+      <div><span class="ico">✓</span><div><b>専任契約なし</b><span>他社への相談も自由です</span></div></div>
+      <div><span class="ico">§</span><div><b>契約前に書面で説明</b><span>重要事項説明書をお渡しします</span></div></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="w">
+      <h2 class="sec">壊すのと渡すので、閉めるときの持ち出しはこう変わる</h2>
+      <p class="sec-lead">大津市の飲食店（25坪・家賃月20万円）で、内装を残すことを大家さんが了承した場合の試算例です。美容室・クリニックの場合は、上の「2問で試算」から業種を選んでください。</p>
+      <div class="receipts">
+        <div class="receipt">
+          <h3>壊して返す</h3>
+          <p class="sub">原状回復してから退去</p>
+          <div class="row"><span>原状回復の工事<small>25坪 × 坪8〜20万円（京都市の重飲食の相場）</small></span><b class="minus">−200〜500万円</b></div>
+          <div class="row"><span>工事中1か月分の家賃</span><b class="minus">−20万円</b></div>
+          <div class="row total"><span>出ていくお金</span><b class="minus">−220〜520万円</b></div>
+        </div>
+        <div class="receipt give">
+          <h3>次の人に渡す</h3>
+          <p class="sub">内装をそのまま引き継いでもらう</p>
+          <div class="row"><span>原状回復の工事<small>次の人がそのまま使う</small></span><b>0円</b></div>
+          <div class="row"><span>内装の譲渡代金<small>仮に150万円で決まった場合</small></span><b class="plus">＋150万円</b></div>
+          <div class="row"><span>当社の料金（12%）</span><b class="minus">−18万円</b></div>
+          <div class="row total"><span>手元に残るお金</span><b class="plus">＋132万円</b></div>
+        </div>
+      </div>
+      <div class="gap"><span>この例では、壊す工事代</span><span class="big">200〜500万円</span><span>を払わずに済む可能性があります。</span></div>
+      <p class="gap-sub">内装に値段がつかなくても、壊さずに渡せるだけで閉店時の持ち出しは小さくなります。この試算例では、総額で約350〜650万円の差になります。</p>
+      <p style="margin-top:22px"><a class="btn btn-tape" href="#photo">写真を送って、無料で確認する</a></p>
+      <p class="fine">京都市の相場では、軽飲食（カフェ・軽食など）は坪5〜10万円、物販は坪3〜8万円です。滋賀県内の実際の見積では、設備の少ない店舗の内装解体が10坪で約10〜12万円（栗東市）という例もあり、厨房・ダクト・グリストラップのある飲食店ほど高くなります。出典：<a href="https://www.mukai-asset.jp/blog/entry-656164/" target="_blank" rel="noopener" style="color:inherit">ムカイ・エンタープライズ「京都市で店舗の原状回復費用はどれくらい？」（2025年7月）</a>、<a href="https://www.crassone.jp/price/shiga?building_type=interior" target="_blank" rel="noopener" style="color:inherit">クラッソーネ（滋賀県の内装解体の見積実例）</a>。譲渡代金は次の人が払える額で決まり、0円になることもあります。数字はすべて仮の例で、実際の金額を約束するものではありません。</p>
+    </div>
+  </section>
+
+  <section class="alt" id="photo">
+    <div class="w">
+      <h2 class="sec">渡せそうか、写真で無料確認</h2>
+      <p class="sec-lead">相談の予約より先に、まず写真だけ送ってください。<b>撮れるものからで大丈夫です。</b>下の8か所がそろうと、より詳しく確認できます。LINEで送ると、内装が次の人に渡せそうか、壊す工事代がどのくらいかかりそうかを無料でお返しします。現地に伺うのは、写真でわからないことがあるときだけです。チェックはこのページの中だけで使い、どこにも送信されません。</p>
+      <ul class="shots" id="shots">
+        <li><label><input type="checkbox"><span>入口から見た店内の全体<small>奥まで入るように、入口の外から1枚</small></span></label></li>
+        <li><label><input type="checkbox"><span>奥から入口に向けた全体<small>反対側からもう1枚</small></span></label></li>
+        <li><label><input type="checkbox"><span>厨房・作業場の全体<small>シャンプー台・診察室なども同じように</small></span></label></li>
+        <li><label><input type="checkbox"><span>主な設備の型番シール<small>冷蔵庫・給湯器・ユニットなど</small></span></label></li>
+        <li><label><input type="checkbox"><span>換気ダクト・天井まわり<small>フードや吹き出し口</small></span></label></li>
+        <li><label><input type="checkbox"><span>水まわりと床<small>排水口・グリストラップ・床の傷み</small></span></label></li>
+        <li><label><input type="checkbox"><span>分電盤・ガスメーター<small>電気容量とガスの種類の確認に</small></span></label></li>
+        <li><label><input type="checkbox"><span>外観と看板<small>通りから見た様子</small></span></label></li>
+      </ul>
+      <div class="docs" style="margin-top:28px">
+        <div><b>賃貸借契約書</b><span>原状回復と解約予告の条件を確認</span></div>
+        <div><b>リース・割賦の契約書</b><span>名義変更ができるかを確認</span></div>
+        <div><b>内装工事の見積書</b><span>内装の値打ちの目安になります</span></div>
+      </div>
+      <p class="fine">書類はスマホで撮影したもので構いません。そろっていなくても始められます。</p>
+      <div class="shotbar">
+        <span class="cnt" id="cnt">0 / 8 か所</span>
+        <span class="fine" style="margin:0">1〜2枚だけでも大丈夫です</span>
+        <a class="btn btn-line" href="https://line.me/R/oaMessage/@907kxssd/?%E5%86%85%E8%A3%85%E3%81%AE%E5%86%99%E7%9C%9F%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E3%81%8A%E3%81%8A%E3%82%88%E3%81%9D%E3%81%AE%E5%BA%83%E3%81%95%EF%BC%9A%0A%EF%BC%88%E3%81%93%E3%81%AE%E3%81%82%E3%81%A8%E5%86%99%E7%9C%9F%E3%81%A8%E6%9B%B8%E9%A1%9E%E3%82%92%E9%80%81%E3%82%8A%E3%81%BE%E3%81%99%EF%BC%89" target="_blank" rel="noopener">写真を送って、無料で確認する</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w">
+      <div class="fee">
+        <div>
+          <h2 class="sec">料金</h2>
+          <p class="rule-big"><span class="zero">契約までは0円。</span>成約時12%<small class="minfee">（最低8万円）</small></p>
+          <p>試算・写真の確認・相談は、何度でも無料です。写真を送ったあとにやめても、費用はかかりません。料金は内装の譲渡額の12%で、最低8万円（税別）です。譲渡額が約67万円未満のときは8万円になります。次の人が決まらなければ0円。料金は、原則として譲渡代金の中から決済時に精算します。</p>
+          <p class="fine">キャンセル料がかかるのは、当社と契約を結び、次の人探しを始めたあとに、ご自身の都合で取り下げる場合だけです（上限3万円）。融資が通らなかった場合や、相手方・当社の都合の場合はかかりません。</p>
+        </div>
+        <div>
+          <table>
+            <thead><tr><th>内装の譲渡額</th><th>当社の料金</th><th>手元に残る額</th></tr></thead>
+            <tbody>
+              <tr><td>50万円</td><td>8万円（最低料金）</td><td class="take">42万円</td></tr>
+              <tr><td>100万円</td><td>12万円</td><td class="take">88万円</td></tr>
+              <tr><td>200万円</td><td>24万円</td><td class="take">176万円</td></tr>
+              <tr><td>300万円</td><td>36万円</td><td class="take">264万円</td></tr>
+            </tbody>
+          </table>
+          <p class="fine">対象は譲渡額300万円まで。金額は税別です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="w">
+      <h2 class="sec">渡せるもの、確認が必要なもの</h2>
+      <p class="sec-lead">業種を選んでください。</p>
+      <div class="seg" role="tablist">
+        <button role="tab" aria-selected="true" data-k="food">飲食店</button>
+        <button role="tab" aria-selected="false" data-k="beauty">美容室</button>
+        <button role="tab" aria-selected="false" data-k="clinic">クリニック・歯科</button>
+      </div>
+      <div class="give-list" id="k-food">
+        <img class="tab-ph" style="object-position:center 60%" src="https://images.unsplash.com/photo-1663790776711-9283bf614ac2?auto=format&fit=crop&w=1400&q=70" alt="コンロと調理台が並ぶ、小さな飲食店の厨房" loading="lazy">
+        <div class="yes"><h3>渡せるもの</h3><ul><li>厨房設備（コンロ・冷蔵庫・製氷機・シンク）</li><li>換気ダクト・給排水・グリストラップ</li><li>カウンター・客席・照明・空調</li><li>トイレ・看板の枠</li></ul></div>
+        <div class="check"><h3>確認が必要なもの</h3><ul><li>リースの機器（名義の変更が必要）</li><li>店名・ロゴ・メニュー（原則渡しません）</li><li>飲食店の営業許可（次の人が取り直します）</li></ul></div>
+      </div>
+      <div class="give-list" id="k-beauty" hidden>
+        <img class="tab-ph" style="object-position:center 45%" src="https://images.unsplash.com/photo-1626383126210-15c15e62d9ba?auto=format&fit=crop&w=1400&q=70" alt="木の床に置かれた美容室のスタイリングチェア" loading="lazy">
+        <div class="yes"><h3>渡せるもの</h3><ul><li>シャンプー台・給湯器・給排水</li><li>セット面・鏡・待合の家具</li><li>照明・空調・電気容量の工事</li></ul></div>
+        <div class="check"><h3>確認が必要なもの</h3><ul><li>リースの機器（名義の変更が必要）</li><li>お客さまの名簿（渡しません）</li><li>美容所の開設届（次の人が出し直します）</li></ul></div>
+      </div>
+      <div class="give-list" id="k-clinic" hidden>
+        <p class="trial-note">クリニック・歯科は、現在、滋賀・京都で試験的に受け付けています。医療機器の扱いは、許可・届出のある専門業者との連携を準備中です。</p>
+        <div class="tab-ph2"><figure><img src="https://images.unsplash.com/photo-1766299892549-b56b257d1ddd?auto=format&fit=crop&w=900&q=70" alt="診察室の壁に並ぶ診察用の器具" loading="lazy"><figcaption>内科・皮膚科・耳鼻科などの診察室</figcaption></figure><figure><img style="object-position:center 72%" src="https://images.unsplash.com/photo-1643916800611-1302e8d27c38?auto=format&fit=crop&w=900&q=70" alt="小さな診療室に置かれた歯科ユニット" loading="lazy"><figcaption>歯科の診療室</figcaption></figure></div>
+        <div class="yes"><h3>渡せるもの</h3><ul><li>診察室・待合・受付の間仕切り</li><li>X線室の遮蔽工事</li><li>歯科ユニットの床下配管・給排水</li><li>照明・空調・電気容量の工事</li></ul></div>
+        <div class="check"><h3>確認が必要なもの</h3><ul><li>医療機器（当社は売買しません。許可・届出のある業者が扱います）</li><li>カルテ・患者さんの情報（扱いません）</li><li>開設届・保険医療機関の指定（次の医師が取り直します）</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w narrow">
+      <h2 class="sec">相談から引き渡しまで</h2>
+      <p class="sec-lead">店舗の物件では、解約の予告が数か月前に必要なことが多いため、予告を出す前のご相談がいちばん有利です。</p>
+      <div class="tally"><span><span class="tag on" style="margin:0">オンライン</span> でできる工程 <b>6</b></span><span><span class="tag off" style="margin:0">対面</span> は原則 <b>2回</b>（現地での内覧・引き渡し）</span></div>
+      <ol class="flow">
+        <li><span class="when">当日</span><div><b>名前なしで試算<span class="tag on">オンライン</span></b><span>壊す場合と渡す場合の持ち出しを、このページで比べます。</span></div></li>
+        <li><span class="when">当日〜</span><div><b>写真で無料確認<span class="tag on">オンライン</span></b><span>撮れた写真からLINEで送るだけ。渡せそうか、壊す工事代がどのくらいかかりそうかを無料でお返しします。相談の予約は要りません。</span></div></li>
+        <li><span class="when">1〜2週目</span><div><b>オンラインで相談（無料・ご希望の方）<span class="tag on">オンライン</span></b><span>LINEのビデオ通話・Google Meet・お電話から選べます。日時は予約フォームで指定でき、お店を空ける必要はありません。</span></div></li>
+        <li><span class="when">3〜4週目</span><div><b>大家さんに確認<span class="tag on">オンライン</span></b><span>内装を残して次の人に貸せるか。管理会社とのやりとりは当社が書面とメールで進めます。必要なときだけ同席します。</span></div></li>
+        <li><span class="when">1〜3か月</span><div><b>次の人を探す<span class="tag on">オンライン</span>→ 内覧<span class="tag off">対面</span></b><span>候補者リスト（飲食店を始めたい方）、連携する管理会社、商工会時代からの創業支援のつながり、美容・医療の専門の窓口から探します。店名を伏せた写真と資料で、まずオンラインで見てもらいます。秘密保持の契約は電子契約で。本気の人だけが、営業時間外に現地を内覧します。</span></div></li>
+        <li><span class="when">内覧のあと</span><div><b>値段を決める（交渉は原則2回まで）<span class="tag on">オンライン</span></b><span>退去の期限に間に合わせるため、あなたの希望額をもとに、継ぎ手からの申し入れは原則2回まで。やりとりは当社が間に入り、LINEとメールで進めます。2回で折り合わなければ、その方との話はいったん終え、次の候補をご紹介します。</span></div></li>
+        <li><span class="when">退去まで</span><div><b>契約と引き渡し<span class="tag off">対面</span></b><span>契約書は事前にオンラインで確認し、署名は電子契約でもできます。鍵と設備の引き渡しは、現地で立ち会います。</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="alt" id="yoyaku">
+    <div class="w">
+      <div class="book">
+        <div>
+          <h2 class="sec">話して決めたい方は、オンライン相談へ</h2>
+          <p class="sec-lead" style="margin-bottom:0">営業の合間や閉店後でも大丈夫です。お店を空けたり、事務所に来ていただいたりする必要はありません。</p>
+          <ul class="ways">
+            <li><b>LINEのビデオ通話</b>いつものLINEのまま。アプリの追加は不要です</li>
+            <li><b>Google Meet</b>パソコンでもスマホでも。資料を一緒に見ながら話せます</li>
+            <li><b>お電話</b>ご指定の時間に、こちらからおかけします</li>
+            <li><b>対面</b>ご希望なら、お店や近くの場所に伺います</li>
+          </ul>
+          <p class="fine">相談は60分・無料です。名前は呼び名だけで構いません。相談の事実も内容も、大家さん・管理会社に伝えることはありません。</p>
+        </div>
+
+        <form class="bk" id="bk" novalidate>
+          <div class="fld"><span class="lb">相談の方法</span>
+            <div class="pills">
+              <label><input type="radio" name="方法" value="LINEビデオ" checked>LINEビデオ</label>
+              <label><input type="radio" name="方法" value="Google Meet">Google Meet</label>
+              <label><input type="radio" name="方法" value="電話（当社からかける）">お電話</label>
+              <label><input type="radio" name="方法" value="対面">対面</label>
+            </div>
+          </div>
+          <div class="fld"><span class="lb">業種</span>
+            <div class="pills">
+              <label><input type="radio" name="業種" value="飲食店" checked>飲食店</label>
+              <label><input type="radio" name="業種" value="美容室">美容室</label>
+              <label><input type="radio" name="業種" value="クリニック">クリニック</label>
+              <label><input type="radio" name="業種" value="その他">その他</label>
+            </div>
+          </div>
+          <div class="fld"><span class="lb">ご希望の日時<span class="opt-note">第2希望まで</span></span>
+            <div class="slots">
+              <input type="date" name="第1希望日" id="d1" aria-label="第1希望の日付">
+              <select name="第1希望時間" aria-label="第1希望の時間帯"><option>10〜12時</option><option>12〜15時</option><option selected>15〜17時</option><option>17〜19時</option><option>19〜21時</option></select>
+              <input type="date" name="第2希望日" aria-label="第2希望の日付">
+              <select name="第2希望時間" aria-label="第2希望の時間帯"><option>10〜12時</option><option>12〜15時</option><option selected>15〜17時</option><option>17〜19時</option><option>19〜21時</option></select>
+            </div>
+          </div>
+          <div class="fld"><label for="nm">お呼びする名前<span class="opt-note">呼び名だけで構いません</span></label><input type="text" id="nm" name="呼び名" autocomplete="nickname"></div>
+          <div class="fld"><label for="ct">日時のご連絡先（メール）</label><input type="email" id="ct" name="email" autocomplete="email" required placeholder="例：mise@example.jp"></div>
+          <div class="fld"><label for="ms">聞きたいこと<span class="opt-note">任意</span></label><textarea id="ms" name="相談内容" placeholder="例：今年中に閉めるか迷っています。厨房は5年前に入れ替えました。"></textarea></div>
+          <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          <button class="send" id="send" type="submit">オンライン相談を予約する</button>
+          <p class="msg" id="msg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w">
+      <h2 class="sec">安心してご相談いただくための決まり</h2>
+      <p class="sec-lead">お店を閉める話は、お金も気持ちも大きく動きます。だから、当社が守ることを先にお伝えします。</p>
+      <div class="rules">
+        <div class="rule"><span class="ico">1</span><div><b>譲渡代金を当社が預かることはありません</b><p>代金は次の人からあなたへ直接支払われます。当社の料金は、三者で合意した支払指図書にもとづき決済時に精算します。</p></div></div>
+        <div class="rule"><span class="ico">2</span><div><b>専任契約は結びません</b><p>ほかの会社や不動産会社に相談しても構いません。契約前ならいつやめても0円。契約後にご自身の都合で取り下げる場合だけ、上限3万円です。</p></div></div>
+        <div class="rule"><span class="ico">3</span><div><b>契約の前に、書面で説明します</b><p>料金、当社の役割、しないことを重要事項説明書にまとめ、納得いただいてから契約します。</p></div></div>
+        <div class="rule"><span class="ico">4</span><div><b>相談したことは外に出しません</b><p>大家さん・管理会社・常連のお客さまにも、ご本人の同意なく伝えることはありません。</p></div></div>
+        <div class="rule"><span class="ico">5</span><div><b>料金と契約の内容を、先に書面で示します</b><p>中小M&amp;Aガイドラインの考え方を参考に、料金・当社の役割・契約の条件を事前に明示します。</p></div></div>
+        <div class="rule"><span class="ico">6</span><div><b>値段の交渉は原則2回まで</b><p>退去の期限に間に合わせるためです。継ぎ手からの申し入れは原則2回まで。当社が間に入り、書面で行います。</p></div></div>
+        <div class="rule"><span class="ico">7</span><div><b>できないことは、できないと言います</b><p>不動産の仲介や医療機器の売買は行いません。それぞれの許可を持つ会社と組んで進めます。</p></div></div>
+      </div>
+
+      <div class="money">
+        <h3>お金の流れ</h3>
+        <p class="cap">内装の譲渡額が100万円の場合。当社を経由するお金はありません。</p>
+        <div class="flowmap">
+          <div class="node">次の人<small>継ぎ手</small></div>
+          <div class="arrows"><div class="arw">譲渡代金のうち <b>88万円</b></div></div>
+          <div class="node">あなた<small>店主・院長</small></div>
+        </div>
+        <div class="flowmap" style="margin-top:12px">
+          <div class="node">次の人<small>継ぎ手</small></div>
+          <div class="arrows"><div class="arw">残りの <b>12万円</b><br><small>あなたの料金を代わりに精算</small></div></div>
+          <div class="node">当社<small>BRIDGE CYCLE</small></div>
+        </div>
+        <p class="us"><span>当社の役目は、支払指図書をつくり三者の合意を確かめること。あなたの代金が当社の口座を通ることはありません。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="w narrow">
+      <h2 class="sec">相談するのは、この人です</h2>
+      <div class="person">
+        <div class="photo"><img src="assets/akinai-profile-yuji-final.png" alt="代表取締役 中村裕二" loading="lazy"></div>
+        <div>
+          <h3>中村 裕二</h3>
+          <div class="role">BRIDGE CYCLE株式会社 代表取締役<br>元 商工会経営指導員（瀬田商工会・大津北商工会）</div>
+          <p>商工会の経営指導員として約20年、500以上の事業者の開業・承継・閉店に立ち会ってきました。大津の不動産会社と連携し、閉める前の段階から次の人へつなぎます。</p>
+          <div class="not"><b>当社がしないこと</b>
+            <ul><li>不動産の仲介（賃貸借の契約は大家さんと次の方が直接結びます）</li><li>医療機器の売買（許可・届出のある業者が扱います）</li><li>お客さま・患者さまの情報の受け渡し</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w">
+      <h2 class="sec">大家さん・管理会社と、組んで進めます</h2>
+      <p class="sec-lead">内装を残して次の人に渡すには、大家さんの了承が欠かせません。当社は大津の管理会社3社と連携し、退去の前から一緒に動いています。</p>
+      <div class="tri">
+        <div class="nd"><b>あなた</b><ul><li>相談と試算は名前なしで</li><li>店名を出す時期はあなたが決める</li></ul></div>
+        <div class="lk" aria-hidden="true">⇄</div>
+        <div class="nd me"><b>BRIDGE CYCLE</b><ul><li>次の人を探し、借入の見込みまで確かめる</li><li>内装の値段と引き渡しの段取りを調整</li><li>賃貸の仲介はしない</li></ul></div>
+        <div class="lk" aria-hidden="true">⇄</div>
+        <div class="nd"><b>大家さん・管理会社</b><ul><li>次の人と賃貸借の契約を結ぶ</li><li>空室の期間と撤去の手間が減る</li></ul></div>
+      </div>
+      <div class="rules">
+        <div class="rule"><span class="ico">✓</span><div><b>無報酬・非独占の覚書で連携</b><p>連携のルールは「退去前情報提供に関する覚書」にまとめています。</p></div></div>
+        <div class="rule"><span class="ico">✓</span><div><b>相談の中身は、同意なく伝えません</b><p>管理会社からのご紹介でも、報告するのは件数だけ。店名はあなたの同意があるときだけ伝えます。</p></div></div>
+        <div class="rule"><span class="ico">✓</span><div><b>家賃を払える人か、先に確かめます</b><p>次の人の事業計画と借入の見込みを確かめてから、大家さんにご紹介します。</p></div></div>
+        <div class="rule"><span class="ico">✓</span><div><b>商店街とも連携しています</b><p>膳所駅前商店街振興組合の賛助会員です。</p></div></div>
+      </div>
+      <p style="margin-top:18px;font-weight:700"><a href="partner-fudosan.html">管理会社・オーナーの方へ（連携のご案内）</a></p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="w narrow">
+      <h2 class="sec">会社概要</h2>
+      <table class="company">
+        <tr><th>会社名</th><td>BRIDGE CYCLE株式会社</td></tr>
+        <tr><th>設立</th><td>2026年3月17日</td></tr>
+        <tr><th>代表者</th><td>代表取締役 中村 裕二</td></tr>
+        <tr><th>所在地</th><td>〒520-0801 滋賀県大津市におの浜2-1-28-1302</td></tr>
+        <tr><th>認定</th><td>認定経営革新等支援機関（中小企業庁）<br>認定番号 109825000112<br><span class="small" style="color:var(--ai-2)">中小企業庁の<a href="https://www.chusho.meti.go.jp/keiei/kakushin/nintei/" target="_blank" rel="noopener">認定経営革新等支援機関のページ</a>から検索して確認できます</span></td></tr>
+        <tr><th>所属団体</th><td>膳所駅前商店街振興組合 賛助会員</td></tr>
+        <tr><th>連携先</th><td>大津市内の不動産会社3社（退去前の情報連携）</td></tr>
+        <tr><th>事業内容</th><td>退店前承継（店舗の内装・設備の引き継ぎ支援）／創業・事業計画・融資申込の支援／補助金申請の支援／売り場レンタル</td></tr>
+        <tr><th>お問い合わせ</th><td><a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>／<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINE @907kxssd</a></td></tr>
+      </table>
+      <p class="legal-links"><a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="w narrow">
+      <h2 class="sec">よくある質問</h2>
+      <details><summary>まだ閉めると決めていません</summary><p>大丈夫です。迷っている方からの相談がいちばん多いです。解約の予告を出す前なら、選べる道が増えます。</p></details>
+      <details><summary>お客さんや従業員に知られませんか</summary><p>店名を伏せたまま継ぎ手を探します。誰にいつ伝えるかは、相談しながら決めます。</p></details>
+      <details><summary>内装の値段はどう決まりますか</summary><p>工事にかかった金額と使った年数から目安を出し、最後は次の人が払える額で決まります。0円で渡す場合でも、壊す工事代がかからなくなるぶん、閉めるときの持ち出しを減らせる可能性があります。</p></details>
+      <details><summary>大家さんが内装を残すのを断ったら</summary><p>壊して返すことになります。見積もりの比較や機器の買取など、片づけの費用を減らすお手伝いに切り替えます。料金はかかりません。</p></details>
+      <details><summary>リースの機器が残っています</summary><p>次の方に名義を変えて引き継げることがあります。リース会社への確認も一緒に行います。</p></details>
+      <details><summary>どのくらいの期間がかかりますか</summary><p>早ければ2か月ほど、次の方の融資が必要な場合は3〜6か月ほどが目安です。</p></details>
+      <details><summary>値段の交渉はどう進みますか</summary><p>最初にあなたが希望額を決めます。退去の期限に間に合わせるため、継ぎ手からの値段の申し入れは原則2回までで、当社が間に入り、書面（LINE・メール）で行います。直接やりとりする必要はありません。2回で合わなければ、その方との話はいったん終え、次の候補をご紹介します。値段を決めるのは、最後まであなたです。</p></details>
+      <details><summary>お店に来てもらう必要はありますか</summary><p>ありません。相談・内装の確認・大家さんとのやりとり・契約書の確認はオンラインで進められます。お店に伺うのは、原則として次の人の内覧と、引き渡しの立ち会いの2回です。</p></details>
+      <details><summary>パソコンがなくても大丈夫ですか</summary><p>大丈夫です。スマホのLINEだけで、相談・写真の送付・書類の確認まで進められます。</p></details>
+      <details><summary>次の人（継ぎ手）は、どのくらいいますか</summary><p>2026年10月時点で、飲食店を始めたい方12名が候補として登録しています。全員と代表が直接つながっており、話を進める前に借入の見込みまで確かめます。美容室・クリニックの継ぎ手は、案件ごとに探します。探す先は、候補者リスト、連携する管理会社、商工会時代からの創業支援のつながり、美容・医療の専門の窓口（ディーラーや中古機器の業者など）です。Webに載せて待つだけではありません。</p></details>
+      <details><summary>対象の地域は</summary><p>大津市と京都市の周辺部を中心にご相談を受けています。</p></details>
+    </div>
+  </section>
+
+  <section class="last">
+    <div class="w">
+      <h2 class="sec">閉めるか迷ったら、まず試算から。</h2>
+      <p>名前も店名もいりません。30秒で、壊す場合と渡す場合の目安がわかります。</p>
+      <div class="btns">
+        <a class="btn btn-tape" href="#quick">試算する（無料）</a>
+        <a class="btn btn-line" href="#photo">写真を送って、無料で確認する</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="others">
+    お店を始めたい方は <a href="https://line.me/R/ti/p/@907kxssd">継ぎ手として登録</a>（事業計画と融資のご相談も）<br>
+    不動産会社の方は <a href="mailto:info@bridgecycleco.com?subject=退去前承継の連携">連携のお問い合わせ</a>
+  </div>
+</main>
+
+<footer>
+  <span class="disp">店じまいを、まちのはじまりに。</span>
+  BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28-1302<br>
+  <a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>　公式LINE @907kxssd
+  <nav><a href="./">BRIDGE CYCLE トップ</a><a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a></nav><small>掲載写真はイメージです（Unsplash）</small>
+</footer>
+
+<div class="sticky">
+  <a class="btn-tape" href="#quick">試算する（無料）</a>
+  <a href="#photo" style="background:var(--ai);color:#fff">写真で無料確認</a>
+</div>
+
+<script>
+  // 2問の試算フォーム：答えるたびに進み具合のバーが埋まり、2問そろうと送信できる
+  const state = {type:'', when:''};
+  document.querySelectorAll('.opts').forEach(group => {
+    group.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', () => {
+      group.querySelectorAll('.opt').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      state[group.dataset.name] = btn.dataset.v;
+      document.getElementById('f-' + group.dataset.name).value = btn.dataset.v;
+      document.getElementById(group.dataset.step).classList.add('on');
+      document.getElementById('go').disabled = !(state.type && state.when);
+    }));
+  });
+
+  // 試算で業種を選ぶと、ヒーロー下の工事代の該当行を強調
+  document.querySelectorAll('.opts[data-name="type"] .opt').forEach(btn=>btn.addEventListener('click',()=>{
+    const c=document.getElementById('costs'); c.classList.add('picked');
+    c.querySelectorAll('.crow').forEach(r=>r.classList.toggle('on',r.dataset.k===btn.dataset.v));
+  }));
+
+  // 計測（サイト共通の bcTrack があるときだけ送る）：試算開始→試算完了→写真CTA→LINE
+  const T=(n,o)=>{try{window.bcTrack&&bcTrack(n,o||{})}catch(e){}};
+  let started=false;
+  document.querySelectorAll('.quick .opt').forEach(b=>b.addEventListener('click',()=>{if(!started){started=true;T('zousaku_quick_start');}}));
+  document.getElementById('quick').addEventListener('submit',()=>T('zousaku_quick_submit',{type:state.type,when:state.when}));
+  document.querySelectorAll('a[href="#photo"]').forEach(a=>a.addEventListener('click',()=>T('zousaku_photo_cta',{place:a.closest('section,.hero-act,.sticky')?.className||''})));
+  document.querySelectorAll('a[href*="line.me"]').forEach(a=>a.addEventListener('click',()=>T('zousaku_line',{photo:a.href.includes('oaMessage')})));
+  // 渡せるもの：業種の切り替え
+  const segs = document.querySelectorAll('.seg button');
+  segs.forEach(b => b.addEventListener('click', () => {
+    segs.forEach(x => x.setAttribute('aria-selected', String(x === b)));
+    ['food','beauty','clinic'].forEach(k => { document.getElementById('k-' + k).hidden = (k !== b.dataset.k); });
+  }));
+
+  // 写真チェック：チェックした数を数えるだけ（送信しない）
+  const shots=[...document.querySelectorAll('#shots input')], cnt=document.getElementById('cnt');
+  shots.forEach(c=>c.addEventListener('change',()=>{cnt.textContent=shots.filter(x=>x.checked).length+' / 8 か所';}));
+
+  // オンライン相談の予約：会社サイトの相談予約と同じ受付窓口（info@bridgecycleco.com）へ送る
+  (function(){
+    const f=document.getElementById('bk'), msg=document.getElementById('msg'), btn=document.getElementById('send');
+    const d1=document.getElementById('d1'); const t=new Date(); t.setDate(t.getDate()+1);
+    const iso=x=>x.toISOString().slice(0,10); f.querySelectorAll('input[type=date]').forEach(i=>i.min=iso(t));
+    f.addEventListener('submit',async e=>{
+      e.preventDefault(); msg.style.color='';
+      const fd=new FormData(f); if(fd.get('_honey')) return;
+      const mail=(fd.get('email')||'').trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){msg.style.color='var(--red)';msg.textContent='日時をお送りするメールアドレスを入力してください。';document.getElementById('ct').focus();return;}
+      if(!fd.get('第1希望日')){msg.style.color='var(--red)';msg.textContent='第1希望の日付を選んでください。';d1.focus();return;}
+      const data=Object.fromEntries(fd.entries()); delete data._honey;
+      const name=data['呼び名']||'ご相談者';
+      data._subject='【オンライン相談予約】'+data['方法']+'／'+data['業種'];
+      data._template='table'; data._captcha='false';
+      data._autoresponse='【BRIDGE CYCLE】オンライン相談のご予約を受け付けました。\n\n'+name+' 様\n\n'
+        +'ご希望：'+data['方法']+'\n第1希望：'+data['第1希望日']+' '+data['第1希望時間']+'\n'
+        +(data['第2希望日']?'第2希望：'+data['第2希望日']+' '+data['第2希望時間']+'\n':'')
+        +'\n1営業日以内に、確定した日時と接続方法をこのメールアドレスへお送りします。\n'
+        +'相談は60分・無料で、その場で何かを決めていただく必要はありません。\n\n'
+        +'■ 相談の前に\n原状回復の工事は、まだ発注しないでください。\n内装の写真（8か所）をLINEで先に送っていただくと、当日の相談が具体的になります。\n\n'
+        +'公式LINE：https://line.me/R/ti/p/@907kxssd\n\nBRIDGE CYCLE株式会社（滋賀県大津市）\n店じまいを、まちのはじまりに。';
+      btn.disabled=true; btn.textContent='送信しています…';
+      try{
+        const r=await fetch('https://formsubmit.co/ajax/info@bridgecycleco.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+        const j=await r.json().catch(()=>({}));
+        if(!r.ok||String(j.success)!=='true') throw new Error('not delivered');
+        if(window.bcTrack){bcTrack('generate_lead',{form:'zousaku_online'});bcTrack('zousaku_consult_submit',{method:data['方法'],biz:data['業種']});}
+        f.innerHTML='<div class="done"><div style="font-size:40px">✓</div><b>予約を受け付けました。</b><span class="fine">1営業日以内に、確定した日時と接続方法を '+mail.replace(/[<>&"]/g,'')+' へお送りします。<br>先に内装の写真をLINEで送っていただくと、相談が具体的になります。</span></div>';
+      }catch(err){
+        btn.disabled=false; btn.textContent='オンライン相談を予約する'; msg.style.color='var(--red)';
+        msg.textContent=location.protocol==='file:'?'このファイルを直接開いているため送信できません。公開後のページでお試しください。':'送信できませんでした。お手数ですが、公式LINEかメール（info@bridgecycleco.com）でご連絡ください。';
+      }
+    });
+  })();
+</script>
+</body>
+</html>

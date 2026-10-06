@@ -1,6 +1,6 @@
 # BRIDGE CYCLE株式会社
 
-> 滋賀県大津市の国の認定経営革新等支援機関（代表 中村裕二）。「退店前承継」——営業中のお店の造作（内装・厨房設備・什器）を、閉店して解体する前に、同じ場所で開業する次の店主へ引き継ぐ——を支援しています。タグライン「店じまいを、まちのはじまりに。」
+> 滋賀県大津市の国の認定経営革新等支援機関（代表 中村裕二）。トップページ https://www.bridgecycleco.com/ は会社全体の入口。「退店前承継」——営業中のお店の造作（内装・厨房設備・什器）を、閉店して解体する前に、同じ場所で開業する次の店主へ引き継ぐ——を支援しています。タグライン「店じまいを、まちのはじまりに。」
 
 ## 用語
 - [退店前承継とは](https://www.bridgecycleco.com/taiten-zen-shokei.html): 定義、居抜き・事業承継・M&Aとの違い、成立する3条件（貸主の承諾・次の店主・リース設備の扱い）、進め方、FAQ
@@ -10,10 +10,16 @@
 - [原状回復費用の計算](https://www.bridgecycleco.com/genjo-kaifuku.html): 業種・広さ・戻し方から原状回復（スケルトン戻し）費用の目安。業種別の坪単価の相場つき
 
 ## サービス
+- [店を閉める方へ（売り手）](https://www.bridgecycleco.com/zousaku.html): 飲食店・美容室・クリニック（試験受付中）の内装・設備を次の人へ。契約までは0円、成約時に譲渡額の12%（最低8万円）。写真で無料確認
+- [店を始めたい方へ（継ぎ手）](https://www.bridgecycleco.com/tsugite.html): 閉める前の店の紹介と、事業計画・資金計画・融資申込の支援。登録・紹介は0円、成約時に譲渡額の25%（最低12万円）
 - [退店前承継マッチング](https://www.bridgecycleco.com/matching.html): 閉店を考える店主と、開業したい継ぎ手のマッチング（無料）。個別支援は着手金0円・成約時のみ。対象は造作の譲渡額300万円まで
 - [無料相談](https://www.bridgecycleco.com/soudan.html): 60分・無料
 - [補助金・融資サポート](https://www.bridgecycleco.com/hojokin.html)
 - [売り場レンタル（旧大津公会堂）](https://www.bridgecycleco.com/uriba.html)
+- [続けるための経営計画](https://www.bridgecycleco.com/tsuzukeru.html)
+- [閉め方の相談](https://www.bridgecycleco.com/shimekata.html)
+- [うちのシェフ（料理人募集）](https://www.bridgecycleco.com/uchino-chef-recruit.html)
+- [わたしのこれから診断（個人向け）](https://www.bridgecycleco.com/akinai.html)
 
 ## 連絡先
 - info@bridgecycleco.com ／ 滋賀県大津市
