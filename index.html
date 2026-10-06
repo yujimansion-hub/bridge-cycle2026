@@ -165,6 +165,17 @@
   .nominate .nd{display:block;font-size:15px;color:var(--ai-2);max-width:46em}
   .nominate .go{display:inline-block;margin-top:10px;font-weight:700}
   .nominate .go::after{content:" →"}
+  .side{display:flex;flex-direction:column;gap:16px}
+  .sublinks{display:grid;gap:0;border-top:1px solid var(--rule)}
+  .sublinks a{display:block;padding:12px 2px;border-bottom:1px solid var(--rule);text-decoration:none}
+  .sublinks b{display:block;font-size:15px}
+  .sublinks span{font-size:13.5px;color:var(--ai-2)}
+  .side .nominate{margin-top:0;padding:16px 18px}
+  .side .nominate b{font-size:19px}
+  .side .nominate .nd{font-size:14px}
+  .about-link{margin:24px 0 0;font-size:15px}
+  .about-link a{font-weight:700}
+  .sl-h{margin:0;padding:10px 2px 2px;font-size:12.5px;font-weight:700;color:var(--ai-2);letter-spacing:.04em}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28-1302","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -220,6 +231,7 @@
       <h2 class="sec">閉める店と、始めたい人をつなぐ。</h2>
       <p class="sec-lead">店を閉めると、内装や厨房は壊して返すのがふつうです。BRIDGE CYCLEは、閉める前の段階から次に使ってくれる人を探し、内装と設備をそのまま引き継ぎます。閉める側は壊す費用が減り、始める側は開業のお金を小さくできます。</p>
       <div class="pair">
+        <div class="side">
         <a class="door" href="zousaku.html" data-t="hub_door_seller">
           <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=1000&q=70');background-position:60% 55%"></div>
           <div class="bd">
@@ -230,6 +242,13 @@
             <span class="go">店を閉める方のページへ</span>
           </div>
         </a>
+          <div class="sublinks" aria-label="店を閉める方の無料ツール">
+            <p class="sl-h">店を閉める方の無料ツール</p>
+            <a href="yameru.html"><b>30秒で、店の値打ちを試算</b><span>続ける・渡す・閉めるを比べる（匿名・送信なし）</span></a>
+            <a href="genjo-kaifuku.html"><b>原状回復の費用を計算</b><span>業種と坪数から、壊して返す工事代の目安</span></a>
+          </div>
+        </div>
+        <div class="side">
         <a class="door" href="tsugite.html" data-t="hub_door_taker">
           <div class="ph" style="background-image:url('images/partner.jpg');background-position:center 40%"></div>
           <div class="bd">
@@ -240,18 +259,15 @@
             <span class="go">店を始めたい方のページへ</span>
           </div>
         </a>
+          <a class="nominate" href="tsugite.html#shimei" data-t="hub_nominate">
+            <span class="nk">新しい試み｜営業中のお店を指名する</span>
+            <b>好きなお店を、いつか継ぎたい。</b>
+            <span class="nd">通っているお店を指名して登録できます。店主には、あなたの名前を出さずに手紙で一度だけお伝えします。登録は0円です。</span>
+            <span class="go">お店を指名して登録する</span>
+          </a>
+        </div>
       </div>
-      <a class="nominate" href="tsugite.html#shimei" data-t="hub_nominate">
-        <span class="nk">新しい試み｜営業中のお店を指名する</span>
-        <b>好きなお店を、いつか継ぎたい。</b>
-        <span class="nd">通っているあのお店を、いつか自分が続けたい。そんな希望を、営業中のお店を指名して登録できます。店主には、あなたの名前を出さずに「将来この店を引き継ぎたい方がいます」とだけ、手紙で一度お伝えします。登録は0円です。</span>
-        <span class="go">お店を指名して登録する</span>
-      </a>
-      <div class="tools">
-        <a href="yameru.html"><b>30秒で、店の値打ちを試算</b><span>続ける・渡す・閉めるを比べる（匿名・送信なし）</span></a>
-        <a href="genjo-kaifuku.html"><b>原状回復の費用を計算</b><span>業種と坪数から、壊して返す工事代の目安</span></a>
-        <a href="taiten-zen-shokei.html"><b>退店前承継とは</b><span>しくみ、お金の流れ、進め方の解説</span></a>
-      </div>
+      <p class="about-link"><a href="taiten-zen-shokei.html">退店前承継とは（しくみ・お金の流れ・進め方）→</a></p>
     </div>
   </section>
 
