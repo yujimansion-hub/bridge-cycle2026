@@ -222,7 +222,7 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
     <div class="t"><b>価格はご自身で決めます</b>当社は査定をしません。店の記録をまとめた無料のカルテや造作の一覧など、相手が判断できる材料をそろえるだけです。</div>
     <div class="t"><b>賃貸借には関与しません</b>当社は宅地建物取引業者ではなく、賃貸借契約や賃料交渉は行いません。次の店主の契約は従来どおり管理会社・オーナー様と。</div>
   </div>
-  <div class="from">このお知らせは <b id="pWho"></b> からお渡ししています。　BRIDGE CYCLE株式会社　代表取締役 中村 裕二（商工会経営指導員として約20年・500社超を支援）　TEL 080-5309-9770　info@bridgecycleco.com</div>
+  <div class="from">このお知らせは <b id="pWho"></b> からお渡ししています。　BRIDGE CYCLE株式会社　代表取締役 中村 裕二（商工会経営指導員として約20年・500社超を支援）　info@bridgecycleco.com</div>
 </div></div>
 
 <section class="form-section"><div class="wrap">
@@ -280,7 +280,7 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
     var q=qrcode(0,'M'); q.addData(url); q.make();
     var svg=q.createSvgTag({cellSize:4,margin:2,scalable:true}).replace(/fill="black"|fill:black/g,'fill="#1B3B5F"');
     $('#qr').innerHTML=svg; $('#pqr').innerHTML=svg;
-    $('#kMail').href='mailto:?subject='+encodeURIComponent('【BRIDGE CYCLE】店主向け案内（紹介コード '+c+'）')+'&body='+encodeURIComponent('閉店を迷っている店主の方へ。原状回復の前に、造作を次の店主へ渡せるか60分無料で確認できます。\n\nまず、いくらで辞められるか（匿名・30秒）：\n'+url+'\n\n相談したことは、ご本人の同意なく管理会社・オーナーには伝わりません。\nBRIDGE CYCLE株式会社（滋賀県大津市）TEL 080-5309-9770');
+    $('#kMail').href='mailto:?subject='+encodeURIComponent('【BRIDGE CYCLE】店主向け案内（紹介コード '+c+'）')+'&body='+encodeURIComponent('閉店を迷っている店主の方へ。原状回復の前に、造作を次の店主へ渡せるか60分無料で確認できます。\n\nまず、いくらで辞められるか（匿名・30秒）：\n'+url+'\n\n相談したことは、ご本人の同意なく管理会社・オーナーには伝わりません。\nBRIDGE CYCLE株式会社（滋賀県大津市）');
     $('#kOut').classList.add('on');
     try{localStorage.setItem('bc_partner_name',name);}catch(e){}
   }
