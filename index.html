@@ -324,6 +324,48 @@
   .pick3.light{margin-top:20px;max-width:none}
   .pick3.light a{border:2px solid var(--ai);box-shadow:4px 4px 0 var(--ai)}
   .pick3.light a.pn{border-color:var(--tape-d);box-shadow:4px 4px 0 var(--tape-d)}
+  /* 退店前承継：濃い藍の面で、ページの山場にする */
+  .dark{background:var(--ai);color:#fff;padding:80px 0 72px}
+  .dark .kicker{color:#c9d2e3}
+  .dark h2.sec{color:#fff;font-size:clamp(28px,4.4vw,42px)}
+  .dark .ask2{color:#fff}
+  .dark .about-link a{color:#fff}
+  .dark .pick3.light a{border-color:transparent;box-shadow:none}
+  .dark .pick3.light a.pn{border:2px solid var(--tape);background:#f6fbef}
+  .dia2{display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:center;gap:0;margin:28px 0 8px}
+  .dn{background:#fff;color:var(--ai);border-radius:12px;padding:22px 16px;text-align:center}
+  .dn-k{display:block;font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--ai-2)}
+  .dn b{display:block;font-family:var(--serif);font-weight:800;font-size:clamp(19px,2.2vw,24px);margin:6px 0 4px}
+  .dn small{font-size:12.5px;color:var(--ai-2)}
+  .dn-g{box-shadow:inset 0 0 0 3px var(--tape)}
+  .dn-g .dn-k{color:var(--tape-d)}
+  .dmid{display:grid;gap:14px;padding:0 6px}
+  .dbc{justify-self:center;background:var(--tape);color:var(--ai);font-weight:800;letter-spacing:.14em;border-radius:999px;padding:10px 26px;font-size:15px}
+  .dar{position:relative;height:2px;margin:18px 10px 0}
+  .dar span{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:13.5px;font-weight:700;line-height:1.4}
+  .dar i{font-style:normal;font-size:10.5px;font-weight:800;background:var(--tape);color:var(--ai);border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:2px}
+  .dar-r{background:#fff}
+  .dar-r::after{content:"";position:absolute;right:-2px;top:-6px;border-left:12px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
+  .dar-l{background:var(--tape);margin-top:6px;margin-bottom:22px}
+  .dar-l span{bottom:auto;top:10px;color:var(--tape)}
+  .dar-l::after{content:"";position:absolute;left:-2px;top:-6px;border-right:12px solid var(--tape);border-top:7px solid transparent;border-bottom:7px solid transparent}
+  @media (max-width:760px){
+    .dia2{grid-template-columns:1fr;gap:0}
+    .dmid{grid-template-columns:1fr;padding:0;gap:0}
+    .dar{height:auto;margin:0;padding:14px 0 14px 34px;background:none!important;min-height:64px;display:flex;align-items:center}
+    .dar span{position:static;text-align:left}
+    .dar::before{content:"";position:absolute;left:14px;top:4px;bottom:4px;width:3px}
+    .dar-r::before{background:#fff}
+    .dar-r::after{left:8px;right:auto;top:auto;bottom:0;border-left:7.5px solid transparent;border-right:7.5px solid transparent;border-top:12px solid #fff;border-bottom:0}
+    .dar-l::before{background:var(--tape)}
+    .dar-l::after{left:8px;top:0;border-left:7.5px solid transparent;border-right:7.5px solid transparent;border-bottom:12px solid var(--tape);border-top:0}
+    .dar-l{margin:0}
+    .dbc{justify-self:stretch;text-align:center}
+  }
+  /* 信用の帯を太く */
+  .trustsec{background:#f6fbef;border-bottom:1px solid var(--rule);padding:6px 0}
+  .trust{border-bottom:none}
+  .trust b{font-size:18px}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -383,17 +425,19 @@
   </section>
 
   <!-- しくみ -->
-  <section id="shokei" class="shikumi">
+  <section id="shokei" class="shikumi dark">
     <div class="w">
       <p class="kicker">いちばん力を入れていること｜退店前承継</p>
       <h2 class="sec">閉める店と、始めたい人をつなぐ。</h2>
-      <figure class="twoway">
-        <img src="images/bridge-twoway-line.jpg" srcset="images/bridge-twoway-line-1000.jpg 1000w, images/bridge-twoway-line.jpg 1672w" sizes="(max-width:1100px) 100vw, 1040px" width="1672" height="941" loading="lazy" alt="承継は、店主からも、継ぎ手からも始められます。店主（閉める店・営業中の店）からの相談を受けて継ぐ人を探す流れと、継ぎ手（店を始めたい人）の希望を気になる店の店主に匿名で伝える流れ（NEW）を、BRIDGE CYCLEが整理し、つなぎ、動かす図。契約までは0円、お金を預かりません、滋賀・京都で対応">
-        <figcaption class="tw-cap">
-          <span class="tw-a"><b>店主から</b>「閉めようかな…」→ 相談を受けて、継ぐ人を探す</span>
-          <span class="tw-b"><b>継ぎ手から <i>NEW</i></b>「この店を継ぎたい」→ 気になる店の店主に、匿名で一度だけ伝える</span>
-        </figcaption>
-      </figure>
+      <div class="dia2" role="img" aria-label="店主から相談を受けて継ぐ人を探す流れと、継ぎ手の希望を気になる店の店主に匿名で伝える流れを、BRIDGE CYCLEがつなぐ">
+        <div class="dn"><span class="dn-k">店主</span><b>「閉めようかな」</b><small>閉める店・営業中の店</small></div>
+        <div class="dmid">
+          <div class="dar dar-r"><span>店主から相談：継ぐ人を探す</span></div>
+          <div class="dbc">BRIDGE CYCLE</div>
+          <div class="dar dar-l"><span><i>NEW</i>継ぎ手から：気になる店の店主に、匿名で承継希望を伝える</span></div>
+        </div>
+        <div class="dn dn-g"><span class="dn-k">継ぎ手</span><b>「この店を継ぎたい」</b><small>店を始めたい人</small></div>
+      </div>
       <p class="ask2">あなたは、どれですか？</p>
       <div class="pick3 light">
         <a href="zousaku.html" data-t="hub_hero_seller"><b>店を閉めるか迷っている</b><span>内装・設備を次の人へ。原状回復費を減らせる可能性があります。</span></a>
