@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BRIDGE CYCLE株式会社｜閉める前。始める前。お金を使う前。（滋賀・京都）</title>
+<title>BRIDGE CYCLE株式会社｜閉める店と、始めたい人をつなぐ（滋賀・京都）</title>
 <meta name="description" content="滋賀県大津市のBRIDGE CYCLE株式会社。閉める店の内装・設備を次の人へつなぐ「退店前承継」を中心に、売り場レンタル、創業・事業計画・融資、補助金申請の支援を行う認定経営革新等支援機関です。">
 <link rel="canonical" href="https://www.bridgecycleco.com/">
 <meta property="og:type" content="website">
@@ -286,6 +286,28 @@
     .tw-cap .tw-b{border-color:var(--tape-d);background:#f6fbef}
     .tw-cap i{font-style:normal;font-size:11px;background:var(--tape);border-radius:3px;padding:0 5px}
   }
+  .pick3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px;max-width:960px}
+  .pick3 a{position:relative;display:flex;flex-direction:column;gap:6px;background:var(--paper);color:var(--ai);text-decoration:none;border-radius:10px;padding:16px 16px 18px;border:2px solid transparent}
+  .pick3 a b{font-size:17px;line-height:1.4}
+  .pick3 a b::after{content:" →";color:var(--ai-2)}
+  .pick3 a span{font-size:13.5px;color:var(--ai-2);line-height:1.6}
+  .pick3 a:hover{border-color:var(--tape)}
+  .pick3 a.pn{background:#f6fbef;border-color:var(--tape)}
+  .pick3 a.pn b{color:var(--tape-d)}
+  .pick3 i{position:absolute;top:-10px;right:12px;font-style:normal;font-size:11.5px;font-weight:800;background:var(--tape);color:var(--ai);border-radius:4px;padding:1px 8px}
+  @media (max-width:760px){.pick3{grid-template-columns:1fr}}
+  .shikumi{padding-bottom:40px}
+  .st4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .st{background:var(--paper);border:1.5px solid var(--rule);border-radius:10px;padding:18px}
+  .st .sn{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--ai);color:#fff;font-weight:800;align-items:center;justify-content:center}
+  .st b{display:block;font-family:var(--serif);font-weight:800;font-size:22px;margin:8px 0 2px}
+  .st p{margin:0 0 10px;font-size:14px;color:var(--ai-2)}
+  .st ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+  .st li a{display:block;padding:7px 0;font-weight:700;font-size:14.5px;text-decoration:none;border-bottom:1px solid var(--rule)}
+  .st li a::after{content:" →";color:var(--ai-2)}
+  .st li i{font-style:normal;font-size:11px;background:var(--tape);border-radius:3px;padding:0 5px}
+  @media (max-width:900px){.st4{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.st4{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/","logo":"https://www.bridgecycleco.com/ogp.png","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","name":"中村裕二"},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":["滋賀県","京都府"],"slogan":"店じまいを、まちのはじまりに。","description":"閉める店の内装・設備を次の人へつなぐ退店前承継、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関。","sameAs":["https://line.me/R/ti/p/@907kxssd"]}</script>
 <script src="bc-analytics.js"></script>
@@ -296,8 +318,8 @@
   <div class="w">
     <a class="brand" href="./">BRIDGE CYCLE<small>店じまいを、まちのはじまりに。</small></a>
     <nav class="gnav" aria-label="サイト内">
-      <a href="#shokei">退店前承継</a>
-      <a href="#jigyo">事業一覧</a>
+      <a href="#shokei">しくみ</a>
+      <a href="#jigyo">支援の段階</a>
       <a href="#partner">連携先の方へ</a>
       <a href="#company">会社概要</a>
       <a class="line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_line">LINEで相談</a>
@@ -313,57 +335,30 @@
       <div style="background-image:url('https://images.unsplash.com/photo-1626383126210-15c15e62d9ba?auto=format&fit=crop&w=900&q=70');background-position:center 45%"></div>
     </div>
     <div class="w">
-      <h1 class="disp"><span class="nb">閉める前。</span><span class="nb">始める前。</span><br><span class="tape nb">お金を使う前。</span></h1>
-      <p class="sub1">小さな商いの、大きな判断を一緒に考える。</p>
-      <p class="lead">BRIDGE CYCLEは、滋賀・京都の小さな事業者と「次どうする？」を考え、実際に動かす会社です。</p>
-      <div class="jump3">
-        <a href="#mae-shimeru" data-t="hub_hero_close"><b>お店を閉める・譲る</b></a>
-        <a href="#mae-hajimeru" data-t="hub_hero_start"><b>商いを始める・試す</b></a>
-        <a href="#mae-okane" data-t="hub_hero_money"><b>設備投資・経営を考える</b></a>
+      <h1 class="disp"><span class="nb">閉める店と、</span><br><span class="tape nb">始めたい人をつなぐ。</span></h1>
+      <p class="lead">内装・設備を壊さず、次の人へ。<br>滋賀・京都の小さなお店の承継支援です。</p>
+      <div class="pick3">
+        <a href="zousaku.html" data-t="hub_hero_seller"><b>店を閉めるか迷っている</b><span>内装・設備を次の人へ。原状回復費を減らせる可能性があります。</span></a>
+        <a href="tsugite.html" data-t="hub_hero_taker"><b>自分の店を始めたい</b><span>閉める前の店を引き継ぎ、開業費を抑えます。</span></a>
+        <a class="pn" href="tsugite.html#shimei" data-t="hub_hero_nominate"><i>NEW</i><b>この店を、いつか継ぎたい</b><span>営業中のお店にも、匿名で承継の希望を届けられます。</span></a>
       </div>
-      <p class="brandline">BRIDGE CYCLE｜店じまいを、まちのはじまりに。</p>
+      <p class="brandline">店じまいを、まちのはじまりに。</p>
     </div>
     <span class="credit">写真：Unsplash・旧大津公会堂（イメージ）</span>
   </div>
 
-  <section id="mayoi">
+  <!-- しくみ -->
+  <section id="shokei" class="shikumi">
     <div class="w">
-      <h2 class="sec">今、どこで迷っていますか。</h2>
-      <div class="mae3">
-        <div class="mae" id="mae-shimeru">
-          <span class="mae-k">閉める前に</span>
-          <h3>その内装、<br>壊さなくていいかもしれません。</h3>
-          <p>閉店・退店を決める前に、内装や設備を次の人へ渡せる可能性を確かめます。</p>
-          <ul class="mae-l">
-            <li><a href="yameru.html">30秒で、店の値打ちを試算</a></li>
-            <li><a href="genjo-kaifuku.html">原状回復の費用を計算</a></li>
-          </ul>
-          <a class="mae-go" href="zousaku.html" data-t="hub_mae_close_btn">閉めるお店について見る</a>
-        </div>
-        <div class="mae" id="mae-hajimeru">
-          <span class="mae-k">始める前に</span>
-          <h3>いきなり店を持たなくても、<br>商いは試せます。</h3>
-          <p>自分に合う商いを考える。小さく売る。お客さんの反応を見る。</p>
-          <ul class="mae-l">
-            <li><a href="tsugite.html" data-t="hub_mae_taker">閉める前の店を、引き継いで始める</a></li>
-            <li class="nw"><a href="tsugite.html#shimei" data-t="hub_nominate_mae"><i>NEW</i>この店を継ぎたい（営業中の店でも）</a></li>
-            <li><a href="uriba-kokaido.html">1日だけ売ってみる（売り場レンタル）</a></li>
-            <li><a href="uchino-chef-recruit.html">料理を仕事にしてみる（うちのシェフ）</a></li>
-            <li><a href="akinai.html">自分に合う商いを考える（わたしのこれから診断）</a></li>
-          </ul>
-          <a class="mae-go" href="tsugite.html" data-t="hub_mae_start_btn">商いを始める方法を見る</a>
-        </div>
-        <div class="mae" id="mae-okane">
-          <span class="mae-k">お金を使う前に</span>
-          <h3>その見積、<br>本当に今買うべきですか。</h3>
-          <p>新品・中古・リース・融資・補助金。設備投資を「買う／買わない」から一緒に考えます。</p>
-          <ul class="mae-l">
-            <li><a href="hojokin.html">補助金を使えるか確かめる（着手金0円）</a></li>
-            <li><a href="tsuzukeru.html">続けるための経営計画をつくる</a></li>
-          </ul>
-          <a class="mae-go" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener" data-t="hub_mae_money_btn">設備投資について相談する</a>
-        </div>
-      </div>
+      <h2 class="sec">しくみは、橋を2方向に渡すこと。</h2>
+      <figure class="twoway">
+        <img src="images/bridge-twoway.jpg" srcset="images/bridge-twoway-1000.jpg 1000w, images/bridge-twoway.jpg 1672w" sizes="(max-width:1100px) 100vw, 1040px" width="1672" height="941" loading="lazy" alt="承継は、店主からも、継ぎ手からも始められます。店主の「閉めようかな…」から相談を受けて継ぐ人を探す流れと、継ぎ手の「この店を継ぎたい」という希望を、気になる店の店主に匿名で伝える流れ（NEW）を、BRIDGE CYCLEの橋がつないでいるイラスト">
+        <figcaption class="tw-cap">
+          <span class="tw-a"><b>店主から</b>「閉めようかな…」→ 相談を受けて、継ぐ人を探す</span>
+          <span class="tw-b"><b>継ぎ手から <i>NEW</i></b>「この店を継ぎたい」→ 気になる店の店主に、匿名で一度だけ伝える</span>
+        </figcaption>
+      </figure>
+      <p class="about-link"><a href="taiten-zen-shokei.html">退店前承継とは（しくみ・お金の流れ・進め方）→</a></p>
     </div>
   </section>
 
@@ -380,135 +375,20 @@
 
   </section>
 
-  <!-- 中心事業：退店前承継 -->
-  <section id="shokei">
-    <div class="w">
-      <p class="kicker">いちばん力を入れていること｜退店前承継</p>
-      <h2 class="sec">閉める店と、始めたい人をつなぐ。</h2>
-      <figure class="twoway">
-        <img src="images/bridge-twoway.jpg" srcset="images/bridge-twoway-1000.jpg 1000w, images/bridge-twoway.jpg 1672w" sizes="(max-width:1100px) 100vw, 1040px" width="1672" height="941" loading="lazy" alt="承継は、店主からも、継ぎ手からも始められます。店主の「閉めようかな…」から相談を受けて継ぐ人を探す流れと、継ぎ手の「この店を継ぎたい」という希望を、気になる店の店主に匿名で伝える流れ（NEW）を、BRIDGE CYCLEの橋がつないでいるイラスト">
-        <figcaption class="tw-cap">
-          <span class="tw-a"><b>店主から</b>「閉めようかな…」→ 相談を受けて、継ぐ人を探す</span>
-          <span class="tw-b"><b>継ぎ手から <i>NEW</i></b>「この店を継ぎたい」→ 気になる店の店主に、匿名で一度だけ伝える</span>
-        </figcaption>
-      </figure>
-
-      <p class="ask">あなたは、どちらですか？</p>
-      <div class="choices">
-        <div class="choice duo">
-          <a class="main" href="zousaku.html" data-t="hub_door_seller">
-          <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=900&q=70');background-position:60% 55%"></div>
-          <div class="bd">
-            <span class="who">店を閉めようか、迷っている</span>
-            <h3>内装と設備を、<br>次の人へ渡す</h3>
-            <p>壊して返す工事代が、かからないかもしれません。</p>
-            <span class="price">契約までは0円</span>
-            <span class="btn-c">店を閉める方へ</span>
-          </div>
-        </a>
-          <div class="sub tools2">
-            <span class="sk2">まずは数字で（無料・匿名）</span>
-            <a href="yameru.html">30秒で、店の値打ちを試算 →</a>
-            <a href="genjo-kaifuku.html">原状回復の費用を計算 →</a>
-          </div>
-        </div>
-        <div class="choice duo">
-          <a class="main" href="tsugite.html" data-t="hub_door_taker">
-            <div class="ph" style="background-image:url('images/partner.jpg');background-position:center 40%"></div>
-            <div class="bd">
-              <span class="who">自分の店を、始めたい</span>
-              <h3>閉める前の店を、<br>引き継いで始める</h3>
-              <p>内装と厨房にかかるお金を、小さくできます。</p>
-              <span class="price">登録・紹介は0円</span>
-              <span class="btn-c">店を始めたい方へ</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <a class="nomband" href="tsugite.html#shimei" data-t="hub_nominate">
-        <div class="nb-ph" style="background-image:url('images/hero-cafe.jpg')"></div>
-        <div class="nb-tx">
-          <span class="nb-k">新しい入口｜この店を継ぎたい</span>
-          <b>好きなお店を、いつか継ぎたい。</b>
-          <span class="nb-d">営業中のお店でも、匿名で承継の希望を届けられます。<br>店主への連絡はBRIDGE CYCLEから、一度だけ。</span>
-        </div>
-        <span class="nb-btn">気になる店を登録する</span>
-      </a>
-      <p class="about-link"><a href="taiten-zen-shokei.html">退店前承継とは（しくみ・お金の流れ・進め方）→</a></p>
-    </div>
-  </section>
-
-  <!-- そのほかの事業 -->
+  <!-- 試す・始める・続ける・渡す -->
   <section class="alt" id="jigyo">
     <div class="w">
-      <p class="kicker">BUSINESS｜事業一覧</p>
-      <h2 class="sec">店を「始める・続ける・渡す」を、<br>それぞれの段階で。</h2>
-      <p class="sec-lead">いきなり店を持たなくてもいい。続けるか迷ったら、数字で整理すればいい。小さく試し、無理なく続け、閉めるときは次へ渡す。そのための入口を用意しています。</p>
-      <div class="grid">
-        <div class="card">
-          <div class="ph" style="background-image:url('kokaido-hero.jpg')"></div>
-          <div class="bd">
-            <span class="tg">試す｜売り場レンタル</span>
-            <h3>店を持つ前に、1日だけ売ってみる。</h3>
-            <p>テント1区画やキッチンカーで出店できます。外れても、失うのは1日です。</p>
-            <div class="links">
-              <a href="uriba-kokaido.html"><span>旧大津公会堂（浜大津駅すぐ）</span><i>平日半日1,500円〜</i></a>
-              <a href="uriba-ginkobo.html"><span>銀工房（JR比良駅すぐ）</span><i>土日祝1日1,000円</i></a>
-            </div>
-          </div>
-        </div>
-        <a class="card" href="uchino-chef-recruit.html">
-          <div class="ph" style="background-image:url('images/uchino-chef-hero-natural.jpg')"></div>
-          <div class="bd">
-            <span class="tg">試す｜うちのシェフ</span>
-            <h3>料理を、いきなり店にしなくていい。</h3>
-            <p>月2回の出店で顔と味を知ってもらい、出張作り置きの仕事に育てていく料理人の仕組みです。登録料・月会費0円。</p>
-            <span class="go">料理人の募集を見る</span>
-          </div>
-        </a>
-        <a class="card" href="akinai.html">
-          <div class="ph" style="background-image:url('images/akinai-hero.jpg')"></div>
-          <div class="bd">
-            <span class="tg">考える｜個人の方</span>
-            <h3>わたしのこれから診断</h3>
-            <p>「このままでいいのかな」を、9問・3分で整理する無料の診断です。仕事、起業、これからの暮らし方を考えたい方へ。</p>
-            <span class="go">無料で診断する</span>
-          </div>
-        </a>
-        <a class="card" href="tsuzukeru.html">
-          <div class="bd">
-            <span class="tg">続ける｜経営計画</span>
-            <h3>続けるための経営計画</h3>
-            <p>閉めるか迷った末に「続ける」と決めた店主へ。資金繰りと損益の計画を一緒に作り、1年後に選び直せるようにします。</p>
-            <span class="go">くわしく見る</span>
-          </div>
-        </a>
-        <a class="card" href="hojokin.html">
-          <div class="bd">
-            <span class="tg">続ける｜補助金申請サポート</span>
-            <h3>補助金を、着手金0円で。</h3>
-            <p>小規模事業者持続化補助金などの申請を、認定経営革新等支援機関として支援します。</p>
-            <span class="go">くわしく見る</span>
-          </div>
-        </a>
-        <a class="card" href="shimekata.html">
-          <div class="bd">
-            <span class="tg">閉じる｜閉め方の相談</span>
-            <h3>閉めると決めた方の、閉め方の相談</h3>
-            <p>原状回復の前に引き継ぐ人を最後まで探し、閉める費用に使える国の補助金を確かめ、閉めたあとの仕事まで一緒に考えます。</p>
-            <span class="go">くわしく見る</span>
-          </div>
-        </a>
+      <h2 class="sec">試す・始める・続ける・渡す。<br>どの段階でも、一緒に考えます。</h2>
+      <div class="st4">
+        <div class="st"><span class="sn">1</span><b>試す</b><p>店を持つ前に、小さく売ってみる。</p>
+          <ul><li><a href="uriba-kokaido.html">売り場レンタル</a></li><li><a href="uchino-chef-recruit.html">うちのシェフ</a></li><li><a href="akinai.html">わたしのこれから診断</a></li></ul></div>
+        <div class="st"><span class="sn">2</span><b>始める</b><p>閉める前の店を継いで、開業費を抑える。</p>
+          <ul><li><a href="tsugite.html">継ぎ手として登録</a></li><li><a href="tsugite.html#shimei">この店を継ぎたい <i>NEW</i></a></li></ul></div>
+        <div class="st"><span class="sn">3</span><b>続ける</b><p>計画と補助金で、無理なく続ける。</p>
+          <ul><li><a href="tsuzukeru.html">続けるための経営計画</a></li><li><a href="hojokin.html">補助金申請サポート</a></li><li><a href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener">設備投資の相談（LINE）</a></li></ul></div>
+        <div class="st"><span class="sn">4</span><b>渡す</b><p>閉めるときは壊さず、次の人へ。</p>
+          <ul><li><a href="zousaku.html">店を閉める方へ</a></li><li><a href="yameru.html">30秒で店の値打ちを試算</a></li><li><a href="shimekata.html">閉め方の相談</a></li></ul></div>
       </div>
-
-      <h3 style="margin:48px 0 6px;font-size:19px">事業どうしは、こうつながっています</h3>
-      <ol class="cycle cycle-wrap">
-        <li><b>試す</b><span>売り場レンタル・うちのシェフで、店を持つ前に売ってみる</span></li>
-        <li><b>始める</b><span>閉める前の店を継ぎ、事業計画と融資で開業する</span></li>
-        <li><b>続ける</b><span>経営計画や補助金で、無理なく続ける</span></li>
-        <li><b>渡す</b><span>閉めるときは壊さず、次に始めたい人へ</span></li>
-      </ol>
     </div>
   </section>
 
