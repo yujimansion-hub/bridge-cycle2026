@@ -362,6 +362,10 @@
   .pills.col{flex-direction:column;align-items:stretch}
   .to-shimei{margin:18px 0 0;font-size:15px}
   .to-shimei a{font-weight:700}
+  .nominate{display:block;margin:18px 0 0;max-width:32em;text-decoration:none;background:var(--paper);border:2px solid var(--tape-d);border-left-width:6px;border-radius:6px;padding:12px 16px;color:var(--ai)}
+  .nominate b{display:block;font-size:16px}
+  .nominate span{display:block;font-size:13.5px;color:var(--ai-2);margin-top:2px}
+  .nominate:hover{background:#f4faec}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -411,6 +415,7 @@
       </div>
       <p class="facts-src">いずれも公開されている相場・事例で、2026年10月時点で当社が確認したものです。地域・規模・設備の状態・改装の範囲・賃貸借の条件によって大きく変わり、保証するものではありません。</p>
       <p class="hero-sub">表に出る前の「閉める前の店」も、<br>地域のつながりからご紹介します。</p>
+      <a class="nominate" href="#shimei" onclick="window.bcTrack&&bcTrack('tsugite_shimei_jump',{place:'hero'})"><b>好きなお店を、いつか継ぎたい方へ</b><span>営業中のお店を指名して登録できます（0円・あなたの名前は店主に出しません）→</span></a>
     </div>
     <form class="quick" id="quick" action="#touroku">
       <h2 data-b="1分で、閉店前の店情報を受け取る">1分で、継ぎ手として登録</h2>
