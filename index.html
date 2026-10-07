@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://www.bridgecycleco.com/ogp.png?v=20261007">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="images/top-hero-kitchen.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/top-hero-kitchen.webp" fetchpriority="high" media="(min-width:861px)">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   /* 色・書体は「店を閉める方」「店を始めたい方」のページと共通 */
@@ -272,10 +272,14 @@
   }
 
 /* ===== 直感的なトップ（2026-10-07） ===== */
-.top2{background:var(--ai);color:#fff;padding:30px 0 26px}
-.top2 h1{font-size:clamp(24px,5.6vw,40px);line-height:1.4;margin:0 0 6px}
+.top2{position:relative;overflow:hidden;background:var(--ai);color:#fff;padding:84px 0 76px}
+.top2 .w{position:relative;z-index:1}
+.top2 .hero-bg{display:grid;grid-template-columns:1fr 1fr 1fr}
+.top2 .hero-bg div{display:block}
+.top2 .credit{position:absolute;right:12px;bottom:6px;z-index:1;font-size:11px;color:rgba(255,255,255,.7)}
+.top2 h1{font-size:clamp(24px,5.6vw,46px);line-height:1.4;margin:0 0 10px;text-shadow:0 2px 12px rgba(0,0,0,.25)}
 .top2 h1 .nb{margin-right:.2em}
-.top2-sub{margin:0;font-size:16px;color:#e6ebf4}
+.top2-sub{margin:0;font-size:17px;color:#e6ebf4}
 section.doors{padding:34px 0 48px}
 .doors-q{font-family:var(--serif);font-weight:800;font-size:clamp(22px,5.4vw,30px);margin:0 0 16px}
 .noren{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:12px}
@@ -336,6 +340,9 @@ section.doors{padding:34px 0 48px}
 .hoka li span{display:block;font-size:13px;color:var(--ai-2);line-height:1.6}
 @media (max-width:860px){
   .top2{padding:22px 0 20px}
+  .top2 .hero-bg,.top2 .credit{display:none}
+  .top2 h1{text-shadow:none}
+  .top2-sub{font-size:16px}
   section.doors{padding:26px 0 40px}
   .noren{gap:8px}
   .nr{min-height:92px}
@@ -404,6 +411,12 @@ section.doors{padding:34px 0 48px}
 
 <main>
   <div class="top2" id="top">
+    <div class="hero-bg" aria-hidden="true">
+      <div style="background-image:url('images/top-hero-kitchen.webp');background-position:60% 55%"></div>
+      <div style="background-image:url('images/top-hero-kokaido.webp')"></div>
+      <div style="background-image:url('images/top-hero-chair.webp');background-position:center 45%"></div>
+    </div>
+    <span class="credit">写真：Unsplash・旧大津公会堂（イメージ）</span>
     <div class="w">
       <h1 class="disp"><span class="nb">閉める前。</span><span class="nb">始める前。</span><span class="nb">お金を使う前。</span></h1>
       <p class="top2-sub">小さな商いの「次どうする？」を、一緒に考える会社です。</p>
