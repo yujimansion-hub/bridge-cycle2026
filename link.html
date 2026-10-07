@@ -7,49 +7,69 @@
 <meta name="description" content="閉める前。始める前。お金を使う前。滋賀・京都の小さな商いの「次どうする？」を一緒に考えるBRIDGE CYCLE株式会社の入口ページです。">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.bridgecycleco.com/">
-<meta property="og:title" content="BRIDGE CYCLE｜決める前に、選択肢を増やす。">
-<meta property="og:description" content="閉める前。始める前。お金を使う前。滋賀・京都の小さな商いの相談先。">
-<meta property="og:image" content="https://www.bridgecycleco.com/ogp.png">
+<meta name="theme-color" content="#1d2b4f">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BRIDGE CYCLE株式会社">
+<meta property="og:title" content="閉める前。始める前。お金を使う前。｜BRIDGE CYCLE 中村裕二">
+<meta property="og:description" content="小さな商いの、大きな判断を一緒に考える。閉店費用の30秒試算、店を譲る・継ぐ相談、補助金の相談の入口。">
+<meta property="og:url" content="https://www.bridgecycleco.com/link.html">
+<meta property="og:image" content="https://www.bridgecycleco.com/ogp.png?v=20261007">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
     --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
     --ai:#1d2b4f; --ai-2:#4a5674; --paper:#fff; --mist:#eef2f7; --rule:#d5dce8;
-    --tape:#9bcf53; --tape-d:#3f6f12; --line:#06c755;
+    --tape:#9bcf53; --tape-d:#3f6f12; --leaf:#f6fbef; --line:#06c755;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--mist);color:var(--ai);font-family:var(--sans);line-height:1.75}
+  body{margin:0;background:var(--mist);color:var(--ai);font-family:var(--sans);line-height:1.75;-webkit-text-size-adjust:100%}
   a{color:var(--ai)}
   :focus-visible{outline:3px solid var(--tape);outline-offset:2px}
   .w{max-width:480px;margin:0 auto;padding:0 16px}
-  .top{background:var(--ai);color:#fff;padding:36px 0 30px;text-align:center}
-  .who{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px}
+  .top{background:var(--ai);color:#fff;padding:30px 0 26px;text-align:center}
+  .who{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px}
   .who img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid var(--tape)}
   .who p{margin:0;text-align:left;font-size:13px;color:#c9d2e3;line-height:1.5}
   .who b{display:block;color:#fff;font-size:16px}
   h1{font-family:var(--serif);font-weight:800;font-size:27px;line-height:1.45;margin:0;letter-spacing:.02em;font-feature-settings:"palt"}
-  .sub{margin:10px 0 0;font-size:14.5px;color:#e6ebf4}
-  .bc{display:inline-block;margin:18px 0 0;border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:8px 26px;line-height:1.6;font-size:13px;letter-spacing:.06em}
-  .bc span{display:block;color:var(--tape);font-weight:700;letter-spacing:.14em;font-size:12px}
-  main{padding:24px 0 8px}
-  .lbl{font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--ai-2);margin:22px 0 10px}
+  .sub{margin:8px 0 0;font-size:14.5px;color:#e6ebf4}
+  .cred{margin:14px 0 0;font-size:12px;color:#c9d2e3;line-height:1.7}
+  main{padding:28px 0 8px}
+  /* 3つの「前」ごとに、いちばん気軽な入口から並べる */
+  .lbl{display:flex;align-items:baseline;gap:10px;margin:26px 0 10px;font-size:15px;font-weight:700}
   .lbl:first-child{margin-top:0}
+  .lbl b{border-bottom:3px solid var(--tape);padding-bottom:1px}
+  .lbl span{font-family:var(--serif);font-weight:800;font-size:15px;color:var(--ai-2)}
   .go{position:relative;display:block;background:var(--paper);border:2px solid var(--ai);box-shadow:4px 4px 0 var(--ai);border-radius:10px;padding:14px 16px;text-decoration:none;margin-bottom:12px}
   .go b{display:block;font-size:17px;line-height:1.45}
   .go b::after{content:" →";color:var(--ai-2)}
   .go span{display:block;font-size:13.5px;color:var(--ai-2);margin-top:2px}
-  .go.pn{background:#f6fbef;border-color:var(--tape-d);box-shadow:4px 4px 0 var(--tape-d)}
+  .go.first{background:var(--ai);color:#fff;box-shadow:4px 4px 0 var(--tape)}
+  .go.first b::after{color:var(--tape)}
+  .go.first span{color:#dfe5f0}
+  .go.pn{background:var(--leaf);border-color:var(--tape-d);box-shadow:4px 4px 0 var(--tape-d)}
   .go.pn b{color:var(--tape-d)}
-  .go i{position:absolute;top:-10px;right:12px;font-style:normal;font-size:11.5px;font-weight:800;background:var(--tape);color:var(--ai);border-radius:4px;padding:1px 8px}
+  .go i{position:absolute;top:-10px;right:12px;font-style:normal;font-size:11.5px;font-weight:700;background:var(--tape);color:var(--ai);border-radius:4px;padding:1px 8px}
   .sm{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .sm.one{grid-template-columns:1fr}
   .sm a{display:block;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:10px 12px;text-decoration:none;font-size:14px;font-weight:700;line-height:1.45}
   .sm a small{display:block;font-weight:400;font-size:12px;color:var(--ai-2)}
-  .line{display:block;text-align:center;background:var(--line);color:#fff;font-weight:700;text-decoration:none;border-radius:999px;padding:14px;margin-top:22px;font-size:16px}
+  .line{display:block;text-align:center;background:var(--line);color:#fff;font-weight:700;text-decoration:none;border-radius:999px;padding:14px;margin-top:26px;font-size:16px}
   .line small{display:block;font-weight:400;font-size:12px;opacity:.95}
-  .trust{margin:22px 0 0;font-size:12.5px;color:var(--ai-2);text-align:center;line-height:1.7}
-  footer{text-align:center;padding:20px 0 32px;font-size:12.5px;color:var(--ai-2)}
+  .read{margin-top:26px;padding-top:18px;border-top:1px solid var(--rule)}
+  .read p{margin:0 0 10px;font-size:13px;color:var(--ai-2)}
+  .read ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+  .read a{display:block;border:1.5px solid var(--ai);border-radius:999px;padding:4px 14px;font-size:13.5px;font-weight:700;text-decoration:none;background:var(--paper)}
+  footer{text-align:center;padding:22px 0 32px;font-size:12.5px;color:var(--ai-2)}
   footer .disp{display:block;font-family:var(--serif);font-weight:800;color:var(--ai);font-size:15px;margin-bottom:4px}
   footer a{color:var(--ai-2);margin:0 6px}
 </style>
@@ -58,48 +78,70 @@
 <div class="top">
   <div class="w">
     <div class="who">
-      <img src="assets/akinai-profile-yuji-final.png" alt="中村裕二" width="56" height="56">
+      <img src="assets/profile-yuji-avatar.webp" alt="中村裕二" width="56" height="56">
       <p><b>中村裕二</b>BRIDGE CYCLE株式会社 代表</p>
     </div>
     <h1>閉める前。始める前。<br>お金を使う前。</h1>
     <p class="sub">小さな商いの、大きな判断を一緒に考える。</p>
-    <p class="bc"><span>BRIDGE CYCLE</span>決める前に、選択肢を増やす。</p>
+    <p class="cred">国の認定経営革新等支援機関｜経営支援500社超｜滋賀・京都</p>
   </div>
 </div>
 
 <main class="w">
-  <p class="lbl">退店前承継｜閉める店と、始めたい人をつなぐ</p>
+  <p class="lbl"><b>閉める前</b><span>壊す？ 渡す？</span></p>
+  <a class="go first" href="shisan.html" data-t="link_shisan"><i>まずはここから</i><b>閉店費用を30秒で試算</b><span>業種と広さだけ。匿名・入力は送信されません。</span></a>
   <a class="go" href="zousaku.html" data-t="link_seller"><b>店を譲れるか相談する</b><span>写真を送るだけ。渡せるか無料で確認。</span></a>
+
+  <p class="lbl"><b>始める前</b><span>持つ？ 試す？</span></p>
   <a class="go" href="tsugite.html" data-t="link_taker"><b>継げる店を探す</b><span>無料登録で、閉める前の店を先に知る。</span></a>
   <a class="go pn" href="tsugite.html#shimei" data-t="link_nominate"><i>NEW</i><b>「この店を継ぎたい」と伝える</b><span>売りに出ていない店でも。登録・打診は0円。</span></a>
+  <div class="sm one">
+    <a href="uriba-kokaido.html" data-t="link_uriba">売り場レンタルで、まず試して売る<small>店を持つ前に、小さく売ってみる</small></a>
+  </div>
 
-  <p class="lbl">ほかの相談</p>
+  <p class="lbl"><b>お金を使う前</b><span>買う？ 待つ？</span></p>
   <div class="sm">
-    <a href="shisan.html" data-t="link_shisan">閉店費用を30秒で試算<small>業種と広さだけ・匿名</small></a>
-    <a href="shisan-kit.html" data-t="link_shisan_kit">試算をサイトに貼る<small>無料・紹介のお礼あり</small></a>
-    <a href="uriba-kokaido.html" data-t="link_uriba">売り場レンタル<small>まず試して売る</small></a>
-    <a href="hojokin.html" data-t="link_hojokin">補助金の相談<small>認定支援機関</small></a>
-    <a href="./" data-t="link_top">会社のトップ<small>試す・始める・続ける・渡す</small></a>
+    <a href="hojokin.html" data-t="link_hojokin">補助金の相談<small>着手金0円・認定支援機関</small></a>
+    <a href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" data-t="link_setsubi">設備投資の相談<small>買う前に、LINEで一言</small></a>
   </div>
 
   <a class="line" href="https://line.me/R/ti/p/@907kxssd" data-t="link_line">LINEで相談する<small>秘密厳守。名前を出さずに聞くだけでも大丈夫です</small></a>
 
-  <p class="trust">認定経営革新等支援機関（109825000112）｜商工会の経営指導員として約20年・500社超を支援｜お金を預かりません</p>
+  <div class="read">
+    <p>まだ相談するほどではない方は、読むだけでも。</p>
+    <ul>
+      <li><a href="https://www.threads.com/@bridgecycle_otsu" rel="me" data-t="link_follow_threads">Threads</a></li>
+      <li><a href="https://www.instagram.com/bridgecycle_otsu/" rel="me" data-t="link_follow_instagram">Instagram</a></li>
+      <li><a href="https://note.com/bridgecycle_2026" rel="me" data-t="link_follow_note">note</a></li>
+      <li><a href="https://nakamurayuji.substack.com/" rel="me" data-t="link_follow_substack">ニュースレター</a></li>
+    </ul>
+  </div>
 </main>
 
 <footer>
   <span class="disp">店じまいを、まちのはじまりに。</span>
   BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28<br>
-  <a href="https://www.instagram.com/bridgecycle_otsu/">Instagram</a><a href="https://www.threads.com/@bridgecycle_otsu">Threads</a><a href="https://note.com/bridgecycle_2026">note</a>
+  <a href="./" data-t="link_top">会社のトップ</a><a href="shisan-kit.html" data-t="link_shisan_kit">試算をサイトに貼る</a><a href="privacy.html">プライバシーポリシー</a>
 </footer>
 
 <script src="bc-analytics.js"></script>
 <script>
 (function(){
-  /* どのSNSから来たか：?from=ig / th / tt（無ければ参照元から推定）。行き先にもutmを引き継ぐ */
-  var q=location.search, m=q.match(/[?&]from=([a-z]{2,10})/), from=m?m[1]:'';
-  if(!from){var r=document.referrer||''; from=/instagram/.test(r)?'ig':/threads/.test(r)?'th':/tiktok/.test(r)?'tt':'direct';}
-  var src={ig:'instagram',th:'threads',tt:'tiktok'}[from]||from;
+  /* どのSNSから来たか：?from=th / ig / fb / tt / nt / ss / x / yt / ln。
+     無ければアプリ内ブラウザの種類 → 参照元の順に推定（アプリ内ブラウザは参照元が空のことが多いため）。
+     サイト内の行き先には utm を引き継ぐ */
+  var q=location.search, m=q.match(/[?&]from=([a-z]{1,10})/), from=m?m[1]:'';
+  if(!from){
+    var ua=navigator.userAgent||'', r=document.referrer||'';
+    from=/Barcelona/i.test(ua)||/threads\.(com|net)/.test(r)?'th':
+         /Instagram/i.test(ua)||/instagram\.com/.test(r)?'ig':
+         /FBAN|FBAV/i.test(ua)||/facebook\.com/.test(r)?'fb':
+         /tiktok/i.test(ua+r)?'tt':
+         /note\.com/.test(r)?'nt':/substack\.com/.test(r)?'ss':
+         /(^|\/\/)(t\.co|x\.com|twitter\.com)/.test(r)?'x':
+         /youtube\.com|youtu\.be/.test(r)?'yt':/Line\//.test(ua)?'ln':'direct';
+  }
+  var src={th:'threads',ig:'instagram',fb:'facebook',tt:'tiktok',nt:'note',ss:'substack',x:'x',yt:'youtube',ln:'line'}[from]||from;
   var utm='utm_source='+src+'&utm_medium=social&utm_campaign=profile';
   document.querySelectorAll('a[data-t]').forEach(function(a){
     var h=a.getAttribute('href');
