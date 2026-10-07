@@ -107,7 +107,7 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
 <section class="hero"><div class="w">
   <span class="badge">店主の方へ</span>
   <h1>無料で登録して、<br><span class="tape">連絡を待つ。</span></h1>
-  <p class="lead">いつかやめるとき、内装や設備を壊さずに渡せる相手がいるか。登録しておけば、お店を始めたい人に、一覧で見つけてもらえます。店名は載りません。店名をお伝えするのは、当社が自己資金を確認した方だけです。まだ閉めると決めていなくても登録できます。</p>
+  <p class="lead">いつかやめるとき、内装や設備を壊さずに渡せる相手がいるか。登録しておけば、お店を始めたい人に、一覧で見つけてもらえます。店名は載りません。店名をお伝えするのは、自己資金があなたの希望額以上あることを、当社が確認した方だけです。まだ閉めると決めていなくても登録できます。</p>
   <p class="kinds">登録0円　成約まで費用はかかりません　いつでもやめられます</p>
 </div></section>
 
@@ -120,7 +120,8 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
       <tr><td>業態</td><td>飲食店（カフェ・軽食）</td><td>大まかな書き方にできます</td></tr>
       <tr><td>広さ・設備</td><td>10〜15坪、厨房一式</td><td>載せます</td></tr>
       <tr><td>時期</td><td>1年以内に考えている／まだ決めていない</td><td>載せます</td></tr>
-      <tr><td>店名・番地・写真</td><td>—</td><td>載せません。当社が自己資金を確認し、秘密を守る誓約をした方にだけお伝えします</td></tr>
+      <tr><td>内装・設備の希望額</td><td>100〜150万円</td><td>目安の幅で載せます。この額が、店名をお伝えする相手の基準になります</td></tr>
+      <tr><td>店名・番地・写真</td><td>—</td><td>載せません。自己資金があなたの希望額以上あることを当社が確認し、秘密を守る誓約をした方にだけお伝えします</td></tr>
     </tbody>
   </table>
   <p class="fine" style="margin-top:12px">掲載する文面は、公開の前に当社からお送りして確認していただきます。家賃などの賃貸の条件は載せません。</p>
@@ -148,11 +149,21 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
         <label><input type="radio" name="時期" value="まだ決めていない" checked>まだ決めていない</label>
       </div>
     </div>
+    <div class="fld"><span class="lb">内装・設備の希望額<span class="opt">目安で構いません。値段はあなたが決めます</span></span>
+      <div class="pills" id="k-price">
+        <label><input type="radio" name="希望額" value="50万円未満">50万円未満</label>
+        <label><input type="radio" name="希望額" value="50〜100万円">50〜100万円</label>
+        <label><input type="radio" name="希望額" value="100〜150万円">100〜150万円</label>
+        <label><input type="radio" name="希望額" value="150〜200万円">150〜200万円</label>
+        <label><input type="radio" name="希望額" value="200〜300万円">200〜300万円</label>
+        <label><input type="radio" name="希望額" value="まだ決めていない">まだ決めていない</label>
+      </div>
+    </div>
     <div class="fld"><label for="k-name">お名前</label><input type="text" id="k-name" name="お名前" autocomplete="name"></div>
     <div class="fld"><label for="k-mail">ご連絡先（メール）</label><input type="email" id="k-mail" name="email" autocomplete="email" placeholder="例：mise@example.jp"></div>
     <div class="fld"><label for="k-how">連絡のご希望<span class="opt">任意</span></label><input type="text" id="k-how" name="連絡のご希望" placeholder="例：メールのみ／LINEで／電話は定休日の午後なら可"></div>
     <div class="fld"><label for="k-note">ひとこと<span class="opt">任意</span></label><textarea id="k-note" name="ひとこと" placeholder="例：従業員にはまだ話していません。"></textarea></div>
-    <label class="agree"><input type="checkbox" id="k-kaiji" name="開示の同意" value="同意する"><span>当社が自己資金を確認し、秘密を守る誓約をした方に、店名・場所・写真・連絡の方法を伝えることに同意します。</span></label>
+    <label class="agree"><input type="checkbox" id="k-kaiji" name="開示の同意" value="同意する"><span>自己資金が希望額以上あることを当社が確認し、秘密を守る誓約をした方に、店名・場所・写真・連絡の方法を伝えることに同意します。</span></label>
     <label class="agree"><input type="checkbox" id="k-ok" name="確認" value="掲載前に文面を確認する"><span>掲載の前に、当社から本人確認と掲載文の確認のご連絡があることを了承します。</span></label>
     <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
     <button class="send" id="k-send" type="submit">無料で登録する</button>
@@ -164,9 +175,9 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
 <section><div class="w">
   <h2>登録のあと</h2>
   <ol class="flow">
-    <li><b>本人確認と掲載文の確認</b>：当社からご連絡し、営業許可証などで店主ご本人であることを確かめます。掲載する文面をお送りします。</li>
+    <li><b>本人確認と掲載文の確認</b>：当社からご連絡し、営業許可証などで店主ご本人であることを確かめます。掲載する文面をお送りします。希望額をまだ決めていない場合は、ここで目安を一緒に決めます。</li>
     <li><b>掲載</b>：ご確認のあと、<a href="tsugite.html#mise">お店を始めたい方のページ</a>に載ります。店名は載りません。</li>
-    <li><b>詳しく知りたい方が現れたら</b>：当社がその方の自己資金を確認し、秘密を守る誓約をいただいたうえで、店名・場所・写真・連絡の方法をお伝えします。あなたにも、相手の概要（始めたいお店・時期・経験）をお知らせします。</li>
+    <li><b>詳しく知りたい方が現れたら</b>：自己資金があなたの希望額以上あることを当社が確認し、秘密を守る誓約をいただいたうえで、店名・場所・写真・連絡の方法をお伝えします。あなたにも、相手の概要（始めたいお店・時期・経験）をお知らせします。</li>
     <li><b>そのあと</b>：相手から連絡が届きます。会うかどうか、進めるかどうかは自由です。</li>
   </ol>
   <h3 style="margin-top:26px">費用</h3>
@@ -188,6 +199,7 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
     var fd=new FormData(f); if(fd.get('_honey')) return;
     var need=[['店名','k-shop','店名を入力してください。'],['お店の場所','k-place','お店の場所を入力してください。'],['お名前','k-name','お名前を入力してください。']];
     for(var i=0;i<need.length;i++){ if(!(fd.get(need[i][0])||'').trim()){msg.textContent=need[i][2];document.getElementById(need[i][1]).focus();return;} }
+    if(!fd.get('希望額')){msg.textContent='内装・設備の希望額を選んでください。まだ決めていない場合は、その項目を選べます。';document.getElementById('k-price').scrollIntoView({block:'center'});return;}
     var mail=(fd.get('email')||'').trim();
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){msg.textContent='ご連絡先のメールアドレスを入力してください。';document.getElementById('k-mail').focus();return;}
     if(!document.getElementById('k-kaiji').checked){msg.textContent='店名などをお伝えする相手について、チェックを入れてください。';return;}
@@ -195,11 +207,11 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
     msg.style.color='';
     var data=Object.fromEntries(fd.entries()); delete data._honey;
     try{var rc=window.bcRef&&bcRef(); if(rc) data['紹介コード']=rc;}catch(err){}
-    data._subject='【店主登録】'+data['お店の場所']+'／'+data['業態']+'／'+data['時期'];
+    data._subject='【店主登録】'+data['お店の場所']+'／'+data['業態']+'／'+data['時期']+'／'+data['希望額'];
     data._autoresponse='【BRIDGE CYCLE】お店のご登録を受け付けました。\n\n'+data['お名前']+' 様\n\n'
-      +'お店の場所：'+data['お店の場所']+'\n業態：'+data['業態']+'\n時期：'+data['時期']+'\n\n'
+      +'お店の場所：'+data['お店の場所']+'\n業態：'+data['業態']+'\n時期：'+data['時期']+'\n内装・設備の希望額：'+data['希望額']+'\n\n'
       +'まだ掲載はされていません。近いうちに、代表の中村からご連絡し、ご本人の確認と、掲載する文面の確認をお願いします。\n'
-      +'ご確認のあとに、一覧に掲載されます。店名は載りません。店名などをお伝えするのは、当社が自己資金を確認し、秘密を守る誓約をした方だけで、お伝えしたときは相手の概要をお知らせします。会うかどうかは自由です。\n'
+      +'ご確認のあとに、一覧に掲載されます。店名は載りません。店名などをお伝えするのは、自己資金が希望額以上あることを当社が確認し、秘密を守る誓約をした方だけで、お伝えしたときは相手の概要をお知らせします。会うかどうかは自由です。\n'
       +'登録と掲載は0円です。登録をやめたいときは、このメールに返信してください。\n\n'
       +'公式LINE：https://line.me/R/ti/p/@907kxssd\n\nBRIDGE CYCLE株式会社（滋賀県大津市）\n店じまいを、まちのはじまりに。';
     data._template='table'; data._captcha='false';
