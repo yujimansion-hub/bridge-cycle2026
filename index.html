@@ -292,9 +292,10 @@ section.doors{padding:34px 0 48px}
 .nr .ic{font-size:34px}
 .nr span{font-family:var(--serif);font-weight:800;font-size:clamp(17px,4.6vw,24px);line-height:1.35}
 .nr::after{content:"";position:absolute;left:50%;bottom:0;width:3px;height:26px;margin-left:-1.5px;background:var(--paper)}
-.nr-a{background:var(--ai)}
-.nr-b{background:var(--tape-d)}
-.nr-c{background:var(--ai-2)}
+.nr-a{background:linear-gradient(rgba(29,43,79,.74),rgba(29,43,79,.74)),url('images/noren-tenshu.jpg') center/cover var(--ai)}
+.nr-b{background:linear-gradient(rgba(63,111,18,.76),rgba(63,111,18,.76)),url('images/noren-hajimeru.jpg') center/cover var(--tape-d)}
+.nr-c{background:linear-gradient(rgba(74,86,116,.76),rgba(74,86,116,.76)),url('images/noren-sodan.jpg') center/cover var(--ai-2)}
+.nr span,.nr .ic{text-shadow:0 1px 6px rgba(0,0,0,.35);filter:drop-shadow(0 1px 3px rgba(0,0,0,.25))}
 .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
 .room{position:relative;display:flex;flex-direction:column;gap:10px}
 .room-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0}
@@ -313,6 +314,7 @@ section.doors{padding:34px 0 48px}
 .act:hover{background:var(--leaf)}
 .doors-line{margin:22px 0 0;font-size:15px;color:var(--ai-2)}
 .doors-line a{font-weight:700;color:var(--ai)}
+.doors-cr{margin:8px 0 0;font-size:11.5px;color:var(--ai-2)}
 .tags3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 16px}
 .tg{position:relative;padding:40px 18px 18px;filter:drop-shadow(0 2px 0 var(--ai)) drop-shadow(0 6px 14px rgba(29,43,79,.14))}
 .tg::before{content:"";position:absolute;inset:0;background:#fff;clip-path:polygon(24px 0,calc(100% - 24px) 0,100% 24px,100% 100%,0 100%,0 24px)}
@@ -373,7 +375,11 @@ section.doors{padding:34px 0 48px}
   .act{gap:12px;padding-right:34px}
   .act .pic{width:50px;height:50px;font-size:29px}
   .act::after{right:14px}
-  .nr[aria-selected="false"]{background:#fff;box-shadow:inset 0 0 0 2px currentColor}
+  .nr[aria-selected="false"]{box-shadow:inset 0 0 0 2px currentColor}
+  .nr[aria-selected="false"] span,.nr[aria-selected="false"] .ic{text-shadow:none;filter:none}
+  .nr-a[aria-selected="false"]{background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.8)),url('images/noren-tenshu.jpg') center/cover #fff}
+  .nr-b[aria-selected="false"]{background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.8)),url('images/noren-hajimeru.jpg') center/cover #fff}
+  .nr-c[aria-selected="false"]{background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.8)),url('images/noren-sodan.jpg') center/cover #fff}
   .nr-a[aria-selected="false"]{color:var(--ai)}
   .nr-b[aria-selected="false"]{color:var(--tape-d)}
   .nr-c[aria-selected="false"]{color:var(--ai-2)}
@@ -509,6 +515,7 @@ section.doors{padding:34px 0 48px}
         </div>
       </div>
       <p class="doors-line">迷ったら、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_door_line">LINEで一言</a>ください。どこから話せばいいか、こちらで整理します。</p>
+      <p class="doors-cr">のれんの写真はイメージです（wei／Omar Ramadan／Minyeong Jeong・Unsplash）。</p>
     </div>
   </section>
 
