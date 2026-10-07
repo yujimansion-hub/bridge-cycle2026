@@ -408,6 +408,54 @@ section.doors{padding:34px 0 48px}
   .flow3 li:last-child{border-radius:0 0 10px 10px}
   .flow3 li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-9px;transform:translateX(-50%) rotate(135deg)}
 }
+
+/* ===== 入口の強弱（2026-10-07）：立場ごとに、大きい1つ＋小さい2つ ===== */
+.act.main{border:0;color:#fff;padding:18px 38px 18px 14px;gap:12px;box-shadow:0 4px 0 rgba(29,43,79,.25)}
+.act .tx,.act.sub b{min-width:0}
+.room-a .act.main{background:var(--ai)}
+.room-b .act.main{background:var(--tape-d)}
+.room-c .act.main{background:var(--ai-2)}
+.act.main b,.room-b .act.main b{display:block;font-size:19px;line-height:1.4;color:#fff;white-space:nowrap}
+.act.main .tx span{font-size:13.5px;color:rgba(255,255,255,.9);margin-top:3px}
+.act.main .pic,.room-b .act.main .pic,.room-c .act.main .pic{width:48px;height:48px;font-size:28px;background:rgba(255,255,255,.16);color:#fff}
+.act.main:hover{filter:brightness(1.08)}
+.room-a .act.main:hover,.room-b .act.main:hover,.room-c .act.main:hover{background-image:none}
+.osu{position:absolute;top:-11px;left:14px;font-style:normal;font-size:12.5px;font-weight:700;background:var(--tape);color:var(--ai);border-radius:999px;padding:1px 12px;line-height:1.7}
+.act.sub,.room-b .act.sub,.room-c .act.sub{border:0;border-bottom:1px solid var(--rule);border-radius:0;background:transparent;padding:11px 26px 11px 4px;gap:10px;align-items:center}
+.act.sub .pic,.room-b .act.sub .pic,.room-c .act.sub .pic{width:26px;height:26px;font-size:22px;background:transparent;border-radius:0}
+.act.sub b,.room-b .act.sub b{display:block;font-size:16px;color:var(--ai);font-weight:700;white-space:nowrap}
+.act.sub>span{margin-left:auto;font-size:12.5px;color:var(--ai-2);white-space:nowrap}
+.act.sub::after{right:6px;width:7px;height:7px;border-width:2px;color:var(--ai-2)}
+.act.sub:hover{background:var(--leaf)}
+.room{gap:6px}
+.room .act.main{margin-bottom:6px}
+@media (min-width:861px) and (max-width:1120px){
+  .act.main{padding:16px 32px 16px 12px;gap:10px}
+  .act.main b,.room-b .act.main b{font-size:17.5px}
+  .act.main .tx span{font-size:12.5px}
+  .act.main .pic,.room-b .act.main .pic,.room-c .act.main .pic{width:44px;height:44px;font-size:26px}
+  .act.sub b,.room-b .act.sub b{font-size:14.5px}
+  .act.sub>span{font-size:11.5px}
+  .act.sub .pic,.room-b .act.sub .pic,.room-c .act.sub .pic{width:22px;height:22px;font-size:19px}
+}
+@media (min-width:861px) and (max-width:1000px){
+  .act.main b,.room-b .act.main b{font-size:15.5px}
+  .act.main .tx span{font-size:11.5px}
+  .act.main .pic,.room-b .act.main .pic,.room-c .act.main .pic{width:36px;height:36px;font-size:22px}
+  .act.sub>span{display:none}
+}
+@media (max-width:860px){
+  .act.main{padding:18px 38px 18px 14px}
+  .act.main b,.room-b .act.main b{font-size:20px}
+  .act.main .pic,.room-b .act.main .pic,.room-c .act.main .pic{width:52px;height:52px;font-size:30px}
+  .room .act.main{margin-top:6px}
+}
+@media (max-width:384px){
+  .act.main{padding:16px 34px 16px 12px;gap:10px}
+  .act.main b,.room-b .act.main b{font-size:18px}
+  .act.main .pic,.room-b .act.main .pic,.room-c .act.main .pic{width:44px;height:44px;font-size:26px}
+  .act.main .tx span{font-size:12.5px}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Organization", "ProfessionalService"], "@id": "https://www.bridgecycleco.com/#org", "name": "BRIDGE CYCLE株式会社", "alternateName": ["BRIDGE CYCLE", "ブリッジサイクル"], "url": "https://www.bridgecycleco.com/", "logo": {"@type": "ImageObject", "url": "https://www.bridgecycleco.com/logo.png", "width": 512, "height": 512}, "image": "https://www.bridgecycleco.com/ogp.png?v=20261007", "email": "info@bridgecycleco.com", "foundingDate": "2026-03-17", "founder": {"@type": "Person", "@id": "https://www.bridgecycleco.com/#founder", "name": "中村裕二", "jobTitle": "代表取締役", "url": "https://www.bridgecycleco.com/akinai-profile.html", "image": "https://www.bridgecycleco.com/assets/profile-yuji-340.webp", "worksFor": {"@id": "https://www.bridgecycleco.com/#org"}, "sameAs": ["https://www.threads.com/@bridgecycle_otsu", "https://www.instagram.com/bridgecycle_otsu/", "https://note.com/bridgecycle_2026", "https://nakamurayuji.substack.com/"]}, "address": {"@type": "PostalAddress", "postalCode": "520-0801", "addressRegion": "滋賀県", "addressLocality": "大津市", "streetAddress": "におの浜2-1-28", "addressCountry": "JP"}, "areaServed": [{"@type": "AdministrativeArea", "name": "滋賀県"}, {"@type": "AdministrativeArea", "name": "京都府"}], "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "info@bridgecycleco.com", "url": "https://www.bridgecycleco.com/soudan.html", "availableLanguage": "ja"}, "slogan": "店じまいを、まちのはじまりに。", "description": "閉める前。始める前。お金を使う前。閉める店の内装・設備を次の店主へつなぐ退店前承継、居抜き開業、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関（認定番号109825000112）。", "knowsAbout": ["退店前承継", "居抜き", "造作譲渡", "原状回復", "事業承継", "創業融資", "小規模事業者持続化補助金", "キッチンカー出店"], "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "認定経営革新等支援機関", "recognizedBy": {"@type": "GovernmentOrganization", "name": "中小企業庁"}}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "BRIDGE CYCLEの支援", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "退店前承継（店を閉める方）", "url": "https://www.bridgecycleco.com/zousaku.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "退店前承継（店を始めたい方・継ぎ手）", "url": "https://www.bridgecycleco.com/tsugite.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "逆指名承継", "url": "https://www.bridgecycleco.com/gyaku-shimei.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "売り場レンタル（旧大津公会堂）", "url": "https://www.bridgecycleco.com/uriba-kokaido.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "補助金申請サポート", "url": "https://www.bridgecycleco.com/hojokin.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "続けるための経営計画", "url": "https://www.bridgecycleco.com/tsuzukeru.html"}}]}, "sameAs": ["https://www.instagram.com/bridgecycle_otsu/", "https://www.threads.com/@bridgecycle_otsu", "https://note.com/bridgecycle_2026", "https://nakamurayuji.substack.com/", "https://line.me/R/ti/p/@907kxssd"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://www.bridgecycleco.com/#website", "name": "BRIDGE CYCLE", "alternateName": ["BRIDGE CYCLE株式会社", "ブリッジサイクル"], "url": "https://www.bridgecycleco.com/", "inLanguage": "ja", "publisher": {"@id": "https://www.bridgecycleco.com/#org"}}</script>
@@ -503,22 +551,22 @@ section.doors{padding:34px 0 48px}
         <div class="room room-a on" id="tenshu" role="tabpanel" aria-labelledby="tab-tenshu">
           <span id="shokei" class="anc"></span><span id="watasu" class="anc"></span>
           <h2 class="room-h">お店をやっている方</h2>
-          <a class="act" href="yameru.html" data-t="hub_act_neuchi"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-nefuda"/></svg></i><span class="tx"><b>店の値打ちを知る</b><span>30秒・匿名。内装と設備が、次の人にいくらで渡せるかの目安が出ます。</span></span></a>
-          <a class="act" href="keisai.html" data-t="hub_act_keisai"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-tegami"/></svg></i><span class="tx"><b>お店を登録する（無料）</b><span>登録して、連絡を待つだけ。閉める予定がなくても。店名は載りません。</span></span></a>
-          <a class="act" href="zousaku.html" data-t="hub_act_zousaku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-fukidashi"/></svg></i><span class="tx"><b>閉めることを相談する</b><span>壊す前に、内装を渡せるかを写真で無料確認します。</span></span></a>
+          <a class="act main" href="keisai.html" data-t="hub_act_keisai"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-tegami"/></svg></i><span class="tx"><b>お店を登録する（無料）</b><span>30秒の試算つき。店名は載りません</span></span><em class="osu">おすすめ</em></a>
+          <a class="act sub" href="yameru.html" data-t="hub_act_neuchi"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-nefuda"/></svg></i><b>まず、値打ちだけ知る</b><span>30秒・匿名</span></a>
+          <a class="act sub" href="zousaku.html" data-t="hub_act_zousaku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-fukidashi"/></svg></i><b>閉めることを相談する</b><span>写真で無料確認</span></a>
         </div>
         <div class="room room-b" id="hajimeru" role="tabpanel" aria-labelledby="tab-hajimeru">
           <span id="jigyo" class="anc"></span><span id="tamesu" class="anc"></span>
           <h2 class="room-h">お店を始めたい方</h2>
-          <a class="act" href="matching.html#mise" data-t="hub_act_mise"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-mushi"/></svg></i><span class="tx"><b>登録されたお店を見る</b><span>見るのは0円。全国の店主が登録したお店の一覧です。</span></span></a>
-          <a class="act" href="tsugite.html#touroku" data-t="hub_act_touroku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></i><span class="tx"><b>条件を登録しておく</b><span>1分・無料。合うお店が出たときにお知らせします。</span></span></a>
-          <a class="act" href="uriba-kokaido.html" data-t="hub_act_uriba"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-tento"/></svg></i><span class="tx"><b>売り場で、試しに売る</b><span>店を持つ前に。旧大津公会堂の前庭で、まず売ってみる。</span></span></a>
+          <a class="act main" href="matching.html#mise" data-t="hub_act_mise"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-mushi"/></svg></i><span class="tx"><b>登録されたお店を見る</b><span>見るのは0円。全国のお店です</span></span></a>
+          <a class="act sub" href="tsugite.html#touroku" data-t="hub_act_touroku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></i><b>条件を登録しておく</b><span>1分・無料</span></a>
+          <a class="act sub" href="uriba-kokaido.html" data-t="hub_act_uriba"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-tento"/></svg></i><b>売り場で、試しに売る</b><span>旧大津公会堂</span></a>
         </div>
         <div class="room room-c" id="tsuzukeru" role="tabpanel" aria-labelledby="tab-tsuzukeru">
           <h2 class="room-h">お金の相談をしたい方</h2>
-          <a class="act" href="hojokin.html" data-t="hub_act_hojokin"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-shorui"/></svg></i><span class="tx"><b>補助金を相談する</b><span>着手金0円。料金は、採択されたときだけです。</span></span></a>
-          <a class="act" href="tsuzukeru.html" data-t="hub_act_keikaku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-graph"/></svg></i><span class="tx"><b>続ける計画をつくる</b><span>数字で、無理なく続ける道を確かめます。</span></span></a>
-          <a class="act" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener" data-t="hub_act_setsubi"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-setsubi"/></svg></i><span class="tx"><b>設備を買う前に相談</b><span>LINEで一言。見積もりを見て、いま買うか待つかを一緒に考えます。</span></span></a>
+          <a class="act main" href="hojokin.html" data-t="hub_act_hojokin"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-shorui"/></svg></i><span class="tx"><b>補助金を相談する</b><span>着手金0円。採択されたときだけ</span></span></a>
+          <a class="act sub" href="tsuzukeru.html" data-t="hub_act_keikaku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-graph"/></svg></i><b>続ける計画をつくる</b><span>数字で確かめる</span></a>
+          <a class="act sub" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener" data-t="hub_act_setsubi"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-setsubi"/></svg></i><b>設備を買う前に相談</b><span>LINEで一言</span></a>
         </div>
       </div>
       <p class="doors-line">迷ったら、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_door_line">LINEで一言</a>ください。どこから話せばいいか、こちらで整理します。</p>
