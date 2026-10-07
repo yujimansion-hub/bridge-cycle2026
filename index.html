@@ -62,7 +62,8 @@
   .brand svg{width:28px;height:28px;flex:none}
   .brand small{font-weight:400;letter-spacing:0;font-size:12px;color:var(--ai-2)}
   .gnav{display:flex;gap:20px;align-items:center;font-size:14px}
-  .gnav a{text-decoration:none}
+  .gnav a{text-decoration:none;white-space:nowrap}
+  .gnav a.p3{display:none}
   .gnav a:not(.line):hover{text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--tape);text-decoration-thickness:3px}
   .gnav a.line{background:var(--line);color:#fff;border-radius:999px;padding:6px 16px;font-weight:700}
   @media (max-width:1020px){.brand small{display:none}}
@@ -299,10 +300,10 @@
       BRIDGE CYCLE<small>店じまいを、まちのはじまりに。</small></a>
     <nav class="gnav" aria-label="サイト内">
       <a href="#shokei">退店前承継</a>
-      <a href="#jigyo">支援の段階</a>
-      <a href="#partner">連携先の方へ</a>
-      <a href="#faq">よくあるご質問</a>
-      <a href="#company">会社概要</a>
+      <a class="p2" href="#jigyo">支援の段階</a>
+      <a class="p2" href="#partner">連携先の方へ</a>
+      <a class="p3" href="#faq">よくあるご質問</a>
+      <a class="p3" href="#company">会社概要</a>
       <a href="keisai.html" data-t="hub_nav_keisai">お店を登録（無料）</a>
       <a class="line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_line">LINEで相談</a>
     </nav>

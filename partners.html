@@ -49,9 +49,10 @@
   .brand svg{width:28px;height:28px;flex:none}
   .brand small{font-weight:400;letter-spacing:0;font-size:12px;color:var(--ai-2)}
   .gnav{display:flex;gap:18px;align-items:center;font-size:14px}
-  .gnav a{text-decoration:none}
+  .gnav a{text-decoration:none;white-space:nowrap}
   .gnav a.cta{background:var(--ai);color:#fff;border-radius:999px;padding:6px 16px;font-weight:700}
-  @media (max-width:760px){.gnav a:not(.cta){display:none}.brand small{display:none}}
+  @media (max-width:860px){.gnav a:not(.cta){display:none}}
+@media (max-width:760px){.gnav a:not(.cta){display:none}.brand small{display:none}}
 
   /* 最初の画面 */
   .hero{background:var(--ai);color:#fff;padding:56px 0 96px}
