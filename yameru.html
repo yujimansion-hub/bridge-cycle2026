@@ -274,7 +274,7 @@ footer a{color:#C6D6E5}
     </div>
     <div class="cta">
       <a class="btn shu" href="zousaku.html#photo" onclick="window.bcTrack&&bcTrack('yameru_photo_cta')">写真を送って、渡せそうか無料で確認する<small>1〜2枚だけでも大丈夫・やめても費用はかかりません</small></a>
-      <a class="btn nv" id="ctaKeisai" href="keisai.html">この値打ちで無料登録して、継ぎ手からの連絡を待つ<small id="ctaKeisaiS">登録0円・店名は載りません・金額はあとで変えられます</small></a>
+      <a class="btn nv" id="ctaKeisai" href="keisai.html#form">この値打ちで、お店を登録する（無料）<small id="ctaKeisaiS">店名は載りません・金額はあとで変えられます・継ぎ手からの連絡を待つだけ</small></a>
     </div>
     <div class="hoka">
       <p class="hoka-h">ほかの方法</p>
@@ -422,7 +422,7 @@ footer a{color:#C6D6E5}
     $('#bSale').textContent=range(saleLo,saleHi); $('#bSaleS').textContent='継ぎ手が払える額で決まる。目安：'+inv+'万円 × 残存率'+Math.round(rate*100)+'%'+(inv*rate>CAP?'（上限300万円）':'')+'の7割を中心に±2割';
     /* 登録ページへ引き継ぐ目安（中央値・5万円きざみ）。この端末の中にだけ置き、どこにも送らない */
     window.__bcKibou={kibou:Math.round(((saleLo+saleHi)/2)/5)*5,biz:biz,tsubo:tsubo};
-    try{var cks=document.getElementById('ctaKeisaiS');if(cks)cks.textContent=window.__bcKibou.kibou>0?('内装・設備の目安 約'+window.__bcKibou.kibou+'万円で登録・店名は載りません・金額はあとで変えられます'):'登録0円・店名は載りません・金額はあとで変えられます';}catch(e){}
+    try{var cks=document.getElementById('ctaKeisaiS');if(cks)cks.textContent=window.__bcKibou.kibou>0?('目安 約'+window.__bcKibou.kibou+'万円が入った登録フォームへ・店名は載りません・継ぎ手からの連絡を待つだけ'):'店名は載りません・金額はあとで変えられます・継ぎ手からの連絡を待つだけ';}catch(e){}
     $('#bDep').textContent=man(dep);
     $('#bSum').textContent=range(bSumLo,bSumHi);
     $('#bBig').textContent=about(bSumLo,bSumHi);

@@ -81,6 +81,11 @@
   .jump3 a{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--paper);color:var(--ai);text-decoration:none;font-weight:700;border-radius:8px;padding:14px 10px;font-size:16px;line-height:1.4;transition:background .15s}
   .jump3 a::after{content:"↓";margin-left:6px;color:var(--tape-d);font-weight:700}
   .jump3 a:hover{background:var(--leaf)}
+.jump-reg{margin:12px 0 0;max-width:720px}
+.jump-reg a{display:flex;align-items:center;justify-content:center;text-align:center;border:2px solid var(--tape);border-radius:8px;padding:12px 10px;color:#fff;font-weight:700;font-size:16px;line-height:1.4;text-decoration:none;background:rgba(29,43,79,.5)}
+.jump-reg a::after{content:"→";margin-left:6px;color:var(--tape)}
+.jump-reg a:hover{background:rgba(29,43,79,.8)}
+.jump-reg small{display:block;margin-top:6px;font-size:13px;color:#dfe5f0}
   .hero-trust{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;margin:20px 0 0;padding:0;font-size:13.5px;color:#e6ebf4}
   .hero-trust li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--tape);margin-right:7px;vertical-align:1px}
   /* タグライン：ヘッダーに出ない幅（スマホ・タブレット）では最初の画面に出す */
@@ -298,6 +303,7 @@
       <a href="#partner">連携先の方へ</a>
       <a href="#faq">よくあるご質問</a>
       <a href="#company">会社概要</a>
+      <a href="keisai.html" data-t="hub_nav_keisai">お店を登録（無料）</a>
       <a class="line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_line">LINEで相談</a>
     </nav>
   </div>
@@ -319,6 +325,7 @@
         <a href="#jigyo" data-t="hub_hero_start">商いを始める・試す</a>
         <a href="#tsuzukeru" data-t="hub_hero_money">設備投資・経営を考える</a>
       </div>
+      <p class="jump-reg"><a href="keisai.html" data-t="hub_hero_keisai">店主の方：お店を登録する（無料）</a><small>閉める予定がなくても登録できます。店名は一覧に載りません</small></p>
       <ul class="hero-trust">
         <li>国の認定経営革新等支援機関</li>
         <li>経営支援500社超</li>
@@ -369,7 +376,7 @@
         <a href="tsugite.html" data-t="hub_hero_taker"><b>継げる店を探す</b><span>無料登録で、閉める前の店を先に知る。</span></a>
         <a class="pn" href="tsugite.html#mise" data-t="hub_hero_nominate"><i class="new">NEW</i><b>登録されたお店の一覧を見る</b><span>まだ閉めると決めていない店も。見るのは0円。</span></a>
       </div>
-      <a class="kei" href="keisai.html" data-t="hub_keisai"><i class="new">NEW</i><b><span class="nb">閉める予定がなくても。</span><span class="nb">自分の店の値打ちを知って、</span><span class="nb">無料で登録する</span></b><span>30秒の試算の額で登録できます。店名は一覧に載りません。伝わるのは、同じ額の自己資金を当社が確認した方だけです。</span></a>
+      <a class="kei" href="keisai.html" data-t="hub_keisai"><i class="new">NEW</i><b><span class="nb">店主の方：</span><span class="nb">お店を登録する（無料）</span></b><span>閉める予定がなくても登録できます。30秒の試算で値打ちを知り、その額で登録。店名は一覧に載りません。伝わるのは、同じ額の自己資金を当社が確認した方だけです。</span></a>
       <div class="self">
         <p class="self-h">相談の前に、<span class="nb">ひとりで確かめる。</span><small>匿名・入力した内容は送信されません</small></p>
         <a href="yameru.html" data-t="hub_self_neuchi"><b>店の値打ちを30秒で試算</b><span>続ける・渡す・閉めるの手残りを比べる</span></a>
@@ -407,7 +414,7 @@
         <div class="st" id="tsuzukeru"><span class="sn">3</span><b>続ける</b><p>計画と補助金で、無理なく続ける。</p>
           <ul><li><a href="tsuzukeru.html">続けるための経営計画</a></li><li><a href="hojokin.html">補助金申請サポート</a></li><li><a href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener">設備投資の相談（LINE）</a></li></ul></div>
         <div class="st" id="watasu"><span class="sn">4</span><b>渡す</b><p>閉めるときは壊さず、次の人へ。</p>
-          <ul><li><a href="zousaku.html">店を閉める方へ</a></li><li><a href="yameru.html">30秒で店の値打ちを試算</a></li><li><a href="keisai.html">お店を無料で登録する <i class="new">NEW</i></a></li><li><a href="genjo-kaifuku.html">原状回復の費用を計算</a></li><li><a href="shimekata.html">閉め方の相談</a></li></ul></div>
+          <ul><li><a href="zousaku.html">店を閉める方へ</a></li><li><a href="yameru.html">30秒で店の値打ちを試算</a></li><li><a href="keisai.html">お店を登録する（無料） <i class="new">NEW</i></a></li><li><a href="genjo-kaifuku.html">原状回復の費用を計算</a></li><li><a href="shimekata.html">閉め方の相談</a></li></ul></div>
       </div>
     </div>
   </section>

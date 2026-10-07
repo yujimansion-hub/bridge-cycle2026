@@ -35,6 +35,30 @@ h1 .tape{background:linear-gradient(transparent 66%,rgba(155,207,83,.8) 66%)}
 .machi b{font-size:18px}
 .machi small{display:block;font-size:13px;color:var(--ai-2)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.steps{max-width:720px;margin-top:18px}
+#form{scroll-margin-top:40px}
+.steps-h{font-weight:800;font-size:16px;margin:0 0 10px}
+.steps ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{display:flex;gap:14px;align-items:flex-start;background:#fff;border:2px solid var(--ai);border-radius:10px;padding:14px 16px}
+.steps li:last-child{border:1px solid var(--rule)}
+.steps .sn{flex:none;width:32px;height:32px;border-radius:50%;background:var(--ai);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px;margin-top:2px}
+.steps li>div{flex:1;min-width:0}
+.steps li b{display:block;font-size:18px;line-height:1.45}
+.steps li div>span{display:block;font-size:14px;color:var(--ai-2);line-height:1.7;margin-top:2px}
+.steps .sb{display:inline-block;margin-top:10px;background:var(--ai);color:#fff;font-weight:700;font-size:16px;text-decoration:none;border-radius:999px;padding:10px 20px}
+.steps .sb.g{background:#fff;color:var(--tape-d);border:2px solid var(--tape-d);padding:8px 18px}
+.steps li.done{border:1px solid var(--rule);background:#f6fbef}
+.steps li.done .sn{background:var(--tape-d)}
+.steps li.done .sb.g{border-width:1px;font-weight:500;font-size:14px;padding:6px 14px}
+header nav a.hreg{background:var(--tape-d);color:#fff;font-weight:700;border-radius:999px;padding:6px 14px}
+.kbar{display:none}
+@media (max-width:760px){
+ .kbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.97);border-top:1px solid var(--rule);padding:10px 14px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .2s}
+ .kbar.on{transform:none}
+ .kbar a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:15.5px;border-radius:999px;padding:12px 8px;background:var(--tape-d);color:#fff}
+ .kbar a.s{flex:none;background:#fff;color:var(--ai);border:1.5px solid var(--rule);font-size:13.5px;padding:11px 14px}
+ body{padding-bottom:72px}
+}
 .go{display:block;border:2px solid var(--ai);box-shadow:4px 4px 0 var(--ai);border-radius:10px;padding:16px 18px;text-decoration:none;background:#fff}
 .go small{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;color:var(--ai-2)}
 .go b{display:block;font-size:18px;line-height:1.45;margin-top:2px}.go b::after{content:" →";color:var(--ai-2)}
@@ -105,17 +129,21 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BRIDGE CYCLE", "item": "https://www.bridgecycleco.com/"}, {"@type": "ListItem", "position": 2, "name": "店を閉める方", "item": "https://www.bridgecycleco.com/zousaku.html"}, {"@type": "ListItem", "position": 3, "name": "自分の店の値打ちを知っておく", "item": "https://www.bridgecycleco.com/keisai.html"}]}</script>
 </head>
 <body>
-<header><div class="w"><a class="brand" href="./">BRIDGE CYCLE</a><nav><a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="taiten-zen-shokei.html">退店前承継とは</a></nav></div></header>
+<header><div class="w"><a class="brand" href="./">BRIDGE CYCLE</a><nav><a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="taiten-zen-shokei.html">退店前承継とは</a><a class="hreg" href="#form" data-t="keisai_hdr">お店を登録（無料）</a></nav></div></header>
 <main>
 <div class="w crumb"><a href="./">トップ</a> ＞ <a href="zousaku.html">店を閉める方</a> ＞ 自分の店の値打ちを知っておく</div>
 <section class="hero"><div class="w">
-  <span class="badge">店主の方へ</span>
+  <span class="badge">店主の方へ｜お店の登録（無料）</span>
   <h1>自分の店の値打ちを、<br><span class="tape">知っておく。</span></h1>
-  <p class="lead">閉める予定がなくても、知っておいて損はありません。お店の内装と設備が、次の人にいくらで渡せるか。30秒の試算で、目安が分かります。その額で登録しておけば、同じ額を自己資金で持っている人にだけ、店名が伝わります。</p>
-  <p class="kinds">試算は匿名・数字は送られません　登録0円　成約まで費用はかかりません</p>
-  <div class="two">
-    <a class="go g" href="yameru.html" data-t="keisai_shisan"><small>まずはここから</small><b>30秒で、値打ちを試算する</b><span>内装・設備にかけた金額と年数から、目安を出します</span></a>
-    <a class="go" href="#form" data-t="keisai_form"><small>試算が済んでいる方</small><b>その額で、無料登録する</b><span>店名は一覧に載りません</span></a>
+  <p class="lead">閉める予定がなくても、登録できます。30秒の試算で内装と設備の値打ちを知り、その額で登録。店名が伝わるのは、同じ額の自己資金を当社が確認した方だけです。</p>
+  <div class="steps" id="steps">
+    <p class="steps-h">登録は、3つの手順です</p>
+    <ol>
+      <li id="st1"><span class="sn">1</span><div><b>値打ちを試算する</b><span id="st1-t">30秒・匿名です。内装と設備にかけた金額と年数から、目安を出します。済んでいる方は、2へ進んでください。</span><a class="sb g" id="st1-a" href="yameru.html" data-t="keisai_shisan">試算する →</a></div></li>
+      <li><span class="sn">2</span><div><b>登録フォームを送る</b><span>3分ほどです。店名は当社にだけ伝わり、一覧には載りません。</span><a class="sb" href="#form" data-t="keisai_form">お店を登録する（無料）↓</a></div></li>
+      <li><span class="sn">3</span><div><b>当社から確認の連絡が届き、一覧に載る</b><span>ご本人の確認と、載せる文面の確認をしてから載せます。あとは、連絡を待つだけです。</span></div></li>
+    </ol>
+    <p class="kinds" style="margin:14px 0 0">試算は匿名・数字は送られません　登録0円　成約まで費用はかかりません</p>
   </div>
   <p class="machi" id="machi" hidden></p>
 </div></section>
@@ -148,6 +176,7 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
 
 <section class="alt" id="form"><div class="w">
   <h2>お店を登録する（無料）</h2>
+  <p class="fine" style="margin:-8px 0 16px">手順2です。3分ほどで終わります。送ったあと、当社から確認のご連絡をします。まだ一覧には載りません。</p>
   <form class="form" id="kf" novalidate>
     <div class="fld"><label for="k-shop">店名<span class="opt">当社だけが確認します</span></label><input type="text" id="k-shop" name="店名" autocomplete="organization"></div>
     <div class="fld"><label for="k-place">お店の場所<span class="opt">市区町村・最寄り駅</span></label><input type="text" id="k-place" name="お店の場所" placeholder="例：大津市・膳所駅の近く"></div>
@@ -203,6 +232,7 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
   BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28
   <nav><a href="./">トップ</a><a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="gyaku-shimei.html">逆指名承継</a><a href="shokei-inshokuten.html">飲食店の承継</a><a href="shokei-biyoshitsu.html">美容室の承継</a><a href="shokei-clinic.html">クリニック・歯科の承継</a><a href="privacy.html">プライバシーポリシー</a></nav>
 </div></footer>
+<div class="kbar" id="kbar"><a href="#form" data-t="keisai_bar">お店を登録する（無料）</a><a class="s" href="yameru.html" data-t="keisai_bar_shisan">先に試算</a></div>
 <script src="bc-analytics.js"></script>
 <script>
 (function(){
@@ -210,7 +240,8 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
   /* 試算ページから来たとき：目安の額・業態・広さを入れておく（この端末の中だけで受け渡し） */
   try{var sv=JSON.parse(sessionStorage.getItem('bc_shisan')||'null');
     if(sv){
-      if(sv.kibou>0){document.getElementById('k-price').value=sv.kibou;document.getElementById('k-price-note').textContent='試算の目安（約'+sv.kibou+'万円）が入っています。金額は変えられます。値段を決めるのは、あなたです。';}
+      if(sv.kibou>0){try{document.getElementById('st1').classList.add('done');document.getElementById('st1-t').textContent='試算は済んでいます（目安 約'+sv.kibou+'万円）。このまま、2へ進んでください。';document.getElementById('st1-a').textContent='もう一度、試算する';}catch(e){}
+        document.getElementById('k-price').value=sv.kibou;document.getElementById('k-price-note').textContent='試算の目安（約'+sv.kibou+'万円）が入っています。金額は変えられます。値段を決めるのは、あなたです。';}
       var BM={light:'飲食店',heavy:'飲食店',beauty:'美容室・サロン',clinic:'クリニック・歯科',retail:'その他'},bv=BM[sv.biz];
       if(bv){var r=f.querySelector('input[name="業態"][value="'+bv+'"]');if(r)r.checked=true;}
       if(sv.tsubo>0&&!document.getElementById('k-size').value)document.getElementById('k-size').value=sv.tsubo+'坪';
@@ -224,6 +255,13 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
     el.innerHTML='いま、お店を探して登録している方：<b>'+Number(w.total)+'人</b>'+(by?'（'+by+'）':'')+'<small>'+(w.asof?esc(w.asof)+'時点。':'')+'登録したお店が伝わるのは、このうち自己資金を当社が確認した方だけです。</small>';
     el.hidden=false;
   }).catch(function(){});}catch(e){}
+  /* ボタンの押下を数える */
+  document.querySelectorAll('[data-t]').forEach(function(a){a.addEventListener('click',function(){try{window.bcTrack&&bcTrack(a.dataset.t,{place:'keisai'});}catch(e){}});});
+  /* 下の固定ボタン：手順とフォームが見えている間は隠す（スマホ） */
+  try{var kb=document.getElementById('kbar'),seen={};
+    if(kb&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){seen[e.target.id]=e.isIntersecting;});kb.classList.toggle('on',!seen.steps&&!seen.form);},{threshold:0});
+      io.observe(document.getElementById('steps'));io.observe(document.getElementById('form'));}
+  }catch(e){}
   /* 書き始めた人数を数える（何を書いたかは送らない） */
   var started=false; f.addEventListener('input',function(){ if(started) return; started=true; try{window.bcTrack&&bcTrack('form_start',{form:'keisai'});}catch(e){} });
   f.addEventListener('submit',async function(e){
