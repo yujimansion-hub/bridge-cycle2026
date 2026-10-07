@@ -270,6 +270,98 @@
     .mbar small{display:block;font-weight:400;font-size:11px;opacity:.92}
     body{padding-bottom:72px}
   }
+
+/* ===== 直感的なトップ（2026-10-07） ===== */
+.top2{background:var(--ai);color:#fff;padding:30px 0 26px}
+.top2 h1{font-size:clamp(24px,5.6vw,40px);line-height:1.4;margin:0 0 6px}
+.top2 h1 .nb{margin-right:.2em}
+.top2-sub{margin:0;font-size:16px;color:#e6ebf4}
+section.doors{padding:34px 0 48px}
+.doors-q{font-family:var(--serif);font-weight:800;font-size:clamp(22px,5.4vw,30px);margin:0 0 16px}
+.noren{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:12px}
+.noren::before{content:"";position:absolute;left:-8px;right:-8px;top:4px;height:8px;border-radius:4px;background:var(--ai-2)}
+.nr{position:relative;font:inherit;color:#fff;border:0;cursor:pointer;min-height:104px;padding:14px 6px 30px;border-radius:0 0 6px 6px;display:flex;align-items:center;justify-content:center;text-align:center}
+.nr span{font-family:var(--serif);font-weight:800;font-size:clamp(17px,4.6vw,24px);line-height:1.35}
+.nr::after{content:"";position:absolute;left:50%;bottom:0;width:3px;height:26px;margin-left:-1.5px;background:var(--paper)}
+.nr-a{background:var(--ai)}
+.nr-b{background:var(--tape-d)}
+.nr-c{background:var(--ai-2)}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.room{position:relative;display:flex;flex-direction:column;gap:10px}
+.room-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0}
+.anc{position:absolute;top:-80px}
+.act{display:block;text-decoration:none;color:var(--ai);background:#fff;border:2px solid var(--ai);border-radius:10px;padding:14px 40px 14px 16px;position:relative;line-height:1.55}
+.act::after{content:"";position:absolute;right:16px;top:50%;width:9px;height:9px;border-top:2.5px solid currentColor;border-right:2.5px solid currentColor;transform:translateY(-50%) rotate(45deg)}
+.act b{display:block;font-size:18px}
+.act span{display:block;font-size:13.5px;color:var(--ai-2);margin-top:2px}
+.room-b .act{border-color:var(--tape-d)}
+.room-b .act b{color:var(--tape-d)}
+.room-c .act{border-color:var(--ai-2)}
+.act:hover{background:var(--leaf)}
+.doors-line{margin:22px 0 0;font-size:15px;color:var(--ai-2)}
+.doors-line a{font-weight:700;color:var(--ai)}
+.tags3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 16px}
+.tg{position:relative;padding:40px 18px 18px;filter:drop-shadow(0 2px 0 var(--ai)) drop-shadow(0 6px 14px rgba(29,43,79,.14))}
+.tg::before{content:"";position:absolute;inset:0;background:#fff;clip-path:polygon(24px 0,calc(100% - 24px) 0,100% 24px,100% 100%,0 100%,0 24px)}
+.tg>*{position:relative}
+.tg .hole{position:absolute;top:13px;left:50%;width:13px;height:13px;margin-left:-6.5px;border-radius:50%;background:var(--mist);box-shadow:inset 0 1px 2px rgba(29,43,79,.35)}
+.tg .no{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ai-2);margin:0}
+.tg .no i{font-style:normal;font-weight:700;border-radius:4px;padding:0 8px;background:var(--tape);color:var(--ai)}
+.tg.smp .no i{background:#fff;border:1.5px solid var(--ai-2);color:var(--ai-2)}
+.tg h3{font-size:17px;line-height:1.5;margin:6px 0 0}
+.tg .ar{margin:0;font-size:14px;color:var(--ai-2)}
+.tg .pr{margin:10px 0 0;padding-top:10px;border-top:1.5px dashed var(--rule)}
+.tg .pr span{display:block;font-size:12.5px;color:var(--ai-2)}
+.tg .pr b{font-family:var(--serif);font-weight:800;font-size:26px;line-height:1.3}
+.ima-none{grid-column:1/-1;margin:0 0 4px;font-size:15px}
+.ima-more{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.btn2{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;border-radius:999px;padding:12px 24px;background:var(--ai);color:#fff}
+.btn2.g{background:var(--tape-d)}
+.flow3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:f}
+.flow3 li{counter-increment:f;position:relative;padding:18px 26px 18px 18px;border:2px solid var(--ai);border-left-width:0;background:#fff}
+.flow3 li:first-child{border-left-width:2px;border-radius:10px 0 0 10px}
+.flow3 li:last-child{border-radius:0 10px 10px 0;background:var(--leaf)}
+.flow3 li:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;width:14px;height:14px;background:#fff;border-top:2px solid var(--ai);border-right:2px solid var(--ai);transform:translateY(-50%) rotate(45deg);z-index:1}
+.flow3 li::before{content:counter(f);display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--ai);color:#fff;font-weight:700;font-size:14px;margin-bottom:8px}
+.flow3 b{display:block;font-size:17px;line-height:1.55}
+.flow3 span{display:block;font-size:14px;color:var(--ai-2);margin-top:4px;line-height:1.7}
+.about-link2{margin:22px 0 0;font-size:14.5px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.about-link2 span a{margin-left:10px}
+.hoka{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.hoka h3{font-size:16px;margin:0 0 8px;padding-bottom:8px;border-bottom:2px solid var(--ai)}
+.hoka ul{list-style:none;margin:0;padding:0}
+.hoka li{padding:9px 0;border-bottom:1px solid var(--rule)}
+.hoka li a{font-weight:700;text-decoration:none;display:block}
+.hoka li a:hover{text-decoration:underline}
+.hoka li span{display:block;font-size:13px;color:var(--ai-2);line-height:1.6}
+@media (max-width:860px){
+  .top2{padding:22px 0 20px}
+  section.doors{padding:26px 0 40px}
+  .noren{gap:8px}
+  .nr{min-height:92px}
+  .nr[aria-selected="false"]{background:#fff;box-shadow:inset 0 0 0 2px currentColor}
+  .nr-a[aria-selected="false"]{color:var(--ai)}
+  .nr-b[aria-selected="false"]{color:var(--tape-d)}
+  .nr-c[aria-selected="false"]{color:var(--ai-2)}
+  .nr[aria-selected="false"]::after{background:currentColor;width:2px;margin-left:-1px}
+  .nr[aria-selected="true"]::before{content:"";position:absolute;left:50%;bottom:-13px;margin-left:-9px;border:9px solid transparent;border-top-color:inherit;border-bottom:0}
+  .nr-a[aria-selected="true"]::before{border-top-color:var(--ai)}
+  .nr-b[aria-selected="true"]::before{border-top-color:var(--tape-d)}
+  .nr-c[aria-selected="true"]::before{border-top-color:var(--ai-2)}
+  .rooms{display:block;margin-top:22px}
+  .js .room{display:none}
+  .js .room.on{display:flex}
+  .room+.room{margin-top:26px}
+  .js .room+.room{margin-top:0}
+  .room-h{position:static;width:auto;height:auto;clip:auto;font-family:var(--serif);font-weight:800;font-size:20px;margin:0 0 2px}
+  .js .room-h{position:absolute;width:1px;height:1px;clip:rect(0 0 0 0)}
+  .tags3,.hoka{grid-template-columns:1fr}
+  .flow3{grid-template-columns:1fr}
+  .flow3 li{border-left-width:2px;border-top-width:0;padding:16px 18px 20px}
+  .flow3 li:first-child{border-top-width:2px;border-radius:10px 10px 0 0}
+  .flow3 li:last-child{border-radius:0 0 10px 10px}
+  .flow3 li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-9px;transform:translateX(-50%) rotate(135deg)}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Organization", "ProfessionalService"], "@id": "https://www.bridgecycleco.com/#org", "name": "BRIDGE CYCLE株式会社", "alternateName": ["BRIDGE CYCLE", "ブリッジサイクル"], "url": "https://www.bridgecycleco.com/", "logo": {"@type": "ImageObject", "url": "https://www.bridgecycleco.com/logo.png", "width": 512, "height": 512}, "image": "https://www.bridgecycleco.com/ogp.png?v=20261007", "email": "info@bridgecycleco.com", "foundingDate": "2026-03-17", "founder": {"@type": "Person", "@id": "https://www.bridgecycleco.com/#founder", "name": "中村裕二", "jobTitle": "代表取締役", "url": "https://www.bridgecycleco.com/akinai-profile.html", "image": "https://www.bridgecycleco.com/assets/profile-yuji-340.webp", "worksFor": {"@id": "https://www.bridgecycleco.com/#org"}, "sameAs": ["https://www.threads.com/@bridgecycle_otsu", "https://www.instagram.com/bridgecycle_otsu/", "https://note.com/bridgecycle_2026", "https://nakamurayuji.substack.com/"]}, "address": {"@type": "PostalAddress", "postalCode": "520-0801", "addressRegion": "滋賀県", "addressLocality": "大津市", "streetAddress": "におの浜2-1-28", "addressCountry": "JP"}, "areaServed": [{"@type": "AdministrativeArea", "name": "滋賀県"}, {"@type": "AdministrativeArea", "name": "京都府"}], "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "info@bridgecycleco.com", "url": "https://www.bridgecycleco.com/soudan.html", "availableLanguage": "ja"}, "slogan": "店じまいを、まちのはじまりに。", "description": "閉める前。始める前。お金を使う前。閉める店の内装・設備を次の店主へつなぐ退店前承継、居抜き開業、売り場レンタル、創業・事業計画・融資と補助金申請の支援。認定経営革新等支援機関（認定番号109825000112）。", "knowsAbout": ["退店前承継", "居抜き", "造作譲渡", "原状回復", "事業承継", "創業融資", "小規模事業者持続化補助金", "キッチンカー出店"], "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "認定経営革新等支援機関", "recognizedBy": {"@type": "GovernmentOrganization", "name": "中小企業庁"}}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "BRIDGE CYCLEの支援", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "退店前承継（店を閉める方）", "url": "https://www.bridgecycleco.com/zousaku.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "退店前承継（店を始めたい方・継ぎ手）", "url": "https://www.bridgecycleco.com/tsugite.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "逆指名承継", "url": "https://www.bridgecycleco.com/gyaku-shimei.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "売り場レンタル（旧大津公会堂）", "url": "https://www.bridgecycleco.com/uriba-kokaido.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "補助金申請サポート", "url": "https://www.bridgecycleco.com/hojokin.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "続けるための経営計画", "url": "https://www.bridgecycleco.com/tsuzukeru.html"}}]}, "sameAs": ["https://www.instagram.com/bridgecycle_otsu/", "https://www.threads.com/@bridgecycle_otsu", "https://note.com/bridgecycle_2026", "https://nakamurayuji.substack.com/", "https://line.me/R/ti/p/@907kxssd"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://www.bridgecycleco.com/#website", "name": "BRIDGE CYCLE", "alternateName": ["BRIDGE CYCLE株式会社", "ブリッジサイクル"], "url": "https://www.bridgecycleco.com/", "inLanguage": "ja", "publisher": {"@id": "https://www.bridgecycleco.com/#org"}}</script>
@@ -299,9 +391,9 @@
       <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2b4f"/><path d="M12 41 Q32 15 52 41" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M20 46 Q32 31 44 46" fill="none" stroke="#9bcf53" stroke-width="4.5" stroke-linecap="round"/></svg>
       BRIDGE CYCLE<small>店じまいを、まちのはじまりに。</small></a>
     <nav class="gnav" aria-label="サイト内">
-      <a href="#shokei">退店前承継</a>
-      <a class="p2" href="#jigyo">支援の段階</a>
-      <a class="p2" href="#partner">連携先の方へ</a>
+      <a href="#tenshu" data-door="tenshu">お店をやっている方</a>
+      <a class="p2" href="#hajimeru" data-door="hajimeru">お店を始めたい方</a>
+      <a class="p2" href="matching.html#mise">登録されたお店</a>
       <a class="p3" href="#faq">よくあるご質問</a>
       <a class="p3" href="#company">会社概要</a>
       <a href="keisai.html" data-t="hub_nav_keisai">お店を登録（無料）</a>
@@ -311,83 +403,68 @@
 </header>
 
 <main>
-  <div class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <div style="background-image:url('images/top-hero-kitchen.webp');background-position:60% 55%"></div>
-      <div style="background-image:url('images/top-hero-kokaido.webp')"></div>
-      <div style="background-image:url('images/top-hero-chair.webp');background-position:center 45%"></div>
-    </div>
+  <div class="top2" id="top">
     <div class="w">
-      <h1 class="disp"><span class="nb">閉める前。</span><span class="nb">始める前。</span><br><span class="tape nb">お金を使う前。</span></h1>
-      <p class="sub1"><span class="nb">小さな商いの、</span><span class="nb">大きな判断を</span><span class="nb">一緒に考える。</span></p>
-      <p class="lead">BRIDGE CYCLEは、滋賀・京都の小さな事業者と「次どうする？」を考え、実際に動かす会社です。</p>
-      <div class="jump3">
-        <a href="#shokei" data-t="hub_hero_close">お店を閉める・譲る</a>
-        <a href="#jigyo" data-t="hub_hero_start">商いを始める・試す</a>
-        <a href="#tsuzukeru" data-t="hub_hero_money">設備投資・経営を考える</a>
-      </div>
-      <p class="jump-reg"><a href="keisai.html" data-t="hub_hero_keisai">店主の方：お店を登録する（無料）</a><small>閉める予定がなくても登録できます。店名は一覧に載りません</small></p>
-      <ul class="hero-trust">
-        <li>国の認定経営革新等支援機関</li>
-        <li>経営支援500社超</li>
-        <li>ご相談は無料</li>
-      </ul>
-      <p class="brandline">店じまいを、まちのはじまりに。</p>
+      <h1 class="disp"><span class="nb">閉める前。</span><span class="nb">始める前。</span><span class="nb">お金を使う前。</span></h1>
+      <p class="top2-sub">小さな商いの「次どうする？」を、一緒に考える会社です。</p>
     </div>
-    <span class="credit">写真：Unsplash・旧大津公会堂（イメージ）</span>
   </div>
 
-  <!-- 考え方 -->
-  <section class="concept" aria-label="BRIDGE CYCLEの考え方">
+  <!-- 入口：のれんを3枚。自分に合うものを選ぶ -->
+  <section class="doors" id="doors" aria-label="ご用件から選ぶ">
     <div class="w">
-      <div class="cpt">
-        <a class="cq" href="#shokei" data-t="hub_cq_close"><span class="ck">閉める前</span><p><b>壊す？</b><b>渡す？</b></p></a>
-        <a class="cq" href="#jigyo" data-t="hub_cq_start"><span class="ck">始める前</span><p><b>持つ？</b><b>試す？</b></p></a>
-        <a class="cq" href="#tsuzukeru" data-t="hub_cq_money"><span class="ck">お金を使う前</span><p><b>買う？</b><b>待つ？</b></p></a>
+      <p class="doors-q">あなたは、どちらですか。</p>
+      <div class="noren" role="tablist" aria-label="立場を選ぶ">
+        <button type="button" class="nr nr-a" role="tab" aria-selected="true" aria-controls="tenshu" id="tab-tenshu" data-t="hub_door_tenshu"><span>お店を<br>やっている</span></button>
+        <button type="button" class="nr nr-b" role="tab" aria-selected="false" aria-controls="hajimeru" id="tab-hajimeru" data-t="hub_door_hajimeru"><span>お店を<br>始めたい</span></button>
+        <button type="button" class="nr nr-c" role="tab" aria-selected="false" aria-controls="tsuzukeru" id="tab-tsuzukeru" data-t="hub_door_okane"><span>お金の<br>相談</span></button>
       </div>
-      <svg class="cpt-lines" viewBox="0 0 900 70" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M150 0 C150 40 450 30 450 66" fill="none" stroke="#1d2b4f" stroke-width="1.5"/>
-        <path d="M450 0 L450 66" fill="none" stroke="#1d2b4f" stroke-width="1.5"/>
-        <path d="M750 0 C750 40 450 30 450 66" fill="none" stroke="#1d2b4f" stroke-width="1.5"/>
-      </svg>
-      <div class="cbc"><span class="cbc-n">BRIDGE CYCLE</span><b>決める前に、選択肢を増やす。</b></div>
+      <div class="rooms">
+        <div class="room room-a on" id="tenshu" role="tabpanel" aria-labelledby="tab-tenshu">
+          <span id="shokei" class="anc"></span><span id="watasu" class="anc"></span>
+          <h2 class="room-h">お店をやっている方</h2>
+          <a class="act" href="yameru.html" data-t="hub_act_neuchi"><b>店の値打ちを知る</b><span>30秒・匿名。内装と設備が、次の人にいくらで渡せるかの目安が出ます。</span></a>
+          <a class="act" href="keisai.html" data-t="hub_act_keisai"><b>お店を登録して、連絡を待つ</b><span>無料。閉める予定がなくても登録できます。店名は載りません。</span></a>
+          <a class="act" href="zousaku.html" data-t="hub_act_zousaku"><b>閉めることを相談する</b><span>壊す前に、内装を渡せるかを写真で無料確認します。</span></a>
+        </div>
+        <div class="room room-b" id="hajimeru" role="tabpanel" aria-labelledby="tab-hajimeru">
+          <span id="jigyo" class="anc"></span><span id="tamesu" class="anc"></span>
+          <h2 class="room-h">お店を始めたい方</h2>
+          <a class="act" href="matching.html#mise" data-t="hub_act_mise"><b>登録されたお店を見る</b><span>見るのは0円。全国の店主が登録したお店の一覧です。</span></a>
+          <a class="act" href="tsugite.html#touroku" data-t="hub_act_touroku"><b>条件を登録して、知らせを待つ</b><span>1分・無料。合うお店が出たときにお知らせします。</span></a>
+          <a class="act" href="uriba-kokaido.html" data-t="hub_act_uriba"><b>店を持つ前に、売り場で試す</b><span>旧大津公会堂の前庭で、まず売ってみる。</span></a>
+        </div>
+        <div class="room room-c" id="tsuzukeru" role="tabpanel" aria-labelledby="tab-tsuzukeru">
+          <h2 class="room-h">お金の相談をしたい方</h2>
+          <a class="act" href="hojokin.html" data-t="hub_act_hojokin"><b>補助金を相談する</b><span>着手金0円。料金は、採択されたときだけです。</span></a>
+          <a class="act" href="tsuzukeru.html" data-t="hub_act_keikaku"><b>続けるための計画をつくる</b><span>数字で、無理なく続ける道を確かめます。</span></a>
+          <a class="act" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener" data-t="hub_act_setsubi"><b>設備を買う前に、LINEで一言</b><span>見積もりを見て、いま買うか待つかを一緒に考えます。</span></a>
+        </div>
+      </div>
+      <p class="doors-line">迷ったら、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_door_line">LINEで一言</a>ください。どこから話せばいいか、こちらで整理します。</p>
     </div>
   </section>
 
-  <!-- 退店前承継 -->
-  <section id="shokei" class="dark">
+  <!-- いま登録されているお店 -->
+  <section class="alt" id="ima">
     <div class="w">
-      <p class="kicker">いちばん力を入れていること｜退店前承継</p>
-      <h2 class="sec"><span class="nb">閉める店と、</span><span class="nb">始めたい人を</span><span class="nb">つなぐ。</span></h2>
-      <p class="def"><strong>退店前承継</strong>とは、営業中のお店の内装・厨房設備・什器（造作）を、閉店して壊す前に、同じ場所で開業したい次の店主へ引き継ぐことです。いわゆる居抜き・造作譲渡を、解約を通知する前の営業中から準備します。店主は原状回復の工事費を、次の店主は開業の費用を、抑えられる可能性があります。</p>
-      <div class="dia3" role="img" aria-label="店主の「閉めようかな…」から継ぎ手へ、店主が登録したお店の詳しい情報を、BRIDGE CYCLEが資金を確認した継ぎ手に伝える。どちらもBRIDGE CYCLEが中央で整理し、相手を探し、前に進める">
-        <div class="d3n" style="grid-area:a1"><span>店主</span><b>「閉めようかな…」</b></div>
-        <div class="d3a" style="grid-area:r1" aria-hidden="true"></div>
-        <div class="d3c" style="grid-area:bc"><span>BRIDGE CYCLE</span><b>整理する｜相手を探す｜前に進める</b></div>
-        <div class="d3a" style="grid-area:r2" aria-hidden="true"></div>
-        <div class="d3n d3g" style="grid-area:b1"><span>継ぎ手</span><b>「この店を継ぎたい」</b></div>
-        <div class="d3n d3g d3s" style="grid-area:a2"><span>継ぎ手 <i class="new">NEW</i></span><b>一覧から申し込む</b></div>
-        <div class="d3a d3ag" style="grid-area:r3" aria-hidden="true"></div>
-        <div class="d3a d3ag" style="grid-area:r4" aria-hidden="true"></div>
-        <div class="d3n d3s" style="grid-area:b2"><span>登録したお店の</span><b>店名を伝える</b></div>
-      </div>
-      <p class="ask2">ここから、始める。</p>
-      <div class="pick3">
-        <a href="zousaku.html" data-t="hub_hero_seller"><b>店を譲れるか相談する</b><span>写真を送るだけ。渡せるか無料で確認。</span></a>
-        <a href="tsugite.html" data-t="hub_hero_taker"><b>継げる店を探す</b><span>無料登録で、閉める前の店を先に知る。</span></a>
-        <a class="pn" href="tsugite.html#mise" data-t="hub_hero_nominate"><i class="new">NEW</i><b>登録されたお店の一覧を見る</b><span>まだ閉めると決めていない店も。見るのは0円。</span></a>
-      </div>
-      <a class="kei" href="keisai.html" data-t="hub_keisai"><i class="new">NEW</i><b><span class="nb">店主の方：</span><span class="nb">お店を登録する（無料）</span></b><span>閉める予定がなくても登録できます。30秒の試算で値打ちを知り、その額で登録。店名は一覧に載りません。伝わるのは、同じ額の自己資金を当社が確認した方だけです。</span></a>
-      <div class="self">
-        <p class="self-h">相談の前に、<span class="nb">ひとりで確かめる。</span><small>匿名・入力した内容は送信されません</small></p>
-        <a href="yameru.html" data-t="hub_self_neuchi"><b>店の値打ちを30秒で試算</b><span>続ける・渡す・閉めるの手残りを比べる</span></a>
-        <a href="genjo-kaifuku.html" data-t="hub_self_genjo"><b>原状回復の費用を計算</b><span>業種と広さから、壊す工事代の目安</span></a>
-      </div>
-      <p class="about-link">
-        <a href="taiten-zen-shokei.html">退店前承継とは（しくみ・お金の流れ・進め方）→</a>
-        <a href="gyaku-shimei.html">逆指名承継とは →</a>
-        <span>業種別：<a href="shokei-inshokuten.html">飲食店の承継</a><a href="shokei-biyoshitsu.html">美容室の承継</a><a href="shokei-clinic.html">クリニック・歯科の承継</a></span>
-      </p>
+      <h2 class="sec">いま、登録されているお店</h2>
+      <p class="sec-lead">店主が自分で登録したお店です。店名は載せていません。引き継ぐのは、内装と設備です。<span id="ima-wait"></span></p>
+      <div class="tags3" id="ima-tags" aria-live="polite"></div>
+      <p class="ima-more"><a class="btn2" href="matching.html#mise" data-t="hub_ima_all">お店の一覧を見る</a><a class="btn2 g" href="keisai.html" data-t="hub_ima_reg">お店を登録する（無料）</a></p>
+    </div>
+  </section>
+
+  <!-- しくみ：1枚で -->
+  <section id="shikumi">
+    <div class="w">
+      <h2 class="sec">しくみは、これだけです</h2>
+      <ol class="flow3">
+        <li><b>店主が、お店を登録する</b><span>無料。店名は一覧に載りません。</span></li>
+        <li><b>当社が、始めたい人の資金を確かめる</b><span>お店の希望額以上の自己資金があるかを、オンラインで。</span></li>
+        <li><b>確かめた人にだけ、店名が伝わる</b><span>そのあとは、店主と直接やり取りします。</span></li>
+      </ol>
+      <p class="about-link2"><a href="matching.html">マッチングのくわしい案内</a><a href="taiten-zen-shokei.html">退店前承継とは</a><span>業種別：<a href="shokei-inshokuten.html">飲食店</a><a href="shokei-biyoshitsu.html">美容室</a><a href="shokei-clinic.html">クリニック・歯科</a></span></p>
     </div>
   </section>
 
@@ -403,35 +480,37 @@
     </div>
   </section>
 
-  <!-- 試す・始める・続ける・渡す -->
-  <section class="alt" id="jigyo">
+  <!-- ほかにやっていること -->
+  <section class="alt" id="partner">
     <div class="w">
-      <h2 class="sec"><span class="nb">試す・始める・</span><span class="nb">続ける・渡す。</span><br><span class="nb">どの段階でも、</span><span class="nb">一緒に考えます。</span></h2>
-      <div class="st4">
-        <div class="st" id="tamesu"><span class="sn">1</span><b>試す</b><p>店を持つ前に、小さく売ってみる。</p>
-          <ul><li><a href="uriba-kokaido.html">売り場レンタル</a></li><li><a href="uchino-chef-recruit.html">うちのシェフ</a></li><li><a href="akinai.html">わたしのこれから診断</a></li></ul></div>
-        <div class="st" id="hajimeru"><span class="sn">2</span><b>始める</b><p>閉める前の店を継いで、開業費を抑える。</p>
-          <ul><li><a href="tsugite.html">継ぎ手として登録</a></li><li><a href="tsugite.html#mise">掲載中の店を見る <i class="new">NEW</i></a></li></ul></div>
-        <div class="st" id="tsuzukeru"><span class="sn">3</span><b>続ける</b><p>計画と補助金で、無理なく続ける。</p>
-          <ul><li><a href="tsuzukeru.html">続けるための経営計画</a></li><li><a href="hojokin.html">補助金申請サポート</a></li><li><a href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener">設備投資の相談（LINE）</a></li></ul></div>
-        <div class="st" id="watasu"><span class="sn">4</span><b>渡す</b><p>閉めるときは壊さず、次の人へ。</p>
-          <ul><li><a href="zousaku.html">店を閉める方へ</a></li><li><a href="yameru.html">30秒で店の値打ちを試算</a></li><li><a href="keisai.html">お店を登録する（無料） <i class="new">NEW</i></a></li><li><a href="genjo-kaifuku.html">原状回復の費用を計算</a></li><li><a href="shimekata.html">閉め方の相談</a></li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 連携先の方へ -->
-  <section id="partner">
-    <div class="w">
-      <p class="kicker">PARTNER｜連携先の方へ</p>
-      <h2 class="sec"><span class="nb">大家さん・管理会社・</span><span class="nb">支援機関と、</span><span class="nb">組んで進めます。</span></h2>
-      <p class="sec-lead">閉める店の情報は、退去の予告が出る前に動けるかどうかで結果が変わります。空室期間を短くしたい大家さん・管理会社、地域の創業を増やしたい自治体や金融機関と連携しています。</p>
-      <div class="partners">
-        <a href="partner-fudosan.html"><b>不動産オーナー・管理会社</b><span>退去前の情報連携と空室対策</span></a>
-        <a href="partner-kinyu.html"><b>金融機関</b><span>承継・創業の融資案件の連携</span></a>
-        <a href="partner-jichitai.html"><b>自治体・商工会</b><span>段階型の開業プログラム</span></a>
-        <a href="partner-shien.html"><b>診断士・支援機関</b><span>承継パートナーの募集</span></a>
-        <a href="partners.html"><b>紹介パートナー</b><span>閉店を考える店主のご紹介</span></a>
+      <h2 class="sec">ほかに、やっていること</h2>
+      <div class="hoka">
+        <div>
+          <h3>試してみたい方へ</h3>
+          <ul>
+            <li><a href="uriba-kokaido.html">売り場レンタル</a><span>旧大津公会堂の前庭で、小さく売ってみる</span></li>
+            <li><a href="uchino-chef-recruit.html">うちのシェフ</a><span>料理を、まず喜ばれるところから</span></li>
+            <li><a href="akinai.html">わたしのこれから診断</a><span>何を始めるかの前に、持っているものを整理する</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>閉める・渡すを考える方へ</h3>
+          <ul>
+            <li><a href="genjo-kaifuku.html">原状回復の費用を計算</a><span>業種と広さから、壊す工事代の目安</span></li>
+            <li><a href="shimekata.html">閉め方の相談</a><span>閉めると決めたあとも、ひとりにしない</span></li>
+            <li><a href="gyaku-shimei.html">逆指名承継の決まり</a><span>登録・確認・費用のくわしい説明</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>連携先の方へ</h3>
+          <ul>
+            <li><a href="partner-fudosan.html">不動産オーナー・管理会社</a><span>退去前の情報連携と空室対策</span></li>
+            <li><a href="partner-kinyu.html">金融機関</a><span>承継・創業の融資案件の連携</span></li>
+            <li><a href="partner-jichitai.html">自治体・商工会</a><span>段階型の開業プログラム</span></li>
+            <li><a href="partner-shien.html">診断士・支援機関</a><span>承継パートナーの募集</span></li>
+            <li><a href="partners.html">紹介パートナー</a><span>紹介して、成果に応じてお礼を受け取る</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -550,11 +629,36 @@
 
 <!-- スマホ：最初の画面を過ぎたら出る、下の2つの入口（最後の相談欄では隠す） -->
 <div class="mbar" id="mbar">
-  <a href="yameru.html" data-t="hub_bar_shisan">閉店費用を30秒で試算<small>匿名・送信なし</small></a>
+  <a href="yameru.html" data-t="hub_bar_shisan">店の値打ちを30秒で試算<small>匿名・送信なし</small></a>
   <a class="l" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_bar_line">LINEで相談<small>無料・代表がお返事</small></a>
 </div>
 <script>
   document.querySelectorAll('[data-t]').forEach(function(a){a.addEventListener('click',function(){try{window.bcTrack&&bcTrack(a.dataset.t,{place:'hub',sns:window.bcSns||''})}catch(e){}});});
+  /* のれん：スマホでは、選んだ立場の3つだけを出す */
+  (function(){
+    document.documentElement.classList.add('js');
+    var tabs=[].slice.call(document.querySelectorAll('.nr')), rooms=[].slice.call(document.querySelectorAll('.room'));
+    function pick(id,scroll){tabs.forEach(function(t){t.setAttribute('aria-selected',t.getAttribute('aria-controls')===id?'true':'false');});rooms.forEach(function(r){r.classList.toggle('on',r.id===id);});
+      if(scroll){var d=document.getElementById('doors'); if(d) d.scrollIntoView({block:'start'});}}
+    tabs.forEach(function(t){t.addEventListener('click',function(){var id=t.getAttribute('aria-controls');pick(id,false);
+      if(window.matchMedia('(min-width:861px)').matches){var r=document.getElementById(id);var a=r&&r.querySelector('.act');if(a)a.focus();}});});
+    var map={tenshu:'tenshu',shokei:'tenshu',watasu:'tenshu',hajimeru:'hajimeru',jigyo:'hajimeru',tamesu:'hajimeru',tsuzukeru:'tsuzukeru'};
+    function fromHash(){var h=(location.hash||'').slice(1); if(map[h]) pick(map[h],true);}
+    fromHash(); window.addEventListener('hashchange',fromHash);
+    document.querySelectorAll('a[data-door]').forEach(function(a){a.addEventListener('click',function(){pick(a.dataset.door,false);});});
+  })();
+  /* いま登録されているお店：data/keisai.json から3件 */
+  (function(){
+    var box=document.getElementById('ima-tags'); if(!box) return;
+    var esc=function(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+    fetch('data/keisai.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
+      var all=d.shops||[], real=all.filter(function(s){return !s.sample;}), list=(real.length?real:all).slice(0,3);
+      box.innerHTML=(real.length?'':'<p class="ima-none">いま掲載中のお店はありません。下は、載ったときの見本です。</p>')+list.map(function(s){
+        return '<div class="tg'+(s.sample?' smp':'')+'"><span class="hole" aria-hidden="true"></span><p class="no"><span>'+esc(s.id)+'</span><i>'+(s.sample?'見本':'掲載中')+'</i></p><h3>'+esc(s.type)+'</h3><p class="ar">'+esc(s.area)+'</p><p class="pr"><span>内装・設備の希望額</span><b>'+esc(s.price)+'</b></p></div>';}).join('');
+      var w=d.waiting||{}, el=document.getElementById('ima-wait');
+      if(el&&w.total>0) el.textContent='お店を探している継ぎ手候補は、'+Number(w.total)+'人です'+(w.asof?'（'+w.asof+'時点）':'')+'。';
+    }).catch(function(){box.innerHTML='';});
+  })();
   (function(){
     var bar=document.getElementById('mbar'),hero=document.getElementById('top'),end=document.getElementById('contact');
     if(!bar||!hero||!end||!('IntersectionObserver' in window))return;
