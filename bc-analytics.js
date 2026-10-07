@@ -1,5 +1,5 @@
 /* BRIDGE CYCLE サイト共通の計測（GA4）
- * 送るもの：ページ閲覧、ボタン・リンクの押下、試算ページを使い始めたこと、相談予約の完了、紹介コード（BC-xxx）
+ * 送るもの：ページ閲覧、ボタン・リンクの押下、試算ページを使い始めたこと、フォームを書き始めたこと（書いた内容は送らない）、相談予約の完了、紹介コード（BC-xxx）
  * 送らないもの：試算の入力値や結果、フォームの記入内容、氏名・連絡先
  * BC_ANALYTICS_ID を空文字にすると計測は止まり、外部通信もしません。
  */
@@ -9,7 +9,7 @@
 
   var page = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/,'') || 'index';
   var group =
-    /^(index|yameru|genjo|taiten|check|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite)/.test(page) ? '退店前承継' :
+    /^(index|yameru|genjo|taiten|check|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite|zousaku|keisai|gyaku-shimei|shokei)/.test(page) ? '退店前承継' :
     /^(partner|fudosan)/.test(page) ? 'パートナー' :
     /^(uriba|kokaido|yoyaku|thanks-kokaido|kanryo|bridge-cycle-kokaido)/.test(page) ? '売り場レンタル' :
     /^yomu/.test(page) ? '閉める前に読む' :

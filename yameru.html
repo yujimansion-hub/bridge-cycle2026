@@ -80,6 +80,14 @@ b{color:var(--ai)}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:15px 20px;font-weight:800;font-size:15.5px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
 .btn.shu{background:var(--shu);color:#fff;box-shadow:0 6px 16px rgba(168,56,44,.28)}
 .btn.gh{border:1.5px solid var(--rule2);color:var(--ink2);background:#fff}
+.btn.nv{background:var(--ai);color:#fff;box-shadow:0 6px 16px rgba(27,59,95,.22)}
+.cta .btn{flex-direction:column;gap:3px;text-align:center;border-radius:18px;line-height:1.5}
+.cta .btn small{font-size:12.5px}
+.hoka{margin-top:16px;border-top:1px solid var(--rule)}
+.hoka-h{font-size:12.5px;font-weight:700;color:var(--ink3);margin:12px 0 0;letter-spacing:.06em}
+.ml{position:relative;display:block;padding:12px 22px 12px 0;border-bottom:1px solid var(--rule);font-weight:700;font-size:14.5px;line-height:1.6;color:var(--ink);text-decoration:none}
+.ml::after{content:"›";position:absolute;right:4px;top:11px;color:var(--ink3);font-size:18px}
+.ml small{display:block;font-weight:400;font-size:12.5px;color:var(--ink2)}
 .btn small{font-weight:600;font-size:11.5px;opacity:.85}
 .caut{margin-top:14px;font-size:12px;color:var(--ink2);background:var(--card2);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;line-height:1.75}
 .caut b{color:var(--shu)}
@@ -116,7 +124,7 @@ footer a{color:#C6D6E5}
 @media print{
  @page{size:A4;margin:12mm}
  body{background:#fff!important;padding:0!important;font-size:10pt}
- .nav,.hero,.bar,footer,.keep,.calc,.cta,.asm,.why,section:not(.res){display:none!important}
+ .nav,.hero,.bar,footer,.keep,.calc,.cta,.hoka,.asm,.why,section:not(.res){display:none!important}
  .res{box-shadow:none!important;border:none!important;padding:0!important;margin:0!important}
  .res>h2,.res>.sub{display:none}
  .cmp,.cmp .c,.diff,.big{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -266,11 +274,14 @@ footer a{color:#C6D6E5}
     </div>
     <div class="cta">
       <a class="btn shu" href="zousaku.html#photo" onclick="window.bcTrack&&bcTrack('yameru_photo_cta')">写真を送って、渡せそうか無料で確認する<small>1〜2枚だけでも大丈夫・やめても費用はかかりません</small></a>
-      <a class="btn gh" id="ctaKeisai" href="keisai.html">この値打ちで無料登録して、継ぎ手からの連絡を待つ<small id="ctaKeisaiS">登録0円・店名は載りません・金額はあとで変えられます</small></a>
-      <a class="btn gh" id="ctaLine" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A9%A6%E7%AE%97" target="_blank" rel="noopener">この結果の見方を、LINEで聞く<small>匿名のまま・「試算」と入った状態で開きます・売り込みはしません</small></a>
-      <a class="btn gh" id="ctaSoudan" href="soudan.html">続けるか渡すか、数字で一緒に考える<small>60分・無料・その場で決めなくてよい・誰にも伝えません</small></a>
-      <a class="btn gh" href="https://line.me/R/msg/text/?%E9%96%89%E3%82%81%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AA%E3%82%89%E3%80%81%E3%81%93%E3%82%8C30%E7%A7%92%E3%81%A7%E5%BA%97%E3%81%AE%E5%80%A4%E6%89%93%E3%81%A1%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%8B%E3%82%89%E3%81%97%E3%81%84%E3%82%88%E3%80%82%E5%8C%BF%E5%90%8D%E3%81%A7%E3%80%81%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E6%95%B0%E5%AD%97%E3%81%AF%E3%81%A9%E3%81%93%E3%81%AB%E3%82%82%E9%80%81%E3%82%89%E3%82%8C%E3%81%AA%E3%81%84%E3%81%A3%E3%81%A6%E3%80%82%0Ahttps%3A//www.bridgecycleco.com/yameru.html%3Futm_source%3Dline%26utm_medium%3Dshare%26utm_campaign%3Dsotto" target="_blank" rel="noopener" onclick="window.bcTrack&&bcTrack('sotto_share',{place:'yameru'})">このページを、LINEで知り合いの店主に送る<small>あなたが試算した内容は、相手にも当社にも伝わりません</small></a>
-      <a class="btn gh" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで聞く<small>お電話をご希望の方は、ご都合のよい時間を送ってください。代表・中村からおかけします</small></a>
+      <a class="btn nv" id="ctaKeisai" href="keisai.html">この値打ちで無料登録して、継ぎ手からの連絡を待つ<small id="ctaKeisaiS">登録0円・店名は載りません・金額はあとで変えられます</small></a>
+    </div>
+    <div class="hoka">
+      <p class="hoka-h">ほかの方法</p>
+      <a class="ml" id="ctaLine" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A9%A6%E7%AE%97" target="_blank" rel="noopener">この結果の見方を、LINEで聞く<small>匿名のまま・「試算」と入った状態で開きます・売り込みはしません</small></a>
+      <a class="ml" id="ctaSoudan" href="soudan.html">続けるか渡すか、数字で一緒に考える<small>60分・無料・その場で決めなくてよい・誰にも伝えません</small></a>
+      <a class="ml" href="https://line.me/R/msg/text/?%E9%96%89%E3%82%81%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AA%E3%82%89%E3%80%81%E3%81%93%E3%82%8C30%E7%A7%92%E3%81%A7%E5%BA%97%E3%81%AE%E5%80%A4%E6%89%93%E3%81%A1%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%8B%E3%82%89%E3%81%97%E3%81%84%E3%82%88%E3%80%82%E5%8C%BF%E5%90%8D%E3%81%A7%E3%80%81%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E6%95%B0%E5%AD%97%E3%81%AF%E3%81%A9%E3%81%93%E3%81%AB%E3%82%82%E9%80%81%E3%82%89%E3%82%8C%E3%81%AA%E3%81%84%E3%81%A3%E3%81%A6%E3%80%82%0Ahttps%3A//www.bridgecycleco.com/yameru.html%3Futm_source%3Dline%26utm_medium%3Dshare%26utm_campaign%3Dsotto" target="_blank" rel="noopener" onclick="window.bcTrack&&bcTrack('sotto_share',{place:'yameru'})">このページを、LINEで知り合いの店主に送る<small>あなたが試算した内容は、相手にも当社にも伝わりません</small></a>
+      <a class="ml" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで聞く<small>お電話をご希望の方は、ご都合のよい時間を送ってください。代表・中村からおかけします</small></a>
     </div>
     <div class="caut"><b>盛っていない数字にするために。</b>承継は、継ぎ手が見つかること、貸主が承諾すること、リース会社が名義変更に応じることが前提で、必ず成立するものではありません。造作の価格は当社が査定するのではなく、店主ご自身が決めます。ここで出る譲渡収入は「取得額×経過年数の残存率」の目安で、実際は立地と設備の状態、継ぎ手の業態で上下します。相談ではこの前提を一つずつ確かめます。</div>
 

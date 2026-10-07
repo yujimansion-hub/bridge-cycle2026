@@ -31,6 +31,9 @@ h1{font-family:var(--serif);font-weight:800;font-size:clamp(24px,6vw,42px);line-
 h1 .tape{background:linear-gradient(transparent 66%,rgba(155,207,83,.8) 66%)}
 .lead{font-size:17px;max-width:44em;margin:0 0 10px}
 .kinds{font-size:13.5px;color:var(--ai-2);margin:0 0 22px}
+.machi{max-width:720px;margin:18px auto 0;text-align:left;font-size:15px;background:#fff;border:1px solid var(--rule);border-left:5px solid var(--tape);border-radius:8px;padding:12px 14px}
+.machi b{font-size:18px}
+.machi small{display:block;font-size:13px;color:var(--ai-2)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .go{display:block;border:2px solid var(--ai);box-shadow:4px 4px 0 var(--ai);border-radius:10px;padding:16px 18px;text-decoration:none;background:#fff}
 .go small{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;color:var(--ai-2)}
@@ -114,6 +117,7 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
     <a class="go g" href="yameru.html" data-t="keisai_shisan"><small>まずはここから</small><b>30秒で、値打ちを試算する</b><span>内装・設備にかけた金額と年数から、目安を出します</span></a>
     <a class="go" href="#form" data-t="keisai_form"><small>試算が済んでいる方</small><b>その額で、無料登録する</b><span>店名は一覧に載りません</span></a>
   </div>
+  <p class="machi" id="machi" hidden></p>
 </div></section>
 
 <section class="alt"><div class="w">
@@ -212,6 +216,16 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
       if(sv.tsubo>0&&!document.getElementById('k-size').value)document.getElementById('k-size').value=sv.tsubo+'坪';
     }
   }catch(e){}
+  /* お店を探して登録している方の人数（data/keisai.json の waiting。1人以上のときだけ出す） */
+  try{fetch('data/keisai.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
+    var w=d&&d.waiting,el=document.getElementById('machi'); if(!el||!w||!(w.total>0)) return;
+    var esc=function(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+    var by=(w.by||[]).filter(function(x){return x&&x.n>0;}).map(function(x){return esc(x.type)+' '+Number(x.n)+'人';}).join('・');
+    el.innerHTML='いま、お店を探して登録している方：<b>'+Number(w.total)+'人</b>'+(by?'（'+by+'）':'')+'<small>'+(w.asof?esc(w.asof)+'時点。':'')+'登録したお店が伝わるのは、このうち自己資金を当社が確認した方だけです。</small>';
+    el.hidden=false;
+  }).catch(function(){});}catch(e){}
+  /* 書き始めた人数を数える（何を書いたかは送らない） */
+  var started=false; f.addEventListener('input',function(){ if(started) return; started=true; try{window.bcTrack&&bcTrack('form_start',{form:'keisai'});}catch(e){} });
   f.addEventListener('submit',async function(e){
     e.preventDefault(); msg.style.color='var(--red)';
     var fd=new FormData(f); if(fd.get('_honey')) return;
