@@ -247,6 +247,7 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
       if(sv.tsubo>0&&!document.getElementById('k-size').value)document.getElementById('k-size').value=sv.tsubo+'坪';
     }
   }catch(e){}
+  var moved=false; ['wheel','touchmove','keydown'].forEach(function(ev){window.addEventListener(ev,function(){moved=true;},{passive:true,once:true});});
   /* お店を探して登録している方の人数（data/keisai.json の waiting。1人以上のときだけ出す） */
   try{fetch('data/keisai.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
     var w=d&&d.waiting,el=document.getElementById('machi'); if(!el||!w||!(w.total>0)) return;
@@ -254,6 +255,8 @@ ul.pl{margin:0;padding-left:1.2em}ul.pl li{margin:6px 0}
     var by=(w.by||[]).filter(function(x){return x&&x.n>0;}).map(function(x){return esc(x.type)+' '+Number(x.n)+'人';}).join('・');
     el.innerHTML='いま、お店を探している継ぎ手候補：<b>'+Number(w.total)+'人</b>'+(by?'（'+by+'）':'')+'<small>'+(w.asof?esc(w.asof)+'時点。':'')+(w.note?esc(w.note):'')+'登録したお店が伝わるのは、このうち自己資金を当社が確認した方だけです。</small>';
     el.hidden=false;
+    /* 人数の表示でページが伸びた分、フォームへ飛んできた人の位置を合わせ直す（自分で動かしたあとは触らない） */
+    try{if(location.hash==='#form'&&!moved){var hb=document.documentElement.style.scrollBehavior;document.documentElement.style.scrollBehavior='auto';document.getElementById('form').scrollIntoView();document.documentElement.style.scrollBehavior=hb;}}catch(e){}
   }).catch(function(){});}catch(e){}
   /* ボタンの押下を数える */
   document.querySelectorAll('[data-t]').forEach(function(a){a.addEventListener('click',function(){try{window.bcTrack&&bcTrack(a.dataset.t,{place:'keisai'});}catch(e){}});});
