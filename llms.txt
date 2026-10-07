@@ -29,4 +29,5 @@
 - [飲食店の承継](https://www.bridgecycleco.com/shokei-inshokuten.html): 閉める前に内装・厨房設備を次の店主へ（滋賀・大津・京都）
 - [美容室の承継](https://www.bridgecycleco.com/shokei-biyoshitsu.html): シャンプー台・セット面を次の美容師へ
 - [クリニック・歯科の承継（内装・造作）](https://www.bridgecycleco.com/shokei-clinic.html): 閉院前に次の医師へ。医療機器・法人の譲渡は扱わない
-- [逆指名承継（NEW）](https://www.bridgecycleco.com/gyaku-shimei.html): 売りに出ていない営業中の店に「この店を継ぎたい」を匿名で一度だけ届ける。登録・最初の連絡0円
+- [逆指名承継（NEW）](https://www.bridgecycleco.com/gyaku-shimei.html): 店主が無料で登録したお店の一覧（店名は非掲載）を見て、始めたい人が詳しい情報を申し込む仕組み。店名を伝えるのは、自己資金がお店の希望額以上あることを当社が確認した人だけ。登録・申し込みは0円、伝えられると決まったときに1店3万円（税別）。登録していない店主に当社から連絡することはない
+- [お店の登録（店主の方・無料）](https://www.bridgecycleco.com/keisai.html): 閉める予定がなくても登録できる。30秒の試算で内装・設備の値打ちの目安を知り、その額を希望額として登録。一覧に載るのはエリア・業態・広さ・設備・時期・希望額の目安だけ
