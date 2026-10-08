@@ -311,6 +311,26 @@
     .hero-sub{font-size:17px;margin-top:14px}
   }
 
+
+  /* ─ 1画面目（第1印象）：呼びかけ→金額を主役→渡せれば→ボタン ─ */
+  .call{display:inline-block;margin:0 0 14px;font-size:15px;font-weight:700;color:var(--ai);background:var(--tape);border-radius:3px;padding:3px 12px;letter-spacing:.04em}
+  .anc-l{margin:0;font-size:18px;font-weight:700;color:#e6ebf4}
+  .anc{margin:0;line-height:1.1;font-family:var(--sans);font-weight:800;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .anc b{font-size:clamp(54px,9vw,88px);color:#ffd9d4;letter-spacing:-.01em}
+  .anc span{font-size:clamp(24px,3.6vw,34px);margin-left:4px}
+  .anc-k{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 22px}
+  .anc-k button{font:inherit;font-size:13px;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.6);border-radius:999px;padding:4px 12px;cursor:pointer}
+  .anc-k button[aria-pressed="true"]{background:#fff;color:var(--ai);border-color:#fff;font-weight:700}
+  .hero h1.disp{font-size:clamp(24px,3.4vw,36px);margin:0 0 20px}
+  .hcta{display:inline-block;background:var(--tape);color:var(--ai);text-decoration:none;font-weight:700;font-size:18px;border-radius:6px;padding:14px 22px;line-height:1.4;box-shadow:0 4px 0 var(--tape-d)}
+  .hcta small{display:block;font-weight:400;font-size:12.5px}
+  .hproof{margin:16px 0 0;font-size:12px;color:#c9d2e3}
+  .hsafe{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .hsafe li{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--tape-d);border-radius:4px;padding:10px 14px;font-size:14px;color:var(--ai-2)}
+  .hsafe b{display:block;color:var(--ai);font-size:16px}
+  details.hsrc{border:none;padding:10px 0 0}
+  details.hsrc summary{font-size:14px;color:var(--ai-2)}
+  @media (max-width:800px){.hero .w.hero-in{padding:28px 20px 40px}.hcta{display:block;text-align:center}.hero h1.disp{font-size:22px}}
   /* ─ ヒーロー下：3業種の工事代 ─ */
   .costs{background:var(--paper);border:1.5px solid var(--rule);border-left:6px solid var(--red);border-radius:4px;padding:12px 18px;max-width:32em}
   .costs-h{margin:0 0 4px;font-size:14px;font-weight:700;color:var(--ai-2)}
@@ -352,21 +372,26 @@
   <div class="hero">
     <div class="hero-bg" aria-hidden="true"><div style="background-image:url('https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=900&q=70');background-position:60% 55%"></div><div style="background-image:url('https://images.unsplash.com/photo-1626383126210-15c15e62d9ba?auto=format&fit=crop&w=900&q=70');background-position:center 45%"></div><div style="background-image:url('https://images.unsplash.com/photo-1643916800611-1302e8d27c38?auto=format&fit=crop&w=900&q=70');background-position:center 70%"></div></div>
     <div class="w hero-in">
-      <h1 class="disp"><span class="nb">閉めるお店の内装、</span><br><span class="tape nb">次の人に渡せます。</span></h1>
-      <p class="lead">壊して返す前に、使ってくれる人を探しませんか。<br>片づけのお金が減り、内装に値段がつくこともあります。</p>
+      <p class="call">閉めるか迷っている店主さんへ</p>
+      <p class="anc-l">内装を壊して返すと</p>
+      <p class="anc"><b id="ancv">240〜600</b><span>万円</span></p>
+      <div class="anc-k" role="group" aria-label="業種を選ぶ">
+        <button type="button" data-k="food" aria-pressed="true">居酒屋 30坪</button><button type="button" data-k="beauty" aria-pressed="false">美容室 20坪</button><button type="button" data-k="clinic" aria-pressed="false">クリニック 30坪</button>
+      </div>
+      <h1 class="disp"><span class="nb">次の人に<span class="tape">渡せれば、</span></span><br><span class="nb">この工事がいらなくなることも。</span></h1>
+      <a class="hcta" href="#photo">渡せるか、写真で無料確認<small>写真を送るだけ・閉めると決める前でOK・誰にも伝えません</small></a>
+      <p class="hproof">京都市の原状回復の相場（坪単価×坪数）の目安｜中小企業庁 認定経営革新等支援機関（109825000112）</p>
     </div>
     <span class="credit">写真：Unsplash（イメージ）</span>
   </div>
   <div class="w hero-act">
     <div class="fact-wrap">
-      <div class="costs" id="costs">
-        <p class="costs-h">壊して返すときの工事代の目安（京都市の相場で試算）</p>
-        <div class="crow" data-k="food"><span>居酒屋・ラーメン店<small>30坪</small></span><b>240〜600万円</b></div>
-        <div class="crow" data-k="beauty"><span>美容室<small>20坪</small></span><b>60〜300万円</b></div>
-        <div class="crow" data-k="clinic"><span>クリニック・歯科<small>30坪</small><em class="trial">試験受付中</em></span><b>90〜240万円</b></div>
-      </div>
-      <p class="facts-src">京都市の店舗の原状回復の坪単価（重飲食 坪8〜20万円、美容室・サロン 坪3〜15万円、クリニック 坪3〜8万円）に坪数をかけた目安です。医療機器・美容機器の撤去は別にかかることがあります。実際の費用は建物と契約で変わります。出典：<a href="https://www.mukai-asset.jp/blog/entry-656164/" target="_blank" rel="noopener" style="color:inherit">ムカイ・エンタープライズ「京都市で店舗の原状回復費用はどれくらい？」（2025年7月）</a>。<a href="genjo-kaifuku.html" style="color:inherit">算定の根拠と計算を見る</a></p>
-      <p class="hero-sub">厨房も、シャンプー台も、診察室も。<br>壊す前に、次に使ってくれる人へ。</p>
+      <ul class="hsafe">
+        <li><b>店名は出しません</b>店名を伏せたまま、次の人を探します</li>
+        <li><b>お金を預かりません</b>代金は次の人からあなたへ直接</li>
+        <li><b>専任契約なし</b>他社への相談も自由です</li>
+      </ul>
+      <details class="hsrc"><summary>金額の根拠を見る</summary><p class="facts-src">京都市の店舗の原状回復の坪単価（重飲食 坪8〜20万円、美容室・サロン 坪3〜15万円、クリニック 坪3〜8万円）に坪数をかけた目安です。医療機器・美容機器の撤去は別にかかることがあります。工事がいらなくなるのは、大家さんが内装を残すことを了承し、次の人が見つかった場合です。実際の費用は建物と契約で変わります。出典：<a href="https://www.mukai-asset.jp/blog/entry-656164/" target="_blank" rel="noopener" style="color:inherit">ムカイ・エンタープライズ「京都市で店舗の原状回復費用はどれくらい？」（2025年7月）</a>。<a href="genjo-kaifuku.html" style="color:inherit">算定の根拠と計算を見る</a></p></details>
     </div>
       <form class="quick" action="yameru.html" method="get" id="quick">
         <h2>2問で、閉めるお金を試算</h2>
@@ -744,18 +769,20 @@
     }));
   });
 
-  // 試算で業種を選ぶと、ヒーロー下の工事代の該当行を強調
-  document.querySelectorAll('.opts[data-name="type"] .opt').forEach(btn=>btn.addEventListener('click',()=>{
-    const c=document.getElementById('costs'); c.classList.add('picked');
-    c.querySelectorAll('.crow').forEach(r=>r.classList.toggle('on',r.dataset.k===btn.dataset.v));
-  }));
+  const T=(n,o)=>{try{window.bcTrack&&bcTrack(n,o||{})}catch(e){}};
+  // 1画面目の金額：業種を切り替える（試算フォームで業種を選んでも連動）
+  const ANC={food:'240〜600',beauty:'60〜300',clinic:'90〜240'};
+  const setAnc=k=>{if(!ANC[k])return;document.getElementById('ancv').textContent=ANC[k];
+    document.querySelectorAll('.anc-k button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.k===k)));};
+  document.querySelectorAll('.anc-k button').forEach(b=>b.addEventListener('click',()=>{setAnc(b.dataset.k);T('zousaku_anchor_type',{type:b.dataset.k});}));
+  document.querySelectorAll('.opts[data-name="type"] .opt').forEach(btn=>btn.addEventListener('click',()=>setAnc(btn.dataset.v)));
+  { const k=(new URLSearchParams(location.search).get('type')||'').toLowerCase(); if(ANC[k]) setAnc(k); }
 
   // 計測（サイト共通の bcTrack があるときだけ送る）：試算開始→試算完了→写真CTA→LINE
-  const T=(n,o)=>{try{window.bcTrack&&bcTrack(n,o||{})}catch(e){}};
   let started=false;
   document.querySelectorAll('.quick .opt').forEach(b=>b.addEventListener('click',()=>{if(!started){started=true;T('zousaku_quick_start');}}));
   document.getElementById('quick').addEventListener('submit',()=>T('zousaku_quick_submit',{type:state.type,when:state.when}));
-  document.querySelectorAll('a[href="#photo"]').forEach(a=>a.addEventListener('click',()=>T('zousaku_photo_cta',{place:a.closest('section,.hero-act,.sticky')?.className||''})));
+  document.querySelectorAll('a[href="#photo"]').forEach(a=>a.addEventListener('click',()=>T('zousaku_photo_cta',{place:a.closest('section,.hero,.hero-act,.sticky')?.className||''})));
   document.querySelectorAll('a[href*="line.me"]').forEach(a=>a.addEventListener('click',()=>T('zousaku_line',{photo:a.href.includes('oaMessage')})));
   // 渡せるもの：業種の切り替え
   const segs = document.querySelectorAll('.seg button');
