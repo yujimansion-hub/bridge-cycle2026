@@ -44,15 +44,44 @@ body{{width:1080px;height:1350px;background:#1d2b4f;color:#fff;
 <div class="foot"><b>BRIDGE CYCLE</b><span>{foot}</span></div>
 </body></html>"""
 
+# note の見出し画像（1280x670）用。"size":"wide" で使う
+WIDE = """<!doctype html><html><head><meta charset="utf-8"><style>
+*{{margin:0;padding:0;box-sizing:border-box}}
+body{{width:1280px;height:670px;background:#1d2b4f;color:#fff;
+ font-family:"Noto Sans CJK JP","Noto Sans JP",sans-serif;position:relative;overflow:hidden;text-align:center}}
+.call{{position:absolute;left:0;right:0;top:44px}}
+.call span{{display:inline-block;background:#9bcf53;color:#1d2b4f;font-size:36px;font-weight:900;padding:8px 28px;border-radius:6px}}
+.mid{{position:absolute;left:80px;right:80px;top:140px}}
+.pre{{font-size:40px;font-weight:700}}
+.big{{margin-top:4px;font-weight:900;line-height:1;white-space:nowrap}}
+.big b{{font-size:{bigsize}px;letter-spacing:-.02em}}
+.big span{{font-size:64px;margin-left:6px}}
+.after{{position:absolute;left:80px;right:80px;top:{aftertop}px;font-size:40px;font-weight:700;line-height:1.45}}
+.after em{{font-style:normal;color:#9bcf53}}
+.foot{{position:absolute;left:60px;right:60px;bottom:26px;display:flex;justify-content:space-between;font-size:22px;color:rgba(255,255,255,.75)}}
+.foot b{{color:#fff;font-weight:900;letter-spacing:.12em}}
+</style></head><body>
+<div class="call"><span>{call}</span></div>
+<div class="mid"><div class="pre">{pre}</div><div class="big"><b>{big}</b><span>{unit}</span></div></div>
+<div class="after">{after}</div>
+<div class="foot"><b>BRIDGE CYCLE</b><span>{note}</span></div>
+</body></html>"""
+
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path="/opt/pw-browsers/chromium")
-    pg = b.new_page(viewport={"width": 1080, "height": 1350})
     for x in posts:
+        wide = x.get("size") == "wide"
+        pg = b.new_page(viewport={"width": 1280, "height": 670} if wide else {"width": 1080, "height": 1350})
         n = len(x["big"]) + len(x.get("unit", "")) * 0.5
         bigsize = 250 if n <= 7 else 210 if n <= 9 else 170
-        page = TPL.format(call=x["call"], pre=x["pre"], big=x["big"], unit=x.get("unit", ""),
-                          after=x["after"], foot=x["foot"], note=x.get("note", ""), bigsize=bigsize,
-                          aftertop=330 + 90 + bigsize + 120)
+        if wide:
+            bs = 190
+            page = WIDE.format(call=x["call"], pre=x["pre"], big=x["big"], unit=x.get("unit", ""),
+                               after=x["after"], note=x.get("note", ""), bigsize=bs, aftertop=140 + 56 + bs + 30)
+        else:
+            page = TPL.format(call=x["call"], pre=x["pre"], big=x["big"], unit=x.get("unit", ""),
+                              after=x["after"], foot=x["foot"], note=x.get("note", ""), bigsize=bigsize,
+                              aftertop=330 + 90 + bigsize + 120)
         pg.set_content(page)
         pg.wait_for_timeout(300)
         # 主役が横にはみ出すときは、収まるまで文字を小さくし、下の補足も詰める
@@ -63,4 +92,5 @@ with sync_playwright() as p:
           return g.scrollWidth > m.clientWidth;}""")
         pg.screenshot(path=str(OUT / f"{x['slug']}.jpg"), type="jpeg", quality=90)
         print("ok", x["slug"], "OVERFLOW" if over else "")
+        pg.close()
     b.close()
