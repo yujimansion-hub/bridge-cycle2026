@@ -13,7 +13,7 @@
     /^(partner|fudosan)/.test(page) ? 'パートナー' :
     /^(uriba|kokaido|yoyaku|thanks-kokaido|kanryo|bridge-cycle-kokaido)/.test(page) ? '売り場レンタル' :
     /^yomu/.test(page) ? '閉める前に読む' :
-    /^hojokin/.test(page) ? '補助金' :
+    /^(hojokin|heijitsu|camp)/.test(page) ? '補助金' :
     /^uchino/.test(page) ? 'うちのシェフ' :
     /^kasu/.test(page) ? '空きスペース貸し' :
     /^akinai/.test(page) ? 'わたしのこれから診断' : 'その他';
