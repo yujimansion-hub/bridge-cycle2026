@@ -96,9 +96,8 @@ textarea{width:100%;font:13px/1.5 ui-monospace,Menlo,monospace;border:1.5px soli
 <section><div class="w">
   <h2>3ステップで貼る</h2>
   <div class="step"><h3><span>1</span>紹介コード（お礼を受け取る方だけ）</h3>
-    <p style="margin:0 0 8px;font-size:14.5px">すでにお持ちなら入力してください。お持ちでなければ、ここで発行できます（1分・無料）。お礼が要らない方は、空のままで構いません。</p>
-    <div class="row"><input id="code" maxlength="20" placeholder="例：A-K7Q2M" autocomplete="off"><input id="nm" maxlength="40" placeholder="お名前・屋号（発行するとき）"><button class="btn s" id="gen" type="button">コードを発行</button></div>
-    <p id="genMsg" style="margin:8px 0 0;font-size:14px;display:none"><span class="ok">発行しました。</span> お礼のお支払いのため、<a id="regLine" target="_blank" rel="noopener">LINE</a>か<a id="regMail">メール</a>で、コードとお名前を当社に知らせてください。</p>
+    <p style="margin:0 0 8px;font-size:14.5px">すでにお持ちなら入力してください。お持ちでなければ、<a href="partners.html#join">紹介パートナー制度のページ</a>で発行できます（1分・無料。名前とメールを入れると、そのまま登録が終わり、確認メールが届きます）。お礼が要らない方は、空のままで構いません。</p>
+    <div class="row"><input id="code" maxlength="20" placeholder="例：A-K7Q2M" autocomplete="off"><a class="btn s" href="partners.html#join" data-t="shisan_kit_to_join">コードを発行・登録する</a></div>
   </div>
   <div class="step"><h3><span>2</span>最初に表示する業種</h3>
     <div class="row"><select id="type"><option value="">居酒屋・ラーメンなど（標準）</option><option value="cafe">カフェ・軽飲食</option><option value="beauty">美容室・サロン</option><option value="clinic">クリニック・歯科</option><option value="retail">物販・サービス</option></select></div>
@@ -146,7 +145,7 @@ textarea{width:100%;font:13px/1.5 ui-monospace,Menlo,monospace;border:1.5px soli
   var $=function(s){return document.querySelector(s);};
   var B='https://www.bridgecycleco.com/';
   var clean=function(v){return (v||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20);};
-  try{ $('#code').value=clean(new URLSearchParams(location.search).get('code')||localStorage.getItem('bc_my_code')); $('#nm').value=localStorage.getItem('bc_my_name')||''; }catch(e){}
+  try{ $('#code').value=clean(new URLSearchParams(location.search).get('code')||localStorage.getItem('bc_my_code')); }catch(e){}
   function build(){
     var c=clean($('#code').value), t=$('#type').value;
     var at=(c?' data-ref="'+c+'"':'')+(t?' data-type="'+t+'"':'');
@@ -160,16 +159,7 @@ textarea{width:100%;font:13px/1.5 ui-monospace,Menlo,monospace;border:1.5px soli
   }
   function remount(){build(); if(window.bcShisanMount)window.bcShisanMount();}
   $('#code').addEventListener('change',remount); $('#type').addEventListener('change',remount);
-  $('#gen').addEventListener('click',function(){
-    var c=clean($('#code').value), name=($('#nm').value||'').trim();
-    if(!c){var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='',r=new Uint32Array(5);(window.crypto||window.msCrypto).getRandomValues(r);for(var i=0;i<5;i++)s+=A[r[i]%A.length];c='A-'+s;$('#code').value=c;}
-    try{localStorage.setItem('bc_my_code',c);localStorage.setItem('bc_my_name',name);}catch(e){}
-    var msg='紹介パートナー登録（試算の埋め込み）\nコード：'+c+'\nお名前・屋号：'+name+'\n貼る場所（サイトのURLなど）：';
-    $('#regLine').href='https://line.me/R/oaMessage/%40907kxssd/?'+encodeURIComponent(msg);
-    $('#regMail').href='mailto:info@bridgecycleco.com?subject='+encodeURIComponent('紹介パートナー登録（'+c+'）')+'&body='+encodeURIComponent(msg);
-    $('#genMsg').style.display='block'; try{window.bcTrack&&bcTrack('shisan_kit_code',{})}catch(e){}
-    remount();
-  });
+  try{if(!$('#code').value){var mc=clean(localStorage.getItem('bc_my_code'));if(mc){$('#code').value=mc;remount();}}}catch(e){}
   document.querySelectorAll('[data-c]').forEach(function(b){b.addEventListener('click',function(){var t=$('#'+b.dataset.c);t.select();try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}b.textContent='コピーしました';setTimeout(function(){b.textContent='コピー';},1500);try{window.bcTrack&&bcTrack('shisan_kit_copy',{kind:b.dataset.c})}catch(e){}});});
   build();
 })();
