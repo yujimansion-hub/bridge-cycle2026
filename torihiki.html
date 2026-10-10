@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>取引先の閉店を、次の取引に｜酒販・食品卸・厨房設備・税理士の方へ｜BRIDGE CYCLE</title>
+<meta name="description" content="取引先の飲食店・美容室が閉店を迷ったとき、内装・設備を次の店主へ渡す選択肢を案内できます。案内は匿名30秒の試算を渡すだけ。相談・資金確認・契約はBRIDGE CYCLEが担当します。酒販店・食品卸、厨房機器・店舗設備、税理士・会計事務所の方へ。">
+<link rel="canonical" href="https://www.bridgecycleco.com/torihiki.html">
+<meta property="og:title" content="取引先の閉店を、次の取引に｜BRIDGE CYCLE">
+<meta property="og:description" content="閉める前に、内装・設備を次の人へ渡す選択肢を。取引先への案内は、匿名30秒の試算を渡すだけ。">
+<meta property="og:image" content="https://www.bridgecycleco.com/ogp.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* 1列の読み物。最初に「取引が続く」図、次に業種タブ、流れ、お礼、道具、質問。色・書体はサイト共通 */
+  :root{
+    color-scheme:light;
+    --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+    --ai:#1d2b4f; --ai-2:#4a5674; --paper:#ffffff; --mist:#eef2f7; --rule:#d5dce8;
+    --tape:#9bcf53; --tape-d:#3f6f12; --leaf:#f6fbef; --line:#06c755; --warn:#fff6e5; --warn-d:#7a4b00; --stop:#9a3412;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  [id]{scroll-margin-top:72px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{margin:0;background:var(--paper);color:var(--ai);font-family:var(--sans);font-size:16px;line-height:1.85;-webkit-text-size-adjust:100%}
+  a{color:var(--ai)}
+  :focus-visible{outline:3px solid var(--tape);outline-offset:2px}
+  .w{max-width:920px;margin:0 auto;padding:0 20px}
+  .nb{display:inline-block}
+  .tape{background:linear-gradient(transparent 66%,rgba(155,207,83,.8) 66%);padding:0 2px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--rule)}
+  header .w{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.08em;text-decoration:none;font-size:16px;white-space:nowrap}
+  .brand svg{width:28px;height:28px;flex:none}
+  .brand small{font-weight:400;letter-spacing:0;font-size:12px;color:var(--ai-2)}
+  .gnav{display:flex;gap:18px;align-items:center;font-size:14px}
+  .gnav a{text-decoration:none;white-space:nowrap}
+  .gnav a.cta{background:var(--ai);color:#fff;border-radius:999px;padding:6px 16px;font-weight:700}
+  @media (max-width:760px){.gnav a:not(.cta){display:none}.brand small{display:none}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:8px;font:inherit;font-weight:700;font-size:16px;line-height:1.4;padding:14px 24px;text-decoration:none;cursor:pointer}
+  .btn-tape{background:var(--tape);color:var(--ai)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff;background:transparent}
+  .btn-ai{background:var(--ai);color:#fff}
+  .btn-line{background:var(--line);color:#fff}
+  .btn-out{background:var(--paper);color:var(--ai);border:1.5px solid var(--ai)}
+
+  /* 最初の画面 */
+  .hero{background:var(--ai);color:#fff;padding:48px 0 56px}
+  .hero .who{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--tape);margin:0 0 12px}
+  .hero h1{font-family:var(--serif);font-weight:800;font-feature-settings:"palt";font-size:clamp(26px,5vw,44px);line-height:1.45;margin:0 0 16px;text-wrap:balance}
+  .hero .lead{margin:0;max-width:38em;color:#e6ebf4}
+  .nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:26px 0 0;max-width:620px}
+  .nums div{border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:10px 12px}
+  .nums b{display:block;font-family:var(--serif);font-size:clamp(22px,4vw,30px);line-height:1.3;color:#fff}
+  .nums span{font-size:12.5px;color:#cfd7e6}
+  .promise{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:#e6ebf4}
+  .promise li::before{content:"✓ ";color:var(--tape);font-weight:700}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+  section{padding:56px 0}
+  section.alt{background:var(--mist)}
+  .kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--tape-d);margin:0 0 6px}
+  h2.sec{font-family:var(--serif);font-weight:800;font-feature-settings:"palt";font-size:clamp(22px,3.6vw,30px);line-height:1.5;margin:0 0 16px;text-wrap:balance}
+  .intro{max-width:40em;margin:0 0 22px}
+
+  /* 閉めた場合と渡した場合 */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){.two{grid-template-columns:1fr}}
+  .path{border:1px solid var(--rule);border-radius:12px;padding:18px;background:#fff;min-width:0}
+  .path h3{margin:0 0 10px;font-size:16px}
+  .path ol{margin:0;padding-left:1.3em;font-size:15px}
+  .path ol li{margin:4px 0}
+  .path.close h3{color:var(--stop)}
+  .path.pass{border-color:var(--tape-d);background:var(--leaf)}
+  .path.pass h3{color:var(--tape-d)}
+  .path .end{margin:12px 0 0;font-weight:700;font-size:15px}
+
+  /* 業種タブ */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+  .tabs button{font:inherit;font-size:15px;font-weight:700;border:1.5px solid var(--ai);background:#fff;color:var(--ai);border-radius:999px;padding:7px 16px;cursor:pointer}
+  .tabs button[aria-selected="true"]{background:var(--ai);color:#fff}
+  .panel{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:20px}
+  .panel[hidden]{display:none}
+  .panel h3{font-family:var(--serif);font-size:20px;margin:0 0 6px;line-height:1.5}
+  .panel .sub{margin:0 0 14px;color:var(--ai-2);font-size:15px}
+  .rows{display:grid;gap:12px}
+  .row{display:grid;grid-template-columns:9.5em 1fr;gap:12px;border-top:1px solid var(--rule);padding-top:12px}
+  .row b{font-size:14px;color:var(--tape-d)}
+  .row p{margin:0;font-size:15px}
+  @media (max-width:560px){.row{grid-template-columns:1fr;gap:2px}}
+  .say{background:var(--leaf);border-radius:4px 14px 14px 14px;padding:12px 14px;font-size:14.5px;white-space:pre-wrap;margin:6px 0 0}
+  .panel .more{margin:14px 0 0;font-size:14px}
+  .caveat{font-size:13px;color:var(--ai-2);margin:12px 0 0}
+
+  /* 流れ */
+  .flow{list-style:none;padding:0;margin:0;display:grid;gap:10px;counter-reset:f}
+  .flow li{counter-increment:f;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px}
+  .flow li::before{content:counter(f);width:32px;height:32px;border-radius:50%;background:var(--ai);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .flow b{display:block}
+  .flow span{font-size:14.5px;color:var(--ai-2)}
+  .flow .us{font-size:12px;font-weight:700;color:var(--tape-d);border:1px solid var(--tape-d);border-radius:999px;padding:0 8px;margin-left:6px;white-space:nowrap}
+
+  /* お礼 */
+  .tbl{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-size:13px;color:var(--ai-2);font-weight:500;background:var(--mist)}
+  td.v{white-space:nowrap;font-weight:700}
+  .note{font-size:13.5px;color:var(--ai-2);margin:10px 0 0}
+
+  /* 道具 */
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .tool{display:block;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:16px;text-decoration:none;min-width:0}
+  .tool b{display:block;font-size:16px;margin-bottom:4px}
+  .tool span{font-size:14px;color:var(--ai-2)}
+  .tool:hover{border-color:var(--ai)}
+
+  .dont{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;list-style:none;padding:0;margin:0}
+  @media (max-width:640px){.dont{grid-template-columns:1fr}}
+  .dont li{border-left:3px solid var(--rule);padding-left:12px;font-size:15px}
+  .dont li b{display:block}
+
+  details{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:0 0 10px}
+  summary{font-weight:700;cursor:pointer}
+  details p{margin:8px 0 0;font-size:15px}
+
+  .last{background:var(--ai);color:#fff}
+  .last h2{color:#fff}
+  .last p{color:#e6ebf4}
+  .last a:not(.btn){color:#fff}
+  footer{padding:28px 0 40px;font-size:13px;color:var(--ai-2);border-top:1px solid var(--rule)}
+  footer .disp{display:block;font-family:var(--serif);font-weight:700;color:var(--ai);font-size:15px;margin-bottom:4px}
+  footer nav{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="w">
+    <a class="brand" href="./" aria-label="BRIDGE CYCLE トップ">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2b4f"/><path d="M12 41 Q32 15 52 41" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M20 46 Q32 31 44 46" fill="none" stroke="#9bcf53" stroke-width="4.5" stroke-linecap="round"/></svg>
+      BRIDGE CYCLE<small>取引先の方へ</small></a>
+    <nav class="gnav" aria-label="ページ内">
+      <a href="#gyoshu">業種別</a>
+      <a href="#nagare">流れ</a>
+      <a href="#orei">お礼</a>
+      <a href="#faq">よくある質問</a>
+      <a class="cta" href="partners.html#join" data-t="torihiki_nav_join">紹介コードを発行</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="w">
+      <p class="who">酒販店・食品卸、厨房機器・店舗設備、税理士・会計事務所の方へ</p>
+      <h1><span class="nb">取引先の「閉店」を、</span><span class="nb">次の取引に</span><span class="nb">つなげませんか。</span></h1>
+      <p class="lead">お店を閉める前なら、内装や設備を次にお店をやりたい人へ渡す選択肢があります。あなたがするのは、匿名で30秒の試算を取引先に渡すことだけ。相談、資金の確認、契約の段取りは、BRIDGE CYCLEが担当します。</p>
+      <div class="nums">
+        <div><b>0円</b><span>参加費・月額</span></div>
+        <div><b>2万円</b><span>承継が成立したとき</span></div>
+        <div><b>3,000円</b><span>継ぎ手が情報開示を受けたとき</span></div>
+      </div>
+      <ul class="promise">
+        <li>お客様の情報を、本人の同意なく共有しません</li>
+        <li>ノルマ・営業の義務はありません</li>
+        <li>紹介された方の料金は変わりません</li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn btn-tape" href="partners.html#join" data-t="torihiki_hero_join">紹介コードを発行する（1分・無料）</a>
+        <a class="btn btn-ghost" href="#gyoshu">業種ごとの使い方を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w">
+      <p class="kicker">WHY｜取引先の側から見ると</p>
+      <h2 class="sec"><span class="nb">同じ閉店でも、</span><span class="nb">渡せれば取引の行き先が残ります。</span></h2>
+      <div class="two">
+        <div class="path close">
+          <h3>そのまま閉めた場合</h3>
+          <ol>
+            <li>原状回復の工事で、内装と厨房を壊す</li>
+            <li>店主は工事費を払って退去する</li>
+            <li>場所は空き店舗になる</li>
+          </ol>
+          <p class="end">あなたの取引は、そこで終わります。</p>
+        </div>
+        <div class="path pass">
+          <h3>内装・設備を次の人へ渡した場合</h3>
+          <ol>
+            <li>内装と厨房が、そのまま次の店主に引き継がれる</li>
+            <li>店主は工事費が減り、手元に残るお金が増えることがある</li>
+            <li>同じ場所で、新しい店が開く</li>
+          </ol>
+          <p class="end">あなたには、新しい店主との取引の機会が生まれます。</p>
+        </div>
+      </div>
+      <p class="caveat">承継が成り立つかどうかは、場所・設備・条件によります。新しい店主との取引をお約束するものではありません。</p>
+    </div>
+  </section>
+
+  <section class="alt" id="gyoshu">
+    <div class="w">
+      <p class="kicker">BY TRADE｜業種別</p>
+      <h2 class="sec">あなたの業種では、こう使えます</h2>
+      <div class="tabs" role="tablist" aria-label="業種">
+        <button type="button" role="tab" id="t-sake" aria-controls="p-sake" aria-selected="true">酒販店・食品卸</button>
+        <button type="button" role="tab" id="t-kitchen" aria-controls="p-kitchen" aria-selected="false">厨房機器・店舗設備</button>
+        <button type="button" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false">税理士・会計事務所</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-sake" aria-labelledby="t-sake">
+        <h3>注文の変化に、いちばん早く気づける立場です</h3>
+        <p class="sub">取引先が閉店すると、その分の売上は消えます。次の店主へ引き継がれれば、同じ場所に仕入れの提案先が残ります。</p>
+        <div class="rows">
+          <div class="row"><b>渡すタイミング</b><p>注文や配達の回数が減ってきたとき。店主から「この先どうしよか」と聞いたとき。</p></div>
+          <div class="row"><b>あなたがすること</b><p>配達や集金のついでに「あとでLINEします」と伝え、試算のリンクを1対1で送るだけです。<span class="say">お店を閉めるとき、内装の工事でいくらかかるかが30秒で目安が出ます。名前も店名も入れず、入力した数字はどこにも送られないそうです。知っておくと安心な数字なので、よかったら。</span></p></div>
+          <div class="row"><b>その後</b><p>相談したい店主だけが、自分で当社に連絡します。進み具合は、毎月の件数の報告でお知らせします。</p></div>
+        </div>
+        <p class="more"><a href="hitokoto.html#sake">酒販店・食品卸向けの文面をすべて見る →</a></p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-kitchen" aria-labelledby="t-kitchen" hidden>
+        <h3>閉める店と、始めたい人の両方に会う立場です</h3>
+        <p class="sub">閉める店の機器は、撤去や安い買取で終わりがちです。次の店主へ引き継がれれば設備は使われ続け、点検・修理・追加の購入につながります。開業の相談に来た人には、居抜きで継げる店を案内できます。</p>
+        <div class="rows">
+          <div class="row"><b>渡すタイミング</b><p>撤去や買取の相談を受け、見積りを出す前。初期費用の見積りを見て悩んでいる開業希望者がいるとき。</p></div>
+          <div class="row"><b>あなたがすること</b><p>閉める店主には試算のリンクを、開業希望者には継ぎ手の登録ページ（無料）を送ります。<span class="say">今の厨房をそのまま使いたい方へ引き継げると、撤去や内装の工事がかからないことがあります。比べてから決めていただいて大丈夫です。</span></p></div>
+          <div class="row"><b>その後</b><p>あなたが紹介した継ぎ手が承継までたどり着けば、店主側と同じく1件2万円のお礼の対象です。</p></div>
+        </div>
+        <p class="more"><a href="hitokoto.html#kitchen">厨房機器・リース向けの文面をすべて見る →</a></p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-tax" aria-labelledby="t-tax" hidden>
+        <h3>続けるかどうかの迷いが、決算の数字で最初に見える立場です</h3>
+        <p class="sub">顧問先が閉店を迷ったとき、その場で「閉めたらいくら、渡せたらいくら」を示せます。開業相談のお客様には、初期費用を抑える選択肢として継ぎ手の登録を案内できます。</p>
+        <div class="rows">
+          <div class="row"><b>渡すタイミング</b><p>決算や面談で、今後の話が出たとき。開業計画で内装・設備の費用が重くなっているとき。</p></div>
+          <div class="row"><b>あなたがすること</b><p>面談の当日か翌日に、試算のリンクを送ります。閉める・続ける・渡す、どれを選ぶにしても、先に数字があると判断しやすくなります。</p></div>
+          <div class="row"><b>お礼について</b><p>所属会の規程により、金銭のお礼を受け取れない場合があります。その場合は、お礼なしの連携として、承継が成立した新しい店主の開業時の税務相談先として先生をご紹介することもできます（ご希望の場合）。</p></div>
+        </div>
+        <p class="more"><a href="hitokoto.html#tax">税理士・会計事務所向けの文面をすべて見る →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nagare">
+    <div class="w">
+      <p class="kicker">FLOW｜流れ</p>
+      <h2 class="sec">あなたの手間は、最初の1回だけです</h2>
+      <ol class="flow">
+        <li><div><b>紹介コードを発行する</b><span>名前とメールを入れるだけ。1分・無料で登録が終わり、リンクと文面集がメールで届きます。</span></div></li>
+        <li><div><b>取引先にリンクを渡す</b><span>LINEの1対1のトーク、カウンターに置くカード、名刺の裏のQRなど。グループや人前では渡しません。</span></div></li>
+        <li><div><b>店主が、匿名で試算する</b><span>名前も店名も入れません。入力した数字は、どこにも送られません。</span></div></li>
+        <li><div><b>相談したい人だけが、当社に連絡する<span class="us">ここから当社</span></b><span>資金の確認、相手探し、契約と引き渡しの段取りは当社が担当します。相談の内容は、あなたには伝わりません。</span></div></li>
+        <li><div><b>毎月、件数だけをお知らせします</b><span>リンクが開かれた数、登録や相談の数、お礼が確定した数。店名やお名前は出しません。</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="alt" id="orei">
+    <div class="w">
+      <p class="kicker">REWARD｜お礼</p>
+      <h2 class="sec">お礼は、結果が出たときだけ</h2>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>起きたこと</th><th>お礼</th></tr></thead>
+          <tbody>
+            <tr><td>試算を見てもらった・相談や登録があった</td><td class="v">0円</td></tr>
+            <tr><td>紹介した継ぎ手が、逆指名承継で掲載店の情報開示（3万円）を受けた</td><td class="v">1件 3,000円</td></tr>
+            <tr><td>同じ継ぎ手が、2店目以降の情報開示（1万円）を受けた</td><td class="v">1件 1,000円</td></tr>
+            <tr><td>紹介した店主さん、または継ぎ手の承継が、当社の成約支援で成立した</td><td class="v">1件 20,000円</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">情報開示のお礼をお支払いした案件が成約したときは、差額をお支払いします（1件の承継でのお礼は、合わせて2万円まで）。同じ承継で、店主側と継ぎ手側の紹介元が別の方なら、それぞれにお支払いします。お礼は当社の料金の中からお支払いし、紹介された方の費用は変わりません。月末締め・翌月末払いです。不動産会社（宅建業者）・金融機関の方は、金銭のお礼の扱いが異なります。くわしくは<a href="partners.html#rules">紹介パートナー制度の決まり</a>をご覧ください。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="w">
+      <p class="kicker">TOOLS｜すぐ使える道具</p>
+      <h2 class="sec">渡し方は、相手との関係で選べます</h2>
+      <div class="tools">
+        <a class="tool" href="hitokoto.html" data-t="torihiki_tool_hitokoto"><b>LINEで送る文面集</b><span>業種別・場面別の文面を、コピーして1対1で送れます。</span></a>
+        <a class="tool" href="toritsugi.html" data-t="torihiki_tool_card"><b>カウンターに置くカード</b><span>紹介コード入りのQRつき。A6か名刺サイズで印刷できます。</span></a>
+        <a class="tool" href="shisan-kit.html" data-t="torihiki_tool_embed"><b>自社サイトに試算を貼る</b><span>ホームページやブログ、会報に、試算ツールをそのまま埋め込めます。</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="w">
+      <p class="kicker">PROMISE｜当社がしないこと</p>
+      <h2 class="sec">あなたと取引先の関係を、崩しません</h2>
+      <ul class="dont">
+        <li><b>店主に営業の電話をしません</b>連絡は、相談したい店主から来たときだけです。</li>
+        <li><b>相談の内容を、紹介元に伝えません</b>毎月の報告は件数だけです。</li>
+        <li><b>閉店を勧めません</b>試算は、閉める・続ける・渡すを比べる材料です。続けると決めるための材料にもなります。</li>
+        <li><b>結果を約束しません</b>「必ず売れる」「高く売れる」とは言いません。試算は目安です。</li>
+      </ul>
+      <p class="note">紹介料をお支払いすることは、中小M&Aガイドラインに沿って、当社から依頼者（店主さん・次の店主）にもお伝えします。</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="w">
+      <p class="kicker">FAQ｜よくある質問</p>
+      <h2 class="sec">よくある質問</h2>
+      <details><summary>取引先に、閉店を勧めることになりませんか？</summary><p>なりません。試算は、閉めた場合の費用の目安と、渡せた場合の違いを知るためのものです。数字を見たうえで、続けると決めることもできます。お渡しするときも「この先のこと」「もしものとき」の材料として渡してください。</p></details>
+      <details><summary>紹介したことは、取引先に伝わりますか？</summary><p>リンクを渡したのがあなたであることは、取引先にも分かります。一方、取引先が当社に相談したかどうか、何を相談したかは、あなたには伝わりません。</p></details>
+      <details><summary>どの地域のお店が対象ですか？</summary><p>成約まで当社が支援するのは、滋賀・京都を中心とした地域です。飲食店のほか、美容室、クリニック・歯科の内装・設備も扱います。</p></details>
+      <details><summary>紹介した店主の承継が、なかなか決まらない場合は？</summary><p>承継には数か月かかることがあります。紹介を数える期間は、リンクを開いてから180日以内の相談・登録が対象です。くわしくは紹介パートナー制度の決まりをご覧ください。</p></details>
+      <details><summary>やめたいときは？</summary><p>リンクを外していただくだけで終わりです。それまでに確定したお礼はお支払いします。</p></details>
+    </div>
+  </section>
+
+  <section class="last">
+    <div class="w">
+      <h2 class="sec"><span class="nb">まずは、いちばん気になる</span><span class="nb">取引先1軒から。</span></h2>
+      <p>発行は1分・無料です。分からないことは、LINEで一言どうぞ。代表の中村がお返事します。</p>
+      <div class="hero-cta">
+        <a class="btn btn-tape" href="partners.html#join" data-t="torihiki_last_join">紹介コードを発行する</a>
+        <a class="btn btn-line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで質問する</a>
+      </div>
+      <p style="margin-top:16px;font-size:14px">お問い合わせ：BRIDGE CYCLE株式会社　中村裕二｜<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="w">
+    <span class="disp">店じまいを、まちのはじまりに。</span>
+    BRIDGE CYCLE株式会社｜滋賀県大津市におの浜2-1-28｜国の認定経営革新等支援機関
+    <nav aria-label="フッター">
+      <a href="./">トップ</a><a href="partners.html">紹介パートナー制度</a><a href="hitokoto.html">LINEで送る文面集</a><a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="partner-fudosan.html">不動産会社の方へ</a><a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function pick(id){tabs.forEach(function(t){var on=t.id==='t-'+id;t.setAttribute('aria-selected',on);document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(t){t.addEventListener('click',function(){var id=t.id.slice(2);pick(id);try{history.replaceState(null,'','#'+id);}catch(e){}window.bcTrack&&bcTrack('torihiki_tab',{trade:id});});});
+  var h=(location.hash||'').slice(1); if(['sake','kitchen','tax'].indexOf(h)>=0){pick(h);}
+  document.querySelectorAll('[data-t]').forEach(function(a){a.addEventListener('click',function(){window.bcTrack&&bcTrack(a.dataset.t);});});
+})();
+</script>
+<script src="bc-analytics.js"></script>
+</body>
+</html>
