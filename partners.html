@@ -80,6 +80,15 @@
   .rw .mo{margin-top:auto;padding-top:10px;font-size:13.5px;font-weight:700}
   .rw .mo::after{content:" ↓";color:var(--tape-d)}
   .rw-note{margin:16px 0 0;font-size:13.5px;color:var(--ai-2)}
+  .tbl.hg{width:100%;border-collapse:collapse;font-size:15px;line-height:1.7}
+  .tbl.hg th,.tbl.hg td{border-bottom:1px solid rgba(29,43,79,.12);padding:12px 10px;text-align:left;vertical-align:top}
+  .tbl.hg th{white-space:nowrap;width:10em;color:var(--ai)}
+  @media(max-width:560px){.tbl.hg th,.tbl.hg td{display:block;width:auto;padding:6px 0}.tbl.hg th{padding-top:14px;border:0}}
+  .first1{margin:14px 0 18px;background:#fff;border:2px solid var(--tape,#9bcf53);border-radius:12px;padding:16px 18px}
+  .first1 b{display:block;margin-bottom:6px;color:var(--ai)}
+  .first1 textarea{width:100%;min-height:190px;font:inherit;font-size:14.5px;line-height:1.7;border:1px solid rgba(29,43,79,.2);border-radius:8px;padding:10px;box-sizing:border-box}
+  .first1 .r{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px;font-size:13.5px}
+  .first1 button{font:inherit;font-weight:700;background:var(--ai);color:#fff;border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
   @media (max-width:760px){.hero{padding:40px 0 84px}.rw3{grid-template-columns:1fr;gap:14px}}
 
   section{padding:64px 0}
@@ -224,6 +233,23 @@
     <p class="rw-note">不動産会社（宅建業者）・士業・金融機関の方は、お礼の扱いが異なります。<a href="#senmon">こちらをご確認ください</a>。</p>
   </div>
 
+  <!-- 本業とのつながり -->
+  <section id="hongyo" style="padding-top:8px">
+    <div class="w">
+      <p class="kicker">WHY｜お礼より先に</p>
+      <h2 class="sec"><span class="nb">紹介すると、あなたの本業にも、</span><span class="nb">つながりが残ります。</span></h2>
+      <p>承継には数か月かかります。お礼だけを目当てに続けるのは大変です。お店が次の人へ渡ると、あなたの側にはこんな接点が残ります。</p>
+      <div class="tblw"><table class="tbl hg">
+        <tr><th>酒販店・食品卸</th><td>同じ場所で、新しい店主との取引の機会が生まれる</td></tr>
+        <tr><th>厨房機器・店舗設備</th><td>引き継いだ設備の点検・修理・入れ替えの相談につながることがある</td></tr>
+        <tr><th>税理士・会計事務所</th><td>顧問先に「閉める・続ける・渡す」を数字で示せる。新しい店主の開業相談の窓口にもなれる</td></tr>
+        <tr><th>不動産・管理会社</th><td>空室の期間や、退去・原状回復の調整の負担が減ることがある（金銭のお礼はありません）</td></tr>
+        <tr><th>商店街・商工団体</th><td>通りの店と商いを残すための、相談先を会員に案内できる</td></tr>
+      </table></div>
+      <p class="rw-note">いずれも、承継が成り立った場合に生まれうる接点で、取引や成果をお約束するものではありません。業種ごとの使い方は <a href="torihiki.html">取引先の方向けの説明</a> をご覧ください。</p>
+    </div>
+  </section>
+
   <!-- 手順 -->
   <section>
     <div class="w">
@@ -253,6 +279,12 @@
         <div class="mycode" id="mycode">
           <div class="cl">あなたの紹介コード</div>
           <div class="c" id="codeOut"></div>
+          <div class="first1" id="first1" hidden><b id="first1T">まず、この1通を送ってください</b>
+            <p style="margin:0 0 8px;font-size:13.5px" id="first1S"></p>
+            <textarea id="first1X" readonly aria-label="最初に送る文面"></textarea>
+            <div class="r"><button type="button" id="first1C">文面をコピー</button><span id="first1D" hidden>コピーしました</span><a id="first1M" href="hitokoto.html">ほかの場面の文面を見る →</a></div>
+            <p style="margin:8px 0 0;font-size:12.5px;opacity:.8">LINEなどの1対1のトークで送ってください。最後の一文は、お礼を受け取る紹介であることを伝える表示です（消さずにお送りください）。</p>
+          </div>
           <p>このコード入りのリンクです。どれか1つ、置きやすいところへどうぞ。SNSのボタンからは、「PR」の表示が入った紹介文をそのまま投稿できます。</p>
           <div class="lk">
             <div><label for="l1">退店前承継（閉店費用の30秒試算）</label><div class="cp"><input id="l1" readonly><button data-c="l1">コピー</button></div>
@@ -441,13 +473,32 @@
     $('#kitHitokoto').href='hitokoto.html?ref='+code;
     $('#kitUriba').href='uriba-kit.html?ref='+code;
     $('#kitShutten').href='shutten-kit.html?ref='+code;
+    first1();
     var msg='紹介パートナー登録\nコード：'+code+'\nお名前・屋号：'+(name||'')+'\n紹介する場所（サイト・SNS・教室など）：\n紹介したいサービス：退店前承継／売り場レンタル／これから診断';
     $('#regLine').href='https://line.me/R/oaMessage/%40907kxssd/?'+encodeURIComponent(msg);
     $('#regMail').href='mailto:info@bridgecycleco.com?subject='+encodeURIComponent('紹介パートナー登録（'+code+'）')+'&body='+encodeURIComponent(msg);
     setBar();
   }
+  var FIRST={"sake": ["酒販店・食品卸", "注文が減ってきた取引先に。配達や集金のついでに「あとでLINEします」と添えると自然です。", "〇〇さん、いつもありがとうございます。\n取引先さんの間で話に出ていた試算があったので、共有させてください。\n\nお店を閉めるとき、内装の工事でいくらかかるかが、業種と広さを入れるだけで30秒で目安が出ます。名前も店名も入れず、入力した数字はどこにも送られないそうです。\n\nすぐにどうこうという話ではありません。知っておくと安心な数字なので、よかったら。\n{L}"], "kitchen": ["厨房機器・店舗設備", "撤去・買取の相談を受けたとき、見積りを出す前に。", "〇〇さん、撤去のご相談ありがとうございます。お見積りの前に一つだけお伝えさせてください。\n\n今の厨房をそのまま使いたい方へ引き継げると、撤去や内装の工事がかからないことがあります。閉めた場合にいくらかかるかは、こちらで30秒、匿名で目安が出ます。\n\n比べてから決めていただいて大丈夫です。\n{L}"], "tax": ["税理士・会計事務所", "決算や面談で今後の話が出た、当日か翌日に。", "〇〇様\n先日はありがとうございました。お話に出ていた今後のお店のことで、参考になりそうなページをお送りします。\n\n閉店した場合の内装工事などの費用の目安が、業種と広さから30秒で出ます。匿名で、入力した内容はどこにも送信されません。\n\n閉める、続ける、次の方に引き継ぐ。どれを選ぶにしても、先に数字があると判断しやすくなります。\n{L}"], "estate": ["不動産・管理会社", "退去の連絡を受けたとき、原状回復の手配より前に。", "〇〇様\nご連絡ありがとうございます。原状回復の段取りに入る前に、一点ご案内です。\n\n内装や設備を次に入る方へ引き継げた場合、原状回復の工事がいらなくなることがあります（貸主の承諾が前提です）。閉める場合の費用の目安は、こちらで匿名で確認できます。\n{L}"], "peer": ["商店街・店主仲間", "店主仲間に、同じ店主としての距離感で。", "これ、知り合いから教えてもらったんやけど、店閉めたらいくらかかるか30秒でわかるらしい。\n名前も入れんでええし、どこにも送られへんって。\n\n知っとくだけでも気が楽かなと思って。\n{L}"]};
+  var GYMAP={'酒販店・食品卸':'sake','厨房機器・店舗設備':'kitchen','税理士・会計事務所':'tax','不動産・管理会社':'estate','商店街・商工団体':'peer','飲食店・美容室の店主':'peer'};
+  var FPR='\n\n※私はBRIDGE CYCLEの紹介制度に登録しています。お店の引き継ぎが成立したときだけ、私にお礼が出ます。〇〇さんの費用が増えることはありません。';
+  function first1(){
+    var gy='';try{gy=localStorage.getItem('bc_my_gy')||'';}catch(e){}
+    var k=GYMAP[gy], box=$('#first1'); if(!box) return;
+    if(!k||!code){box.hidden=true;return;}
+    var f=FIRST[k], L=links(code), txt=f[2].replace('{L}',L.l1);
+    if(k!=='estate') txt+=FPR;
+    $('#first1T').textContent='まず、この1通を送ってください（'+f[0]+'向け）';
+    $('#first1S').textContent=f[1];
+    $('#first1X').value=txt;
+    $('#first1M').href='hitokoto.html?ref='+code+'#'+k;
+    box.hidden=false;
+  }
   function regState(done){$('#regDone').hidden=!done;$('#regAsk').hidden=done;$('#regBtns').style.display=done?'none':'';}
   try{regState(localStorage.getItem('bc_my_reg')==='1');}catch(e){}
+  $('#first1C').addEventListener('click',function(){var x=$('#first1X'),d=$('#first1D');
+    function ok(){d.hidden=false;window.bcTrack&&bcTrack('partner_first_copy',{partner:code});}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(x.value).then(ok,function(){x.select();try{document.execCommand('copy');ok();}catch(e){}});}else{x.select();try{document.execCommand('copy');ok();}catch(e){}}});
   $('#genBtn').addEventListener('click',function(){
     name=($('#nm').value||'').trim();
     var em=($('#em').value||'').trim(), gy=$('#gy').value, err=$('#genErr');
@@ -463,7 +514,7 @@
       for(var i=0;i<5;i++) s+=A[r[i]%A.length];
       code='A-'+s;
     }
-    try{localStorage.setItem('bc_my_code',code);localStorage.setItem('bc_my_name',name);}catch(e){}
+    try{localStorage.setItem('bc_my_code',code);localStorage.setItem('bc_my_name',name);if(gy)localStorage.setItem('bc_my_gy',gy);}catch(e){}
     window.bcTrack&&bcTrack('partner_code_issue',{partner:code});
     show(); $('#mycode').scrollIntoView({behavior:'smooth',block:'center'});
     if(fresh) register(em,gy);
