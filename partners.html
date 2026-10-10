@@ -217,7 +217,7 @@
   <!-- お礼の早見 -->
   <div class="w" id="orei">
     <div class="rw3">
-      <a class="rw" href="#svc-taiten"><span class="sv">退店前承継（閉店費用の30秒試算）</span><span class="am"><small>1件</small>20,000円</span><span class="cd">紹介した方の店舗の承継（引き継ぎ）が成立したとき</span><span class="mo">くわしく</span></a>
+      <a class="rw" href="#svc-taiten"><span class="sv">退店前承継（閉店費用の30秒試算）</span><span class="am"><small>1件</small>20,000円</span><span class="cd">紹介した店主さん、または紹介した継ぎ手（これから始める方）の承継が成立したとき</span><span class="mo">くわしく</span></a>
       <a class="rw" href="#svc-uriba"><span class="sv">旧大津公会堂 売り場レンタル</span><span class="am">出店料の20%</span><span class="cd">紹介した方の、最初の出店日から90日間の出店料に対して</span><span class="mo">くわしく</span></a>
       <a class="rw" href="#svc-korekara"><span class="sv">わたしのこれから診断</span><span class="am"><small>1件</small>1,000円</span><span class="cd">紹介した方が有料の3案レポート（3,300円）を購入したとき</span><span class="mo">くわしく</span></a>
     </div>
@@ -256,6 +256,8 @@
               <div class="sh" data-sh="l2" data-text="【PR】「一度、売ってみたい」方へ。浜大津の旧大津公会堂の前庭に、半日から出店できる売り場があります（飲食テイクアウト向け・営業許可などが必要）。">SNSで紹介：<a data-sns="threads" target="_blank" rel="noopener">Threads</a><a data-sns="x" target="_blank" rel="noopener">X</a><a data-sns="line" target="_blank" rel="noopener">LINE</a></div></div>
             <div><label for="l3">わたしのこれから診断</label><div class="cp"><input id="l3" readonly><button data-c="l3">コピー</button></div>
               <div class="sh" data-sh="l3" data-text="【PR】9問・3分・無料の「わたしのこれから診断」。これからの自分を、一文にしてくれます。">SNSで紹介：<a data-sns="threads" target="_blank" rel="noopener">Threads</a><a data-sns="x" target="_blank" rel="noopener">X</a><a data-sns="line" target="_blank" rel="noopener">LINE</a></div></div>
+            <div><label for="l4">退店前承継（これから開業する方へ・継ぎ手の登録）</label><div class="cp"><input id="l4" readonly><button data-c="l4">コピー</button></div>
+              <div class="sh" data-sh="l4" data-text="【PR】お店をゼロから作ると、内装と設備だけで数百万円かかることも。閉める予定のお店の内装・設備を引き継いで始める方法があります（登録無料）。">SNSで紹介：<a data-sns="threads" target="_blank" rel="noopener">Threads</a><a data-sns="x" target="_blank" rel="noopener">X</a><a data-sns="line" target="_blank" rel="noopener">LINE</a></div></div>
           </div>
           <div class="regbox">
             <p><b>最後に、登録のご連絡をお願いします。</b>お礼をお支払いするために、コードとお名前を当社に知らせてください（振込先は、お礼が発生したときに伺います）。</p>
@@ -276,8 +278,9 @@
           <h3>退店前承継（閉店費用の30秒試算）</h3>
           <p class="who">閉店や譲渡を考えている飲食店の店主さん、または居抜きで開業したい人に</p>
           <table>
-            <tr><th>紹介するもの</th><td>業種と広さだけで、閉店時の原状回復費を30秒で試算する無料のツール。匿名・登録不要。<a href="shisan-kit.html">サイトに埋め込めます</a></td></tr>
-            <tr><th>成果</th><td>紹介した方の店舗の承継（引き継ぎ）が成立し、当社が成約時の料金を受け取ったとき</td></tr>
+            <tr><th>紹介するもの</th><td>店主さんへは、業種と広さだけで閉店時の原状回復費を30秒で試算する無料のツール（匿名・登録不要。<a href="shisan-kit.html">サイトに埋め込めます</a>）。これから開業する方へは、閉める予定のお店の内装・設備を引き継いで始められる<a href="tsugite.html">継ぎ手の登録ページ</a>（登録無料）</td></tr>
+            <tr><th>成果</th><td>紹介した店主さんのお店、または紹介した継ぎ手の承継（内装・設備の引き継ぎ）が成立し、当社が成約時の料金を受け取ったとき。試算を見た・相談や登録があった段階では発生しません</td></tr>
+            <tr><th>紹介元が2人のとき</th><td>同じ承継で、店主さん側と継ぎ手側の紹介元が別の方の場合は、それぞれに1件20,000円をお支払いします</td></tr>
             <tr><th>お礼</th><td><b class="rwv" data-rw="taiten">1件 20,000円</b><small>当社の料金の中からお支払いします。店主さん・継ぎ手の費用は変わりません</small></td></tr>
             <tr><th>向いている方</th><td>税理士・会計事務所、厨房設備・食品卸、飲食店コンサル、商店街、飲食店向けのブログ・SNS</td></tr>
           </table>
@@ -399,7 +402,8 @@
     return {
       l1:B+'shisan.html?ref='+c+u+'&utm_campaign=shisan_general&utm_content='+c,
       l2:B+'uriba-kokaido.html?ref='+c+u+'&utm_campaign=uriba_general&utm_content='+c,
-      l3:B+'akinai.html?ref='+c+u+'&utm_campaign=korekara_general&utm_content='+c
+      l3:B+'akinai.html?ref='+c+u+'&utm_campaign=korekara_general&utm_content='+c,
+      l4:B+'tsugite.html?ref='+c+u+'&utm_campaign=tsugite_general&utm_content='+c
     };
   }
   function embed(c){
@@ -420,7 +424,7 @@
     if(!code) return;
     if(name) $('#nm').value=name;
     $('#mycode').style.display='block'; $('#codeOut').textContent=code; $('#genBtn').textContent='発行済み';
-    var L=links(code); ['l1','l2','l3'].forEach(function(k){$('#'+k).value=L[k];});
+    var L=links(code); ['l1','l2','l3','l4'].forEach(function(k){$('#'+k).value=L[k];});
     document.querySelectorAll('[data-sh]').forEach(function(box){
       var url=L[box.dataset.sh], text=box.dataset.text;
       box.querySelectorAll('a[data-sns]').forEach(function(a){a.href=share(a.dataset.sns,text,url);});
