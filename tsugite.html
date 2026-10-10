@@ -514,19 +514,21 @@
 
   <div class="w">
     <div class="fork">
-      <p class="fork-q">登録のしかたを選んでください</p>
+      <p class="fork-q">どちらから始めますか</p>
       <div class="fork-in">
         <a class="fk" href="#touroku" onclick="window.bcTrack&&bcTrack('tsugite_fork',{to:'jouken'})">
-          <span class="fk-k">通常承継｜いい店を探したい</span>
-          <b>条件に合う店を、<br>紹介してほしい</b>
-          <span>業種・エリア・時期を登録すると、閉める前の店が出たときにご案内します。</span>
+          <span class="fk-k">希望に合う店が出たら、教えてほしい（通常承継）</span>
+          <b>条件を登録して、<br>合う店の紹介を待つ</b>
+          <span>業種・エリア・時期を登録すると、閉める前の店が出たときにご案内します。登録は0円です。</span>
+          <span><b style="display:inline;font-size:inherit">当社が間に入って進めます。</b>店主との調整、事業計画・資金計画、融資の申し込み、契約と引き渡しまで支援します（成約したときだけ料金）。</span>
           <em>条件で登録する</em>
         </a>
         <a class="fk fk-n" href="#mise" onclick="window.bcTrack&&bcTrack('tsugite_fork',{to:'offer'})">
-          <span class="fk-k">NEW｜逆指名承継｜掲載中の店を見る</span>
+          <span class="fk-k">いま掲載中の店から探したい（逆指名承継）</span>
           <b>登録されたお店の、<br>一覧を見る</b>
           <strong class="fk-s">見るのは0円です。</strong>
-          <span>気になるお店は、店名などの詳しい情報を申し込めます。</span>
+          <span>気になるお店は、店名などの詳しい情報を申し込めます（お伝えできると決まったら3万円）。</span>
+          <span><b style="display:inline;font-size:inherit">情報をお伝えしたあとは、店主と直接やり取りします。</b>成約まで当社の支援を受けたいときは、あとから申し込めます。</span>
           <em>掲載中の店を見る</em>
         </a>
       </div>
@@ -556,7 +558,7 @@
       <h2 class="sec">登録されているお店</h2>
       <p class="sec-lead">全国の店主が、自分で登録したお店です。まだ閉めると決めていないお店もあります。店名は載せていません。気になるお店があれば、店名・場所・写真などの詳しい情報を申し込めます。</p>
       <div class="mise" id="mise-list" aria-live="polite"><p class="fine">読み込んでいます…</p></div>
-      <p class="fine" style="margin-top:14px">引き継ぐのは内装と設備です。詳しい情報は、自己資金がそのお店の希望額以上あることを当社が確認できた方に、1店につき3万円（税別）でお伝えします。お支払いは、お伝えできると決まってからです。家賃などの賃貸の条件は、貸主・管理会社にご確認ください。当社は賃貸借の仲介をしません。</p>
+      <p class="fine" style="margin-top:14px">引き継ぐのは内装と設備です。詳しい情報は、自己資金がそのお店の希望額以上あることを当社が確認できた方に、1店につき3万円（税別）でお伝えします。お支払いは、お伝えできると決まってからです。この確認は情報をお伝えするための最低条件で、保証金・改装・運転資金を含む開業資金の計画が足りていることを保証するものではありません。一覧の「今の家賃」は店主が登録した現在の目安で、次の方の家賃などの賃貸の条件は、貸主・管理会社にご確認ください。当社は賃貸借の仲介をしません。</p>
       <p class="mise-owner">お店を載せたい店主の方は、<a href="keisai.html" onclick="window.bcTrack&&bcTrack('tsugite_owner_keisai')">こちらから登録できます（無料）</a>。店名は載りません。</p>
     </div>
   </section>
@@ -848,7 +850,7 @@
       const box=document.getElementById('mise-list'), sel=document.getElementById('of-shop'); if(!box) return;
       const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
       const row=(k,v)=>v?'<dt>'+k+'</dt><dd>'+esc(v)+'</dd>':'';
-      const card=s=>'<div class="mcard'+(s.sample?' smp':'')+'"><span class="mk"><i>'+(s.sample?'見本':'掲載中')+'</i>'+esc(s.id)+'</span><b>'+esc(s.type)+'</b><dl>'+row('エリア',s.area)+row('広さ',s.size)+row('設備',s.equip)+row('時期',s.when)+row('希望額',s.price)+'</dl>'+(s.sample?'<span class="mbtn">見本です（申し込みはできません）</span>':'<a class="mbtn" href="#shimei" data-shop="'+esc(s.id)+'">詳しい情報を申し込む</a>')+'</div>';
+      const card=s=>'<div class="mcard'+(s.sample?' smp':'')+'"><span class="mk"><i>'+(s.sample?'見本':'掲載中')+'</i>'+esc(s.id)+'</span><b>'+esc(s.type)+'</b><dl>'+row('エリア',s.area)+row('広さ',s.size)+row('設備',s.equip)+row('設備の古さ',s.age)+row('今の家賃',s.rent)+row('時期',s.when)+row('希望額',s.price)+'</dl>'+(s.sample?'<span class="mbtn">見本です（申し込みはできません）</span>':'<a class="mbtn" href="#shimei" data-shop="'+esc(s.id)+'">詳しい情報を申し込む</a>')+'</div>';
       fetch('data/keisai.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
         const all=d.shops||[], real=all.filter(s=>!s.sample), smp=all.filter(s=>s.sample);
         box.innerHTML=(real.length?'':'<p class="mise-none"><b>いま掲載中のお店はありません。</b>条件を登録しておくと、合うお店が掲載されたときにお知らせします。<a href="#touroku">条件を登録する（無料・1分）</a><span class="mise-smp">下は、掲載されたときの見本です。</span></p>')+(real.length?real:smp).map(card).join('');
