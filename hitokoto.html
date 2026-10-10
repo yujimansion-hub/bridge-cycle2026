@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LINEで送る、ひとこと紹介（文面集）｜BRIDGE CYCLE</title>
+<meta name="description" content="酒販店・食品卸、厨房機器・リース、税理士、不動産管理、店主仲間の方が、閉めるか迷っているお店の方やこれから開業する方へ、1対1のLINEでそのまま送れる紹介文面集です。紹介コードを入れると、承継成立時に1件2万円のお礼。">
+<link rel="canonical" href="https://www.bridgecycleco.com/hitokoto.html">
+<meta property="og:title" content="LINEで送る、ひとこと紹介｜BRIDGE CYCLE">
+<meta property="og:description" content="取引先のお店の方へ、LINEでそのまま送れる紹介文面集。匿名・30秒の閉店費用試算と、継ぎ手の登録へ。">
+<meta property="og:image" content="https://www.bridgecycleco.com/ogp.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 一列の読み物＋道具：上に設定、業種タブ、場面ごとの文面カード。藍＋若草の自社色、文面はトークの吹き出し */
+:root{
+  --bg:#f3f5f8; --panel:#ffffff; --fg:#1d2b4f; --muted:#56627f; --rule:#d8deea;
+  --ai:#1d2b4f; --accent:#3f6f12; --accent-soft:#e8f2da; --bubble:#eef5e4; --bubble-fg:#1f2a14; --warn:#9a3412; --warn-soft:#fdf0e6;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10161f; --panel:#18202d; --fg:#e6ebf4; --muted:#9ba7bf; --rule:#2a3446;
+  --ai:#c9d6ef; --accent:#a3d468; --accent-soft:#223018; --bubble:#1f2a1a; --bubble-fg:#e3edd6; --warn:#f0a875; --warn-soft:#2c1f15; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10161f; --panel:#18202d; --fg:#e6ebf4; --muted:#9ba7bf; --rule:#2a3446;
+  --ai:#c9d6ef; --accent:#a3d468; --accent-soft:#223018; --bubble:#1f2a1a; --bubble-fg:#e3edd6; --warn:#f0a875; --warn-soft:#2c1f15; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.8;padding-inline:16px;padding-block:0 48px;margin:0}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:22px}
+.brand{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 12px;padding-block:14px;border-bottom:1px solid var(--rule)}
+.brand b{font-family:var(--serif);font-weight:800;letter-spacing:.06em;font-size:15px}
+.brand span{font-size:12px;color:var(--muted);letter-spacing:.08em}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(26px,5vw,34px);line-height:1.35;margin:10px 0 6px;text-wrap:balance}
+.lead{margin:0;color:var(--muted);max-width:38em}
+h2{font-size:16px;margin:0 0 10px;text-wrap:balance}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;min-width:0}
+.field{display:grid;gap:4px;margin-bottom:12px}
+.field label{font-size:13px;font-weight:700}
+.field small{font-size:12px;color:var(--muted)}
+.field input[type=url]{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);color:var(--fg);width:100%;min-width:0}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:14px}
+.check input{margin-top:6px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{font:inherit;font-size:14px;border:1px solid var(--rule);background:var(--panel);color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ai);color:var(--panel);border-color:var(--ai)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.why{font-size:14px;color:var(--muted);margin:12px 0 0;max-width:40em}
+.cards{display:grid;gap:14px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;display:grid;gap:10px;min-width:0}
+.scene{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
+.scene b{font-size:15px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:1px 9px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.tag.to-new{background:transparent;border:1px solid var(--rule);color:var(--muted)}
+.bubble{background:var(--bubble);color:var(--bubble-fg);border-radius:4px 16px 16px 16px;padding:12px 14px;white-space:pre-wrap;word-break:break-word;font-size:14.5px;line-height:1.85}
+.bubble .lk{color:var(--accent);text-decoration:underline;word-break:break-all}
+.bubble .pr{color:var(--muted);font-size:13px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:inherit;font-size:14px;font-weight:700;border-radius:8px;padding:7px 14px;cursor:pointer;border:1px solid var(--ai);background:var(--ai);color:var(--panel);text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--rule);font-weight:500}
+.done{font-size:13px;color:var(--accent);font-weight:700}
+.tip{font-size:13px;color:var(--muted);margin:0}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:0;padding:0;list-style:none}
+@media (max-width:560px){.rules{grid-template-columns:1fr}}
+.rules li{font-size:14px;padding-left:14px;border-left:3px solid var(--rule)}
+.rules li b{display:block;font-size:14px}
+.rules li span{color:var(--muted);font-size:13px}
+.note{background:var(--warn-soft);color:var(--fg);border-radius:10px;padding:12px 14px;font-size:13px}
+.note b{color:var(--warn)}
+footer{border-top:1px solid var(--rule);padding-top:14px;font-size:12px;color:var(--muted);display:grid;gap:4px}
+footer a{color:var(--fg)}
+footer .tl{font-family:var(--serif);font-weight:700;color:var(--fg);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><a href="./" style="color:inherit;text-decoration:none"><b>BRIDGE CYCLE</b></a><span>店じまいを、まちのはじまりに。</span></div>
+
+  <section>
+    <h1>LINEで送る、ひとこと紹介</h1>
+    <p class="lead">お店の方は、SNSで情報を目にしています。それでも、閉める話は人目のある場所では動きにくいものです。いつも顔を合わせている取引先からの一言が、一歩目のきっかけになります。場面に合う文面を選び、コピーして1対1のトークに貼ってください。</p>
+  </section>
+
+  <section class="panel" aria-labelledby="setH">
+    <h2 id="setH">はじめに、紹介コードを入れる</h2>
+    <div class="field">
+      <label for="refCode">紹介コード（お礼を受け取る方だけ）</label>
+      <input type="text" id="refCode" autocomplete="off" spellcheck="false" maxlength="20" placeholder="例：P-DAISEI" style="font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);color:var(--fg);width:100%;min-width:0;text-transform:uppercase">
+      <small>入れると、下の文面のリンクすべてにコードが入り、紹介元として記録されます。コードは<a href="https://www.bridgecycleco.com/partners.html#join" target="_blank" rel="noopener">紹介パートナー制度のページ</a>で1分で発行できます。お礼が要らない方は空のままで構いません。</small>
+    </div>
+    <label class="check" for="prOn"><input type="checkbox" id="prOn"> <span>紹介のお礼を受け取る（文面の最後に、そのことを伝える一文が入ります）</span></label>
+  </section>
+
+  <section aria-labelledby="indH">
+    <h2 id="indH">あなたの業種</h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <p class="why" id="why"></p>
+  </section>
+
+  <section class="cards" id="cards" aria-live="polite"></section>
+
+  <section class="panel" aria-labelledby="ruleH">
+    <h2 id="ruleH">送るときの約束</h2>
+    <ul class="rules">
+      <li><b>1対1のトークで送る</b><span>グループや人のいる場では送りません。閉める話は、本人だけが見られる形で。</span></li>
+      <li><b>「閉めるんですか」と聞かない</b><span>「この先のこと」「もしものとき」と言い換えます。決めつけないことが信頼になります。</span></li>
+      <li><b>送ったあと、結果を聞かない</b><span>見たかどうかも尋ねません。お店の方が自分のペースで開けるように。</span></li>
+      <li><b>結果を約束しない</b><span>「必ず売れる」「高く売れる」とは言いません。試算は目安です。</span></li>
+    </ul>
+  </section>
+
+  <p class="note"><b>お礼を受け取る方へ。</b>お礼は、紹介したお店の方、または紹介した継ぎ手（これから開業する方）の内装・設備の引き継ぎ（承継）が成立し、当社が料金を受け取ったときだけ、1件2万円をお支払いします。同じ承継で、お店側と継ぎ手側の紹介元が別の方なら、それぞれにお支払いします。試算を見てもらった・相談や登録があった段階では発生しません。紹介でお礼を受け取る場合、その紹介は広告にあたります。上の「紹介のお礼を受け取る」に印を付けると、文面にその一文が入ります。税理士・金融機関・不動産会社の方は、所属先の規程に従ってください（不動産会社の方への金銭のお礼はありません）。</p>
+
+  <footer>
+    <span class="tl">BRIDGE CYCLE株式会社</span>
+    <span>滋賀県大津市におの浜2-1-28 ・ info@bridgecycleco.com</span>
+    <span><a href="https://www.bridgecycleco.com/partners.html" target="_blank" rel="noopener">紹介パートナー制度</a> ・ <a href="https://www.bridgecycleco.com/shisan-kit.html" target="_blank" rel="noopener">試算キット（サイトに貼る方）</a> ・ <a href="https://www.bridgecycleco.com/tsugite.html" target="_blank" rel="noopener">継ぎ手の方へ</a></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var DEF={shisan:'https://www.bridgecycleco.com/shisan.html',tsugite:'https://www.bridgecycleco.com/tsugite.html'};
+  var PR='※私はBRIDGE CYCLEの紹介制度に登録しています。お店の引き継ぎが成立したときだけ、私にお礼が出ます。〇〇さんの費用が増えることはありません。';
+  var IND=[
+    {id:'sake',name:'酒販店・食品卸',why:'注文の変化で、いちばん早く気づける立場です。お店が次の方へ引き継がれれば、取引も続きます。',items:[
+      {scene:'注文が減ってきた取引先に',to:'owner',tip:'月末の配達や集金のついでに、口頭で「あとでLINEします」と添えると自然です。',
+       text:'〇〇さん、いつもありがとうございます。\n取引先さんの間で話に出ていた試算があったので、共有させてください。\n\nお店を閉めるとき、内装の工事でいくらかかるかが、業種と広さを入れるだけで30秒で目安が出ます。名前も店名も入れず、入力した数字はどこにも送られないそうです。\n\nすぐにどうこうという話ではありません。知っておくと安心な数字なので、よかったら。\n{shisan}'},
+      {scene:'「この先どうしよか」と聞いたあとに',to:'owner',tip:'雑談で将来の話が出た日の夜か翌日に送ると、話の続きとして受け取ってもらえます。',
+       text:'〇〇さん、先日はありがとうございました。\nこの先のお店のことを話しておられたので、ひとつだけ。\n\n閉める以外に、内装や設備をそのまま、次にお店をやりたい人へ渡す方法もあるそうです。渡せれば、壊す工事がいらなくなることもあるとか。\n\nまずは匿名で目安だけ見られるページです。相談するかどうかは、見てから決めればいいと思います。\n{shisan}'}
+    ]},
+    {id:'kitchen',name:'厨房機器・リース',why:'撤去や買取の相談と、開業の相談の両方を受ける立場です。閉める店と始めたい人の両方に声をかけられます。',items:[
+      {scene:'撤去・買取の相談を受けたとき',to:'owner',tip:'見積りを出す前に送ると、比べてから決めてもらえます。',
+       text:'〇〇さん、撤去のご相談ありがとうございます。お見積りの前に一つだけお伝えさせてください。\n\n今の厨房をそのまま使いたい方へ引き継げると、撤去や内装の工事がかからないことがあります。閉めた場合にいくらかかるかは、こちらで30秒、匿名で目安が出ます。\n\n比べてから決めていただいて大丈夫です。\n{shisan}'},
+      {scene:'開業の相談に来た方へ',to:'new',tip:'初期費用の見積りを見て悩んでいる方に。閉める予定のお店とつながる入口です。',
+       text:'〇〇さん、先日はご相談ありがとうございました。\n\n内装と厨房をゼロから作ると、20坪の飲食店で800万円を超えることもあります。閉める予定のお店の内装や設備を引き継いで始める方法もあって、条件の合うお店を探せるページがあります。登録は無料です。\n\n資金計画を考えるときの選択肢の一つとして、よかったら。\n{tsugite}'}
+    ]},
+    {id:'tax',name:'税理士・会計事務所',why:'決算の数字で、続けるかどうかの迷いが最初に見える立場です。判断の前に数字を手渡せます。',items:[
+      {scene:'決算や面談で、今後の話が出たあとに',to:'owner',tip:'面談の当日か翌日に。続けるか閉めるかを決める前の材料として渡します。',
+       text:'〇〇様\n先日はありがとうございました。お話に出ていた今後のお店のことで、参考になりそうなページをお送りします。\n\n閉店した場合の内装工事などの費用の目安が、業種と広さから30秒で出ます。匿名で、入力した内容はどこにも送信されません。\n\n閉める、続ける、次の方に引き継ぐ。どれを選ぶにしても、先に数字があると判断しやすくなります。気になる点があれば、いつでもご相談ください。\n{shisan}'},
+      {scene:'開業相談のお客様へ',to:'new',tip:'物件や内装の費用で計画が重くなっている方に。',
+       text:'〇〇様\n開業計画のご相談ありがとうございます。\n\n内装と設備の費用は、開業資金の中でもっとも大きくなりやすい部分です。閉める予定のお店の内装や設備を引き継いで始める方法もあり、条件の合うお店を探せるページがあります。登録は無料です。\n\n資金計画の選択肢の一つとしてご覧ください。\n{tsugite}'}
+    ]},
+    {id:'estate',name:'不動産管理・大家',why:'退去の連絡を最初に受ける立場です。原状回復の段取りに入る前が、引き継ぎを考えられる最後の時期です。',items:[
+      {scene:'退去の連絡を受けたとき',to:'owner',tip:'原状回復の業者手配より前に。貸主として引き継ぎを認めるかどうかは、別途ご判断ください。',
+       text:'〇〇様\nご連絡ありがとうございます。原状回復の段取りに入る前に、一点ご案内です。\n\n内装や設備を次に入る方へ引き継げた場合、原状回復の工事がいらなくなることがあります（貸主の承諾が前提です）。閉める場合の費用の目安は、こちらで匿名で確認できます。\n\nご検討の材料にしていただければと思います。\n{shisan}'}
+    ]},
+    {id:'peer',name:'商店街・店主仲間',why:'同じ立場の仲間からの一言が、いちばん身構えずに受け取れます。',items:[
+      {scene:'店主仲間に、気軽に',to:'owner',tip:'自分も同じ店主として、という距離感で。',
+       text:'これ、知り合いから教えてもらったんやけど、店閉めたらいくらかかるか30秒でわかるらしい。\n名前も入れんでええし、どこにも送られへんって。\n\n知っとくだけでも気が楽かなと思って。\n{shisan}'}
+    ]}
+  ];
+
+  var $=function(id){return document.getElementById(id);};
+  var cur='sake';
+  function load(k,d){try{var v=localStorage.getItem('lk_'+k);return v==null?d:v;}catch(e){return d;}}
+  function save(k,v){try{localStorage.setItem('lk_'+k,v);}catch(e){}}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function code(){return ($('refCode').value||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,20);}
+  function links(){var c=code(),q=function(camp){return c.length>=2?'?ref='+c+'&utm_source=partner&utm_medium=line&utm_campaign='+camp+'&utm_content='+c:'';};
+    return {shisan:DEF.shisan+q('line_shisan'),tsugite:DEF.tsugite+q('line_tsugite')};}
+  function plain(t){var l=links();var s=t.replace('{shisan}',l.shisan).replace('{tsugite}',l.tsugite);if($('prOn').checked)s+='\n\n'+PR;return s;}
+  function rich(t){var l=links();var s=esc(t).replace('{shisan}','<span class="lk">'+esc(l.shisan)+'</span>').replace('{tsugite}','<span class="lk">'+esc(l.tsugite)+'</span>');
+    if($('prOn').checked)s+='\n\n<span class="pr">'+esc(PR)+'</span>';return s;}
+
+  function renderTabs(){
+    $('tabs').innerHTML=IND.map(function(g){return '<button type="button" role="tab" id="tab-'+g.id+'" aria-selected="'+(g.id===cur)+'" data-id="'+g.id+'">'+esc(g.name)+'</button>';}).join('');
+    $('tabs').querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=b.dataset.id;save('ind',cur);try{history.replaceState(null,'','#'+cur);}catch(e){}renderTabs();renderCards();};});
+  }
+  function renderCards(){
+    var g=IND.filter(function(x){return x.id===cur;})[0];
+    $('why').textContent=g.why;
+    $('cards').innerHTML=g.items.map(function(it,i){
+      return '<article class="card"><div class="scene"><b>'+esc(it.scene)+'</b><span class="tag'+(it.to==='new'?' to-new':'')+'">'+(it.to==='new'?'これから開業する方へ':'お店の方へ')+'</span></div>'+
+        '<div class="bubble">'+rich(it.text)+'</div>'+
+        '<div class="acts"><button type="button" class="btn" data-copy="'+i+'">文面をコピー</button>'+
+        '<a class="btn ghost" target="_blank" rel="noopener" href="https://line.me/R/share?text='+encodeURIComponent(plain(it.text))+'">LINEで開く</a>'+
+        '<span class="done" id="done-'+i+'" hidden>コピーしました</span></div>'+
+        '<p class="tip">'+esc(it.tip)+'〇〇は相手のお名前に置き換えてください。</p></article>';}).join('');
+    $('cards').querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+      var i=+b.dataset.copy,txt=plain(g.items[i].text),d=$('done-'+i);
+      function ok(){d.hidden=false;setTimeout(function(){d.hidden=true;},2000);}
+      function fallback(){var bub=b.closest('.card').querySelector('.bubble');var r=document.createRange();r.selectNodeContents(bub);var s=getSelection();s.removeAllRanges();s.addRange(r);d.textContent='選択しました。長押しかCtrl+Cでコピーしてください';d.hidden=false;}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){d.textContent='コピーしました';ok();},fallback);}else fallback();
+    };});
+  }
+
+  var qref=((location.search.match(/[?&]ref=([A-Za-z0-9_-]{2,20})/)||[])[1]||'').toUpperCase();
+  $('refCode').value=qref||load('code','');if(qref)save('code',qref);
+  $('prOn').checked=load('pr','0')==='1';
+  var h=(location.hash||'').slice(1),saved=load('ind','sake');
+  cur=IND.some(function(g){return g.id===h;})?h:(IND.some(function(g){return g.id===saved;})?saved:'sake');
+  $('refCode').addEventListener('input',function(){save('code',code());renderCards();});
+  $('prOn').addEventListener('change',function(){save('pr',$('prOn').checked?'1':'0');renderCards();});
+  renderTabs();renderCards();
+})();
+</script>
+<script src="bc-analytics.js"></script>
+</body>
+</html>

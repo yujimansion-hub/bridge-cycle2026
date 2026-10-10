@@ -285,6 +285,7 @@
             <tr><th>向いている方</th><td>税理士・会計事務所、厨房設備・食品卸、飲食店コンサル、商店街、飲食店向けのブログ・SNS</td></tr>
           </table>
           <a class="btn btn-ai go" id="kitTaiten" href="partner-kit.html">退店前承継のキットを開く</a>
+          <p class="sub">取引先のお店の方や、開業の相談に来た方へ1対1で送るなら、<a href="hitokoto.html" id="kitHitokoto">LINEで送る文面集（ひとこと紹介）</a>が使えます。業種別・場面別の文面を、コピーしてそのまま送れます。</p>
         </div>
 
         <div class="pg" id="svc-uriba">
@@ -430,6 +431,7 @@
       box.querySelectorAll('a[data-sns]').forEach(function(a){a.href=share(a.dataset.sns,text,url);});
     });
     $('#kitTaiten').href='partner-kit.html?ref='+code;
+    $('#kitHitokoto').href='hitokoto.html?ref='+code;
     $('#kitUriba').href='uriba-kit.html?ref='+code;
     $('#kitShutten').href='shutten-kit.html?ref='+code;
     var msg='紹介パートナー登録\nコード：'+code+'\nお名前・屋号：'+(name||'')+'\n紹介する場所（サイト・SNS・教室など）：\n紹介したいサービス：退店前承継／売り場レンタル／これから診断';

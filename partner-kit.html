@@ -154,6 +154,7 @@ sel{font:inherit}
   <h2>窓口・チラシ・名刺にQRコード</h2>
   <div class="qr"><img id="qrimg" alt="30秒チェックのQRコード"><div><p>画像を長押し（右クリック）で保存できます。印刷物に使えます。</p><div class="dl"><a id="qrdl" download>QRコードを保存<small>PNG</small></a></div></div></div>
   <p style="margin-top:10px"><a id="toriLink" href="toritsugi.html" style="font-weight:800">お店のカウンターに置くカードを、そのまま印刷する →</a><span style="display:block;font-size:12px;color:var(--ink3)">A6（A4に4枚）か名刺サイズ。紹介コード入りのQRつきです。</span></p>
+  <p style="margin-top:10px"><a id="hitoLink" href="hitokoto.html" style="font-weight:800">取引先のお店の方へ、LINEで1対1に送る文面集 →</a><span style="display:block;font-size:12px;color:var(--ink3)">酒販・厨房機器・税理士・不動産・店主仲間の場面別。紹介コードは自動で入ります。</span></p>
   <p id="noqr" style="display:none">紹介コードがないQRコードです。お礼の対象にするには、<a href="partners.html#join">紹介パートナー制度のページ</a>でコードを発行してから、このページを開き直してください。</p>
 </section>
 
@@ -230,7 +231,7 @@ sel{font:inherit}
   }
   document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){f=b.dataset.f;render();});});
   document.querySelectorAll('[data-c]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.c,el=document.getElementById(id);el.select();try{navigator.clipboard.writeText(el.value);}catch(e){document.execCommand('copy');}document.getElementById('ok-'+id).textContent='コピーしました';window.bcTrack&&bcTrack('kit_copy',{kit_item:id,check_for:f,partner:ref||'none'});});});
-  if(ref){$('#toriLink').href='toritsugi.html?ref='+ref;}
+  if(ref){$('#toriLink').href='toritsugi.html?ref='+ref;$('#hitoLink').href='hitokoto.html?ref='+ref;}
  window.bcTrack&&bcTrack('kit_view',{partner:ref||'none'});
   render();
 })();
