@@ -217,7 +217,7 @@
   <!-- お礼の早見 -->
   <div class="w" id="orei">
     <div class="rw3">
-      <a class="rw" href="#svc-taiten"><span class="sv">退店前承継（閉店費用の30秒試算）</span><span class="am"><small>1件</small>20,000円</span><span class="cd">紹介した店主さん、または紹介した継ぎ手（これから始める方）の承継が成立したとき</span><span class="mo">くわしく</span></a>
+      <a class="rw" href="#svc-taiten"><span class="sv">退店前承継（閉店費用の30秒試算）</span><span class="am"><small>1件</small>20,000円</span><span class="cd">紹介した店主さん、または紹介した継ぎ手の承継が成立したとき（逆指名承継の情報開示は1件3,000円）</span><span class="mo">くわしく</span></a>
       <a class="rw" href="#svc-uriba"><span class="sv">旧大津公会堂 売り場レンタル</span><span class="am">出店料の20%</span><span class="cd">紹介した方の、最初の出店日から90日間の出店料に対して</span><span class="mo">くわしく</span></a>
       <a class="rw" href="#svc-korekara"><span class="sv">わたしのこれから診断</span><span class="am"><small>1件</small>1,000円</span><span class="cd">紹介した方が有料の3案レポート（3,300円）を購入したとき</span><span class="mo">くわしく</span></a>
     </div>
@@ -243,8 +243,13 @@
       <p class="kicker">START｜1分・無料</p>
       <h2 class="sec">紹介コードを発行する</h2>
       <div class="join">
-        <p>お名前（屋号・ニックネームで可）を入れて発行してください。コードは、あなたの紹介を数えるための番号です。発行しただけでは何も始まらず、費用もかかりません。</p>
-        <div class="gen"><input id="nm" maxlength="40" placeholder="お名前・屋号（例：浜大津パン教室）" aria-label="お名前・屋号"><button class="btn btn-ai" id="genBtn">コードを発行する</button></div>
+        <p>お名前とメールを入れて発行すると、そのまま登録が終わります。コードは、あなたの紹介を数えるための番号です。発行しただけでは何も始まらず、費用もかかりません。</p>
+        <div class="gen"><input id="nm" maxlength="40" placeholder="お名前・屋号（例：浜大津パン教室）" aria-label="お名前・屋号" autocomplete="organization"></div>
+        <div class="gen" style="margin-top:10px"><input id="em" type="email" maxlength="80" placeholder="メール（登録完了とお礼のご連絡に使います）" aria-label="メール" autocomplete="email">
+          <select id="gy" aria-label="業種" style="font:inherit;font-size:16px;border:1.5px solid var(--ai);border-radius:8px;padding:12px 14px;color:var(--ai);background:#fff;flex:1;min-width:200px"><option value="">業種を選ぶ（任意）</option><option>酒販店・食品卸</option><option>厨房機器・店舗設備</option><option>税理士・会計事務所</option><option>不動産・管理会社</option><option>金融機関</option><option>商店街・商工団体</option><option>飲食店・美容室の店主</option><option>ブログ・SNSの発信</option><option>教室・スクール</option><option>その他</option></select></div>
+        <label style="display:flex;gap:8px;align-items:flex-start;margin:12px 0;font-size:14.5px"><input type="checkbox" id="ag" style="margin-top:6px"><span>下の「<a href="#rules">紹介するときの決まり</a>」とお礼の条件に同意します</span></label>
+        <div class="gen"><button class="btn btn-ai" id="genBtn">コードを発行して登録する</button></div>
+        <p id="genErr" style="margin:8px 0 0;font-size:14px;color:var(--warn-d)" hidden></p>
         <div class="mycode" id="mycode">
           <div class="cl">あなたの紹介コード</div>
           <div class="c" id="codeOut"></div>
@@ -260,8 +265,9 @@
               <div class="sh" data-sh="l4" data-text="【PR】お店をゼロから作ると、内装と設備だけで数百万円かかることも。閉める予定のお店の内装・設備を引き継いで始める方法があります（登録無料）。">SNSで紹介：<a data-sns="threads" target="_blank" rel="noopener">Threads</a><a data-sns="x" target="_blank" rel="noopener">X</a><a data-sns="line" target="_blank" rel="noopener">LINE</a></div></div>
           </div>
           <div class="regbox">
-            <p><b>最後に、登録のご連絡をお願いします。</b>お礼をお支払いするために、コードとお名前を当社に知らせてください（振込先は、お礼が発生したときに伺います）。</p>
-            <div class="reg"><a class="btn btn-line" id="regLine" target="_blank" rel="noopener">LINEで登録を知らせる</a><a class="btn btn-out" id="regMail">メールで知らせる</a></div>
+            <p id="regDone" hidden><b>登録が完了しました。</b>コードとリンクを、入力したメールにもお送りしました（届かないときは迷惑メールをご確認ください）。毎月の報告では、紹介リンクが開かれた数・登録や相談の数・お礼が確定した数を、件数だけお知らせします。振込先は、お礼が発生したときに伺います。</p>
+            <p id="regAsk"><b>登録のご連絡をお願いします。</b>お礼をお支払いするために、コードとお名前を当社に知らせてください（振込先は、お礼が発生したときに伺います）。</p>
+            <div class="reg" id="regBtns"><a class="btn btn-line" id="regLine" target="_blank" rel="noopener">LINEで登録を知らせる</a><a class="btn btn-out" id="regMail">メールで知らせる</a></div>
           </div>
         </div>
       </div>
@@ -280,6 +286,7 @@
           <table>
             <tr><th>紹介するもの</th><td>店主さんへは、業種と広さだけで閉店時の原状回復費を30秒で試算する無料のツール（匿名・登録不要。<a href="shisan-kit.html">サイトに埋め込めます</a>）。これから開業する方へは、閉める予定のお店の内装・設備を引き継いで始められる<a href="tsugite.html">継ぎ手の登録ページ</a>（登録無料）</td></tr>
             <tr><th>成果</th><td>紹介した店主さんのお店、または紹介した継ぎ手の承継（内装・設備の引き継ぎ）が成立し、当社が成約時の料金を受け取ったとき。試算を見た・相談や登録があった段階では発生しません</td></tr>
+            <tr><th>逆指名承継の情報開示</th><td>紹介した継ぎ手が、掲載店の詳しい情報（3万円）の開示を受けたとき、<b>1件3,000円</b>。2店目以降の開示（1万円）は1件1,000円。その後、当社の成約支援で承継が成立したときは、すでにお支払いした分を差し引いた額をお支払いします（1件の承継でのお礼は、合わせて20,000円まで）。開示を受けて当事者同士で決めた場合も、開示分のお礼はお支払いします</td></tr>
             <tr><th>紹介元が2人のとき</th><td>同じ承継で、店主さん側と継ぎ手側の紹介元が別の方の場合は、それぞれに1件20,000円をお支払いします</td></tr>
             <tr><th>お礼</th><td><b class="rwv" data-rw="taiten">1件 20,000円</b><small>当社の料金の中からお支払いします。店主さん・継ぎ手の費用は変わりません</small></td></tr>
             <tr><th>向いている方</th><td>税理士・会計事務所、厨房設備・食品卸、飲食店コンサル、商店街、飲食店向けのブログ・SNS</td></tr>
@@ -439,8 +446,17 @@
     $('#regMail').href='mailto:info@bridgecycleco.com?subject='+encodeURIComponent('紹介パートナー登録（'+code+'）')+'&body='+encodeURIComponent(msg);
     setBar();
   }
+  function regState(done){$('#regDone').hidden=!done;$('#regAsk').hidden=done;$('#regBtns').style.display=done?'none':'';}
+  try{regState(localStorage.getItem('bc_my_reg')==='1');}catch(e){}
   $('#genBtn').addEventListener('click',function(){
     name=($('#nm').value||'').trim();
+    var em=($('#em').value||'').trim(), gy=$('#gy').value, err=$('#genErr');
+    var fresh=!code;
+    if(fresh){
+      var ng=!name?'お名前・屋号を入れてください。':!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)?'メールを正しく入れてください。':!$('#ag').checked?'決まりへの同意に印を付けてください。':'';
+      if(ng){err.textContent=ng;err.hidden=false;return;}
+      err.hidden=true;
+    }
     if(!code){
       var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='',r=new Uint32Array(5);
       (window.crypto||window.msCrypto).getRandomValues(r);
@@ -450,7 +466,22 @@
     try{localStorage.setItem('bc_my_code',code);localStorage.setItem('bc_my_name',name);}catch(e){}
     window.bcTrack&&bcTrack('partner_code_issue',{partner:code});
     show(); $('#mycode').scrollIntoView({behavior:'smooth',block:'center'});
+    if(fresh) register(em,gy);
   });
+  function register(em,gy){
+    var L=links(code), btn=$('#genBtn');
+    var body='紹介コード：'+code+'\n\n'
+      +'■ あなたの紹介リンク\n退店前承継（閉店費用の試算・お店の方へ）\n'+L.l1+'\n\n退店前承継（継ぎ手の登録・これから開業する方へ）\n'+L.l4+'\n\n売り場レンタル\n'+L.l2+'\n\nわたしのこれから診断\n'+L.l3+'\n\n'
+      +'■ LINEで1対1に送る文面集\n'+B+'hitokoto.html?ref='+code+'\n\n'
+      +'■ お礼の条件（退店前承継）\n・紹介した店主さん、または継ぎ手の承継が、当社の成約支援で成立したとき：1件20,000円\n・紹介した継ぎ手が逆指名承継の情報開示（3万円）を受けたとき：1件3,000円（2店目以降の1万円の開示は1,000円）。その後成約したときは差額をお支払いします（合わせて20,000円まで）\n・お礼を受け取る紹介には「PR」の表示をお願いします\n\n'
+      +'くわしい決まり：'+B+'partners.html#rules\n\nBRIDGE CYCLE株式会社（滋賀県大津市）\n店じまいを、まちのはじまりに。';
+    var data={_subject:'【紹介パートナー登録】'+code+'／'+name+(gy?'／'+gy:''),'紹介コード':code,'お名前・屋号':name,email:em,'業種':gy||'未選択','決まりへの同意':'同意する',_autoresponse:'【BRIDGE CYCLE】紹介パートナーの登録が完了しました。\n\n'+name+' 様\n\n'+body,_template:'table',_captcha:'false'};
+    btn.disabled=true; btn.textContent='登録しています…';
+    fetch('https://formsubmit.co/ajax/info@bridgecycleco.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok||j.success===false||j.success==='false')throw 0;});})
+      .then(function(){try{localStorage.setItem('bc_my_reg','1');}catch(e){} regState(true); btn.textContent='登録済み'; window.bcTrack&&bcTrack('partner_register',{method:'form',partner:code});})
+      .catch(function(){regState(false); btn.disabled=false; btn.textContent='発行済み'; var e=$('#genErr'); e.textContent='登録の送信ができませんでした。コードは発行済みです。下のLINEかメールで、コードとお名前をお知らせください。'; e.hidden=false;});
+  }
   $('#regLine').addEventListener('click',function(){window.bcTrack&&bcTrack('partner_register',{method:'line',partner:code});});
   $('#regMail').addEventListener('click',function(){window.bcTrack&&bcTrack('partner_register',{method:'mail',partner:code});});
   document.querySelectorAll('[data-c]').forEach(function(b){b.addEventListener('click',function(){var el=document.getElementById(b.dataset.c);el.select();try{navigator.clipboard.writeText(el.value);}catch(e){document.execCommand('copy');}b.textContent='コピー済';window.bcTrack&&bcTrack('partner_copy',{kit_item:b.dataset.c,partner:code||'none'});});});
