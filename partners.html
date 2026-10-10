@@ -236,9 +236,9 @@
   <!-- 本業とのつながり -->
   <section id="hongyo" style="padding-top:8px">
     <div class="w">
-      <p class="kicker">WHY｜お礼より先に</p>
-      <h2 class="sec"><span class="nb">紹介すると、あなたの本業にも、</span><span class="nb">つながりが残ります。</span></h2>
-      <p>承継には数か月かかります。お礼だけを目当てに続けるのは大変です。お店が次の人へ渡ると、あなたの側にはこんな接点が残ります。</p>
+      <p class="kicker">WHY｜本業とのつながり</p>
+      <h2 class="sec"><span class="nb">取引先の閉店相談に、</span><span class="nb">次の選択肢を。</span></h2>
+      <p>「閉めようか迷っている」と打ち明けられたとき、閉める以外の道を示せます。お店が次の人へ渡ると、あなたの本業にもこんな接点が残ります。</p>
       <div class="tblw"><table class="tbl hg">
         <tr><th>酒販店・食品卸</th><td>同じ場所で、新しい店主との取引の機会が生まれる</td></tr>
         <tr><th>厨房機器・店舗設備</th><td>引き継いだ設備の点検・修理・入れ替えの相談につながることがある</td></tr>
@@ -279,11 +279,11 @@
         <div class="mycode" id="mycode">
           <div class="cl">あなたの紹介コード</div>
           <div class="c" id="codeOut"></div>
-          <div class="first1" id="first1" hidden><b id="first1T">まず、この1通を送ってください</b>
+          <div class="first1" id="first1" hidden><b id="first1T">相談先を探している方がいたら、この文面を使えます</b>
             <p style="margin:0 0 8px;font-size:13.5px" id="first1S"></p>
             <textarea id="first1X" readonly aria-label="最初に送る文面"></textarea>
             <div class="r"><button type="button" id="first1C">文面をコピー</button><span id="first1D" hidden>コピーしました</span><a id="first1M" href="hitokoto.html">ほかの場面の文面を見る →</a></div>
-            <p style="margin:8px 0 0;font-size:12.5px;opacity:.8">LINEなどの1対1のトークで送ってください。最後の一文は、お礼を受け取る紹介であることを伝える表示です（消さずにお送りください）。</p>
+            <p style="margin:8px 0 0;font-size:12.5px;opacity:.8">お店の先行きの話が出た相手にだけ、LINEなどの1対1のトークで送ってください。最後の一文は、お礼を受け取る紹介であることを伝える表示です（消さずにお送りください）。</p>
           </div>
           <p>このコード入りのリンクです。どれか1つ、置きやすいところへどうぞ。SNSのボタンからは、「PR」の表示が入った紹介文をそのまま投稿できます。</p>
           <div class="lk">
@@ -488,7 +488,7 @@
     if(!k||!code){box.hidden=true;return;}
     var f=FIRST[k], L=links(code), txt=f[2].replace('{L}',L.l1);
     if(k!=='estate') txt+=FPR;
-    $('#first1T').textContent='まず、この1通を送ってください（'+f[0]+'向け）';
+    $('#first1T').textContent='相談先を探している方がいたら、この文面を使えます（'+f[0]+'向け）';
     $('#first1S').textContent=f[1];
     $('#first1X').value=txt;
     $('#first1M').href='hitokoto.html?ref='+code+'#'+k;
