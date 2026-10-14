@@ -212,7 +212,7 @@ button:disabled{opacity:.6;cursor:wait}
 <div style="display: flex; align-items: center; gap: 10px"><div style="width: 30px; height: 30px; border-radius: 50%; background: #4A5562; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">2</div><div style="font-size: 14px; color: #4A5562">採択時　行政書士へ直接</div></div>
 <div style="font-family: 'Noto Serif JP', serif; font-size: 32px; font-weight: 700">補助額の2%</div>
 <div style="font-size: 15px; font-weight: 700">申請書類の作成・申請手続き</div>
-<div style="font-size: 13.5px; color: #2E3A47">着手金0円。最低10万円。</div>
+<div style="font-size: 13.5px; color: #2E3A47">着手金0円。最低10万円。連携する行政書士の報酬の目安です。</div>
 </div>
 <div style="flex: 1 1 340px; border: 1px solid #C9D2CF; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; align-items: center; gap: 10px"><div style="width: 30px; height: 30px; border-radius: 50%; background: #0E5E52; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">3</div><div style="font-size: 14px; color: #4A5562">交付決定後　当社へ</div></div>
@@ -224,7 +224,7 @@ button:disabled{opacity:.6;cursor:wait}
 <div style="display: flex; align-items: center; gap: 10px"><div style="width: 30px; height: 30px; border-radius: 50%; background: #4A5562; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">4</div><div style="font-size: 14px; color: #4A5562">補助金の入金後　行政書士へ直接</div></div>
 <div style="font-family: 'Noto Serif JP', serif; font-size: 32px; font-weight: 700">補助額の2%</div>
 <div style="font-size: 15px; font-weight: 700">交付申請・実績報告の書類</div>
-<div style="font-size: 13.5px; color: #2E3A47">最低10万円。②と合わせて最低20万円。</div>
+<div style="font-size: 13.5px; color: #2E3A47">最低10万円。②と合わせて最低20万円。連携する行政書士の報酬の目安です。</div>
 </div>
 </div>
 <div style="order: -2; background: #EAF3F0; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; align-items: center">
@@ -236,10 +236,10 @@ button:disabled{opacity:.6;cursor:wait}
 <div style="background: #FFFFFF; border-radius: 12px; padding: 14px 28px; text-align: center">
 <div style="font-size: 14px; color: #4A5562">実績報告までの総額（①〜④）</div>
 <div style="font-family: 'Noto Serif JP', serif; font-size: 40px; font-weight: 700; color: #0E5E52"><span id="total">80万円</span></div>
-<div style="font-size: 13px; color: #4A5562"><span id="breakdown">当社40万円＋行政書士40万円</span></div>
+<div style="font-size: 13px; color: #4A5562"><span id="breakdown">当社40万円＋行政書士40万円（目安）</span></div>
 </div>
 </div>
-<div style="order: -1; font-size: 13px; color: #4A5562; text-align: center; line-height: 1.7">採択時の補助予定額と、最終的に確定した補助額が同じ場合の概算です（税別）。不採択のときは①の10万円のみ。<br>補助額が500万円未満の場合は、行政書士の最低報酬により割合が高くなるため、一次確認でご説明します。<br>翌年以降の事業化状況の報告は別料金です。追加費用が出る条件は、お見積りでお示しします。</div>
+<div style="order: -1; font-size: 13px; color: #4A5562; text-align: center; line-height: 1.7">採択時の補助予定額と、最終的に確定した補助額が同じ場合の概算です（税別）。不採択のときは①の10万円のみ。<br>②④は連携する行政書士の報酬の目安です。正式な金額は、行政書士からお見積りします。<br>補助額が500万円未満の場合は、行政書士の最低報酬により割合が高くなるため、一次確認でご説明します。<br>翌年以降の事業化状況の報告は別料金です。追加費用が出る条件は、お見積りでお示しします。</div>
 <div style="order: 9; text-align: center; padding-top: 6px"><a href="#form" style="display: inline-block; background: #0E5E52; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 12px 24px; border-radius: 8px; font-size: 16px">使える補助金を無料で確認する</a></div>
 </div>
 </section>
@@ -333,7 +333,7 @@ button:disabled{opacity:.6;cursor:wait}
     if(!(a>0)){t.textContent='—';b.textContent='補助額を入れてください';return;}
     var g=Math.max(10,a*0.02)*2;
     t.textContent=fmt(40+g);
-    b.textContent='当社40万円＋行政書士'+fmt(g);
+    b.textContent='当社40万円＋行政書士'+fmt(g)+'（目安）';
   }
   amt.addEventListener('input',calc);calc();
 })();
