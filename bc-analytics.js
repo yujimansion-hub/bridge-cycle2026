@@ -8,7 +8,7 @@
   if(!BC_ANALYTICS_ID) { window.bcTrack=function(){}; return; }
 
   var page = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/,'') || 'index';
-  var group =
+  var group = /\/road-sign\//.test(location.pathname) ? 'ロードサイン' :
     /^(index|yameru|genjo|taiten|check|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite|zousaku|keisai|gyaku-shimei|shokei)/.test(page) ? '退店前承継' :
     /^(partner|fudosan)/.test(page) ? 'パートナー' :
     /^(uriba|kokaido|yoyaku|thanks-kokaido|kanryo|bridge-cycle-kokaido)/.test(page) ? '売り場レンタル' :
