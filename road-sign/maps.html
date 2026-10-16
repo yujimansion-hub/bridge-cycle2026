@@ -1,0 +1,288 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>看板×Googleマップ×口コミの集客提案と事例｜京滋ロードサイン</title>
+<meta name="description" content="看板で店名を覚えてもらい、Googleマップと口コミで選んでもらう。滋賀・京都の歯科、飲食店、介護施設を例に、看板の場所と文面、マップの整え方、口コミの集め方、効果の測り方をまとめた提案事例です。">
+<link rel="canonical" href="https://www.bridgecycleco.com/road-sign/maps.html">
+<meta property="og:title" content="看板×Googleマップ×口コミの集客提案と事例｜京滋ロードサイン"><meta property="og:type" content="article"><meta property="og:url" content="https://www.bridgecycleco.com/road-sign/maps.html"><meta property="og:image" content="https://www.bridgecycleco.com/road-sign/assets/ogp-road-sign.jpg"><meta name="twitter:card" content="summary_large_image">
+<script src="/bc-analytics.js"></script>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: same bound-proposal look as clinic.html; role cards, flow, rules, then three model cases with photo + spec list */
+:root{
+  --ground:#e8ecef; --paper:#ffffff; --ink:#1c2934; --muted:#5b6976; --line:#d6dde3;
+  --navy:#173454; --orange:#c75a22; --orange-soft:#fbeadf; --field:#f3f6f8; --verify:#9a6a0e; --verify-bg:#fdf3dc; --ok:#1f6f58; --ng:#a53a2a;
+  --road:#c9cfd6; --map:#eef2ea;
+  --display:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0f161d; --paper:#18222c; --ink:#e6ecf1; --muted:#9fb0bf; --line:#2c3a47;
+  --navy:#9cc3ea; --orange:#f0915c; --orange-soft:#3a2a20; --field:#1f2c38; --verify:#e8b66a; --verify-bg:#33291a; --ok:#7fd1b4; --ng:#f08f7f;
+  --road:#3a4652; --map:#1d2a24; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0f161d; --paper:#18222c; --ink:#e6ecf1; --muted:#9fb0bf; --line:#2c3a47;
+  --navy:#9cc3ea; --orange:#f0915c; --orange-soft:#3a2a20; --field:#1f2c38; --verify:#e8b66a; --verify-bg:#33291a; --ok:#7fd1b4; --ng:#f08f7f;
+  --road:#3a4652; --map:#1d2a24; color-scheme:dark}
+body{background:var(--ground);color:var(--ink);font:15px/1.75 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.memo{max-width:900px;margin:0 auto 14px;background:var(--verify-bg);color:var(--verify);border-radius:4px;padding:12px 16px;font-size:13px;display:grid;gap:4px}
+.doc{max-width:900px;margin:0 auto;background:var(--paper);border-radius:4px;box-shadow:0 2px 14px rgba(0,0,0,.08);overflow:hidden}
+.cover{display:grid;grid-template-columns:1.05fr 1fr;background:var(--navy)}
+.cover>*{min-width:0}
+.cover .txt{padding:32px 30px;display:grid;gap:10px;align-content:center;color:#fff}
+:root[data-theme="dark"] .cover .txt{color:#0f161d}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cover .txt{color:#0f161d}}
+.cover .co{font:700 12px var(--display);letter-spacing:.08em;opacity:.85}
+.cover .to{font:700 17px var(--display)}
+.cover h1{margin:0;font:900 clamp(24px,3.6vw,34px)/1.3 var(--display);text-wrap:balance}
+.cover .line{height:4px;width:64px;background:var(--orange)}
+.cover .meta{font-size:12.5px;opacity:.85}
+.cover figure{margin:0;position:relative}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:80% 40%;display:block;max-width:100%;min-height:260px}
+.cap{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.92);color:#3d4a56;font-size:11.5px;padding:3px 10px;border-radius:999px}
+section{padding:26px 34px;border-bottom:1px solid var(--line);display:grid;gap:14px}
+h2{margin:0;display:flex;gap:12px;align-items:baseline;font:700 20px/1.4 var(--display);color:var(--navy);text-wrap:balance}
+h2 .n{font:500 13px var(--mono);color:var(--orange)}
+p{margin:0;max-width:66ch}
+.lead{color:var(--muted);font-size:14px}
+.note{font-size:12px;color:var(--muted)}
+.v{background:var(--verify-bg);color:var(--verify);font-size:11.5px;font-weight:700;border-radius:3px;padding:1px 6px;white-space:nowrap}
+.answers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ans{background:var(--field);border-radius:4px;padding:14px 16px;display:grid;gap:4px;align-content:start;min-width:0}
+.ans .q{font:700 12px var(--body);color:var(--orange);letter-spacing:.06em}
+.ans .a{font:700 17px/1.45 var(--display);color:var(--navy)}
+.ans .d{font-size:13px;color:var(--muted)}
+.mapwrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+.mapwrap svg{display:block;min-width:620px;width:100%;height:auto}
+.cands{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cand{border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;gap:8px;min-width:0}
+.cand .hd{display:flex;align-items:center;gap:10px}
+.pin{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 14px var(--mono);color:#fff;background:#c75a22}
+.cand .ttl{font:700 16px var(--display);color:var(--navy)}
+.cand dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 14px;font-size:13.5px}
+.cand dt{color:var(--muted)} .cand dd{margin:0;font-variant-numeric:tabular-nums}
+.bar{height:10px;border-radius:5px;background:var(--field);position:relative;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;background:var(--orange);border-radius:5px}
+.bar.unk i{background:repeating-linear-gradient(45deg,var(--line) 0 6px,transparent 6px 12px);left:0;right:0}
+.scale{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--muted)}
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stage{position:relative;padding:14px 18px 14px 14px;background:var(--field);display:grid;gap:6px;align-content:start;min-width:0;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%,14px 50%)}
+.stage:first-child{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%)}
+.stage:nth-child(2){background:var(--orange-soft)} .stage:nth-child(4){background:var(--orange-soft)}
+.stage .s{font:700 12px var(--body);color:var(--orange)}
+.stage .t{font:700 15px var(--display);color:var(--navy)}
+.stage .m{font-size:12.5px;color:var(--ink)}
+.stage .tool{font-size:11.5px;color:var(--muted)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+th{text-align:left;font-weight:700;font-size:12px;color:var(--muted);border-bottom:2px solid var(--navy);padding:6px 10px 6px 0;white-space:nowrap}
+td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;vertical-align:top}
+.web{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.web div{border-left:3px solid var(--navy);padding:4px 0 4px 12px;font-size:14px;min-width:0}
+.web b{display:block;font:700 15px var(--display);color:var(--navy)}
+.boards{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.boards>*{min-width:0}
+.rules{display:grid;gap:8px;font-size:14px}
+.rule{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.tag{font:700 11.5px var(--body);border-radius:3px;padding:1px 7px;white-space:nowrap;margin-top:3px}
+.tag.ok{color:var(--ok);border:1px solid var(--ok)} .tag.ng{color:var(--ng);border:1px solid var(--ng)}
+.sign{border:3px solid #173454;border-radius:3px;background:#fff;color:#173454;max-width:340px}
+.sign .band{background:#c75a22;color:#fff;font:700 13px var(--display);padding:4px 12px}
+.sign .name{font:900 26px/1.3 var(--display);padding:10px 12px 0}
+.sign .way{font:900 18px var(--display);color:#c75a22;padding:4px 12px 8px}
+.sign .foot2{background:#173454;color:#fff;font:700 13px var(--body);padding:6px 12px}
+ol.time{margin:0;padding:0;list-style:none}
+ol.time li{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+ol.time li:last-child{border-bottom:0}
+ol.time .when{font:700 13px var(--display);color:var(--orange)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.calc>*{min-width:0}
+.ctl{display:grid;gap:12px}
+.ctl label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.ctl .row{display:flex;justify-content:space-between;gap:10px}
+.ctl output{font:500 14px var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--orange)}
+input:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.res{border:2px solid var(--navy);border-radius:4px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.res div{display:grid}
+.res .k{font-size:12px;color:var(--muted)}
+.res .val{font:700 24px/1.3 var(--mono);color:var(--navy);font-variant-numeric:tabular-nums}
+.res .big{font-size:30px;color:var(--orange)}
+ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-width:66ch}
+.foot{padding:18px 34px 22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted);border-top:6px solid var(--navy)}
+.foot b{color:var(--navy);font-family:var(--display)}
+@media (max-width:720px){
+  .cover{grid-template-columns:1fr}
+  section,.foot{padding-left:18px;padding-right:18px}
+  .answers,.cands,.web,.boards,.calc{grid-template-columns:1fr}
+  .funnel{grid-template-columns:1fr 1fr;gap:6px}
+  .stage,.stage:first-child{clip-path:none;border-radius:4px}
+  ol.time li{grid-template-columns:1fr;gap:2px}
+}
+
+.case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px;border:1px solid var(--line);border-radius:4px;overflow:hidden;scroll-margin-top:16px}
+.case figure{margin:0;position:relative;min-height:240px}
+.case figure img{width:100%;height:100%;object-fit:cover;object-position:75% 35%;display:block;position:absolute;inset:0}
+.case .cbody{padding:16px 18px 16px 0;display:grid;gap:8px;align-content:start;min-width:0}
+.clabel{font:700 12px var(--body);color:var(--orange);letter-spacing:.06em}
+.case h3{margin:0;font:700 18px/1.45 var(--display);color:var(--navy);text-wrap:balance}
+.cdl{margin:0;display:grid;grid-template-columns:5.5em 1fr;gap:6px 12px;font-size:13.5px}
+.cdl dt{font-weight:700;color:var(--navy)}
+.cdl dd{margin:0}
+.rule b{color:var(--navy)}
+.nw{display:inline-block}
+.note a,.memo a{color:inherit;text-decoration:underline}
+.note a{color:var(--navy);font-weight:700}
+@media (max-width:720px){.case{grid-template-columns:1fr;gap:0}.case figure{aspect-ratio:4/3;min-height:0}.case .cbody{padding:14px 16px}.cdl{grid-template-columns:1fr;gap:0}.cdl dd{margin-bottom:8px}}
+</style></head><body>
+
+<div class="memo"><b>提案事例はモデルケースです</b><span>3つの事例は、ご提案の中身を知っていただくための架空の事業所です。実在の事業所や、掲出の実績ではありません。実際のご提案では、お店の場所に合わせて候補地・空き状況・金額を調べてお届けします。<a href="./" style="color:inherit;text-decoration:underline">京滋ロードサインのトップへ</a></span></div>
+
+<article class="doc">
+  <header class="cover">
+    <div class="txt">
+      <div class="co">BRIDGE CYCLE株式会社　京滋ロードサイン・ネットワーク</div>
+      <div class="to">看板 × Googleマップ × 口コミ</div>
+      <h1><span class="nw">看板で名前を</span><span class="nw">覚えてもらい、</span><br><span class="nw">マップと口コミで</span><span class="nw">選んでもらう。</span></h1>
+      <div class="line"></div>
+      <div class="meta">3つを組み合わせた集客の考え方と、業種別の提案事例</div>
+    </div>
+    <figure>
+      <img alt="幹線道路沿いの看板に、歯科医院の案内を表示したイメージ写真" src="assets/case-dental.webp">
+      <span class="cap">設置イメージ（架空の医院・実在の候補地ではありません）</span>
+    </figure>
+  </header>
+
+  <section>
+    <h2><span class="n">0</span>3つには、それぞれ別の役割があります</h2>
+    <div class="answers">
+      <div class="ans"><span class="q">看板</span><span class="a">名前を覚えてもらう</span><span class="d">まだ店を知らない人に、毎日の通り道で何度も店名を見てもらう。検索のきっかけを作ります。</span></div>
+      <div class="ans"><span class="q">Googleマップ</span><span class="a">場所と中身を確かめてもらう</span><span class="d">営業時間・駐車場・写真・行き方。看板で覚えた店が「行ける店」かどうかを確かめる場所です。</span></div>
+      <div class="ans"><span class="q">口コミ</span><span class="a">行くかどうかを決めてもらう</span><span class="d">初めての店に入る不安を減らします。店の側からは書けない「実際に行った人の声」です。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">1</span>お客様は、この順番で動きます</h2>
+    <p class="lead">看板を見てそのまま来店する人は多くありません。多くの方は、看板で名前を覚え、あとで店名を検索し、マップで口コミと写真を見てから来店します。</p>
+    <div class="funnel">
+      <div class="stage"><span class="s">1 見る</span><span class="t">看板</span><span class="m">通り道で店名を何度も見る</span><span class="tool">数える：前を通る台数</span></div>
+      <div class="stage"><span class="s">2 調べる</span><span class="t">店名で検索</span><span class="m">「○○食堂」「○○歯科 瀬田」と検索する</span><span class="tool">数える：店名を含む検索語句の数</span></div>
+      <div class="stage"><span class="s">3 比べる・決める</span><span class="t">マップ・口コミ</span><span class="m">写真・営業時間・口コミを見て決める</span><span class="tool">数える：プロフィールの閲覧数</span></div>
+      <div class="stage"><span class="s">4 来る</span><span class="t">ルート・電話・予約</span><span class="m">マップからルート案内・電話・予約へ</span><span class="tool">数える：ルート・通話・予約の数</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>どれか1つだけだと、どこかで止まります</h2>
+    <div class="tw"><table>
+      <thead><tr><th>やっていること</th><th>起きやすいこと</th></tr></thead>
+      <tbody>
+        <tr><td><b>マップと口コミだけ</b></td><td>「近くの歯医者」「ランチ」のように一般的な言葉で検索した人の、比較の一覧に並ぶだけになります。開業したばかりのお店は口コミの数で既存店に並ばれ、選ばれにくくなります。店を知らない人は、そもそも店名で検索しません。</td></tr>
+        <tr><td><b>看板だけ</b></td><td>名前を覚えてもらっても、検索したときに写真が少ない・営業時間が古い・口コミがない状態だと、そこで止まります。看板の費用が来店につながりません。</td></tr>
+        <tr><td><b>3つを組み合わせる</b></td><td>看板で覚えた人は、店名で検索します。店名で検索した人には、他店と並べられる前に、まず自店の情報が大きく表示されやすくなります。そこに写真と口コミがそろっていれば、比較される前に決めてもらえます。</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>3つをつなぐ、5つの決まりごと</h2>
+    <div class="rules">
+      <div class="rule"><span class="tag ok">1 名前</span><span><b>看板の店名と、Googleマップの店名を一字一句そろえます。</b>看板で覚えた言葉で検索して、そのまま見つかるようにするためです。マップの店名に地名や宣伝の言葉を足すことはGoogleのガイドラインで認められていないため、実際の店名のままにします。</span></div>
+      <div class="rule"><span class="tag ok">2 言葉</span><span><b>検索してもらう言葉を1つに決めます。</b>運転中に読めるのは数語です。看板は店名と「この先◯m」を大きくし、文字を増やしません。</span></div>
+      <div class="rule"><span class="tag ok">3 写真</span><span><b>マップに、外観・入口・駐車場・看板の写真を入れます。</b>看板で見た店と、マップの店が同じだとすぐ分かり、迷わず来られます。</span></div>
+      <div class="rule"><span class="tag ok">4 口コミ</span><span><b>口コミは、お会計のときなどに全員へ同じ方法でお願いします。</b>決まった場面で、決まった文面で頼むことが、口コミを増やすいちばん確かな方法です。</span></div>
+      <div class="rule"><span class="tag ok">5 返信</span><span><b>口コミには、良いものにも厳しいものにも返信します。</b>返信まで読んでいる人は多く、お店の対応が伝わります。</span></div>
+      <div class="rule"><span class="tag ng">しない</span><span>特典や値引きと引き換えに口コミを頼む、満足していそうな人にだけ頼む、口コミを代わりに書く・書いてもらう。これらはGoogleのポリシーで禁止されており、2023年10月からはステルスマーケティング規制（景品表示法）の対象にもなりえます。当社はこれらをご提案しません。</span></div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <h2><span class="n">4</span>提案事例（モデルケース）</h2>
+    <p class="lead">業種によって、看板を見る人、決める人、口コミで気にされることが違います。3つの架空の事業所で、ご提案の中身をお見せします。</p>
+
+    <div class="case" id="case-dental">
+      <figure><img src="assets/case-dental.webp" alt="幹線道路沿いの看板に、架空の歯科医院の案内を表示したイメージ" loading="lazy"><span class="cap">設置イメージ</span></figure>
+      <div class="cbody">
+        <div class="clabel">事例A｜クリニック・歯科</div>
+        <h3>幹線道路から1本入った場所に開業する歯科医院</h3>
+        <dl class="cdl">
+          <dt>課題</dt><dd>開業直後は口コミが0件です。「近くの歯医者」で検索されると、口コミの多い既存の医院と並べられ、選ばれにくくなります。</dd>
+          <dt>看板</dt><dd>来院が多い方向の幹線道路に、医院の約500m手前で野立て看板を1面。曲がり角に電柱広告で道案内。文面は医院名・診療科・「この先500m 右側」・駐車場・診療日だけにします。</dd>
+          <dt>マップ</dt><dd>開業の前にGoogleビジネスプロフィールを登録し、オーナー確認を済ませます。外観・入口・駐車場・看板の写真、診療時間、WEB予約へのリンクを入れます。</dd>
+          <dt>口コミ</dt><dd>受付で会計時に、全員へ同じ案内カードを渡します。医院のホームページや看板には、口コミを転載しません（医療広告ガイドラインで患者の体験談は広告に使えないため）。返信では治療の内容や受診の有無に触れません。</dd>
+          <dt>測り方</dt><dd>医院名を含む検索語句の数、ルート案内、WEB予約の数を、掲出前1か月と掲出後3か月で比べます。</dd>
+          <dt>費用の目安</dt><dd>野立て1面：月2.5万円×12か月＋製作・設置15万円＝初年度45万円 <span class="v">仮の値・照会前</span></dd>
+        </dl>
+        <p class="note">歯科・クリニックの詳しい1年計画は<a href="clinic.html">開業集患プランの見本</a>をご覧ください。</p>
+      </div>
+    </div>
+
+    <div class="case" id="case-food">
+      <figure><img src="assets/case-food.webp" alt="歩道沿いの看板に、架空の定食店の案内を表示したイメージ" loading="lazy"><span class="cap">設置イメージ</span></figure>
+      <div class="cbody">
+        <div class="clabel">事例B｜飲食店</div>
+        <h3>国道から少し奥まった、郊外の定食店</h3>
+        <dl class="cdl">
+          <dt>課題</dt><dd>初めての方が店に気づかず通り過ぎます。マップで見つけてもらっても「どこから入るのか」「車を停められるのか」が分からず、来店をやめてしまいます。</dd>
+          <dt>看板</dt><dd>昼に通勤や営業の車が多い方向から、店の約1km手前（左折で入れる側）に野立て看板を1面。店名・「この先1km 左側」・駐車場の台数・営業時間を載せます。</dd>
+          <dt>マップ</dt><dd>駐車場の入口、曲がる目印、外観、看板の写真を入れます。メニューと価格の写真をお店から先に載せ、営業時間と定休日を正確にします。</dd>
+          <dt>口コミ</dt><dd>卓上とレジ横に案内を置き、全員へ同じ形でお願いします（特典は付けません）。料理の写真付きの口コミが増えると、初めての方が選びやすくなります。</dd>
+          <dt>測り方</dt><dd>ルート案内と電話の数、店名を含む検索語句の数、昼の来店組数（レジの記録）を、掲出の前後で比べます。</dd>
+          <dt>費用の目安</dt><dd>野立て1面：月2万円×12か月＋製作・設置12万円＝初年度36万円 <span class="v">仮の値・照会前</span></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="case" id="case-care">
+      <figure><img src="assets/case-care.webp" alt="交差点の角のポール看板に、架空のデイサービスの案内を表示したイメージ" loading="lazy" style="object-position:20% 30%"><span class="cap">設置イメージ</span></figure>
+      <div class="cbody">
+        <div class="clabel">事例C｜介護施設</div>
+        <h3>住宅街にあるデイサービス</h3>
+        <dl class="cdl">
+          <dt>課題</dt><dd>施設を選ぶのはご本人よりも、ご家族やケアマネジャーです。ご家族は「家から近いか」「送迎があるか」「中の雰囲気」で選びます。マップの情報が少ないと、見学の申し込みまで進みません。</dd>
+          <dt>看板</dt><dd>施設へ曲がる交差点の角に、ご家族が買い物や通勤で車で通る道から見える看板を1面。施設名・「この角を右へ200m」・「送迎あり」・「見学受付中」を載せます。</dd>
+          <dt>マップ</dt><dd>室内、送迎車、入口と段差の様子の写真を入れます（利用者の顔は写しません）。見学の申し込み先として電話とWEBのリンクを入れます。</dd>
+          <dt>口コミ</dt><dd>ご家族にお願いします。返信では、利用者個人が分かる内容に触れません。</dd>
+          <dt>測り方</dt><dd>マップからの電話の数、見学の申し込み数、施設名を含む検索語句の数を、掲出の前後で比べます。</dd>
+          <dt>費用の目安</dt><dd>ポール看板1面：月1.5万円×12か月＋製作・設置10万円＝初年度28万円 <span class="v">仮の値・照会前</span></dd>
+        </dl>
+      </div>
+    </div>
+    <p class="note">費用は、照会を済ませる前の仮の値です。実際の月額・製作費は看板の場所と大きさで変わり、ご提案のときに見積もりでお示しします。効果を保証するものではありません。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>効果は、アンケートではなく数で確かめます</h2>
+    <p class="lead">「何で知りましたか」と聞いても、看板で名前を覚えてから検索した方は「Googleマップ」と答えがちです。そこで、看板からマップへの流れの各段階を数えます。</p>
+    <div class="tw"><table>
+      <thead><tr><th>何を数えるか</th><th>どこで数えるか</th><th>看板の効果の見方</th></tr></thead>
+      <tbody>
+        <tr><td>店名を含む検索語句の数</td><td>Googleビジネスプロフィールの「パフォーマンス」（検索に使われた語句）</td><td>掲出の前後で、店名での検索が増えたか</td></tr>
+        <tr><td>プロフィールの閲覧数</td><td>同上</td><td>店名検索と合わせて増えたか</td></tr>
+        <tr><td>ルート・通話・ウェブサイトのクリック</td><td>同上</td><td>来店・予約の手前の行動が増えたか</td></tr>
+        <tr><td>予約数・来店数</td><td>予約システム、レジ、受付簿</td><td>掲出前1か月と、掲出後3か月の比較</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">季節や、同じ時期に始めた他の宣伝の影響も受けます。前年の同じ月とも比べ、毎月の報告で一緒に確かめます。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span>当社がすること</h2>
+    <ul class="plain">
+      <li>お店ごとのプランの作成、看板の候補探し、マップと口コミの整え方の助言、毎月の数の確認に、お店から費用はいただきません。</li>
+      <li>看板の契約は、お店と看板会社とで直接結んでいただきます。当社は契約が成立した場合に、看板会社から紹介手数料を受け取ります。</li>
+      <li>口コミの代筆や、特典と引き換えに口コミを集める方法はご提案しません。</li>
+    </ul>
+  </section>
+
+  <section style="text-align:center"><p style="margin:0 auto;font-weight:700;color:var(--navy)">お店の住所と業種を送るだけで、そのお店のためのプランをお作りします。</p><p style="margin:0 auto"><a href="./#contact" class="track-cta" data-action="maps_cta" style="display:inline-block;background:#c75a22;color:#fff;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none">無料でプランを依頼する</a></p><p class="note" style="margin:0 auto">メール info@bridgecycleco.com ／ LINE @907kxssd</p></section>
+  <footer class="foot">
+    <span><b>BRIDGE CYCLE株式会社</b>　〒520-0801 滋賀県大津市におの浜2-1-28　認定経営革新等支援機関</span>
+    <span>info@bridgecycleco.com　店じまいを、まちのはじまりに。</span>
+  </footer>
+</article>
+
+</body></html>
