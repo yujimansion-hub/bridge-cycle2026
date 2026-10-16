@@ -17,3 +17,5 @@
 .ownerband{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}.ownerband h2{color:#fff}.ownerband p{color:#dbe6f0}.obl li{color:#fff}.obimg{margin:0}.obimg img{width:100%;border-radius:15px;display:block;aspect-ratio:4/3;object-fit:cover;object-position:60% 40%}.obimg figcaption{font-size:12px;color:#b9cadb;margin-top:8px}
 @media(max-width:860px){.pairs,.ownerband{grid-template-columns:1fr}}
 #owner-band{background:var(--navy2);color:#fff}
+
+.philo{max-width:780px}.philo h2{margin:8px 0 22px;line-height:1.45}.philobody{display:grid;gap:14px;font-size:16px;line-height:2;color:#2a4255}.philosign{margin-top:22px;text-align:right;font-weight:800;color:var(--navy);font-size:14px}
