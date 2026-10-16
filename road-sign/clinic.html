@@ -121,8 +121,21 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
   .stage,.stage:first-child{clip-path:none;border-radius:4px}
   ol.time li{grid-template-columns:1fr;gap:2px}
 }
+
+
+.sitebar{max-width:900px;margin:0 auto 12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;font-size:13px}
+.sitebar .brand{font:700 14px var(--display);color:var(--navy);text-decoration:none}
+.sitebar nav{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.sitebar nav a{color:var(--ink);text-decoration:none;font-weight:700}
+.sitebar nav a[aria-current]{color:var(--orange)}
+.sitebar nav a.go{background:var(--orange);color:#fff;padding:6px 14px;border-radius:999px}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.related a{display:block;border:1px solid var(--line);border-radius:4px;padding:12px 14px;color:var(--navy);text-decoration:none;font-weight:700;font-size:14px}
+.related a small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+@media (max-width:720px){.related{grid-template-columns:1fr}}
 </style></head><body>
 
+<header class="sitebar"><a class="brand" href="./">京滋ロードサイン・ネットワーク</a><nav aria-label="京滋ロードサインのページ"><a href="./">広告主向けトップ</a><a href="maps.html">提案事例</a><a href="clinic.html" aria-current="page">クリニックの見本</a><a href="partner.html">広告スペースを貸したい方</a><a class="go track-cta" data-action="bar_cta" href="./#contact">無料でプランを依頼</a></nav></header>
 <div class="memo"><b>提案書の見本です</b><span>架空の医院を例にしています。実際のご提案では、医院の場所に合わせて候補地の写真・空き状況・金額を調べてお届けします。<a href="./" style="color:inherit;text-decoration:underline">京滋ロードサインのトップへ</a></span></div>
 
 <article class="doc">
@@ -292,7 +305,7 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
     </ul>
   </section>
 
-  <section style="text-align:center"><p style="margin:0 auto;font-weight:700;color:var(--navy)">開業・移転を予定している医院の方へ。場所に合わせたプランを無料でお作りします。</p><p style="margin:0 auto"><a href="./#contact" style="display:inline-block;background:#c75a22;color:#fff;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none">無料でプランを相談する</a></p><p class="note" style="margin:0 auto">メール info@bridgecycleco.com ／ LINE @907kxssd</p></section>
+  <section style="text-align:center"><p style="margin:0 auto;font-weight:700;color:var(--navy)">開業・移転を予定している医院の方へ。場所に合わせたプランを無料でお作りします。</p><p style="margin:0 auto"><a href="./#contact" style="display:inline-block;background:#c75a22;color:#fff;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none">無料でプランを相談する</a></p><p class="note" style="margin:0 auto">メール info@bridgecycleco.com ／ LINE @907kxssd</p><p class="note" style="margin:0 auto"><a href="maps.html#cases" style="color:var(--navy);font-weight:700;text-decoration:underline">飲食店・介護施設の提案事例も見る →</a></p></section>
   <footer class="foot">
     <span><b>BRIDGE CYCLE株式会社</b>　〒520-0801 滋賀県大津市におの浜2-1-28　認定経営革新等支援機関</span>
     <span>info@bridgecycleco.com　店じまいを、まちのはじまりに。</span>
