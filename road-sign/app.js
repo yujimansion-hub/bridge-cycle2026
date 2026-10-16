@@ -35,7 +35,7 @@
       if (!form.reportValidity()) return;
       if (!form.querySelector('[name="consent"]').checked) {form.querySelector('[name="consent"]').focus();return;}
       const type = form.dataset.form || 'advertiser';
-      const SUBJ = {media_partner:['【京滋ロードサイン】看板会社からの試験提携相談','看板会社'], owner:['【京滋ロードサイン】壁面・土地の広告スペース確認依頼','建物・土地の所有者'], advertiser:['【京滋ロードサイン】広告主の看板候補相談','広告主']};
+      const SUBJ = {media_partner:['【トオリミチ】看板会社からの試験提携相談','看板会社'], owner:['【トオリミチ】壁面・土地の広告スペース確認依頼','建物・土地の所有者'], advertiser:['【トオリミチ】広告主の看板候補相談','広告主']};
       const [subject, kind] = SUBJ[type] || SUBJ.advertiser;
       const payload = {_subject: subject, _template: 'table', 種別: kind, 個人情報の取扱いへの同意: 'あり'};
       for (const [k,v] of new FormData(form).entries()) {
