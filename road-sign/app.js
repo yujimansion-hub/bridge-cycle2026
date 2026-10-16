@@ -27,7 +27,7 @@
       const hidden = document.createElement('input');hidden.type='hidden';hidden.name=k;hidden.value=v;form.append(hidden);
     }
     const msg = form.querySelector('.form-msg');
-    const LABELS = {area:'所在地・地域',industry:'業種',budget:'月額広告予算',start_period:'掲載開始の希望',company:'会社名・店舗名',name:'お名前',email:'メールアドレス',tel:'電話番号',empty_count:'空き面数の目安',media_role:'お立場',message:'ご相談内容',property_type:'物件の種類',ownership:'所有の形',road:'面している道路',map_url:'GoogleマップのURL',media_type:'検討中の広告の種類',utm_source:'utm_source',utm_medium:'utm_medium',utm_campaign:'utm_campaign',utm_content:'utm_content',utm_term:'utm_term',source_page:'送信ページ',referrer:'参照元',submitted_at:'送信日時'};
+    const LABELS = {area:'所在地・地域',industry:'業種',budget:'月額広告予算',start_period:'掲載開始の希望',company:'会社名・店舗名',name:'お名前',email:'メールアドレス',tel:'電話番号',empty_count:'空き面数の目安',media_role:'お立場',message:'ご相談内容',property_type:'物件の種類',ownership:'所有の形',road:'面している道路',size:'おおよその大きさ',map_url:'GoogleマップのURL',media_type:'検討中の広告の種類',utm_source:'utm_source',utm_medium:'utm_medium',utm_campaign:'utm_campaign',utm_content:'utm_content',utm_term:'utm_term',source_page:'送信ページ',referrer:'参照元',submitted_at:'送信日時'};
     form.addEventListener('submit', async event => {
       event.preventDefault();
       if (form.querySelector('[name="website_url"]').value) return;
