@@ -27,6 +27,7 @@
       const hidden = document.createElement('input');hidden.type='hidden';hidden.name=k;hidden.value=v;form.append(hidden);
     }
     const msg = form.querySelector('.form-msg');
+    if (params.get('sent') === '1') { form.innerHTML = '<div style="padding:28px 6px;text-align:center"><p style="font-size:22px;font-weight:900;color:#173454">送信が完了しました</p><p style="margin-top:12px;color:#4a6476">お問い合わせありがとうございます。内容を確認し、担当者から折り返しご連絡します。</p></div>'; continue; }
     const LABELS = {area:'所在地・地域',industry:'業種',budget:'月額広告予算',start_period:'掲載開始の希望',company:'会社名・店舗名',name:'お名前',email:'メールアドレス',tel:'電話番号',empty_count:'空き面数の目安',media_role:'お立場',message:'ご相談内容',property_type:'物件の種類',ownership:'所有の形',road:'面している道路',size:'おおよその大きさ',map_url:'GoogleマップのURL',media_type:'検討中の広告の種類',utm_source:'utm_source',utm_medium:'utm_medium',utm_campaign:'utm_campaign',utm_content:'utm_content',utm_term:'utm_term',source_page:'送信ページ',referrer:'参照元',submitted_at:'送信日時'};
     form.addEventListener('submit', async event => {
       event.preventDefault();
@@ -38,7 +39,7 @@
       const [subject, kind] = SUBJ[type] || SUBJ.advertiser;
       const payload = {_subject: subject, _template: 'table', 種別: kind, 個人情報の取扱いへの同意: 'あり'};
       for (const [k,v] of new FormData(form).entries()) {
-        if (!v || /^(website_url|consent|source_name)$/.test(k)) continue;
+        if (!v || v instanceof File || /^(website_url|consent|source_name)$/.test(k)) continue;
         payload[LABELS[k]||k] = String(v).slice(0,1000);
       }
       track('lp_lead_submit_attempt', type);
@@ -50,6 +51,16 @@
         msg.innerHTML = '送信できませんでした。お手数ですが、<a href="'+mailto+'" style="text-decoration:underline">こちらからメールで</a>お送りいただくか、LINE（@907kxssd）からご連絡ください。';
       };
       if (!/^https:\/\/(formsubmit\.co|formspree\.io)\//.test(endpoint)) { location.href = mailto; return; }
+      const fileInput = form.querySelector('input[type="file"]');
+      if (fileInput && fileInput.files.length && /formsubmit\.co/.test(endpoint)) {
+        if ([...fileInput.files].some(f => f.size > 5*1024*1024)) { msg.textContent = '写真は1枚5MBまでです。大きい写真はLINE（@907kxssd）でお送りください。'; return; }
+        const nf = document.createElement('form'); nf.method = 'POST'; nf.enctype = 'multipart/form-data'; nf.action = endpoint.replace('/ajax/', '/'); nf.style.display = 'none';
+        const add = (k, v) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; nf.append(i); };
+        for (const [k, v] of Object.entries(payload)) add(k, v);
+        add('_captcha', 'false'); add('_next', location.origin + location.pathname + '?sent=1#contact');
+        fileInput.name = 'attachment'; nf.append(fileInput); document.body.append(nf);
+        track('lp_lead_submit_success', type + '_with_photo'); nf.submit(); return;
+      }
       submit.dataset.label = submit.textContent; submit.disabled = true; submit.textContent = '送信しています…';
       try {
         const res = await fetch(endpoint, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(payload)});
