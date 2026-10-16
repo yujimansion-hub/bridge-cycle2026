@@ -10,3 +10,5 @@
 .cards.four{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:960px){.cards.four{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.cards.four{grid-template-columns:1fr}}
 
 .mediacmp svg{display:block;width:100%;height:auto;aspect-ratio:290/190}.mdl{display:grid;grid-template-columns:5.5em 1fr;gap:4px 10px;margin:10px 0;font-size:13.5px}.mdl dt{font-weight:800;color:var(--navy)}.mdl dd{margin:0}
+
+.checklist{margin:12px 0 0;padding-left:1.2em;display:grid;gap:6px;font-size:14px}.benefit-box h3{font-size:17px;margin:0}@media(max-width:760px){.benefit{grid-template-columns:1fr}}
