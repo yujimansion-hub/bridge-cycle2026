@@ -110,6 +110,7 @@ input:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
 .res .k{font-size:12px;color:var(--muted)}
 .res .val{font:700 24px/1.3 var(--mono);color:var(--navy);font-variant-numeric:tabular-nums}
 .res .big{font-size:30px;color:var(--orange)}
+ul.plain b{color:var(--navy)}
 ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-width:66ch}
 .foot{padding:18px 34px 22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted);border-top:6px solid var(--navy)}
 .foot b{color:var(--navy);font-family:var(--display)}
@@ -128,10 +129,15 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
 .case .cbody{padding:16px 18px 16px 0;display:grid;gap:8px;align-content:start;min-width:0}
 .clabel{font:700 12px var(--body);color:var(--orange);letter-spacing:.06em}
 .case h3{margin:0;font:700 18px/1.45 var(--display);color:var(--navy);text-wrap:balance}
-.cdl{margin:0;display:grid;grid-template-columns:5.5em 1fr;gap:6px 12px;font-size:13.5px}
+.cdl{margin:0;display:grid;grid-template-columns:7em 1fr;gap:6px 12px;font-size:13.5px}
 .cdl dt{font-weight:700;color:var(--navy)}
 .cdl dd{margin:0}
 .rule b{color:var(--navy)}
+.covercta{display:grid;gap:6px;justify-items:start;margin-top:6px}
+.covercta a{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:11px 22px;border-radius:999px;text-decoration:none}
+.covercta span{font-size:12.5px;opacity:.9}
+.casecta{margin:4px 0 0}
+.casecta a{font-weight:700;color:var(--orange);text-decoration:underline}
 .nw{display:inline-block}
 .note a,.memo a{color:inherit;text-decoration:underline}
 .note a{color:var(--navy);font-weight:700}
@@ -148,6 +154,7 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
       <h1><span class="nw">看板で名前を</span><span class="nw">覚えてもらい、</span><br><span class="nw">マップと口コミで</span><span class="nw">選んでもらう。</span></h1>
       <div class="line"></div>
       <div class="meta">3つを組み合わせた集客の考え方と、業種別の提案事例</div>
+      <div class="covercta"><a href="./#contact" class="track-cta" data-action="maps_cover">無料で集客診断を依頼する</a><span>看板が向かないお店には、そうお伝えします。</span></div>
     </div>
     <figure>
       <img alt="幹線道路沿いの看板に、歯科医院の案内を表示したイメージ写真" src="assets/case-dental.webp">
@@ -169,7 +176,7 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
     <p class="lead">看板を見てそのまま来店する人は多くありません。多くの方は、看板で名前を覚え、あとで店名を検索し、マップで口コミと写真を見てから来店します。</p>
     <div class="funnel">
       <div class="stage"><span class="s">1 見る</span><span class="t">看板</span><span class="m">通り道で店名を何度も見る</span><span class="tool">数える：前を通る台数</span></div>
-      <div class="stage"><span class="s">2 調べる</span><span class="t">店名で検索</span><span class="m">「○○食堂」「○○歯科 瀬田」と検索する</span><span class="tool">数える：店名を含む検索語句の数</span></div>
+      <div class="stage"><span class="s">2 調べる</span><span class="t">店名で検索</span><span class="m">「○○食堂」「○○歯科 瀬田」と検索する</span><span class="tool">数える：店名を含む語句での表示回数</span></div>
       <div class="stage"><span class="s">3 比べる・決める</span><span class="t">マップ・口コミ</span><span class="m">写真・営業時間・口コミを見て決める</span><span class="tool">数える：プロフィールの閲覧数</span></div>
       <div class="stage"><span class="s">4 来る</span><span class="t">ルート・電話・予約</span><span class="m">マップからルート案内・電話・予約へ</span><span class="tool">数える：ルート・通話・予約の数</span></div>
     </div>
@@ -213,10 +220,12 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
           <dt>看板</dt><dd>来院が多い方向の幹線道路に、医院の約500m手前で野立て看板を1面。曲がり角に電柱広告で道案内。文面は医院名・診療科・「この先500m 右側」・駐車場・診療日だけにします。</dd>
           <dt>マップ</dt><dd>開業の前にGoogleビジネスプロフィールを登録し、オーナー確認を済ませます。外観・入口・駐車場・看板の写真、診療時間、WEB予約へのリンクを入れます。</dd>
           <dt>口コミ</dt><dd>受付で会計時に、全員へ同じ案内カードを渡します。医院のホームページや看板には、口コミを転載しません（医療広告ガイドラインで患者の体験談は広告に使えないため）。返信では治療の内容や受診の有無に触れません。</dd>
-          <dt>測り方</dt><dd>医院名を含む検索語句の数、ルート案内、WEB予約の数を、掲出前1か月と掲出後3か月で比べます。</dd>
+          <dt>測り方</dt><dd>医院名を含む語句での表示回数、ルート案内、WEB予約、新患の数を、掲出前（できれば3か月）と掲出後3か月で比べます。</dd>
           <dt>費用の目安</dt><dd>野立て1面：月2.5万円×12か月＋製作・設置15万円＝初年度45万円 <span class="v">仮の値・照会前</span></dd>
+          <dt>元が取れる目安</dt><dd><b>年23人（月2人）の新患増</b>。新患1人あたりの増分利益を2万円と仮定（45万円÷2万円、端数切り上げ）</dd>
         </dl>
         <p class="note">歯科・クリニックの詳しい1年計画は<a href="clinic.html">開業集患プランの見本</a>をご覧ください。</p>
+        <p class="casecta"><a href="./#contact" class="track-cta" data-action="maps_case_dental">近い条件のお店の、無料集客診断を依頼する →</a></p>
       </div>
     </div>
 
@@ -230,9 +239,11 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
           <dt>看板</dt><dd>昼に通勤や営業の車が多い方向から、店の約1km手前（左折で入れる側）に野立て看板を1面。店名・「この先1km 左側」・駐車場の台数・営業時間を載せます。</dd>
           <dt>マップ</dt><dd>駐車場の入口、曲がる目印、外観、看板の写真を入れます。メニューと価格の写真をお店から先に載せ、営業時間と定休日を正確にします。</dd>
           <dt>口コミ</dt><dd>卓上とレジ横に案内を置き、全員へ同じ形でお願いします（特典は付けません）。料理の写真付きの口コミが増えると、初めての方が選びやすくなります。</dd>
-          <dt>測り方</dt><dd>ルート案内と電話の数、店名を含む検索語句の数、昼の来店組数（レジの記録）を、掲出の前後で比べます。</dd>
+          <dt>測り方</dt><dd>ルート案内と電話の数、店名を含む語句での表示回数、昼の来店組数（レジの記録）を、掲出の前後で比べます。</dd>
           <dt>費用の目安</dt><dd>野立て1面：月2万円×12か月＋製作・設置12万円＝初年度36万円 <span class="v">仮の値・照会前</span></dd>
+          <dt>元が取れる目安</dt><dd><b>年180組（月15組）の新規来店増</b>。新規1組あたりの増分利益を2,000円と仮定（36万円÷2,000円）</dd>
         </dl>
+        <p class="casecta"><a href="./#contact" class="track-cta" data-action="maps_case_food">近い条件のお店の、無料集客診断を依頼する →</a></p>
       </div>
     </div>
 
@@ -246,33 +257,37 @@ ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:14px;max-wid
           <dt>看板</dt><dd>施設へ曲がる交差点の角に、ご家族が買い物や通勤で車で通る道から見える看板を1面。施設名・「この角を右へ200m」・「送迎あり」・「見学受付中」を載せます。</dd>
           <dt>マップ</dt><dd>室内、送迎車、入口と段差の様子の写真を入れます（利用者の顔は写しません）。見学の申し込み先として電話とWEBのリンクを入れます。</dd>
           <dt>口コミ</dt><dd>ご家族にお願いします。返信では、利用者個人が分かる内容に触れません。</dd>
-          <dt>測り方</dt><dd>マップからの電話の数、見学の申し込み数、施設名を含む検索語句の数を、掲出の前後で比べます。</dd>
+          <dt>測り方</dt><dd>マップからの電話の数、見学の申し込み数、施設名を含む語句での表示回数を、掲出の前後で比べます。</dd>
           <dt>費用の目安</dt><dd>ポール看板1面：月1.5万円×12か月＋製作・設置10万円＝初年度28万円 <span class="v">仮の値・照会前</span></dd>
+          <dt>元が取れる目安</dt><dd><b>年6人の新規利用者増</b>。新規利用者1人あたり、利用が続く期間の増分利益を5万円と仮定（28万円÷5万円、端数切り上げ）</dd>
         </dl>
+        <p class="casecta"><a href="./#contact" class="track-cta" data-action="maps_case_care">近い条件のお店の、無料集客診断を依頼する →</a></p>
       </div>
     </div>
-    <p class="note">費用は、照会を済ませる前の仮の値です。実際の月額・製作費は看板の場所と大きさで変わり、ご提案のときに見積もりでお示しします。効果を保証するものではありません。</p>
+    <p class="note">「増分利益」は売上ではなく、新しいお客様1人（1組）から得られる売上から、材料費などの変動費を引いた額です。業種とお店の単価で大きく変わるため、診断ではお店の数字で計算し直します。費用は、照会を済ませる前の仮の値です。実際の月額・製作費は看板の場所と大きさで変わり、ご提案のときに見積もりでお示しします。効果を保証するものではありません。</p>
   </section>
 
   <section>
-    <h2><span class="n">5</span>効果は、アンケートではなく数で確かめます</h2>
-    <p class="lead">「何で知りましたか」と聞いても、看板で名前を覚えてから検索した方は「Googleマップ」と答えがちです。そこで、看板からマップへの流れの各段階を数えます。</p>
+    <h2><span class="n">5</span>効果は、掲出前後の変化を複数の数で確かめます</h2>
+    <p class="lead">「何で知りましたか」と聞いても、看板で名前を覚えてから検索した方は「Googleマップ」と答えがちです。また、看板から来た人を1人ずつ特定することはできません。そこで、掲出の前と後で、流れの各段階の数がどう変わったかを、いくつかの数を組み合わせて確かめます。</p>
     <div class="tw"><table>
-      <thead><tr><th>何を数えるか</th><th>どこで数えるか</th><th>看板の効果の見方</th></tr></thead>
+      <thead><tr><th>何を数えるか</th><th>どこで数えるか</th><th>分かること</th><th>注意点</th></tr></thead>
       <tbody>
-        <tr><td>店名を含む検索語句の数</td><td>Googleビジネスプロフィールの「パフォーマンス」（検索に使われた語句）</td><td>掲出の前後で、店名での検索が増えたか</td></tr>
-        <tr><td>プロフィールの閲覧数</td><td>同上</td><td>店名検索と合わせて増えたか</td></tr>
-        <tr><td>ルート・通話・ウェブサイトのクリック</td><td>同上</td><td>来店・予約の手前の行動が増えたか</td></tr>
-        <tr><td>予約数・来店数</td><td>予約システム、レジ、受付簿</td><td>掲出前1か月と、掲出後3か月の比較</td></tr>
+        <tr><td>前を通る台数</td><td>国の道路交通センサス</td><td>看板が目に入りうる規模</td><td>実際に看板を見た人数ではない</td></tr>
+        <tr><td>店名を含む語句での表示回数</td><td>Googleビジネスプロフィールの「パフォーマンス」</td><td>店名で探す人が増えたか</td><td>検索した人数そのものではない</td></tr>
+        <tr><td>プロフィールの閲覧数</td><td>同上</td><td>お店への関心が増えたか</td><td>看板から来た人とは限らない</td></tr>
+        <tr><td>ルート・通話・ウェブサイトのクリック</td><td>同上</td><td>来店・予約の手前の行動</td><td>他の宣伝の効果も含まれる</td></tr>
+        <tr><td>予約数・来店数</td><td>予約システム、レジ、受付簿</td><td>事業としての成果</td><td>他の宣伝の効果も含まれる</td></tr>
       </tbody>
     </table></div>
-    <p class="note">季節や、同じ時期に始めた他の宣伝の影響も受けます。前年の同じ月とも比べ、毎月の報告で一緒に確かめます。</p>
+    <p class="note">できれば掲出前3か月と掲出後3か月を比べ、同じ時期に始めた他の宣伝や季節の影響も記録しておきます。前年の同じ月の数があれば、それとも比べます。数字はお店の管理画面からご共有いただきます（当社が管理者になる必要はありません）。</p>
   </section>
 
   <section>
     <h2><span class="n">6</span>当社がすること</h2>
     <ul class="plain">
-      <li>お店ごとのプランの作成、看板の候補探し、マップと口コミの整え方の助言、毎月の数の確認に、お店から費用はいただきません。</li>
+      <li><b>無料で行うこと</b>：看板が向いているかどうかの集客診断、看板の候補と費用の比較、マップと口コミの整え方の助言、効果を測るための掲出前の数の記録、掲出3か月後の振り返り（1回）。</li>
+      <li><b>当社が行わないこと</b>：Googleマップの運用代行や口コミ対策の継続的な運用。必要な場合は、専門の会社をご紹介します。</li>
       <li>看板の契約は、お店と看板会社とで直接結んでいただきます。当社は契約が成立した場合に、看板会社から紹介手数料を受け取ります。</li>
       <li>口コミの代筆や、特典と引き換えに口コミを集める方法はご提案しません。</li>
     </ul>
