@@ -332,3 +332,9 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 .akcheck{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px!important}
 .akcheck span{font-size:12px;font-weight:800;color:#ffb077;margin-right:4px}
 .akcheck i{font-style:normal;font-size:12px;font-weight:700;color:#fff;border:1px solid #ffffff40;border-radius:999px;padding:3px 10px}
+.qstep[hidden]{display:none}
+.qsum{font-size:13px;font-weight:800;color:var(--navy);background:#f5f8fa;border-radius:8px;padding:8px 12px;margin-bottom:10px}
+.quick .privacy-check{margin-top:12px;color:#2a4255}
+.quick .stepbar{margin-bottom:10px}
+.qback{background:none;border:0;padding:0;color:var(--navy);text-decoration:underline;font-size:12px;font-weight:700;cursor:pointer}
+.quick .form-msg{margin-top:10px}
