@@ -177,3 +177,62 @@ h1{letter-spacing:0;line-height:1.22}
 @keyframes hpIn{from{opacity:0;transform:translateY(26px) rotate(-2deg)}to{opacity:1;transform:translateY(0) rotate(-2deg)}}
 @media(max-width:850px){.heroplan{animation-name:hpInM}@keyframes hpInM{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}}
 @media(prefers-reduced-motion:reduce){.heroplan{animation:none}.fcprog b{transition:none}}
+/* three entrances 2026-10-17 */
+.hero3 .herocopy{padding:44px 36px 48px 0}
+.hero3 h1{font-size:clamp(40px,4.6vw,62px)}
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px;width:100%;max-width:560px}
+.door{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;background:#ffffff14;border:1px solid #ffffff38;color:#fff;border-radius:12px 12px 0 0;padding:12px 12px 14px;min-height:112px;transition:background .2s}
+.door svg{width:24px;height:24px;max-width:24px;max-height:24px;fill:none;color:#ffb077;margin-bottom:4px}
+.door b{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-size:15px;line-height:1.35}
+.door span{font-size:11.5px;color:#cfdbe5}
+.door:hover{background:#ffffff24}
+.door[aria-selected="true"]{background:#fff;color:var(--navy);border-color:#fff;box-shadow:inset 0 4px 0 var(--orange)}
+.door[aria-selected="true"] svg{color:var(--orange)}.door[aria-selected="true"] span{color:var(--muted)}
+.door[aria-selected="true"]::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:10px;background:#fff}
+.doorpanel{background:#fff;color:var(--ink);border-radius:0 0 16px 16px;padding:18px;width:100%;max-width:560px;box-shadow:0 20px 44px #0004}
+.doorpanel[hidden]{display:none}
+.dph{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.6}
+.dph b{color:#b64d20}
+.doorpanel .quick{background:none;box-shadow:none;padding:0;margin:0;max-width:none;border-radius:0}
+.dpsub{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:12px;font-size:13px;font-weight:800}
+.dpsub a{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.dpprice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dpprice div{background:#f5f8fa;border-radius:10px;padding:12px 14px}
+.dpprice span{display:block;font-size:12px;font-weight:800;color:var(--muted)}
+.dpprice b{display:block;font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-size:26px;color:var(--navy);line-height:1.25}
+.dpprice div:first-child b{color:var(--orange)}
+.dpprice em{font-style:normal;font-size:11px;color:var(--muted)}
+.dpbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.dpbtns .btn{min-height:54px;padding:10px 14px}
+.dpchoice{display:grid;gap:10px}
+.dpcard{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .2s,background .2s}
+.dpcard:hover{border-color:var(--orange);background:#fffaf6}
+.dpcard svg{width:26px;height:26px;max-width:26px;max-height:26px;fill:none;color:var(--orange);flex:0 0 26px}
+.dpcard span{font-size:13px;color:var(--muted);line-height:1.55}
+.dpcard b{display:block;font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-size:16px;color:var(--navy)}
+.plans3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan3{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+.plan3.main{border:2px solid var(--orange)}
+.ptag{align-self:flex-start;font-size:11.5px;font-weight:900;border-radius:999px;padding:3px 10px;background:#e4ecf3;color:var(--navy)}
+.plan3.main .ptag{background:#fce6d7;color:#9e4418}
+.plan3 h3{margin:12px 0 4px;font-size:19px;color:var(--navy)}
+.pfig{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-size:36px;font-weight:900;color:var(--navy);line-height:1.2}
+.plan3.main .pfig{color:var(--orange)}
+.pfig small{font-size:13px;font-weight:700;color:var(--muted);margin-left:6px}
+.plan3 ul{list-style:none;padding:0;margin:14px 0 20px;display:grid;gap:7px;font-size:14px;flex:1}
+.plan3 li{position:relative;padding-left:22px;color:#3b5163}
+.plan3 li::before{content:'';position:absolute;left:2px;top:9px;width:10px;height:6px;border-left:2.5px solid var(--good);border-bottom:2.5px solid var(--good);transform:rotate(-45deg)}
+.plan3 .btn{width:100%}
+.akband{background:var(--navy);color:#fff;padding:34px 0}
+.akbandin{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.akcopy{display:flex;gap:16px;align-items:flex-start;max-width:700px}
+.akcopy .cic{background:#ffffff1a;color:#ffb077;margin:2px 0 0}
+.akband h2{font-size:24px}
+.akband p{font-size:14px;color:#d5e3ee;margin-top:6px}
+.akbtns{display:flex;gap:10px;flex-wrap:wrap;flex:0 0 auto}
+.akbtns .btn.line{background:transparent;color:#fff;border-color:#ffffff80}
+@media(max-width:960px){.plans3{grid-template-columns:1fr}.akbandin{flex-direction:column;align-items:flex-start}}
+@media(max-width:850px){.hero3 .herocopy{padding:32px 0 26px}.doors{grid-template-columns:1fr;gap:6px;max-width:none}.door{flex-direction:row;align-items:center;flex-wrap:wrap;min-height:0;border-radius:12px;padding:12px 14px;column-gap:10px}.door svg{margin:0}.door span{flex-basis:100%;padding-left:34px;margin-top:-4px}.door[aria-selected="true"]{border-radius:12px 12px 0 0}.door[aria-selected="true"]::after{bottom:-7px;height:8px}.doorpanel{max-width:none}.dpbtns{grid-template-columns:1fr}}
+@media(max-width:850px){.doors{grid-template-columns:repeat(3,1fr);gap:6px}.door{flex-direction:column;align-items:flex-start;flex-wrap:nowrap;min-height:96px;padding:10px 10px 12px;border-radius:12px 12px 0 0}.door b{font-size:13.5px}.door span{display:none}.door svg{margin-bottom:4px}.door[aria-selected="true"]{border-radius:12px 12px 0 0}}
+@media(max-width:360px){.door b{font-size:12.5px}}
+.door b{word-break:keep-all;overflow-wrap:anywhere}
