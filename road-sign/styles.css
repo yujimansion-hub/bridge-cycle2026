@@ -287,3 +287,8 @@ h1{letter-spacing:0;line-height:1.22}
 .asflow p{font-size:12.5px;color:var(--muted);margin-top:10px}
 @media(max-width:760px){.asgrid{grid-template-columns:1fr}.ash{flex-wrap:wrap}.ash em{text-align:left}.asf{flex-direction:column;align-items:stretch}.asf i{width:2px;height:16px;margin-left:20px}.asf i::after{right:auto;left:-4px;top:auto;bottom:-2px;border-width:7px 5px 0 5px;border-color:#e39a6b transparent transparent transparent}}
 @media(min-width:761px){.asgrid{grid-template-columns:repeat(3,1fr)}}
+.ownq label span{display:block;font-size:12px;font-weight:800;color:#2a4255}
+.ownqbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.ownqbtns .btn{min-height:54px;padding:10px 12px;margin:0;width:100%}
+.btn.lineg{background:#06C755;box-shadow:0 8px 16px #06c7552e}.btn.lineg:hover{background:#05a948}
+@media(max-width:480px){.ownqbtns{grid-template-columns:1fr}}
