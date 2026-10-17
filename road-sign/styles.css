@@ -161,3 +161,19 @@
 @media(max-width:850px){.hero2 .herocopy{padding:34px 0 28px}.qrow{grid-template-columns:1fr}.heroplan{left:14px;bottom:44px;width:204px;padding:10px 12px;transform:none}.heroplan b{font-size:12px}.heroplan .hp-total{font-size:16px}}
 @media(max-width:560px){.pgrid{grid-template-columns:1fr;gap:12px}.psgrid{grid-template-columns:1fr}.psgrid figure.psphoto{min-height:170px}.plansheet{padding:14px}.psfig{margin-left:0;gap:12px}.psh{flex-wrap:wrap}.psh em{text-align:left}}
 .sticky-mobile{transition:transform .25s ease}.sticky-mobile.is-hidden{transform:translateY(120%)}
+/* type + finish 2026-10-17 */
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
+h1,h2,h3,.btn,.psh b,.plancall b,.pitem b,.tnode b,.heroplan b{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif}
+h1,h2,h3{font-feature-settings:"palt";letter-spacing:.01em}
+h1{letter-spacing:0;line-height:1.22}
+.sectionhead h2{line-height:1.38}
+.fine{font-size:12.5px;color:var(--muted);margin-top:16px;line-height:1.8}
+.fine a{color:var(--navy)}
+.center .fine,.sectionhead+.fine{text-align:center}
+.fcprog{display:grid;gap:7px;font-size:13px;font-weight:800;color:#d6e2ee;text-align:left}
+.fcprog i{display:block;height:6px;border-radius:9px;background:#ffffff26;overflow:hidden}
+.fcprog b{display:block;height:100%;width:0;background:#ffb077;transition:width .35s ease}
+.heroplan{animation:hpIn .8s .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes hpIn{from{opacity:0;transform:translateY(26px) rotate(-2deg)}to{opacity:1;transform:translateY(0) rotate(-2deg)}}
+@media(max-width:850px){.heroplan{animation-name:hpInM}@keyframes hpInM{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}}
+@media(prefers-reduced-motion:reduce){.heroplan{animation:none}.fcprog b{transition:none}}
