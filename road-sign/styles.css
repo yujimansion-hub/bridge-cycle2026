@@ -41,3 +41,7 @@
 .fit-no{border-top:5px solid var(--orange)}
 .fitcol .checklist{font-size:15px;gap:8px}
 @media(max-width:760px){.fitgrid{grid-template-columns:1fr}.fitcol{padding:20px}}
+
+.fc{display:grid;grid-template-columns:1fr 300px;gap:12px 22px;max-width:980px;margin:0 auto}.fcq{grid-column:1;margin:0;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 16px 14px}.fcq legend{font-weight:800;color:var(--navy);font-size:14.5px;padding:0 4px}.fcq label{display:inline-flex;align-items:center;gap:6px;margin:6px 14px 0 0;font-size:14px;cursor:pointer}.fcq input{accent-color:#c75a22;width:18px;height:18px}
+.fcres{grid-column:2;grid-row:1/6;align-self:stretch}.fcmedia{color:#fff!important;font-weight:700}
+@media(max-width:860px){.fc{grid-template-columns:1fr}.fcres{grid-column:1;grid-row:auto}}
