@@ -45,3 +45,20 @@
 .fc{display:grid;grid-template-columns:1fr 300px;gap:12px 22px;max-width:980px;margin:0 auto}.fcq{grid-column:1;margin:0;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 16px 14px}.fcq legend{font-weight:800;color:var(--navy);font-size:14.5px;padding:0 4px}.fcq label{display:inline-flex;align-items:center;gap:6px;margin:6px 14px 0 0;font-size:14px;cursor:pointer}.fcq input{accent-color:#c75a22;width:18px;height:18px}
 .fcres{grid-column:2;grid-row:1/6;align-self:stretch}.fcmedia{color:#fff!important;font-weight:700}
 @media(max-width:860px){.fc{grid-template-columns:1fr}.fcres{grid-column:1;grid-row:auto}}
+/* 2026-10-17 クリニック・歯科向けページ（kaiin.html） */
+.kaiinprice{grid-template-columns:repeat(4,minmax(0,1fr))}
+.price h3{font-size:17px;margin:6px 0 0}
+.price.highlight h3{color:#fff}
+.plist{margin:10px 0 0;padding-left:1.1em;display:grid;gap:6px;font-size:13px}
+.price.highlight .plist{color:#e6eef4}
+.plist b{font-weight:800}
+.price .pay{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;font-weight:700}
+.price.highlight .pay{border-top-color:#ffffff33;color:#fff}
+.mtable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mtable{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:14px;min-width:520px}
+.mtable th,.mtable td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.mtable th{background:var(--navy);color:#fff;font-size:13px}
+.mtable td:first-child{font-weight:800;color:var(--navy);white-space:nowrap}
+@media(max-width:1060px){.kaiinprice{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.kaiinprice{grid-template-columns:1fr}}
+@media(max-width:600px){.mtable{min-width:0;border-radius:12px}.mtable thead{display:none}.mtable tr{display:block;border-bottom:1px solid var(--line);padding:10px 0}.mtable tr:last-child{border-bottom:0}.mtable td{display:block;border:0;padding:3px 14px}.mtable td[data-label]::before{content:attr(data-label);display:block;font-size:11.5px;font-weight:800;color:var(--muted)}}
