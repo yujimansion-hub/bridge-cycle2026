@@ -1,0 +1,124 @@
+/* kaiin.html（クリニック・歯科向け）専用。styles.css の後に読み込む */
+:root{--ink-red:#b3261e;--ink-amber:#9a6a0e;--ink-green:#0c745d;--road:#4b5b69;--chart:#fffdf8;--chart-line:#ece4d6}
+
+/* 対象の帯 */
+.ktargets{background:#fff;border-bottom:1px solid var(--line)}
+.ktargets .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.ktarget{padding:20px 22px;border-left:1px solid var(--line)}
+.ktarget:first-child{border-left:0;padding-left:0}
+.ktarget b{display:block;color:var(--navy);font-size:15px}
+.ktarget span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+
+/* 患者さんの通り道 */
+.kroad{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+.kroad::before{content:"";position:absolute;left:4%;right:4%;top:34px;height:14px;border-radius:7px;background:var(--road);
+  background-image:linear-gradient(90deg,#fff 0 18px,transparent 18px 36px);background-size:36px 2px;background-repeat:repeat-x;background-position:0 6px}
+.kstop{position:relative;text-align:center}
+.kstop .kicon{width:82px;height:82px;margin:0 auto;border-radius:50%;background:#fff;border:3px solid var(--navy);display:grid;place-items:center;color:var(--navy);position:relative;z-index:1}
+.kstop .kicon svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.kstop .kn{position:absolute;top:-6px;right:calc(50% - 50px);z-index:2;background:var(--orange);color:#fff;font-size:12px;font-weight:900;width:24px;height:24px;border-radius:50%;display:grid;place-items:center}
+.kstop h3{font-size:16px;margin-top:14px;color:var(--navy)}
+.kstop p{font-size:13px;color:var(--muted);margin-top:4px}
+.kstop .ktrip{margin-top:10px;background:#fdf0ee;color:#8f2a1f;border-radius:8px;padding:8px 10px;font-size:12.5px;line-height:1.6;text-align:left}
+.kstop .ktrip::before{content:"迷う点：";font-weight:800}
+
+/* 診断書の見本 */
+.kdiag{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.kdiag h2{color:var(--navy)}
+.kdiag ul{margin:20px 0 0;padding-left:1.2em;display:grid;gap:10px;font-size:15px}
+.kdiag .btn{margin-top:26px}
+.kchart{background:var(--chart);border:1px solid #e3d9c6;border-radius:6px;box-shadow:0 18px 40px #1734541f,0 2px 0 #e3d9c6;padding:28px 28px 22px;position:relative;transform:rotate(-.6deg);
+  background-image:repeating-linear-gradient(0deg,transparent 0 33px,var(--chart-line) 33px 34px)}
+.kchart header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:2px solid var(--navy);padding-bottom:10px}
+.kchart header b{font-size:20px;color:var(--navy);letter-spacing:.06em}
+.kchart header small{display:block;font-size:13px;color:var(--ink);margin-top:2px}
+.kseal{border:2px solid var(--orange);color:var(--orange);border-radius:6px;padding:2px 10px;font-weight:900;font-size:14px;transform:rotate(6deg);white-space:nowrap}
+.kmeta{font-size:11.5px;color:var(--muted);margin:10px 0 6px;line-height:1.6}
+.krow{display:grid;grid-template-columns:7.5em 1fr auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dashed #d9cdb6;font-size:13.5px}
+.krow dt{font-weight:800;color:var(--navy);margin:0}
+.krow dd{margin:0;line-height:1.55}
+.kstamp{display:inline-block;border:2px solid currentColor;border-radius:4px;padding:1px 8px;font-weight:900;font-size:12.5px;transform:rotate(-4deg);white-space:nowrap}
+.kstamp.ng{color:var(--ink-red)}.kstamp.miss{color:var(--ink-amber)}.kstamp.ok{color:var(--ink-green)}.kstamp.info{color:var(--navy)}
+.korder{margin-top:14px;background:#fff;border:1px solid #e3d9c6;border-radius:6px;padding:12px 14px}
+.korder b{font-size:13px;color:var(--navy)}
+.korder ol{margin:6px 0 0;padding-left:1.4em;font-size:13px;display:grid;gap:3px}
+.kchart .kfoot{font-size:11px;color:var(--muted);margin-top:12px}
+
+/* 無料と有料 */
+.ksplit{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.kside{padding:30px 32px}
+.kside.free{background:#f2f8f5}
+.kside h3{font-size:19px;color:var(--navy);display:flex;align-items:center;gap:10px}
+.kside .ktag{font-size:13px;font-weight:900;border-radius:50px;padding:3px 12px;color:#fff;background:var(--ink-green)}
+.kside.paid .ktag{background:var(--navy)}
+.kside ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px;font-size:14.5px}
+.kside li{padding-left:26px;position:relative}
+.kside li::before{content:"";position:absolute;left:0;top:.55em;width:14px;height:8px;border-left:2.5px solid var(--ink-green);border-bottom:2.5px solid var(--ink-green);transform:rotate(-45deg)}
+.kside.paid li::before{border-color:var(--navy)}
+.kside .klink{display:inline-block;margin-top:16px;font-weight:800;color:var(--navy);text-decoration:underline;font-size:14px}
+
+/* 90日の流れ */
+.ktime{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding-top:6px}
+.ktime::before{content:"";position:absolute;left:0;right:0;top:46px;height:4px;background:linear-gradient(90deg,#c9d4dd 0 50%,var(--orange) 50% 100%);border-radius:2px}
+.kmile{position:relative;text-align:center}
+.kmile .kwhen{font-size:13px;font-weight:900;color:var(--navy);height:30px}
+.kmile .kdot{width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid var(--navy);margin:2px auto 0;position:relative;z-index:1}
+.kmile.open .kdot{width:28px;height:28px;margin-top:-2px;background:var(--orange);border-color:var(--orange)}
+.kmile.open .kwhen{color:var(--orange)}
+.kmile p{font-size:12.5px;color:var(--ink);margin-top:12px;line-height:1.6}
+.kpay{display:inline-block;margin-top:10px;font-size:12px;font-weight:900;color:var(--navy);background:#e8eef3;border-radius:6px;padding:3px 8px}
+.kpay.none{background:#f2f8f5;color:var(--ink-green)}
+
+/* 毎月の報告の見本 */
+.kreport{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 10px 30px #1734540f}
+.kreport header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.kreport header b{color:var(--navy);font-size:17px}
+.kreport header span{font-size:12px;color:var(--ink-amber);font-weight:800}
+.ktiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
+.ktile{border:1px solid var(--line);border-radius:12px;padding:16px}
+.ktile h3{font-size:14px;color:var(--navy)}
+.ktile .ksrc{font-size:11px;color:var(--muted)}
+.ktile .kval{font-size:30px;font-weight:900;color:var(--navy);margin-top:6px;line-height:1.2}
+.kbars{display:flex;align-items:flex-end;gap:6px;height:56px;margin-top:10px;border-bottom:1px solid var(--line)}
+.kbars i{flex:1;background:#c9d4dd;border-radius:3px 3px 0 0;display:block}
+.kbars i:last-child{background:var(--navy)}
+.kbarlab{display:flex;gap:6px;font-size:10px;color:var(--muted);margin-top:3px}
+.kbarlab span{flex:1;text-align:center}
+.kdelta{display:flex;gap:8px;margin-top:10px;font-size:12px;flex-wrap:wrap}
+.kdelta span{background:#f3f6f8;border-radius:5px;padding:2px 7px}
+.kdelta .up{color:var(--ink-green);font-weight:800}.kdelta .down{color:var(--ink-red);font-weight:800}
+
+@media(max-width:960px){
+  .kdiag{grid-template-columns:1fr;gap:30px}
+  .kroad{grid-template-columns:1fr;gap:0}
+  .kroad::before{left:40px;right:auto;top:20px;bottom:20px;width:12px;height:auto;background-image:none}
+  .kstop{display:grid;grid-template-columns:82px 1fr;gap:0 16px;text-align:left;padding-bottom:22px}
+  .kstop .kicon{grid-row:1/4}
+  .kstop .kn{right:auto;left:62px}
+  .kstop h3{margin-top:4px}
+  .ktime{grid-template-columns:1fr;gap:0}
+  .ktime::before{left:10px;right:auto;top:0;bottom:0;width:4px;height:auto;background:linear-gradient(180deg,#c9d4dd 0 45%,var(--orange) 45% 100%)}
+  .kmile{display:grid;grid-template-columns:28px 1fr;gap:0 14px;text-align:left;padding-bottom:18px}
+  .kmile .kdot{grid-row:1/4;margin:4px 0 0}
+  .kmile.open .kdot{margin:0 0 0 -4px}
+  .kmile .kwhen{height:auto}
+  .kmile p{margin-top:2px}
+  .ktiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .ktargets .wrap{grid-template-columns:1fr}
+  .ktarget{border-left:0;border-top:1px solid var(--line);padding:12px 0}
+  .ktarget:first-child{border-top:0}
+  .ksplit{grid-template-columns:1fr}
+  .kside{padding:24px 20px}
+  .kchart{padding:20px 16px 16px;transform:none}
+  .krow{grid-template-columns:1fr auto;gap:4px 10px}
+  .krow dt{grid-column:1/-1}
+  .ktiles{grid-template-columns:1fr 1fr;gap:10px}
+  .ktile{padding:12px}
+  .ktile .kval{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){.kchart,.kseal,.kstamp{transform:none}}
+.kdiag h2{font-size:clamp(25px,2.5vw,33px)}
+@media(max-width:960px){.kmile .kpay{grid-column:2;justify-self:start;margin-top:6px}}
+@media(max-width:600px){.kbarlab{font-size:9px;white-space:nowrap;gap:6px}.kbarlab span{overflow:hidden}}
