@@ -15,7 +15,7 @@
   };
   const ready = load().then(data => {
     const boards = (data.boards || []).filter(eligible);
-    const min = Number(data.min_public) || 5;
+    const m = Number(data.min_public), min = Number.isFinite(m) && m >= 0 ? m : 5;
     const open = boards.length >= min;
     if (open) document.querySelectorAll('[data-boards-link]').forEach(el => { el.hidden = false; });
     return {boards, min, open};
