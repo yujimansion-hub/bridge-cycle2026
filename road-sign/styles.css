@@ -292,3 +292,19 @@ h1{letter-spacing:0;line-height:1.22}
 .ownqbtns .btn{min-height:54px;padding:10px 12px;margin:0;width:100%}
 .btn.lineg{background:#06C755;box-shadow:0 8px 16px #06c7552e}.btn.lineg:hover{background:#05a948}
 @media(max-width:480px){.ownqbtns{grid-template-columns:1fr}}
+/* 2026-10-18a */
+.hkicker{font-family:"Noto Sans JP",sans-serif;color:#ffb483;font-size:13px;font-weight:900;letter-spacing:.1em;margin:0 0 11px;line-height:1.5}
+.hcatch{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-weight:900;font-size:clamp(40px,4.6vw,62px);line-height:1.22;font-feature-settings:"palt";color:#fff}
+@media(max-width:850px){.hcatch{font-size:41px}}
+.cface{display:flex;gap:14px;align-items:flex-start;margin-top:22px;padding:14px;border-radius:12px;background:#ffffff12;border:1px solid #ffffff26}
+.cface img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid #fff;flex:0 0 64px}
+.contactinfo .cface p{margin:0;font-size:12.5px;color:#d5e3ee;line-height:1.65}
+.cface b{display:block;color:#fff;font-size:14px;margin-bottom:4px}
+.psb{padding-left:14px}
+@media(max-width:850px){.door b{font-size:15px}.door{min-height:84px}}
+.psb{padding-left:48px}
+.notify-check{display:flex;gap:9px;align-items:flex-start;margin-top:16px;font-size:13px;font-weight:700;color:#2a4255;line-height:1.6;cursor:pointer}
+.notify-check input{width:18px;height:18px;min-height:0;margin:2px 0 0;flex:0 0 18px;accent-color:var(--orange)}
+.bhero{padding:60px 0 54px}.bhero .blead{margin-top:18px;max-width:720px;color:#dbe6ee;font-size:16px}.bhero .heroctas{margin-top:22px}
+h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13px;font-weight:900;letter-spacing:.1em;line-height:1.5;color:#ffb483;margin:0 0 11px}
+.bhero{background:var(--navy2);color:#fff}.bhero .hcatch{color:#fff}

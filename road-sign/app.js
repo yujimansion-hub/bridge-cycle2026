@@ -25,7 +25,7 @@
     media_partner: ['担当者が内容を確認します。', '15分ほどの面談の日程をご相談します。', '試験提携の条件を、書面で確認してから始めます。'],
     owner: ['担当者が内容を確認します。', '道路からの見え方と、その場所の規制を一次確認します。', '広告スペースにできそうかを、メールでお伝えします。']
   };
-  const receipt = () => { const d = new Date(), p = n => String(n).padStart(2, '0'); return 'TR-' + String(d.getFullYear()).slice(2) + p(d.getMonth() + 1) + p(d.getDate()) + '-' + String(Math.floor(1000 + Math.random() * 9000)); };
+  const receipt = () => { const d = new Date(), p = n => String(n).padStart(2, '0'), r = new Uint32Array(1); (window.crypto || {getRandomValues: a => { a[0] = Math.random() * 4294967295; return a; }}).getRandomValues(r); return 'TR-' + String(d.getFullYear()).slice(2) + p(d.getMonth() + 1) + p(d.getDate()) + '-' + p(d.getHours()) + p(d.getMinutes()) + '-' + r[0].toString(36).toUpperCase().slice(0, 4).padStart(4, '0'); };
   const doneHTML = (type, no) => '<div class="formdone" role="status"><p class="fdh">送信が完了しました</p>' + (no ? '<p class="fdno">受付番号 <b>' + no + '</b></p>' : '') + '<p class="fdl">このあとの流れ</p><ol>' + (NEXT[type] || NEXT.advertiser).map(s => '<li>' + s + '</li>').join('') + '</ol><p class="fdn">お急ぎの場合は、LINE（@907kxssd）からもご連絡いただけます。</p></div>';
   document.querySelectorAll('.track-cta').forEach(el => el.addEventListener('click', () => track('lp_cta_click', el.dataset.action || 'cta')));
   const params = new URLSearchParams(location.search);
@@ -37,10 +37,10 @@
       const hidden = document.createElement('input');hidden.type='hidden';hidden.name=k;hidden.value=v;form.append(hidden);
     }
     const msg = form.querySelector('.form-msg');
-    if (params.get('sent') === '1' && (!params.get('f') || params.get('f') === (form.dataset.form || 'advertiser'))) { form.innerHTML = doneHTML(form.dataset.form || 'advertiser', (params.get('no') || '').replace(/[^A-Z0-9-]/g, '').slice(0, 20)); continue; }
+    if (params.get('sent') === '1' && (!params.get('f') || params.get('f') === (form.dataset.form || 'advertiser'))) { const ft = form.dataset.form || 'advertiser'; form.innerHTML = doneHTML(ft, (params.get('no') || '').replace(/[^A-Z0-9-]/g, '').slice(0, 24)); if (params.get('f')) { const key = 'tr_done_' + (params.get('no') || ''); let seen = false; try { seen = sessionStorage.getItem(key) === '1'; sessionStorage.setItem(key, '1'); } catch (e) {} if (!seen) track('lp_lead_submit_success', ft + '_with_photo'); } continue; }
     let started = false;
     form.addEventListener('focusin', () => { if (!started) { started = true; track('lp_form_start', form.dataset.form || 'advertiser'); } });
-    const LABELS = {area:'所在地・地域',industry:'業種',budget:'月額広告予算',start_period:'掲載開始の希望',company:'会社名・店舗名',name:'お名前',email:'メールアドレス',tel:'電話番号',empty_count:'空き面数の目安',media_role:'お立場',message:'ご相談内容',property_type:'物件の種類',ownership:'所有の形',road:'面している道路',size:'おおよその大きさ',self_score:'簡易チェックの点数',media_kind:'媒体の種類',monthly_fee:'月額掲載料の目安',min_term:'最短契約期間',vacancy:'空き状況',permit:'許可の状況',publish_scope:'サイトへの掲載',facing:'見る方向',fit_score:'看板の向き不向きチェック',map_url:'GoogleマップのURL',purpose:'ご相談の種類',board_id:'看板ID',business:'業種',specialty:'診療科',clinic_status:'医院の状況',timing:'開院・変更の時期',media_type:'検討中の広告の種類',utm_source:'utm_source',utm_medium:'utm_medium',utm_campaign:'utm_campaign',utm_content:'utm_content',utm_term:'utm_term',source_page:'送信ページ',referrer:'参照元',submitted_at:'送信日時'};
+    const LABELS = {area:'所在地・地域',industry:'業種',budget:'月額広告予算',start_period:'掲載開始の希望',company:'会社名・店舗名',name:'お名前',email:'メールアドレス',tel:'電話番号',empty_count:'空き面数の目安',media_role:'お立場',message:'ご相談内容',property_type:'物件の種類',ownership:'所有の形',road:'面している道路',size:'おおよその大きさ',self_score:'簡易チェックの点数',media_kind:'媒体の種類',monthly_fee:'月額掲載料の目安',min_term:'最短契約期間',vacancy:'空き状況',permit:'許可の状況',publish_scope:'サイトへの掲載',facing:'見る方向',fit_score:'看板の向き不向きチェック',map_url:'GoogleマップのURL',purpose:'ご相談の種類',board_id:'看板ID',business:'業種',specialty:'診療科',clinic_status:'医院の状況',timing:'開院・変更の時期',media_type:'検討中の広告の種類',notify_later:'条件に合う看板が見つかったら連絡してよいか',utm_source:'utm_source',utm_medium:'utm_medium',utm_campaign:'utm_campaign',utm_content:'utm_content',utm_term:'utm_term',source_page:'送信ページ',referrer:'参照元',submitted_at:'送信日時'};
     form.addEventListener('submit', async event => {
       event.preventDefault();
       if (form.querySelector('[name="website_url"]').value) return;
@@ -72,7 +72,7 @@
         for (const [k, v] of Object.entries(payload)) add(k, v);
         add('_captcha', 'false'); add('_next', location.origin + location.pathname + '?sent=1&f=' + encodeURIComponent(type) + '&no=' + encodeURIComponent(no) + '#' + ((form.closest('section') || {}).id || 'contact'));
         fileInput.name = 'attachment'; nf.append(fileInput); document.body.append(nf);
-        track('lp_lead_submit_success', type + '_with_photo'); nf.submit(); return;
+        track('lp_lead_submit_attempt', type + '_with_photo'); nf.submit(); return;
       }
       submit.dataset.label = submit.textContent; submit.disabled = true; submit.textContent = '送信しています…';
       try {
