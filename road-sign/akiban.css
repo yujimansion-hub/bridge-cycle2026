@@ -67,3 +67,5 @@
 .ahero .areqh{color:var(--navy);margin:0;font-size:20px;max-width:none}
 .ahero .areqs{color:var(--muted);margin:6px 0 14px;font-size:13.5px;max-width:none}
 .ahero .areqn{color:var(--muted);margin:8px 0 0;font-size:12px;max-width:none}
+.areqrow{grid-template-columns:1fr 1fr}.areq .rqother{grid-column:1/-1}.areq .rqother[hidden]{display:none}.areq .rqother input{margin-top:4px;min-height:50px}
+@media(max-width:850px){.areqrow{grid-template-columns:1fr}}

@@ -308,3 +308,24 @@ h1{letter-spacing:0;line-height:1.22}
 .bhero{padding:60px 0 54px}.bhero .blead{margin-top:18px;max-width:720px;color:#dbe6ee;font-size:16px}.bhero .heroctas{margin-top:22px}
 h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13px;font-weight:900;letter-spacing:.1em;line-height:1.5;color:#ffb483;margin:0 0 11px}
 .bhero{background:var(--navy2);color:#fff}.bhero .hcatch{color:#fff}
+/* mobile menu 2026-10-18 */
+.spmenu-btn{display:none}
+.spmenu{display:none}
+@media(max-width:850px){
+.spmenu-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid #bfcbd6;background:#fff;color:var(--navy);border-radius:10px;min-height:42px;padding:6px 10px;font-weight:800;font-size:12px;margin-left:8px}
+.spmenu-ic{display:grid;gap:3px}.spmenu-ic i{display:block;width:16px;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s,opacity .2s}
+.spmenu-btn[aria-expanded="true"] .spmenu-ic i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.spmenu-btn[aria-expanded="true"] .spmenu-ic i:nth-child(2){opacity:0}
+.spmenu-btn[aria-expanded="true"] .spmenu-ic i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.spmenu{display:grid;position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 18px 30px #10294133;padding:8px 14px 14px;max-height:calc(100vh - 64px);overflow:auto}
+.spmenu[hidden]{display:none}
+.spmenu a{display:block;padding:12px 6px;border-bottom:1px solid var(--line)}
+.spmenu a b{display:block;font-size:15px;color:var(--navy)}
+.spmenu a span{display:block;font-size:12px;color:var(--muted)}
+.spmenu a[aria-current="page"] b{color:var(--orange)}
+.spmenu a.spmenu-line{border-bottom:0}.spmenu a.spmenu-line b{color:#05a948}
+.navright{margin-left:auto}
+}
+@media(max-width:480px){.spmenu-tx{display:none}.spmenu-btn{padding:6px 10px}}
+.h1pair{margin:0;font-size:inherit}.h1pair .hkicker{display:block}.h1pair .hcatch{display:block}
+@media(max-width:480px){.topnav .navright .btn{display:none}.spmenu-tx{display:inline}.brand{font-size:13px}}
