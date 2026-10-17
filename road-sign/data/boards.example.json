@@ -1,0 +1,33 @@
+{
+  "_説明": "boards.json に入れる1面分の書き方の見本です。このファイルはページでは使いません。掲載は、看板会社が登録フォームで掲載を承諾した媒体だけにします。",
+  "min_public": 5,
+  "boards": [
+    {
+      "id": "OT-001",
+      "city": "大津市",
+      "place": "国道1号沿い・瀬田付近",
+      "kind": "野立て看板",
+      "facing": "国道1号の上り（京都方面へ向かう車）",
+      "size": "横3.6m×縦1.8m",
+      "monthly_fee": 25000,
+      "fee_note": "",
+      "setup_fee": 150000,
+      "min_term_months": 12,
+      "vacancy": "空きあり",
+      "confirmed_at": "2026-11-01",
+      "permit": "許可取得済み",
+      "suits": "クリニック・歯科、車で来るお店",
+      "photo": "assets/boards/OT-001.webp",
+      "map_url": "https://maps.app.goo.gl/xxxx",
+      "publish_scope": "full",
+      "partner": "（社内用）看板会社名・担当者"
+    }
+  ],
+  "_項目の決まり": {
+    "vacancy": "空きあり / 近日空き / 確認中 のいずれか",
+    "publish_scope": "full＝写真・場所・地図・料金まで掲載 / area_price＝エリアと料金だけ掲載（写真・地図は出さない）",
+    "monthly_fee": "数字（税別・円）。不明なら null にし、fee_note に「看板会社に確認」などと書く",
+    "confirmed_at": "看板会社に空きと料金を確認した日。30日を過ぎると画面上は「要再確認」と表示される",
+    "partner": "社内用。画面には表示しない"
+  }
+}
