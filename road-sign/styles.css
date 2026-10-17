@@ -31,3 +31,13 @@
 .sc{display:grid;grid-template-columns:1fr 300px;grid-template-rows:repeat(5,auto);gap:10px 22px;max-width:980px;margin:0 auto}.sc label{grid-column:1;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;font-size:14.5px}.sc label b{color:var(--orange);font-size:13px}.sc input{width:20px;height:20px;accent-color:#c75a22}.sc label:has(input:checked){border-color:#c75a22;background:#fff7ef}
 .scres{grid-column:2;grid-row:1/6;background:var(--navy2);color:#fff;border-radius:15px;padding:24px;display:grid;gap:12px;align-content:center;text-align:center}.scnum{font-size:56px;font-weight:900;color:#ffb077}.scof{font-size:15px;margin-left:6px;color:#d6e2ee}.scres p{color:#d6e2ee;font-size:14px}
 @media(max-width:860px){.sc{grid-template-columns:1fr}.scres{grid-column:1;grid-row:auto}}
+/* 2026-10-17 運営者の信頼表示・診断基準 */
+.trustline{margin-top:16px;font-size:13px;line-height:1.7;color:#e8eff4;border-left:3px solid #ffb077;padding:4px 0 4px 12px}
+.trustline b{color:#fff}
+.fitgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fitcol{background:#fff;border:1px solid var(--line);border-radius:15px;padding:24px}
+.fitcol h3{font-size:17px;margin:0}
+.fit-yes{border-top:5px solid var(--good)}
+.fit-no{border-top:5px solid var(--orange)}
+.fitcol .checklist{font-size:15px;gap:8px}
+@media(max-width:760px){.fitgrid{grid-template-columns:1fr}.fitcol{padding:20px}}
