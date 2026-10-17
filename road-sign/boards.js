@@ -16,9 +16,15 @@
   const ready = load().then(data => {
     const boards = (data.boards || []).filter(eligible);
     const m = Number(data.min_public), min = Number.isFinite(m) && m >= 0 ? m : 5;
-    const open = boards.length >= min;
-    if (open) document.querySelectorAll('[data-boards-link]').forEach(el => { el.hidden = false; });
-    return {boards, min, open};
+    const l = Number(data.list_min), listMin = Number.isFinite(l) && l >= 0 ? l : 5;
+    const open = boards.length >= min, listOpen = boards.length >= listMin;
+    document.querySelectorAll('[data-boards-link]').forEach(el => {
+      if (open) el.hidden = false;
+      const label = listOpen ? el.dataset.labelOpen : el.dataset.labelPre;
+      const target = el.matches('a') ? el : el.querySelector('a');
+      if (label && target) target.textContent = label;
+    });
+    return {boards, min, open, listOpen};
   });
   window.TooriBoards = {ready, isStale, STALE_DAYS};
 })();
