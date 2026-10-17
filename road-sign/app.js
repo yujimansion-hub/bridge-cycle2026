@@ -42,11 +42,15 @@
       const ft = form.dataset.form || 'advertiser', no = (params.get('no') || '').replace(/[^A-Z0-9-]/g, '').slice(0, 24);
       let pending = null, storageOk = true;
       try { pending = sessionStorage.getItem('tr_pending'); } catch (e) { storageOk = false; }
-      if (no && (pending === no || !storageOk)) {
+      if (no && pending === no) {
         form.innerHTML = doneHTML(ft, no);
         try { sessionStorage.removeItem('tr_pending'); } catch (e) {}
-        if (pending === no) track('lp_lead_submit_success', ft + '_with_photo');
+        track('lp_lead_submit_success', ft + '_with_photo');
         continue;
+      }
+      if (no && !storageOk) {
+        // 送信を始めたことをこのブラウザで確かめられないときは、完了とは言わずに確認をお願いする
+        form.insertAdjacentHTML('afterbegin', '<div class="formcheck" role="status"><b>送信の状況を確認できませんでした。</b>受付番号 ' + no + ' の送信が届いていない場合があります。数日たっても連絡がないときは、お手数ですが LINE（@907kxssd）か info@bridgecycleco.com へ、受付番号を添えてご連絡ください。</div>');
       }
     }
     let started = false;

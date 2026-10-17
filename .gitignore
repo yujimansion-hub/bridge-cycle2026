@@ -3,3 +3,5 @@
 road-sign/data/private/
 *ledger*.csv
 !road-sign/tools/boards_ledger_template.csv
+__pycache__/
+*.pyc

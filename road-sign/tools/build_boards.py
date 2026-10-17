@@ -14,8 +14,13 @@ private/ は .gitignore 済みで、GitHub に上がらない。このリポジ�
   - publish_scope が full か area_price
   - 最終確認日 が未来の日付でない
 書き出す項目は、publish_scope ごとに下の PUBLIC に並べたものだけ。写真は 写真利用許諾 が「あり」のときだけ出す。
+
+書き出す前に台帳全体を検査し、1件でも誤りがあれば boards.json を書き換えずに終了する（公開中のデータは前のまま）：
+  - id が空・重複・英数字とハイフン以外を含む
+  - 金額・期間の欄に数字以外が入っている
+  - 写真のパスが assets/boards/ の外を指している
 """
-import csv, json, sys, datetime, pathlib
+import csv, json, re, sys, datetime, pathlib
 
 PUBLIC = {
     'full': ['id', 'city', 'place', 'kind', 'facing', 'size', 'monthly_fee', 'fee_note', 'setup_fee', 'min_term_months',
@@ -31,9 +36,26 @@ def main(src):
     out = pathlib.Path(__file__).resolve().parents[1] / 'data' / 'boards.json'
     current = json.loads(out.read_text(encoding='utf-8')) if out.exists() else {}
     today = datetime.date.today()
-    boards, skipped = [], []
+    boards, skipped, errors, seen = [], [], [], {}
     with open(src, encoding='utf-8-sig', newline='') as f:
-        for row in csv.DictReader(f):
+        rows = list(csv.DictReader(f))
+    for n, row in enumerate(rows, start=2):   # 2行目からがデータ
+        rid = (row.get('id') or '').strip()
+        if not rid: errors.append(f'{n}行目：id が空です')
+        elif not re.fullmatch(r'[A-Za-z0-9-]{1,20}', rid): errors.append(f'{n}行目：id「{rid}」は英数字とハイフン20文字以内にしてください')
+        elif rid in seen: errors.append(f'{n}行目：id「{rid}」が{seen[rid]}行目と重複しています')
+        else: seen[rid] = n
+        for k in NUM:
+            v = (row.get(k) or '').strip().replace(',', '')
+            if v and not v.isdigit(): errors.append(f'{n}行目（{rid}）：{k} に数字以外「{row.get(k)}」が入っています')
+        ph = (row.get('photo') or '').strip()
+        if ph and not re.fullmatch(r'assets/boards/[A-Za-z0-9._-]+', ph): errors.append(f'{n}行目（{rid}）：photo は assets/boards/ の中のファイル名にしてください')
+    if errors:
+        print('台帳に誤りがあるため、boards.json は書き換えていません。')
+        for e in errors: print('  ' + e)
+        sys.exit(1)
+    if True:
+        for row in rows:
             rid = (row.get('id') or '').strip()
             scope = (row.get('publish_scope') or '').strip()
             why = None

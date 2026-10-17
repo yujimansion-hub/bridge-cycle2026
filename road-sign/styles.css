@@ -338,3 +338,4 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 .quick .stepbar{margin-bottom:10px}
 .qback{background:none;border:0;padding:0;color:var(--navy);text-decoration:underline;font-size:12px;font-weight:700;cursor:pointer}
 .quick .form-msg{margin-top:10px}
+.formcheck{background:#fff7e6;border:1px solid #f0d08a;border-radius:10px;padding:12px 14px;font-size:13px;color:#6b4e12;margin-bottom:14px;line-height:1.7}.formcheck b{display:block;color:#5a3f08}
