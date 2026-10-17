@@ -15,6 +15,5 @@ BRIDGE CYCLE株式会社の屋外看板マッチングLP（広告主向け・看
 
 - 掲載データは `data/boards.json` の1ファイルだけ。書き方は `data/boards.example.json` を参照。
 - 看板会社が partner.html の登録フォームで「サイトへの掲載」を承諾した媒体だけを入れる。`publish_scope` は `full`（写真・場所・地図・料金）か `area_price`（エリアと料金のみ）。「掲載しない」の媒体は入れない（入れても表示されない）。
-- 掲載できる媒体が `min_public`（5面）以上になると、トップ（index.html）とクリニック向け（kaiin.html）の「空き看板を探す」導線が自動で表示され、akiban.html に一覧が出る。それまでは「準備中」表示。
-- 公開を始めるときは akiban.html の `<meta name="robots" content="noindex">` を外し、sitemap.xml に追加する。
+- 2026-10-17に公開済み（`min_public` を0にして導線を常に表示）。掲載媒体が0面のあいだは akiban.html に「準備中」と、探してもらう依頼・看板会社の登録への導線を表示する。導線を隠したいときは `min_public` を5などに戻す。
 - 写真は `assets/boards/` に置き、看板会社の許可を得た実物写真だけを使う。最終確認日から30日を過ぎると画面上は「要再確認」と表示される。
