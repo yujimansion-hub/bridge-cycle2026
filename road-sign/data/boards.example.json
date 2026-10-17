@@ -1,5 +1,5 @@
 {
-  "_説明": "boards.json に入れる1面分の書き方の見本です。このファイルはページでは使いません。掲載は、看板会社が登録フォームで掲載を承諾した媒体だけにします。",
+  "_説明": "boards.json の1面分の見本です（このファイルはページでは使いません）。boards.json は tools/build_boards.py で非公開の台帳から書き出します。看板会社名・担当者・連絡先・正確な所在地・紹介条件は、このファイルにも boards.json にも書きません。",
   "min_public": 5,
   "boards": [
     {
@@ -14,20 +14,18 @@
       "setup_fee": 150000,
       "min_term_months": 12,
       "vacancy": "空きあり",
-      "confirmed_at": "2026-11-01",
+      "confirmed_at": "2026-10-15",
       "permit": "許可取得済み",
       "suits": "クリニック・歯科、車で来るお店",
       "photo": "assets/boards/OT-001.webp",
       "map_url": "https://maps.app.goo.gl/xxxx",
-      "publish_scope": "full",
-      "partner": "（社内用）看板会社名・担当者"
+      "publish_scope": "full"
     }
   ],
   "_項目の決まり": {
     "vacancy": "空きあり / 近日空き / 確認中 のいずれか",
-    "publish_scope": "full＝写真・場所・地図・料金まで掲載 / area_price＝エリアと料金だけ掲載（写真・地図は出さない）",
+    "publish_scope": "full＝写真・場所・地図・料金まで公開 / area_price＝市と料金だけ公開（場所・向き・写真・地図・許可は boards.json に書き出さない）",
     "monthly_fee": "数字（税別・円）。不明なら null にし、fee_note に「看板会社に確認」などと書く",
-    "confirmed_at": "看板会社に空きと料金を確認した日。30日を過ぎると画面上は「要再確認」と表示される",
-    "partner": "社内用。画面には表示しない"
+    "confirmed_at": "看板会社に空きと料金を確認した日（未来の日付は不可）。30日を過ぎると「要再確認」と表示"
   }
 }
