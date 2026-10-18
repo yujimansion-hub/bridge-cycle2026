@@ -191,3 +191,26 @@ body.from-mail .kdoor-flag{display:block}
 .kdfree{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:16px 0 0;font-weight:700;color:#173454}
 @media(max-width:760px){.kdo{grid-template-columns:1fr}}
 .kdfree .ktag{background:#d86228;color:#fff;border-radius:999px;padding:3px 10px;font-size:.8rem}.kdfree .klink{color:#d86228;text-decoration:underline}
+/* 口コミ返信のメリット */
+.kq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center}
+.kqmock{position:relative;margin:0;background:#fff;border:1px solid #e1e7ee;border-radius:20px;padding:22px 20px 18px;box-shadow:0 12px 30px rgba(23,52,84,.08)}
+.kqseal{position:absolute;top:-11px;right:16px;background:#fff;border:1px solid #d86228;color:#d86228;font-size:.72rem;font-weight:700;border-radius:999px;padding:2px 10px}
+.kqhead{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.kqav{width:34px;height:34px;border-radius:50%;background:#7a8fa6;color:#fff;display:grid;place-items:center;font-weight:700}
+.kqhead b{display:block;font-size:.9rem;color:#102941}
+.kqstar{color:#f2a900;font-size:.9rem;letter-spacing:1px}.kqstar i{font-style:normal;color:#d6dbe1}
+.kqrev p{margin:0;font-size:.92rem;line-height:1.7;color:#2b3a4b}
+.kqrep{margin-top:14px;margin-left:18px;padding:12px 14px;border-left:3px solid #173454;background:#f4f7fa;border-radius:0 12px 12px 0}
+.kqrep b{font-size:.8rem;color:#173454}
+.kqrep p{margin:4px 0 8px;font-size:.9rem;line-height:1.7;color:#2b3a4b}
+.kqtip{display:inline-block;font-size:.74rem;font-weight:700;color:#1f6f58;background:#e3f3ec;border-radius:999px;padding:3px 10px}
+.kqtip::before{content:"✓ "}
+.kqwhy{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.kqwhy li{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:16px;padding:16px}
+.kqi{flex:0 0 auto;width:46px;height:46px;border-radius:50%;background:#fdebe0;color:#d86228;display:grid;place-items:center}
+.kqwhy div{display:flex;flex-direction:column;gap:3px}
+.kqwhy b{font-size:1rem;color:#102941}
+.kqwhy span{font-size:.88rem;color:#3d4f63;line-height:1.6}
+.kqwhy a{color:#173454;margin-left:4px;font-size:.82rem}
+.kqnote{margin:18px 0 0;font-size:.8rem;color:#6b7886}
+@media(max-width:760px){.kq{grid-template-columns:1fr}}
