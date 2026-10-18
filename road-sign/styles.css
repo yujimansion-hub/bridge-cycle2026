@@ -483,3 +483,27 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 #fitcheck .fcq label input:checked+span{background:#173454;border-color:#173454;color:#fff}
 #fitcheck .fcq label input:focus-visible+span{outline:3px solid #d86228;outline-offset:2px}
 @media(max-width:860px){.plancall li:not(.plancta){display:none}.plancall{margin-top:12px}}
+/* 美容クリニック：3つの確認と線引き */
+.bchecks{list-style:none;margin:18px 0 10px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.bchecks li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:8px 12px;color:#fff;font-size:.86rem;line-height:1.4}
+.bchecks b{display:block;color:#ffb077;font-size:.95rem}
+.bsplit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bside{border-radius:16px;padding:18px 20px;background:#fff;border:1px solid #e1e7ee}
+.bside.us{border-top:4px solid #d86228}.bside.pro{border-top:4px solid #173454;background:#f6f8fb}
+.bside h3{margin:0 0 10px;font-size:1rem;color:#102941}
+.bside ul{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:.92rem;color:#2b3a4b}
+.bnote{margin:14px 0 0;font-size:.8rem;color:#6b7886}
+@media(max-width:760px){.bsplit{grid-template-columns:1fr}}
+/* 料金：クリニック導線（細帯） */
+.plancl2{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:16px 0 0;padding:14px 18px;border:1px dashed #b9c8d8;border-radius:14px;background:#f6f8fb;color:#173454;text-decoration:none}
+.plancl2 span{font-size:.78rem;font-weight:800;background:#173454;color:#fff;border-radius:999px;padding:3px 10px}
+.plancl2 b{font-size:.92rem}.plancl2 em{margin-left:auto;font-style:normal;font-weight:800;color:#d86228}
+/* FV B案 */
+.hero3[data-fv="B"] .hcatch{font-size:clamp(34px,3.6vw,50px);line-height:1.3}
+.hero3[data-fv="B"] .hcatch .fvl{display:block}
+.hero3[data-fv="B"] .hcatch b{color:#ffb077;font-weight:900}
+.fvchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.fvchips i{font-style:normal;font-size:.8rem;font-weight:800;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:4px 10px}
+@media(max-width:850px){.hero3[data-fv="B"] .hcatch{font-size:clamp(25px,7.4vw,34px)}}
+.hero3[data-fv="B"] .hcatch{font-size:clamp(28px,2.9vw,40px)}
+@media(max-width:850px){.hero3[data-fv="B"] .hcatch{font-size:clamp(21px,6.5vw,30px)}}
