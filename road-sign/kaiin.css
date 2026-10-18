@@ -170,3 +170,24 @@ body.from-mail .kdoor-flag{display:block}
 @media(max-width:600px){.kdoor{grid-template-columns:48px 1fr;gap:14px;padding:22px 16px 18px}.kdoor-ic{width:48px;height:48px}.kdoor-ic svg{width:24px;height:24px}.kdoor .btn{width:100%}.ksignrow{flex-direction:column}}
 .ktile .ksrc{min-height:3.3em}
 @media(max-width:600px){.kdoor .btn{grid-column:1/-1}.ktile .ksrc{min-height:4.6em}}
+/* scope map: お任せいただくと、こうなります */
+.kdo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.kdlane{background:#f6f8fb;border:1px solid #e1e7ee;border-radius:18px;padding:20px}
+.kdlane:nth-child(2){background:#fff7f1;border-color:#f3dccb}
+.kdlane h3{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:1.05rem;color:#173454}
+.kdwhen{background:#173454;color:#fff;border-radius:999px;padding:4px 12px;font-size:.8rem;letter-spacing:.04em}
+.kdlane:nth-child(2) .kdwhen{background:#d86228}
+.kdlane ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.kdt{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 1px 0 rgba(23,52,84,.06)}
+.kdi{flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#eef3f8;color:#173454}
+.kdlane:nth-child(2) .kdi{background:#fdebe0;color:#d86228}
+.kdt div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.kdt b{font-size:.98rem;color:#102941}
+.kdt span{font-size:.88rem;color:#3d4f63;line-height:1.55}
+.kdt small{font-size:.76rem;color:#7a8796}
+.kdno{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;padding:12px 14px;border:1px dashed #c9d2dc;border-radius:14px}
+.kdno b{font-size:.85rem;color:#5d6b7a;margin-right:4px}
+.kdno span{font-size:.82rem;color:#5d6b7a;background:#f1f3f6;border-radius:999px;padding:4px 10px;text-decoration:line-through;text-decoration-color:#b9a49a}
+.kdfree{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:16px 0 0;font-weight:700;color:#173454}
+@media(max-width:760px){.kdo{grid-template-columns:1fr}}
+.kdfree .ktag{background:#d86228;color:#fff;border-radius:999px;padding:3px 10px;font-size:.8rem}.kdfree .klink{color:#d86228;text-decoration:underline}
