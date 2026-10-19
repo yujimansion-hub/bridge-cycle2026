@@ -35,7 +35,7 @@
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Shippori+Mincho+B1:wght@500;700;800&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme:light;
@@ -612,6 +612,59 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   .kp-table>div{grid-template-columns:5.5em 1fr}.kp-rows li{grid-template-columns:7.5em 1fr}.news-tag{font-size:13px;padding:0 12px}.news-track li{font-size:13px}.kp-cat-body{padding:22px 20px}.kp-acc{padding:0 18px}}
 
 @media(max-width:640px){.personas{grid-template-columns:1fr;gap:14px}.persona{flex-direction:row;align-items:stretch}.persona .ph{width:46%;flex:none;aspect-ratio:1.25}.persona .pl{display:flex;flex-direction:column;justify-content:center;font-size:14px;padding:12px 14px;min-height:0}.persona .pl small{font-size:12px}.persona:nth-child(n){transform:none}.persona:nth-child(2){transform:rotate(.6deg)}.persona:nth-child(1){transform:rotate(-.6deg)}.persona[aria-pressed="true"]{transform:none}}
+
+/* ════ 清水焼のテイスト（白磁の生成り・呉須の藍・青磁・弁柄・金）。この塊を消すと元の配色に戻る ════ */
+:root{--night:#22355F;--night-2:#33497A;--ink:#2A2724;--sub:#6A625A;--page:#F3EFE7;--paper:#FBF9F5;--line:#DDD5C8;--tomato:#9C3A24;--mustard:#C49A3C;--leaf:#3F7464;--bulb:#E2CB8E}
+body{background-color:var(--page);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='none' stroke='%23A89A84' stroke-width='0.7' stroke-opacity='0.12'%3E%3Cpolyline points='84,39 30,78 -19,88 30,53 -19,44' /%3E%3Cpolyline points='63,143 102,98 69,113' /%3E%3Cpolyline points='246,150 192,117 199,73 189,77' /%3E%3Cpolyline points='148,146 110,155 127,140 133,88 80,52' /%3E%3Cpolyline points='177,111 173,162 156,132 118,165' /%3E%3Cpolyline points='21,78 66,106 41,163 -5,153' /%3E%3Cpolyline points='197,40 187,95 137,102 171,140' /%3E%3Cpolyline points='88,91 98,86 139,139 136,159' /%3E%3Cpolyline points='16,182 25,204 19,230 65,212 118,194' /%3E%3Cpolyline points='159,128 191,84 161,71' /%3E%3Cpolyline points='227,21 215,-6 171,-14 177,11' /%3E%3Cpolyline points='256,178 311,136 273,103 241,102' /%3E%3Cpolyline points='153,68 111,72 124,51' /%3E%3Cpolyline points='33,223 51,252 46,297 100,318 107,306' /%3E%3Cpolyline points='102,125 50,73 15,33 -4,-21' /%3E%3Cpolyline points='0,39 54,53 2,18' /%3E%3C/g%3E%3C/svg%3E");color:var(--ink)}
+.h2,.cover h1,.mine-t,.st-box h3,.done h3,.seller h2,.footer-message p,.brand,.sc-p,.seller .nums b,.fact b,.scene-note{font-family:'Shippori Mincho B1','Noto Serif JP',serif;font-weight:800;letter-spacing:.02em}
+.cover h1{font-weight:800;letter-spacing:.01em}
+.kp-en,.kp-cat-en{font-family:'Jost','Noto Sans JP',sans-serif!important;font-weight:300!important;letter-spacing:.04em;color:inherit}
+.kp-en{color:var(--ink)}
+.news-tag,.news-track b,.kp-vlist li b{font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.08em}
+.eyebrow{color:var(--night);letter-spacing:.18em}
+header{background:rgba(243,239,231,.96);border-bottom:1px solid var(--line)}
+.cover{background:transparent}
+.cover::before{background:radial-gradient(circle at 40% 40%,#E3ECE5 0,#D4E2D8 60%,#C9DACE 100%);box-shadow:inset 0 0 0 14px rgba(255,255,255,.35)}
+.cover h1 em{color:var(--tomato)}
+.cover h1 em::after{background:var(--night);opacity:.18;height:.12em;bottom:.04em;transform:rotate(-1.5deg)}
+.hero-copy{position:relative}
+.hero-copy::before{content:"寄";position:absolute;right:4%;top:-6px;width:58px;height:58px;display:grid;place-items:center;background:var(--tomato);color:#F8EFE6;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:30px;border-radius:5px;transform:rotate(4deg);box-shadow:inset 0 0 0 3px rgba(248,239,230,.55);opacity:.92}
+.pill{background:var(--paper);border:1px solid var(--line)}
+.hero-scene picture{border:1px solid var(--night);box-shadow:0 0 0 9px #EAE3D5,0 0 0 10px var(--line);transform:none;background:#E9E2D4}
+.scene-note{border:1px solid var(--night);box-shadow:none;transform:rotate(-3deg);background:var(--paper)}
+.scene-note small{color:var(--night)}
+.scene-star{color:var(--mustard)}.scene-star:last-child{color:var(--leaf)}
+.hero-signup{border:1px solid var(--line);box-shadow:0 14px 34px rgba(34,53,95,.08);background:var(--paper)}
+.btn-bulb{background:var(--night);color:#F6F1E7;box-shadow:none}.btn-bulb:hover{background:#2C4377;color:#fff}
+.btn-tomato{background:var(--tomato);color:#fff;box-shadow:none}.btn-tomato:hover{background:#843019}
+.vote-sec .btn-bulb,.reg .btn-bulb,.kp-cat .btn-bulb,.mbar .btn-bulb,.seller .btn-bulb,.done .btn-bulb,.news-bar .btn-bulb{background:var(--bulb);color:var(--night)}
+.persona{border:1px solid var(--line);box-shadow:none;background:var(--paper)}
+.persona:nth-child(n){transform:none}
+.persona:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(34,53,95,.10)}
+.persona[aria-pressed="true"]{background:#EFE6D2;box-shadow:0 0 0 2px var(--night);transform:none}
+.persona .ph::before{border:1px solid var(--night);background:var(--paper)}
+.persona .ptag{border:1px solid var(--line);background:var(--paper)}
+.persona .pl small{color:var(--tomato)}
+.vote-art{transform:none;box-shadow:0 18px 40px rgba(0,0,0,.18);background:var(--paper)}
+.reg{background:#DCE7DF;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.st-box{background:var(--paper);border:1px solid var(--line)}
+.seller{border:1px solid var(--night);box-shadow:none}
+footer{border-top:1px solid var(--line);background:var(--paper)}
+.mbar{border-top:1px solid var(--line);background:rgba(243,239,231,.97)}
+.news-bar{border-color:var(--night)}
+.kp-label{border-width:1px;font-weight:500;letter-spacing:.08em}
+.kp-ov,.kp-map{background:transparent}
+.kp-vend{background:var(--paper)}
+.kp-cat{border:1px solid rgba(42,39,36,.25);box-shadow:none}
+.kp-cat-food{background:#7E2A1C}.kp-cat-food .kp-cat-en,.kp-acc summary b,.kp-vlist li b{color:#E2CB8E}
+.kp-cat-play{background:var(--night)}.kp-cat-play .kp-cat-en{color:#BFD6CB}
+.kp-ov-ph img,.kp-map-fig svg{border:1px solid var(--night)}
+.kp-table,.kp-rows{border-top:1px solid var(--ink)}
+.chip input:checked+span{background:var(--bulb);box-shadow:0 0 0 2px var(--bulb)}
+#who{background:transparent}#who[data-route="student"]{background:rgba(212,226,216,.45)}#who[data-route="neighbor"]{background:rgba(214,222,236,.45)}
+.mine,.shop-card{border:1px solid var(--line);box-shadow:none;background:var(--paper)}
+.sk-p{background:var(--paper);color:var(--ink);border:1px solid var(--night);box-shadow:0 20px 50px rgba(0,0,0,.2)}
+@media(max-width:860px){.hero-copy::before{width:44px;height:44px;font-size:23px;right:0;top:-2px}.hero-scene picture{box-shadow:0 0 0 6px #EAE3D5,0 0 0 7px var(--line)}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019c">
 </head>
@@ -839,30 +892,39 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     <h2 class="kp-en">MAP</h2>
     <div class="kp-map-grid">
       <figure class="kp-map-fig">
-        <svg viewBox="0 0 800 520" role="img" aria-labelledby="mapTitle">
-          <title id="mapTitle">南草津駅の売り場の位置関係。西口の公園前、改札前の自由通路、東口の駅前広場の3か所</title>
-          <rect width="800" height="520" rx="18" fill="#FFFDF6"/>
-          <text x="40" y="66" font-size="30" font-weight="700" fill="#173C51">← 西口</text>
-          <text x="760" y="66" text-anchor="end" font-size="30" font-weight="700" fill="#173C51">東口 →</text>
-          <rect x="0" y="196" width="800" height="22" fill="#E6E1D3"/><rect x="0" y="226" width="800" height="22" fill="#E6E1D3"/>
-          <text x="18" y="186" font-size="18" fill="#536775">JR琵琶湖線</text>
-          <rect x="290" y="130" width="220" height="150" rx="14" fill="#FFFFFF" stroke="#173C51" stroke-width="4"/>
-          <text x="400" y="172" text-anchor="middle" font-size="26" font-weight="700" fill="#173C51">南草津駅</text>
-          <rect x="230" y="262" width="340" height="50" rx="25" fill="#DC492E"/>
-          <text x="400" y="295" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">改札前・自由通路 No.017–021</text>
-          <path d="M290 237 H 150 V 330" fill="none" stroke="#36745C" stroke-width="5" stroke-dasharray="10 9"/>
-          <path d="M510 237 H 650 V 330" fill="none" stroke="#173C51" stroke-width="5" stroke-dasharray="10 9"/>
-          <circle cx="150" cy="380" r="78" fill="#BFE0B5" stroke="#36745C" stroke-width="4"/>
-          <text x="150" y="372" text-anchor="middle" font-size="20" font-weight="700" fill="#36745C">東山道</text>
-          <text x="150" y="398" text-anchor="middle" font-size="20" font-weight="700" fill="#36745C">記念公園</text>
-          <rect x="20" y="452" width="290" height="50" rx="25" fill="#36745C"/>
-          <text x="165" y="485" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">西口・公園前 No.001–003</text>
-          <rect x="520" y="330" width="260" height="110" rx="16" fill="#E9F0F5" stroke="#173C51" stroke-width="4"/>
-          <text x="650" y="372" text-anchor="middle" font-size="20" fill="#536775">駅前広場・バスのりば</text>
-          <rect x="490" y="452" width="290" height="50" rx="25" fill="#173C51"/>
-          <text x="635" y="485" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">東口・駅前広場 No.004–016</text>
+        <svg viewBox="0 0 800 560" role="img" aria-labelledby="mapTitle">
+          <title id="mapTitle">南草津駅の売り場の位置関係。線路をはさんで西側に西口と東山道記念公園、東側に東口の駅前広場とバスのりば。改札前の自由通路が東西をつなぐ</title>
+          <defs><pattern id="rail" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(28)"><line x1="0" y1="7" x2="14" y2="7" stroke="#22355F" stroke-width="2" opacity=".35"/></pattern></defs>
+          <rect width="800" height="560" rx="18" fill="#FBF9F5"/>
+          <g transform="rotate(28 400 280)">
+            <rect x="350" y="-140" width="100" height="840" fill="#E7E1D5"/>
+            <rect x="350" y="-140" width="100" height="840" fill="url(#rail)"/>
+            <line x1="350" y1="-140" x2="350" y2="700" stroke="#22355F" stroke-width="2"/><line x1="450" y1="-140" x2="450" y2="700" stroke="#22355F" stroke-width="2"/>
+            <rect x="290" y="246" width="220" height="68" rx="10" fill="#FFFFFF" stroke="#22355F" stroke-width="3"/>
+          </g>
+          <text x="400" y="288" text-anchor="middle" font-size="24" font-weight="700" fill="#22355F" font-family="Shippori Mincho B1, serif">南草津駅</text>
+          <text x="590" y="150" font-size="16" fill="#6A625A">JR琵琶湖線</text>
+          <circle cx="150" cy="170" r="88" fill="#D4E2D8" stroke="#3F7464" stroke-width="2.5"/>
+          <circle cx="150" cy="170" r="52" fill="none" stroke="#3F7464" stroke-width="1.5" stroke-dasharray="4 6"/>
+          <text x="150" y="164" text-anchor="middle" font-size="20" font-weight="700" fill="#3F7464">東山道</text>
+          <text x="150" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#3F7464">記念公園</text>
+          <path d="M232 200 Q 280 205 304 232" fill="none" stroke="#3F7464" stroke-width="3" stroke-dasharray="8 7"/>
+          <rect x="560" y="300" width="214" height="120" rx="58" fill="#EDE6D8" stroke="#22355F" stroke-width="2.5"/>
+          <text x="667" y="356" text-anchor="middle" font-size="19" fill="#22355F">駅前広場</text>
+          <text x="667" y="382" text-anchor="middle" font-size="19" fill="#22355F">バスのりば</text>
+          <path d="M498 334 Q 530 330 560 344" fill="none" stroke="#22355F" stroke-width="3" stroke-dasharray="8 7"/>
+          <path d="M400 318 V 418" stroke="#9C3A24" stroke-width="3"/><rect x="214" y="418" width="290" height="44" rx="22" fill="#9C3A24"/>
+          <text x="359" y="447" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">改札前・自由通路 No.017–021</text>
+          
+          <rect x="24" y="300" width="250" height="46" rx="23" fill="#3F7464"/>
+          <text x="149" y="330" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">西口・公園前 No.001–003</text>
+          <rect x="532" y="440" width="250" height="46" rx="23" fill="#22355F"/>
+          <text x="657" y="470" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">東口・広場 No.004–016</text>
+          <text x="40" y="520" font-size="24" font-weight="700" fill="#22355F" font-family="Shippori Mincho B1, serif">西口</text>
+          <text x="760" y="530" text-anchor="end" font-size="24" font-weight="700" fill="#22355F" font-family="Shippori Mincho B1, serif">東口</text>
+          <g transform="translate(740 60)"><circle r="24" fill="none" stroke="#22355F" stroke-width="1.5"/><path d="M0 -18 L7 6 L0 2 L-7 6 Z" fill="#22355F"/><text y="-30" text-anchor="middle" font-size="14" fill="#22355F">北</text></g>
         </svg>
-        <figcaption>図は位置関係のイメージです。区画と店の数は、関係機関の承認後に確定します。</figcaption>
+        <figcaption>図はおおよその位置関係です（線路をはさんで西口と東口があり、改札前の自由通路でつながっています）。区画と店の数は、関係機関の承認後に確定します。</figcaption>
       </figure>
       <div class="kp-access" id="access">
         <span class="kp-label">アクセス</span>
