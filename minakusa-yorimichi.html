@@ -169,18 +169,35 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .progress[hidden]{display:none}
 .progress .pv{background:var(--paper);border-radius:12px;padding:10px 16px;font-size:13px;color:var(--sub)}
 .progress .pv b{font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:24px;color:var(--ink);margin-right:4px}
-/* サポーター */
-.sup{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
-.sup-card{background:var(--paper);border-radius:22px;padding:26px 24px}
-.sup-card label.lbl{display:block;font-weight:700;margin-bottom:6px}
-.sup-card .field{margin-bottom:16px}
-.sup-card .chip span{background:var(--page);border:1px solid var(--line);min-height:40px;padding:6px 12px;font-size:14px}
-.sup-card .chip input:checked+span{background:var(--night);color:#fff;box-shadow:none}
-.roles{margin:20px 0 0;padding:0;list-style:none}
-.roles li{display:grid;grid-template-columns:40px 1fr;gap:10px;margin-bottom:14px;align-items:start}
-.roles .ri{width:40px;height:40px;border-radius:12px;background:var(--paper);display:flex;align-items:center;justify-content:center;font-size:20px}
-.roles b{display:block}
-.roles span{font-size:14px;color:var(--sub)}
+/* よりみちの灯り */
+.akari{background:var(--night);color:#fff;position:relative;overflow:hidden;padding-top:96px}
+.akari .lead{color:#C9CEE6}
+.ak-head{max-width:640px}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.tier{border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);border-radius:18px;padding:20px 18px;text-align:left;color:#fff;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,background .15s}
+.tier:hover{border-color:rgba(255,214,107,.6)}
+.tier[aria-pressed="true"]{border-color:var(--bulb);background:rgba(255,214,107,.12)}
+.tier .bulbs{display:flex;gap:5px;height:26px;align-items:flex-end}
+.tier .bulbs i{width:12px;height:18px;border-radius:50% 50% 45% 45%;background:var(--bulb);box-shadow:0 0 12px rgba(255,214,107,.7)}
+.tier b{font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:24px}
+.tier span{font-size:13px;color:#C9CEE6}
+.ak-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start;margin-top:30px}
+.ak-use h3,.board h3{font-family:'Dela Gothic One',sans-serif;font-size:20px}
+.ak-use ul{margin:14px 0 0;padding:0;list-style:none}
+.ak-use li{margin-bottom:12px;padding-left:24px;position:relative}
+.ak-use li::before{content:"";position:absolute;left:2px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bulb);box-shadow:0 0 10px rgba(255,214,107,.7)}
+.ak-use b{display:block}
+.ak-use span{font-size:14px;color:#C9CEE6}
+.ak-card{background:#fff;color:var(--ink);border-radius:22px;padding:24px 22px}
+.ak-card label.lbl{display:block;font-weight:700;margin-bottom:6px}
+.ak-card .field{margin-bottom:16px}
+.ak-sel{font-weight:700;color:var(--tomato);margin-bottom:14px}
+.chk{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--sub);margin-top:8px}
+.board{margin-top:40px}
+.board[hidden]{display:none}
+.lamps{display:flex;flex-wrap:wrap;gap:14px 18px;margin-top:16px}
+.lamp{display:flex;flex-direction:column;align-items:center;gap:6px;width:92px;text-align:center;font-size:12px;color:#E6E9F5}
+.lamp i{width:16px;height:22px;border-radius:50% 50% 45% 45%;background:var(--bulb);box-shadow:0 0 14px rgba(255,214,107,.8)}
 
 /* ===== 出店日のタブ ===== */
 .days{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
@@ -340,7 +357,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .ladder{grid-template-columns:1fr 1fr;gap:12px}
   .rung{padding:18px 16px}
   .rung .v{font-size:24px}
-  .sup{grid-template-columns:1fr;gap:22px}
+  .tiers{grid-template-columns:1fr}
+  .tier{flex-direction:row;align-items:center;gap:14px;padding:14px 16px}
+  .tier .bulbs{width:64px;flex-wrap:wrap;height:auto;gap:3px}
+  .tier .bulbs i{width:9px;height:13px}
+  .ak-grid{grid-template-columns:1fr;gap:24px}
+  .akari{padding-top:84px}
   .facts .wrap{grid-template-columns:1fr 1fr}
   .fact{padding:16px 12px 16px 0;border-right:0;border-bottom:1px solid var(--line)}
   .fact:nth-child(2n){padding-left:14px;border-left:1px solid var(--line)}
@@ -526,11 +548,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <section id="join">
   <div class="wrap">
     <h2 class="h2">この駅前の市は、<br class="hide-sp">みんなでつくります。</h2>
-    <p class="lead">運営だけでは、毎週の市は続きません。選ぶ、呼ぶ、手伝う。関わり方は、あなたの好きな深さで。</p>
+    <p class="lead">運営だけでは、毎週の市は続きません。選ぶ、呼ぶ、灯す。関わり方は、あなたの好きな深さで。</p>
     <div class="ladder">
       <a class="rung" href="#vote"><span class="t">30秒</span><span class="v">選ぶ</span><p>食べたいものと、寄り道しやすい時間に投票。結果は出店者のメニュー選びに使われます。</p><span class="go">投票する</span></a>
       <a class="rung" href="#invite"><span class="t">3分</span><span class="v">呼ぶ</span><p>好きなお店に「来てほしい」を届ける。出店が決まったら、あなたの推薦で来たお店として紹介します。</p><span class="go">お店を呼ぶ</span></a>
-      <a class="rung hl" href="#supporter"><span class="t">月1回・2時間から</span><span class="v">手伝う</span><p>写真、手書きの看板、SNS、設営。あなたの撮った写真と書いた看板が、毎週の市に出ます。</p><span class="go">サポーターになる</span></a>
+      <a class="rung hl" href="#akari"><span class="t">1灯1,000円から</span><span class="v">灯す</span><p>駅前の灯りを、ひとつ応援する。あなたの名前が、会場の灯り板にともります。</p><span class="go">灯りを応援する</span></a>
       <a class="rung" href="minakusa-ekimae.html?src=join"><span class="t">1枠3,300円から</span><span class="v">出る</span><p>自分のお店や、つくったものを駅前で売る。はじめての出店も歓迎です。</p><span class="go">出店について</span></a>
     </div>
     <div class="progress" id="progress" hidden>
@@ -696,44 +718,45 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   </div>
 </section>
 
-<!-- よりみちサポーター -->
-<section id="supporter" style="padding-top:0">
-  <div class="wrap sup">
-    <div>
-      <h2 class="h2">よりみちサポーターに、<br>なりませんか。</h2>
-      <p class="lead">毎週の市を、運営と一緒につくる人を募集しています。学生も、近所の人も、出店者の家族も。できることを、できる日だけ。</p>
-      <ul class="roles">
-        <li><span class="ri" aria-hidden="true">📷</span><div><b>写真を撮る</b><span>市のようすと出店者を撮る。写真は毎週のページと告知に使います。</span></div></li>
-        <li><span class="ri" aria-hidden="true">🖍</span><div><b>看板を書く</b><span>その日の出店者とおすすめを、手書きの看板にする。</span></div></li>
-        <li><span class="ri" aria-hidden="true">📣</span><div><b>広める</b><span>自分のSNSや、学校・職場・マンションの掲示で知らせる。</span></div></li>
-        <li><span class="ri" aria-hidden="true">⛺</span><div><b>設営・片付け</b><span>看板や飾りつけを運営スタッフと一緒に出し入れする。</span></div></li>
-      </ul>
+<!-- よりみちの灯り（応援） -->
+<section id="akari" class="akari">
+  <svg class="garland" aria-hidden="true" id="garland2"></svg>
+  <div class="wrap">
+    <div class="ak-head">
+      <h2 class="h2">駅前の灯りを、<br class="hide-sp">ひとつ応援しませんか。</h2>
+      <p class="lead">お祭りの提灯に名前を出すように、よりみちの灯りを1灯から応援できます。応援してくれた人の名前は、会場の「灯り板」とこのページにともります。</p>
     </div>
-    <form class="sup-card" id="supForm" novalidate>
-      <div class="field">
-        <label class="lbl" for="sName">お名前（ニックネームでも）</label>
-        <input type="text" id="sName" maxlength="40" autocomplete="nickname" placeholder="例：みなくさ太郎">
+    <div class="tiers" id="tiers"></div>
+    <div class="ak-grid">
+      <div class="ak-use">
+        <h3>応援の使い道</h3>
+        <ul>
+          <li><b>はじめてのお店の初回出店料</b><span>まだお店を持たない人が、駅前で初めて売る日を応援します。</span></li>
+          <li><b>灯り・看板・装飾</b><span>毎週の市の目印になる電球や看板をそろえます。</span></li>
+        </ul>
+        <p class="small" style="color:#C9CEE6;margin-top:12px">集まった額と使い道は、毎月このページで報告します。運営は株式会社のため、寄付金控除の対象にはなりません。会場では現金を受け取りません。</p>
       </div>
-      <div class="field">
-        <label class="lbl" for="sEmail">メールアドレス</label>
-        <input type="email" id="sEmail" autocomplete="email" required placeholder="例：minakusa@example.com">
-      </div>
-      <fieldset class="field">
-        <legend style="font-size:15px;margin-bottom:8px">やってみたいこと<small style="opacity:1;color:var(--sub)">いくつでも</small></legend>
-        <div class="chips" id="roleChips"></div>
-      </fieldset>
-      <fieldset class="field">
-        <legend style="font-size:15px;margin-bottom:8px">来られそうな時間<small style="opacity:1;color:var(--sub)">いくつでも</small></legend>
-        <div class="chips" id="whenChips"></div>
-      </fieldset>
-      <div class="field">
-        <label class="lbl" for="sNote">ひとこと<small style="font-weight:500;color:var(--sub);margin-left:6px">任意</small></label>
-        <textarea id="sNote" maxlength="200" placeholder="例：立命館の2回生です。写真が好きです。"></textarea>
-      </div>
-      <p class="small">登録すると<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとします。毎週の参加は求めません。当日のお手伝いは、運営スタッフと相談して決めます。</p>
-      <button class="btn btn-tomato" type="submit" id="supBtn" style="width:100%;margin-top:14px">サポーターに登録する</button>
-      <div class="msg" id="supMsg" role="status"></div>
-    </form>
+      <form class="ak-card" id="akForm" novalidate>
+        <p class="ak-sel" id="akSel">1灯（1,000円）を選んでいます</p>
+        <div class="field">
+          <label class="lbl" for="aName">灯り板に出すお名前（ニックネーム可）</label>
+          <input type="text" id="aName" maxlength="20" placeholder="例：南草津のパン好き">
+          <label class="chk"><input type="checkbox" id="aAnon"> 名前は出さない</label>
+        </div>
+        <div class="field">
+          <label class="lbl" for="aEmail">メールアドレス</label>
+          <input type="email" id="aEmail" autocomplete="email" placeholder="例：minakusa@example.com">
+        </div>
+        <p class="small" id="akHow">いまは応援の申し込みを受け付けています。お支払いの案内（オンライン決済）をメールでお送りし、お支払いの確認後に灯り板へ掲載します。</p>
+        <button class="btn btn-tomato" type="submit" id="akBtn" style="width:100%;margin-top:14px">応援を申し込む</button>
+        <p class="small" style="margin-top:10px">掲載する名前は運営が確認します。<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+        <div class="msg" id="akMsg" role="status"></div>
+      </form>
+    </div>
+    <div class="board" id="board" hidden>
+      <h3>灯りをともしてくれた人</h3>
+      <div class="lamps" id="lamps"></div>
+    </div>
   </div>
 </section>
 
@@ -1094,35 +1117,55 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   });
 
   // ── みんなでつくる：途中経過（10以上の数字だけ表示。毎週手で更新） ──
-  var PROGRESS = { votes:null, shops:null, supporters:null, registered:null, asof:'' };
-  var pg = document.getElementById('progress'), items = [['votes','票','食べたいもの投票'],['shops','店','推薦されたお店'],['supporters','人','サポーター'],['registered','人','開催案内の登録']];
+  var PROGRESS = { votes:null, shops:null, lights:null, registered:null, asof:'' };
+  var pg = document.getElementById('progress'), items = [['votes','票','食べたいもの投票'],['shops','店','推薦されたお店'],['lights','灯','よりみちの灯り'],['registered','人','開催案内の登録']];
   var shown = items.filter(function(it){ var v = PROGRESS[it[0]]; return typeof v === 'number' && v >= 10; });
   if(shown.length){
     pg.innerHTML += shown.map(function(it){ return '<span class="pv"><b>'+PROGRESS[it[0]].toLocaleString('ja-JP')+'</b>'+it[1]+'　'+it[2]+'</span>'; }).join('') + (PROGRESS.asof ? '<span class="small">'+esc(PROGRESS.asof)+'時点</span>' : '');
     pg.hidden = false;
   }
 
-  // ── よりみちサポーター ───────────────
-  chips(document.getElementById('roleChips'), [['📷','写真を撮る'],['🖍','看板を書く'],['📣','広める'],['⛺','設営・片付け'],['🎓','学生として関わりたい']], 'role');
-  chips(document.getElementById('whenChips'), ['金曜の朝','金曜の夕方','土日'], 'swhen');
-  var sf = document.getElementById('supForm'), sbtn = document.getElementById('supBtn'), smsg2 = document.getElementById('supMsg');
-  if(load('minakusa_supporter')){ smsg2.className='msg ok'; smsg2.textContent='このブラウザからは登録済みです。最初の集まりの日程をお知らせします。'; }
-  sf.addEventListener('submit', function(e){
+  // ── よりみちの灯り（応援） ───────────
+  // Stripeの支払いリンクができたら pay に入れる（空のあいだは申し込み受付だけ）。名前は確認後に NAMES へ。
+  var TIERS = [ {n:1, yen:1000, label:'1灯', note:'気軽に、ひとつ', pay:''}, {n:3, yen:3000, label:'3灯', note:'家族や友だちの分も', pay:''}, {n:10, yen:10000, label:'10灯', note:'お店や会社として', pay:''} ];
+  var NAMES = [];   // 例：[{name:'南草津のパン好き', n:1}]。5人以上で表示
+  var tiersEl = document.getElementById('tiers'), akSel = document.getElementById('akSel'), akBtn = document.getElementById('akBtn'), akMsg = document.getElementById('akMsg');
+  var tier = TIERS.at(0);
+  tiersEl.innerHTML = TIERS.map(function(t,i){
+    var b=''; for(var k=0;k<t.n;k++) b+='<i></i>';
+    return '<button type="button" class="tier" data-i="'+i+'" aria-pressed="'+(i===0)+'"><span class="bulbs" aria-hidden="true">'+b+'</span><div><b>'+t.label+'　'+t.yen.toLocaleString('ja-JP')+'円</b><br><span>'+t.note+'</span></div></button>';
+  }).join('');
+  function pick(i){
+    tier = TIERS.at(i);
+    tiersEl.querySelectorAll('.tier').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-i')===String(i) ? 'true':'false'); });
+    akSel.textContent = tier.label+'（'+tier.yen.toLocaleString('ja-JP')+'円）を選んでいます';
+    akBtn.textContent = tier.pay ? tier.label+'を応援する（お支払いへ）' : '応援を申し込む';
+  }
+  tiersEl.addEventListener('click', function(e){ var b=e.target.closest('.tier'); if(b){ pick(Number(b.getAttribute('data-i'))); document.getElementById('aName').focus(); } });
+  pick(0);
+  if(TIERS.some(function(t){return t.pay;})) document.getElementById('akHow').textContent = 'お支払いはオンライン決済です。お支払いの確認後、灯り板へ掲載します。';
+  document.getElementById('akForm').addEventListener('submit', function(e){
     e.preventDefault();
-    var em = document.getElementById('sEmail');
-    if(!em.value || !em.checkValidity()){ smsg2.className='msg ng'; smsg2.textContent = em.value ? 'メールアドレスの形が正しくありません。確かめて、もう一度送ってください。' : 'メールアドレスを入れてください。最初の集まりの日程をお知らせします。'; em.focus(); return; }
-    sbtn.disabled=true; sbtn.textContent='送信しています…';
-    send({ _subject:'【南草津】よりみちサポーターの登録', kind:'サポーター登録', name:(document.getElementById('sName').value||'').slice(0,40),
-      email:em.value, _replyto:em.value, role:vals(sf,'role').join('／'), when:vals(sf,'swhen').join('／'),
-      note:(document.getElementById('sNote').value||'').slice(0,200), src:src
-    }).then(function(){
-      store('minakusa_supporter','1'); sf.reset();
-      smsg2.className='msg ok'; smsg2.textContent='登録しました。最初の集まりの日程を、このアドレスにお知らせします。'; sbtn.textContent='登録しました';
+    var em = document.getElementById('aEmail'), anon = document.getElementById('aAnon').checked, nm = (document.getElementById('aName').value||'').trim().slice(0,20);
+    if(!em.value || !em.checkValidity()){ akMsg.className='msg ng'; akMsg.textContent = em.value ? 'メールアドレスの形が正しくありません。確かめて、もう一度送ってください。' : 'メールアドレスを入れてください。お支払いの案内と掲載のお知らせをお送りします。'; em.focus(); return; }
+    akBtn.disabled=true; akBtn.textContent='送信しています…';
+    send({ _subject:'【南草津】よりみちの灯り 応援の申し込み', kind:'灯りの応援', tier:tier.label, yen:tier.yen, display_name: anon ? '（名前は出さない）' : (nm||'（未入力）'), email:em.value, _replyto:em.value, src:src })
+    .then(function(){
+      store('minakusa_akari','1');
+      if(tier.pay){ location.href = tier.pay; return; }
+      akMsg.className='msg ok'; akMsg.textContent='申し込みを受け付けました。お支払いの案内をメールでお送りします。灯りをありがとうございます。'; akBtn.textContent='申し込みました';
     }).catch(function(){
-      sbtn.disabled=false; sbtn.textContent='サポーターに登録する';
-      smsg2.className='msg ng'; smsg2.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「サポーター希望」とお送りください。';
+      akBtn.disabled=false; pick(TIERS.indexOf(tier));
+      akMsg.className='msg ng'; akMsg.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「灯りの応援」とお送りください。';
     });
   });
+  if(NAMES.length >= 5){
+    document.getElementById('lamps').innerHTML = NAMES.map(function(x){ return '<div class="lamp"><i aria-hidden="true"></i>'+esc(x.name)+(x.n>1?'（'+x.n+'灯）':'')+'</div>'; }).join('');
+    document.getElementById('board').hidden = false;
+  }
+
+  // 灯り欄の上の電球
+  (function(){ var g2=document.getElementById('garland2'); if(!g2) return; var W=Math.max(320,Math.round(g2.getBoundingClientRect().width)), span=W<600?W/2:W/4, d='M0 8'; g2.setAttribute('viewBox','0 0 '+W+' 64'); for(var x=0;x<W-1;x+=span) d+=' Q '+(x+span/2)+' 46 '+(x+span)+' 8'; var gp=svg('path',{d:d,fill:'none',stroke:'#4A5288','stroke-width':1.5},g2), gl=gp.getTotalLength(), n=Math.round(W/48); for(var j=0;j<n;j++){ var q=gp.getPointAtLength(gl*(j+0.5)/n); svg('ellipse',{cx:q.x,cy:q.y+7,rx:4,ry:6,fill:j%3===1?'#FFFFFF':'#FFD66B',opacity:j%3===1?.6:1},g2); } })();
 
   // ── シェア ───────────────────────────
   var shareText = '南草津駅前に、小さなお店が並ぶらしい。帰り道に何が買えたらうれしいか、投票できるよ。';
