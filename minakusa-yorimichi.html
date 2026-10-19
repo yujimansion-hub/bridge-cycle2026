@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <!--
   ビジュアル改訂：明るいポスターのトップ／4つの絵から選ぶよりみち／投票と案内登録の受付・設定は継続。
+  ・合言葉は「いつもの駅に、小さなおいしい発見を。」に統一（タブ・SNS共有・ページ末尾）。スマホは登録欄を写真より先に置く。
   ■ 南草津駅前 一般の方向け案内（第1回まで版）
   ・目的は2つ：食べたいものの投票と、開催案内の登録。出店者は出店者募集ページ（minakusa-ekimae.html）へ。
   ・灯りの応援・よりみちカード・お店を呼ぶ・点灯などの全部入りの版は、git のブランチ archive/yorimichi-full-20261019 に保存。
@@ -22,10 +23,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.bridgecycleco.com/minakusa-yorimichi.html">
-<title>南草津駅前、よりみち。｜いつもの駅に、よりみちのわくわくを。</title>
+<title>南草津駅前、よりみち。｜いつもの駅に、小さなおいしい発見を。</title>
 <meta name="description" content="JR南草津駅の駅前に、金曜の夕方を中心に小さなお店が並ぶ予定です（南草津駅周辺まちづくりの社会実験）。帰り道に何が買えたらうれしいか、投票で教えてください。開催日が決まったらお知らせします。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="南草津駅前、よりみち。南草津駅に、もっと、わくわくを。">
+<meta property="og:title" content="南草津駅前、よりみち。いつもの駅に、小さなおいしい発見を。">
 <meta property="og:description" content="南草津駅前に、小さなお店が並ぶ予定です。帰り道に何が買えたらうれしい？ 投票受付中。">
 <meta property="og:url" content="https://www.bridgecycleco.com/minakusa-yorimichi.html">
 <meta property="og:image" content="https://www.bridgecycleco.com/images/minakusa/yorimichi/ogp.jpg?v=3">
@@ -268,7 +269,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   #voteBtn{width:100%}
   .info th{width:5.5em;padding:12px}
   .info td{padding:12px}
-  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(28,35,64,.96)}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(23,60,81,.96)}
   .mbar .btn{flex:1;padding:10px 6px;font-size:15px;min-height:46px}
   body{padding-bottom:78px}
 }
@@ -473,7 +474,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   header .wrap{padding:11px 16px;gap:9px}.brand{font-size:13px;column-gap:5px}.brand .mark{width:14px;height:21px}.brand small{display:none}
   .hdr-cta{font-size:11px;padding:8px 11px;min-height:36px;white-space:nowrap}
   .cover{padding:29px 0 39px;min-height:0}.cover::before{width:450px;height:450px;right:-245px;top:175px}
-  .cover-in{grid-template-columns:1fr;grid-template-areas:"copy" "scene" "signup";gap:22px}
+  .cover-in{grid-template-columns:1fr;grid-template-areas:"copy" "signup" "scene";gap:22px}
   .hero-copy .eyebrow{font-size:10px;margin-bottom:10px}.pill{font-size:10px;padding:4px 9px}
   .cover h1{font-size:clamp(39px,10vw,62px);line-height:1.25;margin-top:15px;letter-spacing:0}
   .cover h1 .h1-st{font-size:.75em;margin-bottom:3px}.cover .lead{font-size:13px;line-height:1.9;margin-top:17px;max-width:33em}
@@ -484,9 +485,9 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   .scene-note{left:-5px;bottom:-8px;font-size:16px;line-height:1.5;padding:10px 17px;box-shadow:3px 4px 0 rgba(23,60,81,.15)}
   .scene-note small{font-size:8px;letter-spacing:.08em;margin-bottom:2px}.scene-star{font-size:34px;left:-8px;top:18px}.scene-star:last-child{font-size:28px;right:-8px;bottom:-8px}
   .cover-cap{font-size:8px;bottom:8px;right:8px;padding:2px 5px}
-  .hero-signup{padding:16px;border-radius:12px;box-shadow:4px 4px 0 #EEDBAA}.hr-l{font-size:11px;line-height:1.8}
+  .hero-signup{padding:16px;border-radius:12px;box-shadow:4px 4px 0 #EEDBAA}.hr-l{font-size:13px;line-height:1.7}
   .hr-row{flex-direction:row;gap:8px}.hr-row input{min-height:49px;font-size:16px;padding:10px;min-width:0}.hr-row .btn{min-width:90px;padding:10px 11px;font-size:13px;min-height:49px}
-  .hr-note{font-size:10px}.hero-safe{font-size:9px}.hero-vote{font-size:11px;margin-top:9px;min-height:30px;width:auto}
+  .hr-note{font-size:11px}.hero-safe{font-size:10.5px}.hero-vote{font-size:11px;margin-top:9px;min-height:30px;width:auto}
   .hero-signup .trust{font-size:9px}.hero-signup .trust.waiting{font-size:11px}
   .joy-ribbon{padding:11px 0}.joy-ribbon-inner{font-size:14px;gap:20px;justify-content:flex-start;padding-left:20px}.joy-ribbon i{font-size:19px}
   .facts .wrap{grid-template-columns:1fr 1fr}.fact{padding:16px 12px 15px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.25)}
@@ -544,7 +545,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     </div>
     <div class="hero-scene">
       <picture>
-        <source media="(max-width:860px)" srcset="images/minakusa/yorimichi/hero-wide-v2.jpg">
+        <source media="(max-width:860px)" srcset="images/minakusa/yorimichi/hero-sp-v2.jpg">
         <img src="images/minakusa/yorimichi/hero-wide-v2.jpg" alt="夕方の南草津駅前に小さなお店が並び、帰り道の人が立ち寄る完成イメージ" width="1305" height="941" fetchpriority="high">
       </picture>
       <span class="scene-stamp" aria-hidden="true">ふらっと。<br>おいしく。</span>
@@ -755,7 +756,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 </main>
 
 <footer>
-  <div class="footer-message"><p>いつもの駅に、<br><span>好きなよりみちを。</span></p><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a></div>
+  <div class="footer-message"><p>いつもの駅に、<br><span>小さなおいしい発見を。</span></p><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a></div>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
     <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、帰り道と投票欄の絵はイラストで、どれも実際の会場・お店のようすとは異なります。</div>
