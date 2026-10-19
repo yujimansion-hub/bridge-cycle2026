@@ -672,6 +672,14 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 .mine,.shop-card{border:1px solid var(--line);box-shadow:none;background:var(--paper)}
 .sk-p{background:var(--paper);color:var(--ink);border:1px solid var(--night);box-shadow:0 20px 50px rgba(0,0,0,.2)}
 @media(max-width:860px){.hero-copy::before{width:44px;height:44px;font-size:23px;right:0;top:-2px}.hero-scene picture{box-shadow:0 0 0 6px #EAE3D5,0 0 0 7px var(--line)}}
+.vote-next{max-width:540px;margin:24px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.22)}
+.vote-next p{margin-bottom:12px}
+.sc-share-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.sc-share-actions a,.sc-share-actions button{font:700 12px/1.5 'Noto Sans JP',sans-serif;border-radius:9px;min-height:42px;padding:9px 12px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.sc-share-actions a{background:#06c755;color:#fff}
+.sc-share-actions button{border:1px solid #173c51;color:#173c51;background:#fff}
+.sc-via{display:block;background:#fff0bc;color:#173c51;font-weight:900;font-size:12px;padding:6px 10px;border-radius:8px;margin-bottom:10px}
+.sc-share-actions a:focus-visible,.sc-share-actions button:focus-visible{outline:3px solid #dc492e;outline-offset:3px}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 </head>
@@ -825,16 +833,20 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div class="done vote-box" id="voteDone" tabindex="-1">
       <p class="big" aria-hidden="true">🏮</p>
       <h3>1票、届きました。</h3>
-      <p>投票の結果と第1回の日程を、メールで受け取りませんか。</p>
-      <form class="inline-reg" id="regInline" novalidate>
-        <input type="email" id="rEmail2" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレス">
-        <button class="btn btn-bulb" type="submit" id="regBtn2">受け取る</button>
-      </form>
-      <div class="msg" id="regMsg2" role="status" style="max-width:520px;margin-left:auto;margin-right:auto"></div>
+      <p><b>あなたの「食べたい」を、友だちにも聞いてみませんか？</b><br>そのまま送れるカードと、友だちが投票できる専用リンクを用意しています。</p>
       <div class="share-row">
-        <button class="btn btn-bulb" type="button" id="voteCardBtn">私のカードで、友だちを誘う</button>
+        <button class="btn btn-bulb" type="button" id="voteCardBtn">私の「食べたい」カードをLINEで誘う →</button>
       </div>
+      <p class="small" style="margin-top:10px">送信や投稿はご自身で選べます。勝手に友だちへ送ることはありません。</p>
       <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
+      <div class="vote-next">
+        <p>投票の結果と第1回の日程を、メールで受け取りませんか。</p>
+        <form class="inline-reg" id="regInline" novalidate>
+          <input type="email" id="rEmail2" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレス">
+          <button class="btn btn-bulb" type="submit" id="regBtn2">受け取る</button>
+        </form>
+        <div class="msg" id="regMsg2" role="status" style="max-width:520px;margin-left:auto;margin-right:auto"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1147,6 +1159,30 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   // 表示の切り替え。最初はこのファイルの設定で描き、台帳があれば台帳の内容で描き直す
   var coverPill = document.querySelector('.cover .pill').innerHTML, heroLabel = document.querySelector('.hr-l').textContent;
+  // 出店者も集客の担い手に。店名+商品から一定のコードを生成し、掲載済みの情報だけで共有する
+  function vendorCode(shop){
+    var raw=String(shop.shop||'')+'|'+String(shop.item||''), h=2166136261;
+    for(var i=0;i<raw.length;i++) h=Math.imul(h^raw.charCodeAt(i),16777619)>>>0;
+    return h.toString(36);
+  }
+  function vendorLink(shop){
+    var u=new URL(PAGE_URL);
+    u.searchParams.set('src','shop_'+vendorCode(shop));
+    u.searchParams.set('v',vendorCode(shop));
+    u.hash='shops';
+    return u.href;
+  }
+  var vendorFrom='',vendorScrollDone=false;
+  try{vendorFrom=(new URLSearchParams(location.search).get('v')||'').replace(/[^a-z0-9]/g,'').slice(0,9);}catch(e){}
+  document.getElementById('shopList').addEventListener('click',function(e){
+    var a=e.target.closest('[data-shop-share]');
+    if(a){track('yorimichi_shop_share_intent',{vendor_code:a.getAttribute('data-shop-share'),channel:'line'});return;}
+    var b=e.target.closest('[data-shop-copy]');if(!b)return;
+    var url=b.getAttribute('data-link'), old=b.textContent;
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){b.textContent='コピーしました';track('yorimichi_shop_link_copy',{vendor_code:b.getAttribute('data-shop-copy')});setTimeout(function(){b.textContent=old;},2000);}).catch(function(){b.textContent='コピーできませんでした';setTimeout(function(){b.textContent=old;},2000);});
+    }else{b.textContent='LINEから共有できます';setTimeout(function(){b.textContent=old;},2000);}
+  });
   function renderNews(ev){
     var list = (ev ? [{d:'開催', t:(ev.round||'第1回')+'　'+ev.date+' '+ev.time+'　'+ev.place, href:'#overview'}] : []).concat(NEWS);
     var one = list.map(function(n){ return '<li><a href="'+esc(n.href)+'"><b>'+esc(n.d)+'</b>'+esc(n.t)+'</a></li>'; }).join('');
@@ -1187,9 +1223,20 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       document.getElementById('shopsH').textContent = allSet ? (ev ? (ev.round||'第1回')+'に並ぶもの' : '出店が決まったお店') : '出店を検討中のお店';
       document.getElementById('shopsLead').textContent = 'お店から掲載の許可をいただいた商品だけを載せています。'+(allSet ? '' : '「検討中」のお店は、日程が合えば出店します。');
       document.getElementById('shopList').innerHTML = shops.map(function(s){
-        return '<article class="shop-card">'+(s.photo ? '<img src="'+esc(s.photo)+'" alt="'+esc(s.item)+'" width="640" height="480" loading="lazy">' : '')+
-          '<div class="sc-b"><span class="sc-st'+(s.status==='出店予定'?'':' tbd')+'">'+esc(s.status||'検討中')+'</span><p class="sc-n">'+esc(s.item)+'</p><p class="sc-p">'+esc(s.price)+'<small style="font-size:12px;font-family:\'Noto Sans JP\',sans-serif;margin-left:4px">税込</small></p><p class="sc-s">'+esc(s.shop)+'</p></div></article>';
+        var code = vendorCode(s), link = vendorLink(s), confirmed = s.status==='出店予定';
+        var msg = confirmed
+          ? '南草津駅前「よりみち。」に出店予定の'+s.shop+'の「'+s.item+'」。開催日・販売内容は最新情報を見てね。'
+          : '南草津駅前「よりみち。」に出店を検討している'+s.shop+'の「'+s.item+'」。出店はまだ確定していません。';
+        var line = 'https://line.me/R/share?text='+encodeURIComponent(msg+'\n'+link);
+        return '<article class="shop-card" data-vendor="'+code+'">'+(s.photo ? '<img src="'+esc(s.photo)+'" alt="'+esc(s.item)+'" width="640" height="480" loading="lazy">' : '')+
+          '<div class="sc-b">'+(vendorFrom===code?'<span class="sc-via">紹介リンクのお店です</span>':'')+
+          '<span class="sc-st'+(confirmed?'':' tbd')+'">'+esc(s.status||'検討中')+'</span><p class="sc-n">'+esc(s.item)+'</p><p class="sc-p">'+esc(s.price)+'<small style="font-size:12px;font-family:\'Noto Sans JP\',sans-serif;margin-left:4px">税込</small></p><p class="sc-s">'+esc(s.shop)+'</p>'+
+          '<div class="sc-share-actions"><a href="'+esc(line)+'" data-shop-share="'+code+'" target="_blank" rel="noopener noreferrer">このお店をLINEで紹介 ↗</a><button type="button" data-shop-copy="'+code+'" data-link="'+esc(link)+'">リンクをコピー</button></div></div></article>';
       }).join('');
+      if(vendorFrom && !vendorScrollDone && shops.some(function(s){return vendorCode(s)===vendorFrom;})){
+        vendorScrollDone=true;
+        if(location.hash==='#shops') setTimeout(function(){document.querySelector('.shop-card[data-vendor="'+vendorFrom+'"]').scrollIntoView({behavior:'auto',block:'center'});},140);
+      }
       sec.hidden = false;
     } else { sec.hidden = true; }
     var wEl = document.getElementById('waiting');
