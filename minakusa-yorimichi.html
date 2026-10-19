@@ -210,7 +210,7 @@ legend small{font-weight:500;opacity:.7;font-size:13px;margin-left:8px}
 .chip input:disabled+span{opacity:.35;cursor:not-allowed;transform:none}
 .chips.soft .chip span{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
 .chips.soft .chip input:checked+span{background:#fff;color:var(--ink)}
-textarea,input[type=email]{width:100%;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:inherit}
+textarea,input[type=email],input[type=text]{width:100%;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:inherit}
 textarea{min-height:84px;resize:vertical}
 .counter{font-size:13px;opacity:.75;margin-top:10px}
 .counter b{color:var(--bulb);font-size:16px}
@@ -241,6 +241,34 @@ textarea{min-height:84px;resize:vertical}
 .stall .word{margin-top:10px;font-size:14px;background:var(--page);border-radius:10px;padding:10px 12px}
 .stall .meta{font-size:13px;color:var(--sub);margin-top:10px}
 .badge{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--bulb);color:var(--night);margin-bottom:8px}
+
+/* 好きなお店を呼ぶ */
+.invite{margin-top:40px;display:grid;grid-template-columns:.95fr 1.05fr;gap:34px;align-items:start;background:var(--night);color:#fff;border-radius:26px;padding:34px 32px;position:relative;overflow:hidden}
+.invite::before{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,214,107,.35),transparent)}
+.invite h3{font-family:'Dela Gothic One',sans-serif;font-size:clamp(24px,3.4vw,32px);line-height:1.3}
+.invite .lead{color:#C9CEE6}
+.invite ul{margin:20px 0 0;padding:0;list-style:none}
+.invite li{position:relative;padding-left:26px;margin-bottom:10px;font-size:15px;color:#E6E9F5}
+.invite li::before{content:"";position:absolute;left:2px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--bulb);box-shadow:0 0 10px rgba(255,214,107,.7)}
+.inv-card{position:relative;background:#fff;color:var(--ink);border-radius:20px;padding:24px 22px}
+.inv-card label.lbl{display:block;font-weight:700;margin:0 0 6px}
+.inv-card .field{margin-bottom:16px}
+.inv-card input[type=text],.inv-card textarea{width:100%}
+.inv-card textarea{min-height:64px}
+.inv-card .chip span{background:var(--page);border:1px solid var(--line);min-height:40px;padding:6px 12px;font-size:14px}
+.inv-card .chip input:checked+span{background:var(--night);color:#fff;box-shadow:none}
+.inv-card .chip input[type=radio]+span::before{content:none}
+.inv-step2{display:none;margin-top:4px}
+.inv-step2.on{display:block}
+.inv-msg{width:100%;min-height:210px;font-size:14px;line-height:1.7;background:var(--page)}
+.inv-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.inv-actions .btn{flex:1 1 auto}
+.btn-line-green{background:#06C755;color:#fff;box-shadow:0 4px 0 #04913E}
+.btn-line-green:hover{background:#05B34C;color:#fff}
+.btn-night{background:var(--night);color:#fff}
+.btn-night:hover{background:var(--night-2);color:#fff}
+.inv-note{font-size:12px;color:var(--sub);margin-top:10px;line-height:1.7}
+.stall.empty .call{display:inline-block;margin-top:12px;font-weight:700;font-size:14px;color:var(--tomato)}
 
 .torioki{margin-top:56px;display:grid;grid-template-columns:.9fr 1.1fr;gap:32px;align-items:start;background:var(--paper);border-radius:24px;padding:30px}
 .torioki h3{font-family:'Dela Gothic One',sans-serif;font-size:24px}
@@ -290,7 +318,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 .mbar{display:none}
 @media (max-width:860px){
   section{padding:56px 0}
-  .timebar .wrap,.reg-grid,.about,.seller,.torioki{grid-template-columns:1fr}
+  .timebar .wrap,.reg-grid,.about,.seller,.torioki,.invite{grid-template-columns:1fr}
+  .invite{padding:26px 18px;gap:22px}
   .timebar .wrap{gap:16px}
   .seg button{padding:8px 4px;font-size:12px}
   .seg button b{font-size:15px}
@@ -577,6 +606,50 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     <p class="lead" id="shopsLead">屋台はまだ空いています。出店が決まったお店から、どんな人のお店か、おすすめと楽しみ方を添えてここで紹介します。</p>
     <div class="days" id="dayTabs" role="tablist" aria-label="出店日" hidden></div>
     <div class="stalls" id="shopList"></div>
+
+    <div class="invite" id="invite">
+      <div>
+        <h3>この屋台に、<br>あなたの好きなお店を。</h3>
+        <p class="lead">行きつけのパン屋さん、いつか行きたいキッチンカー。「南草津に来てほしい」を、お客さんの声としてお店に届けられます。</p>
+        <ul>
+          <li>お店には、あなたのLINEやSNSから直接届けます</li>
+          <li>運営にも推薦すると、同じお店への声をまとめてお店に伝え、出店をお願いします</li>
+          <li>推薦したお店の出店が決まったら、開催案内でお知らせします</li>
+        </ul>
+      </div>
+      <form class="inv-card" id="invForm" novalidate>
+        <div class="field">
+          <label class="lbl" for="iShop">来てほしいお店の名前</label>
+          <input type="text" id="iShop" maxlength="60" placeholder="例：〇〇ベーカリー" required>
+        </div>
+        <div class="field">
+          <label class="lbl" for="iAbout">どんなお店？<small style="font-weight:500;color:var(--sub);margin-left:6px">任意</small></label>
+          <textarea id="iAbout" maxlength="160" placeholder="例：瀬田のパン屋さん。クロワッサンがおいしい。Instagram @xxxx"></textarea>
+        </div>
+        <fieldset class="field" style="margin-bottom:16px">
+          <legend style="font-size:15px;margin-bottom:8px">あなたとお店</legend>
+          <div class="chips" id="relChips"></div>
+        </fieldset>
+        <fieldset class="field" style="margin-bottom:18px">
+          <legend style="font-size:15px;margin-bottom:8px">合いそうなテーマの日<small style="opacity:1;color:var(--sub)">任意</small></legend>
+          <div class="chips" id="iThemeChips"></div>
+        </fieldset>
+        <button class="btn btn-tomato" type="submit" style="width:100%">お店に送る文面をつくる</button>
+        <div class="msg" id="invErr" role="status"></div>
+
+        <div class="inv-step2" id="invStep2">
+          <label class="lbl" for="invMsg" style="margin-top:18px">お店に送る文面（自由に書きかえられます）</label>
+          <textarea class="inv-msg" id="invMsg"></textarea>
+          <div class="inv-actions">
+            <a class="btn btn-line-green btn-sm" id="invLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+            <button class="btn btn-line btn-sm" type="button" id="invCopy">コピーする（InstagramのDMなどに）</button>
+          </div>
+          <button class="btn btn-night" type="button" id="invRecommend" style="width:100%;margin-top:12px">運営にも推薦する</button>
+          <p class="inv-note">運営への推薦では、お店の名前と入力した内容だけが届きます。あなたの名前や連絡先は送られません。お店への連絡は、お店が出店を考えるときにだけ、運営（BRIDGE CYCLE）から行います。</p>
+          <div class="msg" id="invMsgStatus" role="status"></div>
+        </div>
+      </form>
+    </div>
 
     <div class="torioki" id="reserve">
       <div>
@@ -945,11 +1018,56 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       list.innerHTML = '<p class="small">次の出店日は準備中です。決まりしだいここに載せます。</p>';
     }
   } else {
-    var ph = [['この屋台、まだ空いています','商品の写真と値段、店主のひとことが入ります。'],['この屋台も、まだ空いています','出店する日時と、売り場（西口・東口・改札前）が入ります。'],['あなたのまちのお店が入るかも','取り置きできるかどうかと、その受付先が入ります。']];
+    var ph = [['この屋台、まだ空いています','商品の写真と値段、店主のひとことが入ります。'],['この屋台も、まだ空いています','出店する日時と、売り場（西口・東口・改札前）が入ります。'],['あなたの好きなお店が入るかも','来てほしいお店を、あなたから呼べます。']];
     list.innerHTML = ph.map(function(p){
-      return '<div class="stall empty"><div class="roof"></div><div class="body"><p class="q" aria-hidden="true">？</p><h3>'+p[0]+'</h3><p class="small" style="margin-top:6px">'+p[1]+'</p></div></div>';
+      return '<div class="stall empty"><div class="roof"></div><div class="body"><p class="q" aria-hidden="true">？</p><h3>'+p[0]+'</h3><p class="small" style="margin-top:6px">'+p[1]+'</p><a class="call" href="#invite">好きなお店を呼ぶ</a></div></div>';
     }).join('');
   }
+
+  // ── 好きなお店を呼ぶ ─────────────────
+  var REL = ['常連です','ときどき行きます','気になっています'];
+  var relEl = document.getElementById('relChips');
+  relEl.innerHTML = REL.map(function(v,i){ return '<label class="chip" for="rel'+i+'"><input type="radio" id="rel'+i+'" name="rel" value="'+v+'"'+(i===0?' checked':'')+'><span>'+v+'</span></label>'; }).join('');
+  chips(document.getElementById('iThemeChips'), THEMES.map(function(t){ return [t.ic, t.name]; }), 'itheme');
+  var invForm = document.getElementById('invForm'), invMsg = document.getElementById('invMsg'), step2 = document.getElementById('invStep2');
+  var invErr = document.getElementById('invErr'), invSt = document.getElementById('invMsgStatus'), invRec = document.getElementById('invRecommend');
+  var OFFER_URL = 'https://www.bridgecycleco.com/minakusa-ekimae.html?src=offer';
+  function relText(r){ return r==='常連です' ? 'いつも通っている客として' : r==='ときどき行きます' ? 'ときどきお店に寄る客として' : 'ずっと気になっている者として'; }
+  function buildMsg(){
+    var shop = document.getElementById('iShop').value.trim(), rel = (invForm.querySelector('input[name=rel]:checked')||{}).value || REL[0];
+    var th = vals(invForm,'itheme');
+    return shop+'さんへ\n\n'+
+      'JR南草津駅の西口・東口・改札前で、小さなお店が並ぶ出店の募集が始まっています（南草津駅周辺まちづくりの社会実験）。\n\n'+
+      relText(rel)+'、'+shop+'さんが南草津の駅前に来てくれたら、とてもうれしいです。'+
+      (th.length ? '「'+th[0]+'」の日なんて、ぴったりだと思います。' : '')+'\n\n'+
+      '出店料は1枠3,300円から、売上の歩合はなしだそうです。くわしくはこちら：\n'+OFFER_URL;
+  }
+  invForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var shop = document.getElementById('iShop');
+    if(!shop.value.trim()){ invErr.className='msg ng'; invErr.textContent='来てほしいお店の名前を入れてください。'; shop.focus(); return; }
+    invErr.className='msg';
+    invMsg.value = buildMsg(); step2.classList.add('on'); updateLine();
+    invRec.disabled=false; invRec.textContent='運営にも推薦する'; invSt.className='msg';
+    invMsg.focus(); invMsg.setSelectionRange(0,0); invMsg.scrollTop = 0;
+  });
+  function updateLine(){ document.getElementById('invLine').href = 'https://line.me/R/share?text=' + encodeURIComponent(invMsg.value); }
+  invMsg.addEventListener('input', updateLine);
+  document.getElementById('invCopy').addEventListener('click', function(){
+    var done = function(){ invSt.className='msg ok'; invSt.textContent='コピーしました。InstagramのDMやメールに貼りつけて送れます。'; };
+    if(navigator.clipboard){ navigator.clipboard.writeText(invMsg.value).then(done).catch(function(){ invMsg.select(); }); } else { invMsg.select(); }
+  });
+  invRec.addEventListener('click', function(){
+    invRec.disabled=true; invRec.textContent='送信しています…';
+    send({ _subject:'【南草津】お客さんからのお店の推薦', kind:'お店の推薦',
+      shop:document.getElementById('iShop').value.trim().slice(0,60), about:(document.getElementById('iAbout').value||'').slice(0,160),
+      relation:(invForm.querySelector('input[name=rel]:checked')||{}).value||'', theme:vals(invForm,'itheme').join('／'), src:src
+    }).then(function(){
+      invRec.textContent='推薦しました'; invSt.className='msg ok'; invSt.textContent='推薦を受け付けました。ほかにも来てほしいお店があれば、お店の名前を変えて続けて送れます。';
+    }).catch(function(){
+      invRec.disabled=false; invRec.textContent='運営にも推薦する'; invSt.className='msg ng'; invSt.textContent='送信できませんでした。通信の状態を確かめて、もう一度押してください。';
+    });
+  });
 
   // ── シェア ───────────────────────────
   var shareText = '南草津駅前に、小さなお店が並ぶらしい。帰り道に何が買えたらうれしいか、投票できるよ。';
