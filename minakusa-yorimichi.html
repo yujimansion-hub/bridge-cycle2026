@@ -20,7 +20,7 @@
 <meta property="og:title" content="南草津駅前、よりみち。帰り道に、寄り道したくなる駅前へ">
 <meta property="og:description" content="西口・東口・改札前に、小さなお店が並ぶ予定です。帰り道に何が買えたらうれしい？ 投票受付中。">
 <meta property="og:url" content="https://www.bridgecycleco.com/minakusa-yorimichi.html">
-<meta property="og:image" content="https://www.bridgecycleco.com/images/minakusa/concourse.jpg">
+<meta property="og:image" content="https://www.bridgecycleco.com/images/minakusa/yorimichi/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -145,9 +145,13 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 
 /* ===== テーマの日 ===== */
 .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-.theme{background:var(--paper);border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px;border:2px solid transparent;transition:border-color .15s}
+.theme{background:var(--paper);border-radius:18px;padding:0 20px 20px;display:flex;flex-direction:column;gap:8px;border:2px solid transparent;transition:border-color .15s;overflow:hidden}
+.theme .ph{position:relative;margin:0 -20px 10px;aspect-ratio:4/3;background:#2A3263}
+.theme .ph img{width:100%;height:100%;object-fit:cover}
+.theme .ph::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(28,35,64,.45))}
+.theme .ph .ic{position:absolute;left:16px;bottom:-18px;z-index:1;width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(28,35,64,.25)}
+.theme .when{margin-top:12px}
 .theme.on{border-color:var(--tomato)}
-.theme .ic{font-size:34px;line-height:1}
 .theme .when{font-size:13px;font-weight:700;color:var(--tomato)}
 .theme h3{font-family:'Dela Gothic One',sans-serif;font-size:21px}
 .theme .desc{font-size:14px;color:var(--sub);flex:1}
@@ -263,7 +267,7 @@ textarea{min-height:84px;resize:vertical}
 .seller .nums div{background:rgba(255,255,255,.08);border-radius:12px;padding:9px 14px;font-size:13px;color:#C9CEE6}
 .seller .nums b{display:block;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:20px;color:var(--bulb)}
 
-.closing{background:var(--night);color:#fff;text-align:center;position:relative;overflow:hidden}
+.closing{background:linear-gradient(rgba(28,35,64,.78),rgba(28,35,64,.92)),url(images/minakusa/yorimichi/yatai.jpg) center/cover var(--night);color:#fff;text-align:center;position:relative;overflow:hidden}
 .closing::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:120%;background:radial-gradient(closest-side,rgba(232,104,58,.45),transparent);pointer-events:none}
 .closing .wrap{position:relative}
 .closing .lead{color:#C9CEE6;margin:14px auto 0}
@@ -450,7 +454,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     <h2 class="h2">毎週ちがう、テーマの日。</h2>
     <p class="lead">同じ駅前でも、曜日と時間でテーマを変える案です。行ってみたい日に印を付けてください。多かったテーマから実現を目指します。</p>
     <div class="themes" id="themeList"></div>
-    <p class="small" style="margin-top:14px"><span class="sp-only">横にスワイプすると6つのテーマを見られます。</span>※テーマ・日時はすべて案です。印を付けた内容は、下の投票と一緒に送られます。</p>
+    <p class="small" style="margin-top:14px"><span class="sp-only">横にスワイプすると6つのテーマを見られます。</span>※テーマ・日時はすべて案です。写真はほかの地域の市場・屋台のイメージで、南草津の会場ではありません。印を付けた内容は、下の投票と一緒に送られます。</p>
   </div>
 </section>
 
@@ -657,6 +661,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <footer>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
+    <div class="small" style="flex-basis:100%;order:3">写真：Unsplash（Seungmin Yoon、Cloris Ying、Alain Rouiller、Perry Merrity II、Wkndr）。テーマの日の写真は他地域の市場・屋台のイメージです。</div>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
@@ -682,12 +687,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
   // テーマの日（案）
   var THEMES = [
-    {ic:'🥐', when:'金曜の朝・改札前', name:'パンとコーヒーの朝市', text:'通勤・通学の前に、焼きたてのパンと一杯のコーヒー。'},
-    {ic:'🍱', when:'金曜の夕方・西口と東口', name:'おかず横丁', text:'今夜の一品をここで。作りたての惣菜とお弁当が並ぶ日。'},
-    {ic:'🧺', when:'土日の昼・西口の公園前', name:'公園ピクニック市', text:'買ったものを芝生で。ピクニック用品の貸し出しも検討中です。'},
-    {ic:'🏮', when:'土曜の夜・東口', name:'電球の下のナイトマーケット', text:'バスを降りたら、灯りの下でおつまみと一杯。'},
-    {ic:'🎓', when:'金曜の夕方・東口', name:'学生ごはんの日', text:'授業帰りに寄れる、量があって手ごろな軽食の日。'},
-    {ic:'🌱', when:'月に1回・3か所', name:'はじめてのお店の日', text:'まだお店を持たない人が、ここで初めてお客さんに売る日。'}
+    {ic:'🥐', img:'bread', when:'金曜の朝・改札前', name:'パンとコーヒーの朝市', text:'通勤・通学の前に、焼きたてのパンと一杯のコーヒー。'},
+    {ic:'🍱', img:'okazu', when:'金曜の夕方・西口と東口', name:'おかず横丁', text:'今夜の一品をここで。作りたての惣菜とお弁当が並ぶ日。'},
+    {ic:'🧺', img:'picnic', when:'土日の昼・西口の公園前', name:'公園ピクニック市', text:'買ったものを芝生で。ピクニック用品の貸し出しも検討中です。'},
+    {ic:'🏮', img:'night', when:'土曜の夜・東口', name:'電球の下のナイトマーケット', text:'バスを降りたら、灯りの下でおつまみと一杯。'},
+    {ic:'🎓', img:'student', when:'金曜の夕方・東口', name:'学生ごはんの日', text:'授業帰りに寄れる、量があって手ごろな軽食の日。'},
+    {ic:'🌱', img:'first', when:'月に1回・3か所', name:'はじめてのお店の日', text:'まだお店を持たない人が、ここで初めてお客さんに売る日。'}
   ];
 
   var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
@@ -782,7 +787,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   // テーマの日カード（「行ってみたい」は投票欄の選択と連動）
   var tl = document.getElementById('themeList');
   tl.innerHTML = THEMES.map(function(t,i){
-    return '<article class="theme" id="th'+i+'"><p class="ic" aria-hidden="true">'+t.ic+'</p><p class="when">'+t.when+'</p><h3>'+t.name+'</h3><p class="desc">'+t.text+'</p>'+
+    return '<article class="theme" id="th'+i+'"><div class="ph"><img src="images/minakusa/yorimichi/'+t.img+'.jpg" alt="" loading="lazy" width="900" height="675"><span class="ic" aria-hidden="true">'+t.ic+'</span></div><p class="when">'+t.when+'</p><h3>'+t.name+'</h3><p class="desc">'+t.text+'</p>'+
       '<button type="button" data-i="'+i+'" aria-pressed="false">行ってみたい</button></article>';
   }).join('');
   function syncThemes(){
