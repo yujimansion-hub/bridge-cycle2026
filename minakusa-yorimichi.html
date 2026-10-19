@@ -84,7 +84,11 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .cover h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,6.6vw,74px);line-height:1.18;letter-spacing:.02em;margin-top:18px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .cover h1 span{display:block}
 .cover .lead{color:#fff;opacity:.92;font-size:17px;margin-top:18px;max-width:30em;text-shadow:0 1px 12px rgba(0,0,0,.4)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero-reg{margin-top:24px;max-width:520px}
+.hr-l{display:block;font-size:14px;font-weight:700;margin-bottom:8px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.hr-row{display:flex;gap:10px}
+.hr-row input{flex:1;min-width:0}
+.hero-vote{margin-top:14px}
 .trust{font-size:12px;opacity:.8;margin-top:14px}
 .cover-cap{position:absolute;right:16px;top:14px;z-index:2;font-size:11px;color:#fff;background:rgba(18,22,46,.6);border-radius:999px;padding:3px 10px;margin:0}
 
@@ -222,7 +226,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   .cover::after{background:linear-gradient(180deg,rgba(18,22,46,.2) 0%,rgba(18,22,46,.35) 34%,rgba(18,22,46,.93) 70%)}
   .cover-in{padding-bottom:40px}
   .cover .lead{font-size:15px}
-  .hero-cta .btn{flex:1 1 100%}
+  .hr-row{flex-direction:column}
+  .hr-row .btn,.hero-vote{width:100%}
   .facts .wrap{grid-template-columns:1fr 1fr}
   .fact{padding:14px 12px 14px 0;border-right:0;border-bottom:1px solid var(--line)}
   .fact:nth-child(2n){padding-left:14px;border-left:1px solid var(--line)}
@@ -267,10 +272,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <span class="pill"><i aria-hidden="true"></i>準備中・開催日は調整しています</span>
     <h1><span>帰り道に、</span><span>寄り道したくなる</span><span>駅前へ。</span></h1>
     <p class="lead">金曜の夕方を中心に、JR南草津駅の駅前に、おかず・パン・おやつなどの小さなお店が並ぶ予定です。帰り道に何が買えたらうれしいか、先に教えてください。</p>
-    <div class="hero-cta">
-      <a class="btn btn-bulb" href="#who">食べたいものを選ぶ（30秒）</a>
-      <a class="btn btn-ghost-w" href="#register">開催日を先に知る</a>
-    </div>
+    <form class="hero-reg" id="regHero" novalidate>
+      <label class="hr-l" for="rEmail0">第1回の日程と出店するお店を、メールで受け取る（無料）</label>
+      <div class="hr-row">
+        <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
+        <button class="btn btn-bulb" type="submit">受け取る</button>
+      </div>
+      <div class="msg" id="regMsg0" role="status"></div>
+    </form>
+    <a class="btn btn-ghost-w btn-sm hero-vote" href="#who">先に、食べたいものを選ぶ（30秒）</a>
     <p class="trust">南草津駅周辺まちづくりの社会実験　実施：UDCみなくさ・立命館大学</p>
   </div>
 </section>
@@ -587,6 +597,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       .catch(function(){ btn.disabled=false; btn.textContent=label; m.className='msg ng'; m.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「南草津の案内希望」とお送りください。'; });
     });
   }
+  bindReg('regHero','rEmail0','regMsg0','最初の画面');
   bindReg('regForm','rEmail','regMsg','登録欄');
   bindReg('regInline','rEmail2','regMsg2','投票直後');
 
