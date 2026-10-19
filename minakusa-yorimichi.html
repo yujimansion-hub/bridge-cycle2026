@@ -11,6 +11,7 @@
   ・流入元は URL の ?src= だけを送る（参照元のドメインは送らない）。例：?src=udc ?src=shop ?src=mansion ?src=rits
   ・送信先は Formspree（件名に【南草津】）。公会堂の予約と同じ受付先なので、南草津専用のフォームに分けること。
   ・最初の画面の画像は完成イメージ（合成）。JRのロゴは消してある。
+  ・投票欄の絵は market-painted-four-times-v1.webp（朝昼夕夜の4枚）の夕方を切り出したもの。時間で切り替える版は archive ブランチに保存。
 -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
@@ -153,6 +154,9 @@ legend small{font-weight:500;opacity:.7;font-size:13px;margin-left:8px}
 .vote-sec{background:var(--night);color:#fff;position:relative;overflow:hidden;padding-top:92px}
 .garland{position:absolute;left:0;top:0;width:100%;height:64px;pointer-events:none}
 .vote-sec .lead{color:#C9CEE6}
+.vote-art{margin:0 auto 34px;max-width:980px}
+.vote-art img{width:100%;aspect-ratio:3/1;object-fit:cover;border-radius:18px;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 20px 50px rgba(0,0,0,.35)}
+.vote-art figcaption{font-size:11px;color:#9AA2C4;text-align:right;margin-top:6px}
 .vote-box{max-width:780px;margin:30px auto 0}
 .counter{font-size:13px;opacity:.75;margin-top:10px}
 .counter b{color:var(--bulb);font-size:16px}
@@ -198,6 +202,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @media (max-width:860px){
   section{padding:52px 0}
   .hide-sp{display:none}
+  .vote-art{margin-left:-20px;margin-right:-20px}
+  .vote-art img{aspect-ratio:4/3;border-radius:0;object-position:30% 50%}
+  .vote-art figcaption{padding:0 20px}
   .brand{font-size:15px}
   .brand small{display:none}
   .hdr-cta .full{display:none}
@@ -309,6 +316,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section id="vote" class="vote-sec">
   <svg class="garland" aria-hidden="true" id="garland"></svg>
   <div class="wrap">
+    <figure class="vote-art">
+      <img src="images/minakusa/yorimichi/market-eve.jpg" alt="夕方の駅前にテントのお店が並び、仕事帰りの人や学生が立ち寄っているイラスト" width="1086" height="362" loading="lazy">
+      <figcaption>夕方のよりみちのイメージ（イラスト）</figcaption>
+    </figure>
     <div style="text-align:center">
       <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしい？</h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールもいりません。結果はこのページで公開し、出店するお店のメニュー選びに使ってもらいます。</p>
@@ -422,7 +433,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <footer>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
-    <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）で、実際の会場・お店のようすとは異なります。帰り道の写真：Unsplash（Seungmin Yoon、HANVIN CHEONG、Yanhao Fang、Jacky Yu）。いずれもほかの地域で撮られたものです。</div>
+    <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、投票欄の絵はイラストで、どちらも実際の会場・お店のようすとは異なります。帰り道の写真：Unsplash（Seungmin Yoon、HANVIN CHEONG、Yanhao Fang、Jacky Yu）。いずれもほかの地域で撮られたものです。</div>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
