@@ -92,6 +92,9 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .hr-row{display:flex;gap:10px}
 .hr-row input{flex:1;min-width:0}
 .hero-vote{margin-top:14px}
+.hr-note{font-size:12.5px;margin-top:8px;opacity:.92;text-shadow:0 1px 8px rgba(0,0,0,.4);word-break:auto-phrase}
+.trust.waiting{font-size:14px;font-weight:700;opacity:1;color:var(--bulb)}
+.msg .reg-share{display:inline-block;margin-top:8px;font-weight:700}
 .trust{font-size:12px;opacity:.8;margin-top:14px}
 .cover-cap{position:absolute;right:16px;top:14px;z-index:2;font-size:11px;color:#fff;background:rgba(18,22,46,.6);border-radius:999px;padding:3px 10px;margin:0}
 
@@ -300,9 +303,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
         <button class="btn btn-bulb" type="submit">受け取る</button>
       </div>
+      <p class="hr-note" id="earlyNote" hidden></p>
       <div class="msg" id="regMsg0" role="status"></div>
     </form>
     <a class="btn btn-ghost-w btn-sm hero-vote" href="#who">先に、食べたいものを選ぶ（30秒）</a>
+    <p class="trust waiting" id="waiting" hidden></p>
     <p class="trust">南草津駅周辺まちづくりの社会実験　実施：UDCみなくさ・立命館大学</p>
   </div>
 </section>
@@ -588,6 +593,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       }).join('');
       sec.hidden = false;
     } else { sec.hidden = true; }
+    var wEl = document.getElementById('waiting');
+    if(d.waiting){ wEl.textContent = 'いま'+d.waiting+'人が、第1回を待っています'; wEl.hidden = false; } else { wEl.hidden = true; }
+    if(API && d.earlyLimit){ var en = document.getElementById('earlyNote'); en.textContent = '登録した順に会員番号をお送りします。No.'+d.earlyLimit+'までの方には、日程と出店するお店を一般より先にお知らせします。'; en.hidden = false; }
     var R = d.results, rEl = document.getElementById('results');
     if(R && R.total >= 30 && R.top && R.top.length){
       rEl.innerHTML = '<p class="r-h">有効回答'+esc(R.total)+'件（'+esc(R.asof)+'時点）</p><ol>'+R.top.slice(0,5).map(function(t){ return '<li>'+esc(t[0])+'　'+esc(t[1])+'人が選択</li>'; }).join('')+'</ol>'+(R.used ? '<p class="r-note">'+esc(R.used)+'</p>' : '');
@@ -595,7 +603,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     } else { rEl.hidden = true; }
   }
   if(API) document.getElementById('regVia').textContent = '受付と配信にはGoogleのサービスを使います。';
-  render({nextUpdate:NEXT_UPDATE, nextEvent:NEXT_EVENT, shops:SHOPS, results:RESULTS});
+  render({nextUpdate:NEXT_UPDATE, nextEvent:NEXT_EVENT, shops:SHOPS, results:RESULTS, earlyLimit: API ? 100 : 0});
   if(API){
     fetch(API+'?action=data').then(function(r){ return r.json(); }).then(function(d){ if(d && d.ok) render(d); }).catch(function(){});
   }
@@ -671,14 +679,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   function bindReg(formId, inputId, msgId, where){
     var f = document.getElementById(formId); if(!f) return;
     var m = document.getElementById(msgId), btn = f.querySelector('button[type=submit]');
-    if(load('minakusa_registered')){ m.className='msg ok'; m.textContent='このブラウザからは登録済みです。日程が決まったらお知らせします。'; }
+    if(load('minakusa_registered')){ var myNo = load('minakusa_no'); m.className='msg ok'; m.textContent='このブラウザからは登録済みです'+(myNo ? '（よりみち会員 No.'+('00'+myNo).slice(-3)+'）' : '')+'。日程が決まったらお知らせします。'; }
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var em = document.getElementById(inputId);
       if(!em.value || !em.checkValidity()){ m.className='msg ng'; m.textContent = em.value ? 'メールアドレスの形が正しくありません。確かめて、もう一度送ってください。' : 'メールアドレスを入れてください。'; em.focus(); return; }
       var label = btn.textContent; btn.disabled = true; btn.textContent = '送信しています…';
       send({ _subject:'【南草津】一般向け 開催案内の登録', kind:'開催案内登録', form_ver:FORM_VER, where:where, persona:(PERSONAS[myPersona]||{}).label||'', email:em.value, _replyto:em.value, src:src })
-      .then(function(){ store('minakusa_registered','1'); track('yorimichi_register',{where:formId}); f.reset(); m.className='msg ok'; m.textContent='登録しました。第1回の日程が決まったら、このアドレスにお知らせします。'; btn.textContent='登録しました'; })
+      .then(function(j){
+        store('minakusa_registered','1'); track('yorimichi_register',{where:formId}); f.reset(); m.className='msg ok'; btn.textContent='登録しました';
+        var no = j && j.no ? Number(j.no) : 0;
+        if(no){
+          store('minakusa_no', String(no));
+          var n3 = ('00'+no).slice(-3), shareTxt = '南草津駅の帰り道に、小さなお店ができるらしい。わたしは「よりみち会員」No.'+n3+'。';
+          m.innerHTML = '登録しました。あなたは<b>「よりみち会員」No.'+n3+'</b>です。'+(j.early ? '第1回の日程と出店するお店を、一般より先にお知らせします。' : '第1回の日程が決まったら、お知らせします。')+
+            '<br><a class="reg-share" target="_blank" rel="noopener" href="https://line.me/R/share?text='+encodeURIComponent(shareTxt+'\n'+PAGE_URL+'?src=member')+'">南草津を使う人にLINEで教える</a>';
+        } else {
+          m.textContent='登録しました。第1回の日程が決まったら、このアドレスにお知らせします。';
+        }
+      })
       .catch(function(){ btn.disabled=false; btn.textContent=label; m.className='msg ng'; m.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「南草津の案内希望」とお送りください。'; });
     });
   }

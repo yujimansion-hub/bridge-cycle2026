@@ -1,6 +1,6 @@
 /**
  * 南草津駅前、よりみち。 運営の台帳（Googleスプレッドシート ＋ Apps Script）
- * 版：v1（2026-10-19） BRIDGE CYCLE株式会社
+ * 版：v2（2026-10-19 会員番号・先行案内） BRIDGE CYCLE株式会社
  *
  * できること
  *  ・ページからの「食べたいもの投票」「開催案内の登録」を、このスプレッドシートに記録する
@@ -16,7 +16,7 @@ var TZ = 'Asia/Tokyo';
 var SH = { conf: '設定', vote: '投票', reg: '登録', shops: '並ぶもの', log: '送信記録' };
 var HEAD = {
   '投票': ['受付日時', '版', '入口', '帰り道', '買いたいもの', '時間', '出口', 'ひとこと', '流入元'],
-  '登録': ['受付日時', 'メールアドレス', '入口', '帰り道', '流入元', '状態', '停止用の鍵', '案内を送った回', '前日お知らせを送った回'],
+  '登録': ['受付日時', 'メールアドレス', '入口', '帰り道', '流入元', '状態', '停止用の鍵', '案内を送った回', '前日お知らせを送った回', '会員番号'],
   '並ぶもの': ['公開する', '状態', '商品名', '税込価格', '店名', '写真', '並び順', 'メモ（非公開）'],
   '送信記録': ['日時', '種類', '回', '送った数', '結果']
 };
@@ -37,7 +37,9 @@ var CONF_DEFAULT = [
   ['受付のURL', '', '公開（デプロイ）したときの「ウェブアプリのURL」を貼る。配信停止のリンクに使う'],
   ['前日お知らせの時刻', 12, '毎日この時（0〜23）に確認し、翌日が開催日なら送る'],
   ['登録確認メール', '送る', '送る／送らない'],
-  ['案内メールの追記', '', '開催案内の本文に足したい一言（任意）']
+  ['案内メールの追記', '', '開催案内の本文に足したい一言（任意）'],
+  ['先行案内の人数', 100, 'この番号までの登録者に、開催案内を一般より先に送る（メニュー「先行案内を送る」）'],
+  ['待っている人数を出す数', 30, '登録がこの人数以上になったら、ページに「いま○人が待っています」と出す']
 ];
 var FOOTER = [
   '――',
@@ -52,6 +54,7 @@ function onOpen() {
   SpreadsheetApp.getUi().createMenu('よりみち')
     .addItem('最初の準備（シートと自動確認をつくる）', 'setup')
     .addSeparator()
+    .addItem('先行案内を送る（会員番号の早い人から）', 'menuSendEarly')
     .addItem('開催案内を送る', 'menuSendAnnouncement')
     .addItem('自分あてにテスト送信', 'sendTestMails')
     .addItem('いまの集計を見る', 'menuShowSummary')
@@ -115,16 +118,19 @@ function saveRegistration(b) {
   for (var i = 1; i < rows.length; i++) {
     if (String(rows[i][1]).toLowerCase() === email) {
       if (rows[i][5] !== '有効') sh.getRange(i + 1, 6).setValue('有効');   // 停止した人が自分で登録し直したら戻す
-      return { ok: true, existed: true };
+      return { ok: true, existed: true, no: Number(rows[i][9]) || i };
     }
   }
   var token = Utilities.getUuid().replace(/-/g, '');
-  sh.appendRow([now(), email, clip(b.where, 30), clip(b.persona, 40), clip(b.src, 30), '有効', token, '', ''].map(safe));
+  var no = rows.length;   // 登録した順の番号（1行目は見出しなので、行数がそのまま次の番号になる）
+  if (!rows[0][9]) sh.getRange(1, 10).setValue('会員番号');
+  sh.appendRow([now(), email, clip(b.where, 30), clip(b.persona, 40), clip(b.src, 30), '有効', token, '', '', no].map(safe));
+  clearDataCache();
   var c = readConf();
   if (c['登録確認メール'] !== '送らない' && MailApp.getRemainingDailyQuota() > 0) {
-    try { mail(email, '【南草津駅前、よりみち。】開催案内の登録を受け付けました', confirmBody(c, token), c); } catch (err) {}
+    try { mail(email, '【南草津駅前、よりみち。】よりみち会員 No.' + pad3(no) + ' として登録しました', confirmBody(c, token, no), c); } catch (err) {}
   }
-  return { ok: true };
+  return { ok: true, no: no, early: no <= earlyLimit(c) };
 }
 
 /* ───────── ページに渡すデータ・配信停止 ───────── */
@@ -141,7 +147,10 @@ function doGet(e) {
 
 function pageData() {
   var c = readConf();
-  return { ok: true, nextUpdate: String(c['次の情報更新'] || ''), nextEvent: eventInfo(c, true), shops: publicShops(), results: results(c, false) };
+  var active = sheet(SH.reg).getDataRange().getValues().slice(1).filter(function (r) { return r[5] === '有効'; }).length;
+  var showAt = Number(c['待っている人数を出す数']) || 30;
+  return { ok: true, nextUpdate: String(c['次の情報更新'] || ''), nextEvent: eventInfo(c, true), shops: publicShops(), results: results(c, false),
+    waiting: active >= showAt ? active : null, earlyLimit: earlyLimit(c) };
 }
 
 function eventInfo(c, onlyUpcoming) {
@@ -228,6 +237,17 @@ function menuSendAnnouncement() {
   ui.alert(r.sent + '人に送りました。' + (r.left ? '\n今日の送信上限に達したため、残り' + r.left + '人は明日もう一度「開催案内を送る」を押してください。' : ''));
 }
 
+function menuSendEarly() {
+  var c = readConf(), ev = eventInfo(c, true), ui = SpreadsheetApp.getUi(), lim = earlyLimit(c);
+  if (!ev) { ui.alert('「設定」の開催日が空か、もう過ぎています。開催日を入れてから送ってください。'); return; }
+  var targets = targetRows(7, ev.round).filter(function (t) { return t.no <= lim; });
+  if (!targets.length) { ui.alert('No.' + lim + 'までの方には、' + ev.round + 'の案内を送り終わっています。'); return; }
+  var ans = ui.alert('先行案内を送りますか', ev.round + '　' + ev.date + ' ' + ev.time + '　' + ev.place + '\n送る相手：会員番号' + lim + 'までの ' + targets.length + '人\n\n一般向けの「開催案内を送る」は、翌日以降に押すのがお勧めです（先行案内を送った人には重ねて届きません）。', ui.ButtonSet.YES_NO);
+  if (ans !== ui.Button.YES) return;
+  var r = sendTo(targets, 7, ev.round, function (token) { return ['【先行案内】' + announceSubject(ev), '会員番号' + lim + 'までの方に、一般より先にお知らせしています。\n\n' + announceBody(c, ev, token)]; }, '先行案内');
+  ui.alert(r.sent + '人に先行案内を送りました。' + (r.left ? '\n残り' + r.left + '人は明日もう一度押してください。' : ''));
+}
+
 /** 毎日決まった時刻に動く。翌日が開催日なら、前日のお知らせを送る */
 function dailyCheck() {
   var c = readConf(), ev = eventInfo(c, true);
@@ -242,7 +262,7 @@ function dailyCheck() {
 function targetRows(markCol, round) {
   var rows = sheet(SH.reg).getDataRange().getValues(), out = [];
   for (var i = 1; i < rows.length; i++) {
-    if (rows[i][5] === '有効' && rows[i][1] && String(rows[i][markCol]) !== round) out.push({ row: i + 1, email: String(rows[i][1]), token: String(rows[i][6]) });
+    if (rows[i][5] === '有効' && rows[i][1] && String(rows[i][markCol]) !== round) out.push({ row: i + 1, email: String(rows[i][1]), token: String(rows[i][6]), no: Number(rows[i][9]) || i });
   }
   return out;
 }
@@ -277,9 +297,13 @@ function shopLines() {
   return ['', '並ぶもの（予定）'].concat(s.map(function (x) { return '・' + x.item + '　' + x.price + '（' + x.shop + '）' + (x.status === '出店予定' ? '' : '※検討中'); }));
 }
 
-function confirmBody(c, token) {
+function confirmBody(c, token, no) {
+  var lim = earlyLimit(c), n = no || 0;
   return ['南草津駅前、よりみち。の開催案内にご登録いただき、ありがとうございます。', '',
-    '第1回の日程と出店するお店が決まりしだい、このアドレスにお知らせします。開催の前日にも、もう一度お送りします。',
+    'あなたは「よりみち会員」No.' + pad3(n) + ' です。',
+    n && n <= lim ? 'No.' + pad3(lim) + 'までの方には、第1回の日程と出店するお店を、一般より先にお知らせします。' : '第1回の日程と出店するお店が決まりしだい、このアドレスにお知らせします。',
+    '開催の前日にも、もう一度お送りします。', '',
+    '南草津駅を使うお知り合いにも、よかったら教えてください：' + pageUrl(c, 'friend'),
     '', 'ページ：' + pageUrl(c, 'mail'), '', 'お心当たりがない場合は、下のリンクから停止できます。', unsubLine(c, token), ''].concat(FOOTER).join('\n');
 }
 
@@ -306,7 +330,7 @@ function sendTestMails() {
   var me = Session.getActiveUser().getEmail(), c = readConf();
   var ev = eventInfo(c, false) || { round: String(c['開催の回'] || '第1回'), key: '', date: '（開催日の表示）', time: '（時間）', place: '（場所）', shops: Number(c['店数']) || 0 };
   var t = '0'.repeat(32);
-  mail(me, '［テスト］' + '【南草津駅前、よりみち。】開催案内の登録を受け付けました', confirmBody(c, t), c);
+  mail(me, '［テスト］' + '【南草津駅前、よりみち。】開催案内の登録を受け付けました', confirmBody(c, t, 7), c);
   mail(me, '［テスト］' + announceSubject(ev), announceBody(c, ev, t), c);
   mail(me, '［テスト］' + reminderSubject(ev), reminderBody(c, ev, t), c);
   notify(me + ' に3通（登録確認・開催案内・前日お知らせ）を送りました。');
@@ -341,4 +365,6 @@ function now() { return Utilities.formatDate(new Date(), TZ, 'yyyy/MM/dd HH:mm:s
 function clip(v, n) { return String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, n); }
 /** = + - @ で始まる入力は、式として動かないよう先頭に ' を付ける */
 function safe(v) { return (typeof v === 'string' && /^[=+\-@]/.test(v)) ? "'" + v : v; }
+function pad3(n) { n = Number(n) || 0; return n < 1000 ? ('00' + n).slice(-3) : String(n); }
+function earlyLimit(c) { return Number(c['先行案内の人数']) || 100; }
 function notify(msg) { try { SpreadsheetApp.getActive().toast(msg, 'よりみち', 8); } catch (err) {} }
