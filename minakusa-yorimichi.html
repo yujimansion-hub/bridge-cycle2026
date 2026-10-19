@@ -537,6 +537,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.persona:hover .ph img{transform:none}}
 
 </style>
+<link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019a">
 </head>
 <body>
 
@@ -639,6 +640,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     </div>
 
     <form id="voteForm" class="vote-box" novalidate>
+      <div id="snsInvite" class="sns-invite" hidden><strong></strong><p>同じものでも、違うものでも。あなたの食べたいものを3つまで教えてください。名前・メールは不要です。</p></div>
       <fieldset>
         <legend>買いたいもの<small>3つまで</small></legend>
         <div class="chips" id="foodChips"></div>
@@ -674,7 +676,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       <div class="msg" id="regMsg2" role="status" style="max-width:520px;margin-left:auto;margin-right:auto"></div>
       <div class="share-row">
         <button class="btn btn-bulb btn-sm" type="button" id="voteCardBtn">わたしの1票カードをつくる</button>
-        <button class="btn btn-ghost-w btn-sm" type="button" data-share>近くの人に教える</button>
+        
         <a class="btn btn-ghost-w btn-sm" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
       </div>
       <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
@@ -772,6 +774,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 </main>
 
 <footer>
+  <div class="wrap sns-footer"><button type="button" class="btn btn-line btn-sm" data-share>南草津を使う人に、教える ↗</button></div>
   <div class="footer-message"><p>いつもの駅に、<br><span>小さなおいしい発見を。</span></p><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a></div>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
@@ -804,6 +807,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
 </div>
 
+<script src="assets/yorimichi-social.js?v=20261019a"></script>
 <script>
 (function(){
   // ── 設定 ─────────────────────────────
@@ -814,6 +818,8 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   var PAGE_URL = 'https://www.bridgecycleco.com/minakusa-yorimichi.html';
 
   var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
+  var social = window.YorimichiSocial;
+  if(social) social.init({foods:FOODS, page:PAGE_URL});
   var TIMES = ['平日の朝（7〜9時）','金曜の夕方（17〜20時）','土日祝の昼','土日祝の夕方〜夜'];
   var EXITS = ['西口','東口','改札を通るだけ','駅は使わない（近所）'];
 
@@ -870,6 +876,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   // 表示の切り替え。最初はこのファイルの設定で描き、台帳があれば台帳の内容で描き直す
   var coverPill = document.querySelector('.cover .pill').innerHTML, heroLabel = document.querySelector('.hr-l').textContent;
   function render(d){
+    if(social) social.update(d);
     var nu = d.nextUpdate, top = document.getElementById('nextUpdateTop');
     top.textContent = nu ? '次の情報更新：'+nu+'（開催日ではありません）' : '　';
     if(nu) document.getElementById('nextUpdate').innerHTML = '次の更新は<b>'+esc(nu)+'</b>の予定です（開催準備の進み具合と投票の状況）。決まったものから、このページと開催案内でお知らせします。';
@@ -931,7 +938,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     vbtn.disabled = true; vbtn.textContent = '送信しています…'; vmsg.className='msg';
     send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'投票欄', persona:(PERSONAS[myPersona]||{}).label||'',
       food:food.join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'), comment:(document.getElementById('vComment').value||'').slice(0,200), src:src
-    }).then(function(){ store('minakusa_voted','1'); store('minakusa_vote_food', food.slice(0,3).join('／')); showVoted(); vdone.focus(); track('yorimichi_vote',{via:'vote_form'}); })
+    }).then(function(){ store('minakusa_voted','1'); store('minakusa_vote_food', food.slice(0,3).join('／')); if(social) social.voteDone(food.map(function(label){return FOODS.findIndex(function(f){return f[1]===label;});})); showVoted(); vdone.focus(); track('yorimichi_vote',{via:'vote_form'}); })
     .catch(function(){ vmsg.className='msg ng'; vmsg.textContent='送信できませんでした。通信の状態を確かめて、もう一度お試しください。'; vbtn.disabled=false; vbtn.textContent='この内容で投票する'; });
   });
 
@@ -967,9 +974,9 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
         send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'帰り道から', persona:p.label,
           food: picks.map(function(n){ return FOODS[n][1]; }).join('／'), time:'（未回答）', exit:'（未回答）', comment:'', src:src
         }).then(function(){
-          store('minakusa_voted','1'); store('minakusa_vote_food', picks.slice(0,3).map(function(n){ return FOODS[n][1]; }).join('／')); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
+          store('minakusa_voted','1'); store('minakusa_vote_food', picks.slice(0,3).map(function(n){ return FOODS[n][1]; }).join('／')); if(social) social.voteDone(picks); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
           qEl.innerHTML = '<p class="q-done">1票、届きました。「'+FOODS[picks[0]][1]+'」が並ぶ日を、いっしょに待ちましょう。</p>'+
-            '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div>';
+            '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div><div class="sns-inline-cta"><button type="button" class="btn btn-bulb" data-share>食べたいものカードをつくる</button><span>画像と投稿文で、近くの人に教えよう。</span></div>';
           bindReg('regInline3','rEmail3','regMsg3','投票直後（帰り道）');
         }).catch(function(){ btn.disabled = false; btn.textContent = 'この内容で1票を入れる'; qm.className = 'msg ng'; qm.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。'; });
       });
@@ -1029,13 +1036,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   var shareUrl = PAGE_URL + '?src=share';
   document.getElementById('lineShare').href = 'https://line.me/R/share?text=' + encodeURIComponent(shareText + '\n' + shareUrl);
   var smsg = document.getElementById('shareMsg');
-  document.querySelectorAll('[data-share]').forEach(function(b){
-    b.addEventListener('click', function(){
-      if(navigator.share){ navigator.share({title:'南草津駅前、よりみち。', text:shareText, url:shareUrl}).catch(function(){}); }
-      else if(navigator.clipboard){ navigator.clipboard.writeText(shareText + ' ' + shareUrl).then(function(){ smsg.className='msg ok'; smsg.textContent='リンクをコピーしました。'; }).catch(function(){ smsg.className='msg ok'; smsg.textContent=shareUrl; }); }
-      else { smsg.className='msg ok'; smsg.textContent=shareUrl; }
-    });
-  });
+  // [data-share] は YorimichiSocial が扱う（共有画面を二重に開かない）。
 
   // ── シェアカード（会員証・1票カード）：登録した人・投票した人が、自分の番号や1票を画像で広められる ──
   // リンクには会員番号の印（?src=m023）が付き、その人の紹介で増えた登録が台帳で数えられる。
@@ -1077,6 +1078,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   var skEl = document.getElementById('shareKit'), skMsg = document.getElementById('skMsg'), skBlob = null, skText = '', skKind = '', skLast = null;
   function skUrl(){ return myRefUrl(); }
   function openShareKit(kind){
+    if(kind==='vote' && social){ social.open('wish'); return; }
     skKind = kind; skMsg.textContent = ''; skLast = document.activeElement;
     var no = load('minakusa_no'), n3 = no ? ('00'+no).slice(-3) : '';
     skText = kind === 'member'
@@ -1130,4 +1132,5 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 <script src="bc-analytics.js" defer></script>
 </body>
 </html>
+
 
