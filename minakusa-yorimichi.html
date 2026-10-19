@@ -194,6 +194,29 @@ legend small{font-weight:500;opacity:.7;font-size:13px;margin-left:8px}
 .results ol{margin:8px 0 0;padding-left:1.4em}
 .results li{margin-bottom:2px}
 .results .r-note{font-size:12px;color:#9AA2C4;margin-top:6px}
+.vote-results{max-width:700px;margin:20px auto 0;text-align:left;background:rgba(255,255,255,.085);border:1px solid rgba(255,214,107,.48);border-radius:18px;padding:22px}
+.vote-results h4{font-size:20px;color:var(--bulb);margin:0;font-weight:900}
+.vote-results .vr-meta{font-size:12px;color:#C9CEE6;line-height:1.8;margin:6px 0 12px}
+.vote-results .vr-ranks{list-style:none!important;display:grid;gap:12px;margin:14px 0!important;padding:0!important}
+.vote-results .vr-ranks li{padding:0!important;margin:0!important}
+.vote-results .vr-line{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;line-height:1.5}
+.vote-results .vr-line strong{font-size:14px;color:#fff}
+.vote-results .vr-line span{white-space:nowrap;color:#D6DAEE}
+.vote-results .vr-bar{height:11px;background:rgba(255,255,255,.2);border-radius:30px;margin-top:6px;overflow:hidden}
+.vote-results .vr-bar i{display:block;height:100%;border-radius:30px;background:var(--bulb)}
+.vote-results .vr-mine .vr-bar i{background:#FF8B6E}
+.vote-results .vr-mine .vr-line strong::after{content:" ✓ あなたも選択";color:var(--bulb);font-size:11px}
+.vote-results .vr-picks{background:rgba(255,214,107,.13);padding:10px 12px;border-radius:9px;font-size:13px;margin:12px 0 0}
+.vote-results .vr-note{font-size:12px;line-height:1.8;color:#C9CEE6;margin-top:12px}
+.vote-results .vr-num{font-size:24px;font-weight:900;color:var(--bulb);display:block;margin:8px 0}
+.vote-results .vr-progress{height:10px;background:rgba(255,255,255,.2);border-radius:30px;overflow:hidden}
+.vote-results .vr-progress i{display:block;height:100%;background:var(--bulb);border-radius:30px}
+.vote-results .vr-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.vote-results .vr-actions .btn{min-height:44px;font-size:13px}
+#results{max-width:780px}
+#voteDone .vote-results{text-align:left}
+#voteDone .vote-results p{color:#E6E9F5}
+@media(max-width:620px){.vote-results{padding:16px 14px}.vote-results .vr-line strong{font-size:12px}.vote-results .vr-mine .vr-line strong::after{display:block}}
 .counter{font-size:13px;opacity:.75;margin-top:10px}
 .counter b{color:var(--bulb);font-size:16px}
 .form-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
@@ -795,9 +818,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div style="text-align:center">
       <p class="eyebrow">30秒で、いっしょにつくる。</p>
       <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしい？</h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールもいりません。結果はこのページで公開し、出店するお店のメニュー選びに使ってもらいます。</p>
-      <div class="card-tease"><img src="images/minakusa/yorimichi/share/bento.png" alt="カードの例：「南草津駅で、私はお弁当派。あなたは？」" width="1200" height="630" loading="lazy"><p><b>投票すると、あなたの「食べたい」カードがつくれます。</b>LINEで送ると、友だちにはこんなふうに届きます。</p></div>
-      <div class="results" id="results" hidden></div>
+      <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールも不要。投票して、みんなが何を食べたいか見てみよう。投票結果は出店するお店のメニュー選びに活用します。</p>
+      <div class="results vote-results" id="results" aria-live="polite"><h4>みんなの「食べたい」投票</h4><p class="vr-meta">集計状況を確認しています。</p></div>
     </div>
 
     <form id="voteForm" class="vote-box" novalidate>
@@ -809,7 +831,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       </fieldset>
       <div class="form-foot">
         <button class="btn btn-bulb" type="submit" id="voteBtn" disabled>この内容で投票する</button>
-        <span class="small" style="color:#C9CEE6">投票すると、あなたの「食べたい」カードがつくれます。名前や連絡先は送られません。</span>
+        <span class="small" style="color:#C9CEE6">投票後は、みんなの結果または公開までの進み具合を表示します。名前・メール不要です。</span>
       </div>
       <details class="more-q" id="moreQ">
         <summary>時間や出口も教える（任意）</summary>
@@ -833,10 +855,9 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div class="done vote-box" id="voteDone" tabindex="-1">
       <p class="big" aria-hidden="true">🏮</p>
       <h3>1票、届きました。</h3>
-      <p><b>あなたの「食べたい」を、友だちにも聞いてみませんか？</b><br>そのまま送れるカードと、友だちが投票できる専用リンクを用意しています。</p>
-      <div class="share-row">
-        <button class="btn btn-bulb" type="button" id="voteCardBtn">私の「食べたい」カードをLINEで誘う →</button>
-      </div>
+      <p><b>みんなは何を選んだ？</b> あなたの1票と比べてみましょう。</p>
+      <div class="vote-results" id="myVoteResults" aria-live="polite"><h4>みんなの投票結果</h4><p class="vr-meta">集計状況を確認しています。</p></div>
+      <div class="share-row"><button class="btn btn-line" type="button" id="voteCardBtn">自分の「食べたい」カードも送る</button></div>
       <p class="small" style="margin-top:10px">送信や投稿はご自身で選べます。勝手に友だちへ送ることはありません。</p>
       <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
       <div class="vote-next">
@@ -1199,7 +1220,9 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     document.getElementById('vendorList').innerHTML = html;
     document.getElementById('vendorCount').textContent = set.length ? VENDOR_SLOTS+'枠中 '+set.length+'店が決定' : '決まりしだい掲載';
   }
+  var latestVoteData=null;
   function render(d){
+    latestVoteData=d;
     if(social) social.update(d);
     var nu = d.nextUpdate, top = document.getElementById('nextUpdateTop');
     top.textContent = nu ? '次の情報更新：'+nu+'（開催日ではありません）' : '　';
@@ -1242,11 +1265,53 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     var wEl = document.getElementById('waiting');
     if(d.waiting){ wEl.textContent = 'いま'+d.waiting+'人が、第1回を待っています'; wEl.hidden = false; } else { wEl.hidden = true; }
     if(API && d.earlyLimit){ var en = document.getElementById('earlyNote'); en.textContent = '会員番号No.'+d.earlyLimit+'までの方には、一般より先にお知らせします。'; en.hidden = false; }
-    var R = d.results, rEl = document.getElementById('results');
-    if(R && R.total >= 30 && R.top && R.top.length){
-      rEl.innerHTML = '<p class="r-h">有効回答'+esc(R.total)+'件（'+esc(R.asof)+'時点）</p><ol>'+R.top.slice(0,5).map(function(t){ return '<li>'+esc(t[0])+'　'+esc(t[1])+'人が選択</li>'; }).join('')+'</ol>'+(R.used ? '<p class="r-note">'+esc(R.used)+'</p>' : '');
-      rEl.hidden = false;
-    } else { rEl.hidden = true; }
+    renderVoteResults(d);
+  }
+  function renderVoteResults(d){
+    var r=d&&d.results, val=d&&d.stats&&d.stats.votes, n=Number(val),
+        hasNumber=val!==null&&val!==undefined&&val!==''&&Number.isFinite(n)&&n>=0,
+        ready=!!(r&&Number(r.total)>=30&&Array.isArray(r.top)&&r.top.length),
+        mine=(load('minakusa_vote_food')||'').split('／').filter(Boolean);
+    function html(personal){
+      var h='<h4>'+(personal?'みんなの結果と、あなたの1票':'みんなの「食べたい」投票')+'</h4>';
+      if(!ready){
+        h+='<p class="vr-meta">有効回答30件以上でランキングを公開します。少ない票数では順位が変動しやすいためです。</p>';
+        if(hasNumber){
+          var votes=Math.floor(n),left=Math.max(0,30-votes),pct=Math.min(100,Math.round(votes/30*100));
+          h+='<span class="vr-num">'+votes+'件 / 公開基準30件</span><div class="vr-progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="'+Math.min(30,votes)+'" aria-label="投票結果の公開基準までの件数"><i style="width:'+pct+'%"></i></div>'+
+              '<p class="vr-note">'+(left?'あと'+left+'件で公開基準に届きます。':'公開基準に到達しました。次の集計更新後に確認できます。')+' 数字は更新まで最大約2分遅れることがあります。</p>';
+        }else h+='<p class="vr-note">現在、集計状況を取得できていません。架空の票数や順位は表示しません。</p>';
+        if(personal&&mine.length)h+='<p class="vr-picks">あなたが選んだもの：'+mine.map(esc).join('・')+'</p>';
+        h+='<div class="vr-actions"><button type="button" class="btn btn-bulb btn-sm" data-share>友だちにも1票聞いてみる →</button><a class="btn btn-line btn-sm" href="#register">結果公開の案内を受け取る</a></div>';
+        return h;
+      }
+      var total=Math.floor(Number(r.total)),max=0;
+      r.top.forEach(function(t){max=Math.max(max,Number(t[1])||0);});
+      h+='<p class="vr-meta">有効回答'+total+'件／'+esc(r.asof||'集計日時未確認')+'時点。複数選択できるため割合の合計は100%を超える場合があります。</p>'+
+        '<ol class="vr-ranks">'+r.top.slice(0,5).map(function(t,i){
+          var label=String(t[0]||''),count=Math.max(0,Math.floor(Number(t[1])||0)),
+              pct=Math.round(count/total*100),width=max?Math.round(count/max*100):0,
+              yours=personal&&mine.indexOf(label)>=0;
+          return '<li'+(yours?' class="vr-mine"':'')+'><div class="vr-line"><strong>'+(i+1)+'位 '+esc(label)+'</strong><span>'+count+'人（'+pct+'%）</span></div><div class="vr-bar"><i style="width:'+width+'%"></i></div></li>';
+        }).join('')+'</ol>';
+      if(personal&&mine.length){
+        var hit=mine.filter(function(x){return r.top.some(function(t){return t[0]===x;});});
+        h+='<p class="vr-picks">あなたの選択：'+mine.map(esc).join('・')+'。'+(hit.length?'「'+hit.map(esc).join('」「')+'」が上位に入っています。':'あなたの回答も集計に含まれます。')+'</p>';
+      }
+      h+='<p class="vr-note">途中順位であり、実際の出店・販売商品が確定したものではありません。'+esc(r.used||'')+'</p>'+
+        '<div class="vr-actions"><button type="button" class="btn btn-bulb btn-sm" data-share data-share-mode="results">みんなの結果を友だちと比べる →</button><a class="btn btn-line btn-sm" href="#register">次の結果を受け取る</a></div>';
+      return h;
+    }
+    var main=document.getElementById('results'),done=document.getElementById('myVoteResults');
+    if(main){main.innerHTML=html(false);main.hidden=false;}
+    if(done)done.innerHTML=html(true);
+  }
+  function refreshVoteResults(){
+    if(!API)return;
+    fetch(API+'?action=data&aftervote='+Date.now()).then(function(r){if(!r.ok)throw Error('fetch');return r.json();})
+      .then(function(d){if(d&&d.ok)render(d);})
+      .catch(function(){ /* 誤った順位を作らず、すでに確認できた表示を保つ */ });
+  }
   }
   if(API) document.getElementById('regVia').textContent = '受付と配信にはGoogleのサービスを使います。';
   render({nextUpdate:NEXT_UPDATE, nextEvent:NEXT_EVENT, shops:SHOPS, results:RESULTS, earlyLimit: API ? 100 : 0});
@@ -1266,7 +1331,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     vbtn.disabled = n===0; vbtn2.disabled = n===0;
   }
   vf.addEventListener('change', refreshVote);
-  function showVoted(){ vf.style.display='none'; vdone.style.display='block'; }
+  function showVoted(){vf.style.display='none';vdone.style.display='block';renderVoteResults(latestVoteData);refreshVoteResults();}
   if(load('minakusa_voted')) showVoted();
   vf.addEventListener('submit', function(e){
     e.preventDefault();
@@ -1292,7 +1357,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       if(load('minakusa_voted')){ body = '<div class="quick"><p class="q-done">あなたの1票は、もう届いています。ありがとうございます。</p><div class="q-foot"><a class="btn btn-tomato btn-sm" href="#register">第1回の日程を受け取る</a></div></div>'; }
       else {
         body = '<div class="quick" id="quick"><p class="q-h">あなたなら、何が買えたらうれしい？（3つまで）</p><div class="chips">'+p.quick.map(function(n){ var f = FOODS[n]; return '<label class="chip" for="q'+n+'"><input type="checkbox" id="q'+n+'" value="'+n+'"><span><em aria-hidden="true">'+f[0]+'</em>'+f[1]+'</span></label>'; }).join('')+'</div>'+
-          '<div class="q-foot"><button type="button" class="btn btn-tomato" id="qVote">この内容で1票を入れる</button><a class="small" href="#vote">ほかのものも選ぶ</a></div><p class="q-tease">投票すると、あなたの「食べたい」カードがつくれます。</p><div class="msg" id="qMsg" role="status"></div></div>';
+          '<div class="q-foot"><button type="button" class="btn btn-tomato" id="qVote">この内容で1票を入れる</button><a class="small" href="#vote">ほかのものも選ぶ</a></div><p class="q-tease">投票後は、みんなの結果または公開までの進み具合を見られます。</p><div class="msg" id="qMsg" role="status"></div></div>';
       }
     } else {
       body = '<div class="q-foot" style="margin-top:16px"><a class="btn btn-tomato" href="minakusa-ekimae.html?src=who">出店について見る</a><a class="btn btn-line" href="#register">第1回の日程を受け取る</a></div>';
@@ -1311,9 +1376,10 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
           food: picks.map(function(n){ return FOODS[n][1]; }).join('／'), time:'（未回答）', exit:'（未回答）', comment:'', src:src
         }).then(function(){
           store('minakusa_voted','1'); store('minakusa_vote_food', picks.slice(0,3).map(function(n){ return FOODS[n][1]; }).join('／')); if(social) social.voteDone(picks); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
-          qEl.innerHTML = '<p class="q-done">1票、届きました。「'+FOODS[picks[0]][1]+'」が並ぶ日を、いっしょに待ちましょう。</p>'+
+          qEl.innerHTML = '<p class="q-done">1票、届きました。みんなは何を選んだ？</p><div class="q-foot"><a class="btn btn-tomato" href="#voteDone">みんなの投票結果を見る →</a></div>'+
             '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div><div class="sns-inline-cta"><button type="button" class="btn btn-bulb" data-share>私のカードで、友だちを誘う</button><span>カードとリンクを、LINEなどでそのまま送れます。</span></div>';
           bindReg('regInline3','rEmail3','regMsg3','投票直後（帰り道）');
+           setTimeout(function(){document.getElementById('voteDone').scrollIntoView({behavior:'smooth',block:'start'});},180);
         }).catch(function(){ btn.disabled = false; btn.textContent = 'この内容で1票を入れる'; qm.className = 'msg ng'; qm.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。'; });
       });
     }
