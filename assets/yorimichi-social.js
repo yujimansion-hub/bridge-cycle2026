@@ -24,7 +24,7 @@
     if(mode==='results'&&data.results&&data.results.total>=30){
       text='南草津駅の帰り道、何が買えたらうれしい？\n'+data.results.asof+'時点・有効回答'+data.results.total+'件の途中経過です。\n'+data.results.top.slice(0,3).map(function(t,i){return(i+1)+'. '+t[0]+'（'+t[1]+'人が選択）';}).join('\n')+'\nあなたの食べたいものも、教えてください。';
     }else if(mode==='event'&&data.nextEvent){
-      var e=data.nextEvent;text='南草津駅前に、小さなおいしい発見を。\n'+(e.round||'次回')+' '+e.date+' '+e.time+'\n'+e.place+(e.shops?'／'+e.shops+'店が出店':'')+'\n'+(data.shops||[]).slice(0,3).map(function(s){return '・'+s.item+(s.price?' '+s.price:'')+(s.status==='出店予定'?'':'（検討中）');}).join('\n')+'\n帰り道に、よりみちしませんか。';
+      var e=data.nextEvent;text='南草津駅に、おいしい寄り道を。\n'+(e.round||'次回')+' '+e.date+' '+e.time+'\n'+e.place+(e.shops?'／'+e.shops+'店が出店':'')+'\n'+(data.shops||[]).slice(0,3).map(function(s){return '・'+s.item+(s.price?' '+s.price:'')+(s.status==='出店予定'?'':'（検討中）');}).join('\n')+'\n帰り道に、よりみちしませんか。';
     }else{
       text=picks.length?'南草津駅で、私は「'+picks.map(function(n){return foods[n][1];}).join('」「')+'」が買えたらうれしい。\nあなたは何派？':'南草津駅の帰り道、何が買えたらうれしい？';
       text+='\n名前・メール不要で、食べたいものを3つまで選べます。\n開催日は調整中。実際の出店商品は決まりしだいお知らせ。';
