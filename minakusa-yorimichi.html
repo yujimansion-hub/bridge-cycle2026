@@ -536,6 +536,27 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important;animation:none!important}
 }
+
+/* オリジナルの描き込みイラスト。4つの時間帯を一枚にまとめて読み込む。 */
+.hero.scene-illustrated{color:var(--ink);background:#F8F2E7;padding-bottom:0}
+.scene-illustrated .hero-in{padding-top:36px;padding-bottom:26px;display:flex;gap:28px;align-items:end;justify-content:space-between}
+.scene-illustrated .h2{font-size:clamp(25px,3.3vw,34px);line-height:1.45}
+.scene-illustrated .art-eyebrow{font-size:13px;font-weight:700;color:var(--leaf);letter-spacing:.06em;margin-bottom:9px}
+.scene-illustrated .lead{color:var(--sub);opacity:1;font-size:14px;max-width:30em;margin:0;line-height:1.85}
+.market-window{max-width:1280px;margin:0 auto;overflow:hidden;border-radius:18px}
+.market-art{position:relative;width:100%;min-width:720px;left:50%;transform:translateX(-50%);aspect-ratio:3/1;background-image:url('images/minakusa/yorimichi/market-painted-four-times-v1.webp');background-size:200% 200%;background-repeat:no-repeat;background-position:0 100%}
+.scene-illustrated[data-t="morning"] .market-art{background-position:0 0}
+.scene-illustrated[data-t="noon"] .market-art{background-position:100% 0}
+.scene-illustrated[data-t="eve"] .market-art{background-position:0 100%}
+.scene-illustrated[data-t="night"] .market-art{background-position:100% 100%}
+.scene-illustrated .art-caption{font-size:12px;line-height:1.7;color:var(--sub);padding-top:12px;padding-bottom:20px;text-align:center}
+@media(max-width:860px){
+  .scene-illustrated .hero-in{padding-top:28px;padding-bottom:20px;display:block}
+  .scene-illustrated .lead{font-size:13px;margin-top:12px}
+  .market-window{margin-inline:14px;border-radius:14px}
+  .scene-illustrated .art-caption{font-size:11px;text-align:left;padding-inline:20px;padding-bottom:16px}
+}
+
 </style>
 </head>
 <body>
@@ -583,72 +604,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 </section>
 
 <!-- 時間で景色と並ぶお店が変わる -->
-<section class="hero" id="hero" data-t="eve" style="padding:0">
-  <div class="sky morning"></div><div class="sky noon"></div><div class="sky eve"></div><div class="sky night"></div>
-  <div class="orb" aria-hidden="true"></div>
-
+<section class="hero scene-illustrated" id="hero" data-t="eve" style="padding:0">
   <div class="wrap hero-in">
-    <h2 class="h2">あなたが通る時間の、<br>駅前のようす。</h2>
-    <p class="lead">下で時間を選ぶと、空の色と屋台の品が変わります。</p>
+    <div>
+      <p class="art-eyebrow">いつもの駅に、ちょっといい時間。</p>
+      <h2 class="h2">あなたが通る時間の、<br class="hide-sp">駅前のようす。</h2>
+    </div>
+    <p class="lead">朝のパン。夕方のおかず。灯りの下のひと息。<br>下の時間を選んで、気になる寄り道をのぞいてみてください。</p>
   </div>
-
-  <svg class="scene" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMax slice" role="img" aria-label="駅前に屋台が並び、電球が灯るイメージ図">
-    <defs>
-      <pattern id="stR" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#D9412B"/><rect x="12" width="12" height="10" fill="#FFFFFF"/></pattern>
-      <pattern id="stY" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#E9B12F"/><rect x="12" width="12" height="10" fill="#FFFFFF"/></pattern>
-      <pattern id="stG" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#1F7A5C"/><rect x="12" width="12" height="10" fill="#FFFFFF"/></pattern>
-      <radialGradient id="glow"><stop offset="0" stop-color="#FFE39A" stop-opacity=".85"/><stop offset="1" stop-color="#FFE39A" stop-opacity="0"/></radialGradient>
-    </defs>
-
-    <!-- 遠くのまち -->
-    <g class="city">
-      <rect x="0" y="170" width="70" height="160"/><rect x="66" y="130" width="54" height="200"/><rect x="380" y="150" width="60" height="180"/>
-      <rect x="436" y="186" width="44" height="144"/><rect x="900" y="120" width="70" height="210"/><rect x="966" y="168" width="50" height="162"/>
-      <rect x="1012" y="140" width="80" height="190"/><rect x="1090" y="182" width="50" height="148"/><rect x="1136" y="150" width="70" height="180"/>
-      <rect x="560" y="196" width="80" height="134"/><rect x="740" y="176" width="60" height="154"/>
-    </g>
-
-    <!-- 駅舎 -->
-    <g>
-      <rect class="bld" x="110" y="168" width="290" height="162"/>
-      <rect x="98" y="156" width="314" height="16" fill="#1C2340" opacity=".85"/>
-      <rect x="185" y="182" width="140" height="32" rx="4" fill="#FFFFFF"/>
-      <text x="255" y="205" text-anchor="middle" class="tent-sign" style="font-size:17px">JR 南草津</text>
-      <g class="win">
-        <rect x="128" y="228" width="40" height="30" rx="2"/><rect x="178" y="228" width="40" height="30" rx="2"/><rect x="292" y="228" width="40" height="30" rx="2"/><rect x="342" y="228" width="40" height="30" rx="2"/>
-      </g>
-      <rect x="226" y="236" width="58" height="94" fill="#1C2340" opacity=".7"/>
-    </g>
-
-    <!-- 地面 -->
-    <rect class="ground" x="0" y="328" width="1200" height="52"/>
-
-    <!-- 電球の飾りつけ（電球はJSで並べる） -->
-    <rect x="452" y="150" width="5" height="180" fill="#1C2340" opacity=".8"/>
-    <rect x="923" y="150" width="5" height="180" fill="#1C2340" opacity=".8"/>
-    <path id="wire" d="M455 156 Q 572 206 690 156 Q 808 206 925 156" fill="none" stroke="#1C2340" stroke-width="1.6" opacity=".8"/>
-    <g id="bulbs"></g>
-
-    <!-- 屋台 -->
-    <g id="tents"></g>
-
-    <!-- 人 -->
-    <g class="ppl">
-      <circle cx="430" cy="290" r="9"/><rect x="421" y="301" width="18" height="30" rx="8"/>
-      <circle cx="600" cy="298" r="8"/><rect x="592" y="308" width="16" height="23" rx="7"/>
-      <circle cx="616" cy="304" r="6"/><rect x="610" y="312" width="12" height="18" rx="5"/>
-      <circle cx="782" cy="288" r="9"/><rect x="773" y="299" width="18" height="32" rx="8"/>
-      <circle cx="948" cy="292" r="9"/><rect x="939" y="303" width="18" height="28" rx="8"/>
-      <circle cx="1052" cy="290" r="9"/><rect x="1043" y="301" width="18" height="30" rx="8"/>
-    </g>
-
-    <!-- バス -->
-    <g transform="translate(1000 262)">
-      <rect width="190" height="62" rx="14" fill="#2F6FB0"/>
-      <rect x="12" y="10" width="166" height="22" rx="5" fill="#CFE3F5" class="win" opacity=".9"/>
-      <circle cx="40" cy="64" r="11" fill="#1C2340"/><circle cx="150" cy="64" r="11" fill="#1C2340"/>
-    </g>
-  </svg>
+  <div class="market-window">
+    <div class="market-art" id="marketArt" role="img" aria-label="夕方の駅前。灯りがともる小さなお店で、店主からおかずを受け取る人たちのイラスト"></div>
+  </div>
+  <p class="wrap art-caption">イラストは楽しみ方のイメージです。実際の会場配置・出店者・商品とは異なります。</p>
 </section>
 
 <!-- 時間を選ぶ -->
@@ -1141,9 +1108,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     eve:    {emo:'🍱🍰', where:'西口・東口', say:'今日の夕ごはん、一品はここで。', foods:[0,4], time:1},
     night:  {emo:'☕🍢', where:'東口・バスのりば', say:'バスを降りたら、帰る前に小さな寄り道。', foods:[3,5], time:3}
   };
-  // 屋台の絵（左から）：今の時間に並ぶもの
-  var TENT_SIGNS = {
-    morning:['パン','珈琲','焼菓子'], noon:['弁当','おやつ','やさい'], eve:['惣菜','甘味','弁当'], night:['軽食','', '']
+  var SCENE_LABELS = {
+    morning:'朝の駅前。パンとコーヒーの店で、通勤途中の人がひと息つくイラスト',
+    noon:'昼の駅前。お弁当やおやつを選ぶ親子と学生たちのイラスト',
+    eve:'夕方の駅前。灯りがともる小さなお店で、店主からおかずを受け取る人たちのイラスト',
+    night:'夜の駅前。温かな灯りの下で、軽食を手に友だちと話す人たちのイラスト'
   };
 
   // ── 流入元（QR・掲示ごとに ?src= を付ける）──
@@ -1156,29 +1125,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
   // ── 最初の画面：電球と屋台 ──────────────
   var hero = document.getElementById('hero');
-  var wire = document.getElementById('wire'), bulbs = document.getElementById('bulbs');
-  var L = wire.getTotalLength(), N = 15;
-  for(var i=0;i<N;i++){
-    var pt = wire.getPointAtLength(L*(i+0.5)/N);
-    var g = svg('g',{style:'--d:'+(0.15+i*0.07)+'s'},bulbs);
-    svg('circle',{cx:pt.x,cy:pt.y+9,r:22,'class':'bulb-glow',style:'--d:'+(0.15+i*0.07)+'s'},g);
-    svg('rect',{x:pt.x-1.5,y:pt.y,width:3,height:4,fill:'#1C2340'},g);
-    svg('circle',{cx:pt.x,cy:pt.y+9,r:6,'class':'bulb',style:'--d:'+(0.15+i*0.07)+'s'},g);
-  }
-  var tents = document.getElementById('tents'), signEls = [];
-  [['stR','#A92E1C',482],['stY','#B7861A',630],['stG','#145640',778]].forEach(function(t){
-    var x=t[2], w=118, g=svg('g',{},tents);
-    svg('rect',{x:x+6,y:214,width:5,height:116,fill:'#1C2340',opacity:.85},g);
-    svg('rect',{x:x+w-11,y:214,width:5,height:116,fill:'#1C2340',opacity:.85},g);
-    svg('path',{d:'M'+(x-6)+' 214 L'+(x+w/2)+' 190 L'+(x+w+6)+' 214 Z',fill:t[1]},g);
-    var sc='M'+(x-6)+' 212 H'+(x+w+6)+' V230'; for(var k=0;k<7;k++) sc+=' a'+((w+12)/14)+' '+((w+12)/14)+' 0 0 1 '+(-(w+12)/7)+' 0'; sc+=' Z';
-    svg('path',{d:sc,fill:'url(#'+t[0]+')'},g);
-    svg('rect',{x:x+2,y:274,width:w-4,height:56,rx:3,fill:'#FFFFFF'},g);
-    svg('rect',{x:x+2,y:274,width:w-4,height:7,fill:t[1]},g);
-    var dots=[['#F2A541',x+28],['#D9412B',x+50],['#7BB662',x+72],['#C98A4B',x+92]];
-    dots.forEach(function(d){ svg('ellipse',{cx:d[1],cy:268,rx:9,ry:6,fill:d[0]},g); });
-    var s=svg('text',{x:x+w/2,y:310,'text-anchor':'middle','class':'tent-sign'},g); signEls.push(s);
-  });
+  var marketArt = document.getElementById('marketArt');
 
   // ── 時間を選ぶ ─────────────────────────
   var seg = document.querySelectorAll('.seg button'), current='eve';
@@ -1189,8 +1136,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     document.getElementById('pEmo').textContent = s.emo;
     document.getElementById('pWhere').textContent = s.where;
     document.getElementById('pSay').textContent = s.say;
-    TENT_SIGNS[t].forEach(function(v,i){ signEls[i].textContent = v; });
-    if(light && (t==='eve'||t==='night')){ hero.classList.remove('lighting'); void hero.offsetWidth; hero.classList.add('lighting'); }
+    marketArt.setAttribute('aria-label', SCENE_LABELS[t]);
+
   }
   seg.forEach(function(b){ b.addEventListener('click', function(){ setTime(b.getAttribute('data-t'), current!=='eve'&&current!=='night'); }); });
   setTime('eve', false);
