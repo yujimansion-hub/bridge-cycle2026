@@ -67,7 +67,9 @@ section[id]{scroll-margin-top:64px}
 header{position:sticky;top:0;z-index:30;background:rgba(28,35,64,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px}
 .brand{color:#fff;text-decoration:none;font-family:'Dela Gothic One',sans-serif;font-size:17px;line-height:1.2}
-.brand small{display:block;font-family:'Noto Sans JP',sans-serif;font-size:11px;opacity:.75;margin-top:2px}
+.brand{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:center}
+.brand .mark{width:18px;height:24px;grid-row:span 2;filter:drop-shadow(0 0 6px rgba(255,214,107,.6))}
+.brand small{display:block;grid-column:2;font-family:'Noto Sans JP',sans-serif;font-size:11px;opacity:.75;margin-top:2px}
 
 /* ===== 最初の画面：時間で変わる駅前 ===== */
 .hero{position:relative;overflow:hidden;overflow:clip;color:var(--hero-ink,#fff);transition:color .8s}
@@ -89,7 +91,12 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .sp-only{display:none}
 .hero h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,7.4vw,76px);line-height:1.18;letter-spacing:.02em}
 .hero h1 span{display:block}
-.hero .lead{color:inherit;opacity:.88;font-size:17px;margin-top:18px;max-width:30em}
+.hero .lead{color:inherit;opacity:.9;font-size:17px;margin-top:18px;max-width:34em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn-ghost-w{background:rgba(255,255,255,.12);color:inherit;border-color:currentColor}
+.btn-ghost-w:hover{background:rgba(255,255,255,.22)}
+.hero[data-t="morning"] .btn-ghost-w,.hero[data-t="noon"] .btn-ghost-w{background:rgba(255,255,255,.55)}
+.trust{font-size:12px;opacity:.75;margin-top:14px}
 .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35)}
 .hero[data-t="morning"] .pill,.hero[data-t="noon"] .pill{background:rgba(255,255,255,.6);border-color:rgba(28,35,64,.15)}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--bulb);box-shadow:0 0 0 3px rgba(255,214,107,.35)}
@@ -256,8 +263,11 @@ textarea{min-height:84px;resize:vertical}
 .seller .nums div{background:rgba(255,255,255,.08);border-radius:12px;padding:9px 14px;font-size:13px;color:#C9CEE6}
 .seller .nums b{display:block;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:20px;color:var(--bulb)}
 
-.share{text-align:center}
-.share .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+.closing{background:var(--night);color:#fff;text-align:center;position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:120%;background:radial-gradient(closest-side,rgba(232,104,58,.45),transparent);pointer-events:none}
+.closing .wrap{position:relative}
+.closing .lead{color:#C9CEE6;margin:14px auto 0}
+.closing .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
 
 footer{padding:36px 0 48px;font-size:13px;color:var(--sub);background:var(--paper)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
@@ -281,6 +291,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .pick .emo{font-size:34px}
   .hide-sp{display:none}
   .hero-in{padding-top:30px}
+  .hero .lead{font-size:15px}
+  .hero-cta .btn{flex:1;padding:12px 10px}
+  #voteBtn{width:100%}
+  .trust{display:none}
   .scene{margin-top:0}
   .orb{width:64px;height:64px}
   .hero[data-t="morning"] .orb{left:70%;top:66%}
@@ -310,7 +324,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#top">南草津駅前、よりみち。<small>南草津駅周辺まちづくりの社会実験</small></a>
+    <a class="brand" href="#top"><svg class="mark" viewBox="0 0 20 26" aria-hidden="true"><path d="M10 2a8 8 0 0 0-4.6 14.5c.8.6 1.3 1.5 1.3 2.5V20h6.6v-1c0-1 .5-1.9 1.3-2.5A8 8 0 0 0 10 2z" fill="#FFD66B"/><rect x="6.7" y="21" width="6.6" height="3" rx="1" fill="#C9CEE6"/></svg>南草津駅前、よりみち。<small>南草津駅周辺まちづくりの社会実験</small></a>
     <div style="display:flex;gap:8px">
       <a class="btn btn-line btn-sm hide-sp" href="#vote" style="color:#fff">食べたいものを選ぶ</a>
       <a class="btn btn-bulb btn-sm hdr-cta" href="#register"><span class="full">開催案内を受け取る</span><span class="short">案内を受け取る</span></a>
@@ -328,7 +342,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   <div class="wrap hero-in">
     <span class="pill"><i aria-hidden="true"></i>準備中・開催日は調整しています</span>
     <h1 style="margin-top:18px"><span>帰り道に、</span><span>寄り道したくなる</span><span>駅前へ。</span></h1>
-    <p class="lead">JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です。<br class="hide-sp">あったらうれしいもの、先に教えてください。</p>
+    <p class="lead">JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です。<br class="hide-sp">どんなお店があったらうれしいか、先に教えてください。</p>
+    <div class="hero-cta">
+      <a class="btn btn-bulb" href="#vote">30秒で投票する</a>
+      <a class="btn btn-ghost-w" href="#register">開催日を先に知る</a>
+    </div>
+    <p class="trust">南草津駅周辺まちづくりの社会実験　実施：UDCみなくさ・立命館大学</p>
   </div>
 
   <svg class="scene" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMax slice" role="img" aria-label="駅前に屋台が並び、電球が灯るイメージ図">
@@ -425,40 +444,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   </div>
 </div>
 
-<!-- 3つの出口 -->
-<section id="where">
-  <div class="wrap">
-    <h2 class="h2">出口ごとに、<br class="hide-sp">寄り道の楽しみ方がちがう。</h2>
-    <p class="lead">テントやキッチンカー、改札前のブースが並ぶ予定です。時間はいまの予定で、開催日とあわせて決まります。</p>
-    <div class="exits">
-      <article class="exit">
-        <p class="where">西口・東山道記念公園の前</p>
-        <h3>公園の前で、<br>今夜のおかずを。</h3>
-        <p>芝生の近くで食べても、持ち帰っても。</p>
-        <p class="menu" aria-hidden="true">🍱🥗🍩🧃</p>
-        <p class="when"><b>金曜</b>の夕方、<b>土日祝</b>の昼</p>
-      </article>
-      <article class="exit">
-        <p class="where">改札前・自由通路</p>
-        <h3>雨の日も、<br>改札を出てすぐ。</h3>
-        <p>屋内のブース。朝のパンや、手みやげを。</p>
-        <p class="menu" aria-hidden="true">🥐☕🎁🍪</p>
-        <p class="when"><b>金曜</b>の朝と夕方、<b>土日祝</b>の昼</p>
-      </article>
-      <article class="exit">
-        <p class="where">東口・駅前広場</p>
-        <h3>バスを降りたら、<br>ちょっとひと息。</h3>
-        <p>大学行きのバスのりばとフェリエの前。いちばんお店が多い場所です。</p>
-        <p class="menu" aria-hidden="true">🌮🍢🧋🍺</p>
-        <p class="when"><b>金曜</b>の夕方〜夜、<b>土日祝</b>の昼と夜</p>
-      </article>
-    </div>
-    <p class="small" style="margin-top:16px">※絵文字は想定するメニューのイメージです。実際のお店とメニューは、決まりしだいこのページで紹介します。</p>
-  </div>
-</section>
-
 <!-- テーマの日（案） -->
-<section id="themes" style="padding-top:0">
+<section id="themes">
   <div class="wrap">
     <h2 class="h2">毎週ちがう、テーマの日。</h2>
     <p class="lead">同じ駅前でも、曜日と時間でテーマを変える案です。行ってみたい日に印を付けてください。多かったテーマから実現を目指します。</p>
@@ -514,6 +501,38 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
         <button class="btn btn-line" type="button" data-share>近くの人に教える</button>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 3つの出口 -->
+<section id="where">
+  <div class="wrap">
+    <h2 class="h2">出口ごとに、<br class="hide-sp">寄り道の楽しみ方がちがう。</h2>
+    <p class="lead">テントやキッチンカー、改札前のブースが並ぶ予定です。時間はいまの予定で、開催日とあわせて決まります。</p>
+    <div class="exits">
+      <article class="exit">
+        <p class="where">西口・東山道記念公園の前</p>
+        <h3>公園の前で、<br>今夜のおかずを。</h3>
+        <p>芝生の近くで食べても、持ち帰っても。</p>
+        <p class="menu" aria-hidden="true">🍱🥗🍩🧃</p>
+        <p class="when"><b>金曜</b>の夕方、<b>土日祝</b>の昼</p>
+      </article>
+      <article class="exit">
+        <p class="where">改札前・自由通路</p>
+        <h3>雨の日も、<br>改札を出てすぐ。</h3>
+        <p>屋内のブース。朝のパンや、手みやげを。</p>
+        <p class="menu" aria-hidden="true">🥐☕🎁🍪</p>
+        <p class="when"><b>金曜</b>の朝と夕方、<b>土日祝</b>の昼</p>
+      </article>
+      <article class="exit">
+        <p class="where">東口・駅前広場</p>
+        <h3>バスを降りたら、<br>ちょっとひと息。</h3>
+        <p>大学行きのバスのりばとフェリエの前。いちばんお店が多い場所です。</p>
+        <p class="menu" aria-hidden="true">🌮🍢🧋🍺</p>
+        <p class="when"><b>金曜</b>の夕方〜夜、<b>土日祝</b>の昼と夜</p>
+      </article>
+    </div>
+    <p class="small" style="margin-top:16px">※絵文字は想定するメニューのイメージです。実際のお店とメニューは、決まりしだいこのページで紹介します。</p>
   </div>
 </section>
 
@@ -620,13 +639,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   </div>
 </section>
 
-<section class="share" style="padding-top:0">
+<section class="closing">
   <div class="wrap">
-    <h2 class="h2" style="font-size:24px">南草津に住む人、通う人に。</h2>
-    <p class="lead" style="margin:10px auto 0">投票が集まるほど出店するお店が増え、メニューも選びやすくなります。</p>
+    <h2 class="h2">最初の開催日、<br class="hide-sp">いっしょに待ちませんか。</h2>
+    <p class="lead">投票が集まるほど出店するお店が増え、テーマの日も決めやすくなります。南草津に住む人、通う人に教えてください。</p>
     <div class="row">
-      <button class="btn btn-line" type="button" data-share>このページを教える</button>
-      <a class="btn btn-line" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
+      <a class="btn btn-bulb" href="#register">開催日を先に知る</a>
+      <button class="btn btn-ghost-w" type="button" data-share>このページを教える</button>
+      <a class="btn btn-ghost-w" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
     </div>
     <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
   </div>
