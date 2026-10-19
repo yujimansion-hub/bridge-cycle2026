@@ -5,7 +5,8 @@
 <!--
   ■ 南草津駅前 一般の方向け案内（第1回まで版）
   ・目的は2つ：食べたいものの投票と、開催案内の登録。出店者は出店者募集ページ（minakusa-ekimae.html）へ。
-  ・灯りの応援・よりみちカード・お店を呼ぶ・点灯などの全部入りの版は、git のタグ yorimichi-full-20261019 に保存。
+  ・灯りの応援・よりみちカード・お店を呼ぶ・点灯などの全部入りの版は、git のブランチ archive/yorimichi-full-20261019 に保存。
+  ・商品と開催日は、JS の SHOPS と NEXT_EVENT を書き換えるだけで表示が切り替わる（空のあいだは何も出ない）。
     日付と出店者が決まったら「今週の出店者・取り置き・お店を呼ぶ・カード」、3回開催後に「灯りの応援・点灯・手帳」を戻す。
   ・会社サイトの他ページとはリンクしない独立ページ（noindex）。開催日が確定したら noindex を外す。
   ・計測は bc-analytics.js（GA4）。出来事：yorimichi_persona／yorimichi_vote（via）／yorimichi_register（where）、どれも src（QRの印）付き。
@@ -100,7 +101,20 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .fact b{display:block;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,30px);line-height:1.2}
 .fact span{font-size:13px;color:var(--sub)}
 .facts .next{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px 0 16px 22px}
-.facts .next p{font-size:13px;font-weight:700}
+.facts .next p{font-size:13px;font-weight:700;min-width:0}
+.facts .next .btn{white-space:nowrap;flex:none}
+
+/* 並ぶもの（掲載許諾のある商品だけ。SHOPS が空なら出さない） */
+.shops-sec{padding-bottom:0}
+.shop-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.shop-card{background:var(--paper);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.shop-card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--line)}
+.sc-b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.sc-st{align-self:flex-start;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:#E1F1EA;color:#0F4E3A}
+.sc-st.tbd{background:#FFF3D1;color:#6B4E00}
+.sc-n{font-weight:700;font-size:17px;line-height:1.5}
+.sc-p{font-family:'Dela Gothic One',sans-serif;font-size:22px;line-height:1.3;color:var(--tomato)}
+.sc-s{font-size:13px;color:var(--sub)}
 
 /* あなたは、どの帰り道？ */
 .personas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
@@ -232,6 +246,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   .fact{padding:14px 12px 14px 0;border-right:0;border-bottom:1px solid var(--line)}
   .fact:nth-child(2n){padding-left:14px;border-left:1px solid var(--line)}
   .facts .next{grid-column:1/-1;padding:14px 0 16px;flex-direction:row;align-items:center;justify-content:space-between}
+  .shop-list{grid-template-columns:1fr;gap:12px}
+  .shop-card{flex-direction:row}
+  .shop-card img{width:118px;height:118px;flex:none;align-self:center;aspect-ratio:auto;margin-left:10px;border-radius:12px}
+  .sc-b{padding:10px 14px 12px;min-width:0}
+  .sc-n{font-size:15px}
+  .sc-p{font-size:19px}
   .personas{grid-template-columns:1fr 1fr;gap:12px}
   .persona .pl{font-size:14px;padding:10px 12px 12px}
   .mine{padding:20px 18px}
@@ -291,7 +311,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="fact"><b>小さなお店</b><span>おかず・パン・おやつ・軽食など（予定）</span></div>
     <div class="fact"><b>金曜の夕方</b><span>が中心の予定。土日祝も検討中</span></div>
     <div class="fact"><b>入場無料</b><span>帰り道にそのまま寄れます</span></div>
-    <div class="next"><p>第1回の日程は近日発表<br><span class="small" id="nextUpdateTop">　</span></p><a class="btn btn-tomato btn-sm" href="#register">先に知らせてもらう</a></div>
+    <div class="next"><p><span id="nextTitle">第1回の日程は近日発表</span><br><span class="small" id="nextUpdateTop">　</span></p><a class="btn btn-tomato btn-sm" href="#register">先に知らせてもらう</a></div>
+  </div>
+</section>
+
+<!-- 並ぶもの（JS の SHOPS に1件以上あるときだけ表示） -->
+<section id="shops" class="shops-sec" hidden>
+  <div class="wrap">
+    <h2 class="h2" id="shopsH">出店を検討中のお店</h2>
+    <p class="lead" id="shopsLead">お店から掲載の許可をいただいた商品だけを載せています。</p>
+    <div class="shop-list" id="shopList"></div>
+    <p class="small" style="margin-top:12px">写真はお店から提供いただいたものです。価格は税込で、当日変わることがあります。</p>
   </div>
 </section>
 
@@ -487,6 +517,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   // 時間・出口が「（未回答）」の回答は、その設問の分母から外す。有効回答30件以上で表示（それ未満でも更新日には進み具合を書く）。
   var RESULTS = null;   // 例：{asof:'10/26', total:34, top:[['夕ごはんのおかず・惣菜',15],['パン・サンドイッチ',11],['お弁当',9]], used:'結果は出店をお願いするお店に伝えています'}
 
+  // 並ぶもの。6項目のうち「掲載許諾あり」のお店だけを入れる。写真は images/minakusa/shops/ に置き、差し替え時はファイル名を変える。
+  // status は '出店予定'（日程・場所まで合意）か '検討中'。全件が '出店予定' になると見出しが「第1回に並ぶもの」に変わる。
+  var SHOPS = [];   // 例：{photo:'images/minakusa/shops/xxx-v1.jpg', item:'季節野菜のおかず3種', price:'600円', shop:'○○食堂（草津市）', status:'検討中'}
+  // 第1回の開催が確定したら入れる。最上部の帯と表示が「次回開催の日時・売場・店数」に切り替わる。
+  var NEXT_EVENT = null;   // 例：{date:'11月20日（金）', time:'17:00〜20:00', place:'西口の駅前', shops:3}
+
   var FORM_VER = 'v2-20261019';   // 初期選択をなくした後の回答。集計はこの版以降だけを使う
   var src = '';
   try{ src = (new URLSearchParams(location.search).get('src')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30); }catch(e){}
@@ -509,6 +545,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
   if(NEXT_UPDATE){ document.getElementById('nextUpdateTop').textContent = '次の情報更新：'+NEXT_UPDATE+'（開催日ではありません）'; }
   if(NEXT_UPDATE){ document.getElementById('nextUpdate').innerHTML = '次の更新は<b>'+NEXT_UPDATE+'</b>の予定です（開催準備の進み具合と投票の状況）。決まったものから、このページと開催案内でお知らせします。'; }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  if(SHOPS.length){
+    var allSet = SHOPS.every(function(s){ return s.status==='出店予定'; });
+    document.getElementById('shopsH').textContent = allSet ? (NEXT_EVENT ? '第1回に並ぶもの' : '出店が決まったお店') : '出店を検討中のお店';
+    if(!allSet) document.getElementById('shopsLead').textContent = 'お店から掲載の許可をいただいた商品だけを載せています。「検討中」のお店は、日程が合えば出店します。';
+    document.getElementById('shopList').innerHTML = SHOPS.map(function(s){
+      return '<article class="shop-card"><img src="'+esc(s.photo)+'" alt="'+esc(s.item)+'" width="640" height="480" loading="lazy">'+
+        '<div class="sc-b"><span class="sc-st'+(s.status==='出店予定'?'':' tbd')+'">'+esc(s.status||'検討中')+'</span><p class="sc-n">'+esc(s.item)+'</p><p class="sc-p">'+esc(s.price)+'<small style="font-size:12px;font-family:\'Noto Sans JP\',sans-serif;margin-left:4px">税込</small></p><p class="sc-s">'+esc(s.shop)+'</p></div></article>';
+    }).join('');
+    document.getElementById('shops').hidden = false;
+  }
+  if(NEXT_EVENT){
+    var ev = NEXT_EVENT;
+    document.querySelector('.cover .pill').innerHTML = '<i aria-hidden="true"></i>第1回　'+esc(ev.date)+' '+esc(ev.time)+'　'+esc(ev.place);
+    document.getElementById('nextTitle').textContent = '第1回 '+ev.date+' '+ev.time;
+    document.getElementById('nextUpdateTop').textContent = ev.place+(ev.shops ? '・'+ev.shops+'店が出店' : '');
+    document.querySelector('.hr-l').textContent = '出店するお店と前日のお知らせを、メールで受け取る（無料）';
+  }
   if(RESULTS && RESULTS.total >= 30){
     var rEl = document.getElementById('results');
     rEl.innerHTML = '<p class="r-h">有効回答'+RESULTS.total+'件（'+RESULTS.asof+'時点）</p><ol>'+RESULTS.top.slice(0,3).map(function(t){ return '<li>'+t[0]+'　'+t[1]+'人が選択</li>'; }).join('')+'</ol>'+(RESULTS.used ? '<p class="r-note">'+RESULTS.used+'</p>' : '');
