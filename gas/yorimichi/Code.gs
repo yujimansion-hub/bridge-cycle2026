@@ -1,6 +1,6 @@
 /**
  * 南草津駅前、よりみち。 運営の台帳（Googleスプレッドシート ＋ Apps Script）
- * 版：v2（2026-10-19 会員番号・先行案内） BRIDGE CYCLE株式会社
+ * 版：v3（2026-10-19 会員番号・先行案内・SNS用の数字） BRIDGE CYCLE株式会社
  *
  * できること
  *  ・ページからの「食べたいもの投票」「開催案内の登録」を、このスプレッドシートに記録する
@@ -39,7 +39,8 @@ var CONF_DEFAULT = [
   ['登録確認メール', '送る', '送る／送らない'],
   ['案内メールの追記', '', '開催案内の本文に足したい一言（任意）'],
   ['先行案内の人数', 100, 'この番号までの登録者に、開催案内を一般より先に送る（メニュー「先行案内を送る」）'],
-  ['待っている人数を出す数', 30, '登録がこの人数以上になったら、ページに「いま○人が待っています」と出す']
+  ['待っている人数を出す数', 30, '登録がこの人数以上になったら、ページに「いま○人が待っています」と出す'],
+  ['SNS自動下書き', 'オフ', 'オンにすると、定期の作業がSNS投稿の下書きをMetricoolに入れる（公開は承認してから）。名前の調整が終わるまではオフ']
 ];
 var FOOTER = [
   '――',
@@ -150,7 +151,8 @@ function pageData() {
   var active = sheet(SH.reg).getDataRange().getValues().slice(1).filter(function (r) { return r[5] === '有効'; }).length;
   var showAt = Number(c['待っている人数を出す数']) || 30;
   return { ok: true, nextUpdate: String(c['次の情報更新'] || ''), nextEvent: eventInfo(c, true), shops: publicShops(), results: results(c, false),
-    waiting: active >= showAt ? active : null, earlyLimit: earlyLimit(c) };
+    waiting: active >= showAt ? active : null, earlyLimit: earlyLimit(c),
+    stats: { members: active, votes: results(c, true).total, referrals: referralCount(), sns: String(c['SNS自動下書き'] || '') === 'オン' } };
 }
 
 function eventInfo(c, onlyUpcoming) {
@@ -341,7 +343,7 @@ function menuShowSummary() {
   var active = regs.filter(function (x) { return x[5] === '有効'; }).length;
   function top(t) { return t.list.slice(0, 5).map(function (x) { return '  ' + x[0] + '　' + x[1] + '（' + Math.round(x[1] / Math.max(1, t.answered) * 100) + '%）'; }).join('\n'); }
   SpreadsheetApp.getUi().alert('いまの集計',
-    '有効回答：' + r.total + '件（ページに出すのは' + r.min + '件から）\n開催案内の登録：' + active + '人（停止を除く）\n\n買いたいもの（割合は回答者に対して）\n' + top(r.food) +
+    '有効回答：' + r.total + '件（ページに出すのは' + r.min + '件から）\n開催案内の登録：' + active + '人（停止を除く）／うち会員の紹介から：' + referralCount() + '人\n\n買いたいもの（割合は回答者に対して）\n' + top(r.food) +
     '\n\n時間（未回答を除く ' + r.time.answered + '人）\n' + top(r.time) + '\n\n出口（未回答を除く ' + r.exit.answered + '人）\n' + top(r.exit),
     SpreadsheetApp.getUi().ButtonSet.OK);
 }
@@ -365,6 +367,10 @@ function now() { return Utilities.formatDate(new Date(), TZ, 'yyyy/MM/dd HH:mm:s
 function clip(v, n) { return String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, n); }
 /** = + - @ で始まる入力は、式として動かないよう先頭に ' を付ける */
 function safe(v) { return (typeof v === 'string' && /^[=+\-@]/.test(v)) ? "'" + v : v; }
+/** 会員の紹介リンク（?src=m023）から登録した人数 */
+function referralCount() {
+  return sheet(SH.reg).getDataRange().getValues().slice(1).filter(function (r) { return /^m\d+$/.test(String(r[4])); }).length;
+}
 function pad3(n) { n = Number(n) || 0; return n < 1000 ? ('00' + n).slice(-3) : String(n); }
 function earlyLimit(c) { return Number(c['先行案内の人数']) || 100; }
 function notify(msg) { try { SpreadsheetApp.getActive().toast(msg, 'よりみち', 8); } catch (err) {} }
