@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "mode": "paused",
+  "approval": { "status": "pending", "approvedAt": null },
+  "delivery": { "provider": "metricool", "connected": false, "verifiedAt": null },
+  "startAt": null,
+  "eventStatus": "planned",
+  "timezone": "Asia/Tokyo",
+  "channels": ["threads", "instagram"],
+  "shopPermissions": [],
+  "policy": {
+    "threads": { "weekdays": [2, 5], "hour": 17, "minute": 30 },
+    "instagram": { "weekdays": [5], "hour": 18, "minute": 0 },
+    "maxPostsPerChannelPerDay": 1,
+    "maxScheduleAheadHours": 24,
+    "requireLiveAccountCheck": true,
+    "requireDuplicateCheck": true
+  }
+}
