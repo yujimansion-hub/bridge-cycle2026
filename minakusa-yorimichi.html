@@ -193,10 +193,22 @@ select{width:100%;font-size:16px;padding:12px 14px;border-radius:12px;border:1.5
 /* ===== 手帳のスタンプ ===== */
 .rung.done::before{content:"済";width:46px;height:46px;border:3px solid var(--tomato);color:var(--tomato);border-radius:50%;font-size:21px;display:flex;align-items:center;justify-content:center;transform:rotate(-14deg);right:12px;top:10px}
 .rung.hl.done::before{border-color:var(--bulb);color:var(--bulb)}
+.rung.done.applied::before{content:"申込";font-size:13px;border-style:dashed}
 .mybook{display:flex;align-items:center;gap:12px;margin-top:20px;font-weight:700;flex-wrap:wrap}
 .mybook .lps{display:flex;gap:8px}
 .mybook .lps i{width:16px;height:22px;border-radius:50% 50% 45% 45%;background:var(--line);transition:background .3s,box-shadow .3s}
 .mybook .lps i.on{background:var(--bulb);box-shadow:0 0 12px rgba(255,214,107,.9)}
+
+/* ===== 決まっていること ===== */
+.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.st-box{background:var(--paper);border-radius:18px;padding:20px 22px}
+.st-box h3{font-family:'Dela Gothic One',sans-serif;font-size:18px;display:flex;align-items:center;gap:8px}
+.st-box h3::before{content:"";width:12px;height:12px;border-radius:50%}
+.st-fixed h3::before{background:var(--leaf)}
+.st-open h3::before{background:var(--mustard)}
+.st-box ul{margin:10px 0 0;padding-left:1.2em;font-size:15px}
+.st-box li{margin-bottom:4px}
+.st-open{border:2px dashed #E6C875}
 
 /* ===== 金曜よりみちの楽しみ方 ===== */
 .fr-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px;align-items:stretch}
@@ -447,6 +459,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .seg button b{font-size:15px}
   .exits,.stalls{grid-template-columns:1fr}
   .ladder{grid-template-columns:1fr 1fr;gap:12px}
+  .status-grid{grid-template-columns:1fr}
   .personas{grid-template-columns:1fr 1fr;gap:12px}
   .persona .pl{font-size:14px;padding:10px 12px 12px}
   .mine{padding:20px 18px}
@@ -540,7 +553,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     <h1><span>帰り道に、</span><span>寄り道したくなる</span><span>駅前へ。</span></h1>
     <p class="lead">JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です。<br class="hide-sp">どんなお店があったらうれしいか、先に教えてください。</p>
     <div class="hero-cta">
-      <a class="btn btn-bulb" href="#who">あなたの帰り道を選ぶ</a>
+      <a class="btn btn-bulb" href="#vote">食べたいものを選ぶ（30秒）</a>
       <a class="btn btn-ghost-w" href="#register">開催日を先に知る</a>
     </div>
     <p class="trust">南草津駅周辺まちづくりの社会実験　実施：UDCみなくさ・立命館大学</p>
@@ -654,13 +667,38 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <!-- ひと目でわかる開催概要 -->
 <div class="facts">
   <div class="wrap">
-    <div class="fact"><b>3か所</b><span>西口・東口・改札前</span></div>
+    <div class="fact"><b>3か所</b><span>西口・東口・改札前（予定）</span></div>
     <div class="fact"><b>毎週金曜</b><span>夕方が中心。土日祝も予定</span></div>
     <div class="fact"><b>17:30</b><span>毎週のよりみち点灯（予定）</span></div>
     <div class="fact"><b>入場無料</b><span>通りがかりにどうぞ</span></div>
     <div class="next"><p>最初の開催日は近日発表</p><a class="btn btn-tomato btn-sm" href="#register">先に知らせてもらう</a></div>
   </div>
 </div>
+
+<!-- 決まっていること・まだ決まっていないこと -->
+<section id="status" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="status-grid">
+      <div class="st-box st-fixed">
+        <h3>決まっていること</h3>
+        <ul>
+          <li>南草津駅周辺まちづくりの社会実験として、2027年2月まで行います</li>
+          <li>実施はUDCみなくさ・立命館大学。出店者の募集と調整はBRIDGE CYCLEが担当します</li>
+          <li>出店するお店を募集しています（1枠3,300円から・2027年2月までのキャンペーン価格）</li>
+        </ul>
+      </div>
+      <div class="st-box st-open">
+        <h3>まだ決まっていないこと</h3>
+        <ul>
+          <li>最初の開催日と、出店できる区画（西口・東口・改札前で、関係機関と調整中）</li>
+          <li>出店するお店と、買えるもの</li>
+          <li>点灯などの催しの内容と時間（このページの時刻はすべて案です）</li>
+        </ul>
+        <p class="small">決まったものから、このページでお知らせします。<a href="#register">先に知らせてもらう</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- 金曜よりみちの楽しみ方 -->
 <section id="friday">
@@ -708,7 +746,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <section id="join">
   <div class="wrap">
     <h2 class="h2">この駅前の市は、<br class="hide-sp">みんなでつくります。</h2>
-    <p class="lead">運営だけでは、毎週の市は続きません。選ぶ、呼ぶ、灯す、広める。やったことは、このページのあなたの手帳に残ります。</p>
+    <p class="lead">運営だけでは、毎週の市は続きません。選ぶ、呼ぶ、灯す、広める。やったことは、このページにあなたの参加記録として残ります（この端末の中だけ）。</p>
     <div class="ladder">
       <a class="rung" data-step="voted" href="#vote"><span class="t">30秒</span><span class="v">選ぶ</span><p>食べたいものと、寄り道しやすい時間に投票。結果は出店者のメニュー選びに使われます。</p><span class="go">投票する</span></a>
       <a class="rung" data-step="invited" href="#invite"><span class="t">3分</span><span class="v">呼ぶ</span><p>好きなお店に「来てほしい」を届ける。出店が決まったら、お店の了承を得て「お客さんの推薦で来たお店」として紹介します。</p><span class="go">お店を呼ぶ</span></a>
@@ -1398,7 +1436,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     .then(function(){
       store('minakusa_akari','1'); mark('lit');
       if(tier.pay){ location.href = tier.pay; return; }
-      akMsg.className='msg ok'; akMsg.textContent='申し込みを受け付けました。お支払いの案内をメールでお送りします。灯りをありがとうございます。'; akBtn.textContent='申し込みました';
+      akMsg.className='msg ok'; akMsg.textContent='申し込みを受け付けました。お支払いの案内をメールでお送りします。お支払いが済むと、灯り板に掲載されます。'; akBtn.textContent='申し込みました';
     }).catch(function(){
       akBtn.disabled=false; pick(TIERS.indexOf(tier));
       akMsg.className='msg ng'; akMsg.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「灯りの応援」とお送りください。';
@@ -1436,14 +1474,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   function refreshStamps(){
     var rungs = document.querySelectorAll('.rung[data-step]'), done = 0, firstOpen = null;
     rungs.forEach(function(r){
-      var k = r.getAttribute('data-step'), ok = !!load('minakusa_'+k) || (k==='lit' && !!load('minakusa_akari'));
-      r.classList.toggle('done', ok); r.classList.remove('hl');
+      var k = r.getAttribute('data-step'), applied = (k==='lit' && !load('minakusa_lit_paid') && (!!load('minakusa_lit') || !!load('minakusa_akari'))), ok = !!load('minakusa_'+k) || (k==='lit' && !!load('minakusa_akari'));
+      r.classList.toggle('done', ok); r.classList.toggle('applied', applied); r.classList.remove('hl');
       if(ok) done++; else if(!firstOpen) firstOpen = r;
     });
     if(firstOpen) firstOpen.classList.add('hl');
     var lps=''; for(var i=0;i<rungs.length;i++) lps += '<i'+(i<done?' class="on"':'')+'></i>';
     var mb = document.getElementById('mybook');
-    if(mb) mb.innerHTML = '<span>あなたの手帳</span><span class="lps" aria-hidden="true">'+lps+'</span><span>'+done+' / '+rungs.length+'</span>' + (done===rungs.length ? '<span style="color:var(--tomato)">ぜんぶそろいました。第1回でお会いしましょう。</span>' : (firstOpen ? '<span class="small">次は「'+firstOpen.querySelector('.v').textContent+'」</span>' : ''));
+    if(mb) mb.innerHTML = '<span>あなたの参加記録</span><span class="lps" aria-hidden="true">'+lps+'</span><span>'+done+' / '+rungs.length+'</span>' + (done===rungs.length ? '<span style="color:var(--tomato)">ぜんぶそろいました。第1回でお会いしましょう。</span>' : (firstOpen ? '<span class="small">次は「'+firstOpen.querySelector('.v').textContent+'」</span>' : ''));
   }
 
   // ── あなたは、どの帰り道？ ───────────
@@ -1603,7 +1641,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   var cardMsg = document.getElementById('cardMsg');
   function saveBlob(b){ var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'yorimichi-card.png'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000); }
   document.getElementById('cardSave').addEventListener('click', function(){
-    renderCard(); cv.toBlob(function(b){ if(!b) return; saveBlob(b); mark('shared'); cardMsg.className='msg ok'; cardMsg.textContent='画像を保存しました。SNSやLINEに貼りつけて送れます。'; }, 'image/png');
+    renderCard(); cv.toBlob(function(b){ if(!b) return; saveBlob(b); cardMsg.className='msg ok'; cardMsg.textContent='画像を保存しました。SNSやLINEに貼りつけて送れます。'; }, 'image/png');
   });
   document.getElementById('cardShare').addEventListener('click', function(){
     renderCard();
@@ -1613,7 +1651,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       if(f && navigator.canShare && navigator.canShare({files:[f]})){
         navigator.share({files:[f], title:'南草津駅前、よりみち。', text: cardText(v) + '\n' + PAGE_URL + '?src=card'}).then(function(){ mark('shared'); }).catch(function(){});
       } else {
-        saveBlob(b); mark('shared'); cardMsg.className='msg ok'; cardMsg.textContent='この端末では直接送れないため、画像を保存しました。SNSやLINEに貼りつけて送ってください。';
+        saveBlob(b); cardMsg.className='msg ok'; cardMsg.textContent='この端末では直接送れないため、画像を保存しました。SNSやLINEに貼りつけて送ってください。';
       }
     }, 'image/png');
   });
