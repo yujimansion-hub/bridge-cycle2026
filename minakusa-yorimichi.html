@@ -558,6 +558,59 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 @media(max-width:360px){.brand{font-size:11px}.hdr-cta{font-size:10px;padding:8px 9px}.cover h1{font-size:37px}.hr-row .btn{min-width:78px;font-size:12px}.persona .pl{font-size:10px}#foodChips .chip span{font-size:10px;gap:5px}#foodChips .chip span em{font-size:22px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.persona:hover .ph img{transform:none}}
 
+/* ── KYOPO を参考にした見せ方（NEWS帯・英語の大見出し・概要の表・分類の色帯・番号つき一覧・地図・アクセス） ── */
+.news-bar{display:flex;align-items:stretch;background:var(--night);color:#fff;border-top:2px solid var(--night);border-bottom:2px solid var(--night);overflow:hidden}
+.news-tag{flex:none;display:flex;align-items:center;padding:0 18px;background:var(--tomato);font-family:'Dela Gothic One',sans-serif;font-size:15px;letter-spacing:.06em}
+.news-view{flex:1;overflow:hidden}
+.news-track{display:flex;gap:44px;list-style:none;margin:0;padding:13px 0 13px 24px;width:max-content;animation:news-run 46s linear infinite}
+.news-track li{white-space:nowrap;font-size:14px}.news-track a{color:#fff;text-decoration:none}.news-track a:hover{text-decoration:underline}
+.news-track b{color:var(--bulb);margin-right:10px;font-family:'Dela Gothic One',sans-serif;font-weight:400}
+.news-track li+li::before{content:"/";color:rgba(255,255,255,.4);margin-right:44px}
+.news-bar:hover .news-track{animation-play-state:paused}
+@keyframes news-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.news-track{animation:none}.news-view{overflow-x:auto}}
+.kp-label{display:inline-block;border:1.5px solid var(--night);border-radius:999px;padding:2px 12px;font-size:11px;font-weight:700;color:var(--night);background:transparent}
+.kp-label-w{border-color:currentColor;color:inherit}
+.kp-en{font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:.01em;margin:12px 0 18px;color:var(--night)}
+.kp-en-s{font-size:clamp(34px,5vw,56px)}
+.kp-ov{background:var(--page);padding:64px 0}
+.kp-ov-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center}
+.kp-ov-ph{margin:0;position:relative}.kp-ov-ph img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:2px solid var(--night);filter:grayscale(.15)}
+.kp-ov-ph figcaption{position:absolute;right:10px;bottom:10px;font-size:10px;background:rgba(255,249,236,.92);padding:2px 8px;border-radius:999px}
+.kp-ov-lead{color:var(--sub);font-size:14px;margin:0 0 18px;max-width:34em}
+.kp-table{margin:0 0 22px;border-top:2px solid var(--night)}
+.kp-table>div{display:grid;grid-template-columns:7em 1fr;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+.kp-table dt{font-size:12px;color:var(--sub);font-weight:700}.kp-table dd{margin:0;font-size:15px}.kp-table dd b{font-size:17px}
+.kp-table dd .small{display:block;margin-top:2px}
+.kp-vend{background:#fff;padding:72px 0}
+.kp-cat{border-radius:18px;overflow:hidden;margin-top:26px;border:2px solid var(--night);box-shadow:6px 7px 0 rgba(23,60,81,.12)}
+.kp-cat-food{background:var(--tomato);color:#FFF9EC;display:grid;grid-template-columns:1fr 1.1fr}
+.kp-cat-ph{position:relative;min-height:260px}.kp-cat-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0% 50%}
+.kp-cat-ph span{position:absolute;left:10px;bottom:10px;font-size:10px;background:rgba(255,249,236,.9);color:var(--night);padding:2px 8px;border-radius:999px}
+.kp-cat-body{padding:30px 28px;align-self:end}.kp-cat-body p{margin:0;font-size:14px;line-height:1.9}
+.kp-cat-en{font-family:'Dela Gothic One',sans-serif;font-size:clamp(48px,8vw,92px)!important;line-height:1!important;color:var(--bulb);margin:8px 0 12px!important;letter-spacing:.02em}
+.kp-acc{grid-column:1/-1;border-top:1px solid rgba(255,249,236,.45);padding:0 24px}
+.kp-acc summary{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;padding:16px 0;font-size:14px;font-weight:700;list-style:none;min-height:52px}
+.kp-acc summary::-webkit-details-marker{display:none}
+.kp-acc summary b{font-size:12px;font-weight:700;color:var(--bulb)}
+.kp-acc summary::after{content:"+";font-size:26px;line-height:1;font-weight:400}.kp-acc[open] summary::after{content:"−"}
+.kp-vlist{list-style:none;margin:0 0 10px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px 18px}
+.kp-vlist li{display:flex;gap:10px;align-items:baseline;font-size:13px;padding:6px 0;border-bottom:1px dashed rgba(255,249,236,.35)}
+.kp-vlist li b{font-family:'Dela Gothic One',sans-serif;font-weight:400;color:var(--bulb);font-size:13px;flex:none}
+.kp-vlist li.tbd span{opacity:.6}
+.kp-vnote{font-size:11px;opacity:.85;margin:0 0 18px}
+.kp-cat-play{background:var(--night);color:#FFF9EC}.kp-cat-play .kp-cat-body{padding:26px 28px}
+.kp-map{background:var(--page);padding:72px 0}
+.kp-map-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:start}
+.kp-map-fig{margin:0}.kp-map-fig svg{width:100%;height:auto;border:2px solid var(--night);border-radius:18px;font-family:'Noto Sans JP',sans-serif}
+.kp-map-fig figcaption{font-size:11px;color:var(--sub);margin-top:6px}
+.kp-rows{list-style:none;margin:0 0 10px;padding:0;border-top:2px solid var(--night)}
+.kp-rows li{display:grid;grid-template-columns:8.5em 1fr;gap:10px;padding:12px 2px;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.kp-rows li span{font-size:12px;color:var(--sub);font-weight:700}.kp-rows a{color:var(--leaf)}
+@media(max-width:860px){.kp-ov-grid,.kp-map-grid{grid-template-columns:1fr;gap:26px}.kp-cat-food{grid-template-columns:1fr}.kp-cat-ph{min-height:190px}.kp-ov{padding:48px 0}.kp-vend,.kp-map{padding:56px 0}
+  .kp-vlist{grid-template-columns:repeat(3,1fr);gap:4px 10px}.kp-vlist li{flex-direction:column;gap:0;font-size:11px;padding:5px 0}.kp-vlist li b{font-size:12px}.kp-acc summary{font-size:13px}
+  .kp-table>div{grid-template-columns:5.5em 1fr}.kp-rows li{grid-template-columns:7.5em 1fr}.news-tag{font-size:13px;padding:0 12px}.news-track li{font-size:13px}.kp-cat-body{padding:22px 20px}.kp-acc{padding:0 18px}}
+
 @media(max-width:640px){.personas{grid-template-columns:1fr;gap:14px}.persona{flex-direction:row;align-items:stretch}.persona .ph{width:46%;flex:none;aspect-ratio:1.25}.persona .pl{display:flex;flex-direction:column;justify-content:center;font-size:14px;padding:12px 14px;min-height:0}.persona .pl small{font-size:12px}.persona:nth-child(n){transform:none}.persona:nth-child(2){transform:rotate(.6deg)}.persona:nth-child(1){transform:rotate(-.6deg)}.persona[aria-pressed="true"]{transform:none}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019c">
@@ -609,17 +662,33 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     </div>
   </div>
 </section>
-<div class="joy-ribbon" aria-label="おかずも、パンも、おやつも。寄り道の楽しみを準備しています。">
-  <div class="joy-ribbon-inner" aria-hidden="true"><span>おかずも。</span><i>✦</i><span>パンも。</span><i>✦</i><span>おやつも。</span><i>✦</i><span>よりみちも。</span><i>✦</i><span>南草津駅に、わくわくを。</span></div>
+<!-- NEWS（KYOPOの流れるお知らせ帯を参考に）。中身は下の JS の NEWS で書き換える -->
+<div class="news-bar" aria-label="お知らせ">
+  <span class="news-tag">NEWS</span>
+  <div class="news-view"><ul class="news-track" id="newsTrack"></ul></div>
 </div>
 
-<!-- 数字の帯 -->
-<section class="facts" aria-label="開催の概要">
-  <div class="wrap">
-    <div class="fact"><b>小さなお店</b><span>おかず・パン・おやつ・軽食など（予定）</span></div>
-    <div class="fact"><b>金曜の夕方</b><span>が中心の予定。土日祝も検討中</span></div>
-    <div class="fact"><b>入場無料</b><span>帰り道にそのまま寄れます</span></div>
-    <div class="next"><p><span id="nextTitle">第1回の日程は決まりしだい発表</span><br><span class="small" id="nextUpdateTop">　</span></p><a class="btn btn-tomato btn-sm" href="#register">先に知らせてもらう</a></div>
+<!-- 開催概要（EVENT OVERVIEW） -->
+<section id="overview" class="kp-ov">
+  <div class="wrap kp-ov-grid">
+    <figure class="kp-ov-ph">
+      <img src="images/minakusa/yorimichi/ill-shop-v2.jpg" alt="駅前の小さなお店で、おかずやパンを売っているイラスト" width="640" height="480" loading="lazy">
+      <figcaption>イメージ（イラスト）</figcaption>
+    </figure>
+    <div class="kp-ov-body">
+      <span class="kp-label">開催概要</span>
+      <h2 class="kp-en">EVENT<br>OVERVIEW</h2>
+      <p class="kp-ov-lead">ふだんは通り過ぎるだけの南草津駅に、帰り道に寄れる小さなお店が並びます。南草津駅周辺のまちづくりの社会実験として、2027年2月まで試します。</p>
+      <dl class="kp-table">
+        <div><dt>イベント</dt><dd>南草津駅前、よりみち。</dd></div>
+        <div><dt>日時</dt><dd><b id="nextTitle">第1回の日程は決まりしだい発表</b><span class="small" id="nextUpdateTop">　</span><span class="small">金曜の夕方が中心の予定。土日祝も検討中</span></dd></div>
+        <div><dt>会場</dt><dd><b>JR南草津駅</b><span class="small">西口・東口・改札前（区画は関係機関の承認後に確定）</span></dd></div>
+        <div><dt>並ぶもの</dt><dd>おかず・パン・おやつ・軽食など（予定）</dd></div>
+        <div><dt>入場料</dt><dd><b>無料</b></dd></div>
+        <div><dt>実施</dt><dd>UDCみなくさ・立命館大学<span class="small">出店者の募集・調整：BRIDGE CYCLE株式会社</span></dd></div>
+      </dl>
+      <a class="btn btn-tomato btn-sm" href="#register">日程を先に知らせてもらう</a>
+    </div>
   </div>
 </section>
 
@@ -734,6 +803,82 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 </section>
 
 <!-- 決まっていること・まだ決まっていないこと -->
+<!-- 出店者（VENDORS）：KYOPOの「分類ごとの色の帯＋番号つき出店者一覧」を参考に -->
+<section id="vendors" class="kp-vend">
+  <div class="wrap">
+    <span class="kp-label">出店者</span>
+    <h2 class="kp-en">VENDORS</h2>
+    <p class="lead">西口・東口・改札前に、全部で21の枠があります。出店が決まったお店から、番号つきでここに載せます。</p>
+    <div class="kp-cat kp-cat-food">
+      <div class="kp-cat-ph"><img src="images/minakusa/yorimichi/market-painted-four-times-v1.webp" alt="駅前に小さなお店が並ぶイラスト" width="2172" height="724" loading="lazy"><span>イメージ（イラスト）</span></div>
+      <div class="kp-cat-body">
+        <span class="kp-label kp-label-w">食べもの</span>
+        <p class="kp-cat-en">FOOD</p>
+        <p>今夜のおかず、明日のパン、帰り道のおやつ。持ち帰りやすいものを中心に、出店するお店を準備しています。</p>
+      </div>
+      <details class="kp-acc" id="vendorAcc">
+        <summary><span>No.001–021　出店者 VENDORS</span><b id="vendorCount">決まりしだい掲載</b></summary>
+        <ol class="kp-vlist" id="vendorList"></ol>
+        <p class="kp-vnote">お店から掲載の許可をいただいたものだけを載せます。番号は売り場の番号ではありません。</p>
+      </details>
+    </div>
+    <div class="kp-cat kp-cat-play">
+      <div class="kp-cat-body">
+        <span class="kp-label kp-label-w">にぎわい</span>
+        <p class="kp-cat-en">PLAY</p>
+        <p>食べもののほかに、学生の企画、地域の団体、子ども向けの体験なども募集しています。決まりしだいお知らせします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 会場マップ（MAP）と アクセス（ACCESS） -->
+<section id="map" class="kp-map">
+  <div class="wrap">
+    <span class="kp-label">会場マップ</span>
+    <h2 class="kp-en">MAP</h2>
+    <div class="kp-map-grid">
+      <figure class="kp-map-fig">
+        <svg viewBox="0 0 800 520" role="img" aria-labelledby="mapTitle">
+          <title id="mapTitle">南草津駅の売り場の位置関係。西口の公園前、改札前の自由通路、東口の駅前広場の3か所</title>
+          <rect width="800" height="520" rx="18" fill="#FFFDF6"/>
+          <text x="40" y="66" font-size="30" font-weight="700" fill="#173C51">← 西口</text>
+          <text x="760" y="66" text-anchor="end" font-size="30" font-weight="700" fill="#173C51">東口 →</text>
+          <rect x="0" y="196" width="800" height="22" fill="#E6E1D3"/><rect x="0" y="226" width="800" height="22" fill="#E6E1D3"/>
+          <text x="18" y="186" font-size="18" fill="#536775">JR琵琶湖線</text>
+          <rect x="290" y="130" width="220" height="150" rx="14" fill="#FFFFFF" stroke="#173C51" stroke-width="4"/>
+          <text x="400" y="172" text-anchor="middle" font-size="26" font-weight="700" fill="#173C51">南草津駅</text>
+          <rect x="230" y="262" width="340" height="50" rx="25" fill="#DC492E"/>
+          <text x="400" y="295" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">改札前・自由通路 No.017–021</text>
+          <path d="M290 237 H 150 V 330" fill="none" stroke="#36745C" stroke-width="5" stroke-dasharray="10 9"/>
+          <path d="M510 237 H 650 V 330" fill="none" stroke="#173C51" stroke-width="5" stroke-dasharray="10 9"/>
+          <circle cx="150" cy="380" r="78" fill="#BFE0B5" stroke="#36745C" stroke-width="4"/>
+          <text x="150" y="372" text-anchor="middle" font-size="20" font-weight="700" fill="#36745C">東山道</text>
+          <text x="150" y="398" text-anchor="middle" font-size="20" font-weight="700" fill="#36745C">記念公園</text>
+          <rect x="20" y="452" width="290" height="50" rx="25" fill="#36745C"/>
+          <text x="165" y="485" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">西口・公園前 No.001–003</text>
+          <rect x="520" y="330" width="260" height="110" rx="16" fill="#E9F0F5" stroke="#173C51" stroke-width="4"/>
+          <text x="650" y="372" text-anchor="middle" font-size="20" fill="#536775">駅前広場・バスのりば</text>
+          <rect x="490" y="452" width="290" height="50" rx="25" fill="#173C51"/>
+          <text x="635" y="485" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">東口・駅前広場 No.004–016</text>
+        </svg>
+        <figcaption>図は位置関係のイメージです。区画と店の数は、関係機関の承認後に確定します。</figcaption>
+      </figure>
+      <div class="kp-access" id="access">
+        <span class="kp-label">アクセス</span>
+        <h2 class="kp-en kp-en-s">ACCESS</h2>
+        <ul class="kp-rows">
+          <li><span>電車</span><b>JR琵琶湖線「南草津駅」の西口・東口・改札前</b></li>
+          <li><span>京都駅から</span><b>JRで約20分</b></li>
+          <li><span>立命館大学BKCから</span><b>バスで南草津駅まで約20分</b></li>
+          <li><span>お問い合わせ</span><b><a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a></b></li>
+        </ul>
+        <p class="small">所要時間は目安です（立命館大学の交通案内より）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="status" style="padding-top:0">
   <div class="wrap">
     <div class="section-head"><div><p class="eyebrow">日程も、お店も、決まったことから。</p><h2 class="h2">いま、準備していること。</h2></div></div>
@@ -878,6 +1023,14 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   // 第1回の開催が確定したら入れる。最上部の帯と表示が「次回開催の日時・売場・店数」に切り替わる。
   var NEXT_EVENT = null;   // 例：{date:'11月20日（金）', time:'17:00〜20:00', place:'西口の駅前', shops:3}
 
+  // NEWS（流れるお知らせ帯）。新しいものを上に。href はページ内（#vote など）か URL
+  var NEWS = [
+    {d:'10.19', t:'食べたいもの投票を受付中です（名前・メール不要）', href:'#vote'},
+    {d:'10.19', t:'開催案内のメール登録を始めました。会員番号No.100までは先にお知らせ', href:'#register'},
+    {d:'10.26', t:'次の情報更新の予定（投票の途中経過と準備の進み具合）', href:'#status'},
+    {d:'募集', t:'出店するお店と、にぎわいの企画を募集しています', href:'minakusa-ekimae.html?src=yorimichi_news'}
+  ];
+  var VENDOR_SLOTS = 21;   // 西口3・東口13・改札前5
   var FORM_VER = 'v2-20261019';   // 初期選択をなくした後の回答。集計はこの版以降だけを使う
   var src = '';
   try{ src = (new URLSearchParams(location.search).get('src')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30); }catch(e){}
@@ -926,6 +1079,22 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   // 表示の切り替え。最初はこのファイルの設定で描き、台帳があれば台帳の内容で描き直す
   var coverPill = document.querySelector('.cover .pill').innerHTML, heroLabel = document.querySelector('.hr-l').textContent;
+  function renderNews(ev){
+    var list = (ev ? [{d:'開催', t:(ev.round||'第1回')+'　'+ev.date+' '+ev.time+'　'+ev.place, href:'#overview'}] : []).concat(NEWS);
+    var one = list.map(function(n){ return '<li><a href="'+esc(n.href)+'"><b>'+esc(n.d)+'</b>'+esc(n.t)+'</a></li>'; }).join('');
+    // 途切れずに流れるよう2回並べる（2回目は読み上げない）
+    document.getElementById('newsTrack').innerHTML = one + one.replace(/<li>/g,'<li aria-hidden="true">').replace(/<a /g,'<a tabindex="-1" ');
+  }
+  function renderVendors(shops){
+    var set = (shops||[]).filter(function(s){ return s.status==='出店予定'; }), tbd = (shops||[]).filter(function(s){ return s.status!=='出店予定'; });
+    var rows = set.concat(tbd), html = '';
+    for(var i=0;i<VENDOR_SLOTS;i++){
+      var no = 'No.'+('00'+(i+1)).slice(-3), s = rows[i];
+      html += s ? '<li><b>'+no+'</b><span>'+esc(s.shop||'')+'<br><small>'+esc(s.item||'')+(s.status==='出店予定'?'':'（検討中）')+'</small></span></li>' : '<li class="tbd"><b>'+no+'</b><span>準備中</span></li>';
+    }
+    document.getElementById('vendorList').innerHTML = html;
+    document.getElementById('vendorCount').textContent = set.length ? VENDOR_SLOTS+'枠中 '+set.length+'店が決定' : '決まりしだい掲載';
+  }
   function render(d){
     if(social) social.update(d);
     var nu = d.nextUpdate, top = document.getElementById('nextUpdateTop');
@@ -943,6 +1112,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       document.getElementById('nextTitle').textContent = '第1回の日程は決まりしだい発表';
       document.querySelector('.hr-l').textContent = heroLabel;
     }
+    renderNews(ev); renderVendors(shops);
     var sec = document.getElementById('shops');
     if(shops.length){
       var allSet = shops.every(function(s){ return s.status==='出店予定'; });
