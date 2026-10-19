@@ -154,6 +154,34 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .facts .next{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px 0 16px 22px}
 .facts .next p{font-size:13px;font-weight:700}
 
+/* ===== みんなでつくる ===== */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;counter-reset:lad}
+.rung{background:var(--paper);border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;gap:6px;position:relative;text-decoration:none;color:var(--ink);transition:transform .15s}
+.rung:hover{transform:translateY(-3px);color:var(--ink)}
+.rung::before{counter-increment:lad;content:counter(lad);position:absolute;right:16px;top:14px;font-family:'Dela Gothic One',sans-serif;font-size:40px;line-height:1;color:var(--line)}
+.rung .v{font-family:'Dela Gothic One',sans-serif;font-size:30px;line-height:1.2}
+.rung .t{font-size:12px;font-weight:700;color:var(--tomato)}
+.rung p{font-size:14px;color:var(--sub);flex:1}
+.rung .go{font-size:14px;font-weight:700;color:var(--leaf);margin-top:6px}
+.rung.hl{background:var(--night);color:#fff}
+.rung.hl p{color:#C9CEE6}.rung.hl .go{color:var(--bulb)}.rung.hl .t{color:var(--bulb)}.rung.hl::before{color:rgba(255,255,255,.18)}
+.progress{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;align-items:center}
+.progress[hidden]{display:none}
+.progress .pv{background:var(--paper);border-radius:12px;padding:10px 16px;font-size:13px;color:var(--sub)}
+.progress .pv b{font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:24px;color:var(--ink);margin-right:4px}
+/* サポーター */
+.sup{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+.sup-card{background:var(--paper);border-radius:22px;padding:26px 24px}
+.sup-card label.lbl{display:block;font-weight:700;margin-bottom:6px}
+.sup-card .field{margin-bottom:16px}
+.sup-card .chip span{background:var(--page);border:1px solid var(--line);min-height:40px;padding:6px 12px;font-size:14px}
+.sup-card .chip input:checked+span{background:var(--night);color:#fff;box-shadow:none}
+.roles{margin:20px 0 0;padding:0;list-style:none}
+.roles li{display:grid;grid-template-columns:40px 1fr;gap:10px;margin-bottom:14px;align-items:start}
+.roles .ri{width:40px;height:40px;border-radius:12px;background:var(--paper);display:flex;align-items:center;justify-content:center;font-size:20px}
+.roles b{display:block}
+.roles span{font-size:14px;color:var(--sub)}
+
 /* ===== 出店日のタブ ===== */
 .days{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
 .days button{border:0;border-radius:999px;padding:9px 18px;background:var(--paper);color:var(--ink);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;min-height:44px;box-shadow:inset 0 0 0 1.5px var(--line)}
@@ -309,6 +337,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .seg button{padding:8px 4px;font-size:12px}
   .seg button b{font-size:15px}
   .exits,.stalls{grid-template-columns:1fr}
+  .ladder{grid-template-columns:1fr 1fr;gap:12px}
+  .rung{padding:18px 16px}
+  .rung .v{font-size:24px}
+  .sup{grid-template-columns:1fr;gap:22px}
   .facts .wrap{grid-template-columns:1fr 1fr}
   .fact{padding:16px 12px 16px 0;border-right:0;border-bottom:1px solid var(--line)}
   .fact:nth-child(2n){padding-left:14px;border-left:1px solid var(--line)}
@@ -490,6 +522,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   </div>
 </div>
 
+<!-- みんなでつくる -->
+<section id="join">
+  <div class="wrap">
+    <h2 class="h2">この駅前の市は、<br class="hide-sp">みんなでつくります。</h2>
+    <p class="lead">運営だけでは、毎週の市は続きません。選ぶ、呼ぶ、手伝う。関わり方は、あなたの好きな深さで。</p>
+    <div class="ladder">
+      <a class="rung" href="#vote"><span class="t">30秒</span><span class="v">選ぶ</span><p>食べたいものと、寄り道しやすい時間に投票。結果は出店者のメニュー選びに使われます。</p><span class="go">投票する</span></a>
+      <a class="rung" href="#invite"><span class="t">3分</span><span class="v">呼ぶ</span><p>好きなお店に「来てほしい」を届ける。出店が決まったら、あなたの推薦で来たお店として紹介します。</p><span class="go">お店を呼ぶ</span></a>
+      <a class="rung hl" href="#supporter"><span class="t">月1回・2時間から</span><span class="v">手伝う</span><p>写真、手書きの看板、SNS、設営。あなたの撮った写真と書いた看板が、毎週の市に出ます。</p><span class="go">サポーターになる</span></a>
+      <a class="rung" href="minakusa-ekimae.html?src=join"><span class="t">1枠3,300円から</span><span class="v">出る</span><p>自分のお店や、つくったものを駅前で売る。はじめての出店も歓迎です。</p><span class="go">出店について</span></a>
+    </div>
+    <div class="progress" id="progress" hidden>
+      <span class="small">いま集まっている声</span>
+    </div>
+  </div>
+</section>
+
 <!-- 投票 -->
 <section id="vote" class="vote-sec">
   <svg class="garland" aria-hidden="true" id="garland"></svg>
@@ -644,6 +693,47 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <tr><th>雨の日</th><td>改札前は屋内なので、雨でも開催する予定です。西口・東口は前日に開催するかを決め、このページでお知らせします。</td></tr>
       <tr><th>入場</th><td>無料。通りがかりにどうぞ。</td></tr>
     </table>
+  </div>
+</section>
+
+<!-- よりみちサポーター -->
+<section id="supporter" style="padding-top:0">
+  <div class="wrap sup">
+    <div>
+      <h2 class="h2">よりみちサポーターに、<br>なりませんか。</h2>
+      <p class="lead">毎週の市を、運営と一緒につくる人を募集しています。学生も、近所の人も、出店者の家族も。できることを、できる日だけ。</p>
+      <ul class="roles">
+        <li><span class="ri" aria-hidden="true">📷</span><div><b>写真を撮る</b><span>市のようすと出店者を撮る。写真は毎週のページと告知に使います。</span></div></li>
+        <li><span class="ri" aria-hidden="true">🖍</span><div><b>看板を書く</b><span>その日の出店者とおすすめを、手書きの看板にする。</span></div></li>
+        <li><span class="ri" aria-hidden="true">📣</span><div><b>広める</b><span>自分のSNSや、学校・職場・マンションの掲示で知らせる。</span></div></li>
+        <li><span class="ri" aria-hidden="true">⛺</span><div><b>設営・片付け</b><span>看板や飾りつけを運営スタッフと一緒に出し入れする。</span></div></li>
+      </ul>
+    </div>
+    <form class="sup-card" id="supForm" novalidate>
+      <div class="field">
+        <label class="lbl" for="sName">お名前（ニックネームでも）</label>
+        <input type="text" id="sName" maxlength="40" autocomplete="nickname" placeholder="例：みなくさ太郎">
+      </div>
+      <div class="field">
+        <label class="lbl" for="sEmail">メールアドレス</label>
+        <input type="email" id="sEmail" autocomplete="email" required placeholder="例：minakusa@example.com">
+      </div>
+      <fieldset class="field">
+        <legend style="font-size:15px;margin-bottom:8px">やってみたいこと<small style="opacity:1;color:var(--sub)">いくつでも</small></legend>
+        <div class="chips" id="roleChips"></div>
+      </fieldset>
+      <fieldset class="field">
+        <legend style="font-size:15px;margin-bottom:8px">来られそうな時間<small style="opacity:1;color:var(--sub)">いくつでも</small></legend>
+        <div class="chips" id="whenChips"></div>
+      </fieldset>
+      <div class="field">
+        <label class="lbl" for="sNote">ひとこと<small style="font-weight:500;color:var(--sub);margin-left:6px">任意</small></label>
+        <textarea id="sNote" maxlength="200" placeholder="例：立命館の2回生です。写真が好きです。"></textarea>
+      </div>
+      <p class="small">登録すると<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとします。毎週の参加は求めません。当日のお手伝いは、運営スタッフと相談して決めます。</p>
+      <button class="btn btn-tomato" type="submit" id="supBtn" style="width:100%;margin-top:14px">サポーターに登録する</button>
+      <div class="msg" id="supMsg" role="status"></div>
+    </form>
   </div>
 </section>
 
@@ -1000,6 +1090,37 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       invRec.textContent='推薦しました'; invSt.className='msg ok'; invSt.textContent='推薦を受け付けました。ほかにも来てほしいお店があれば、お店の名前を変えて続けて送れます。';
     }).catch(function(){
       invRec.disabled=false; invRec.textContent='運営にも推薦する'; invSt.className='msg ng'; invSt.textContent='送信できませんでした。通信の状態を確かめて、もう一度押してください。';
+    });
+  });
+
+  // ── みんなでつくる：途中経過（10以上の数字だけ表示。毎週手で更新） ──
+  var PROGRESS = { votes:null, shops:null, supporters:null, registered:null, asof:'' };
+  var pg = document.getElementById('progress'), items = [['votes','票','食べたいもの投票'],['shops','店','推薦されたお店'],['supporters','人','サポーター'],['registered','人','開催案内の登録']];
+  var shown = items.filter(function(it){ var v = PROGRESS[it[0]]; return typeof v === 'number' && v >= 10; });
+  if(shown.length){
+    pg.innerHTML += shown.map(function(it){ return '<span class="pv"><b>'+PROGRESS[it[0]].toLocaleString('ja-JP')+'</b>'+it[1]+'　'+it[2]+'</span>'; }).join('') + (PROGRESS.asof ? '<span class="small">'+esc(PROGRESS.asof)+'時点</span>' : '');
+    pg.hidden = false;
+  }
+
+  // ── よりみちサポーター ───────────────
+  chips(document.getElementById('roleChips'), [['📷','写真を撮る'],['🖍','看板を書く'],['📣','広める'],['⛺','設営・片付け'],['🎓','学生として関わりたい']], 'role');
+  chips(document.getElementById('whenChips'), ['金曜の朝','金曜の夕方','土日'], 'swhen');
+  var sf = document.getElementById('supForm'), sbtn = document.getElementById('supBtn'), smsg2 = document.getElementById('supMsg');
+  if(load('minakusa_supporter')){ smsg2.className='msg ok'; smsg2.textContent='このブラウザからは登録済みです。最初の集まりの日程をお知らせします。'; }
+  sf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var em = document.getElementById('sEmail');
+    if(!em.value || !em.checkValidity()){ smsg2.className='msg ng'; smsg2.textContent = em.value ? 'メールアドレスの形が正しくありません。確かめて、もう一度送ってください。' : 'メールアドレスを入れてください。最初の集まりの日程をお知らせします。'; em.focus(); return; }
+    sbtn.disabled=true; sbtn.textContent='送信しています…';
+    send({ _subject:'【南草津】よりみちサポーターの登録', kind:'サポーター登録', name:(document.getElementById('sName').value||'').slice(0,40),
+      email:em.value, _replyto:em.value, role:vals(sf,'role').join('／'), when:vals(sf,'swhen').join('／'),
+      note:(document.getElementById('sNote').value||'').slice(0,200), src:src
+    }).then(function(){
+      store('minakusa_supporter','1'); sf.reset();
+      smsg2.className='msg ok'; smsg2.textContent='登録しました。最初の集まりの日程を、このアドレスにお知らせします。'; sbtn.textContent='登録しました';
+    }).catch(function(){
+      sbtn.disabled=false; sbtn.textContent='サポーターに登録する';
+      smsg2.className='msg ng'; smsg2.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「サポーター希望」とお送りください。';
     });
   });
 
