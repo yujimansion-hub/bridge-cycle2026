@@ -239,7 +239,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   section{padding:52px 0}
   .hide-sp{display:none}
   .vote-art{margin-left:-20px;margin-right:-20px}
-  .vote-art img{aspect-ratio:4/3;border-radius:0;object-position:30% 50%}
+  .vote-art img{aspect-ratio:3/1;border-radius:0;object-position:50% 50%}
   .vote-art figcaption{padding:0 20px}
   .brand{font-size:15px}
   .brand small{display:none}
@@ -404,6 +404,14 @@ header .wrap{padding-top:13px;padding-bottom:13px}
 .persona .ph::before{content:counter(route,decimal-leading-zero);position:absolute;top:10px;left:10px;width:32px;height:32px;border:1.5px solid var(--night);border-radius:50%;background:var(--page);color:var(--ink);display:grid;place-items:center;font-size:11px;font-weight:900;z-index:2}
 .persona .ptag{font-size:10px;left:9px;bottom:9px;background:var(--page);border:1px solid var(--night);padding:3px 8px;border-radius:4px}
 .persona .pl{font-size:13px;padding:15px 12px;min-height:53px;line-height:1.6}
+.persona .pl small{display:block;font-size:12px;font-weight:700;color:var(--tomato);margin-top:3px}
+.personas{grid-template-columns:repeat(3,1fr)}
+.persona .ph::after{display:none}
+.seller-link{margin-top:18px;font-size:13px}.seller-link a{color:var(--leaf);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.more-q{margin:4px 0 20px;border:1px dashed rgba(255,255,255,.35);border-radius:12px;padding:0 16px}
+.more-q summary{cursor:pointer;font-size:14px;font-weight:700;color:#FFF9EC;padding:14px 0;min-height:44px;list-style-position:inside}
+.more-q[open]{padding-bottom:16px}.more-q[open] summary{margin-bottom:6px}
+#voteForm>.form-foot{margin-bottom:18px}
 .persona[aria-pressed="true"] .pl::before{color:var(--ink)}
 .mine{margin-top:34px;border:1.5px solid var(--night);border-left:1.5px solid var(--night);border-radius:18px;padding:28px;box-shadow:5px 5px 0 #DCCDAB}
 .mine-t{font-size:23px;color:var(--leaf)}
@@ -535,7 +543,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   .quick{padding:14px 12px;margin-top:14px}.quick .q-h{font-size:12px}.quick .chips{gap:8px}.quick .chip span{font-size:11px;padding:9px;min-height:42px;gap:5px}.quick .chip span em{font-size:20px}
   .quick .q-foot .btn{font-size:12px;min-height:43px;padding:11px 16px}.q-foot{gap:10px}
   .vote-sec{padding-top:69px}.vote-art{margin-left:0;margin-right:0;margin-bottom:31px;padding:7px;border-radius:6px;box-shadow:5px 6px 0 rgba(0,0,0,.15)}
-  .vote-art img{aspect-ratio:1.55;object-position:36% 50%;border-radius:2px}.vote-art figcaption{font-size:8px;padding:1px 2px}
+  .vote-art img{aspect-ratio:2.4;object-position:50% 50%;border-radius:2px;height:auto}.vote-art figcaption{font-size:8px;padding:1px 2px}
   .vote-sec .h2{font-size:29px}.vote-sec .lead{font-size:12px}.vote-box{margin-top:25px}.vote-box fieldset{padding:13px 10px;margin-bottom:21px;border-radius:9px}
   .vote-box legend{font-size:14px;padding:0 5px}.vote-box legend small{font-size:10px;margin-left:5px}
   #foodChips{gap:8px}#foodChips .chip span{min-height:77px;font-size:11px;padding:11px 8px;gap:7px;line-height:1.7;border-radius:5px}#foodChips .chip span em{font-size:25px}
@@ -551,6 +559,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 @media(max-width:360px){.brand{font-size:11px}.hdr-cta{font-size:10px;padding:8px 9px}.cover h1{font-size:37px}.hr-row .btn{min-width:78px;font-size:12px}.persona .pl{font-size:10px}#foodChips .chip span{font-size:10px;gap:5px}#foodChips .chip span em{font-size:22px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.persona:hover .ph img{transform:none}}
 
+@media(max-width:640px){.personas{grid-template-columns:1fr;gap:14px}.persona{flex-direction:row;align-items:stretch}.persona .ph{width:46%;flex:none;aspect-ratio:1.25}.persona .pl{display:flex;flex-direction:column;justify-content:center;font-size:14px;padding:12px 14px;min-height:0}.persona .pl small{font-size:12px}.persona:nth-child(n){transform:none}.persona:nth-child(2){transform:rotate(.6deg)}.persona:nth-child(1){transform:rotate(-.6deg)}.persona[aria-pressed="true"]{transform:none}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019c">
 </head>
@@ -634,7 +643,8 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     </div>
     <div class="personas" id="personas" role="group" aria-label="あなたの帰り道"></div>
     <div class="mine" id="mine" hidden aria-live="polite"></div>
-    <p class="small" style="margin-top:10px">絵はイメージのイラストです。並ぶお店や商品は、出店者が決まりしだいお知らせします。</p>
+    <p class="small" style="margin-top:10px">絵はイメージのイラストです。並ぶお店や商品は、出店者が決まりしだい、了承を得た写真・商品名・価格でお知らせします。</p>
+    <p class="seller-link"><a href="minakusa-ekimae.html?src=who">お店をやっている・出店してみたい方は、出店者募集のページへ <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -644,8 +654,8 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   <svg class="garland" aria-hidden="true" id="garland"></svg>
   <div class="wrap">
     <figure class="vote-art">
-      <img src="images/minakusa/yorimichi/market-eve.jpg" alt="夕方の駅前にテントのお店が並び、仕事帰りの人や学生が立ち寄っているイラスト" width="1086" height="362" loading="lazy">
-      <figcaption>夕方のよりみちのイメージ（イラスト）</figcaption>
+      <img src="images/minakusa/yorimichi/food-counter-v1.svg" alt="夕方の灯りの下、カウンターにパン、惣菜の包み、ドリンク、たい焼き、野菜が並ぶイラスト" width="1500" height="500" loading="lazy">
+      <figcaption>並ぶかもしれないもののイメージ（イラスト）。実際の商品は、出店が決まりしだいお知らせします</figcaption>
     </figure>
     <div style="text-align:center">
       <p class="eyebrow">30秒で、いっしょにつくる。</p>
@@ -662,22 +672,26 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
         <div class="chips" id="foodChips"></div>
         <p class="counter" id="foodCount" aria-live="polite"><b>0</b> / 3</p>
       </fieldset>
-      <fieldset>
-        <legend>寄り道しやすい時間<small>いくつでも</small></legend>
-        <div class="chips soft" id="timeChips"></div>
-      </fieldset>
-      <fieldset>
-        <legend>よく使う出口<small>いくつでも</small></legend>
-        <div class="chips soft" id="exitChips"></div>
-      </fieldset>
-      <fieldset>
-        <legend><label for="vComment">こんなお店があったら<small>任意</small></label></legend>
-        <textarea id="vComment" maxlength="200" placeholder="例：仕事帰りに買える、野菜たっぷりのおかず"></textarea>
-      </fieldset>
       <div class="form-foot">
         <button class="btn btn-bulb" type="submit" id="voteBtn" disabled>この内容で投票する</button>
         <span class="small" style="color:#C9CEE6">投票すると、あなたの「食べたい」カードがつくれます。名前や連絡先は送られません。</span>
       </div>
+      <details class="more-q" id="moreQ">
+        <summary>時間や出口も教える（任意）</summary>
+        <fieldset>
+          <legend>寄り道しやすい時間<small>いくつでも</small></legend>
+          <div class="chips soft" id="timeChips"></div>
+        </fieldset>
+        <fieldset>
+          <legend>よく使う出口<small>いくつでも</small></legend>
+          <div class="chips soft" id="exitChips"></div>
+        </fieldset>
+        <fieldset>
+          <legend><label for="vComment">こんなお店があったら<small>任意</small></label></legend>
+          <textarea id="vComment" maxlength="200" placeholder="例：仕事帰りに買える、野菜たっぷりのおかず"></textarea>
+        </fieldset>
+        <div class="form-foot"><button class="btn btn-bulb" type="submit" id="voteBtn2" disabled>この内容で投票する</button></div>
+      </details>
       <div class="msg" id="voteMsg" role="status"></div>
     </form>
 
@@ -847,11 +861,11 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   var EXITS = ['西口','東口','改札を通るだけ','駅は使わない（近所）'];
 
   var PERSONAS = {
-    commute:{tag:'仕事帰りに', label:'仕事帰りに、駅を通る', title:'仕事帰りのあなたへ', rows:[['いつ（案）','金曜の夕方'],['どこで（案）','改札前・東口'],['こんなもの','今夜のおかず・お弁当・ちょっと一杯']], quick:[0,1,5,2,3], foods:[0,1], time:1, exits:[2]},
-    student:{tag:'授業終わりに', label:'学校や授業の帰り', title:'学校帰りのあなたへ', rows:[['いつ（案）','金曜の夕方、授業終わり'],['どこで（案）','東口のバスのりば（立命館行きなど）'],['こんなもの','学生向けの軽食・ドリンク']], quick:[8,3,4,0,5], foods:[8,3], time:1, exits:[1]},
-    neighbor:{tag:'土日の昼に', label:'駅の近くに住んでいる', title:'近くに住むあなたへ', rows:[['いつ（案）','土日の昼・金曜の夕方'],['どこで（案）','西口の公園前'],['こんなもの','お弁当・おやつ・地元の野菜']], quick:[1,9,6,4,2], foods:[1,9], time:2, exits:[0,3]},
-    shop:{tag:'1枠3,300円から', label:'お店をやっている・やりたい', title:'お店をやっている・やりたいあなたへ', rows:[['いつ（案）','金曜の夕方が中心'],['どこで（案）','西口・東口・改札前で調整中'],['いくら','1枠3,300円から・売上の歩合なし']]}
+    commute:{tag:'仕事帰りに', label:'仕事帰りに、駅を通る', sub:'今夜のおかずを、包んで持ち帰る', img:'food-commute-v1.svg', alt:'惣菜の入った包みを両手で持つ手元のイラスト', title:'仕事帰りのあなたへ', rows:[['いつ（案）','金曜の夕方'],['どこで（案）','改札前・東口'],['こんなもの','今夜のおかず・お弁当・ちょっと一杯']], quick:[0,1,5,2,3], foods:[0,1], time:1, exits:[2]},
+    student:{tag:'授業終わりに', label:'学校や授業の帰り', sub:'パンとドリンクで、ひと息', img:'food-student-v1.svg', alt:'メロンパンとアイスカフェラテを持つ手元のイラスト', title:'学校帰りのあなたへ', rows:[['いつ（案）','金曜の夕方、授業終わり'],['どこで（案）','東口のバスのりば（立命館行きなど）'],['こんなもの','学生向けの軽食・ドリンク']], quick:[8,3,4,0,5], foods:[8,3], time:1, exits:[1]},
+    neighbor:{tag:'土日の昼に', label:'駅の近くに住んでいる', sub:'親子で分ける、おやつ', img:'food-neighbor-v1.svg', alt:'大人と子どもの手で、たい焼きを半分に分けるイラスト', title:'近くに住むあなたへ', rows:[['いつ（案）','土日の昼・金曜の夕方'],['どこで（案）','西口の公園前'],['こんなもの','お弁当・おやつ・地元の野菜']], quick:[1,9,6,4,2], foods:[1,9], time:2, exits:[0,3]},
   };
+  // 出店したい方は、来場者の3枚とは分けて、カードの下のリンクから出店者募集ページへ案内する
 
   // 次のお知らせ日（例：'11月9日（月）'）と、投票の途中経過（30票以上で表示）。毎週ここを書き換える。
   var NEXT_UPDATE = '10月26日（月）';
@@ -960,12 +974,12 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   chips(document.getElementById('foodChips'), FOODS, 'food');
   chips(document.getElementById('timeChips'), TIMES, 'time');
   chips(document.getElementById('exitChips'), EXITS, 'exit');
-  var vf = document.getElementById('voteForm'), vbtn = document.getElementById('voteBtn'), vmsg = document.getElementById('voteMsg'), vdone = document.getElementById('voteDone');
+  var vf = document.getElementById('voteForm'), vbtn = document.getElementById('voteBtn'), vbtn2 = document.getElementById('voteBtn2'), vmsg = document.getElementById('voteMsg'), vdone = document.getElementById('voteDone');
   function refreshVote(){
     var n = vals(vf,'food').length;
     document.getElementById('foodCount').innerHTML = '<b>'+n+'</b> / 3';
     vf.querySelectorAll('input[name=food]').forEach(function(i){ i.disabled = !i.checked && n>=3; });
-    vbtn.disabled = n===0;
+    vbtn.disabled = n===0; vbtn2.disabled = n===0;
   }
   vf.addEventListener('change', refreshVote);
   function showVoted(){ vf.style.display='none'; vdone.style.display='block'; }
@@ -973,17 +987,17 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   vf.addEventListener('submit', function(e){
     e.preventDefault();
     var food = vals(vf,'food'); if(!food.length) return;
-    vbtn.disabled = true; vbtn.textContent = '送信しています…'; vmsg.className='msg';
+    vbtn.disabled = true; vbtn2.disabled = true; vbtn.textContent = vbtn2.textContent = '送信しています…'; vmsg.className='msg';
     send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'投票欄', persona:(PERSONAS[myPersona]||{}).label||'',
       food:food.join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'), comment:(document.getElementById('vComment').value||'').slice(0,200), src:src
-    }).then(function(){ store('minakusa_voted','1'); store('minakusa_vote_food', food.slice(0,3).join('／')); if(social) social.voteDone(food.map(function(label){return FOODS.findIndex(function(f){return f[1]===label;});})); showVoted(); vdone.focus(); track('yorimichi_vote',{via:'vote_form'}); })
-    .catch(function(){ vmsg.className='msg ng'; vmsg.textContent='送信できませんでした。通信の状態を確かめて、もう一度お試しください。'; vbtn.disabled=false; vbtn.textContent='この内容で投票する'; });
+    }).then(function(){ store('minakusa_voted','1'); store('minakusa_vote_food', food.slice(0,3).join('／')); if(social) social.voteDone(food.map(function(label){return FOODS.findIndex(function(f){return f[1]===label;});})); showVoted(); vdone.focus(); track('yorimichi_vote',{via:'vote_form', detail: document.getElementById('moreQ').open ? 'open' : 'closed'}); })
+    .catch(function(){ vmsg.className='msg ng'; vmsg.textContent='送信できませんでした。通信の状態を確かめて、もう一度お試しください。'; vbtn.disabled=false; vbtn2.disabled=false; vbtn.textContent = vbtn2.textContent = 'この内容で投票する'; });
   });
 
   // ── あなたは、どの帰り道？（その場で1票） ──
   var myPersona = load('minakusa_persona') || '';
   var pEl = document.getElementById('personas'), mineEl = document.getElementById('mine');
-  pEl.innerHTML = Object.keys(PERSONAS).map(function(k){ var p = PERSONAS[k]; return '<button type="button" class="persona" data-k="'+k+'" aria-pressed="false"><span class="ph"><img src="images/minakusa/yorimichi/ill-'+k+'-v2.jpg" alt="" width="640" height="480" loading="lazy"><span class="ptag">'+p.tag+'</span></span><span class="pl">'+p.label+'</span></button>'; }).join('');
+  pEl.innerHTML = Object.keys(PERSONAS).map(function(k){ var p = PERSONAS[k]; return '<button type="button" class="persona" data-k="'+k+'" aria-pressed="false"><span class="ph"><img src="images/minakusa/yorimichi/'+p.img+'" alt="'+p.alt+'" width="800" height="640" loading="lazy"><span class="ptag">'+p.tag+'</span></span><span class="pl">'+p.label+'<small>'+p.sub+'</small></span></button>'; }).join('');
   function choosePersona(k, quiet){
     var p = PERSONAS[k]; if(!p) return;
     myPersona = k; store('minakusa_persona', k); if(!quiet) track('yorimichi_persona',{persona:k});

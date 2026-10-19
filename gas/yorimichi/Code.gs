@@ -1,6 +1,6 @@
 /**
  * 南草津駅前、よりみち。 運営の台帳（Googleスプレッドシート ＋ Apps Script）
- * 版：v4（2026-10-19 紹介した会員とSNS名を別項目に・カード利用の記録・仮目標の判定） BRIDGE CYCLE株式会社
+ * 版：v5（2026-10-19 14日間の測定・紹介リンクからの参加・送信完了と送る操作を分けて集計） BRIDGE CYCLE株式会社
  *
  * できること
  *  ・ページからの「食べたいもの投票」「開催案内の登録」を、このスプレッドシートに記録する
@@ -43,7 +43,9 @@ var CONF_DEFAULT = [
   ['待っている人数を出す数', 30, '登録がこの人数以上になったら、ページに「いま○人が待っています」と出す'],
   ['SNS自動下書き', 'オフ', 'オンにすると、定期の作業がSNS投稿の下書きをMetricoolに入れる（公開は承認してから）。名前の調整が終わるまではオフ'],
   ['地域の訪問数', '', 'GA4で見た、地域（滋賀・京都南部など）からのページ訪問数を手で入れる。入れると「いまの集計」に200訪問あたりの数が出る'],
-  ['判定の仮目標（200訪問あたり）', '投票40・登録10・カード利用8人', '仮の目標。実績や業界平均ではない。数字を書き換えると判定に使われる']
+  ['判定の仮目標（200訪問あたり）', '投票40・登録10・カード利用8人', '仮の目標。実績や業界平均ではない。数字を書き換えると判定に使われる'],
+  ['測定の開始日', '2026/10/20', '「いまの集計」の判定は、この日から「測定の日数」の間の記録だけで数える'],
+  ['測定の日数', 14, '']
 ];
 var FOOTER = [
   '――',
@@ -358,13 +360,21 @@ function sendTestMails() {
 function menuShowSummary() {
   ensureConfRows();
   var c = readConf(), r = results(c, true), prefix = String(c['集計に使う版'] || 'v2');
-  var regs = sheet(SH.reg).getDataRange().getValues().slice(1);
-  var votes = sheet(SH.vote).getDataRange().getValues().slice(1).filter(function (x) { return String(x[1]).indexOf(prefix) === 0; });
-  var cards = sheet(SH.card).getDataRange().getValues().slice(1);
-  var active = regs.filter(function (x) { return x[5] === '有効'; }).length, users = cardUsers();
+  // 測定期間（開始日から○日間）。判定はこの期間の記録だけで数える
+  var start = toDate(c['測定の開始日']), days = Number(c['測定の日数']) || 14;
+  var end = start ? new Date(start.getTime() + days * 86400000) : null;
+  function inWin(v) { if (!start) return true; var d = toDate(v); return d && d >= start && d < end; }
+  var regsAll = sheet(SH.reg).getDataRange().getValues().slice(1);
+  var votes = sheet(SH.vote).getDataRange().getValues().slice(1).filter(function (x) { return String(x[1]).indexOf(prefix) === 0 && inWin(x[0]); });
+  var regs = regsAll.filter(function (x) { return x[5] === '有効' && inWin(x[0]); });
+  var cards = sheet(SH.card).getDataRange().getValues().slice(1).filter(function (x) { return inWin(x[0]); });
   function top(t) { return t.list.slice(0, 5).map(function (x) { return '  ' + x[0] + '　' + x[1] + '（' + Math.round(x[1] / Math.max(1, t.answered) * 100) + '%）'; }).join('\n'); }
+  function people(rows) { var seen = {}, n = 0; rows.forEach(function (x) { var d = String(x[5] || ''); if (!d) { n++; return; } if (!seen[d]) { seen[d] = 1; n++; } }); return n; }
+  var usedPeople = people(cards), sentPeople = people(cards.filter(function (x) { return String(x[2]) === 'native'; }));
+  // 紹介リンク（カードの共有・会員のリンク）から来た人の参加
+  function viaRef(src, ref) { return /^share_/.test(String(src)) || /^m\d+$/.test(String(src)) || String(src) === 'member_link' || /^m\d+$/.test(String(ref || '')); }
+  var refVotes = votes.filter(function (x) { return viaRef(x[8], x[9]); }).length, refRegs = regs.filter(function (x) { return viaRef(x[4], x[10]); }).length;
 
-  // 判定（200訪問あたり）。目標は「設定」の文字から読む
   var goal = String(c['判定の仮目標（200訪問あたり）'] || '投票40・登録10・カード利用8人');
   function g(re, d) { var m = goal.match(re); return m ? Number(m[1]) : d; }
   var gv = g(/投票\s*(\d+)/, 40), gr = g(/登録\s*(\d+)/, 10), gc = g(/カード[^\d]*(\d+)/, 8), visits = Number(c['地域の訪問数']) || 0;
@@ -373,20 +383,21 @@ function menuShowSummary() {
     var p = per(n);
     return '  ' + name + '　' + n + unit + (p === null ? '' : '（200訪問あたり ' + p + unit + '／目標' + goalN + unit + '　' + (p >= goalN ? '達成' : 'あと' + (Math.round((goalN - p) * 10) / 10) + unit) + '）');
   }
-  var judge = '【判定の仮目標：200訪問あたり ' + goal + '（実績や業界平均ではない）】\n' +
-    (visits ? '  地域の訪問数：' + visits + '（「設定」に入力した値）\n' : '  「設定」の「地域の訪問数」にGA4の数字を入れると、200訪問あたりで比べられます\n') +
-    line('投票（有効回答）', votes.length, '件', gv) + '\n' + line('開催案内の登録', active, '人', gr) + '\n' + line('カードを使った人', users, '人', gc);
+  var fmtD = function (d) { return Utilities.formatDate(d, TZ, 'M/d'); };
+  var period = start ? fmtD(start) + '〜' + fmtD(new Date(end.getTime() - 86400000)) + '（' + days + '日間' + (new Date() < end ? '・あと' + Math.max(0, Math.ceil((end - new Date()) / 86400000)) + '日' : '・終了') + '）' : '全期間';
+  var judge = '【測定期間】' + period + '\n【判定の仮目標：200訪問あたり ' + goal + '（実績や業界平均ではない）】\n' +
+    (visits ? '  地域の訪問数：' + visits + '（「設定」に入力した値。測定期間の数字を入れる）\n' : '  「設定」の「地域の訪問数」に、測定期間のGA4の数字を入れると、200訪問あたりで比べられます\n') +
+    line('投票（有効回答）', votes.length, '件', gv) + '\n' + line('開催案内の登録', regs.length, '人', gr) + '\n' + line('カードを使った人', usedPeople, '人', gc) +
+    '\n    うち送信完了（共有画面で送り先まで進んだ人）　' + sentPeople + '人\n    ※LINEボタンを押す・画像の保存・コピーは「送る操作」で、送ったかどうかは分からない' +
+    '\n\n【いちばん見る数字：紹介リンクから来た人の参加】\n  投票 ' + refVotes + '件・登録 ' + refRegs + '人（カードの共有リンク・会員のリンクから来た人）';
 
-  // SNS名（流入元）ごと
   var by = {};
   function add(key, col) { key = srcLabel(key); by[key] = by[key] || { v: 0, r: 0, c: 0 }; by[key][col]++; }
   votes.forEach(function (x) { add(x[8], 'v'); });
   regs.forEach(function (x) { add(x[4], 'r'); });
-  cards.forEach(function (x) { add(x[3], 'c'); });
   var bySrc = Object.keys(by).sort(function (a, b) { return (by[b].v + by[b].r) - (by[a].v + by[a].r); }).slice(0, 8)
-    .map(function (k) { return '  ' + k + '　投票' + by[k].v + '・登録' + by[k].r + '・カード' + by[k].c; }).join('\n');
+    .map(function (k) { return '  ' + k + '　投票' + by[k].v + '・登録' + by[k].r; }).join('\n');
 
-  // 紹介した会員ごと
   var refs = {};
   function addRef(m, col) { if (!/^m\d+$/.test(m)) return; refs[m] = refs[m] || { v: 0, r: 0 }; refs[m][col]++; }
   votes.forEach(function (x) { addRef(String(x[9] || ''), 'v'); });
@@ -394,18 +405,25 @@ function menuShowSummary() {
   var byRef = Object.keys(refs).sort(function (a, b) { return refs[b].r - refs[a].r || refs[b].v - refs[a].v; }).slice(0, 5)
     .map(function (k) { return '  会員' + k.replace('m', 'No.') + '　登録' + refs[k].r + '・投票' + refs[k].v; }).join('\n');
 
-  // カードの使われ方
-  var how = {};
-  cards.forEach(function (x) { var k = x[1] + '：' + methodLabel(x[2]); how[k] = (how[k] || 0) + 1; });
-  var byHow = Object.keys(how).sort(function (a, b) { return how[b] - how[a]; }).map(function (k) { return '  ' + k + '　' + how[k] + '回'; }).join('\n');
+  var sent = {}, ops = {};
+  cards.forEach(function (x) { var k = x[1] + '：' + methodLabel(x[2]); var t = String(x[2]) === 'native' ? sent : ops; t[k] = (t[k] || 0) + 1; });
+  function list(t) { return Object.keys(t).sort(function (a, b) { return t[b] - t[a]; }).map(function (k) { return '  ' + k + '　' + t[k] + '回'; }).join('\n'); }
 
   SpreadsheetApp.getUi().alert('いまの集計', judge +
-    '\n\n【SNS名（流入元）ごと】\n' + (bySrc || '  まだありません') +
-    '\n\n【紹介した会員ごと】（紹介からの登録：' + referralCount() + '人）\n' + (byRef || '  まだありません') +
-    '\n\n【カードの使われ方】（使った人：' + users + '人）\n' + (byHow || '  まだありません') +
-    '\n\n買いたいもの（割合は回答者に対して）\n' + top(r.food) +
-    '\n\n時間（未回答を除く ' + r.time.answered + '人）\n' + top(r.time) + '\n\n出口（未回答を除く ' + r.exit.answered + '人）\n' + top(r.exit),
+    '\n\n【SNS名（流入元）ごと】（測定期間）\n' + (bySrc || '  まだありません') +
+    '\n\n【紹介した会員ごと】（測定期間）\n' + (byRef || '  まだありません') +
+    '\n\n【カード：送信完了】\n' + (list(sent) || '  まだありません') + '\n【カード：送る操作（送ったかは不明）】\n' + (list(ops) || '  まだありません') +
+    '\n\n買いたいもの（全期間・割合は回答者に対して）\n' + top(r.food) +
+    '\n\n時間（全期間・未回答を除く ' + r.time.answered + '人）\n' + top(r.time) + '\n\n出口（全期間・未回答を除く ' + r.exit.answered + '人）\n' + top(r.exit),
     SpreadsheetApp.getUi().ButtonSet.OK);
+}
+
+/** 「2026/10/20」や「2026/10/20 18:03:11」、日付の値を Date にする（読めなければ null） */
+function toDate(v) {
+  if (v instanceof Date) return v;
+  var m = String(v || '').match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
+  if (!m) return null;
+  return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), Number(m[4] || 0), Number(m[5] || 0), Number(m[6] || 0));
 }
 
 /** 流入元の印を、読みやすい名前にする（知らない印はそのまま） */
@@ -416,7 +434,7 @@ function srcLabel(v) {
     share_threads: 'Threads（カード）', share_x: 'X（カード）', share: '共有（旧）', member_link: '会員のリンク（旧）', threads: 'Threads（当社の投稿）', instagram: 'Instagram（当社の投稿）' };
   return m[v] || v;
 }
-function methodLabel(v) { return { native: '共有', line: 'LINE', save: '画像を保存', copy: 'コピー', threads: 'Threads', x: 'X' }[String(v)] || String(v); }
+function methodLabel(v) { return { native: '共有（送り先まで進んだ）', line: 'LINEボタンを押した', save: '画像を保存', copy: 'コピー', threads: 'Threadsを開いた', x: 'Xを開いた' }[String(v)] || String(v); }
 
 /* ───────── 小さな道具 ───────── */
 
