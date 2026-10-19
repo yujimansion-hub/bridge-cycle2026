@@ -7,6 +7,7 @@
   ・目的は2つ：食べたいものの投票と、開催案内の登録。出店者は出店者募集ページ（minakusa-ekimae.html）へ。
   ・灯りの応援・よりみちカード・お店を呼ぶ・点灯などの全部入りの版は、git のブランチ archive/yorimichi-full-20261019 に保存。
   ・商品と開催日は、JS の SHOPS と NEXT_EVENT を書き換えるだけで表示が切り替わる（空のあいだは何も出ない）。
+  ・JS の API に台帳（gas/yorimichi/Code.gs を公開したURL）を入れると、投票・登録は台帳へ送られ、次の情報更新・開催日・並ぶもの・投票結果は台帳から読む。
     日付と出店者が決まったら「今週の出店者・取り置き・お店を呼ぶ・カード」、3回開催後に「灯りの応援・点灯・手帳」を戻す。
   ・会社サイトの他ページとはリンクしない独立ページ（noindex）。開催日が確定したら noindex を外す。
   ・計測は bc-analytics.js（GA4）。出来事：yorimichi_persona／yorimichi_vote（via）／yorimichi_register（where）、どれも src（QRの印）付き。
@@ -432,7 +433,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <form class="reg-card" id="regForm" novalidate>
       <label class="lbl" for="rEmail">メールアドレス</label>
       <input type="email" id="rEmail" autocomplete="email" required placeholder="例：minakusa@example.com">
-      <p class="small" style="margin-top:14px">登録すると<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとします。受付は外部のフォームサービス（Formspree）を使います。配信はいつでも止められます。</p>
+      <p class="small" style="margin-top:14px">登録すると<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとします。<span id="regVia">受付は外部のフォームサービス（Formspree）を使います。</span>配信はいつでも止められます。</p>
       <button class="btn btn-tomato" type="submit" style="width:100%;margin-top:14px" id="regBtn">開催案内を受け取る（無料）</button>
       <div class="msg" id="regMsg" role="status"></div>
     </form>
@@ -497,7 +498,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <script>
 (function(){
   // ── 設定 ─────────────────────────────
-  var ENDPOINT = 'https://formspree.io/f/mojoqekd';   // 南草津専用のフォームができたら差し替える
+  // 台帳（Googleスプレッドシート＋Apps Script）のウェブアプリURL。入れると、送信先とページの表示が台帳に切り替わる。
+  // 空のあいだは、送信は Formspree、表示は下の NEXT_UPDATE・SHOPS・NEXT_EVENT・RESULTS を使う。台帳が止まったときもこの設定で表示される。
+  var API = '';
+  var ENDPOINT = 'https://formspree.io/f/mojoqekd';
   var PAGE_URL = 'https://www.bridgecycleco.com/minakusa-yorimichi.html';
 
   var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
@@ -532,6 +536,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function send(data){
+    if(API){
+      // 台帳（Apps Script）へ。text/plain で送ると事前確認の通信が要らず、そのまま受け付けられる
+      return fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)})
+        .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r.json(); })
+        .then(function(j){ if(!j || !j.ok) throw new Error((j && j.error) || 'ng'); return j; })
+        .catch(function(){ return toFormspree(data); });   // 台帳に届かないときは、これまでの受付先に送る
+    }
+    return toFormspree(data);
+  }
+  function toFormspree(data){
     return fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(data)})
       .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r; });
   }
@@ -543,30 +557,46 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   }
   function vals(form, name){ return Array.prototype.slice.call(form.querySelectorAll('input[name="'+name+'"]:checked')).map(function(i){ return i.value; }); }
 
-  if(NEXT_UPDATE){ document.getElementById('nextUpdateTop').textContent = '次の情報更新：'+NEXT_UPDATE+'（開催日ではありません）'; }
-  if(NEXT_UPDATE){ document.getElementById('nextUpdate').innerHTML = '次の更新は<b>'+NEXT_UPDATE+'</b>の予定です（開催準備の進み具合と投票の状況）。決まったものから、このページと開催案内でお知らせします。'; }
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-  if(SHOPS.length){
-    var allSet = SHOPS.every(function(s){ return s.status==='出店予定'; });
-    document.getElementById('shopsH').textContent = allSet ? (NEXT_EVENT ? '第1回に並ぶもの' : '出店が決まったお店') : '出店を検討中のお店';
-    if(!allSet) document.getElementById('shopsLead').textContent = 'お店から掲載の許可をいただいた商品だけを載せています。「検討中」のお店は、日程が合えば出店します。';
-    document.getElementById('shopList').innerHTML = SHOPS.map(function(s){
-      return '<article class="shop-card"><img src="'+esc(s.photo)+'" alt="'+esc(s.item)+'" width="640" height="480" loading="lazy">'+
-        '<div class="sc-b"><span class="sc-st'+(s.status==='出店予定'?'':' tbd')+'">'+esc(s.status||'検討中')+'</span><p class="sc-n">'+esc(s.item)+'</p><p class="sc-p">'+esc(s.price)+'<small style="font-size:12px;font-family:\'Noto Sans JP\',sans-serif;margin-left:4px">税込</small></p><p class="sc-s">'+esc(s.shop)+'</p></div></article>';
-    }).join('');
-    document.getElementById('shops').hidden = false;
+  // 表示の切り替え。最初はこのファイルの設定で描き、台帳があれば台帳の内容で描き直す
+  var coverPill = document.querySelector('.cover .pill').innerHTML, heroLabel = document.querySelector('.hr-l').textContent;
+  function render(d){
+    var nu = d.nextUpdate, top = document.getElementById('nextUpdateTop');
+    top.textContent = nu ? '次の情報更新：'+nu+'（開催日ではありません）' : '　';
+    if(nu) document.getElementById('nextUpdate').innerHTML = '次の更新は<b>'+esc(nu)+'</b>の予定です（開催準備の進み具合と投票の状況）。決まったものから、このページと開催案内でお知らせします。';
+    var ev = d.nextEvent, shops = d.shops || [];
+    if(ev){
+      var round = ev.round || '第1回';
+      document.querySelector('.cover .pill').innerHTML = '<i aria-hidden="true"></i>'+esc(round)+'　'+esc(ev.date)+' '+esc(ev.time)+'　'+esc(ev.place);
+      document.getElementById('nextTitle').textContent = round+' '+ev.date+' '+ev.time;
+      top.textContent = ev.place+(ev.shops ? '・'+ev.shops+'店が出店' : '');
+      document.querySelector('.hr-l').textContent = '出店するお店と前日のお知らせを、メールで受け取る（無料）';
+    } else {
+      document.querySelector('.cover .pill').innerHTML = coverPill;
+      document.getElementById('nextTitle').textContent = '第1回の日程は近日発表';
+      document.querySelector('.hr-l').textContent = heroLabel;
+    }
+    var sec = document.getElementById('shops');
+    if(shops.length){
+      var allSet = shops.every(function(s){ return s.status==='出店予定'; });
+      document.getElementById('shopsH').textContent = allSet ? (ev ? (ev.round||'第1回')+'に並ぶもの' : '出店が決まったお店') : '出店を検討中のお店';
+      document.getElementById('shopsLead').textContent = 'お店から掲載の許可をいただいた商品だけを載せています。'+(allSet ? '' : '「検討中」のお店は、日程が合えば出店します。');
+      document.getElementById('shopList').innerHTML = shops.map(function(s){
+        return '<article class="shop-card">'+(s.photo ? '<img src="'+esc(s.photo)+'" alt="'+esc(s.item)+'" width="640" height="480" loading="lazy">' : '')+
+          '<div class="sc-b"><span class="sc-st'+(s.status==='出店予定'?'':' tbd')+'">'+esc(s.status||'検討中')+'</span><p class="sc-n">'+esc(s.item)+'</p><p class="sc-p">'+esc(s.price)+'<small style="font-size:12px;font-family:\'Noto Sans JP\',sans-serif;margin-left:4px">税込</small></p><p class="sc-s">'+esc(s.shop)+'</p></div></article>';
+      }).join('');
+      sec.hidden = false;
+    } else { sec.hidden = true; }
+    var R = d.results, rEl = document.getElementById('results');
+    if(R && R.total >= 30 && R.top && R.top.length){
+      rEl.innerHTML = '<p class="r-h">有効回答'+esc(R.total)+'件（'+esc(R.asof)+'時点）</p><ol>'+R.top.slice(0,5).map(function(t){ return '<li>'+esc(t[0])+'　'+esc(t[1])+'人が選択</li>'; }).join('')+'</ol>'+(R.used ? '<p class="r-note">'+esc(R.used)+'</p>' : '');
+      rEl.hidden = false;
+    } else { rEl.hidden = true; }
   }
-  if(NEXT_EVENT){
-    var ev = NEXT_EVENT;
-    document.querySelector('.cover .pill').innerHTML = '<i aria-hidden="true"></i>第1回　'+esc(ev.date)+' '+esc(ev.time)+'　'+esc(ev.place);
-    document.getElementById('nextTitle').textContent = '第1回 '+ev.date+' '+ev.time;
-    document.getElementById('nextUpdateTop').textContent = ev.place+(ev.shops ? '・'+ev.shops+'店が出店' : '');
-    document.querySelector('.hr-l').textContent = '出店するお店と前日のお知らせを、メールで受け取る（無料）';
-  }
-  if(RESULTS && RESULTS.total >= 30){
-    var rEl = document.getElementById('results');
-    rEl.innerHTML = '<p class="r-h">有効回答'+RESULTS.total+'件（'+RESULTS.asof+'時点）</p><ol>'+RESULTS.top.slice(0,3).map(function(t){ return '<li>'+t[0]+'　'+t[1]+'人が選択</li>'; }).join('')+'</ol>'+(RESULTS.used ? '<p class="r-note">'+RESULTS.used+'</p>' : '');
-    rEl.hidden = false;
+  if(API) document.getElementById('regVia').textContent = '受付と配信にはGoogleのサービスを使います。';
+  render({nextUpdate:NEXT_UPDATE, nextEvent:NEXT_EVENT, shops:SHOPS, results:RESULTS});
+  if(API){
+    fetch(API+'?action=data').then(function(r){ return r.json(); }).then(function(d){ if(d && d.ok) render(d); }).catch(function(){});
   }
 
   // ── 投票 ─────────────────────────────
