@@ -551,7 +551,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     <p class="lead">運営だけでは、毎週の市は続きません。選ぶ、呼ぶ、灯す。関わり方は、あなたの好きな深さで。</p>
     <div class="ladder">
       <a class="rung" href="#vote"><span class="t">30秒</span><span class="v">選ぶ</span><p>食べたいものと、寄り道しやすい時間に投票。結果は出店者のメニュー選びに使われます。</p><span class="go">投票する</span></a>
-      <a class="rung" href="#invite"><span class="t">3分</span><span class="v">呼ぶ</span><p>好きなお店に「来てほしい」を届ける。出店が決まったら、あなたの推薦で来たお店として紹介します。</p><span class="go">お店を呼ぶ</span></a>
+      <a class="rung" href="#invite"><span class="t">3分</span><span class="v">呼ぶ</span><p>好きなお店に「来てほしい」を届ける。出店が決まったら、お店の了承を得て「お客さんの推薦で来たお店」として紹介します。</p><span class="go">お店を呼ぶ</span></a>
       <a class="rung hl" href="#akari"><span class="t">1灯1,000円から</span><span class="v">灯す</span><p>駅前の灯りを、ひとつ応援する。あなたの名前が、会場の灯り板にともります。</p><span class="go">灯りを応援する</span></a>
       <a class="rung" href="minakusa-ekimae.html?src=join"><span class="t">1枠3,300円から</span><span class="v">出る</span><p>自分のお店や、つくったものを駅前で売る。はじめての出店も歓迎です。</p><span class="go">出店について</span></a>
     </div>
@@ -655,6 +655,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
           <li>お店には、あなたのLINEやSNSから直接届けます</li>
           <li>運営にも推薦すると、同じお店への声をまとめてお店に伝え、出店をお願いします</li>
           <li>推薦したお店の出店が決まったら、開催案内でお知らせします</li>
+          <li>推薦されたお店の名前は、お店の了承なしにこのページへ載せません</li>
         </ul>
       </div>
       <form class="inv-card" id="invForm" novalidate>
@@ -681,7 +682,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
             <button class="btn btn-line btn-sm" type="button" id="invCopy">コピーする（InstagramのDMなどに）</button>
           </div>
           <button class="btn btn-night" type="button" id="invRecommend" style="width:100%;margin-top:12px">運営にも推薦する</button>
-          <p class="inv-note">運営への推薦では、お店の名前と入力した内容だけが届きます。あなたの名前や連絡先は送られません。お店への連絡は、お店が出店を考えるときにだけ、運営（BRIDGE CYCLE）から行います。</p>
+          <p class="inv-note">運営への推薦では、お店の名前と入力した内容だけが届きます。あなたの名前や連絡先は送られません。推薦の内容やお店の名前は、お店の了承なしに公開しません。運営からお店への連絡は、同じお店への声がまとまったときに行います。</p>
           <div class="msg" id="invMsgStatus" role="status"></div>
         </div>
       </form>
