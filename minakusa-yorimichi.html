@@ -9,6 +9,7 @@
   ・流入元は URL の ?src= で受け取り、投票・登録の送信内容に入れて区別する（例：?src=udc ?src=shop ?src=mansion ?src=rits ?src=matsuri）。
   ・送信先は Formspree（件名に【南草津】を付けて他の受付と区別）。
   ・開催が決まったら「SHOPS」配列に出店者を入れると、紹介カードが表示される。
+  ・最初の画面の絵はイメージ（実際の会場・屋台の配置ではない）。
 -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
@@ -24,168 +25,247 @@
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme:light;
-  --bg:#F4F5F1; --paper:#FFFFFF; --ink:#1B2626; --sub:#4A5856; --line:#D9DED8;
-  --green:#0D6B5E; --green-d:#08493F; --green-l:#E3EFEB;
-  --orange:#B5541A; --orange-l:#F3E6DC; --sun:#F2C14E;
-  --radius:18px;
+  --night:#1C2340; --night-2:#2A3263; --ink:#1C2340; --sub:#56607A;
+  --page:#F4F6FA; --paper:#FFFFFF; --line:#DCE1EC;
+  --tomato:#D9412B; --mustard:#E9B12F; --leaf:#1F7A5C; --bulb:#FFD66B;
+  --brand:#0D6B5E;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.75;-webkit-text-size-adjust:100%}
-a{color:var(--green)}a:hover{color:var(--green-d)}
+body{margin:0;background:var(--page);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.8;-webkit-text-size-adjust:100%}
+a{color:var(--leaf)}
 img{max-width:100%;display:block}
-h1,h2,h3,.disp{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;letter-spacing:.02em;line-height:1.35;margin:0}
+h1,h2,h3{margin:0;font-weight:400;line-height:1.3;word-break:auto-phrase}
+.lead,.pick .say{word-break:auto-phrase}
+.dg{font-family:'Dela Gothic One',sans-serif;font-weight:400;letter-spacing:.01em}
 p{margin:0}
-::selection{background:var(--orange-l)}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:3px solid var(--orange);outline-offset:2px}
+::selection{background:var(--bulb)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:2px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-section{padding:64px 0}
-section[id]{scroll-margin-top:72px}
-.eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--orange);letter-spacing:.08em;margin-bottom:10px}
-.lead{color:var(--sub);margin-top:12px;max-width:640px}
-.h2{font-size:clamp(24px,4.4vw,34px)}
+section{padding:72px 0}
+section[id]{scroll-margin-top:64px}
+.h2{font-family:'Dela Gothic One',sans-serif;font-size:clamp(26px,4.6vw,38px)}
+.lead{color:var(--sub);margin-top:14px;max-width:36em}
+.small{font-size:13px;color:var(--sub);line-height:1.7}
 
-/* header */
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px}
-.brand{display:flex;flex-direction:column;line-height:1.3;text-decoration:none;color:var(--ink)}
-.brand b{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:17px}
-.brand span{font-size:11px;color:var(--sub)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 22px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.3;min-height:48px;font-family:inherit}
-.btn-main{background:var(--orange);color:#fff}.btn-main:hover{background:#97440F;color:#fff}
-.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-d);color:#fff}
-.btn-ghost{background:var(--paper);color:var(--green);border-color:var(--green)}.btn-ghost:hover{background:var(--green-l)}
-.btn-sm{padding:8px 14px;font-size:14px;min-height:40px}
-.btn[disabled]{opacity:.5;cursor:not-allowed}
+/* ボタン */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.3;min-height:50px;font-family:inherit;transition:transform .12s}
+.btn:active{transform:translateY(1px)}
+.btn-tomato{background:var(--tomato);color:#fff;box-shadow:0 4px 0 #9E2A18}
+.btn-tomato:hover{background:#C2361F;color:#fff}
+.btn-bulb{background:var(--bulb);color:var(--night);box-shadow:0 4px 0 #C99A1E}
+.btn-bulb:hover{background:#FFCB45}
+.btn-line{background:transparent;color:inherit;border-color:currentColor}
+.btn-sm{padding:8px 16px;font-size:14px;min-height:40px;box-shadow:none}
+.btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
 
-/* hero */
-.hero{padding:40px 0 56px;background:linear-gradient(180deg,#FFF8EF 0%,var(--bg) 100%)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-.status{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--sub)}
-.status i{width:9px;height:9px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px #FBEBC2}
-.hero h1{font-size:clamp(34px,6.6vw,58px);margin:18px 0 0}
-.hero h1 em{font-style:normal;color:var(--orange)}
-.hero .lead{font-size:17px;color:var(--ink)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.hero-note{font-size:13px;color:var(--sub);margin-top:14px}
-.hero-photo{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3.4;background:#cfd8d4}
-.hero-photo img{width:100%;height:100%;object-fit:cover}
-.hero-photo .stall{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;justify-content:center;padding:0 16px 18px}
-.tent{flex:1;max-width:110px;background:var(--paper);border-radius:10px;padding:0 0 8px;text-align:center;font-size:12px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.18);overflow:hidden}
-.tent::before{content:"";display:block;height:16px;margin-bottom:6px;background:repeating-linear-gradient(90deg,var(--orange) 0 14px,#fff 14px 28px)}
-.tent:nth-child(2)::before{background:repeating-linear-gradient(90deg,var(--green) 0 14px,#fff 14px 28px)}
-.tent:nth-child(3)::before{background:repeating-linear-gradient(90deg,var(--sun) 0 14px,#fff 14px 28px)}
-.hero-photo figcaption{position:absolute;top:12px;left:12px;background:rgba(27,38,38,.72);color:#fff;font-size:11px;padding:4px 10px;border-radius:999px}
+/* ヘッダー */
+header{position:sticky;top:0;z-index:30;background:rgba(28,35,64,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px}
+.brand{color:#fff;text-decoration:none;font-family:'Dela Gothic One',sans-serif;font-size:17px;line-height:1.2}
+.brand small{display:block;font-family:'Noto Sans JP',sans-serif;font-size:11px;opacity:.75;margin-top:2px}
 
-/* areas */
-.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.area img{aspect-ratio:16/10;object-fit:cover;width:100%;height:auto}
-.area .body{padding:18px 20px 22px}
-.area h3{font-size:20px}
-.area .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--green);background:var(--green-l);border-radius:999px;padding:2px 10px;margin-bottom:8px}
-.area dl{margin:12px 0 0;font-size:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
-.area dt{color:var(--sub)}
-.area dd{margin:0;font-weight:500}
-.small{font-size:13px;color:var(--sub)}
+/* ===== 最初の画面：時間で変わる駅前 ===== */
+.hero{position:relative;overflow:hidden;overflow:clip;color:var(--hero-ink,#fff);transition:color .8s}
+.sky{position:absolute;inset:0;transition:opacity 1s}
+.sky.morning{background:linear-gradient(180deg,#A9DAF5 0%,#E7F4F6 55%,#FCEFC9 100%)}
+.sky.noon{background:linear-gradient(180deg,#5FB4EC 0%,#A8DBF6 60%,#E3F4FB 100%)}
+.sky.eve{background:linear-gradient(180deg,#26295A 0%,#7B3E6A 38%,#E3683A 72%,#F5B357 100%)}
+.sky.night{background:linear-gradient(180deg,#0E1331 0%,#1D2452 60%,#343A73 100%)}
+.hero .sky{opacity:0}
+.hero[data-t="morning"] .sky.morning,.hero[data-t="noon"] .sky.noon,.hero[data-t="eve"] .sky.eve,.hero[data-t="night"] .sky.night{opacity:1}
+.hero[data-t="morning"],.hero[data-t="noon"]{--hero-ink:#1C2340}
+.orb{position:absolute;width:86px;height:86px;border-radius:50%;transition:left 1.2s cubic-bezier(.4,0,.2,1),top 1.2s cubic-bezier(.4,0,.2,1),background 1s,box-shadow 1s}
+.hero[data-t="morning"] .orb{left:58%;top:58%;background:#FFE08A;box-shadow:0 0 60px 20px rgba(255,224,138,.6)}
+.hero[data-t="noon"] .orb{left:74%;top:8%;background:#FFF3B8;box-shadow:0 0 70px 26px rgba(255,243,184,.7)}
+.hero[data-t="eve"] .orb{left:83%;top:46%;background:#FF9A55;box-shadow:0 0 80px 30px rgba(255,140,70,.55)}
+.hero[data-t="night"] .orb{left:80%;top:10%;background:#F4F1DE;box-shadow:0 0 40px 8px rgba(244,241,222,.35),inset -18px -6px 0 0 #D8D3B6}
+.hero-in{position:relative;z-index:2;padding-top:44px}
+.hdr-cta .short{display:none}
+.hero h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,7.4vw,76px);line-height:1.18;letter-spacing:.02em}
+.hero h1 span{display:block}
+.hero .lead{color:inherit;opacity:.88;font-size:17px;margin-top:18px;max-width:30em}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35)}
+.hero[data-t="morning"] .pill,.hero[data-t="noon"] .pill{background:rgba(255,255,255,.6);border-color:rgba(28,35,64,.15)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--bulb);box-shadow:0 0 0 3px rgba(255,214,107,.35)}
 
-/* vote */
-.vote-sec{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.vote-box{max-width:760px;margin:28px auto 0}
-fieldset{border:0;margin:0 0 26px;padding:0}
-legend{font-weight:700;font-size:17px;margin-bottom:10px;padding:0}
-legend small{font-weight:500;color:var(--sub);font-size:13px;margin-left:6px}
+.scene{position:relative;z-index:1;display:block;width:100%;height:clamp(240px,34vw,400px);margin-top:clamp(-150px,-9vw,8px)}
+.scene .city{fill:var(--city,#3A3F72);transition:fill 1s}
+.hero[data-t="morning"]{--city:#B7CBE0;--bld:#E9EEF5;--ground:#C9C2B3;--people:#55607E;--win:#BFD3E6}
+.hero[data-t="noon"]{--city:#A9C3DE;--bld:#F3F6FA;--ground:#CFC7B6;--people:#4A5577;--win:#C8DCEE}
+.hero[data-t="eve"]{--city:#4B3A6A;--bld:#5E5078;--ground:#3A2F4B;--people:#1F1A2D;--win:#FFD27A}
+.hero[data-t="night"]{--city:#262D5C;--bld:#323A6E;--ground:#1A1F3F;--people:#0C1029;--win:#FFD66B}
+.scene .bld{fill:var(--bld);transition:fill 1s}
+.scene .ground{fill:var(--ground);transition:fill 1s}
+.scene .ppl{fill:var(--people);transition:fill 1s}
+.scene .win{fill:var(--win);transition:fill 1s}
+.bulb{fill:#FFFFFF;opacity:.45;transition:opacity .6s,fill .6s}
+.bulb-glow{fill:url(#glow);opacity:0;transition:opacity .6s}
+.hero[data-t="eve"] .bulb,.hero[data-t="night"] .bulb{fill:var(--bulb);opacity:1}
+.hero[data-t="eve"] .bulb-glow,.hero[data-t="night"] .bulb-glow{opacity:1}
+.hero.lighting .bulb,.hero.lighting .bulb-glow{animation:switchon .5s both;animation-delay:var(--d)}
+@keyframes switchon{0%{opacity:0}40%{opacity:1}55%{opacity:.25}100%{opacity:1}}
+.tent-sign{font-family:'Dela Gothic One',sans-serif;font-size:15px;fill:#1C2340}
+
+/* 時間を選ぶ帯 */
+.timebar{position:relative;z-index:3;background:var(--night);color:#fff;padding:22px 0 26px}
+.timebar .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.tq{font-weight:700;font-size:15px;margin-bottom:10px}
+.seg{display:flex;gap:6px;background:rgba(255,255,255,.08);border-radius:999px;padding:5px}
+.seg button{flex:1;border:0;background:transparent;color:#fff;border-radius:999px;padding:9px 14px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;min-height:44px}
+.seg button b{display:block;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:17px;line-height:1.1}
+.seg button[aria-pressed="true"]{background:var(--bulb);color:var(--night)}
+.pick{background:#fff;color:var(--ink);border-radius:20px;padding:18px 20px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center}
+.pick .emo{font-size:40px;line-height:1;letter-spacing:-.08em}
+.pick .where{font-size:12px;font-weight:700;color:var(--tomato)}
+.pick .say{font-family:'Dela Gothic One',sans-serif;font-size:20px;line-height:1.35}
+.pick .note{font-size:12px;color:var(--sub);margin-top:2px}
+
+/* ===== 3つの出口 ===== */
+.exits{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.exit{background:var(--paper);border-radius:6px 6px 18px 18px;position:relative;padding:44px 22px 24px;box-shadow:0 1px 0 var(--line)}
+.exit::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;border-radius:6px 6px 0 0;background:repeating-linear-gradient(90deg,var(--c) 0 22px,#fff 22px 44px)}
+.exit::after{content:"";position:absolute;left:0;right:0;top:22px;height:11px;background:radial-gradient(circle at 11px 0,var(--c) 10.5px,transparent 11px) 0 0/44px 11px repeat-x}
+.exit:nth-child(1){--c:var(--tomato)}.exit:nth-child(2){--c:var(--mustard)}.exit:nth-child(3){--c:var(--leaf)}
+.exit .where{font-size:13px;font-weight:700;color:var(--sub)}
+.exit h3{font-family:'Dela Gothic One',sans-serif;font-size:22px;margin-top:4px}
+.exit p{font-size:15px;margin-top:10px}
+.exit .when{margin-top:14px;font-size:14px;border-top:1px dashed var(--line);padding-top:12px}
+.exit .when b{color:var(--ink)}
+.exit .menu{font-size:26px;margin-top:6px;letter-spacing:.05em}
+
+/* ===== 投票（夜市） ===== */
+.vote-sec{background:var(--night);color:#fff;position:relative;padding-top:96px}
+.garland{position:absolute;left:0;top:0;width:100%;height:64px;pointer-events:none}
+.vote-sec{overflow:hidden}
+.vote-sec .lead{color:#C9CEE6}
+.vote-box{max-width:780px;margin:30px auto 0}
+fieldset{border:0;margin:0 0 30px;padding:0}
+legend{font-weight:700;font-size:17px;margin-bottom:12px;padding:0}
+legend small{font-weight:500;opacity:.7;font-size:13px;margin-left:8px}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{position:relative}
 .chip input{position:absolute;opacity:0;width:1px;height:1px}
-.chip span{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);font-weight:500;cursor:pointer;user-select:none;transition:background .15s,border-color .15s}
-.chip input:checked+span{background:var(--orange-l);border-color:var(--orange);color:#7A3608;font-weight:700}
-.chip input:checked+span::before{content:"✓"}
-.chip input:focus-visible+span{outline:3px solid var(--orange);outline-offset:2px}
-.chip input:disabled+span{opacity:.45;cursor:not-allowed}
-textarea,input[type=email],input[type=text]{width:100%;font-size:16px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
+.chip span{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:9px 16px 9px 14px;border-radius:8px;background:#fff;color:var(--ink);font-weight:500;cursor:pointer;user-select:none;position:relative;transition:transform .12s,background .15s}
+.chip span em{font-style:normal;font-size:20px;line-height:1}
+.chip:hover span{transform:translateY(-2px)}
+.chip input:checked+span{background:var(--bulb);font-weight:700;box-shadow:0 0 0 3px rgba(255,214,107,.35),0 0 24px rgba(255,214,107,.45)}
+.chip input:focus-visible+span{outline:3px solid var(--mustard);outline-offset:3px}
+.chip input:disabled+span{opacity:.35;cursor:not-allowed;transform:none}
+.chips.soft .chip span{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.chips.soft .chip input:checked+span{background:#fff;color:var(--ink)}
+textarea,input[type=email]{width:100%;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:inherit}
 textarea{min-height:84px;resize:vertical}
-.counter{font-size:13px;color:var(--sub);margin-top:8px}
-.form-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px}
+.counter{font-size:13px;opacity:.75;margin-top:10px}
+.counter b{color:var(--bulb);font-size:16px}
+.form-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .msg{margin-top:14px;padding:14px 16px;border-radius:12px;font-size:15px;display:none}
-.msg.ok{display:block;background:var(--green-l);color:var(--green-d)}
-.msg.ng{display:block;background:#FBE9E4;color:#8A2A12}
-.done{display:none;text-align:center;padding:28px 18px;background:var(--green-l);border-radius:var(--radius)}
-.done h3{font-size:22px;color:var(--green-d)}
-.done p{margin-top:8px}
-.done .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.msg.ok{display:block;background:#E1F1EA;color:#0F4E3A}
+.msg.ng{display:block;background:#FBE5E0;color:#8A2A12}
+.done{display:none;text-align:center;padding:34px 20px;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,214,107,.4)}
+.done .big{font-size:56px;line-height:1}
+.done h3{font-family:'Dela Gothic One',sans-serif;font-size:26px;margin-top:10px;color:var(--bulb)}
+.done p{margin-top:8px;color:#D6DAEE}
+.done .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px}
 
-/* shops */
-.shops{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.shop img{aspect-ratio:1/1;object-fit:cover;width:100%;height:auto}
-.shop .body{padding:16px 18px 20px}
-.shop h3{font-size:18px}
-.shop .price{font-weight:700;color:var(--orange);margin-top:4px}
-.shop .word{margin-top:10px;font-size:14px;background:var(--bg);border-radius:10px;padding:10px 12px}
-.shop .meta{font-size:13px;color:var(--sub);margin-top:10px}
-.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--orange-l);color:#7A3608;margin-right:6px}
-.placeholder{border:2px dashed #C3CBC5;background:transparent;display:flex;flex-direction:column;justify-content:center;padding:26px 22px;min-height:260px}
-.placeholder .ph-img{height:90px;border-radius:12px;background:repeating-linear-gradient(135deg,#E8ECE7 0 10px,#F1F3EF 10px 20px);margin-bottom:16px}
-.placeholder b{font-family:'Zen Kaku Gothic New',sans-serif;font-size:17px}
+/* ===== 屋台（出店者） ===== */
+.stalls{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.stall{background:var(--paper);border-radius:6px 6px 18px 18px;overflow:hidden;position:relative}
+.stall .roof{height:40px;background:repeating-linear-gradient(90deg,var(--c,var(--tomato)) 0 22px,#fff 22px 44px);position:relative}
+.stall .roof::after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:11px;background:radial-gradient(circle at 11px 0,var(--c,var(--tomato)) 10.5px,transparent 11px) 0 0/44px 11px repeat-x}
+.stall:nth-child(3n+2){--c:var(--mustard)}.stall:nth-child(3n){--c:var(--leaf)}
+.stall .body{padding:26px 20px 22px}
+.stall.empty{background:transparent;border:2px dashed #B8C0D3;border-top:0}
+.stall.empty .roof{opacity:.35}
+.stall.empty .q{font-family:'Dela Gothic One',sans-serif;font-size:44px;color:#B8C0D3;line-height:1}
+.stall.empty h3{font-family:'Dela Gothic One',sans-serif;font-size:18px;margin-top:10px}
+.stall img{aspect-ratio:1/1;object-fit:cover;width:100%;height:auto}
+.stall h3{font-size:19px;font-family:'Dela Gothic One',sans-serif}
+.stall .price{font-weight:700;color:var(--tomato);margin-top:4px}
+.stall .word{margin-top:10px;font-size:14px;background:var(--page);border-radius:10px;padding:10px 12px}
+.stall .meta{font-size:13px;color:var(--sub);margin-top:10px}
+.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--bulb);color:var(--night);margin-bottom:8px}
 
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;counter-reset:f}
-.flow li{list-style:none;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 22px;position:relative}
-.flow li::before{counter-increment:f;content:counter(f);display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;align-items:center;justify-content:center;margin-bottom:10px}
-.flow ol{padding:0;margin:0}
-.flow h3{font-size:18px}
+.torioki{margin-top:56px;display:grid;grid-template-columns:.9fr 1.1fr;gap:32px;align-items:start;background:var(--paper);border-radius:24px;padding:30px}
+.torioki h3{font-family:'Dela Gothic One',sans-serif;font-size:24px}
+.torioki ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.torioki li{counter-increment:s;position:relative;padding:0 0 16px 46px}
+.torioki li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--night);color:var(--bulb);font-family:'Dela Gothic One',sans-serif;display:flex;align-items:center;justify-content:center}
+.torioki li b{display:block}
 
-/* info table */
-.info{width:100%;border-collapse:collapse;margin-top:26px;background:var(--paper);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
-.info th,.info td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
-.info th{width:9em;background:#FAFBF8;color:var(--sub);font-weight:700;white-space:nowrap}
+/* 開催情報 */
+.info{width:100%;border-collapse:collapse;margin-top:28px;background:var(--paper);border-radius:18px;overflow:hidden}
+.info th,.info td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+.info th{width:8em;color:var(--sub);font-weight:700;white-space:nowrap}
 .info tr:last-child th,.info tr:last-child td{border-bottom:0}
-.pend{display:inline-block;font-size:12px;font-weight:700;color:#7A5A06;background:#FBEBC2;border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:1px}
+.pend{display:inline-block;font-size:12px;font-weight:700;color:#6B4D00;background:#FCE7A6;border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:1px}
 
-/* register */
-.reg{background:var(--green);color:#fff}
-.reg .eyebrow{color:var(--sun)}
-.reg .lead{color:#DCEDE8}
-.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:8px}
-.reg-card{background:var(--paper);color:var(--ink);border-radius:22px;padding:26px 24px}
+/* 案内登録 */
+.reg{background:var(--mustard)}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.reg .lead{color:#3A2F10}
+.reg ul{margin:22px 0 0;padding:0;list-style:none}
+.reg li{padding-left:28px;position:relative;margin-bottom:10px;font-weight:500}
+.reg li::before{content:"";position:absolute;left:2px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--night)}
+.reg-card{background:#fff;border-radius:22px;padding:26px 24px;box-shadow:0 8px 0 rgba(28,35,64,.18)}
 .reg-card label.lbl{display:block;font-weight:700;margin-bottom:8px}
-.reg ul.points{margin:22px 0 0;padding:0;list-style:none}
-.reg ul.points li{padding-left:30px;position:relative;margin-bottom:12px}
-.reg ul.points li::before{content:"";position:absolute;left:0;top:7px;width:18px;height:18px;border-radius:50%;background:var(--sun)}
-.reg-card .chip span{background:var(--bg)}
+.reg-card .chip span{background:var(--page);border:1px solid var(--line)}
+.reg-card .chip input:checked+span{background:var(--night);color:#fff;box-shadow:none}
 
-/* seller */
-.seller{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:32px 30px}
-.seller h2{font-size:clamp(22px,3.6vw,28px)}
-.seller .nums{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-.seller .nums div{background:var(--bg);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--sub)}
-.seller .nums b{display:block;font-size:20px;color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif}
-
-.about{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+/* 社会実験・出店者 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:26px}
 .about p+p{margin-top:12px}
+.seller{background:var(--night);color:#fff;border-radius:26px;padding:36px 32px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+.seller h2{font-family:'Dela Gothic One',sans-serif;font-size:clamp(24px,3.8vw,32px)}
+.seller p{color:#C9CEE6;margin-top:10px}
+.seller .nums{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.seller .nums div{background:rgba(255,255,255,.08);border-radius:12px;padding:9px 14px;font-size:13px;color:#C9CEE6}
+.seller .nums b{display:block;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:20px;color:var(--bulb)}
 
-footer{padding:36px 0 48px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);background:var(--paper)}
+.share{text-align:center}
+.share .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+
+footer{padding:36px 0 48px;font-size:13px;color:var(--sub);background:var(--paper)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
-/* mobile bar */
 .mbar{display:none}
 @media (max-width:860px){
-  .hero-grid,.reg-grid,.seller,.about{grid-template-columns:1fr}
-  .hero-grid{gap:28px}
-  .areas,.shops,.flow{grid-template-columns:1fr}
-  .hero{padding-top:24px}
-  section{padding:52px 0}
+  section{padding:56px 0}
+  .timebar .wrap,.reg-grid,.about,.seller,.torioki{grid-template-columns:1fr}
+  .timebar .wrap{gap:16px}
+  .seg button{padding:8px 4px;font-size:12px}
+  .seg button b{font-size:15px}
+  .exits,.stalls{grid-template-columns:1fr}
+  .pick{grid-template-columns:auto 1fr}
+  .pick .btn{grid-column:1/-1}
+  .pick .emo{font-size:34px}
   .hide-sp{display:none}
-  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:1px solid var(--line)}
-  .mbar .btn{flex:1;padding:12px 8px;font-size:15px}
-  body{padding-bottom:76px}
-  .info th{width:6.5em;padding:12px}
+  .hero-in{padding-top:30px}
+  .scene{margin-top:0}
+  .orb{width:64px;height:64px}
+  .hero[data-t="morning"] .orb{left:70%;top:66%}
+  .hero[data-t="noon"] .orb{left:76%;top:57%}
+  .hero[data-t="eve"] .orb{left:80%;top:68%}
+  .hero[data-t="night"] .orb{left:78%;top:58%}
+  .brand{font-size:15px}
+  .brand small{display:none}
+  .hdr-cta .full{display:none}
+  .hdr-cta .short{display:inline}
+  .vote-sec{padding-top:84px}
+  .torioki,.seller{padding:26px 20px}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(28,35,64,.96)}
+  .mbar .btn{flex:1;padding:10px 6px;font-size:15px;min-height:46px}
+  body{padding-bottom:78px}
+  .info th{width:5.5em;padding:12px}
   .info td{padding:12px}
-  .seller{padding:24px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
 }
 </style>
 </head>
@@ -193,93 +273,148 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#top"><b>南草津駅前、よりみち。</b><span>南草津駅周辺まちづくりの社会実験</span></a>
+    <a class="brand" href="#top">南草津駅前、よりみち。<small>南草津駅周辺まちづくりの社会実験</small></a>
     <div style="display:flex;gap:8px">
-      <a class="btn btn-ghost btn-sm hide-sp" href="#vote">食べたいものを選ぶ</a>
-      <a class="btn btn-main btn-sm" href="#register">開催案内を受け取る</a>
+      <a class="btn btn-line btn-sm hide-sp" href="#vote" style="color:#fff">食べたいものを選ぶ</a>
+      <a class="btn btn-bulb btn-sm hdr-cta" href="#register"><span class="full">開催案内を受け取る</span><span class="short">案内を受け取る</span></a>
     </div>
   </div>
 </header>
 
 <main id="top">
 
-<!-- ① 最初の画面 -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="status"><i aria-hidden="true"></i>準備中：開催日は調整しています</span>
-      <h1>帰り道に、<br><em>寄り道</em>したくなる<br>駅前へ。</h1>
-      <p class="lead">JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です。夕ごはんのおかず、朝のパン、学校帰りの軽食。<br>どんなお店があったらうれしいか、先に教えてください。</p>
-      <div class="hero-cta">
-        <a class="btn btn-main" href="#vote">食べたいものを選ぶ（30秒）</a>
-        <a class="btn btn-ghost" href="#register">開催案内を受け取る</a>
-      </div>
-      <p class="hero-note">投票の結果は、出店するお店にも共有して、メニュー選びに使ってもらいます。</p>
-    </div>
-    <figure class="hero-photo" style="margin:0">
-      <img src="images/minakusa/concourse.jpg" alt="南草津駅の改札前の自由通路を人が行き交う様子（ぼかし加工）" width="1200" height="650">
-      <figcaption>南草津駅 改札前の自由通路（現況）</figcaption>
-      <div class="stall" aria-hidden="true">
-        <div class="tent">西口</div><div class="tent">改札前</div><div class="tent">東口</div>
-      </div>
-    </figure>
+<!-- 最初の画面：時間で景色と並ぶお店が変わる -->
+<section class="hero lighting" id="hero" data-t="eve" style="padding:0">
+  <div class="sky morning"></div><div class="sky noon"></div><div class="sky eve"></div><div class="sky night"></div>
+  <div class="orb" aria-hidden="true"></div>
+
+  <div class="wrap hero-in">
+    <span class="pill"><i aria-hidden="true"></i>準備中・開催日は調整しています</span>
+    <h1 style="margin-top:18px"><span>帰り道に、</span><span>寄り道したくなる</span><span>駅前へ。</span></h1>
+    <p class="lead">JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です。<br class="hide-sp">あったらうれしいもの、先に教えてください。</p>
   </div>
+
+  <svg class="scene" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMax slice" role="img" aria-label="駅前に屋台が並び、電球が灯るイメージ図">
+    <defs>
+      <pattern id="stR" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#D9412B"/><rect x="12" width="12" height="10" fill="#FFFFFF"/></pattern>
+      <pattern id="stY" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#E9B12F"/><rect x="12" width="12" height="10" fill="#FFFFFF"/></pattern>
+      <pattern id="stG" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#1F7A5C"/><rect x="12" width="12" height="10" fill="#FFFFFF"/></pattern>
+      <radialGradient id="glow"><stop offset="0" stop-color="#FFE39A" stop-opacity=".85"/><stop offset="1" stop-color="#FFE39A" stop-opacity="0"/></radialGradient>
+    </defs>
+
+    <!-- 遠くのまち -->
+    <g class="city">
+      <rect x="0" y="170" width="70" height="160"/><rect x="66" y="130" width="54" height="200"/><rect x="380" y="150" width="60" height="180"/>
+      <rect x="436" y="186" width="44" height="144"/><rect x="900" y="120" width="70" height="210"/><rect x="966" y="168" width="50" height="162"/>
+      <rect x="1012" y="140" width="80" height="190"/><rect x="1090" y="182" width="50" height="148"/><rect x="1136" y="150" width="70" height="180"/>
+      <rect x="560" y="196" width="80" height="134"/><rect x="740" y="176" width="60" height="154"/>
+    </g>
+
+    <!-- 駅舎 -->
+    <g>
+      <rect class="bld" x="110" y="168" width="290" height="162"/>
+      <rect x="98" y="156" width="314" height="16" fill="#1C2340" opacity=".85"/>
+      <rect x="185" y="182" width="140" height="32" rx="4" fill="#FFFFFF"/>
+      <text x="255" y="205" text-anchor="middle" class="tent-sign" style="font-size:17px">JR 南草津</text>
+      <g class="win">
+        <rect x="128" y="228" width="40" height="30" rx="2"/><rect x="178" y="228" width="40" height="30" rx="2"/><rect x="292" y="228" width="40" height="30" rx="2"/><rect x="342" y="228" width="40" height="30" rx="2"/>
+      </g>
+      <rect x="226" y="236" width="58" height="94" fill="#1C2340" opacity=".7"/>
+    </g>
+
+    <!-- 地面 -->
+    <rect class="ground" x="0" y="328" width="1200" height="52"/>
+
+    <!-- 電球の飾りつけ（電球はJSで並べる） -->
+    <rect x="452" y="150" width="5" height="180" fill="#1C2340" opacity=".8"/>
+    <rect x="923" y="150" width="5" height="180" fill="#1C2340" opacity=".8"/>
+    <path id="wire" d="M455 156 Q 572 206 690 156 Q 808 206 925 156" fill="none" stroke="#1C2340" stroke-width="1.6" opacity=".8"/>
+    <g id="bulbs"></g>
+
+    <!-- 屋台 -->
+    <g id="tents"></g>
+
+    <!-- 人 -->
+    <g class="ppl">
+      <circle cx="430" cy="290" r="9"/><rect x="421" y="301" width="18" height="30" rx="8"/>
+      <circle cx="600" cy="298" r="8"/><rect x="592" y="308" width="16" height="23" rx="7"/>
+      <circle cx="616" cy="304" r="6"/><rect x="610" y="312" width="12" height="18" rx="5"/>
+      <circle cx="782" cy="288" r="9"/><rect x="773" y="299" width="18" height="32" rx="8"/>
+      <circle cx="948" cy="292" r="9"/><rect x="939" y="303" width="18" height="28" rx="8"/>
+      <circle cx="1052" cy="290" r="9"/><rect x="1043" y="301" width="18" height="30" rx="8"/>
+    </g>
+
+    <!-- バス -->
+    <g transform="translate(1000 262)">
+      <rect width="190" height="62" rx="14" fill="#2F6FB0"/>
+      <rect x="12" y="10" width="166" height="22" rx="5" fill="#CFE3F5" class="win" opacity=".9"/>
+      <circle cx="40" cy="64" r="11" fill="#1C2340"/><circle cx="150" cy="64" r="11" fill="#1C2340"/>
+    </g>
+  </svg>
 </section>
 
-<!-- ② どこで、どんな -->
+<!-- 時間を選ぶ -->
+<div class="timebar" id="timebar">
+  <div class="wrap">
+    <div>
+      <p class="tq">あなたが駅を通るのは？</p>
+      <div class="seg" role="group" aria-label="駅を通る時間">
+        <button type="button" data-t="morning" aria-pressed="false"><b>7:00</b>朝</button>
+        <button type="button" data-t="noon" aria-pressed="false"><b>12:00</b>土日の昼</button>
+        <button type="button" data-t="eve" aria-pressed="true"><b>18:00</b>夕方</button>
+        <button type="button" data-t="night" aria-pressed="false"><b>20:00</b>夜</button>
+      </div>
+    </div>
+    <div class="pick" aria-live="polite">
+      <div class="emo" id="pEmo" aria-hidden="true"></div>
+      <div>
+        <p class="where" id="pWhere"></p>
+        <p class="say" id="pSay"></p>
+        <p class="note">並ぶお店のイメージです。実際のお店は投票と募集で決まります。</p>
+      </div>
+      <a class="btn btn-tomato btn-sm" href="#vote" id="pVote">これに1票</a>
+    </div>
+  </div>
+</div>
+
+<!-- 3つの出口 -->
 <section id="where">
   <div class="wrap">
-    <span class="eyebrow">WHERE</span>
-    <h2 class="h2">同じ駅でも、出口ごとに<br class="hide-sp">楽しみ方が変わります。</h2>
-    <p class="lead">3か所に、テントやキッチンカー、改札前のブースが並ぶ予定です。時間はいまの予定で、開催日とあわせて確定します。</p>
-    <div class="areas">
-      <article class="card area">
-        <img src="images/minakusa/west.jpg" alt="西口の東山道記念公園と駅前の航空写真" loading="lazy" width="826" height="509">
-        <div class="body">
-          <span class="tag">西口・公園前</span>
-          <h3>公園の前で、夕方のおかずを。</h3>
-          <p class="small" style="margin-top:6px">東山道記念公園の前。芝生の近くで食べても、持ち帰っても。</p>
-          <dl>
-            <dt>予定</dt><dd>金曜の夕方／土・日・祝の昼</dd>
-            <dt>こんな店</dt><dd>惣菜・お弁当・おやつ・ドリンク</dd>
-          </dl>
-        </div>
+    <h2 class="h2">出口ごとに、<br class="hide-sp">寄り道の楽しみ方がちがう。</h2>
+    <p class="lead">テントやキッチンカー、改札前のブースが並ぶ予定です。時間はいまの予定で、開催日とあわせて決まります。</p>
+    <div class="exits">
+      <article class="exit">
+        <p class="where">西口・東山道記念公園の前</p>
+        <h3>公園の前で、<br>今夜のおかずを。</h3>
+        <p>芝生の近くで食べても、持ち帰っても。</p>
+        <p class="menu" aria-hidden="true">🍱🥗🍩🧃</p>
+        <p class="when"><b>金曜</b>の夕方、<b>土日祝</b>の昼</p>
       </article>
-      <article class="card area">
-        <img src="images/minakusa/concourse.jpg" alt="改札前の自由通路（ぼかし加工）" loading="lazy" width="1200" height="650">
-        <div class="body">
-          <span class="tag">改札前・自由通路</span>
-          <h3>雨の日も、通り道で。</h3>
-          <p class="small" style="margin-top:6px">改札を出てすぐの屋内ブース。乗り換えの前に、手みやげを。</p>
-          <dl>
-            <dt>予定</dt><dd>金曜の朝と夕方／土・日・祝の昼</dd>
-            <dt>こんな店</dt><dd>朝のパン・焼き菓子・草津の手みやげ</dd>
-          </dl>
-        </div>
+      <article class="exit">
+        <p class="where">改札前・自由通路</p>
+        <h3>雨の日も、<br>改札を出てすぐ。</h3>
+        <p>屋内のブース。朝のパンや、手みやげを。</p>
+        <p class="menu" aria-hidden="true">🥐☕🎁🍪</p>
+        <p class="when"><b>金曜</b>の朝と夕方、<b>土日祝</b>の昼</p>
       </article>
-      <article class="card area">
-        <img src="images/minakusa/east.jpg" alt="東口の駅前広場とバスのりばの航空写真" loading="lazy" width="865" height="545">
-        <div class="body">
-          <span class="tag">東口・駅前広場</span>
-          <h3>バスを降りたら、ひと息。</h3>
-          <p class="small" style="margin-top:6px">大学行きのバスのりばと、フェリエの前。いちばんお店が多いエリアです。</p>
-          <dl>
-            <dt>予定</dt><dd>金曜の夕方〜夜／土・日・祝の昼と夜</dd>
-            <dt>こんな店</dt><dd>軽食・ドリンク・夜のおつまみ</dd>
-          </dl>
-        </div>
+      <article class="exit">
+        <p class="where">東口・駅前広場</p>
+        <h3>バスを降りたら、<br>ちょっとひと息。</h3>
+        <p>大学行きのバスのりばとフェリエの前。いちばんお店が多い場所です。</p>
+        <p class="menu" aria-hidden="true">🌮🍢🧋🍺</p>
+        <p class="when"><b>金曜</b>の夕方〜夜、<b>土日祝</b>の昼と夜</p>
       </article>
     </div>
-    <p class="small" style="margin-top:14px">※「こんな店」は想定です。実際のお店とメニューは、出店が決まりしだいこのページで紹介します。</p>
+    <p class="small" style="margin-top:16px">※絵文字は想定するメニューのイメージです。実際のお店とメニューは、決まりしだいこのページで紹介します。</p>
   </div>
 </section>
 
-<!-- ③ 投票 -->
+<!-- 投票 -->
 <section id="vote" class="vote-sec">
+  <svg class="garland" aria-hidden="true" id="garland"></svg>
   <div class="wrap">
     <div style="text-align:center">
-      <span class="eyebrow">VOTE</span>
-      <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしいですか？</h2>
+      <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしい？</h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールもいりません。結果はこのページで公開し、出店するお店のメニュー選びに使ってもらいます。</p>
     </div>
 
@@ -287,116 +422,110 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <fieldset>
         <legend>買いたいもの<small>3つまで</small></legend>
         <div class="chips" id="foodChips"></div>
-        <p class="counter" id="foodCount" aria-live="polite">0 / 3</p>
+        <p class="counter" id="foodCount" aria-live="polite"><b>0</b> / 3</p>
       </fieldset>
       <fieldset>
         <legend>寄り道しやすい時間<small>いくつでも</small></legend>
-        <div class="chips" id="timeChips"></div>
+        <div class="chips soft" id="timeChips"></div>
       </fieldset>
       <fieldset>
         <legend>よく使う出口<small>いくつでも</small></legend>
-        <div class="chips" id="exitChips"></div>
+        <div class="chips soft" id="exitChips"></div>
       </fieldset>
       <fieldset>
-        <legend><label for="vComment">「こんなお店があったら」<small>任意</small></label></legend>
+        <legend><label for="vComment">こんなお店があったら<small>任意</small></label></legend>
         <textarea id="vComment" name="comment" maxlength="200" placeholder="例：仕事帰りに買える、野菜たっぷりのおかず"></textarea>
       </fieldset>
       <div class="form-foot">
-        <button class="btn btn-main" type="submit" id="voteBtn" disabled>この内容で投票する</button>
-        <span class="small">1人1回。いただいた内容に、個人を特定する情報は含まれません。</span>
+        <button class="btn btn-bulb" type="submit" id="voteBtn" disabled>この内容で投票する</button>
+        <span class="small" style="color:#C9CEE6">1人1回。名前や連絡先は送られません。</span>
       </div>
       <div class="msg" id="voteMsg" role="status"></div>
     </form>
 
     <div class="done vote-box" id="voteDone" tabindex="-1">
-      <h3>投票ありがとうございます。</h3>
+      <p class="big" aria-hidden="true">🏮</p>
+      <h3>1票、届きました。</h3>
       <p>結果は開催前に、このページで公開します。<br>開催日のお知らせも受け取りませんか？</p>
       <div class="row">
-        <a class="btn btn-main" href="#register">開催案内を受け取る</a>
-        <button class="btn btn-ghost" type="button" data-share>近くの人に教える</button>
+        <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
+        <button class="btn btn-line" type="button" data-share>近くの人に教える</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ④ 出店するお店 -->
+<!-- 屋台（出店者） -->
 <section id="shops">
   <div class="wrap">
-    <span class="eyebrow">SHOPS</span>
-    <h2 class="h2">こんなお店が、並びます。</h2>
-    <p class="lead" id="shopsLead">出店するお店は、いま募集しています。決まったお店から、商品の写真・値段・店主のひとことをここで紹介します。</p>
-    <div class="shops" id="shopList"></div>
+    <h2 class="h2">どんなお店が並ぶ？</h2>
+    <p class="lead" id="shopsLead">屋台はまだ空いています。出店が決まったお店から、商品の写真・値段・店主のひとことをここで紹介します。</p>
+    <div class="stalls" id="shopList"></div>
+
+    <div class="torioki" id="reserve">
+      <div>
+        <h3>売り切れが心配なら、<br>取り置きを。</h3>
+        <p class="small" style="margin-top:10px">取り置きできるお店には、紹介に「取り置きできます」と表示します。受付はそれぞれのお店が直接行います。運営（BRIDGE CYCLE）は注文やお支払いを受け付けません。</p>
+      </div>
+      <ol>
+        <li><b>お店を選ぶ</b><span class="small">このページで、取り置きできるお店とメニューを確かめます。</span></li>
+        <li><b>お店に連絡する</b><span class="small">お店の受付先（LINE・SNS・電話など）に、数と受け取る時間を伝えます。</span></li>
+        <li style="padding-bottom:0"><b>帰り道に受け取る</b><span class="small">売り場で名前を伝えて受け取ります。締め切りや支払い方法はお店ごとに違います。</span></li>
+      </ol>
+    </div>
   </div>
 </section>
 
-<!-- ⑤ 取り置き -->
-<section id="reserve" style="padding-top:0">
-  <div class="wrap">
-    <span class="eyebrow">TORIOKI</span>
-    <h2 class="h2">売り切れが心配なら、取り置き。</h2>
-    <p class="lead">取り置きに対応するお店には、紹介カードに「取り置きできます」と表示します。受付はそれぞれのお店が直接行います。</p>
-    <div class="flow"><ol style="display:contents">
-      <li><h3>お店を選ぶ</h3><p class="small" style="margin-top:6px">このページの紹介カードで、取り置きできるお店とメニューを確認します。</p></li>
-      <li><h3>お店に連絡する</h3><p class="small" style="margin-top:6px">お店の受付先（LINE・SNS・電話など）に、数と受け取る時間を伝えます。</p></li>
-      <li><h3>帰り道に受け取る</h3><p class="small" style="margin-top:6px">当日、売り場で名前を伝えて受け取ります。お支払いはお店の案内に従ってください。</p></li>
-    </ol></div>
-    <p class="small" style="margin-top:14px">※取り置きの可否・締め切り・支払い方法はお店ごとに違います。運営（BRIDGE CYCLE）は注文やお支払いを受け付けません。</p>
-  </div>
-</section>
-
-<!-- ⑥ 開催情報 -->
+<!-- 開催情報 -->
 <section id="info" style="padding-top:0">
   <div class="wrap">
-    <span class="eyebrow">INFO</span>
     <h2 class="h2">開催情報</h2>
     <p class="lead">「調整中」の項目は、決まりしだい更新します。登録した方には先にお知らせします。</p>
     <table class="info">
       <tr><th>期間</th><td>2027年2月まで（社会実験の期間）</td></tr>
-      <tr><th>開催日</th><td>金曜・土曜・日曜・祝日の予定<span class="pend">調整中</span><br><span class="small">最初の開催日は、決まりしだいお知らせします。年末年始（12月31日〜1月3日）はお休みです。</span></td></tr>
+      <tr><th>開催日</th><td>金曜・土曜・日曜・祝日の予定<span class="pend">調整中</span><br><span class="small">最初の開催日は決まりしだいお知らせします。年末年始（12月31日〜1月3日）はお休みです。</span></td></tr>
       <tr><th>場所</th><td>JR南草津駅（滋賀県草津市）の西口・東口・改札前の自由通路</td></tr>
       <tr><th>お店</th><td>1日に最大21店舗が並ぶ規模を予定<span class="pend">募集中</span></td></tr>
-      <tr><th>雨の日</th><td>改札前は屋内のため、雨でも開催する予定です。西口・東口は前日に開催するかを判断し、このページでお知らせします。</td></tr>
-      <tr><th>入場</th><td>無料。通りがかりにお立ち寄りください。</td></tr>
+      <tr><th>雨の日</th><td>改札前は屋内なので、雨でも開催する予定です。西口・東口は前日に開催するかを決め、このページでお知らせします。</td></tr>
+      <tr><th>入場</th><td>無料。通りがかりにどうぞ。</td></tr>
     </table>
   </div>
 </section>
 
-<!-- ⑦ 案内登録 -->
+<!-- 案内登録 -->
 <section id="register" class="reg">
   <div class="wrap reg-grid">
     <div>
-      <span class="eyebrow">NEWS</span>
-      <h2 class="h2">開催日が決まったら、<br>先にお知らせします。</h2>
+      <h2 class="h2">最初の開催日、<br>先にお知らせします。</h2>
       <p class="lead">メールアドレスだけで登録できます。お知らせ以外には使いません。</p>
-      <ul class="points">
-        <li>開催日と出店するお店を、公開前にお届け</li>
+      <ul>
+        <li>開催日と、出店するお店を公開前に</li>
         <li>取り置きできるお店とメニューの一覧</li>
-        <li>投票の結果と、それをもとに決まったメニュー</li>
+        <li>投票の結果と、それで決まったメニュー</li>
       </ul>
     </div>
     <form class="reg-card" id="regForm" novalidate>
       <label class="lbl" for="rEmail">メールアドレス</label>
       <input type="email" id="rEmail" name="email" autocomplete="email" required placeholder="例：minakusa@example.com">
       <fieldset style="margin:20px 0 0">
-        <legend style="font-size:15px">知りたいこと<small>任意・いくつでも</small></legend>
+        <legend style="font-size:15px">知りたいこと<small style="opacity:1;color:var(--sub)">任意・いくつでも</small></legend>
         <div class="chips" id="wantChips"></div>
       </fieldset>
       <fieldset style="margin:16px 0 0">
-        <legend style="font-size:15px">よく使う出口<small>任意</small></legend>
+        <legend style="font-size:15px">よく使う出口<small style="opacity:1;color:var(--sub)">任意</small></legend>
         <div class="chips" id="rExitChips"></div>
       </fieldset>
-      <p class="small" style="margin-top:16px">登録すると<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとします。配信はいつでも停止できます。</p>
-      <button class="btn btn-main" type="submit" style="width:100%;margin-top:14px" id="regBtn">開催案内を受け取る（無料）</button>
+      <p class="small" style="margin-top:16px">登録すると<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとします。配信はいつでも止められます。</p>
+      <button class="btn btn-tomato" type="submit" style="width:100%;margin-top:14px" id="regBtn">開催案内を受け取る（無料）</button>
       <div class="msg" id="regMsg" role="status"></div>
     </form>
   </div>
 </section>
 
-<!-- ⑧ 社会実験について -->
+<!-- 社会実験について -->
 <section id="about">
   <div class="wrap">
-    <span class="eyebrow">ABOUT</span>
-    <h2 class="h2">これは、南草津駅前の<br class="hide-sp">「まちの使い方」の実験です。</h2>
+    <h2 class="h2">これは、駅前の<br class="hide-sp">「使い方」を試す実験です。</h2>
     <div class="about">
       <div>
         <p>ふだんは通り過ぎるだけの駅前や改札前を、寄り道したくなる場所にできるか。南草津駅周辺のまちづくりの一つとして、2027年2月まで試します。</p>
@@ -404,21 +533,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       </div>
       <table class="info" style="margin-top:0">
         <tr><th>実施</th><td>一般社団法人アーバンデザインセンターみなくさ（UDCみなくさ）、立命館大学</td></tr>
-        <tr><th>出店者の募集・調整</th><td>BRIDGE CYCLE株式会社（大津市）</td></tr>
+        <tr><th>出店者の<br>募集・調整</th><td>BRIDGE CYCLE株式会社（大津市）</td></tr>
         <tr><th>お問い合わせ</th><td><a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a><br><span class="small">電話は平日10〜17時：080-5309-9770</span></td></tr>
       </table>
     </div>
-  </div>
-</section>
 
-<!-- ⑨ 出店したい方へ -->
-<section id="seller" style="padding-top:0">
-  <div class="wrap">
-    <div class="seller">
+    <div class="seller" id="seller" style="margin-top:56px">
       <div>
-        <span class="eyebrow">FOR SHOPS</span>
         <h2>この駅前で、売ってみませんか。</h2>
-        <p class="lead" style="margin-top:10px">営業許可をお持ちの飲食店・キッチンカー・お菓子やパンのお店を募集しています。投票の結果も、出店する前に見られます。</p>
+        <p>営業許可をお持ちの飲食店・キッチンカー・お菓子やパンのお店を募集しています。投票の結果も、出店する前に見られます。</p>
         <div class="nums">
           <div>出店料<b>1枠3,300円から</b></div>
           <div>売上の歩合<b>なし</b></div>
@@ -426,20 +549,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
         </div>
       </div>
       <div style="text-align:center">
-        <a class="btn btn-green" id="sellerLink" href="minakusa-ekimae.html?src=yorimichi" style="width:100%">出店したい方はこちら</a>
-        <p class="small" style="margin-top:10px">料金・区画・条件は出店者募集ページへ</p>
+        <a class="btn btn-bulb" href="minakusa-ekimae.html?src=yorimichi" style="width:100%">出店したい方はこちら</a>
+        <p class="small" style="margin-top:10px;color:#C9CEE6">料金・区画・条件は出店者募集ページへ</p>
       </div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0;text-align:center">
+<section class="share" style="padding-top:0">
   <div class="wrap">
-    <h2 class="h2" style="font-size:22px">近くに住んでいる人、南草津を使う人に。</h2>
-    <p class="lead" style="margin:10px auto 0">投票してくれる人が増えるほど、出店するお店が増え、メニューも選びやすくなります。</p>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px">
-      <button class="btn btn-ghost" type="button" data-share>このページを教える</button>
-      <a class="btn btn-ghost" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
+    <h2 class="h2" style="font-size:24px">南草津に住む人、通う人に。</h2>
+    <p class="lead" style="margin:10px auto 0">投票が集まるほど出店するお店が増え、メニューも選びやすくなります。</p>
+    <div class="row">
+      <button class="btn btn-line" type="button" data-share>このページを教える</button>
+      <a class="btn btn-line" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
     </div>
     <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
   </div>
@@ -449,14 +572,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
 <footer>
   <div class="wrap">
-    <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社 ／ 滋賀県大津市におの浜2-1-28</div>
-    <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a> ・ <a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
+    <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
+    <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
 
 <div class="mbar">
-  <a class="btn btn-ghost" href="#vote">食べたいもの</a>
-  <a class="btn btn-main" href="#register">開催案内を受け取る</a>
+  <a class="btn btn-line" href="#vote" style="color:#fff">食べたいもの</a>
+  <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
 </div>
 
 <script>
@@ -470,20 +593,89 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   //   word:'店主のひとこと', where:'西口', when:'11/14（金）15:00〜20:00', torioki:'LINE @xxxx（前日20時まで）' }
   var SHOPS = [];
 
-  var FOODS = ['夕ごはんのおかず・惣菜','お弁当','パン・サンドイッチ','コーヒー・ドリンク','スイーツ・焼き菓子','おつまみ・お酒','地元の野菜・果物','手みやげ・草津のお土産','学生向けの軽食','子どもと食べるおやつ'];
+  var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
   var TIMES = ['平日の朝（7〜9時）','金曜の夕方（17〜20時）','土日祝の昼','土日祝の夕方〜夜'];
   var EXITS = ['西口','東口','改札を通るだけ','駅は使わない（近所）'];
   var WANTS = ['開催日','出店するお店','取り置きできるお店','投票の結果'];
+
+  // 時間ごとの「並ぶお店のイメージ」
+  var SCENES = {
+    morning:{emo:'🥐☕', where:'改札前・金曜の朝', say:'改札を出たら、焼きたてパンとコーヒー。', foods:[2,3], time:0},
+    noon:   {emo:'🍙🍡', where:'西口・公園の前', say:'公園でひろげる、お弁当とおやつ。', foods:[1,9], time:2},
+    eve:    {emo:'🍱🍰', where:'西口・東口', say:'今日の夕ごはん、一品はここで。', foods:[0,4], time:1},
+    night:  {emo:'🍢🌮', where:'東口・バスのりば', say:'バスを降りて、ちょっと一杯。', foods:[5,8], time:3}
+  };
+  // 屋台の絵（左から）：今の時間に並ぶもの
+  var TENT_SIGNS = {
+    morning:['パン','珈琲','焼菓子'], noon:['弁当','おやつ','やさい'], eve:['惣菜','甘味','弁当'], night:['串焼','タコス','麦酒']
+  };
 
   // ── 流入元（QR・掲示ごとに ?src= を付ける）──
   var src = '';
   try{ src = (new URLSearchParams(location.search).get('src')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30); }catch(e){}
   if(!src){ try{ src = document.referrer ? ('ref:' + new URL(document.referrer).hostname) : 'direct'; }catch(e){ src='direct'; } }
 
-  function chips(el, list, name, type){
+  var NS = 'http://www.w3.org/2000/svg';
+  function svg(tag, attrs, parent){ var el=document.createElementNS(NS,tag); for(var k in attrs) el.setAttribute(k,attrs[k]); if(parent) parent.appendChild(el); return el; }
+
+  // ── 最初の画面：電球と屋台 ──────────────
+  var hero = document.getElementById('hero');
+  var wire = document.getElementById('wire'), bulbs = document.getElementById('bulbs');
+  var L = wire.getTotalLength(), N = 15;
+  for(var i=0;i<N;i++){
+    var pt = wire.getPointAtLength(L*(i+0.5)/N);
+    var g = svg('g',{style:'--d:'+(0.15+i*0.07)+'s'},bulbs);
+    svg('circle',{cx:pt.x,cy:pt.y+9,r:22,'class':'bulb-glow',style:'--d:'+(0.15+i*0.07)+'s'},g);
+    svg('rect',{x:pt.x-1.5,y:pt.y,width:3,height:4,fill:'#1C2340'},g);
+    svg('circle',{cx:pt.x,cy:pt.y+9,r:6,'class':'bulb',style:'--d:'+(0.15+i*0.07)+'s'},g);
+  }
+  var tents = document.getElementById('tents'), signEls = [];
+  [['stR','#A92E1C',482],['stY','#B7861A',630],['stG','#145640',778]].forEach(function(t){
+    var x=t[2], w=118, g=svg('g',{},tents);
+    svg('rect',{x:x+6,y:214,width:5,height:116,fill:'#1C2340',opacity:.85},g);
+    svg('rect',{x:x+w-11,y:214,width:5,height:116,fill:'#1C2340',opacity:.85},g);
+    svg('path',{d:'M'+(x-6)+' 214 L'+(x+w/2)+' 190 L'+(x+w+6)+' 214 Z',fill:t[1]},g);
+    var sc='M'+(x-6)+' 212 H'+(x+w+6)+' V230'; for(var k=0;k<7;k++) sc+=' a'+((w+12)/14)+' '+((w+12)/14)+' 0 0 1 '+(-(w+12)/7)+' 0'; sc+=' Z';
+    svg('path',{d:sc,fill:'url(#'+t[0]+')'},g);
+    svg('rect',{x:x+2,y:274,width:w-4,height:56,rx:3,fill:'#FFFFFF'},g);
+    svg('rect',{x:x+2,y:274,width:w-4,height:7,fill:t[1]},g);
+    var dots=[['#F2A541',x+28],['#D9412B',x+50],['#7BB662',x+72],['#C98A4B',x+92]];
+    dots.forEach(function(d){ svg('ellipse',{cx:d[1],cy:268,rx:9,ry:6,fill:d[0]},g); });
+    var s=svg('text',{x:x+w/2,y:310,'text-anchor':'middle','class':'tent-sign'},g); signEls.push(s);
+  });
+
+  // ── 時間を選ぶ ─────────────────────────
+  var seg = document.querySelectorAll('.seg button'), current='eve';
+  function setTime(t, light){
+    current = t; hero.setAttribute('data-t',t);
+    seg.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-t')===t ? 'true':'false'); });
+    var s = SCENES[t];
+    document.getElementById('pEmo').textContent = s.emo;
+    document.getElementById('pWhere').textContent = s.where;
+    document.getElementById('pSay').textContent = s.say;
+    TENT_SIGNS[t].forEach(function(v,i){ signEls[i].textContent = v; });
+    if(light && (t==='eve'||t==='night')){ hero.classList.remove('lighting'); void hero.offsetWidth; hero.classList.add('lighting'); }
+  }
+  seg.forEach(function(b){ b.addEventListener('click', function(){ setTime(b.getAttribute('data-t'), current!=='eve'&&current!=='night'); }); });
+  setTime('eve', false);
+
+  // ── 投票欄の電球の飾り ───────────────────
+  var gar = document.getElementById('garland');
+  function drawGarland(){
+    var W = Math.max(320, Math.round(gar.getBoundingClientRect().width)), span = W < 600 ? W/2 : W/4, d = 'M0 8';
+    gar.setAttribute('viewBox','0 0 '+W+' 64'); gar.innerHTML='';
+    for(var x=0;x<W-1;x+=span) d += ' Q '+(x+span/2)+' 46 '+(x+span)+' 8';
+    var gp = svg('path',{d:d,fill:'none',stroke:'#4A5288','stroke-width':1.5},gar), gl = gp.getTotalLength(), n = Math.round(W/48);
+    for(var j=0;j<n;j++){ var q=gp.getPointAtLength(gl*(j+0.5)/n); svg('ellipse',{cx:q.x,cy:q.y+7,rx:4,ry:6,fill:j%3===1?'#FFFFFF':'#FFD66B',opacity:j%3===1?.6:1},gar); }
+  }
+  drawGarland();
+  var gt; window.addEventListener('resize', function(){ clearTimeout(gt); gt=setTimeout(drawGarland,150); });
+
+  // ── 選択肢 ───────────────────────────
+  function chips(el, list, name){
     el.innerHTML = list.map(function(v,i){
-      var id = name + i;
-      return '<label class="chip" for="'+id+'"><input type="'+(type||'checkbox')+'" id="'+id+'" name="'+name+'" value="'+v+'"><span>'+v+'</span></label>';
+      var id=name+i, label=Array.isArray(v)?v[1]:v, emo=Array.isArray(v)?'<em aria-hidden="true">'+v[0]+'</em>':'';
+      return '<label class="chip" for="'+id+'"><input type="checkbox" id="'+id+'" name="'+name+'" value="'+label+'"><span>'+emo+label+'</span></label>';
     }).join('');
   }
   chips(document.getElementById('foodChips'), FOODS, 'food');
@@ -493,7 +685,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   chips(document.getElementById('rExitChips'), EXITS, 'rexit');
 
   function vals(form, name){ return Array.prototype.slice.call(form.querySelectorAll('input[name="'+name+'"]:checked')).map(function(i){return i.value}); }
-
   function send(data){
     return fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(data)})
       .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r; });
@@ -504,14 +695,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   // ── 投票 ─────────────────────────────
   var vf = document.getElementById('voteForm'), vbtn = document.getElementById('voteBtn');
   var vmsg = document.getElementById('voteMsg'), vdone = document.getElementById('voteDone');
-  var foodCount = document.getElementById('foodCount');
   function refreshVote(){
     var n = vals(vf,'food').length;
-    foodCount.textContent = n + ' / 3';
+    document.getElementById('foodCount').innerHTML = '<b>'+n+'</b> / 3';
     vf.querySelectorAll('input[name=food]').forEach(function(i){ i.disabled = !i.checked && n>=3; });
     vbtn.disabled = n===0;
   }
   vf.addEventListener('change', refreshVote);
+
+  // 「これに1票」：今の時間のおすすめを選んだ状態で投票欄へ
+  document.getElementById('pVote').addEventListener('click', function(){
+    var s = SCENES[current];
+    vf.querySelectorAll('input[name=food]').forEach(function(i){ i.checked=false; i.disabled=false; });
+    s.foods.forEach(function(k){ document.getElementById('food'+k).checked = true; });
+    var tm = document.getElementById('time'+s.time); if(tm) tm.checked = true;
+    refreshVote();
+  });
+
   function showVoted(){ vf.style.display='none'; vdone.style.display='block'; }
   if(load('minakusa_voted')) showVoted();
 
@@ -527,7 +727,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     }).then(function(){
       store('minakusa_voted','1'); showVoted(); vdone.focus();
     }).catch(function(){
-      vmsg.className='msg ng'; vmsg.textContent='うまく送れませんでした。通信の状態を確かめて、もう一度お試しください。';
+      vmsg.className='msg ng'; vmsg.textContent='送信できませんでした。通信の状態を確かめて、もう一度お試しください。';
       vbtn.disabled=false; vbtn.textContent='この内容で投票する';
     });
   });
@@ -539,7 +739,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     e.preventDefault();
     var email = document.getElementById('rEmail');
     if(!email.value || !email.checkValidity()){
-      rmsg.className='msg ng'; rmsg.textContent='メールアドレスを確かめてください。'; email.focus(); return;
+      rmsg.className='msg ng'; rmsg.textContent='メールアドレスの形が正しくありません。確かめて、もう一度送ってください。'; email.focus(); return;
     }
     rbtn.disabled=true; rbtn.textContent='送信しています…';
     send({
@@ -547,36 +747,31 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       email:email.value, _replyto:email.value,
       want:vals(rf,'want').join('／'), exit:vals(rf,'rexit').join('／'), src:src
     }).then(function(){
-      store('minakusa_registered','1');
-      rf.reset();
+      store('minakusa_registered','1'); rf.reset();
       rmsg.className='msg ok'; rmsg.textContent='登録しました。開催日が決まったら、このアドレスにお知らせします。';
       rbtn.textContent='登録しました';
     }).catch(function(){
-      rmsg.className='msg ng'; rmsg.textContent='うまく送れませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「南草津の案内希望」とお送りください。';
+      rmsg.className='msg ng'; rmsg.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「南草津の案内希望」とお送りください。';
       rbtn.disabled=false; rbtn.textContent='開催案内を受け取る（無料）';
     });
   });
 
-  // ── 出店者カード ─────────────────────
+  // ── 屋台カード ───────────────────────
   var list = document.getElementById('shopList');
   function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]}); }
   if(SHOPS.length){
     document.getElementById('shopsLead').textContent = '出店が決まったお店です。日時・メニューはお店の都合で変わることがあります。';
     list.innerHTML = SHOPS.map(function(s){
-      return '<article class="card shop">'+(s.img?'<img src="'+esc(s.img)+'" alt="'+esc(s.item)+'" loading="lazy">':'')+
+      return '<article class="stall"><div class="roof"></div>'+(s.img?'<img src="'+esc(s.img)+'" alt="'+esc(s.item)+'" loading="lazy">':'')+
         '<div class="body">'+(s.torioki?'<span class="badge">取り置きできます</span>':'')+
         '<h3>'+esc(s.name)+'</h3><p>'+esc(s.item)+'</p><p class="price">'+esc(s.price)+'</p>'+
         (s.word?'<p class="word">'+esc(s.word)+'</p>':'')+
         '<p class="meta">'+esc(s.where)+'　'+esc(s.when)+(s.torioki?'<br>取り置き：'+esc(s.torioki):'')+'</p></div></article>';
     }).join('');
   } else {
-    var ph = [
-      ['お店①','商品の写真・値段・店主のひとこと'],
-      ['お店②','出店する日時と、売り場（西口・東口・改札前）'],
-      ['お店③','取り置きできるかどうかと、その受付先']
-    ];
+    var ph = [['この屋台、まだ空いています','商品の写真と値段、店主のひとことが入ります。'],['この屋台も、まだ空いています','出店する日時と、売り場（西口・東口・改札前）が入ります。'],['あなたのまちのお店が入るかも','取り置きできるかどうかと、その受付先が入ります。']];
     list.innerHTML = ph.map(function(p){
-      return '<div class="card placeholder"><div class="ph-img" aria-hidden="true"></div><b>'+p[0]+'：準備中</b><p class="small" style="margin-top:6px">ここに載せるもの：'+p[1]+'</p></div>';
+      return '<div class="stall empty"><div class="roof"></div><div class="body"><p class="q" aria-hidden="true">？</p><h3>'+p[0]+'</h3><p class="small" style="margin-top:6px">'+p[1]+'</p></div></div>';
     }).join('');
   }
 
@@ -587,12 +782,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   var smsg = document.getElementById('shareMsg');
   document.querySelectorAll('[data-share]').forEach(function(b){
     b.addEventListener('click', function(){
-      if(navigator.share){
-        navigator.share({title:'南草津駅前、よりみち。', text:shareText, url:shareUrl}).catch(function(){});
-      } else if(navigator.clipboard){
-        navigator.clipboard.writeText(shareText + ' ' + shareUrl).then(function(){
-          smsg.className='msg ok'; smsg.textContent='リンクをコピーしました。';
-        }).catch(function(){ smsg.className='msg ok'; smsg.textContent=shareUrl; });
+      if(navigator.share){ navigator.share({title:'南草津駅前、よりみち。', text:shareText, url:shareUrl}).catch(function(){}); }
+      else if(navigator.clipboard){
+        navigator.clipboard.writeText(shareText + ' ' + shareUrl).then(function(){ smsg.className='msg ok'; smsg.textContent='リンクをコピーしました。'; })
+          .catch(function(){ smsg.className='msg ok'; smsg.textContent=shareUrl; });
       } else { smsg.className='msg ok'; smsg.textContent=shareUrl; }
     });
   });
