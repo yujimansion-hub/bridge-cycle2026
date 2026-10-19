@@ -297,6 +297,11 @@ textarea{min-height:84px;resize:vertical}
 .btn-line-green:hover{background:#05B34C;color:#fff}
 .btn-night{background:var(--night);color:#fff}
 .btn-night:hover{background:var(--night-2);color:#fff}
+.inv-tip{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px}
+.inv-tip .tip-h{display:flex;align-items:center;gap:8px;font-weight:700}
+.inv-tip .tip-h i{width:12px;height:17px;border-radius:50% 50% 45% 45%;background:var(--bulb);box-shadow:0 0 10px rgba(255,214,107,.8);flex:none}
+.inv-tip .field{margin:12px 0 0}
+.inv-tip input[type=email]{margin-top:4px}
 .inv-note{font-size:12px;color:var(--sub);margin-top:10px;line-height:1.7}
 .stall.empty .call{display:inline-block;margin-top:12px;font-weight:700;font-size:14px;color:var(--tomato)}
 
@@ -684,6 +689,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
           <button class="btn btn-night" type="button" id="invRecommend" style="width:100%;margin-top:12px">運営にも推薦する</button>
           <p class="inv-note">運営への推薦では、お店の名前と入力した内容だけが届きます。あなたの名前や連絡先は送られません。推薦の内容やお店の名前は、お店の了承なしに公開しません。運営からお店への連絡は、同じお店への声がまとまったときに行います。</p>
           <div class="msg" id="invMsgStatus" role="status"></div>
+
+          <div class="inv-tip" id="invTip">
+            <p class="tip-h"><i aria-hidden="true"></i>このお店の出店を、灯りで応援する（任意）</p>
+            <p class="small" style="margin-top:6px">お店が出店を決めたときだけ、お支払いの案内をお送りします。それまでお金はかかりません。応援はそのお店の初回の出店料にあて、余った分は「はじめてのお店の初回出店料」にあてます。</p>
+            <div class="field"><div class="chips" id="tipChips"></div></div>
+            <div class="field">
+              <label class="lbl" for="tipName" style="font-size:14px">灯り板に出すお名前（任意・ニックネーム可）</label>
+              <input type="text" id="tipName" maxlength="20" placeholder="空欄なら名前は出しません">
+            </div>
+            <div class="field">
+              <label class="lbl" for="tipEmail" style="font-size:14px">メールアドレス（お支払いの案内用）</label>
+              <input type="email" id="tipEmail" autocomplete="email" placeholder="例：minakusa@example.com">
+            </div>
+            <button class="btn btn-bulb" type="button" id="tipBtn" style="width:100%;margin-top:14px">このお店に灯りを申し出る</button>
+            <p class="inv-note">申し出の金額や件数は、お店に出店をお願いするときに「お客さんからこれだけの応援があります」と伝えます。あなたの名前や連絡先は、お店に伝えません。</p>
+            <div class="msg" id="tipMsg" role="status"></div>
+          </div>
         </div>
       </form>
     </div>
@@ -735,7 +757,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
           <li><b>はじめてのお店の初回出店料</b><span>まだお店を持たない人が、駅前で初めて売る日を応援します。</span></li>
           <li><b>灯り・看板・装飾</b><span>毎週の市の目印になる電球や看板をそろえます。</span></li>
         </ul>
-        <p class="small" style="color:#C9CEE6;margin-top:12px">集まった額と使い道は、毎月このページで報告します。運営は株式会社のため、寄付金控除の対象にはなりません。会場では現金を受け取りません。</p>
+        <p class="small" style="color:#C9CEE6;margin-top:12px">来てほしいお店を指名して応援することもできます（<a href="#invite" style="color:var(--bulb)">好きなお店を呼ぶ</a>から）。集まった額と使い道は、毎月このページで報告します。運営は株式会社のため、寄付金控除の対象にはなりません。会場では現金を受け取りません。</p>
       </div>
       <form class="ak-card" id="akForm" novalidate>
         <p class="ak-sel" id="akSel">1灯（1,000円）を選んでいます</p>
@@ -1167,6 +1189,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
   // 灯り欄の上の電球
   (function(){ var g2=document.getElementById('garland2'); if(!g2) return; var W=Math.max(320,Math.round(g2.getBoundingClientRect().width)), span=W<600?W/2:W/4, d='M0 8'; g2.setAttribute('viewBox','0 0 '+W+' 64'); for(var x=0;x<W-1;x+=span) d+=' Q '+(x+span/2)+' 46 '+(x+span)+' 8'; var gp=svg('path',{d:d,fill:'none',stroke:'#4A5288','stroke-width':1.5},g2), gl=gp.getTotalLength(), n=Math.round(W/48); for(var j=0;j<n;j++){ var q=gp.getPointAtLength(gl*(j+0.5)/n); svg('ellipse',{cx:q.x,cy:q.y+7,rx:4,ry:6,fill:j%3===1?'#FFFFFF':'#FFD66B',opacity:j%3===1?.6:1},g2); } })();
+
+  // ── お店を指名した灯りの申し出（支払いはお店が出店を決めてから） ──
+  var tipEl = document.getElementById('tipChips');
+  tipEl.innerHTML = [[1,1000],[3,3000],[5,5000]].map(function(t,i){ return '<label class="chip" for="tip'+i+'"><input type="radio" id="tip'+i+'" name="tip" value="'+t[0]+'灯（'+t[1].toLocaleString('ja-JP')+'円）"'+(i===0?' checked':'')+'><span>'+t[0]+'灯　'+t[1].toLocaleString('ja-JP')+'円</span></label>'; }).join('');
+  var tipBtn = document.getElementById('tipBtn'), tipMsg = document.getElementById('tipMsg');
+  tipBtn.addEventListener('click', function(){
+    var em = document.getElementById('tipEmail'), shop = document.getElementById('iShop').value.trim();
+    if(!shop){ tipMsg.className='msg ng'; tipMsg.textContent='先に、来てほしいお店の名前を入れてください。'; document.getElementById('iShop').focus(); return; }
+    if(!em.value || !em.checkValidity()){ tipMsg.className='msg ng'; tipMsg.textContent = em.value ? 'メールアドレスの形が正しくありません。確かめて、もう一度押してください。' : 'メールアドレスを入れてください。お店が出店を決めたときに、お支払いの案内をお送りします。'; em.focus(); return; }
+    tipBtn.disabled=true; tipBtn.textContent='送信しています…';
+    send({ _subject:'【南草津】お店を指名した灯りの申し出', kind:'お店指名の灯り', shop:shop.slice(0,60),
+      tier:(invForm.querySelector('input[name=tip]:checked')||{}).value||'', display_name:(document.getElementById('tipName').value||'').trim().slice(0,20)||'（名前は出さない）',
+      relation:(invForm.querySelector('input[name=rel]:checked')||{}).value||'', email:em.value, _replyto:em.value, src:src
+    }).then(function(){
+      tipBtn.textContent='申し出ました'; tipMsg.className='msg ok'; tipMsg.textContent='灯りの申し出を受け付けました。お店が出店を決めたら、お支払いの案内をお送りします。';
+    }).catch(function(){
+      tipBtn.disabled=false; tipBtn.textContent='このお店に灯りを申し出る'; tipMsg.className='msg ng'; tipMsg.textContent='送信できませんでした。通信の状態を確かめて、もう一度押してください。';
+    });
+  });
 
   // ── シェア ───────────────────────────
   var shareText = '南草津駅前に、小さなお店が並ぶらしい。帰り道に何が買えたらうれしいか、投票できるよ。';
