@@ -570,3 +570,30 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 .fcstages li.unk i{background:#8a97a5;border:0}
 .fcstages li.unk i::before{content:"?";color:#fff}
 .fcstages li.unk{color:#fff}
+
+/* 2026-10-19 写真（Unsplash） */
+.hero3 .herodiag{background:linear-gradient(180deg,rgba(16,41,65,.80),rgba(16,41,65,.92)),url(assets/v-hero-road.webp) center/cover no-repeat}
+.route{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:center;gap:8px;margin:0 0 10px}
+.rstep{margin:0;position:relative;border-radius:14px;overflow:hidden;box-shadow:0 10px 26px rgba(23,52,84,.12)}
+.rstep img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.rstep figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(180deg,transparent,rgba(16,41,65,.88));color:#fff;font-weight:800;font-size:14.5px;line-height:1.5;display:flex;gap:10px;align-items:flex-end}
+.rstep figcaption b{flex:0 0 26px;height:26px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:13px}
+.rarrow{height:2px;background:#c7d2dc;position:relative}
+.rarrow::after{content:"";position:absolute;right:-1px;top:-5px;border:6px solid transparent;border-left:9px solid #c7d2dc}
+.routenote{text-align:center;color:var(--muted);font-size:14px;margin:6px 0 22px}
+.card .cardimg{display:block;width:calc(100% + 42px);max-width:none;margin:-21px -21px 16px;aspect-ratio:16/9;object-fit:cover;border-radius:15px 15px 0 0}
+.card{overflow:hidden}
+.manifesto{background:linear-gradient(180deg,rgba(16,41,65,.90),rgba(16,41,65,.96)),url(assets/v-town-dusk.webp) center/cover no-repeat}
+@media(max-width:760px){
+ .route{grid-template-columns:1fr;gap:10px}
+ .rarrow{display:none}
+ .rstep img{aspect-ratio:16/9}
+}
+@media(max-width:850px){.hero3 .herodiag{background:none}}
+.rstep img,.card .cardimg{height:auto}
+.hero3 .herodiag{background:linear-gradient(180deg,rgba(16,41,65,.72),rgba(16,41,65,.90)),url(assets/v-hero-road.webp) center/cover no-repeat}
+@media(max-width:850px){.hero3 .herodiag{background:none}}
+.cards .card{padding:22px}
+.card .cardimg{width:calc(100% + 44px);margin:-22px -22px 16px}
+.spmenu-tx{white-space:nowrap}
+@media(max-width:480px){.topnav .brand small{font-size:10px;letter-spacing:0}}
