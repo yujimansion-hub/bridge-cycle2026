@@ -7,7 +7,9 @@
   ・目的は2つ：食べたいものの投票と、開催案内の登録。出店者は出店者募集ページ（minakusa-ekimae.html）へ。
   ・灯りの応援・よりみちカード・お店を呼ぶ・点灯などの全部入りの版は、git のタグ yorimichi-full-20261019 に保存。
     日付と出店者が決まったら「今週の出店者・取り置き・お店を呼ぶ・カード」、3回開催後に「灯りの応援・点灯・手帳」を戻す。
-  ・会社サイトの他ページとは連携しない独立ページ（GA計測なし・noindex）。開催日が確定したら noindex を外す。
+  ・会社サイトの他ページとはリンクしない独立ページ（noindex）。開催日が確定したら noindex を外す。
+  ・計測は bc-analytics.js（GA4）。出来事：yorimichi_persona／yorimichi_vote（via）／yorimichi_register（where）、どれも src（QRの印）付き。
+    訪問→投票＝yorimichi_vote ÷ ページ閲覧、訪問→登録＝yorimichi_register ÷ ページ閲覧。自分のアクセスは ?internal=1 で一度開けば除外される。
   ・流入元は URL の ?src= だけを送る（参照元のドメインは送らない）。例：?src=udc ?src=shop ?src=mansion ?src=rits
   ・送信先は Formspree（件名に【南草津】）。公会堂の予約と同じ受付先なので、南草津専用のフォームに分けること。
   ・最初の画面の画像は完成イメージ（合成）。JRのロゴは消してある。
@@ -279,7 +281,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="fact"><b>小さなお店</b><span>おかず・パン・おやつ・軽食など（予定）</span></div>
     <div class="fact"><b>金曜の夕方</b><span>が中心の予定。土日祝も検討中</span></div>
     <div class="fact"><b>入場無料</b><span>帰り道にそのまま寄れます</span></div>
-    <div class="next"><p>第1回の日程は近日発表</p><a class="btn btn-tomato btn-sm" href="#register">先に知らせてもらう</a></div>
+    <div class="next"><p>第1回の日程は近日発表<br><span class="small" id="nextUpdateTop">　</span></p><a class="btn btn-tomato btn-sm" href="#register">先に知らせてもらう</a></div>
   </div>
 </section>
 
@@ -442,6 +444,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
     <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、帰り道と投票欄の絵はイラストで、どれも実際の会場・お店のようすとは異なります。</div>
+    <div class="small" style="flex-basis:100%;order:4">このページでは、見られた回数や投票・登録の件数を数えるため、アクセス解析（Google Analytics）を使っています。入力した内容は送りません。</div>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
@@ -479,6 +482,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   try{ src = (new URLSearchParams(location.search).get('src')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30); }catch(e){}
   if(!src) src = 'none';
 
+  function track(name, params){ try{ if(window.bcTrack){ params = params || {}; params.src = src; window.bcTrack(name, params); } }catch(e){} }
   function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function send(data){
@@ -493,6 +497,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   }
   function vals(form, name){ return Array.prototype.slice.call(form.querySelectorAll('input[name="'+name+'"]:checked')).map(function(i){ return i.value; }); }
 
+  if(NEXT_UPDATE){ document.getElementById('nextUpdateTop').textContent = '次の情報更新：'+NEXT_UPDATE+'（開催日ではありません）'; }
   if(NEXT_UPDATE){ document.getElementById('nextUpdate').innerHTML = '次の更新は<b>'+NEXT_UPDATE+'</b>の予定です（開催準備の進み具合と投票の状況）。決まったものから、このページと開催案内でお知らせします。'; }
   if(RESULTS && RESULTS.total >= 30){
     var rEl = document.getElementById('results');
@@ -520,7 +525,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     vbtn.disabled = true; vbtn.textContent = '送信しています…'; vmsg.className='msg';
     send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'投票欄', persona:(PERSONAS[myPersona]||{}).label||'',
       food:food.join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'), comment:(document.getElementById('vComment').value||'').slice(0,200), src:src
-    }).then(function(){ store('minakusa_voted','1'); showVoted(); vdone.focus(); })
+    }).then(function(){ store('minakusa_voted','1'); showVoted(); vdone.focus(); track('yorimichi_vote',{via:'vote_form'}); })
     .catch(function(){ vmsg.className='msg ng'; vmsg.textContent='送信できませんでした。通信の状態を確かめて、もう一度お試しください。'; vbtn.disabled=false; vbtn.textContent='この内容で投票する'; });
   });
 
@@ -530,7 +535,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   pEl.innerHTML = Object.keys(PERSONAS).map(function(k){ var p = PERSONAS[k]; return '<button type="button" class="persona" data-k="'+k+'" aria-pressed="false"><span class="ph"><img src="images/minakusa/yorimichi/ill-'+k+'-v2.jpg" alt="" width="640" height="480" loading="lazy"><span class="ptag">'+p.tag+'</span></span><span class="pl">'+p.label+'</span></button>'; }).join('');
   function choosePersona(k, quiet){
     var p = PERSONAS[k]; if(!p) return;
-    myPersona = k; store('minakusa_persona', k);
+    myPersona = k; store('minakusa_persona', k); if(!quiet) track('yorimichi_persona',{persona:k});
     pEl.querySelectorAll('.persona').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-k')===k ? 'true':'false'); });
     var body = '';
     if(p.quick){
@@ -555,7 +560,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'帰り道から', persona:p.label,
           food: picks.map(function(n){ return FOODS[n][1]; }).join('／'), time:'（未回答）', exit:'（未回答）', comment:'', src:src
         }).then(function(){
-          store('minakusa_voted','1'); showVoted();
+          store('minakusa_voted','1'); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
           qEl.innerHTML = '<p class="q-done">1票、届きました。「'+FOODS[picks[0]][1]+'」が並ぶ日を、いっしょに待ちましょう。</p>'+
             '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div>';
           bindReg('regInline3','rEmail3','regMsg3','投票直後（帰り道）');
@@ -578,7 +583,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       if(!em.value || !em.checkValidity()){ m.className='msg ng'; m.textContent = em.value ? 'メールアドレスの形が正しくありません。確かめて、もう一度送ってください。' : 'メールアドレスを入れてください。'; em.focus(); return; }
       var label = btn.textContent; btn.disabled = true; btn.textContent = '送信しています…';
       send({ _subject:'【南草津】一般向け 開催案内の登録', kind:'開催案内登録', form_ver:FORM_VER, where:where, persona:(PERSONAS[myPersona]||{}).label||'', email:em.value, _replyto:em.value, src:src })
-      .then(function(){ store('minakusa_registered','1'); f.reset(); m.className='msg ok'; m.textContent='登録しました。第1回の日程が決まったら、このアドレスにお知らせします。'; btn.textContent='登録しました'; })
+      .then(function(){ store('minakusa_registered','1'); track('yorimichi_register',{where:formId}); f.reset(); m.className='msg ok'; m.textContent='登録しました。第1回の日程が決まったら、このアドレスにお知らせします。'; btn.textContent='登録しました'; })
       .catch(function(){ btn.disabled=false; btn.textContent=label; m.className='msg ng'; m.textContent='送信できませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「南草津の案内希望」とお送りください。'; });
     });
   }
@@ -612,5 +617,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   });
 })();
 </script>
+<script src="bc-analytics.js" defer></script>
 </body>
 </html>

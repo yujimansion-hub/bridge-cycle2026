@@ -16,7 +16,8 @@
     /^(hojokin|heijitsu|camp)/.test(page) ? '補助金' :
     /^uchino/.test(page) ? 'うちのシェフ' :
     /^kasu/.test(page) ? '空きスペース貸し' :
-    /^akinai/.test(page) ? 'わたしのこれから診断' : 'その他';
+    /^akinai/.test(page) ? 'わたしのこれから診断' :
+    /^minakusa/.test(page) ? '南草津駅前' : 'その他';
 
   var ref='';
   try{
