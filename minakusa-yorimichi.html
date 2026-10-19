@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <!--
   ビジュアル改訂：明るいポスターのトップ／4つの絵から選ぶよりみち／投票と案内登録の受付・設定は継続。
+  ・シェアカード：登録後の「会員証」、投票後の「1票カード」を画像で作り、SNS・LINE・保存へ。リンクに会員番号の印（?src=m023）。計測は yorimichi_share（kind・method）。
   ・合言葉は「いつもの駅に、小さなおいしい発見を。」に統一（タブ・SNS共有・ページ末尾）。スマホは登録欄を写真より先に置く。
   ■ 南草津駅前 一般の方向け案内（第1回まで版）
   ・目的は2つ：食べたいものの投票と、開催案内の登録。出店者は出店者募集ページ（minakusa-ekimae.html）へ。
@@ -275,6 +276,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 }
 @media (min-width:861px){ .hdr-cta .short{display:none} }
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *,*::before,*::after{transition:none!important;animation:none!important} }
+
+/* シェアカード（会員証・1票カード） */
+.sk[hidden]{display:none}
+.sk{position:fixed;inset:0;z-index:60;background:rgba(23,60,81,.62);display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px))}
+.sk-p{background:#FFF9EC;color:#173C51;border:2px solid #173C51;border-radius:18px;max-width:440px;width:100%;padding:18px 18px 16px;box-shadow:6px 7px 0 rgba(0,0,0,.18)}
+.sk-h{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900;font-size:16px}
+.sk-x{border:0;background:transparent;font-size:26px;line-height:1;cursor:pointer;color:#173C51;min-width:44px;min-height:44px}
+.sk-img{display:block;width:100%;height:auto;border-radius:10px;margin:10px 0 6px;box-shadow:0 0 0 1px #DDDCD1}
+.sk-n{font-size:12px;color:#536775;margin:0 0 10px}
+.sk-b{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sk-b a,.sk-b button{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;font:inherit;font-weight:700;font-size:14px;text-decoration:none;cursor:pointer;border:2px solid #173C51;background:#fff;color:#173C51}
+.sk-b .main{grid-column:1/-1;background:#FFD35B;box-shadow:0 4px 0 #173C51}
+.sk-msg{font-size:13px;color:#36745C;margin:10px 0 0;min-height:1em}
+.mk-share{display:inline-flex;margin-top:10px;min-height:44px;align-items:center;padding:8px 16px;border-radius:999px;border:2px solid #173C51;background:#FFD35B;color:#173C51;font:inherit;font-weight:700;cursor:pointer}
 
 /* よりみちのわくわく：2026-10-19 */
 :root{
@@ -658,6 +673,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       </form>
       <div class="msg" id="regMsg2" role="status" style="max-width:520px;margin-left:auto;margin-right:auto"></div>
       <div class="share-row">
+        <button class="btn btn-bulb btn-sm" type="button" id="voteCardBtn">わたしの1票カードをつくる</button>
         <button class="btn btn-ghost-w btn-sm" type="button" data-share>近くの人に教える</button>
         <a class="btn btn-ghost-w btn-sm" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
       </div>
@@ -765,6 +781,23 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
+
+<div class="sk" id="shareKit" hidden role="dialog" aria-modal="true" aria-labelledby="skTitle">
+  <div class="sk-p">
+    <div class="sk-h"><span id="skTitle">シェア用の画像ができました</span><button type="button" class="sk-x" id="skClose" aria-label="閉じる">×</button></div>
+    <img class="sk-img" id="skImg" alt="シェア用の画像" width="1080" height="1350">
+    <p class="sk-n">画像は長押し（パソコンは右クリック）でも保存できます。Instagramのストーリーズには、保存した画像をそのまま載せられます。</p>
+    <div class="sk-b">
+      <button type="button" class="main" id="skNative">画像をSNSでシェアする</button>
+      <a id="skLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+      <a id="skThreads" href="#" target="_blank" rel="noopener">Threadsに投稿</a>
+      <a id="skX" href="#" target="_blank" rel="noopener">Xに投稿</a>
+      <a id="skSave" href="#" download="minakusa-yorimichi.jpg">画像を保存</a>
+      <button type="button" id="skCopy" style="grid-column:1/-1">文章とリンクをコピー</button>
+    </div>
+    <p class="sk-msg" id="skMsg" role="status"></p>
+  </div>
+</div>
 
 <div class="mbar">
   <a class="btn btn-ghost-w" href="#who">食べたいもの</a>
@@ -898,7 +931,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     vbtn.disabled = true; vbtn.textContent = '送信しています…'; vmsg.className='msg';
     send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'投票欄', persona:(PERSONAS[myPersona]||{}).label||'',
       food:food.join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'), comment:(document.getElementById('vComment').value||'').slice(0,200), src:src
-    }).then(function(){ store('minakusa_voted','1'); showVoted(); vdone.focus(); track('yorimichi_vote',{via:'vote_form'}); })
+    }).then(function(){ store('minakusa_voted','1'); store('minakusa_vote_food', food.slice(0,3).join('／')); showVoted(); vdone.focus(); track('yorimichi_vote',{via:'vote_form'}); })
     .catch(function(){ vmsg.className='msg ng'; vmsg.textContent='送信できませんでした。通信の状態を確かめて、もう一度お試しください。'; vbtn.disabled=false; vbtn.textContent='この内容で投票する'; });
   });
 
@@ -934,7 +967,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
         send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'帰り道から', persona:p.label,
           food: picks.map(function(n){ return FOODS[n][1]; }).join('／'), time:'（未回答）', exit:'（未回答）', comment:'', src:src
         }).then(function(){
-          store('minakusa_voted','1'); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
+          store('minakusa_voted','1'); store('minakusa_vote_food', picks.slice(0,3).map(function(n){ return FOODS[n][1]; }).join('／')); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
           qEl.innerHTML = '<p class="q-done">1票、届きました。「'+FOODS[picks[0]][1]+'」が並ぶ日を、いっしょに待ちましょう。</p>'+
             '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div>';
           bindReg('regInline3','rEmail3','regMsg3','投票直後（帰り道）');
@@ -950,7 +983,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   function bindReg(formId, inputId, msgId, where){
     var f = document.getElementById(formId); if(!f) return;
     var m = document.getElementById(msgId), btn = f.querySelector('button[type=submit]');
-    if(load('minakusa_registered')){ var myNo = load('minakusa_no'); m.className='msg ok'; m.textContent='このブラウザからは登録済みです'+(myNo ? '（よりみち会員 No.'+('00'+myNo).slice(-3)+'）' : '')+'。日程が決まったらお知らせします。'; }
+    if(load('minakusa_registered')){ var myNo = load('minakusa_no'); m.className='msg ok'; m.textContent='このブラウザからは登録済みです'+(myNo ? '（よりみち会員 No.'+('00'+myNo).slice(-3)+'）' : '')+'。日程が決まったらお知らせします。'; if(myNo){ var mb=document.createElement('button'); mb.type='button'; mb.className='mk-share'; mb.textContent='会員証をつくって、SNSでシェア'; mb.addEventListener('click', function(){ openShareKit('member'); }); m.appendChild(document.createElement('br')); m.appendChild(mb); } }
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var em = document.getElementById(inputId);
@@ -964,7 +997,9 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
           store('minakusa_no', String(no));
           var n3 = ('00'+no).slice(-3), shareTxt = '南草津駅の帰り道に、小さなお店ができるらしい。わたしは「よりみち会員」No.'+n3+'。';
           m.innerHTML = '登録しました。あなたは<b>「よりみち会員」No.'+n3+'</b>です。'+(j.early ? '第1回の日程と出店するお店を、一般より先にお知らせします。' : '第1回の日程が決まったら、お知らせします。')+
-            '<br><a class="reg-share" target="_blank" rel="noopener" href="https://line.me/R/share?text='+encodeURIComponent(shareTxt+'\n'+PAGE_URL+'?src=member')+'">南草津を使う人にLINEで教える</a>';
+            '<br><button type="button" class="mk-share" data-member-card>会員証をつくって、SNSでシェア</button>';
+          m.querySelector('[data-member-card]').addEventListener('click', function(){ openShareKit('member'); });
+          var ls = document.getElementById('lineShare'); if(ls) ls.href = 'https://line.me/R/share?text=' + encodeURIComponent(shareText + ' #南草津 #南草津駅 #よりみち\n' + PAGE_URL + '?src=m' + n3); shareUrl = PAGE_URL + '?src=m' + n3;
         } else {
           m.textContent='登録しました。第1回の日程が決まったら、このアドレスにお知らせします。';
         }
@@ -1001,6 +1036,95 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       else { smsg.className='msg ok'; smsg.textContent=shareUrl; }
     });
   });
+
+  // ── シェアカード（会員証・1票カード）：登録した人・投票した人が、自分の番号や1票を画像で広められる ──
+  // リンクには会員番号の印（?src=m023）が付き、その人の紹介で増えた登録が台帳で数えられる。
+  var TAGS = ' #南草津 #南草津駅 #よりみち';
+  var heroImg = new Image(); heroImg.src = 'images/minakusa/yorimichi/hero-sp-v2.jpg';
+  function myRefUrl(){ var no = load('minakusa_no'); return PAGE_URL + '?src=' + (no ? 'm' + ('00'+no).slice(-3) : 'share'); }
+  function rr(c, x, y, w, h, r){ c.beginPath(); c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r); c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); }
+  function drawCard(kind){
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350; var c = cv.getContext('2d');
+    var navy = '#173C51', cream = '#FFF9EC', tomato = '#DC492E', bulb = '#FFD35B', leaf = '#36745C';
+    var DG = "'Dela Gothic One', 'Noto Sans JP', sans-serif", NS = "'Noto Sans JP', sans-serif";
+    c.fillStyle = cream; c.fillRect(0,0,1080,1350);
+    // 写真（完成イメージ）
+    c.save(); rr(c, 60, 60, 960, 560, 40); c.clip();
+    if(heroImg.complete && heroImg.naturalWidth){ var iw = heroImg.naturalWidth, ih = heroImg.naturalHeight, sc = Math.max(960/iw, 560/ih); c.drawImage(heroImg, 60 + (960 - iw*sc)/2, 60 + (560 - ih*sc)*0.6, iw*sc, ih*sc); } else { c.fillStyle = '#E8D6A8'; c.fillRect(60,60,960,560); }
+    c.restore(); c.lineWidth = 6; c.strokeStyle = navy; rr(c, 60, 60, 960, 560, 40); c.stroke();
+    c.fillStyle = 'rgba(255,255,255,.85)'; rr(c, 790, 570, 210, 36, 18); c.fill(); c.fillStyle = navy; c.font = '700 20px ' + NS; c.textAlign = 'center'; c.fillText('完成イメージ（合成）', 895, 595);
+    // 題字
+    c.textAlign = 'left'; c.fillStyle = navy; c.font = '400 46px ' + DG; c.fillText('南草津駅前、よりみち。', 70, 708);
+    if(kind === 'member'){
+      var no = ('00' + (load('minakusa_no') || '0')).slice(-3);
+      c.fillStyle = leaf; c.font = '900 34px ' + NS; c.fillText('よりみち会員', 70, 790);
+      c.fillStyle = tomato; var fs = 230; c.font = '400 ' + fs + 'px ' + DG; while(c.measureText('No.' + no).width > 950 && fs > 120){ fs -= 6; c.font = '400 ' + fs + 'px ' + DG; } c.fillText('No.' + no, 62, 1010);
+      c.fillStyle = navy; c.font = '700 44px ' + NS; c.fillText('第1回を、待っています。', 70, 1090);
+    } else {
+      var foods = (load('minakusa_vote_food') || '').split('／').filter(Boolean).slice(0,3);
+      c.fillStyle = leaf; c.font = '900 34px ' + NS; c.fillText('わたしの1票', 70, 790);
+      c.fillStyle = tomato; var y = 880;
+      foods.forEach(function(f){ var size = f.length > 9 ? 58 : 72; c.font = '400 ' + size + 'px ' + DG; c.fillText(f, 70, y); y += size + 26; });
+      if(!foods.length){ c.font = '400 72px ' + DG; c.fillText('帰り道の一品', 70, 880); }
+      c.fillStyle = navy; c.font = '700 40px ' + NS; c.fillText('帰り道に、何が買えたらうれしい？', 70, 1110);
+    }
+    // 帯
+    c.fillStyle = navy; c.fillRect(0, 1170, 1080, 180);
+    c.fillStyle = bulb; c.font = '400 40px ' + DG; c.fillText('いつもの駅に、小さなおいしい発見を。', 60, 1240);
+    c.fillStyle = '#FFF9EC'; c.font = '700 28px ' + NS; c.fillText('bridgecycleco.com/minakusa-yorimichi.html', 60, 1300);
+    return cv;
+  }
+  var skEl = document.getElementById('shareKit'), skMsg = document.getElementById('skMsg'), skBlob = null, skText = '', skKind = '', skLast = null;
+  function skUrl(){ return myRefUrl(); }
+  function openShareKit(kind){
+    skKind = kind; skMsg.textContent = ''; skLast = document.activeElement;
+    var no = load('minakusa_no'), n3 = no ? ('00'+no).slice(-3) : '';
+    skText = kind === 'member'
+      ? '南草津駅の帰り道に、小さなお店が並ぶらしい。わたしは「よりみち会員」No.' + n3 + '。第1回を待っています。' + TAGS
+      : 'わたしの1票は「' + (load('minakusa_vote_food') || '帰り道の一品').split('／').join('」「') + '」。南草津駅前に何が並んだらうれしい？ 投票受付中。' + TAGS;
+    document.getElementById('skTitle').textContent = kind === 'member' ? '会員証ができました' : '1票カードができました';
+    var go = function(){
+      var cv = drawCard(kind), url = cv.toDataURL('image/jpeg', 0.92);
+      document.getElementById('skImg').src = url; document.getElementById('skSave').href = url;
+      document.getElementById('skSave').download = kind === 'member' ? 'yorimichi-member-' + n3 + '.jpg' : 'yorimichi-vote.jpg';
+      cv.toBlob(function(b){ skBlob = b; }, 'image/jpeg', 0.92);
+      var u = skUrl();
+      document.getElementById('skLine').href = 'https://line.me/R/share?text=' + encodeURIComponent(skText + '\n' + u);
+      document.getElementById('skThreads').href = 'https://www.threads.net/intent/post?text=' + encodeURIComponent(skText + ' ' + u);
+      document.getElementById('skX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(skText) + '&url=' + encodeURIComponent(u);
+      skEl.hidden = false; document.getElementById('skClose').focus();
+      track('yorimichi_share', {kind: kind, method: 'open'});
+    };
+    var ready = (document.fonts && document.fonts.load) ? Promise.all([document.fonts.load("400 46px 'Dela Gothic One'"), document.fonts.load("700 40px 'Noto Sans JP'")]).catch(function(){}) : Promise.resolve();
+    var imgReady = heroImg.complete ? Promise.resolve() : new Promise(function(r){ heroImg.onload = r; heroImg.onerror = r; setTimeout(r, 2500); });
+    Promise.all([ready, imgReady]).then(go, go);
+  }
+  function closeShareKit(){ skEl.hidden = true; if(skLast && skLast.focus) skLast.focus(); }
+  document.getElementById('skClose').addEventListener('click', closeShareKit);
+  skEl.addEventListener('click', function(e){ if(e.target === skEl) closeShareKit(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !skEl.hidden) closeShareKit(); });
+  ['skLine','skThreads','skX','skSave'].forEach(function(id){ document.getElementById(id).addEventListener('click', function(){ track('yorimichi_share', {kind: skKind, method: id.slice(2).toLowerCase()}); }); });
+  document.getElementById('skNative').addEventListener('click', function(){
+    var u = skUrl();
+    try{
+      var file = skBlob ? new File([skBlob], skKind === 'member' ? 'yorimichi-member.jpg' : 'yorimichi-vote.jpg', {type:'image/jpeg'}) : null;
+      if(file && navigator.canShare && navigator.canShare({files:[file]})){
+        navigator.share({files:[file], text: skText + ' ' + u}).then(function(){ track('yorimichi_share', {kind: skKind, method: 'native'}); }).catch(function(){});
+        return;
+      }
+      if(navigator.share){ navigator.share({title:'南草津駅前、よりみち。', text: skText, url: u}).then(function(){ track('yorimichi_share', {kind: skKind, method: 'native_link'}); }).catch(function(){}); return; }
+    }catch(err){}
+    skMsg.textContent = 'この端末では直接シェアできません。画像を保存して、Instagramなどに載せてください。';
+  });
+  document.getElementById('skCopy').addEventListener('click', function(){
+    var t = skText + ' ' + skUrl();
+    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ skMsg.textContent = '文章とリンクをコピーしました。'; track('yorimichi_share', {kind: skKind, method: 'copy'}); }).catch(function(){ skMsg.textContent = t; }); }
+    else { skMsg.textContent = t; }
+  });
+  document.getElementById('voteCardBtn').addEventListener('click', function(){ openShareKit('vote'); });
+  // 投票後の「近くの人に教える」「LINEで送る」も、会員なら紹介の印付きリンクにする
+  shareUrl = myRefUrl();
+  document.getElementById('lineShare').href = 'https://line.me/R/share?text=' + encodeURIComponent(shareText + TAGS + '\n' + shareUrl);
 })();
 </script>
 <script src="bc-analytics.js" defer></script>
