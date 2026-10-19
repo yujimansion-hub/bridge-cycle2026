@@ -159,11 +159,21 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .personas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
 .persona{border:0;padding:0;background:var(--paper);border-radius:18px;overflow:hidden;cursor:pointer;font-family:inherit;text-align:left;box-shadow:0 0 0 2px transparent;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column}
 .persona:hover{transform:translateY(-3px)}
-.persona svg{display:block;width:100%;height:auto}
+.persona .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--night)}
+.persona .ph img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.persona:hover .ph img{transform:scale(1.04)}
+.persona .ph::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(18,22,46,.6))}
+.persona .ptag{position:absolute;left:10px;bottom:10px;z-index:1;background:var(--bulb);color:var(--night);font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+.quick{margin-top:16px;background:var(--page);border-radius:14px;padding:16px 16px 14px}
+.quick .q-h{font-weight:700;margin-bottom:10px}
+.quick .chips{gap:8px}
+.quick .chip span{min-height:42px;padding:7px 12px 7px 10px;font-size:15px}
+.quick .q-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:12px}
+.quick .q-done{font-weight:700;color:var(--leaf)}
 .persona .pl{display:block;padding:12px 14px 14px;font-weight:700;font-size:15px;color:var(--ink);line-height:1.5}
 .persona[aria-pressed="true"]{box-shadow:0 0 0 3px var(--tomato)}
 .persona[aria-pressed="true"] .pl::before{content:"✓ ";color:var(--tomato)}
-.mine{margin-top:20px;background:var(--paper);border-radius:20px;padding:24px 24px 22px;border-left:6px solid var(--tomato)}
+.mine{scroll-margin-top:76px;margin-top:20px;background:var(--paper);border-radius:20px;padding:24px 24px 22px;border-left:6px solid var(--tomato)}
 .mine[hidden]{display:none}
 .mine-t{font-family:'Dela Gothic One',sans-serif;font-size:22px}
 .mine-dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 0}
@@ -565,9 +575,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <section id="who" class="who">
   <div class="wrap">
     <h2 class="h2">あなたは、<br class="hide-sp">どの帰り道？</h2>
-    <p class="lead">選ぶと、あなたに合うよりみちの時間と場所、楽しみ方が出ます。</p>
+    <p class="lead">選ぶと、あなたに合うよりみちの時間と場所が出て、その場で1票を入れられます。</p>
     <div class="personas" id="personas" role="group" aria-label="あなたの帰り道"></div>
     <div class="mine" id="mine" hidden aria-live="polite"></div>
+    <p class="small" style="margin-top:10px">写真はほかの地域で撮られたイメージです。</p>
   </div>
 </section>
 
@@ -1093,7 +1104,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <footer>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
-    <div class="small" style="flex-basis:100%;order:3">締めの写真：Unsplash（Wkndr）。他地域の屋台のイメージです。</div>
+    <div class="small" style="flex-basis:100%;order:3">写真：Unsplash（Seungmin Yoon、HANVIN CHEONG、Yanhao Fang、Jacky Yu、Wkndr）。他の地域で撮られたイメージで、南草津の会場ではありません。</div>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
@@ -1486,75 +1497,54 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
   // ── あなたは、どの帰り道？ ───────────
   var PERSONAS = {
-    commute:{label:'仕事帰りに、駅を通る', title:'仕事帰りのあなたへ', scene:'eve', rows:[['いつ','金曜 18:00〜19:30'],['どこで','改札前・東口'],['こんなもの','今夜のおかず・お弁当・ちょっと一杯']], foods:[0,1], time:1, exits:[2], place:2, acts:[['vote','「今夜のおかず」に1票'],['invite','行きつけのお店を呼ぶ'],['card','わたしのカードをつくる']]},
-    student:{label:'立命館の授業帰り', title:'授業帰りのあなたへ', scene:'night', rows:[['いつ','金曜 16:30・18:15・20:00の授業終わり'],['どこで','東口のバスのりば'],['こんなもの','学生向けの軽食・ドリンク']], foods:[8,3], time:1, exits:[1], place:3, acts:[['vote','「学生ごはん」に1票'],['invite','好きなキッチンカーを呼ぶ'],['card','カードをつくって友だちに送る']]},
-    neighbor:{label:'駅の近くに住んでいる', title:'近くに住むあなたへ', scene:'noon', rows:[['いつ','土日の昼・金曜の夕方'],['どこで','西口の公園前'],['こんなもの','お弁当・おやつ・地元の野菜']], foods:[1,9,6], time:2, exits:[0,3], place:4, acts:[['vote','「公園でひろげるもの」に1票'],['invite','近所のお店を呼ぶ'],['akari','駅前の灯りを1灯応援']]},
-    shop:{label:'お店をやっている・やりたい', title:'お店をやっている・やりたいあなたへ', scene:'eve', rows:[['いつ','金曜の夕方が、いちばん人が通ります'],['どこで','西口・東口・改札前から選べます'],['いくら','1枠3,300円から・売上の歩合なし']], foods:null, place:1, acts:[['seller','出店について見る'],['invite','仲間のお店も呼ぶ'],['card','わたしのカードをつくる']]}
+    commute:{tag:'金曜 18:00〜', quick:[0,1,5,2,3], label:'仕事帰りに、駅を通る', title:'仕事帰りのあなたへ', scene:'eve', rows:[['いつ','金曜 18:00〜19:30'],['どこで','改札前・東口'],['こんなもの','今夜のおかず・お弁当・ちょっと一杯']], foods:[0,1], time:1, exits:[2], place:2, acts:[['vote','「今夜のおかず」に1票'],['invite','行きつけのお店を呼ぶ'],['card','わたしのカードをつくる']]},
+    student:{tag:'授業終わりに', quick:[8,3,4,0,5], label:'立命館の授業帰り', title:'授業帰りのあなたへ', scene:'night', rows:[['いつ','金曜 16:30・18:15・20:00の授業終わり'],['どこで','東口のバスのりば'],['こんなもの','学生向けの軽食・ドリンク']], foods:[8,3], time:1, exits:[1], place:3, acts:[['vote','「学生ごはん」に1票'],['invite','好きなキッチンカーを呼ぶ'],['card','カードをつくって友だちに送る']]},
+    neighbor:{tag:'土日の昼に', quick:[1,9,6,4,2], label:'駅の近くに住んでいる', title:'近くに住むあなたへ', scene:'noon', rows:[['いつ','土日の昼・金曜の夕方'],['どこで','西口の公園前'],['こんなもの','お弁当・おやつ・地元の野菜']], foods:[1,9,6], time:2, exits:[0,3], place:4, acts:[['vote','「公園でひろげるもの」に1票'],['invite','近所のお店を呼ぶ'],['akari','駅前の灯りを1灯応援']]},
+    shop:{tag:'1枠3,300円から', label:'お店をやっている・やりたい', title:'お店をやっている・やりたいあなたへ', scene:'eve', rows:[['いつ','金曜の夕方が、いちばん人が通ります'],['どこで','西口・東口・改札前から選べます'],['いくら','1枠3,300円から・売上の歩合なし']], foods:null, place:1, acts:[['seller','出店について見る'],['invite','仲間のお店も呼ぶ'],['card','わたしのカードをつくる']]}
   };
   var myPersona = load('minakusa_persona') || '';
-  function bulbsRow(){ var o=''; for(var i=0;i<9;i++){ var x=16+i*31, h=x<140?x/140:(x-140)/140, y=14+52*h*(1-h)+6; o+='<ellipse cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" rx="3.4" ry="4.8" fill="'+(i%3===1?'#FFFFFF':'#FFD66B')+'"/>'; } return '<path d="M0 14 Q70 40 140 14 Q210 40 280 14" fill="none" stroke="#1C2340" stroke-opacity=".55"/>'+o; }
-  function human(x, shirt, k){
-    k = k || 1; var top = 142 - 80*k, f = function(v){ return (v).toFixed(1); };
-    return '<rect x="'+f(x-9*k)+'" y="'+f(142-26*k)+'" width="'+f(7*k)+'" height="'+f(26*k)+'" rx="'+f(3*k)+'" fill="#1C2340"/>'+
-      '<rect x="'+f(x+2*k)+'" y="'+f(142-26*k)+'" width="'+f(7*k)+'" height="'+f(26*k)+'" rx="'+f(3*k)+'" fill="#1C2340"/>'+
-      '<rect x="'+f(x-13*k)+'" y="'+f(top+24*k)+'" width="'+f(26*k)+'" height="'+f(36*k)+'" rx="'+f(10*k)+'" fill="'+shirt+'"/>'+
-      '<circle cx="'+f(x)+'" cy="'+f(top+12*k)+'" r="'+f(11*k)+'" fill="#F3D2B5"/>'+
-      '<path d="M'+f(x-11*k)+' '+f(top+12*k)+' a'+f(11*k)+' '+f(11*k)+' 0 0 1 '+f(22*k)+' 0 Z" fill="#2A2F55"/>';
-  }
-  function tent(x, w, c){
-    var o = '<rect x="'+(x+4)+'" y="96" width="4" height="46" fill="#1C2340"/><rect x="'+(x+w-8)+'" y="96" width="4" height="46" fill="#1C2340"/>';
-    o += '<path d="M'+(x-4)+' 96 L'+(x+w/2)+' 80 L'+(x+w+4)+' 96 Z" fill="'+c+'"/>';
-    var n = 6, sw = (w+8)/n; for(var i=0;i<n;i++) o += '<rect x="'+(x-4+i*sw).toFixed(1)+'" y="96" width="'+sw.toFixed(1)+'" height="12" fill="'+(i%2?'#FFFFFF':c)+'"/>';
-    o += '<rect x="'+(x+2)+'" y="120" width="'+(w-4)+'" height="22" rx="2" fill="#FFFFFF"/><rect x="'+(x+2)+'" y="120" width="'+(w-4)+'" height="4" fill="'+c+'"/>';
-    o += '<circle cx="'+(x+w*0.3)+'" cy="116" r="4" fill="#F2A541"/><circle cx="'+(x+w*0.5)+'" cy="116" r="4" fill="#D9412B"/><circle cx="'+(x+w*0.7)+'" cy="116" r="4" fill="#7BB662"/>';
-    return o;
-  }
-  function personaSVG(k){
-    var sky = {commute:['#26295A','#E3683A'], student:['#141A40','#5B3B78'], neighbor:['#7FC4EE','#E6F4FA'], shop:['#3B2E5A','#F5B357']}[k];
-    var ground = k==='neighbor' ? '#CFC7B6' : '#2A2550';
-    var o = '<svg viewBox="0 0 280 168" aria-hidden="true"><defs><linearGradient id="pg-'+k+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+sky[0]+'"/><stop offset="1" stop-color="'+sky[1]+'"/></linearGradient></defs><rect width="280" height="168" fill="url(#pg-'+k+')"/>';
-    if(k==='commute'){
-      o += '<rect x="12" y="62" width="92" height="80" fill="#4B3A6A"/><rect x="6" y="56" width="104" height="8" fill="#1C2340" opacity=".8"/><rect x="34" y="68" width="48" height="12" rx="2" fill="#FFFFFF"/>';
-      o += '<rect x="20" y="90" width="14" height="10" fill="#FFD27A"/><rect x="40" y="90" width="14" height="10" fill="#FFD27A"/><rect x="62" y="90" width="14" height="10" fill="#FFD27A"/><rect x="82" y="90" width="14" height="10" fill="#FFD27A"/>';
-      o += tent(186, 70, '#D9412B') + '<rect x="0" y="142" width="280" height="26" fill="'+ground+'"/>' + human(140, '#3E4A7A');
-      o += '<rect x="150" y="112" width="18" height="13" rx="2" fill="#6B4A2B"/><rect x="155" y="108" width="8" height="5" rx="2" fill="none" stroke="#6B4A2B" stroke-width="2"/>';
-      o += '<path d="M137 86 l3 14 l3 -14 z" fill="#D9412B"/>';
-    } else if(k==='student'){
-      o += '<circle cx="230" cy="34" r="12" fill="#F4F1DE"/><circle cx="224" cy="30" r="12" fill="#141A40" opacity=".85"/>';
-      o += '<rect x="160" y="92" width="112" height="44" rx="12" fill="#2F6FB0"/><rect x="170" y="100" width="92" height="16" rx="4" fill="#FFD27A"/><circle cx="184" cy="138" r="7" fill="#1C2340"/><circle cx="248" cy="138" r="7" fill="#1C2340"/>';
-      o += '<rect x="0" y="142" width="280" height="26" fill="'+ground+'"/>';
-      o += '<rect x="78" y="82" width="16" height="30" rx="6" fill="#1F7A5C"/>' + human(100, '#D9412B');
-      o += human(44, '#E9B12F', 0.92);
-    } else if(k==='neighbor'){
-      o += '<circle cx="232" cy="30" r="14" fill="#FFF3B8"/>';
-      o += '<rect x="34" y="98" width="8" height="44" fill="#6B4A2B"/><circle cx="38" cy="86" r="26" fill="#5FA36A"/><circle cx="22" cy="98" r="16" fill="#4E9259"/>';
-      o += '<rect x="196" y="54" width="70" height="88" fill="#F3F6FA"/><g fill="#BFD3E6"><rect x="206" y="64" width="12" height="10"/><rect x="226" y="64" width="12" height="10"/><rect x="246" y="64" width="12" height="10"/><rect x="206" y="84" width="12" height="10"/><rect x="226" y="84" width="12" height="10"/><rect x="246" y="84" width="12" height="10"/><rect x="206" y="104" width="12" height="10"/><rect x="246" y="104" width="12" height="10"/></g>';
-      o += '<rect x="0" y="142" width="280" height="26" fill="'+ground+'"/>' + human(118, '#1F7A5C') + human(148, '#E9B12F', 0.62);
-      o += '<path d="M131 112 l6 2" stroke="#F3D2B5" stroke-width="4" stroke-linecap="round"/>';
-      o += '<rect x="94" y="110" width="14" height="16" rx="2" fill="#FFFFFF"/><path d="M97 110 q4 -6 8 0" fill="none" stroke="#FFFFFF" stroke-width="2"/>';
-    } else {
-      o += tent(118, 130, '#1F7A5C') + '<rect x="0" y="142" width="280" height="26" fill="'+ground+'"/>';
-      o += human(183, '#E9B12F');
-      o += '<rect x="170" y="100" width="26" height="22" rx="4" fill="#FFFFFF" opacity=".95"/>';
-      o += '<rect x="120" y="120" width="126" height="22" rx="2" fill="#FFFFFF"/><rect x="120" y="120" width="126" height="4" fill="#1F7A5C"/>';
-      o += '<circle cx="150" cy="116" r="5" fill="#F2A541"/><circle cx="165" cy="116" r="5" fill="#C98A4B"/><circle cx="205" cy="116" r="5" fill="#D9412B"/><circle cx="220" cy="116" r="5" fill="#7BB662"/>';
-      o += human(52, '#3E4A7A', 0.95);
-    }
-    return o + bulbsRow() + '</svg>';
-  }
   var pEl = document.getElementById('personas'), mineEl = document.getElementById('mine');
-  pEl.innerHTML = Object.keys(PERSONAS).map(function(k){ return '<button type="button" class="persona" data-k="'+k+'" aria-pressed="false">'+personaSVG(k)+'<span class="pl">'+PERSONAS[k].label+'</span></button>'; }).join('');
+  pEl.innerHTML = Object.keys(PERSONAS).map(function(k){ var p = PERSONAS[k]; return '<button type="button" class="persona" data-k="'+k+'" aria-pressed="false"><span class="ph"><img src="images/minakusa/yorimichi/p-'+k+'.jpg" alt="" width="640" height="480" loading="lazy"><span class="ptag">'+p.tag+'</span></span><span class="pl">'+p.label+'</span></button>'; }).join('');
   function choosePersona(k, quiet){
     var p = PERSONAS[k]; if(!p) return;
     myPersona = k; store('minakusa_persona', k);
     pEl.querySelectorAll('.persona').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-k')===k ? 'true':'false'); });
-    mineEl.innerHTML = '<p class="mine-t">'+p.title+'</p><dl class="mine-dl">'+p.rows.map(function(r){ return '<div><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>'; }).join('')+'</dl>'+
-      '<div class="mine-acts">'+p.acts.map(function(a,i){ return '<button type="button" class="btn '+(i===0?'btn-tomato':'btn-line')+'" data-act="'+a[0]+'">'+a[1]+'</button>'; }).join('')+'</div>';
+    var quick = '';
+    if(p.quick){
+      if(load('minakusa_voted')){ quick = '<div class="quick"><p class="q-done">あなたの1票は、もう届いています。ありがとうございます。</p></div>'; }
+      else {
+        quick = '<div class="quick" id="quick"><p class="q-h">あなたなら、何が買えたらうれしい？（3つまで）</p><div class="chips">'+p.quick.map(function(n){ var f = FOODS.at(n); return '<label class="chip" for="q'+n+'"><input type="checkbox" id="q'+n+'" name="q" value="'+n+'"'+(p.foods.indexOf(n)>=0?' checked':'')+'><span><em aria-hidden="true">'+f[0]+'</em>'+f[1]+'</span></label>'; }).join('')+'</div>'+
+          '<div class="q-foot"><button type="button" class="btn btn-tomato" id="qVote">この内容で1票を入れる</button><a class="small" href="#vote" data-act="vote">ほかのものも選ぶ</a></div><div class="msg" id="qMsg" role="status"></div></div>';
+      }
+    }
+    mineEl.innerHTML = '<p class="mine-t">'+p.title+'</p><dl class="mine-dl">'+p.rows.map(function(r){ return '<div><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>'; }).join('')+'</dl>' + quick +
+      '<div class="mine-acts">'+p.acts.filter(function(a){ return !(p.quick && a[0]==='vote'); }).map(function(a,i){ return '<button type="button" class="btn '+(i===0 && !p.quick ?'btn-tomato':'btn-line')+'" data-act="'+a[0]+'">'+a[1]+'</button>'; }).join('')+'</div>';
+    var qEl = document.getElementById('quick');
+    if(qEl){
+      var qLimit = function(){ var c = qEl.querySelectorAll('input:checked').length; qEl.querySelectorAll('input').forEach(function(x){ x.disabled = !x.checked && c>=3; }); document.getElementById('qVote').disabled = c===0; };
+      qEl.addEventListener('change', qLimit); qLimit();
+      document.getElementById('qVote').addEventListener('click', function(){
+        var picks = Array.prototype.map.call(qEl.querySelectorAll('input:checked'), function(x){ return Number(x.value); });
+        if(!picks.length) return;
+        var btn = this, qm = document.getElementById('qMsg'); btn.disabled = true; btn.textContent = '送信しています…';
+        send({ _subject:'【南草津】食べたいもの投票', kind:'投票', via:'帰り道から', persona:p.label,
+          food: picks.map(function(n){ return FOODS.at(n)[1]; }).join('／'), time: TIMES.at(p.time)||'', exit: (p.exits||[]).map(function(n){ return EXITS.at(n); }).join('／'), comment:'', src:src
+        }).then(function(){
+          store('minakusa_voted','1'); showVoted(); refreshStamps();
+          cFoodSel(picks[0]);
+          qEl.innerHTML = '<p class="q-done">1票、届きました。「'+FOODS.at(picks[0])[1]+'」が並ぶ日を、いっしょに待ちましょう。</p><div class="q-foot"><button type="button" class="btn btn-bulb" data-act="card">わたしのカードをつくる</button></div>';
+          var dup = mineEl.querySelector('.mine-acts [data-act="card"]'); if(dup) dup.remove();
+        }).catch(function(){
+          btn.disabled = false; btn.textContent = 'この内容で1票を入れる'; qm.className = 'msg ng'; qm.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。';
+        });
+      });
+    }
     mineEl.hidden = false;
     setTime(p.scene, !quiet);
     var cp = document.getElementById('cPlace'), cf = document.getElementById('cFood');
     if(cp) cp.value = String(p.place);
     if(cf && p.foods) cf.value = String(p.foods[0]);
+    if(window.innerWidth < 860 && !quiet){ setTimeout(function(){ mineEl.scrollIntoView({behavior:'smooth', block:'start'}); }, 80); }
     drawCard();
   }
   pEl.addEventListener('click', function(e){ var b = e.target.closest('.persona'); if(b) choosePersona(b.getAttribute('data-k')); });
@@ -1575,6 +1565,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     else if(a==='akari'){ go('akari'); }
     else if(a==='seller'){ location.href = 'minakusa-ekimae.html?src=who'; }
   });
+
+  function cFoodSel(n){ var cf = document.getElementById('cFood'); if(cf){ cf.value = String(n); drawCard(); } }
 
   // ── わたしのよりみちカード（canvasでこの端末の中だけで描く） ──
   var SHORT = ['夕ごはんのおかず','お弁当','焼きたてパン','コーヒー','スイーツ','おつまみ','地元の野菜','草津の手みやげ','学生ごはん','おやつ'];
