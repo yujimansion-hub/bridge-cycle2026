@@ -345,19 +345,41 @@ section.doors{padding:34px 0 48px}
 .flow3 span{display:block;font-size:14px;color:var(--ai-2);margin-top:4px;line-height:1.7}
 .about-link2{margin:22px 0 0;font-size:14.5px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
 .about-link2 span a{margin-left:10px}
-.biz4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.biz4 article{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--ai);border-radius:10px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px}
-.biz4 article.focus{border-top-color:var(--tape-d)}
-.biz4 h3{font-family:var(--serif);font-weight:800;font-size:19px;line-height:1.4;margin:0}
-.biz4 .b4tag{align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--tape-d);background:var(--leaf);border:1px solid var(--tape);border-radius:999px;padding:1px 9px}
-.biz4 p{margin:0;font-size:14px;color:var(--ai-2);line-height:1.7}
-.biz4 ul{list-style:none;margin:auto 0 0;padding:8px 0 0;border-top:1px solid var(--rule)}
-.biz4 li{padding:4px 0}
-.biz4 li a{font-weight:700;text-decoration:none}
-.biz4 li a:hover{text-decoration:underline}
-.biz4 li small{display:block;font-size:12px;color:var(--ai-2)}
-@media (max-width:980px){.biz4{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.biz4{grid-template-columns:1fr}}
+/* 4つの事業：中心（退店前承継）を大きく、3つの事業を支えとして */
+#jigyo4{padding-bottom:72px}
+.j4-eye{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--tape-d);margin:0 0 10px}
+.j4-h{font-family:var(--serif);font-weight:800;font-feature-settings:"palt";font-size:clamp(28px,4.6vw,46px);line-height:1.35;margin:0 0 14px}
+.j4-h em{font-style:normal;background:linear-gradient(transparent 62%,rgba(155,207,83,.55) 62%)}
+.j4-lead{color:var(--ai-2);margin:0 0 30px;max-width:38em}
+.j4-core{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center;background:var(--ai);color:#fff;border-radius:18px;padding:38px 40px;overflow:hidden}
+.j4-core::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:34px solid rgba(155,207,83,.18);pointer-events:none}
+.j4-core .k{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ai);background:var(--tape);border-radius:999px;padding:3px 12px}
+.j4-core h3{font-family:var(--serif);font-weight:800;font-size:clamp(34px,5vw,54px);line-height:1.15;margin:14px 0 10px;letter-spacing:.02em}
+.j4-core p{margin:0;font-size:16px;line-height:1.8;color:#d9e0ee;max-width:30em}
+.j4-core .facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;padding:0;list-style:none}
+.j4-core .facts li{font-size:13px;color:#d9e0ee}
+.j4-core .facts b{display:block;font-size:22px;color:#fff;line-height:1.3}
+.j4-core .acts{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
+.j4-core .acts a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-weight:700;font-size:17px;border-radius:12px;padding:16px 20px;background:#fff;color:var(--ai)}
+.j4-core .acts a.g{background:var(--tape);color:var(--ai)}
+.j4-core .acts a::after{content:"→";font-weight:700}
+.j4-core .acts a.t{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45);font-size:15px;padding:12px 20px}
+.j4-sub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.j4-sub article{position:relative;background:#fff;border:1px solid var(--rule);border-radius:14px;padding:22px 22px 18px;display:flex;flex-direction:column}
+.j4-sub article.hot{border:2px solid var(--tape-d);background:var(--leaf)}
+.j4-sub .v{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--ai-2)}
+.j4-sub .hot .v{color:var(--tape-d)}
+.j4-sub h3{font-size:18px;margin:4px 0 12px;line-height:1.4}
+.j4-sub .big{font-family:var(--serif);font-weight:800;font-size:clamp(22px,2.4vw,27px);line-height:1.3;color:var(--ai);margin:0 0 8px}
+.j4-sub p{margin:0 0 14px;font-size:14px;line-height:1.7;color:var(--ai-2)}
+.j4-sub .badge{position:absolute;right:16px;top:-12px;font-size:12px;font-weight:700;color:#fff;background:var(--tape-d);border-radius:999px;padding:3px 12px}
+.j4-sub ul{list-style:none;margin:auto 0 0;padding:10px 0 0;border-top:1px solid var(--rule)}
+.j4-sub li{padding:4px 0}
+.j4-sub li a{font-weight:700;text-decoration:none}
+.j4-sub li a::after{content:" →"}
+.j4-sub li a:hover{text-decoration:underline}
+.j4-sub li small{display:block;font-size:12px;color:var(--ai-2);line-height:1.5}
+@media (max-width:900px){.j4-core{grid-template-columns:1fr;padding:30px 24px}.j4-sub{grid-template-columns:1fr}}
 .hoka{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .hoka h3{font-size:16px;margin:0 0 8px;padding-bottom:8px;border-bottom:2px solid var(--ai)}
 .hoka ul{list-style:none;margin:0;padding:0}
@@ -629,21 +651,33 @@ section.doors{padding:34px 0 48px}
   <!-- 4つの事業 -->
   <section id="jigyo4">
     <div class="w">
-      <h2 class="sec">BRIDGE CYCLEの4つの事業</h2>
-      <p class="sec-lead">中心は、閉める店を次の店主へつなぐ退店前承継です。店を持つ前に売り場で試し、始めるときは補助金で備え、看板で知らせる。店の終わりと始まりを、4つの事業でつなぎます。</p>
-      <div class="biz4">
-        <article>
+      <p class="j4-eye">BRIDGE CYCLEの4つの事業</p>
+      <h2 class="j4-h">店の<em>終わり</em>と<em>始まり</em>を、<br>ひとつの道でつなぐ。</h2>
+      <p class="j4-lead">売り場で試し、補助金で備え、閉める店を継いで始め、看板で知らせる。その真ん中にあるのが、退店前承継です。</p>
+
+      <div class="j4-core">
+        <div>
+          <span class="k">中心の事業</span>
           <h3>退店前承継</h3>
           <p>閉める店の内装・設備を、壊す前に次の店主へ。店主の閉店費用を減らし、始める人の開業費用を抑えます。</p>
-          <ul>
-            <li><a href="zousaku.html" data-t="biz4_zousaku">店を閉める方</a></li>
-            <li><a href="tsugite.html" data-t="biz4_tsugite">店を始めたい方</a></li>
-            <li><a href="matching.html#mise" data-t="biz4_mise">登録されたお店を見る</a></li>
+          <ul class="facts">
+            <li><b>0円</b>相談・試算・登録</li>
+            <li><b>着手金0円</b>料金は成約したときだけ</li>
           </ul>
-        </article>
-        <article class="focus">
+        </div>
+        <div class="acts">
+          <a href="zousaku.html" data-t="biz4_zousaku">店を閉める方</a>
+          <a class="g" href="tsugite.html" data-t="biz4_tsugite">店を始めたい方</a>
+          <a class="t" href="matching.html#mise" data-t="biz4_mise">登録されたお店を見る</a>
+        </div>
+      </div>
+
+      <div class="j4-sub">
+        <article class="hot">
+          <span class="badge">出店者を募集中</span>
+          <span class="v">試す</span>
           <h3>売り場レンタル</h3>
-          <span class="b4tag">南草津駅前で出店者を募集中</span>
+          <p class="big">駅前で、毎週売る。</p>
           <p>店を持つ前に、人の集まる場所で売ってみる。売れ方の記録が、開業や2号店を決める材料になります。</p>
           <ul>
             <li><a href="minakusa-ekimae.html?src=top4" data-t="biz4_minakusa">南草津駅前の出店</a><small>JR南草津駅の駅前・社会実験（2027年2月まで）</small></li>
@@ -651,18 +685,22 @@ section.doors{padding:34px 0 48px}
           </ul>
         </article>
         <article>
+          <span class="v">備える</span>
           <h3>補助金申請サポート</h3>
-          <p>認定経営革新等支援機関として、開業・設備投資の補助金を申請から支えます。着手金0円、採択されたときだけ。</p>
+          <p class="big">着手金0円。</p>
+          <p>認定経営革新等支援機関として、開業・設備投資の補助金を申請から支えます。料金は採択されたときだけ。</p>
           <ul>
             <li><a href="hojokin.html" data-t="biz4_hojokin">補助金を相談する</a></li>
             <li><a href="tsuzukeru.html" data-t="biz4_keikaku">続ける計画をつくる</a></li>
           </ul>
         </article>
         <article>
+          <span class="v">知らせる</span>
           <h3>看板広告（トオリミチ）</h3>
-          <p>滋賀・京都で、看板から検索・地図・口コミ・予約までの取りこぼしを無料で診断し、効く看板を紹介します。</p>
+          <p class="big">集客診断0円。</p>
+          <p>滋賀・京都で、看板から検索・地図・口コミ・予約までの取りこぼしを診断し、効く看板を紹介します。</p>
           <ul>
-            <li><a href="road-sign/" data-t="biz4_roadsign">トオリミチを見る</a><small>相談・診断は0円</small></li>
+            <li><a href="road-sign/" data-t="biz4_roadsign">トオリミチを見る</a></li>
           </ul>
         </article>
       </div>
