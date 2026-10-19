@@ -9,7 +9,7 @@
   ・商品と開催日は、JS の SHOPS と NEXT_EVENT を書き換えるだけで表示が切り替わる（空のあいだは何も出ない）。
   ・JS の API に台帳（gas/yorimichi/Code.gs を公開したURL）を入れると、投票・登録は台帳へ送られ、次の情報更新・開催日・並ぶもの・投票結果は台帳から読む。
     日付と出店者が決まったら「今週の出店者・取り置き・お店を呼ぶ・カード」、3回開催後に「灯りの応援・点灯・手帳」を戻す。
-  ・会社サイトの他ページとはリンクしない独立ページ（noindex）。開催日が確定したら noindex を外す。
+  ・会社サイトのトップ・リンク集・売り場レンタル・継ぎ手のページと相互にリンク（2026-10-19〜）。検索は noindex のまま。開催日と名称が確定したら noindex を外す。
   ・計測は bc-analytics.js（GA4）。出来事：yorimichi_persona／yorimichi_vote（via）／yorimichi_register（where）、どれも src（QRの印）付き。
     訪問→投票＝yorimichi_vote ÷ ページ閲覧、訪問→登録＝yorimichi_register ÷ ページ閲覧。自分のアクセスは ?internal=1 で一度開けば除外される。
   ・流入元は URL の ?src= だけを送る（参照元のドメインは送らない）。例：?src=udc ?src=shop ?src=mansion ?src=rits
@@ -492,6 +492,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
     <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、帰り道と投票欄の絵はイラストで、どれも実際の会場・お店のようすとは異なります。</div>
     <div class="small" style="flex-basis:100%;order:4">このページでは、見られた回数や投票・登録の件数を数えるため、アクセス解析（Google Analytics）を使っています。入力した内容は送りません。</div>
+    <nav class="small" aria-label="関連ページ" style="flex-basis:100%;order:2;display:flex;flex-wrap:wrap;gap:6px 16px"><a href="minakusa-ekimae.html?src=yorimichi_footer">出店したい方（出店者の募集）</a><a href="tsugite.html">自分の店を始めたい方</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="./">運営：BRIDGE CYCLE株式会社</a></nav>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
