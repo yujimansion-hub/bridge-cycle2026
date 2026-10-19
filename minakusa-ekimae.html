@@ -876,7 +876,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* ───── オープン週0円（オープン記念）のスイッチ ─────
    true  … ページに「オープン週は全枠0円」の案内・条件・枠の表示が出る
    false … 元の料金表示（1枠3,300円から）に戻る。ほかの所は書き換え不要
-   さらに完全に元のファイルへ戻すときは、git の印「ekimae-before-launch-free」を使う */
+   ファイルごと元に戻すときは、GitHubのブランチ「backup/ekimae-before-launch-free」（コミット 9531a6a）の minakusa-ekimae.html を使う */
 var LAUNCH_FREE = true;
 
 function copyText(id, comp){
