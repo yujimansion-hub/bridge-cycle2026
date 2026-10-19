@@ -154,21 +154,6 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .facts .next{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px 0 16px 22px}
 .facts .next p{font-size:13px;font-weight:700}
 
-/* ===== テーマの日 ===== */
-.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-.theme{background:var(--paper);border-radius:18px;padding:0 20px 20px;display:flex;flex-direction:column;gap:8px;border:2px solid transparent;transition:border-color .15s;overflow:hidden}
-.theme .ph{position:relative;margin:0 -20px 10px;aspect-ratio:4/3;background:#2A3263}
-.theme .ph img{width:100%;height:100%;object-fit:cover}
-.theme .ph::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(28,35,64,.45))}
-.theme .ph .ic{position:absolute;left:16px;bottom:-18px;z-index:1;width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(28,35,64,.25)}
-.theme .when{margin-top:12px}
-.theme.on{border-color:var(--tomato)}
-.theme .when{font-size:13px;font-weight:700;color:var(--tomato)}
-.theme h3{font-family:'Dela Gothic One',sans-serif;font-size:21px}
-.theme .desc{font-size:14px;color:var(--sub);flex:1}
-.theme button{align-self:flex-start;margin-top:6px;border:2px solid var(--night);background:transparent;color:var(--night);border-radius:999px;padding:7px 16px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;min-height:40px}
-.theme button[aria-pressed="true"]{background:var(--night);color:var(--bulb)}
-
 /* ===== 出店日のタブ ===== */
 .days{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
 .days button{border:0;border-radius:999px;padding:9px 18px;background:var(--paper);color:var(--ink);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;min-height:44px;box-shadow:inset 0 0 0 1.5px var(--line)}
@@ -324,8 +309,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .seg button{padding:8px 4px;font-size:12px}
   .seg button b{font-size:15px}
   .exits,.stalls{grid-template-columns:1fr}
-  .themes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-20px;margin-right:-20px;padding:0 20px 8px;scroll-padding:0 20px}
-  .theme{scroll-snap-align:start}
   .facts .wrap{grid-template-columns:1fr 1fr}
   .fact{padding:16px 12px 16px 0;border-right:0;border-bottom:1px solid var(--line)}
   .fact:nth-child(2n){padding-left:14px;border-left:1px solid var(--line)}
@@ -507,16 +490,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   </div>
 </div>
 
-<!-- テーマの日（案） -->
-<section id="themes">
-  <div class="wrap">
-    <h2 class="h2">毎週ちがう、テーマの日。</h2>
-    <p class="lead">同じ駅前でも、曜日と時間でテーマを変える案です。行ってみたい日に印を付けてください。多かったテーマから実現を目指します。</p>
-    <div class="themes" id="themeList"></div>
-    <p class="small" style="margin-top:14px"><span class="sp-only">横にスワイプすると6つのテーマを見られます。</span>※テーマ・日時はすべて案です。写真はほかの地域の市場・屋台のイメージで、南草津の会場ではありません。印を付けた内容は、下の投票と一緒に送られます。</p>
-  </div>
-</section>
-
 <!-- 投票 -->
 <section id="vote" class="vote-sec">
   <svg class="garland" aria-hidden="true" id="garland"></svg>
@@ -531,10 +504,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
         <legend>買いたいもの<small>3つまで</small></legend>
         <div class="chips" id="foodChips"></div>
         <p class="counter" id="foodCount" aria-live="polite"><b>0</b> / 3</p>
-      </fieldset>
-      <fieldset>
-        <legend>行ってみたいテーマの日<small>いくつでも</small></legend>
-        <div class="chips soft" id="themeChips"></div>
       </fieldset>
       <fieldset>
         <legend>寄り道しやすい時間<small>いくつでも</small></legend>
@@ -630,10 +599,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
           <legend style="font-size:15px;margin-bottom:8px">あなたとお店</legend>
           <div class="chips" id="relChips"></div>
         </fieldset>
-        <fieldset class="field" style="margin-bottom:18px">
-          <legend style="font-size:15px;margin-bottom:8px">合いそうなテーマの日<small style="opacity:1;color:var(--sub)">任意</small></legend>
-          <div class="chips" id="iThemeChips"></div>
-        </fieldset>
         <button class="btn btn-tomato" type="submit" style="width:100%">お店に送る文面をつくる</button>
         <div class="msg" id="invErr" role="status"></div>
 
@@ -691,7 +656,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <ul>
         <li>開催日と、出店するお店を公開前に</li>
         <li>取り置きできるお店とメニューの一覧</li>
-        <li>投票の結果と、それで決まったテーマの日</li>
+        <li>投票の結果と、それで決まったメニュー</li>
       </ul>
     </div>
     <form class="reg-card" id="regForm" novalidate>
@@ -749,7 +714,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <section class="closing">
   <div class="wrap">
     <h2 class="h2">最初の開催日、<br class="hide-sp">いっしょに待ちませんか。</h2>
-    <p class="lead">投票が集まるほど出店するお店が増え、テーマの日も決めやすくなります。南草津に住む人、通う人に教えてください。</p>
+    <p class="lead">投票と推薦が集まるほど、出店するお店が増えていきます。南草津に住む人、通う人に教えてください。</p>
     <div class="row">
       <a class="btn btn-bulb" href="#register">開催日を先に知る</a>
       <button class="btn btn-ghost-w" type="button" data-share>このページを教える</button>
@@ -764,7 +729,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <footer>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
-    <div class="small" style="flex-basis:100%;order:3">写真：Unsplash（Seungmin Yoon、Cloris Ying、Alain Rouiller、Perry Merrity II、Wkndr）。テーマの日の写真は他地域の市場・屋台のイメージです。</div>
+    <div class="small" style="flex-basis:100%;order:3">締めの写真：Unsplash（Wkndr）。他地域の屋台のイメージです。</div>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
@@ -788,15 +753,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   //   enjoy:'楽しみ方（例：温め直すと焼きたての香り）', word:'店主のひとこと', where:'西口', when:'15:00〜20:00', torioki:'LINE @xxxx（前日20時まで）' }
   var SHOPS = [];
 
-  // テーマの日（案）
-  var THEMES = [
-    {ic:'🥐', img:'bread', when:'金曜の朝・改札前', name:'パンとコーヒーの朝市', text:'通勤・通学の前に、焼きたてのパンと一杯のコーヒー。'},
-    {ic:'🍱', img:'okazu', when:'金曜の夕方・西口と東口', name:'おかず横丁', text:'今夜の一品をここで。作りたての惣菜とお弁当が並ぶ日。'},
-    {ic:'🧺', img:'picnic', when:'土日の昼・西口の公園前', name:'公園ピクニック市', text:'買ったものを芝生で。ピクニック用品の貸し出しも検討中です。'},
-    {ic:'🏮', img:'night', when:'土曜の夜・東口', name:'電球の下のナイトマーケット', text:'バスを降りたら、灯りの下でおつまみと一杯。'},
-    {ic:'🎓', img:'student', when:'金曜の夕方・東口', name:'学生ごはんの日', text:'授業帰りに寄れる、量があって手ごろな軽食の日。'},
-    {ic:'🌱', img:'first', when:'月に1回・3か所', name:'はじめてのお店の日', text:'まだお店を持たない人が、ここで初めてお客さんに売る日。'}
-  ];
 
   var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
   var TIMES = ['平日の朝（7〜9時）','金曜の夕方（17〜20時）','土日祝の昼','土日祝の夕方〜夜'];
@@ -889,26 +845,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   }
   chips(document.getElementById('foodChips'), FOODS, 'food');
   chips(document.getElementById('timeChips'), TIMES, 'time');
-  chips(document.getElementById('themeChips'), THEMES.map(function(t){ return [t.ic, t.name]; }), 'theme');
-
-  // テーマの日カード（「行ってみたい」は投票欄の選択と連動）
-  var tl = document.getElementById('themeList');
-  tl.innerHTML = THEMES.map(function(t,i){
-    return '<article class="theme" id="th'+i+'"><div class="ph"><img src="images/minakusa/yorimichi/'+t.img+'.jpg" alt="" loading="lazy" width="900" height="675"><span class="ic" aria-hidden="true">'+t.ic+'</span></div><p class="when">'+t.when+'</p><h3>'+t.name+'</h3><p class="desc">'+t.text+'</p>'+
-      '<button type="button" data-i="'+i+'" aria-pressed="false">行ってみたい</button></article>';
-  }).join('');
-  function syncThemes(){
-    THEMES.forEach(function(t,i){
-      var on = document.getElementById('theme'+i).checked, b = tl.querySelector('button[data-i="'+i+'"]');
-      b.setAttribute('aria-pressed', on?'true':'false'); b.textContent = on ? '行ってみたい（選択中）' : '行ってみたい';
-      document.getElementById('th'+i).classList.toggle('on', on);
-    });
-  }
-  tl.addEventListener('click', function(e){
-    var b = e.target.closest('button[data-i]'); if(!b) return;
-    var c = document.getElementById('theme'+b.getAttribute('data-i')); c.checked = !c.checked; syncThemes();
-  });
-  document.getElementById('themeChips').addEventListener('change', syncThemes);
   chips(document.getElementById('exitChips'), EXITS, 'exit');
   chips(document.getElementById('wantChips'), WANTS, 'want');
   chips(document.getElementById('rExitChips'), EXITS, 'rexit');
@@ -951,7 +887,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     vmsg.className='msg';
     send({
       _subject:'【南草津】食べたいもの投票', kind:'投票',
-      food:food.join('／'), theme:vals(vf,'theme').join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'),
+      food:food.join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'),
       comment:(document.getElementById('vComment').value||'').slice(0,200), src:src
     }).then(function(){
       store('minakusa_voted','1'); showVoted(); vdone.focus();
@@ -1028,18 +964,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   var REL = ['常連です','ときどき行きます','気になっています'];
   var relEl = document.getElementById('relChips');
   relEl.innerHTML = REL.map(function(v,i){ return '<label class="chip" for="rel'+i+'"><input type="radio" id="rel'+i+'" name="rel" value="'+v+'"'+(i===0?' checked':'')+'><span>'+v+'</span></label>'; }).join('');
-  chips(document.getElementById('iThemeChips'), THEMES.map(function(t){ return [t.ic, t.name]; }), 'itheme');
   var invForm = document.getElementById('invForm'), invMsg = document.getElementById('invMsg'), step2 = document.getElementById('invStep2');
   var invErr = document.getElementById('invErr'), invSt = document.getElementById('invMsgStatus'), invRec = document.getElementById('invRecommend');
   var OFFER_URL = 'https://www.bridgecycleco.com/minakusa-ekimae.html?src=offer';
   function relText(r){ return r==='常連です' ? 'いつも通っている客として' : r==='ときどき行きます' ? 'ときどきお店に寄る客として' : 'ずっと気になっている者として'; }
   function buildMsg(){
     var shop = document.getElementById('iShop').value.trim(), rel = (invForm.querySelector('input[name=rel]:checked')||{}).value || REL[0];
-    var th = vals(invForm,'itheme');
     return shop+'さんへ\n\n'+
       'JR南草津駅の西口・東口・改札前で、小さなお店が並ぶ出店の募集が始まっています（南草津駅周辺まちづくりの社会実験）。\n\n'+
       relText(rel)+'、'+shop+'さんが南草津の駅前に来てくれたら、とてもうれしいです。'+
-      (th.length ? '「'+th[0]+'」の日なんて、ぴったりだと思います。' : '')+'\n\n'+
+'\n\n'+
       '出店料は1枠3,300円から、売上の歩合はなしだそうです。くわしくはこちら：\n'+OFFER_URL;
   }
   invForm.addEventListener('submit', function(e){
@@ -1061,7 +995,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     invRec.disabled=true; invRec.textContent='送信しています…';
     send({ _subject:'【南草津】お客さんからのお店の推薦', kind:'お店の推薦',
       shop:document.getElementById('iShop').value.trim().slice(0,60), about:(document.getElementById('iAbout').value||'').slice(0,160),
-      relation:(invForm.querySelector('input[name=rel]:checked')||{}).value||'', theme:vals(invForm,'itheme').join('／'), src:src
+      relation:(invForm.querySelector('input[name=rel]:checked')||{}).value||'', src:src
     }).then(function(){
       invRec.textContent='推薦しました'; invSt.className='msg ok'; invSt.textContent='推薦を受け付けました。ほかにも来てほしいお店があれば、お店の名前を変えて続けて送れます。';
     }).catch(function(){
