@@ -529,3 +529,40 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 .kcacts li::marker{color:#ffb077;font-weight:800}
 @media(max-width:600px){.pmhead b{padding-right:0;padding-top:16px}}
 @media(max-width:600px){.pmseal{position:static;display:inline-block;margin:12px 0 0 16px}.pmhead b{padding-top:0}.pmfrom{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+
+/* 2026-10-19 ヒーロー右：診断票の見本＋代表（看板写真から差し替え） */
+.hero3 .herodiag{position:relative;display:flex;align-items:center;justify-content:center;padding:40px 0 40px 28px;background:radial-gradient(120% 90% at 70% 40%,#1f4467 0%,var(--navy2) 70%)}
+.hdin{width:100%;max-width:470px}
+.hdlabel{margin:0 0 12px;color:#ffb077;font-size:13px;font-weight:900;letter-spacing:.08em}
+.hdflow{list-style:none;display:flex;gap:6px;margin:0 0 14px;padding:0;flex-wrap:wrap}
+.hdflow li{position:relative;font-size:12.5px;font-weight:800;color:#dbe6ef;background:#ffffff14;border:1px solid #ffffff2e;border-radius:999px;padding:4px 11px 4px 11px}
+.hdflow li.leak{background:#c2501f;border-color:#c2501f;color:#fff}
+.hdflow li.leak::after{content:'!';margin-left:5px;font-weight:900}
+.hdsheet{box-shadow:0 22px 48px rgba(0,0,0,.32);border:0;transform:rotate(-.6deg)}
+.hdsheet .dshead{display:none}
+.hdsheet .dsh{padding:14px 18px}
+.hdsheet .dsh em{border:0;padding:2px 8px;background:#fbe7dc;color:#a64216;font-weight:800}
+.hdsheet .dsr{grid-template-columns:1fr auto;grid-template-areas:"k p" "n n" "f f";gap:4px 10px;padding:11px 18px}
+.hdsheet .dsk{grid-area:k;font-size:.92rem}.hdsheet .dspr{grid-area:p}.hdsheet .dsnow{grid-area:n}.hdsheet .dsfix{grid-area:f}
+.hdsheet .dsnow,.hdsheet .dsfix{font-size:.86rem}
+.hdsheet .dsnow small,.hdsheet .dsfix small{display:inline-block;font-size:.68rem;font-weight:800;color:#7a8796;margin-right:6px;min-width:3.2em}
+.hdsheet .dsconc{padding:12px 18px;font-size:.92rem}
+.hdnote{margin:12px 2px 0;font-size:12px;color:#c9d7e3}
+.hdface{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;border-radius:14px;background:#ffffff12;border:1px solid #ffffff24}
+.hdface img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:0 0 52px;border:2px solid #ffffff55}
+.hdface p{margin:0;font-size:12.5px;line-height:1.6;color:#d6e2ec}
+.hdface b{display:block;color:#fff;font-size:14px}
+@media(max-width:850px){
+ .hero3 .herodiag{padding:6px 0 36px;margin:0 -19px;padding-left:19px;padding-right:19px;background:none}
+ .hdin{max-width:none}
+ .hdsheet{transform:none}
+}
+/* 約束帯：代表の顔 */
+.pitem.pface img{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:0 0 46px}
+/* 料金：看板検討中の方への案内 */
+.pricelinks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:20px 0 4px;font-size:14px;font-weight:700;color:#3d4f63}
+.pricelinks a{color:var(--navy);text-decoration:underline;text-underline-offset:3px;font-weight:800}
+/* 同意の補足 */
+.consent-note{margin:6px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+.hdin>.hdface{margin:0 0 18px}
+.pfig small.pfnote{display:block;margin:2px 0 0}

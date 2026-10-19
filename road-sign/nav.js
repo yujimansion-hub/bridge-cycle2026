@@ -5,7 +5,7 @@
   if (!bar || document.getElementById('spmenu')) return;
   const here = (location.pathname.split('/').pop() || 'index.html');
   const items = [
-    ['./', 'index.html', '看板を出したい方', 'お店・会社の看板プラン（無料）'],
+    ['./', 'index.html', '集客を見直したい方', '無料の集客診断'],
     ['kaiin.html', 'kaiin.html', 'クリニック・歯科の方', '開院前からの集客'],
     ['akiban.html', 'akiban.html', '看板を探す', '大津・草津・守山・栗東'],
     ['maps.html', 'maps.html', '提案事例', '業種ごとのモデルプラン'],
