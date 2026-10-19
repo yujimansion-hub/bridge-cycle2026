@@ -677,3 +677,12 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 .af a{color:var(--navy);font-weight:800;text-decoration:underline}
 .afnote{margin:10px 0 0;font-size:12.5px;color:var(--muted)}
 @media(max-width:760px){.afgrid{grid-template-columns:1fr}}
+.qstatus{border:0;margin:0 0 12px;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.qstatus legend{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:6px;padding:0;width:100%}
+.qstatus label{position:relative;cursor:pointer;margin:0}
+.qstatus input{position:absolute;opacity:0;width:1px;height:1px}
+.qstatus span{display:inline-block;border:1.5px solid #c9d4de;border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700;color:var(--navy);background:#fff}
+.qstatus input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.qstatus input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
+.contactform .qstatus.full,.contactform .full{grid-column:1/-1}
+[data-when][hidden]{display:none!important}
