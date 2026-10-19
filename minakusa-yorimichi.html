@@ -253,6 +253,15 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .exit .when{margin-top:14px;font-size:14px;border-top:1px dashed var(--line);padding-top:12px}
 .exit .when b{color:var(--ink)}
 .exit .menu{font-size:26px;margin-top:6px;letter-spacing:.05em}
+/* 各会場の写真：会場規模を誇張せず、日常の寄り道を伝える */
+.exit-photo{position:relative;overflow:hidden;aspect-ratio:16/10;margin:-10px -22px 20px;background:#E6E9EB}
+.exit-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.exit-photo figcaption{position:absolute;right:10px;bottom:10px;border-radius:999px;background:rgba(28,35,64,.78);color:#fff;padding:3px 10px;font-size:11px;font-weight:700}
+.exit-action{display:inline-flex;align-items:center;margin-top:14px;color:var(--leaf);font-weight:700;font-size:14px;text-underline-offset:3px}
+.exit-action:hover{color:var(--tomato)}
+/* 夜（東口）の駅前イラストは、少数出店の規模感に合わせる */
+#tents > g{transition:opacity .25s ease}
+.hero[data-t="night"] #tents > g:nth-child(n+2){opacity:0}
 
 /* ===== 投票（夜市） ===== */
 .vote-sec{background:var(--night);color:#fff;position:relative;padding-top:96px}
@@ -699,31 +708,34 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <section id="where">
   <div class="wrap">
     <h2 class="h2">出口ごとに、<br class="hide-sp">寄り道の楽しみ方がちがう。</h2>
-    <p class="lead">テントやキッチンカー、改札前のブースが並ぶ予定です。時間はいまの予定で、開催日とあわせて決まります。</p>
+    <p class="lead">西口・改札前・東口で、寄り道の楽しみ方が少しずつ変わります。お店の数や日時は調整中です。</p>
     <div class="exits">
       <article class="exit">
+        <figure class="exit-photo"><img src="images/minakusa/west.jpg" alt="西口・公園のそばでの寄り道をイメージした写真" loading="lazy" decoding="async"><figcaption>会場イメージ</figcaption></figure>
         <p class="where">西口・東山道記念公園の前</p>
         <h3>公園の前で、<br>今夜のおかずを。</h3>
-        <p>芝生の近くで食べても、持ち帰っても。</p>
-        <p class="menu" aria-hidden="true">🍱🥗🍩🧃</p>
-        <p class="when"><b>金曜</b>の夕方、<b>土日祝</b>の昼</p>
+        <p>芝生の近くで食べても、持ち帰っても。夕ごはんの一品を見つける寄り道。</p>
+        <p class="when"><b>金曜</b>の夕方、<b>土日祝</b>の昼（予定）</p>
+        <a class="exit-action" href="#vote">帰り道にほしいものを投票 →</a>
       </article>
       <article class="exit">
+        <figure class="exit-photo"><img src="images/minakusa/concourse.jpg" alt="改札前の自由通路で立ち寄れる小さなお店のイメージ写真" loading="lazy" decoding="async"><figcaption>会場イメージ</figcaption></figure>
         <p class="where">改札前・自由通路</p>
         <h3>雨の日も、<br>改札を出てすぐ。</h3>
-        <p>屋内のブース。朝のパンや、手みやげを。</p>
-        <p class="menu" aria-hidden="true">🥐☕🎁🍪</p>
-        <p class="when"><b>金曜</b>の朝と夕方、<b>土日祝</b>の昼</p>
+        <p>通勤・通学の途中に、朝のパンや手みやげを。短い時間でもふらっと。</p>
+        <p class="when"><b>金曜</b>の朝と夕方、<b>土日祝</b>の昼（予定）</p>
+        <a class="exit-action" href="#vote">駅前でほしいものを投票 →</a>
       </article>
       <article class="exit">
+        <figure class="exit-photo"><img src="images/minakusa/east.jpg" alt="バスのりばがある南草津駅東口の駅前広場のイメージ写真" loading="lazy" decoding="async"><figcaption>会場イメージ</figcaption></figure>
         <p class="where">東口・駅前広場</p>
-        <h3>バスを降りたら、<br>ちょっとひと息。</h3>
-        <p>大学行きのバスのりばとフェリエの前。いちばんお店が多い場所です。</p>
-        <p class="menu" aria-hidden="true">🌮🍢🧋🍺</p>
-        <p class="when"><b>金曜</b>の夕方〜夜、<b>土日祝</b>の昼と夜</p>
+        <h3>いつもの駅前に、<br>ちょっと寄り道。</h3>
+        <p>バスのりばとフェリエの前。東口は少数のお店によるコンパクトな出店を想定しています。バス待ちや帰宅途中の小さな楽しみに。</p>
+        <p class="when"><b>金曜</b>の夕方〜夜、<b>土日祝</b>の昼と夜（予定）</p>
+        <a class="exit-action" href="#vote">東口にほしいものを投票 →</a>
       </article>
     </div>
-    <p class="small" style="margin-top:16px">※絵文字は想定するメニューのイメージです。実際のお店とメニューは、決まりしだいこのページで紹介します。</p>
+    <p class="small" style="margin-top:16px">※写真は会場のイメージです。実際の店舗数・配置・メニューは未定です。開催日・出店情報は決まりしだいお知らせします。</p>
   </div>
 </section>
 
@@ -985,11 +997,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     morning:{emo:'🥐☕', where:'改札前・金曜の朝', say:'改札を出たら、焼きたてパンとコーヒー。', foods:[2,3], time:0},
     noon:   {emo:'🍙🍡', where:'西口・公園の前', say:'公園でひろげる、お弁当とおやつ。', foods:[1,9], time:2},
     eve:    {emo:'🍱🍰', where:'西口・東口', say:'今日の夕ごはん、一品はここで。', foods:[0,4], time:1},
-    night:  {emo:'🍢🌮', where:'東口・バスのりば', say:'バスを降りて、ちょっと一杯。', foods:[5,8], time:3}
+    night:  {emo:'☕🍢', where:'東口・バスのりば', say:'バスを降りたら、帰る前に小さな寄り道。', foods:[3,5], time:3}
   };
   // 屋台の絵（左から）：今の時間に並ぶもの
   var TENT_SIGNS = {
-    morning:['パン','珈琲','焼菓子'], noon:['弁当','おやつ','やさい'], eve:['惣菜','甘味','弁当'], night:['串焼','タコス','麦酒']
+    morning:['パン','珈琲','焼菓子'], noon:['弁当','おやつ','やさい'], eve:['惣菜','甘味','弁当'], night:['軽食','', '']
   };
 
   // ── 流入元（QR・掲示ごとに ?src= を付ける）──
