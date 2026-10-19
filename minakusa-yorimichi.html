@@ -1312,7 +1312,6 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       .then(function(d){if(d&&d.ok)render(d);})
       .catch(function(){ /* 誤った順位を作らず、すでに確認できた表示を保つ */ });
   }
-  }
   if(API) document.getElementById('regVia').textContent = '受付と配信にはGoogleのサービスを使います。';
   render({nextUpdate:NEXT_UPDATE, nextEvent:NEXT_EVENT, shops:SHOPS, results:RESULTS, earlyLimit: API ? 100 : 0});
   if(API){
