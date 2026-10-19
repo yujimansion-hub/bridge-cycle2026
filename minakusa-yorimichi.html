@@ -86,6 +86,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .hero[data-t="night"] .orb{left:80%;top:10%;background:#F4F1DE;box-shadow:0 0 40px 8px rgba(244,241,222,.35),inset -18px -6px 0 0 #D8D3B6}
 .hero-in{position:relative;z-index:2;padding-top:44px}
 .hdr-cta .short{display:none}
+.sp-only{display:none}
 .hero h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,7.4vw,76px);line-height:1.18;letter-spacing:.02em}
 .hero h1 span{display:block}
 .hero .lead{color:inherit;opacity:.88;font-size:17px;margin-top:18px;max-width:30em}
@@ -124,6 +125,35 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .pick .where{font-size:12px;font-weight:700;color:var(--tomato)}
 .pick .say{font-family:'Dela Gothic One',sans-serif;font-size:20px;line-height:1.35}
 .pick .note{font-size:12px;color:var(--sub);margin-top:2px}
+
+/* ===== ひと目でわかる開催概要 ===== */
+.facts{background:var(--paper);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:0;align-items:stretch}
+.fact{padding:20px 18px;border-right:1px solid var(--line)}
+.fact:first-child{padding-left:0}
+.fact b{display:block;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,30px);line-height:1.2}
+.fact span{font-size:13px;color:var(--sub)}
+.facts .next{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px 0 16px 22px}
+.facts .next p{font-size:13px;font-weight:700}
+
+/* ===== テーマの日 ===== */
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.theme{background:var(--paper);border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px;border:2px solid transparent;transition:border-color .15s}
+.theme.on{border-color:var(--tomato)}
+.theme .ic{font-size:34px;line-height:1}
+.theme .when{font-size:13px;font-weight:700;color:var(--tomato)}
+.theme h3{font-family:'Dela Gothic One',sans-serif;font-size:21px}
+.theme .desc{font-size:14px;color:var(--sub);flex:1}
+.theme button{align-self:flex-start;margin-top:6px;border:2px solid var(--night);background:transparent;color:var(--night);border-radius:999px;padding:7px 16px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;min-height:40px}
+.theme button[aria-pressed="true"]{background:var(--night);color:var(--bulb)}
+
+/* ===== 出店日のタブ ===== */
+.days{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.days button{border:0;border-radius:999px;padding:9px 18px;background:var(--paper);color:var(--ink);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;min-height:44px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.days button[aria-selected="true"]{background:var(--night);color:#fff;box-shadow:none}
+.stall .who{font-size:13px;color:var(--sub);margin-top:2px}
+.stall .enjoy{margin-top:10px;font-size:14px}
+.stall .enjoy b{color:var(--leaf)}
 
 /* ===== 3つの出口 ===== */
 .exits{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
@@ -240,6 +270,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .seg button{padding:8px 4px;font-size:12px}
   .seg button b{font-size:15px}
   .exits,.stalls{grid-template-columns:1fr}
+  .themes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-20px;margin-right:-20px;padding:0 20px 8px;scroll-padding:0 20px}
+  .theme{scroll-snap-align:start}
+  .facts .wrap{grid-template-columns:1fr 1fr}
+  .fact{padding:16px 12px 16px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .fact:nth-child(2n){padding-left:14px;border-left:1px solid var(--line)}
+  .facts .next{grid-column:1/-1;padding:14px 0 18px;flex-direction:row;align-items:center;justify-content:space-between}
   .pick{grid-template-columns:auto 1fr}
   .pick .btn{grid-column:1/-1}
   .pick .emo{font-size:34px}
@@ -255,6 +291,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .brand small{display:none}
   .hdr-cta .full{display:none}
   .hdr-cta .short{display:inline}
+  .sp-only{display:inline}
   .vote-sec{padding-top:84px}
   .torioki,.seller{padding:26px 20px}
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(28,35,64,.96)}
@@ -377,6 +414,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   </div>
 </div>
 
+<!-- ひと目でわかる開催概要 -->
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><b>3か所</b><span>西口・東口・改札前</span></div>
+    <div class="fact"><b>金土日祝</b><span>毎週の開催を予定</span></div>
+    <div class="fact"><b>最大21店</b><span>1日に並ぶお店の数（予定）</span></div>
+    <div class="fact"><b>入場無料</b><span>通りがかりにどうぞ</span></div>
+    <div class="next"><p>最初の開催日は近日発表</p><a class="btn btn-tomato btn-sm" href="#register">先に知らせてもらう</a></div>
+  </div>
+</div>
+
 <!-- 3つの出口 -->
 <section id="where">
   <div class="wrap">
@@ -409,6 +457,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   </div>
 </section>
 
+<!-- テーマの日（案） -->
+<section id="themes" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2">毎週ちがう、テーマの日。</h2>
+    <p class="lead">同じ駅前でも、曜日と時間でテーマを変える案です。行ってみたい日に印を付けてください。多かったテーマから実現を目指します。</p>
+    <div class="themes" id="themeList"></div>
+    <p class="small" style="margin-top:14px"><span class="sp-only">横にスワイプすると6つのテーマを見られます。</span>※テーマ・日時はすべて案です。印を付けた内容は、下の投票と一緒に送られます。</p>
+  </div>
+</section>
+
 <!-- 投票 -->
 <section id="vote" class="vote-sec">
   <svg class="garland" aria-hidden="true" id="garland"></svg>
@@ -423,6 +481,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
         <legend>買いたいもの<small>3つまで</small></legend>
         <div class="chips" id="foodChips"></div>
         <p class="counter" id="foodCount" aria-live="polite"><b>0</b> / 3</p>
+      </fieldset>
+      <fieldset>
+        <legend>行ってみたいテーマの日<small>いくつでも</small></legend>
+        <div class="chips soft" id="themeChips"></div>
       </fieldset>
       <fieldset>
         <legend>寄り道しやすい時間<small>いくつでも</small></legend>
@@ -459,7 +521,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <section id="shops">
   <div class="wrap">
     <h2 class="h2">どんなお店が並ぶ？</h2>
-    <p class="lead" id="shopsLead">屋台はまだ空いています。出店が決まったお店から、商品の写真・値段・店主のひとことをここで紹介します。</p>
+    <p class="lead" id="shopsLead">屋台はまだ空いています。出店が決まったお店から、どんな人のお店か、おすすめと楽しみ方を添えてここで紹介します。</p>
+    <div class="days" id="dayTabs" role="tablist" aria-label="出店日" hidden></div>
     <div class="stalls" id="shopList"></div>
 
     <div class="torioki" id="reserve">
@@ -484,7 +547,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     <table class="info">
       <tr><th>期間</th><td>2027年2月まで（社会実験の期間）</td></tr>
       <tr><th>開催日</th><td>金曜・土曜・日曜・祝日の予定<span class="pend">調整中</span><br><span class="small">最初の開催日は決まりしだいお知らせします。年末年始（12月31日〜1月3日）はお休みです。</span></td></tr>
-      <tr><th>場所</th><td>JR南草津駅（滋賀県草津市）の西口・東口・改札前の自由通路</td></tr>
+      <tr><th>場所</th><td>JR南草津駅（滋賀県草津市）の西口・東口・改札前の自由通路<br><a class="btn btn-line btn-sm" style="margin-top:8px;color:var(--leaf)" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85" target="_blank" rel="noopener">地図で見る（Googleマップ）</a></td></tr>
+      <tr><th>アクセス</th><td>電車・バス・徒歩でお越しください。会場に専用の駐車場はありません。</td></tr>
       <tr><th>お店</th><td>1日に最大21店舗が並ぶ規模を予定<span class="pend">募集中</span></td></tr>
       <tr><th>雨の日</th><td>改札前は屋内なので、雨でも開催する予定です。西口・東口は前日に開催するかを決め、このページでお知らせします。</td></tr>
       <tr><th>入場</th><td>無料。通りがかりにどうぞ。</td></tr>
@@ -501,7 +565,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <ul>
         <li>開催日と、出店するお店を公開前に</li>
         <li>取り置きできるお店とメニューの一覧</li>
-        <li>投票の結果と、それで決まったメニュー</li>
+        <li>投票の結果と、それで決まったテーマの日</li>
       </ul>
     </div>
     <form class="reg-card" id="regForm" novalidate>
@@ -591,7 +655,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   // 出店が決まったら、ここにお店を追加する（img は images/minakusa/shops/ に置く）。
   // { name:'屋号', item:'商品名', price:'税込500円', img:'images/minakusa/shops/xxx.jpg',
   //   word:'店主のひとこと', where:'西口', when:'11/14（金）15:00〜20:00', torioki:'LINE @xxxx（前日20時まで）' }
+  // date は 'YYYY-MM-DD'。複数の日に出る店は日ごとに1行ずつ入れる。
+  // { date:'2026-11-14', name:'屋号', who:'草津市の焼き菓子店', item:'商品名', price:'税込500円', img:'images/minakusa/shops/xxx.jpg',
+  //   enjoy:'楽しみ方（例：温め直すと焼きたての香り）', word:'店主のひとこと', where:'西口', when:'15:00〜20:00', torioki:'LINE @xxxx（前日20時まで）' }
   var SHOPS = [];
+
+  // テーマの日（案）
+  var THEMES = [
+    {ic:'🥐', when:'金曜の朝・改札前', name:'パンとコーヒーの朝市', text:'通勤・通学の前に、焼きたてのパンと一杯のコーヒー。'},
+    {ic:'🍱', when:'金曜の夕方・西口と東口', name:'おかず横丁', text:'今夜の一品をここで。作りたての惣菜とお弁当が並ぶ日。'},
+    {ic:'🧺', when:'土日の昼・西口の公園前', name:'公園ピクニック市', text:'買ったものを芝生で。ピクニック用品の貸し出しも検討中です。'},
+    {ic:'🏮', when:'土曜の夜・東口', name:'電球の下のナイトマーケット', text:'バスを降りたら、灯りの下でおつまみと一杯。'},
+    {ic:'🎓', when:'金曜の夕方・東口', name:'学生ごはんの日', text:'授業帰りに寄れる、量があって手ごろな軽食の日。'},
+    {ic:'🌱', when:'月に1回・3か所', name:'はじめてのお店の日', text:'まだお店を持たない人が、ここで初めてお客さんに売る日。'}
+  ];
 
   var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
   var TIMES = ['平日の朝（7〜9時）','金曜の夕方（17〜20時）','土日祝の昼','土日祝の夕方〜夜'];
@@ -680,6 +757,26 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   }
   chips(document.getElementById('foodChips'), FOODS, 'food');
   chips(document.getElementById('timeChips'), TIMES, 'time');
+  chips(document.getElementById('themeChips'), THEMES.map(function(t){ return [t.ic, t.name]; }), 'theme');
+
+  // テーマの日カード（「行ってみたい」は投票欄の選択と連動）
+  var tl = document.getElementById('themeList');
+  tl.innerHTML = THEMES.map(function(t,i){
+    return '<article class="theme" id="th'+i+'"><p class="ic" aria-hidden="true">'+t.ic+'</p><p class="when">'+t.when+'</p><h3>'+t.name+'</h3><p class="desc">'+t.text+'</p>'+
+      '<button type="button" data-i="'+i+'" aria-pressed="false">行ってみたい</button></article>';
+  }).join('');
+  function syncThemes(){
+    THEMES.forEach(function(t,i){
+      var on = document.getElementById('theme'+i).checked, b = tl.querySelector('button[data-i="'+i+'"]');
+      b.setAttribute('aria-pressed', on?'true':'false'); b.textContent = on ? '行ってみたい（選択中）' : '行ってみたい';
+      document.getElementById('th'+i).classList.toggle('on', on);
+    });
+  }
+  tl.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-i]'); if(!b) return;
+    var c = document.getElementById('theme'+b.getAttribute('data-i')); c.checked = !c.checked; syncThemes();
+  });
+  document.getElementById('themeChips').addEventListener('change', syncThemes);
   chips(document.getElementById('exitChips'), EXITS, 'exit');
   chips(document.getElementById('wantChips'), WANTS, 'want');
   chips(document.getElementById('rExitChips'), EXITS, 'rexit');
@@ -722,7 +819,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
     vmsg.className='msg';
     send({
       _subject:'【南草津】食べたいもの投票', kind:'投票',
-      food:food.join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'),
+      food:food.join('／'), theme:vals(vf,'theme').join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'),
       comment:(document.getElementById('vComment').value||'').slice(0,200), src:src
     }).then(function(){
       store('minakusa_voted','1'); showVoted(); vdone.focus();
@@ -759,15 +856,35 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   // ── 屋台カード ───────────────────────
   var list = document.getElementById('shopList');
   function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]}); }
+  var WD = ['日','月','火','水','木','金','土'];
+  function dayLabel(d){ var p=d.split('-'), dt=new Date(+p[0],+p[1]-1,+p[2]); return (+p[1])+'/'+(+p[2])+'（'+WD[dt.getDay()]+'）'; }
+  function card(s){
+    return '<article class="stall"><div class="roof"></div>'+(s.img?'<img src="'+esc(s.img)+'" alt="'+esc(s.item)+'" loading="lazy">':'')+
+      '<div class="body">'+(s.torioki?'<span class="badge">取り置きできます</span>':'')+
+      '<h3>'+esc(s.name)+'</h3>'+(s.who?'<p class="who">'+esc(s.who)+'</p>':'')+
+      '<p style="margin-top:8px">'+esc(s.item)+'</p><p class="price">'+esc(s.price)+'</p>'+
+      (s.enjoy?'<p class="enjoy"><b>楽しみ方</b>　'+esc(s.enjoy)+'</p>':'')+
+      (s.word?'<p class="word">'+esc(s.word)+'</p>':'')+
+      '<p class="meta">'+esc(s.where)+'　'+esc(s.when)+(s.torioki?'<br>取り置き：'+esc(s.torioki):'')+'</p></div></article>';
+  }
   if(SHOPS.length){
-    document.getElementById('shopsLead').textContent = '出店が決まったお店です。日時・メニューはお店の都合で変わることがあります。';
-    list.innerHTML = SHOPS.map(function(s){
-      return '<article class="stall"><div class="roof"></div>'+(s.img?'<img src="'+esc(s.img)+'" alt="'+esc(s.item)+'" loading="lazy">':'')+
-        '<div class="body">'+(s.torioki?'<span class="badge">取り置きできます</span>':'')+
-        '<h3>'+esc(s.name)+'</h3><p>'+esc(s.item)+'</p><p class="price">'+esc(s.price)+'</p>'+
-        (s.word?'<p class="word">'+esc(s.word)+'</p>':'')+
-        '<p class="meta">'+esc(s.where)+'　'+esc(s.when)+(s.torioki?'<br>取り置き：'+esc(s.torioki):'')+'</p></div></article>';
-    }).join('');
+    var today = new Date(); today.setHours(0,0,0,0);
+    var dates = SHOPS.map(function(s){return s.date}).filter(function(d,i,a){ return d && a.indexOf(d)===i; }).sort()
+      .filter(function(d){ var p=d.split('-'); return new Date(+p[0],+p[1]-1,+p[2]) >= today; }).slice(0,6);
+    document.getElementById('shopsLead').textContent = '次の出店日のお店です。日時・メニューはお店の都合で変わることがあります。';
+    var tabs = document.getElementById('dayTabs');
+    function showDay(d){
+      tabs.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-selected', b.getAttribute('data-d')===d?'true':'false'); });
+      list.innerHTML = SHOPS.filter(function(s){return s.date===d}).map(card).join('');
+    }
+    if(dates.length){
+      tabs.hidden = false;
+      tabs.innerHTML = dates.map(function(d){ return '<button type="button" role="tab" data-d="'+d+'">'+dayLabel(d)+'</button>'; }).join('');
+      tabs.addEventListener('click', function(e){ var b=e.target.closest('button[data-d]'); if(b) showDay(b.getAttribute('data-d')); });
+      showDay(dates[0]);
+    } else {
+      list.innerHTML = '<p class="small">次の出店日は準備中です。決まりしだいここに載せます。</p>';
+    }
   } else {
     var ph = [['この屋台、まだ空いています','商品の写真と値段、店主のひとことが入ります。'],['この屋台も、まだ空いています','出店する日時と、売り場（西口・東口・改札前）が入ります。'],['あなたのまちのお店が入るかも','取り置きできるかどうかと、その受付先が入ります。']];
     list.innerHTML = ph.map(function(p){
