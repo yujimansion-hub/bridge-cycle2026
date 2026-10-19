@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<!--
+  ■ 南草津駅前 一般の方向け案内（よりみち）
+  ・出店者募集ページ（minakusa-ekimae.html）と対になる、一般の方向けの入口。
+  ・会社サイトの他ページとは連携しない独立ページ（GA計測なし・noindex）。開催日が確定したら noindex を外す。
+  ・流入元は URL の ?src= で受け取り、投票・登録の送信内容に入れて区別する（例：?src=udc ?src=shop ?src=mansion ?src=rits ?src=matsuri）。
+  ・送信先は Formspree（件名に【南草津】を付けて他の受付と区別）。
+  ・開催が決まったら「SHOPS」配列に出店者を入れると、紹介カードが表示される。
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.bridgecycleco.com/minakusa-yorimichi.html">
+<title>南草津駅前、よりみち。｜帰り道に、寄り道したくなる駅前へ</title>
+<meta name="description" content="JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です（南草津駅周辺まちづくりの社会実験）。帰り道に何が買えたらうれしいか、投票で教えてください。開催日が決まったらお知らせします。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="南草津駅前、よりみち。帰り道に、寄り道したくなる駅前へ">
+<meta property="og:description" content="西口・東口・改札前に、小さなお店が並ぶ予定です。帰り道に何が買えたらうれしい？ 投票受付中。">
+<meta property="og:url" content="https://www.bridgecycleco.com/minakusa-yorimichi.html">
+<meta property="og:image" content="https://www.bridgecycleco.com/images/minakusa/concourse.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#F4F5F1; --paper:#FFFFFF; --ink:#1B2626; --sub:#4A5856; --line:#D9DED8;
+  --green:#0D6B5E; --green-d:#08493F; --green-l:#E3EFEB;
+  --orange:#B5541A; --orange-l:#F3E6DC; --sun:#F2C14E;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.75;-webkit-text-size-adjust:100%}
+a{color:var(--green)}a:hover{color:var(--green-d)}
+img{max-width:100%;display:block}
+h1,h2,h3,.disp{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;letter-spacing:.02em;line-height:1.35;margin:0}
+p{margin:0}
+::selection{background:var(--orange-l)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:3px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+section[id]{scroll-margin-top:72px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--orange);letter-spacing:.08em;margin-bottom:10px}
+.lead{color:var(--sub);margin-top:12px;max-width:640px}
+.h2{font-size:clamp(24px,4.4vw,34px)}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px}
+.brand{display:flex;flex-direction:column;line-height:1.3;text-decoration:none;color:var(--ink)}
+.brand b{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:17px}
+.brand span{font-size:11px;color:var(--sub)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 22px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.3;min-height:48px;font-family:inherit}
+.btn-main{background:var(--orange);color:#fff}.btn-main:hover{background:#97440F;color:#fff}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-d);color:#fff}
+.btn-ghost{background:var(--paper);color:var(--green);border-color:var(--green)}.btn-ghost:hover{background:var(--green-l)}
+.btn-sm{padding:8px 14px;font-size:14px;min-height:40px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* hero */
+.hero{padding:40px 0 56px;background:linear-gradient(180deg,#FFF8EF 0%,var(--bg) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--sub)}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px #FBEBC2}
+.hero h1{font-size:clamp(34px,6.6vw,58px);margin:18px 0 0}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .lead{font-size:17px;color:var(--ink)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-note{font-size:13px;color:var(--sub);margin-top:14px}
+.hero-photo{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3.4;background:#cfd8d4}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo .stall{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;justify-content:center;padding:0 16px 18px}
+.tent{flex:1;max-width:110px;background:var(--paper);border-radius:10px;padding:0 0 8px;text-align:center;font-size:12px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.18);overflow:hidden}
+.tent::before{content:"";display:block;height:16px;margin-bottom:6px;background:repeating-linear-gradient(90deg,var(--orange) 0 14px,#fff 14px 28px)}
+.tent:nth-child(2)::before{background:repeating-linear-gradient(90deg,var(--green) 0 14px,#fff 14px 28px)}
+.tent:nth-child(3)::before{background:repeating-linear-gradient(90deg,var(--sun) 0 14px,#fff 14px 28px)}
+.hero-photo figcaption{position:absolute;top:12px;left:12px;background:rgba(27,38,38,.72);color:#fff;font-size:11px;padding:4px 10px;border-radius:999px}
+
+/* areas */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.area img{aspect-ratio:16/10;object-fit:cover;width:100%;height:auto}
+.area .body{padding:18px 20px 22px}
+.area h3{font-size:20px}
+.area .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--green);background:var(--green-l);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.area dl{margin:12px 0 0;font-size:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.area dt{color:var(--sub)}
+.area dd{margin:0;font-weight:500}
+.small{font-size:13px;color:var(--sub)}
+
+/* vote */
+.vote-sec{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vote-box{max-width:760px;margin:28px auto 0}
+fieldset{border:0;margin:0 0 26px;padding:0}
+legend{font-weight:700;font-size:17px;margin-bottom:10px;padding:0}
+legend small{font-weight:500;color:var(--sub);font-size:13px;margin-left:6px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);font-weight:500;cursor:pointer;user-select:none;transition:background .15s,border-color .15s}
+.chip input:checked+span{background:var(--orange-l);border-color:var(--orange);color:#7A3608;font-weight:700}
+.chip input:checked+span::before{content:"✓"}
+.chip input:focus-visible+span{outline:3px solid var(--orange);outline-offset:2px}
+.chip input:disabled+span{opacity:.45;cursor:not-allowed}
+textarea,input[type=email],input[type=text]{width:100%;font-size:16px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
+textarea{min-height:84px;resize:vertical}
+.counter{font-size:13px;color:var(--sub);margin-top:8px}
+.form-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px}
+.msg{margin-top:14px;padding:14px 16px;border-radius:12px;font-size:15px;display:none}
+.msg.ok{display:block;background:var(--green-l);color:var(--green-d)}
+.msg.ng{display:block;background:#FBE9E4;color:#8A2A12}
+.done{display:none;text-align:center;padding:28px 18px;background:var(--green-l);border-radius:var(--radius)}
+.done h3{font-size:22px;color:var(--green-d)}
+.done p{margin-top:8px}
+.done .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+
+/* shops */
+.shops{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.shop img{aspect-ratio:1/1;object-fit:cover;width:100%;height:auto}
+.shop .body{padding:16px 18px 20px}
+.shop h3{font-size:18px}
+.shop .price{font-weight:700;color:var(--orange);margin-top:4px}
+.shop .word{margin-top:10px;font-size:14px;background:var(--bg);border-radius:10px;padding:10px 12px}
+.shop .meta{font-size:13px;color:var(--sub);margin-top:10px}
+.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--orange-l);color:#7A3608;margin-right:6px}
+.placeholder{border:2px dashed #C3CBC5;background:transparent;display:flex;flex-direction:column;justify-content:center;padding:26px 22px;min-height:260px}
+.placeholder .ph-img{height:90px;border-radius:12px;background:repeating-linear-gradient(135deg,#E8ECE7 0 10px,#F1F3EF 10px 20px);margin-bottom:16px}
+.placeholder b{font-family:'Zen Kaku Gothic New',sans-serif;font-size:17px}
+
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;counter-reset:f}
+.flow li{list-style:none;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 22px;position:relative}
+.flow li::before{counter-increment:f;content:counter(f);display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;align-items:center;justify-content:center;margin-bottom:10px}
+.flow ol{padding:0;margin:0}
+.flow h3{font-size:18px}
+
+/* info table */
+.info{width:100%;border-collapse:collapse;margin-top:26px;background:var(--paper);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.info th,.info td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+.info th{width:9em;background:#FAFBF8;color:var(--sub);font-weight:700;white-space:nowrap}
+.info tr:last-child th,.info tr:last-child td{border-bottom:0}
+.pend{display:inline-block;font-size:12px;font-weight:700;color:#7A5A06;background:#FBEBC2;border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:1px}
+
+/* register */
+.reg{background:var(--green);color:#fff}
+.reg .eyebrow{color:var(--sun)}
+.reg .lead{color:#DCEDE8}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:8px}
+.reg-card{background:var(--paper);color:var(--ink);border-radius:22px;padding:26px 24px}
+.reg-card label.lbl{display:block;font-weight:700;margin-bottom:8px}
+.reg ul.points{margin:22px 0 0;padding:0;list-style:none}
+.reg ul.points li{padding-left:30px;position:relative;margin-bottom:12px}
+.reg ul.points li::before{content:"";position:absolute;left:0;top:7px;width:18px;height:18px;border-radius:50%;background:var(--sun)}
+.reg-card .chip span{background:var(--bg)}
+
+/* seller */
+.seller{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:32px 30px}
+.seller h2{font-size:clamp(22px,3.6vw,28px)}
+.seller .nums{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.seller .nums div{background:var(--bg);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--sub)}
+.seller .nums b{display:block;font-size:20px;color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.about p+p{margin-top:12px}
+
+footer{padding:36px 0 48px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);background:var(--paper)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+
+/* mobile bar */
+.mbar{display:none}
+@media (max-width:860px){
+  .hero-grid,.reg-grid,.seller,.about{grid-template-columns:1fr}
+  .hero-grid{gap:28px}
+  .areas,.shops,.flow{grid-template-columns:1fr}
+  .hero{padding-top:24px}
+  section{padding:52px 0}
+  .hide-sp{display:none}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:1px solid var(--line)}
+  .mbar .btn{flex:1;padding:12px 8px;font-size:15px}
+  body{padding-bottom:76px}
+  .info th{width:6.5em;padding:12px}
+  .info td{padding:12px}
+  .seller{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><b>南草津駅前、よりみち。</b><span>南草津駅周辺まちづくりの社会実験</span></a>
+    <div style="display:flex;gap:8px">
+      <a class="btn btn-ghost btn-sm hide-sp" href="#vote">食べたいものを選ぶ</a>
+      <a class="btn btn-main btn-sm" href="#register">開催案内を受け取る</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ① 最初の画面 -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="status"><i aria-hidden="true"></i>準備中：開催日は調整しています</span>
+      <h1>帰り道に、<br><em>寄り道</em>したくなる<br>駅前へ。</h1>
+      <p class="lead">JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です。夕ごはんのおかず、朝のパン、学校帰りの軽食。<br>どんなお店があったらうれしいか、先に教えてください。</p>
+      <div class="hero-cta">
+        <a class="btn btn-main" href="#vote">食べたいものを選ぶ（30秒）</a>
+        <a class="btn btn-ghost" href="#register">開催案内を受け取る</a>
+      </div>
+      <p class="hero-note">投票の結果は、出店するお店にも共有して、メニュー選びに使ってもらいます。</p>
+    </div>
+    <figure class="hero-photo" style="margin:0">
+      <img src="images/minakusa/concourse.jpg" alt="南草津駅の改札前の自由通路を人が行き交う様子（ぼかし加工）" width="1200" height="650">
+      <figcaption>南草津駅 改札前の自由通路（現況）</figcaption>
+      <div class="stall" aria-hidden="true">
+        <div class="tent">西口</div><div class="tent">改札前</div><div class="tent">東口</div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ② どこで、どんな -->
+<section id="where">
+  <div class="wrap">
+    <span class="eyebrow">WHERE</span>
+    <h2 class="h2">同じ駅でも、出口ごとに<br class="hide-sp">楽しみ方が変わります。</h2>
+    <p class="lead">3か所に、テントやキッチンカー、改札前のブースが並ぶ予定です。時間はいまの予定で、開催日とあわせて確定します。</p>
+    <div class="areas">
+      <article class="card area">
+        <img src="images/minakusa/west.jpg" alt="西口の東山道記念公園と駅前の航空写真" loading="lazy" width="826" height="509">
+        <div class="body">
+          <span class="tag">西口・公園前</span>
+          <h3>公園の前で、夕方のおかずを。</h3>
+          <p class="small" style="margin-top:6px">東山道記念公園の前。芝生の近くで食べても、持ち帰っても。</p>
+          <dl>
+            <dt>予定</dt><dd>金曜の夕方／土・日・祝の昼</dd>
+            <dt>こんな店</dt><dd>惣菜・お弁当・おやつ・ドリンク</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card area">
+        <img src="images/minakusa/concourse.jpg" alt="改札前の自由通路（ぼかし加工）" loading="lazy" width="1200" height="650">
+        <div class="body">
+          <span class="tag">改札前・自由通路</span>
+          <h3>雨の日も、通り道で。</h3>
+          <p class="small" style="margin-top:6px">改札を出てすぐの屋内ブース。乗り換えの前に、手みやげを。</p>
+          <dl>
+            <dt>予定</dt><dd>金曜の朝と夕方／土・日・祝の昼</dd>
+            <dt>こんな店</dt><dd>朝のパン・焼き菓子・草津の手みやげ</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card area">
+        <img src="images/minakusa/east.jpg" alt="東口の駅前広場とバスのりばの航空写真" loading="lazy" width="865" height="545">
+        <div class="body">
+          <span class="tag">東口・駅前広場</span>
+          <h3>バスを降りたら、ひと息。</h3>
+          <p class="small" style="margin-top:6px">大学行きのバスのりばと、フェリエの前。いちばんお店が多いエリアです。</p>
+          <dl>
+            <dt>予定</dt><dd>金曜の夕方〜夜／土・日・祝の昼と夜</dd>
+            <dt>こんな店</dt><dd>軽食・ドリンク・夜のおつまみ</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <p class="small" style="margin-top:14px">※「こんな店」は想定です。実際のお店とメニューは、出店が決まりしだいこのページで紹介します。</p>
+  </div>
+</section>
+
+<!-- ③ 投票 -->
+<section id="vote" class="vote-sec">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="eyebrow">VOTE</span>
+      <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしいですか？</h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールもいりません。結果はこのページで公開し、出店するお店のメニュー選びに使ってもらいます。</p>
+    </div>
+
+    <form id="voteForm" class="vote-box" novalidate>
+      <fieldset>
+        <legend>買いたいもの<small>3つまで</small></legend>
+        <div class="chips" id="foodChips"></div>
+        <p class="counter" id="foodCount" aria-live="polite">0 / 3</p>
+      </fieldset>
+      <fieldset>
+        <legend>寄り道しやすい時間<small>いくつでも</small></legend>
+        <div class="chips" id="timeChips"></div>
+      </fieldset>
+      <fieldset>
+        <legend>よく使う出口<small>いくつでも</small></legend>
+        <div class="chips" id="exitChips"></div>
+      </fieldset>
+      <fieldset>
+        <legend><label for="vComment">「こんなお店があったら」<small>任意</small></label></legend>
+        <textarea id="vComment" name="comment" maxlength="200" placeholder="例：仕事帰りに買える、野菜たっぷりのおかず"></textarea>
+      </fieldset>
+      <div class="form-foot">
+        <button class="btn btn-main" type="submit" id="voteBtn" disabled>この内容で投票する</button>
+        <span class="small">1人1回。いただいた内容に、個人を特定する情報は含まれません。</span>
+      </div>
+      <div class="msg" id="voteMsg" role="status"></div>
+    </form>
+
+    <div class="done vote-box" id="voteDone" tabindex="-1">
+      <h3>投票ありがとうございます。</h3>
+      <p>結果は開催前に、このページで公開します。<br>開催日のお知らせも受け取りませんか？</p>
+      <div class="row">
+        <a class="btn btn-main" href="#register">開催案内を受け取る</a>
+        <button class="btn btn-ghost" type="button" data-share>近くの人に教える</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 出店するお店 -->
+<section id="shops">
+  <div class="wrap">
+    <span class="eyebrow">SHOPS</span>
+    <h2 class="h2">こんなお店が、並びます。</h2>
+    <p class="lead" id="shopsLead">出店するお店は、いま募集しています。決まったお店から、商品の写真・値段・店主のひとことをここで紹介します。</p>
+    <div class="shops" id="shopList"></div>
+  </div>
+</section>
+
+<!-- ⑤ 取り置き -->
+<section id="reserve" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">TORIOKI</span>
+    <h2 class="h2">売り切れが心配なら、取り置き。</h2>
+    <p class="lead">取り置きに対応するお店には、紹介カードに「取り置きできます」と表示します。受付はそれぞれのお店が直接行います。</p>
+    <div class="flow"><ol style="display:contents">
+      <li><h3>お店を選ぶ</h3><p class="small" style="margin-top:6px">このページの紹介カードで、取り置きできるお店とメニューを確認します。</p></li>
+      <li><h3>お店に連絡する</h3><p class="small" style="margin-top:6px">お店の受付先（LINE・SNS・電話など）に、数と受け取る時間を伝えます。</p></li>
+      <li><h3>帰り道に受け取る</h3><p class="small" style="margin-top:6px">当日、売り場で名前を伝えて受け取ります。お支払いはお店の案内に従ってください。</p></li>
+    </ol></div>
+    <p class="small" style="margin-top:14px">※取り置きの可否・締め切り・支払い方法はお店ごとに違います。運営（BRIDGE CYCLE）は注文やお支払いを受け付けません。</p>
+  </div>
+</section>
+
+<!-- ⑥ 開催情報 -->
+<section id="info" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">INFO</span>
+    <h2 class="h2">開催情報</h2>
+    <p class="lead">「調整中」の項目は、決まりしだい更新します。登録した方には先にお知らせします。</p>
+    <table class="info">
+      <tr><th>期間</th><td>2027年2月まで（社会実験の期間）</td></tr>
+      <tr><th>開催日</th><td>金曜・土曜・日曜・祝日の予定<span class="pend">調整中</span><br><span class="small">最初の開催日は、決まりしだいお知らせします。年末年始（12月31日〜1月3日）はお休みです。</span></td></tr>
+      <tr><th>場所</th><td>JR南草津駅（滋賀県草津市）の西口・東口・改札前の自由通路</td></tr>
+      <tr><th>お店</th><td>1日に最大21店舗が並ぶ規模を予定<span class="pend">募集中</span></td></tr>
+      <tr><th>雨の日</th><td>改札前は屋内のため、雨でも開催する予定です。西口・東口は前日に開催するかを判断し、このページでお知らせします。</td></tr>
+      <tr><th>入場</th><td>無料。通りがかりにお立ち寄りください。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ⑦ 案内登録 -->
+<section id="register" class="reg">
+  <div class="wrap reg-grid">
+    <div>
+      <span class="eyebrow">NEWS</span>
+      <h2 class="h2">開催日が決まったら、<br>先にお知らせします。</h2>
+      <p class="lead">メールアドレスだけで登録できます。お知らせ以外には使いません。</p>
+      <ul class="points">
+        <li>開催日と出店するお店を、公開前にお届け</li>
+        <li>取り置きできるお店とメニューの一覧</li>
+        <li>投票の結果と、それをもとに決まったメニュー</li>
+      </ul>
+    </div>
+    <form class="reg-card" id="regForm" novalidate>
+      <label class="lbl" for="rEmail">メールアドレス</label>
+      <input type="email" id="rEmail" name="email" autocomplete="email" required placeholder="例：minakusa@example.com">
+      <fieldset style="margin:20px 0 0">
+        <legend style="font-size:15px">知りたいこと<small>任意・いくつでも</small></legend>
+        <div class="chips" id="wantChips"></div>
+      </fieldset>
+      <fieldset style="margin:16px 0 0">
+        <legend style="font-size:15px">よく使う出口<small>任意</small></legend>
+        <div class="chips" id="rExitChips"></div>
+      </fieldset>
+      <p class="small" style="margin-top:16px">登録すると<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとします。配信はいつでも停止できます。</p>
+      <button class="btn btn-main" type="submit" style="width:100%;margin-top:14px" id="regBtn">開催案内を受け取る（無料）</button>
+      <div class="msg" id="regMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ⑧ 社会実験について -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">ABOUT</span>
+    <h2 class="h2">これは、南草津駅前の<br class="hide-sp">「まちの使い方」の実験です。</h2>
+    <div class="about">
+      <div>
+        <p>ふだんは通り過ぎるだけの駅前や改札前を、寄り道したくなる場所にできるか。南草津駅周辺のまちづくりの一つとして、2027年2月まで試します。</p>
+        <p>お店の売れ行きや、みなさんの投票・感想は、個人やお店が分からない形で集計し、これからの駅前の使い方を考える材料にします。</p>
+      </div>
+      <table class="info" style="margin-top:0">
+        <tr><th>実施</th><td>一般社団法人アーバンデザインセンターみなくさ（UDCみなくさ）、立命館大学</td></tr>
+        <tr><th>出店者の募集・調整</th><td>BRIDGE CYCLE株式会社（大津市）</td></tr>
+        <tr><th>お問い合わせ</th><td><a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a><br><span class="small">電話は平日10〜17時：080-5309-9770</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨ 出店したい方へ -->
+<section id="seller" style="padding-top:0">
+  <div class="wrap">
+    <div class="seller">
+      <div>
+        <span class="eyebrow">FOR SHOPS</span>
+        <h2>この駅前で、売ってみませんか。</h2>
+        <p class="lead" style="margin-top:10px">営業許可をお持ちの飲食店・キッチンカー・お菓子やパンのお店を募集しています。投票の結果も、出店する前に見られます。</p>
+        <div class="nums">
+          <div>出店料<b>1枠3,300円から</b></div>
+          <div>売上の歩合<b>なし</b></div>
+          <div>仮予約<b>0円</b></div>
+        </div>
+      </div>
+      <div style="text-align:center">
+        <a class="btn btn-green" id="sellerLink" href="minakusa-ekimae.html?src=yorimichi" style="width:100%">出店したい方はこちら</a>
+        <p class="small" style="margin-top:10px">料金・区画・条件は出店者募集ページへ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;text-align:center">
+  <div class="wrap">
+    <h2 class="h2" style="font-size:22px">近くに住んでいる人、南草津を使う人に。</h2>
+    <p class="lead" style="margin:10px auto 0">投票してくれる人が増えるほど、出店するお店が増え、メニューも選びやすくなります。</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px">
+      <button class="btn btn-ghost" type="button" data-share>このページを教える</button>
+      <a class="btn btn-ghost" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
+    </div>
+    <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社 ／ 滋賀県大津市におの浜2-1-28</div>
+    <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a> ・ <a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="#vote">食べたいもの</a>
+  <a class="btn btn-main" href="#register">開催案内を受け取る</a>
+</div>
+
+<script>
+(function(){
+  // ── 設定 ─────────────────────────────
+  var ENDPOINT = 'https://formspree.io/f/mojoqekd';
+  var PAGE_URL = 'https://www.bridgecycleco.com/minakusa-yorimichi.html';
+
+  // 出店が決まったら、ここにお店を追加する（img は images/minakusa/shops/ に置く）。
+  // { name:'屋号', item:'商品名', price:'税込500円', img:'images/minakusa/shops/xxx.jpg',
+  //   word:'店主のひとこと', where:'西口', when:'11/14（金）15:00〜20:00', torioki:'LINE @xxxx（前日20時まで）' }
+  var SHOPS = [];
+
+  var FOODS = ['夕ごはんのおかず・惣菜','お弁当','パン・サンドイッチ','コーヒー・ドリンク','スイーツ・焼き菓子','おつまみ・お酒','地元の野菜・果物','手みやげ・草津のお土産','学生向けの軽食','子どもと食べるおやつ'];
+  var TIMES = ['平日の朝（7〜9時）','金曜の夕方（17〜20時）','土日祝の昼','土日祝の夕方〜夜'];
+  var EXITS = ['西口','東口','改札を通るだけ','駅は使わない（近所）'];
+  var WANTS = ['開催日','出店するお店','取り置きできるお店','投票の結果'];
+
+  // ── 流入元（QR・掲示ごとに ?src= を付ける）──
+  var src = '';
+  try{ src = (new URLSearchParams(location.search).get('src')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30); }catch(e){}
+  if(!src){ try{ src = document.referrer ? ('ref:' + new URL(document.referrer).hostname) : 'direct'; }catch(e){ src='direct'; } }
+
+  function chips(el, list, name, type){
+    el.innerHTML = list.map(function(v,i){
+      var id = name + i;
+      return '<label class="chip" for="'+id+'"><input type="'+(type||'checkbox')+'" id="'+id+'" name="'+name+'" value="'+v+'"><span>'+v+'</span></label>';
+    }).join('');
+  }
+  chips(document.getElementById('foodChips'), FOODS, 'food');
+  chips(document.getElementById('timeChips'), TIMES, 'time');
+  chips(document.getElementById('exitChips'), EXITS, 'exit');
+  chips(document.getElementById('wantChips'), WANTS, 'want');
+  chips(document.getElementById('rExitChips'), EXITS, 'rexit');
+
+  function vals(form, name){ return Array.prototype.slice.call(form.querySelectorAll('input[name="'+name+'"]:checked')).map(function(i){return i.value}); }
+
+  function send(data){
+    return fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r; });
+  }
+  function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+
+  // ── 投票 ─────────────────────────────
+  var vf = document.getElementById('voteForm'), vbtn = document.getElementById('voteBtn');
+  var vmsg = document.getElementById('voteMsg'), vdone = document.getElementById('voteDone');
+  var foodCount = document.getElementById('foodCount');
+  function refreshVote(){
+    var n = vals(vf,'food').length;
+    foodCount.textContent = n + ' / 3';
+    vf.querySelectorAll('input[name=food]').forEach(function(i){ i.disabled = !i.checked && n>=3; });
+    vbtn.disabled = n===0;
+  }
+  vf.addEventListener('change', refreshVote);
+  function showVoted(){ vf.style.display='none'; vdone.style.display='block'; }
+  if(load('minakusa_voted')) showVoted();
+
+  vf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var food = vals(vf,'food'); if(!food.length) return;
+    vbtn.disabled = true; vbtn.textContent = '送信しています…';
+    vmsg.className='msg';
+    send({
+      _subject:'【南草津】食べたいもの投票', kind:'投票',
+      food:food.join('／'), time:vals(vf,'time').join('／'), exit:vals(vf,'exit').join('／'),
+      comment:(document.getElementById('vComment').value||'').slice(0,200), src:src
+    }).then(function(){
+      store('minakusa_voted','1'); showVoted(); vdone.focus();
+    }).catch(function(){
+      vmsg.className='msg ng'; vmsg.textContent='うまく送れませんでした。通信の状態を確かめて、もう一度お試しください。';
+      vbtn.disabled=false; vbtn.textContent='この内容で投票する';
+    });
+  });
+
+  // ── 案内登録 ─────────────────────────
+  var rf = document.getElementById('regForm'), rbtn = document.getElementById('regBtn'), rmsg = document.getElementById('regMsg');
+  if(load('minakusa_registered')){ rmsg.className='msg ok'; rmsg.textContent='このブラウザからは登録済みです。開催日が決まったらお知らせします。'; }
+  rf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('rEmail');
+    if(!email.value || !email.checkValidity()){
+      rmsg.className='msg ng'; rmsg.textContent='メールアドレスを確かめてください。'; email.focus(); return;
+    }
+    rbtn.disabled=true; rbtn.textContent='送信しています…';
+    send({
+      _subject:'【南草津】一般向け 開催案内の登録', kind:'開催案内登録',
+      email:email.value, _replyto:email.value,
+      want:vals(rf,'want').join('／'), exit:vals(rf,'rexit').join('／'), src:src
+    }).then(function(){
+      store('minakusa_registered','1');
+      rf.reset();
+      rmsg.className='msg ok'; rmsg.textContent='登録しました。開催日が決まったら、このアドレスにお知らせします。';
+      rbtn.textContent='登録しました';
+    }).catch(function(){
+      rmsg.className='msg ng'; rmsg.textContent='うまく送れませんでした。もう一度お試しいただくか、info@bridgecycleco.com へ「南草津の案内希望」とお送りください。';
+      rbtn.disabled=false; rbtn.textContent='開催案内を受け取る（無料）';
+    });
+  });
+
+  // ── 出店者カード ─────────────────────
+  var list = document.getElementById('shopList');
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]}); }
+  if(SHOPS.length){
+    document.getElementById('shopsLead').textContent = '出店が決まったお店です。日時・メニューはお店の都合で変わることがあります。';
+    list.innerHTML = SHOPS.map(function(s){
+      return '<article class="card shop">'+(s.img?'<img src="'+esc(s.img)+'" alt="'+esc(s.item)+'" loading="lazy">':'')+
+        '<div class="body">'+(s.torioki?'<span class="badge">取り置きできます</span>':'')+
+        '<h3>'+esc(s.name)+'</h3><p>'+esc(s.item)+'</p><p class="price">'+esc(s.price)+'</p>'+
+        (s.word?'<p class="word">'+esc(s.word)+'</p>':'')+
+        '<p class="meta">'+esc(s.where)+'　'+esc(s.when)+(s.torioki?'<br>取り置き：'+esc(s.torioki):'')+'</p></div></article>';
+    }).join('');
+  } else {
+    var ph = [
+      ['お店①','商品の写真・値段・店主のひとこと'],
+      ['お店②','出店する日時と、売り場（西口・東口・改札前）'],
+      ['お店③','取り置きできるかどうかと、その受付先']
+    ];
+    list.innerHTML = ph.map(function(p){
+      return '<div class="card placeholder"><div class="ph-img" aria-hidden="true"></div><b>'+p[0]+'：準備中</b><p class="small" style="margin-top:6px">ここに載せるもの：'+p[1]+'</p></div>';
+    }).join('');
+  }
+
+  // ── シェア ───────────────────────────
+  var shareText = '南草津駅前に、小さなお店が並ぶらしい。帰り道に何が買えたらうれしいか、投票できるよ。';
+  var shareUrl = PAGE_URL + '?src=share';
+  document.getElementById('lineShare').href = 'https://line.me/R/share?text=' + encodeURIComponent(shareText + '\n' + shareUrl);
+  var smsg = document.getElementById('shareMsg');
+  document.querySelectorAll('[data-share]').forEach(function(b){
+    b.addEventListener('click', function(){
+      if(navigator.share){
+        navigator.share({title:'南草津駅前、よりみち。', text:shareText, url:shareUrl}).catch(function(){});
+      } else if(navigator.clipboard){
+        navigator.clipboard.writeText(shareText + ' ' + shareUrl).then(function(){
+          smsg.className='msg ok'; smsg.textContent='リンクをコピーしました。';
+        }).catch(function(){ smsg.className='msg ok'; smsg.textContent=shareUrl; });
+      } else { smsg.className='msg ok'; smsg.textContent=shareUrl; }
+    });
+  });
+})();
+</script>
+</body>
+</html>
