@@ -514,8 +514,6 @@ section.doors{padding:34px 0 48px}
 }catch(e){}})();
 </script>
 
-<div id="campBand" data-from="top"></div>
-<script src="camp-band.js"></script>
 
 <header>
   <div class="w">
@@ -525,11 +523,8 @@ section.doors{padding:34px 0 48px}
     <nav class="gnav" aria-label="サイト内">
       <a href="#tenshu" data-door="tenshu">お店をやっている方</a>
       <a class="p2" href="#hajimeru" data-door="hajimeru">お店を始めたい方</a>
-      <a class="p3" href="matching.html#mise">登録されたお店</a>
-      <a class="p3" href="#faq">よくあるご質問</a>
+      <a class="p3" href="#tsuzukeru" data-door="tsuzukeru">お金の相談</a>
       <a class="p3" href="#company">会社概要</a>
-      <a class="p3" href="partners.html" data-t="hub_nav_partners">紹介・連携パートナー</a>
-      <a href="keisai.html" data-t="hub_nav_keisai">お店を登録（無料）</a>
       <a class="line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_line">LINEで相談</a>
     </nav>
   </div>
@@ -542,7 +537,6 @@ section.doors{padding:34px 0 48px}
       <div style="background-image:url('images/top-hero-kokaido.webp')"></div>
       <div style="background-image:url('images/top-hero-chair.webp');background-position:center 45%"></div>
     </div>
-    <span class="credit">写真：Unsplash・旧大津公会堂（イメージ）</span>
     <div class="w">
       <svg class="top2-pic" viewBox="0 0 264 78" role="img" aria-label="店主と、お店を始めたい人を、BRIDGE CYCLEがつなぐ">
         <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -553,8 +547,8 @@ section.doors{padding:34px 0 48px}
         <path d="M88 44Q132 12 176 44" fill="none" stroke="#9bcf53" stroke-width="3" stroke-linecap="round"/>
         <g fill="#e6ebf4" font-size="12.5" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" text-anchor="middle"><text x="33" y="68">店主</text><text x="231" y="68">始めたい人</text></g>
       </svg>
-      <h1 class="disp"><span class="nb">店を渡したい人と、</span><span class="nb">始めたい人を、</span><span class="nb">つなぐサイトです。</span></h1>
-      <p class="top2-sub"><b style="color:#fff">20坪の飲食店で内装を壊すと、工事だけで160万〜400万円。</b><small style="font-size:.8em;opacity:.85">（京都市の相場をもとにした目安）</small><br>次の人に渡せれば、この工事がいらなくなることがあります。<br>飲食店・美容室・クリニックなどの内装と設備を、壊さずに次の人へ。補助金や、続けるための相談もできます。</p>
+      <h1 class="disp"><span class="nb">閉める店の内装を、</span><span class="nb">壊さずに次の人へ。</span></h1>
+      <p class="top2-sub"><b style="color:#fff">20坪の飲食店で内装を壊すと、工事だけで160万〜400万円。</b><small style="font-size:.8em;opacity:.85">（京都市の相場をもとにした目安）</small><br>次の人に渡せれば、この工事がいらなくなることがあります。<br>店を渡したい店主と、始めたい人をつなぎます。補助金の相談もできます。</p>
       <p class="top2-gyo"><a href="shokei-inshokuten.html" data-t="hub_gyo_food">飲食店</a><a href="shokei-biyoshitsu.html" data-t="hub_gyo_beauty">美容室・サロン</a><a href="shokei-clinic.html" data-t="hub_gyo_clinic">クリニック・歯科</a></p>
       <p class="top2-co">お店の登録と一覧は全国から（オンライン・0円）。成約まで支援するのは大津市と京都市の周辺です。<br>滋賀県大津市・BRIDGE CYCLE株式会社（国の認定支援機関）</p>
     </div>
@@ -579,8 +573,7 @@ section.doors{padding:34px 0 48px}
   <!-- 入口：のれんを3枚。自分に合うものを選ぶ -->
   <section class="doors" id="doors" aria-label="ご用件から選ぶ">
     <div class="w">
-      <p class="doors-q">あなたは、どちらですか。</p>
-      <p class="doors-b">閉める前。始める前。お金を使う前。</p>
+      <p class="doors-q">あなたは、どれですか。</p>
       <div class="noren" role="tablist" aria-label="立場を選ぶ">
         <button type="button" class="nr nr-a" role="tab" aria-selected="true" aria-controls="tenshu" id="tab-tenshu" data-t="hub_door_tenshu"><svg class="ic" aria-hidden="true"><use href="#i-mise"/></svg><span>お店を<br>やっている</span></button>
         <button type="button" class="nr nr-b" role="tab" aria-selected="false" aria-controls="hajimeru" id="tab-hajimeru" data-t="hub_door_hajimeru"><svg class="ic" aria-hidden="true"><use href="#i-kagi"/></svg><span>お店を<br>始めたい</span></button>
@@ -597,8 +590,8 @@ section.doors{padding:34px 0 48px}
         <div class="room room-b" id="hajimeru" role="tabpanel" aria-labelledby="tab-hajimeru">
           <span id="jigyo" class="anc"></span><span id="tamesu" class="anc"></span>
           <h2 class="room-h">お店を始めたい方</h2>
-          <a class="act main" href="matching.html#mise" data-t="hub_act_mise"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-mushi"/></svg></i><span class="tx"><b>登録されたお店を見る</b><span>見るのは0円。全国のお店です</span></span></a>
-          <a class="act sub" href="tsugite.html#touroku" data-t="hub_act_touroku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></i><b>条件を登録しておく</b><span>1分・無料</span></a>
+          <a class="act main" href="tsugite.html#touroku" data-t="hub_act_touroku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></i><span class="tx"><b>希望の条件を登録する（無料）</b><span>1分。合うお店が出たら、先にお知らせします</span></span></a>
+          <a class="act sub" href="matching.html#mise" data-t="hub_act_mise"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-mushi"/></svg></i><b>登録されたお店を見る</b><span>見るのは0円</span></a>
           <a class="act sub" href="uriba-kokaido.html" data-t="hub_act_uriba"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-tento"/></svg></i><b>売り場で、試しに売る</b><span>旧大津公会堂</span></a>
         </div>
         <div class="room room-c" id="tsuzukeru" role="tabpanel" aria-labelledby="tab-tsuzukeru">
@@ -609,14 +602,13 @@ section.doors{padding:34px 0 48px}
         </div>
       </div>
       <p class="doors-line">迷ったら、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_door_line">LINEで一言</a>ください。どこから話せばいいか、こちらで整理します。</p>
-      <p class="doors-cr">のれんの写真はイメージです（wei／Omar Ramadan／Minyeong Jeong・Unsplash）。</p>
     </div>
   </section>
 
   <!-- いま登録されているお店 -->
   <section class="alt" id="ima">
     <div class="w">
-      <h2 class="sec">いま、登録されているお店</h2>
+      <h2 class="sec" id="ima-h">いま、登録されているお店</h2>
       <p class="sec-lead">店主が自分で登録したお店です。店名は載せていません。引き継ぐのは、内装と設備です。<span id="ima-wait"></span></p>
       <div class="tags3" id="ima-tags" aria-live="polite"></div>
       <p class="ima-more"><a class="btn2" href="matching.html#mise" data-t="hub_ima_all">お店の一覧を見る</a><a class="btn2 g" href="keisai.html" data-t="hub_ima_reg">お店を登録する（無料）</a></p>
@@ -710,7 +702,7 @@ section.doors{padding:34px 0 48px}
   <!-- ほかにやっていること -->
   <section class="alt" id="partner">
     <div class="w">
-      <h2 class="sec">ほかに、やっていること</h2>
+      <h2 class="sec">もっと知りたい方・連携先の方へ</h2>
       <div class="hoka">
         <div>
           <h3>閉める・渡すを考える方へ</h3>
@@ -729,14 +721,6 @@ section.doors{padding:34px 0 48px}
             <li><a href="partner-jichitai.html">自治体・商工会</a><span>段階型の開業プログラム</span></li>
             <li><a href="partner-shien.html">診断士・支援機関</a><span>承継パートナーの募集</span></li>
             <li><a href="partners.html">紹介パートナー</a><span>紹介して、成果に応じてお礼を受け取る</span></li>
-          </ul>
-        </div>
-        <div>
-          <h3>ほかの事業</h3>
-          <ul>
-            <li><a href="minakusa-yorimichi.html?src=top" data-t="top_minakusa_public">南草津駅前、よりみち。</a><span>駅を使う一般の方向け。帰り道に何が買えたらうれしいか、投票受付中</span></li>
-            <li><a href="uchino-chef-recruit.html">うちのシェフ</a><span>料理を、まず喜ばれるところから</span></li>
-            <li><a href="akinai.html">わたしのこれから診断</a><span>何を始めるかの前に、持っているものを整理する</span></li>
           </ul>
         </div>
       </div>
@@ -818,7 +802,7 @@ section.doors{padding:34px 0 48px}
         <tr><th>所在地</th><td>〒520-0801 滋賀県大津市におの浜2-1-28</td></tr>
         <tr><th>認定</th><td>認定経営革新等支援機関（中小企業庁）<br>認定番号 109825000112<br><small>中小企業庁の<a href="https://www.chusho.meti.go.jp/keiei/kakushin/nintei/" target="_blank" rel="noopener">認定経営革新等支援機関のページ</a>から検索して確認できます</small></td></tr>
         <tr><th>所属団体</th><td>膳所駅前商店街振興組合 賛助会員</td></tr>
-        <tr><th>事業内容</th><td>退店前承継（店舗の内装・設備の引き継ぎ支援）／創業・事業計画・融資申込の支援／補助金申請の支援／売り場レンタル／出張料理の仕組みづくり（うちのシェフ）／個人向け診断（わたしのこれから診断）</td></tr>
+        <tr><th>事業内容</th><td>退店前承継（店舗の内装・設備の引き継ぎ支援）／売り場レンタル（南草津駅前・旧大津公会堂）／補助金申請・事業計画・創業融資申込の支援／看板広告の紹介と集客診断（トオリミチ）</td></tr>
         <tr><th>対応地域</th><td>滋賀県（大津市を中心に）、京都府</td></tr>
         <tr><th>しないこと</th><td>不動産の仲介、医療機器の売買、お客さま・患者さまの情報の受け渡し</td></tr>
         <tr><th>お問い合わせ</th><td><a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>／<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINE @907kxssd</a><br><small>営業のお電話はご遠慮ください。ご相談は、LINEかメールでお受けしています。</small></td></tr>
@@ -844,15 +828,16 @@ section.doors{padding:34px 0 48px}
     <span class="disp">店じまいを、まちのはじまりに。</span>
     BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28
     <nav aria-label="フッター">
-      <a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="minakusa-ekimae.html">南草津駅前の出店</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="hojokin.html">補助金申請サポート</a><a href="road-sign/">看板広告（トオリミチ）</a><a href="uchino-chef-recruit.html">うちのシェフ</a><a href="camp.html">キャンプ場の平日収益化</a><a href="tsuzukeru.html">経営計画</a><a href="akinai.html">わたしのこれから診断</a><a href="partner-fudosan.html">連携先の方へ</a>
+      <a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="minakusa-ekimae.html">南草津駅前の出店</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="hojokin.html">補助金申請サポート</a><a href="road-sign/">看板広告（トオリミチ）</a>
     </nav>
     <nav aria-label="規約">
       <a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a><a href="shokei-kiyaku.html">秘密保持・直接取引に関する規約</a>
     </nav>
     <p>SNS：<a href="https://www.threads.com/@bridgecycle_otsu" rel="me">Threads</a>　<a href="https://www.instagram.com/bridgecycle_otsu/" rel="me">Instagram</a>（@bridgecycle_otsu）　<a href="https://note.com/bridgecycle_2026" rel="me">note</a></p>
     <p>紹介・連携パートナー：<a href="partners.html">紹介パートナー制度（承継成立で1件2万円）</a>　<a href="torihiki.html">酒販・卸・厨房設備・税理士の方へ</a>　<a href="hitokoto.html">LINEで送る紹介文面集</a>　<a href="partner-fudosan.html">不動産会社の方へ</a></p>
-    <p>この試算を、あなたのサイトやブログに：<a href="shisan-kit.html">試算ツールを埋め込む（無料・紹介のお礼あり）</a></p>
     <p>業種別の承継：<a href="shokei-inshokuten.html">飲食店</a>　<a href="shokei-biyoshitsu.html">美容室</a>　<a href="shokei-clinic.html">クリニック・歯科</a></p>
+    <p>そのほかの取り組み：<a href="minakusa-yorimichi.html?src=top" data-t="top_minakusa_public">南草津駅前、よりみち。</a>　<a href="uchino-chef-recruit.html">うちのシェフ</a>　<a href="camp.html">キャンプ場の平日収益化</a>　<a href="akinai.html">わたしのこれから診断</a>　<a href="shisan-kit.html">試算ツールの埋め込み</a></p>
+    <p><small>写真はイメージを含みます（Unsplash：wei／Omar Ramadan／Minyeong Jeong ほか・旧大津公会堂）。</small></p>
   </div>
 </footer>
 
@@ -882,10 +867,17 @@ section.doors{padding:34px 0 48px}
     var esc=function(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
     fetch('data/keisai.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
       var all=d.shops||[], real=all.filter(function(s){return !s.sample;}), list=(real.length?real:all).slice(0,3);
-      box.innerHTML=(real.length?'':'<p class="ima-none">いま掲載中のお店はありません。下は、載ったときの見本です。</p>')+list.map(function(s){
+      var w=d.waiting||{}, h=document.getElementById('ima-h'), lead=document.querySelector('#ima .sec-lead'), more=document.querySelector('#ima .ima-more');
+      if(!real.length&&w.total>0){
+        /* 掲載がまだないあいだは、店主向けに「待っている人の数」を正直に見せる */
+        h.textContent='お店を探している人が、'+Number(w.total)+'人います。';
+        lead.textContent='開業を考えていて、当社とつながっている方の数です'+(w.asof?'（'+w.asof+'時点）':'')+'。お店の登録は始まったばかりです。下は、登録したときの載り方の見本です。';
+        if(more) more.innerHTML='<a class="btn2 g" href="keisai.html" data-t="hub_ima_reg">お店を登録する（無料）</a><a class="btn2" href="yameru.html" data-t="hub_ima_neuchi">まず、値打ちだけ知る（匿名）</a>';
+      }
+      box.innerHTML=list.map(function(s){
         return '<div class="tg'+(s.sample?' smp':'')+'"><span class="hole" aria-hidden="true"></span><p class="no"><span>'+esc(s.id)+'</span><i>'+(s.sample?'見本':'掲載中')+'</i></p><h3>'+esc(s.type)+'</h3><p class="ar">'+esc(s.area)+'</p><p class="pr"><span>内装・設備の希望額</span><b>'+esc(s.price)+'</b></p></div>';}).join('');
-      var w=d.waiting||{}, el=document.getElementById('ima-wait');
-      if(el&&w.total>0) el.textContent='お店を探している継ぎ手候補は、'+Number(w.total)+'人です'+(w.asof?'（'+w.asof+'時点）':'')+'。';
+      var el=document.getElementById('ima-wait');
+      if(el&&real.length&&w.total>0) el.textContent='お店を探している継ぎ手候補は、'+Number(w.total)+'人です'+(w.asof?'（'+w.asof+'時点）':'')+'。';
     }).catch(function(){box.innerHTML='';});
   })();
   (function(){
