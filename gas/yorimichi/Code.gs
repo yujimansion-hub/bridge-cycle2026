@@ -1,6 +1,6 @@
 /**
  * 南草津駅前、よりみち。 運営の台帳（Googleスプレッドシート ＋ Apps Script）
- * 版：v3（2026-10-19 会員番号・先行案内・SNS用の数字） BRIDGE CYCLE株式会社
+ * 版：v4（2026-10-19 紹介した会員とSNS名を別項目に・カード利用の記録・仮目標の判定） BRIDGE CYCLE株式会社
  *
  * できること
  *  ・ページからの「食べたいもの投票」「開催案内の登録」を、このスプレッドシートに記録する
@@ -13,12 +13,13 @@
  */
 
 var TZ = 'Asia/Tokyo';
-var SH = { conf: '設定', vote: '投票', reg: '登録', shops: '並ぶもの', log: '送信記録' };
+var SH = { conf: '設定', vote: '投票', reg: '登録', shops: '並ぶもの', log: '送信記録', card: 'カード利用' };
 var HEAD = {
-  '投票': ['受付日時', '版', '入口', '帰り道', '買いたいもの', '時間', '出口', 'ひとこと', '流入元'],
-  '登録': ['受付日時', 'メールアドレス', '入口', '帰り道', '流入元', '状態', '停止用の鍵', '案内を送った回', '前日お知らせを送った回', '会員番号'],
+  '投票': ['受付日時', '版', '入口', '帰り道', '買いたいもの', '時間', '出口', 'ひとこと', '流入元', '紹介した会員'],
+  '登録': ['受付日時', 'メールアドレス', '入口', '帰り道', '流入元', '状態', '停止用の鍵', '案内を送った回', '前日お知らせを送った回', '会員番号', '紹介した会員'],
   '並ぶもの': ['公開する', '状態', '商品名', '税込価格', '店名', '写真', '並び順', 'メモ（非公開）'],
-  '送信記録': ['日時', '種類', '回', '送った数', '結果']
+  '送信記録': ['日時', '種類', '回', '送った数', '結果'],
+  'カード利用': ['日時', 'カード', '方法', '流入元', '紹介した会員', '端末の印']
 };
 var CONF_DEFAULT = [
   ['次の情報更新', '10月26日（月）', 'ページ上部に「次の情報更新」として出る。空なら出さない'],
@@ -40,7 +41,9 @@ var CONF_DEFAULT = [
   ['案内メールの追記', '', '開催案内の本文に足したい一言（任意）'],
   ['先行案内の人数', 100, 'この番号までの登録者に、開催案内を一般より先に送る（メニュー「先行案内を送る」）'],
   ['待っている人数を出す数', 30, '登録がこの人数以上になったら、ページに「いま○人が待っています」と出す'],
-  ['SNS自動下書き', 'オフ', 'オンにすると、定期の作業がSNS投稿の下書きをMetricoolに入れる（公開は承認してから）。名前の調整が終わるまではオフ']
+  ['SNS自動下書き', 'オフ', 'オンにすると、定期の作業がSNS投稿の下書きをMetricoolに入れる（公開は承認してから）。名前の調整が終わるまではオフ'],
+  ['地域の訪問数', '', 'GA4で見た、地域（滋賀・京都南部など）からのページ訪問数を手で入れる。入れると「いまの集計」に200訪問あたりの数が出る'],
+  ['判定の仮目標（200訪問あたり）', '投票40・登録10・カード利用8人', '仮の目標。実績や業界平均ではない。数字を書き換えると判定に使われる']
 ];
 var FOOTER = [
   '――',
@@ -67,11 +70,9 @@ function setup() {
   Object.keys(HEAD).forEach(function (name) {
     var sh = ss.getSheetByName(name) || ss.insertSheet(name);
     if (sh.getLastRow() === 0) { sh.appendRow(HEAD[name]); sh.setFrozenRows(1); }
+    else HEAD[name].forEach(function (h, i) { ensureHead(sh, i + 1, h); });   // 版が上がって増えた列の見出しを足す
   });
-  var conf = ss.getSheetByName(SH.conf) || ss.insertSheet(SH.conf, 0);
-  if (conf.getLastRow() === 0) { conf.appendRow(['項目', '値', '説明']); conf.setFrozenRows(1); }
-  var have = conf.getDataRange().getValues().map(function (r) { return String(r[0]); });
-  CONF_DEFAULT.forEach(function (r) { if (have.indexOf(r[0]) < 0) conf.appendRow(r); });
+  ensureConfRows();
   ss.getSheetByName(SH.shops).getRange(2, 1, 50, 1).insertCheckboxes();
   // 前日お知らせの自動確認（同じものを二重につくらない）
   ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'dailyCheck') ScriptApp.deleteTrigger(t); });
@@ -92,6 +93,7 @@ function doPost(e) {
     lock.waitLock(10000);
     if (body.kind === '投票') return json(saveVote(body));
     if (body.kind === '開催案内登録') return json(saveRegistration(body));
+    if (body.kind === 'カード') return json(saveCard(body));
     return json({ ok: false, error: 'unknown_kind' });
   } catch (err) {
     return json({ ok: false, error: 'server' });
@@ -103,8 +105,9 @@ function doPost(e) {
 function saveVote(b) {
   var food = clip(b.food, 300);
   if (!food) return { ok: false, error: 'no_food' };
-  sheet(SH.vote).appendRow([now(), clip(b.form_ver, 30), clip(b.via, 30), clip(b.persona, 40), food,
-    clip(b.time, 200), clip(b.exit, 200), clip(b.comment, 200), clip(b.src, 30)].map(safe));
+  var sh = sheet(SH.vote); ensureHead(sh, 10, '紹介した会員');
+  sh.appendRow([now(), clip(b.form_ver, 30), clip(b.via, 30), clip(b.persona, 40), food,
+    clip(b.time, 200), clip(b.exit, 200), clip(b.comment, 200), clip(b.src, 30), refOf(b)].map(safe));
   clearDataCache();
   return { ok: true };
 }
@@ -124,14 +127,28 @@ function saveRegistration(b) {
   }
   var token = Utilities.getUuid().replace(/-/g, '');
   var no = rows.length;   // 登録した順の番号（1行目は見出しなので、行数がそのまま次の番号になる）
-  if (!rows[0][9]) sh.getRange(1, 10).setValue('会員番号');
-  sh.appendRow([now(), email, clip(b.where, 30), clip(b.persona, 40), clip(b.src, 30), '有効', token, '', '', no].map(safe));
+  ensureHead(sh, 10, '会員番号'); ensureHead(sh, 11, '紹介した会員');
+  sh.appendRow([now(), email, clip(b.where, 30), clip(b.persona, 40), clip(b.src, 30), '有効', token, '', '', no, refOf(b)].map(safe));
   clearDataCache();
   var c = readConf();
   if (c['登録確認メール'] !== '送らない' && MailApp.getRemainingDailyQuota() > 0) {
     try { mail(email, '【南草津駅前、よりみち。】よりみち会員 No.' + pad3(no) + ' として登録しました', confirmBody(c, token, no), c); } catch (err) {}
   }
   return { ok: true, no: no, early: no <= earlyLimit(c) };
+}
+
+/** カード（会員証・食べたいカード）を使った記録。名前やメールは受け取らない。端末の印は、ページが作る乱数 */
+function saveCard(b) {
+  var card = { member: '会員証', wish: '食べたいカード', vote: '食べたいカード' }[String(b.card)] || '';
+  var method = clip(b.method, 20).replace(/[^a-z_]/g, '');
+  var dev = /^[a-z0-9]{12,40}$/.test(String(b.dev || '')) ? String(b.dev) : '';
+  if (!card || !method) return { ok: false, error: 'bad_card' };
+  var cache = CacheService.getScriptCache(), key = 'card:' + (dev || 'x') + ':' + card + ':' + method;
+  if (dev && cache.get(key)) return { ok: true };   // 同じ端末・同じ方法の連打は30秒まとめる
+  if (dev) cache.put(key, '1', 30);
+  sheet(SH.card).appendRow([now(), card, method, clip(b.src, 30), refOf(b), dev].map(safe));
+  clearDataCache();
+  return { ok: true };
 }
 
 /* ───────── ページに渡すデータ・配信停止 ───────── */
@@ -152,7 +169,7 @@ function pageData() {
   var showAt = Number(c['待っている人数を出す数']) || 30;
   return { ok: true, nextUpdate: String(c['次の情報更新'] || ''), nextEvent: eventInfo(c, true), shops: publicShops(), results: results(c, false),
     waiting: active >= showAt ? active : null, earlyLimit: earlyLimit(c),
-    stats: { members: active, votes: results(c, true).total, referrals: referralCount(), sns: String(c['SNS自動下書き'] || '') === 'オン' } };
+    stats: { members: active, votes: results(c, true).total, referrals: referralCount(), cards: cardUsers(), sns: String(c['SNS自動下書き'] || '') === 'オン' } };
 }
 
 function eventInfo(c, onlyUpcoming) {
@@ -339,14 +356,67 @@ function sendTestMails() {
 }
 
 function menuShowSummary() {
-  var c = readConf(), r = results(c, true), regs = sheet(SH.reg).getDataRange().getValues().slice(1);
-  var active = regs.filter(function (x) { return x[5] === '有効'; }).length;
+  ensureConfRows();
+  var c = readConf(), r = results(c, true), prefix = String(c['集計に使う版'] || 'v2');
+  var regs = sheet(SH.reg).getDataRange().getValues().slice(1);
+  var votes = sheet(SH.vote).getDataRange().getValues().slice(1).filter(function (x) { return String(x[1]).indexOf(prefix) === 0; });
+  var cards = sheet(SH.card).getDataRange().getValues().slice(1);
+  var active = regs.filter(function (x) { return x[5] === '有効'; }).length, users = cardUsers();
   function top(t) { return t.list.slice(0, 5).map(function (x) { return '  ' + x[0] + '　' + x[1] + '（' + Math.round(x[1] / Math.max(1, t.answered) * 100) + '%）'; }).join('\n'); }
-  SpreadsheetApp.getUi().alert('いまの集計',
-    '有効回答：' + r.total + '件（ページに出すのは' + r.min + '件から）\n開催案内の登録：' + active + '人（停止を除く）／うち会員の紹介から：' + referralCount() + '人\n\n買いたいもの（割合は回答者に対して）\n' + top(r.food) +
+
+  // 判定（200訪問あたり）。目標は「設定」の文字から読む
+  var goal = String(c['判定の仮目標（200訪問あたり）'] || '投票40・登録10・カード利用8人');
+  function g(re, d) { var m = goal.match(re); return m ? Number(m[1]) : d; }
+  var gv = g(/投票\s*(\d+)/, 40), gr = g(/登録\s*(\d+)/, 10), gc = g(/カード[^\d]*(\d+)/, 8), visits = Number(c['地域の訪問数']) || 0;
+  function per(n) { return visits ? (Math.round(n / visits * 200 * 10) / 10) : null; }
+  function line(name, n, unit, goalN) {
+    var p = per(n);
+    return '  ' + name + '　' + n + unit + (p === null ? '' : '（200訪問あたり ' + p + unit + '／目標' + goalN + unit + '　' + (p >= goalN ? '達成' : 'あと' + (Math.round((goalN - p) * 10) / 10) + unit) + '）');
+  }
+  var judge = '【判定の仮目標：200訪問あたり ' + goal + '（実績や業界平均ではない）】\n' +
+    (visits ? '  地域の訪問数：' + visits + '（「設定」に入力した値）\n' : '  「設定」の「地域の訪問数」にGA4の数字を入れると、200訪問あたりで比べられます\n') +
+    line('投票（有効回答）', votes.length, '件', gv) + '\n' + line('開催案内の登録', active, '人', gr) + '\n' + line('カードを使った人', users, '人', gc);
+
+  // SNS名（流入元）ごと
+  var by = {};
+  function add(key, col) { key = srcLabel(key); by[key] = by[key] || { v: 0, r: 0, c: 0 }; by[key][col]++; }
+  votes.forEach(function (x) { add(x[8], 'v'); });
+  regs.forEach(function (x) { add(x[4], 'r'); });
+  cards.forEach(function (x) { add(x[3], 'c'); });
+  var bySrc = Object.keys(by).sort(function (a, b) { return (by[b].v + by[b].r) - (by[a].v + by[a].r); }).slice(0, 8)
+    .map(function (k) { return '  ' + k + '　投票' + by[k].v + '・登録' + by[k].r + '・カード' + by[k].c; }).join('\n');
+
+  // 紹介した会員ごと
+  var refs = {};
+  function addRef(m, col) { if (!/^m\d+$/.test(m)) return; refs[m] = refs[m] || { v: 0, r: 0 }; refs[m][col]++; }
+  votes.forEach(function (x) { addRef(String(x[9] || ''), 'v'); });
+  regs.forEach(function (x) { addRef(String(x[10] || '') || String(x[4] || ''), 'r'); });
+  var byRef = Object.keys(refs).sort(function (a, b) { return refs[b].r - refs[a].r || refs[b].v - refs[a].v; }).slice(0, 5)
+    .map(function (k) { return '  会員' + k.replace('m', 'No.') + '　登録' + refs[k].r + '・投票' + refs[k].v; }).join('\n');
+
+  // カードの使われ方
+  var how = {};
+  cards.forEach(function (x) { var k = x[1] + '：' + methodLabel(x[2]); how[k] = (how[k] || 0) + 1; });
+  var byHow = Object.keys(how).sort(function (a, b) { return how[b] - how[a]; }).map(function (k) { return '  ' + k + '　' + how[k] + '回'; }).join('\n');
+
+  SpreadsheetApp.getUi().alert('いまの集計', judge +
+    '\n\n【SNS名（流入元）ごと】\n' + (bySrc || '  まだありません') +
+    '\n\n【紹介した会員ごと】（紹介からの登録：' + referralCount() + '人）\n' + (byRef || '  まだありません') +
+    '\n\n【カードの使われ方】（使った人：' + users + '人）\n' + (byHow || '  まだありません') +
+    '\n\n買いたいもの（割合は回答者に対して）\n' + top(r.food) +
     '\n\n時間（未回答を除く ' + r.time.answered + '人）\n' + top(r.time) + '\n\n出口（未回答を除く ' + r.exit.answered + '人）\n' + top(r.exit),
     SpreadsheetApp.getUi().ButtonSet.OK);
 }
+
+/** 流入元の印を、読みやすい名前にする（知らない印はそのまま） */
+function srcLabel(v) {
+  v = String(v || '') || 'none';
+  if (/^m\d+$/.test(v)) return '会員のリンク（旧）';
+  var m = { none: '直接・不明', share_line: 'LINE（カード・共有）', share_native: '端末の共有（カード）', share_copy: 'リンクのコピー', share_instagram: 'Instagram（カード）',
+    share_threads: 'Threads（カード）', share_x: 'X（カード）', share: '共有（旧）', member_link: '会員のリンク（旧）', threads: 'Threads（当社の投稿）', instagram: 'Instagram（当社の投稿）' };
+  return m[v] || v;
+}
+function methodLabel(v) { return { native: '共有', line: 'LINE', save: '画像を保存', copy: 'コピー', threads: 'Threads', x: 'X' }[String(v)] || String(v); }
 
 /* ───────── 小さな道具 ───────── */
 
@@ -367,9 +437,26 @@ function now() { return Utilities.formatDate(new Date(), TZ, 'yyyy/MM/dd HH:mm:s
 function clip(v, n) { return String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, n); }
 /** = + - @ で始まる入力は、式として動かないよう先頭に ' を付ける */
 function safe(v) { return (typeof v === 'string' && /^[=+\-@]/.test(v)) ? "'" + v : v; }
-/** 会員の紹介リンク（?src=m023）から登録した人数 */
+/** 会員の紹介から登録した人数（「紹介した会員」列。以前の形の流入元 m023 も数える） */
 function referralCount() {
-  return sheet(SH.reg).getDataRange().getValues().slice(1).filter(function (r) { return /^m\d+$/.test(String(r[4])); }).length;
+  return sheet(SH.reg).getDataRange().getValues().slice(1).filter(function (r) { return /^m\d+$/.test(String(r[10] || '')) || /^m\d+$/.test(String(r[4])); }).length;
+}
+/** カードを使った人数（端末の印で重ねない。印がない行は1件を1人と数える） */
+function cardUsers() {
+  var seen = {}, n = 0;
+  sheet(SH.card).getDataRange().getValues().slice(1).forEach(function (r) { var d = String(r[5] || ''); if (!d) { n++; return; } if (!seen[d]) { seen[d] = 1; n++; } });
+  return n;
+}
+/** 紹介した会員の印（m023 の形だけ受け付ける） */
+function refOf(b) { var v = String((b && b.ref) || ''); return /^m\d{1,4}$/.test(v) ? v : ''; }
+/** 見出しが空なら入れる（版が上がって列が増えたとき用） */
+function ensureHead(sh, col, name) { if (sh.getLastColumn() < col || !sh.getRange(1, col).getValue()) sh.getRange(1, col).setValue(name); }
+/** 「設定」に、版が上がって増えた項目を足す */
+function ensureConfRows() {
+  var ss = SpreadsheetApp.getActive(), conf = ss.getSheetByName(SH.conf) || ss.insertSheet(SH.conf, 0);
+  if (conf.getLastRow() === 0) { conf.appendRow(['項目', '値', '説明']); conf.setFrozenRows(1); }
+  var have = conf.getDataRange().getValues().map(function (r) { return String(r[0]); });
+  CONF_DEFAULT.forEach(function (r) { if (have.indexOf(r[0]) < 0) conf.appendRow(r); });
 }
 function pad3(n) { n = Number(n) || 0; return n < 1000 ? ('00' + n).slice(-3) : String(n); }
 function earlyLimit(c) { return Number(c['先行案内の人数']) || 100; }

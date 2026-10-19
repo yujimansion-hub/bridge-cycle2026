@@ -5,3 +5,12 @@
 .sns-vote[hidden]{display:none}
 .sns-vote .btn{font-size:13px;min-height:44px}
 .sns-vote span{font-size:11px;line-height:1.7;color:#536775;flex:1 1 180px}
+.sns-main{display:grid;gap:10px;margin:16px 0 4px}
+.sns-main .btn{width:100%;justify-content:center;min-height:54px;font-size:16px}
+.sns-primary{box-shadow:0 4px 0 #173c51}
+.sns-line-main{background:#06c755;border:2px solid #06c755;color:#fff!important;text-decoration:none}
+.sns-line-main:hover{filter:brightness(.95)}
+.sns-more{margin-top:8px;border-top:1px solid #dddcd1;padding-top:6px}
+.sns-more summary{cursor:pointer;font-size:13px;font-weight:700;color:#536775;padding:10px 0;min-height:44px}
+.sns-more[open] summary{margin-bottom:8px}
+.sns-more .sns-channel label{font-size:12px}

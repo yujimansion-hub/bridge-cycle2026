@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var foods=[], page='', voteFn=null, voting=false, picks=[], data={}, dialog, canvas, blob, imageUrl='', revision=0, returnFocus, mode='wish';
-  var format='story', channel='instagram', busy=false;
+  var format='feed', channel='native', busy=false, onUse=null;
   var slugs=['okazu','bento','bread','coffee','sweets','otsumami','vegetables','souvenir','student','oyatsu'];
   var shortNames=['おかず','お弁当','パン','コーヒー','スイーツ','おつまみ','野菜','手みやげ','軽食','おやつ'];
   var root='https://www.bridgecycleco.com/';
@@ -9,6 +9,7 @@
   function save(k,v){try{localStorage.setItem(k,v);}catch(e){}}
   function clean(v){return (Array.isArray(v)?v:String(v||'').split('-')).filter(function(n){return /^\d+$/.test(String(n));}).map(Number).filter(function(n,i,a){return Number.isInteger(n)&&n>=0&&n<foods.length&&a.indexOf(n)===i;}).slice(0,3);}
   function track(name,extra){try{if(window.bcTrack)window.bcTrack(name,Object.assign({channel:channel,format:format,share_mode:mode},extra||{}));}catch(e){}}
+  function use(method){try{if(onUse)onUse(method);}catch(e){}}
   function message(s){var el=document.getElementById('snsMessage');if(el)el.textContent=s;}
   function shareLink(ch){
     var url=new URL('yorimichi-share/'+(picks.length&&mode==='wish'?slugs[picks[0]]:'index')+'.html',root);
@@ -31,16 +32,16 @@
     return text+'\n#南草津駅前よりみち #南草津';
   }
   function syncLinks(){
-    var full=postText()+'\n'+shareLink(channel);
+    var full=postText()+'\n'+shareLink(channel==='native'?'copy':channel);
     document.getElementById('snsText').value=full;
-    document.getElementById('snsLine').href='https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(shareLink('line'))+'&text='+encodeURIComponent(postText());
+    document.getElementById('snsLine').href='https://line.me/R/share?text='+encodeURIComponent(postText()+'\n'+shareLink('line'));
     document.getElementById('snsThreads').href='https://www.threads.com/intent/post?text='+encodeURIComponent(postText()+'\n'+shareLink('threads'));
     var xt=mode==='event'&&data.nextEvent?'南草津駅前、よりみち。\n'+data.nextEvent.date+' '+data.nextEvent.time+'\n'+data.nextEvent.place:mode==='results'&&data.results?'南草津駅で何が買えたらうれしい？\n有効回答'+data.results.total+'件の途中経過。あなたの食べたいものも教えてください。':picks.length?'南草津駅で「'+shortNames[picks[0]]+'」が買えたらうれしい。あなたは何派？\n名前・メール不要の投票受付中。開催日は調整中。':'南草津駅で、何が買えたらうれしい？ 名前・メール不要の投票受付中。開催日は調整中。';
     document.getElementById('snsX').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(xt)+'&url='+encodeURIComponent(shareLink('x'));
-    ['snsThreads','snsLine','snsX'].forEach(function(id){document.getElementById(id).hidden={snsThreads:'threads',snsLine:'line',snsX:'x'}[id]!==channel;});
+    ['snsThreads','snsX'].forEach(function(id){document.getElementById(id).hidden={snsThreads:'threads',snsX:'x'}[id]!==channel;});
     document.getElementById('snsFoodOptions').hidden=mode!=='wish';
     document.getElementById('snsInstagramHelp').hidden=channel!=='instagram';
-    document.getElementById('snsDirectLinks').hidden=channel==='instagram';
+    document.getElementById('snsDirectLinks').hidden=!(channel==='threads'||channel==='x');
   }
   function textLines(ctx,text,x,y,maxWidth,lineHeight,maxLines){
     var line='',lines=[];
@@ -111,13 +112,13 @@
   function choose(n,input){if(input.checked){if(picks.length>=3){input.checked=false;return;}picks.push(n);}else picks=picks.filter(function(x){return x!==n;});document.querySelectorAll('#snsFoodOptions input').forEach(function(el){el.disabled=!el.checked&&picks.length>=3;});refresh();}
   function prepare(){
     dialog=document.createElement('dialog');dialog.id='snsDialog';dialog.className='sns-dialog';dialog.setAttribute('aria-labelledby','snsTitle');
-    dialog.innerHTML='<div class="sns-shell"><button type="button" class="sns-close" id="snsClose" aria-label="共有画面を閉じる">×</button><div class="sns-preview"><canvas id="snsCanvas" role="img"></canvas></div><div class="sns-controls"><p class="sns-eyebrow">南草津の、食べたいを広げよう。</p><h2 id="snsTitle">私はこれ派。あなたは？</h2><p class="sns-intro">画像と投稿文を用意しました。好きなSNSで、近くの人に教えてください。</p><fieldset class="sns-channel"><legend>どこに載せる？</legend><label><input type="radio" name="snsChannel" value="instagram" checked>Instagram</label><label><input type="radio" name="snsChannel" value="threads">Threads</label><label><input type="radio" name="snsChannel" value="line">LINE</label><label><input type="radio" name="snsChannel" value="x">X</label></fieldset><fieldset id="snsFoodOptions"><legend>カードに載せたいもの <small>3つまで</small></legend><div class="sns-foods"></div><p class="sns-fine" id="snsFine">ここで選ぶと画像が変わります。</p><div class="sns-vote" id="snsVote" hidden><button type="button" class="btn btn-bulb" id="snsVoteBtn">この3つで、1票も入れる</button><span>名前・メール不要。選んだものが、そのまま投票になります。</span></div></fieldset><div class="sns-format"><label for="snsFormat">画像サイズ</label><select id="snsFormat"><option value="story">ストーリーズ（9:16）</option><option value="feed">投稿（4:5）</option></select></div><div class="sns-actions"><button type="button" class="btn btn-bulb" id="snsNative">画像を共有する</button><button type="button" class="btn btn-line" id="snsDownload">画像を保存</button></div><p id="snsInstagramHelp" class="sns-help">Instagramは、画像を保存して投稿へ。ストーリーズには「リンクをコピー」で取得したURLをリンクスタンプに貼ってください。</p><div id="snsDirectLinks" class="sns-links" hidden><a id="snsThreads" target="_blank" rel="noopener noreferrer">Threadsで投稿文を開く ↗</a><a id="snsLine" target="_blank" rel="noopener noreferrer">LINEで送る相手を選ぶ ↗</a><a id="snsX" target="_blank" rel="noopener noreferrer">Xで投稿文を開く ↗</a></div><label class="sns-text-label" for="snsText">投稿文とリンク</label><textarea id="snsText" rows="6" readonly></textarea><div class="sns-copy"><button type="button" class="btn btn-line btn-sm" id="snsCopyText">投稿文をコピー</button><button type="button" class="btn btn-line btn-sm" id="snsCopyLink">リンクをコピー</button></div><p id="snsMessage" class="sns-message" role="status" aria-live="polite"></p><p class="sns-fine">投稿や送信は、SNSの画面で内容を確認してから行えます。</p></div></div>';
+    dialog.innerHTML='<div class="sns-shell"><button type="button" class="sns-close" id="snsClose" aria-label="共有画面を閉じる">×</button><div class="sns-preview"><canvas id="snsCanvas" role="img"></canvas></div><div class="sns-controls"><p class="sns-eyebrow">私のカードで、友だちを誘う</p><h2 id="snsTitle">私はこれ派。あなたは？</h2><p class="sns-intro">カードとリンクを、そのまま友だちに送れます。</p><fieldset id="snsFoodOptions"><legend>カードに載せたいもの <small>3つまで</small></legend><div class="sns-foods"></div><p class="sns-fine" id="snsFine">ここで選ぶと画像が変わります。</p><div class="sns-vote" id="snsVote" hidden><button type="button" class="btn btn-bulb" id="snsVoteBtn">この3つで、1票も入れる</button><span>名前・メール不要。選んだものが、そのまま投票になります。</span></div></fieldset><div class="sns-main"><button type="button" class="btn btn-bulb sns-primary" id="snsNative">共有する</button><a class="btn sns-line-main" id="snsLine" target="_blank" rel="noopener noreferrer">LINEで友だちに送る</a></div><p id="snsMessage" class="sns-message" role="status" aria-live="polite"></p><details class="sns-more" id="snsMore"><summary>ほかの方法（画像の保存・サイズ・文章のコピー）</summary><fieldset class="sns-channel"><legend>投稿するSNSに合わせる</legend><label><input type="radio" name="snsChannel" value="instagram">Instagram</label><label><input type="radio" name="snsChannel" value="threads">Threads</label><label><input type="radio" name="snsChannel" value="x">X</label></fieldset><div class="sns-format"><label for="snsFormat">画像サイズ</label><select id="snsFormat"><option value="feed">投稿・トーク（4:5）</option><option value="story">ストーリーズ（9:16）</option></select></div><div class="sns-actions"><button type="button" class="btn btn-line" id="snsDownload">画像を保存</button></div><p id="snsInstagramHelp" class="sns-help" hidden>Instagramは、画像を保存して投稿へ。ストーリーズには「リンクをコピー」で取得したURLをリンクスタンプに貼ってください。</p><div id="snsDirectLinks" class="sns-links" hidden><a id="snsThreads" target="_blank" rel="noopener noreferrer">Threadsで投稿文を開く ↗</a><a id="snsX" target="_blank" rel="noopener noreferrer">Xで投稿文を開く ↗</a></div><label class="sns-text-label" for="snsText">投稿文とリンク</label><textarea id="snsText" rows="6" readonly></textarea><div class="sns-copy"><button type="button" class="btn btn-line btn-sm" id="snsCopyText">投稿文をコピー</button><button type="button" class="btn btn-line btn-sm" id="snsCopyLink">リンクをコピー</button></div></details><p class="sns-fine">送る前に、LINEやSNSの画面で内容を確認できます。</p></div></div';
     document.body.appendChild(dialog);canvas=document.getElementById('snsCanvas');
     var options=dialog.querySelector('.sns-foods');foods.forEach(function(f,n){var l=document.createElement('label'),i=document.createElement('input'),s=document.createElement('span');i.type='checkbox';i.value=n;i.addEventListener('change',function(){choose(n,i);});s.textContent=f[0]+' '+f[1];l.append(i,s);options.appendChild(l);});
     document.getElementById('snsClose').addEventListener('click',function(){dialog.close();});
     document.getElementById('snsVoteBtn').addEventListener('click',function(){
       if(voting||!voteFn||!picks.length)return;var b=this;voting=true;b.disabled=true;b.textContent='送信しています…';
-      Promise.resolve(voteFn(picks.slice())).then(function(){voting=false;b.disabled=false;save('minakusa_share_picks',picks.join('-'));message('1票、届きました。このまま画像と投稿文で、近くの人にも教えてください。');track('yorimichi_share_vote');syncVote();})
+      Promise.resolve(voteFn(picks.slice())).then(function(){voting=false;b.disabled=false;save('minakusa_share_picks',picks.join('-'));message('1票、届きました。このまま「共有する」か「LINEで友だちに送る」で、友だちを誘えます。');track('yorimichi_share_vote');syncVote();})
       .catch(function(){voting=false;b.disabled=false;message('送信できませんでした。通信の状態を確かめて、もう一度押してください。');syncVote();});
     });
     dialog.addEventListener('click',function(e){if(e.target===dialog)dialog.close();});
@@ -125,26 +126,28 @@
     dialog.querySelectorAll('input[name=snsChannel]').forEach(function(i){i.addEventListener('change',function(){channel=i.value;format=channel==='instagram'?'story':'feed';document.getElementById('snsFormat').value=format;refresh();});});
     document.getElementById('snsFormat').addEventListener('change',function(){format=this.value;renderCard();});
     function copy(value,label){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(function(){message(label+'をコピーしました。');track('yorimichi_share_copy',{copy_kind:label==='リンク'?'link':'text'});}).catch(function(){message('下の投稿文を選択してコピーしてください。');document.getElementById('snsText').focus();document.getElementById('snsText').select();});}else{message('下の投稿文を選択してコピーしてください。');document.getElementById('snsText').focus();document.getElementById('snsText').select();}}
-    document.getElementById('snsCopyText').addEventListener('click',function(){copy(postText()+'\n'+shareLink(channel),'投稿文');});
-    document.getElementById('snsCopyLink').addEventListener('click',function(){copy(shareLink(channel),'リンク');});
-    document.getElementById('snsDownload').addEventListener('click',function(){if(!imageUrl)return;var a=document.createElement('a');a.href=imageUrl;a.download='minakusa-yorimichi-'+format+'.png';document.body.appendChild(a);a.click();a.remove();message('画像を保存しました。投稿文とリンクもコピーできます。');track('yorimichi_share_image');});
+    document.getElementById('snsCopyText').addEventListener('click',function(){copy(postText()+'\n'+shareLink(channel==='native'?'copy':channel),'投稿文');use('copy');});
+    document.getElementById('snsCopyLink').addEventListener('click',function(){copy(shareLink(channel==='native'?'copy':channel),'リンク');use('copy');});
+    document.getElementById('snsDownload').addEventListener('click',function(){if(!imageUrl)return;var a=document.createElement('a');a.href=imageUrl;a.download='minakusa-yorimichi-'+format+'.png';document.body.appendChild(a);a.click();a.remove();message('画像を保存しました。投稿文とリンクもコピーできます。');track('yorimichi_share_image');use('save');});
     document.getElementById('snsNative').addEventListener('click',function(){
       if(busy||!blob)return;var file=new File([blob],'minakusa-yorimichi.png',{type:'image/png'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){navigator.share({files:[file],title:'南草津駅前、よりみち。',text:postText(),url:shareLink(channel)}).then(function(){message('共有先に画像を渡しました。投稿の状況はSNS側でご確認ください。');track('yorimichi_share_handoff');}).catch(function(e){if(e.name==='AbortError')message('共有をキャンセルしました。');else message('この端末では画像の共有を開けませんでした。「画像を保存」をお使いください。');});}
-      else{document.getElementById('snsDownload').click();message('画像を保存して、SNSの投稿画面に添付してください。');}
+      var fail=function(e){if(e&&e.name==='AbortError')message('共有をキャンセルしました。');else{message('この端末では共有を開けませんでした。「LINEで友だちに送る」か、下の「ほかの方法」から画像を保存してください。');document.getElementById('snsMore').open=true;}};
+      if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){navigator.share({files:[file],title:'南草津駅前、よりみち。',text:postText(),url:shareLink('native')}).then(function(){message('共有先にカードを渡しました。送る前に内容を確かめてください。');track('yorimichi_share_handoff',{method:'native'});use('native');}).catch(fail);}
+      else if(navigator.share){navigator.share({title:'南草津駅前、よりみち。',text:postText(),url:shareLink('native')}).then(function(){message('共有先にリンクを渡しました。');track('yorimichi_share_handoff',{method:'native_link'});use('native');}).catch(fail);}
+      else fail();
     });
-    ['snsLine','snsThreads','snsX'].forEach(function(id){document.getElementById(id).addEventListener('click',function(){track('yorimichi_share_intent',{channel:{snsLine:'line',snsThreads:'threads',snsX:'x'}[id]});});});
+    ['snsLine','snsThreads','snsX'].forEach(function(id){document.getElementById(id).addEventListener('click',function(){var ch={snsLine:'line',snsThreads:'threads',snsX:'x'}[id];track('yorimichi_share_intent',{channel:ch,method:ch});use(ch);});});
   }
   function open(nextMode){
     if(!dialog)prepare();mode=nextMode||'wish';if(mode==='results'&&!(data.results&&data.results.total>=30))mode='wish';if(mode==='event'&&!data.nextEvent)mode='wish';
-    returnFocus=document.activeElement;document.getElementById('snsTitle').textContent=mode==='results'?'投票の途中経過を、届けよう。':mode==='event'?'次のよりみちを、知らせよう。':'私はこれ派。あなたは？';
+    returnFocus=document.activeElement;var more=document.getElementById('snsMore');if(more&&!dialog.open)more.open=false;document.getElementById('snsTitle').textContent=mode==='results'?'投票の途中経過を、届けよう。':mode==='event'?'次のよりみちを、知らせよう。':'私はこれ派。あなたは？';
     dialog.querySelectorAll('#snsFoodOptions input').forEach(function(i){i.checked=picks.indexOf(Number(i.value))>=0;i.disabled=!i.checked&&picks.length>=3;});
     if(!dialog.open){dialog.showModal();document.body.classList.add('sns-open');}
     message('');syncLinks();syncVote();document.getElementById('snsClose').focus();
     Promise.resolve(document.fonts?document.fonts.ready:null).then(renderCard);track('yorimichi_share_open');
   }
   function init(config){
-    foods=config.foods;page=config.page;voteFn=typeof config.vote==='function'?config.vote:null;picks=clean(read('minakusa_share_picks')||'');
+    foods=config.foods;page=config.page;voteFn=typeof config.vote==='function'?config.vote:null;onUse=typeof config.onUse==='function'?config.onUse:null;picks=clean(read('minakusa_share_picks')||'');
     if(!picks.length&&read('minakusa_voted')){picks=clean(String(read('minakusa_vote_food')||'').split('／').map(function(label){return foods.findIndex(function(f){return f[1]===label;});}));}
     var q=new URLSearchParams(location.search),incoming=clean(q.get('w')||'');
     if(incoming.length&&/^share_(instagram|line|threads|x|native|copy)$/.test(q.get('src')||'')){

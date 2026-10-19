@@ -98,6 +98,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .hr-note{font-size:12.5px;margin-top:8px;opacity:.92;text-shadow:0 1px 8px rgba(0,0,0,.4);word-break:auto-phrase}
 .trust.waiting{font-size:14px;font-weight:700;opacity:1;color:var(--bulb)}
 .msg .reg-share{display:inline-block;margin-top:8px;font-weight:700}
+.q-tease{font-size:12px;color:var(--leaf);font-weight:700;margin:8px 0 0}
 .trust{font-size:12px;opacity:.8;margin-top:14px}
 .cover-cap{position:absolute;right:16px;top:14px;z-index:2;font-size:11px;color:#fff;background:rgba(18,22,46,.6);border-radius:999px;padding:3px 10px;margin:0}
 
@@ -287,7 +288,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .sk-n{font-size:12px;color:#536775;margin:0 0 10px}
 .sk-b{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .sk-b a,.sk-b button{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;font:inherit;font-weight:700;font-size:14px;text-decoration:none;cursor:pointer;border:2px solid #173C51;background:#fff;color:#173C51}
-.sk-b .main{grid-column:1/-1;background:#FFD35B;box-shadow:0 4px 0 #173C51}
+.sk-b .main{grid-column:1/-1;background:#FFD35B;box-shadow:0 4px 0 #173C51;min-height:54px;font-size:16px}
+.sk-b .line{grid-column:1/-1;background:#06C755;border-color:#06C755;color:#fff}
+.sk-b2 a,.sk-b2 button{min-height:42px;font-size:13px}
+.sk-more{margin-top:10px;border-top:1px solid #DDDCD1;padding-top:8px}
+.sk-more summary{cursor:pointer;font-size:13px;font-weight:700;color:#536775;padding:8px 0;min-height:40px}
+.sk-more[open] summary{margin-bottom:6px}
 .sk-msg{font-size:13px;color:#36745C;margin:10px 0 0;min-height:1em}
 .mk-share{display:inline-flex;margin-top:10px;min-height:44px;align-items:center;padding:8px 16px;border-radius:999px;border:2px solid #173C51;background:#FFD35B;color:#173C51;font:inherit;font-weight:700;cursor:pointer}
 
@@ -348,6 +354,13 @@ header .wrap{padding-top:13px;padding-bottom:13px}
 .hr-row input{border:1.5px solid var(--night);border-radius:8px;min-height:52px;padding:12px;background:#FFFDF7}
 .hr-row .btn{width:auto;flex:0 0 auto;min-width:115px;min-height:52px;padding:12px 17px;font-size:15px;box-shadow:0 3px 0 var(--night)}
 .hr-note{color:var(--leaf);text-shadow:none;opacity:1;font-size:11px;line-height:1.7}
+.hero-tease{font-size:11px;color:var(--leaf);font-weight:700;margin:4px 0 0}
+.sp-only{display:none}
+@media(max-width:860px){.sp-only{display:block}.pc-only{display:none}br.pc-only{display:none}}
+.card-tease{display:flex;gap:14px;align-items:center;max-width:620px;margin:22px auto 0;padding:12px 14px;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,211,91,.75);border-radius:14px;text-align:left}
+.card-tease img{width:132px;height:auto;border-radius:8px;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+.card-tease p{margin:0;font-size:13px;line-height:1.8;color:#FFF9EC}.card-tease b{color:var(--bulb);display:block;font-size:14px}
+@media(max-width:560px){.card-tease img{width:104px}.card-tease p{font-size:12px}.card-tease b{font-size:13px}}
 .hero-safe{font-size:10px;line-height:1.6;color:var(--sub);margin-top:10px}
 .hero-safe a{color:var(--sub);text-underline-offset:3px}
 .hero-vote{display:inline-flex;width:auto;border:0;border-radius:0;background:transparent;color:var(--ink);font-size:12px;padding:0;min-height:28px;margin-top:11px;text-decoration:underline;text-underline-offset:4px}
@@ -491,21 +504,21 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   header .wrap{padding:11px 16px;gap:9px}.brand{font-size:13px;column-gap:5px}.brand .mark{width:14px;height:21px}.brand small{display:none}
   .hdr-cta{font-size:11px;padding:8px 11px;min-height:36px;white-space:nowrap}
   .cover{padding:29px 0 39px;min-height:0}.cover::before{width:450px;height:450px;right:-245px;top:175px}
-  .cover-in{grid-template-columns:1fr;grid-template-areas:"copy" "signup" "scene";gap:22px}
+  .cover-in{grid-template-columns:1fr;grid-template-areas:"copy" "scene" "signup";gap:18px}
   .hero-copy .eyebrow{font-size:10px;margin-bottom:10px}.pill{font-size:10px;padding:4px 9px}
-  .cover h1{font-size:clamp(39px,10vw,62px);line-height:1.25;margin-top:15px;letter-spacing:0}
-  .cover h1 .h1-st{font-size:.75em;margin-bottom:3px}.cover .lead{font-size:13px;line-height:1.9;margin-top:17px;max-width:33em}
-  .hero-scene{min-height:0;aspect-ratio:1.45;margin:5px 12px 14px 4px;align-self:auto}
-  .hero-scene picture{border-radius:95px 95px 15px 15px;box-shadow:6px 7px 0 #EACB87;transform:rotate(1deg)}
-  .hero-scene picture img{object-position:60% 64%}
+  .cover h1{font-size:clamp(34px,9vw,58px);line-height:1.22;margin-top:12px;letter-spacing:0}
+  .cover h1 .h1-st{font-size:.75em;margin-bottom:3px}.cover .lead{font-size:13px;line-height:1.85;margin-top:12px;max-width:33em}
+  .hero-scene{min-height:0;aspect-ratio:1.8;margin:2px 10px 10px 4px;align-self:auto}
+  .hero-scene picture{border-radius:70px 70px 14px 14px;box-shadow:6px 7px 0 #EACB87;transform:rotate(1deg)}
+  .hero-scene picture img{object-position:50% 52%}
   .scene-stamp{width:78px;height:78px;top:-7px;right:-12px;font-size:11px;box-shadow:0 0 0 4px var(--page)}
-  .scene-note{left:-5px;bottom:-8px;font-size:16px;line-height:1.5;padding:10px 17px;box-shadow:3px 4px 0 rgba(23,60,81,.15)}
-  .scene-note small{font-size:8px;letter-spacing:.08em;margin-bottom:2px}.scene-star{font-size:34px;left:-8px;top:18px}.scene-star:last-child{font-size:28px;right:-8px;bottom:-8px}
+  .scene-note{left:-5px;bottom:-10px;font-size:13px;line-height:1.45;padding:7px 12px;box-shadow:3px 4px 0 rgba(23,60,81,.15)}
+  .scene-note small{font-size:8px;letter-spacing:.08em;margin-bottom:2px}.scene-star{font-size:28px;left:-8px;top:10px}.scene-star:last-child{font-size:28px;right:-8px;bottom:-8px}
   .cover-cap{font-size:8px;bottom:8px;right:8px;padding:2px 5px}
   .hero-signup{padding:16px;border-radius:12px;box-shadow:4px 4px 0 #EEDBAA}.hr-l{font-size:13px;line-height:1.7}
   .hr-row{flex-direction:row;gap:8px}.hr-row input{min-height:49px;font-size:16px;padding:10px;min-width:0}.hr-row .btn{min-width:90px;padding:10px 11px;font-size:13px;min-height:49px}
   .hr-note{font-size:11px}.hero-safe{font-size:10.5px}.hero-vote{font-size:11px;margin-top:9px;min-height:30px;width:auto}
-  .hero-signup .trust{font-size:9px}.hero-signup .trust.waiting{font-size:11px}
+  .hero-signup .trust{font-size:9px;margin-top:6px}.hero-tease{font-size:10.5px}.hero-signup .trust.waiting{font-size:11px}
   .joy-ribbon{padding:11px 0}.joy-ribbon-inner{font-size:14px;gap:20px;justify-content:flex-start;padding-left:20px}.joy-ribbon i{font-size:19px}
   .facts .wrap{grid-template-columns:1fr 1fr}.fact{padding:16px 12px 15px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.25)}
   .fact:nth-child(2n){padding-left:17px;border-left:1px solid rgba(255,255,255,.25)}.fact b{font-size:19px}.fact span{font-size:10px;margin-top:3px}
@@ -539,7 +552,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.persona:hover .ph img{transform:none}}
 
 </style>
-<link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019b">
+<link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019c">
 </head>
 <body>
 
@@ -558,7 +571,8 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     <div class="hero-copy">
       <span class="pill"><i aria-hidden="true"></i>準備中・開催日は調整しています</span>
       <h1><span class="h1-st">南草津駅に、</span><span>もっと、</span><span><em>わくわくを。</em></span></h1>
-      <p class="lead">夕ごはんに、もう一品。授業帰りに、軽いおやつ。<br>おかず・パン・おやつに出会う小さな市を、<br>金曜の夕方を中心に、駅前で準備しています。</p>
+      <p class="lead pc-only">夕ごはんに、もう一品。授業帰りに、軽いおやつ。<br>おかず・パン・おやつに出会う小さな市を、<br>金曜の夕方を中心に、駅前で準備しています。</p>
+      <p class="lead sp-only">夕ごはんに一品、授業帰りにおやつ。<br>金曜の夕方を中心に、駅前で準備中です。</p>
     </div>
     <div class="hero-scene">
       <picture>
@@ -571,7 +585,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     </div>
     <div class="hero-signup">
       <form class="hero-reg" id="regHero" novalidate>
-      <label class="hr-l" for="rEmail0">第1回の日程と出店するお店を、メールで受け取る（無料）</label>
+      <label class="hr-l" for="rEmail0">第1回の日程とお店を、メールで受け取る（無料）</label>
       <div class="hr-row">
         <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
         <button class="btn btn-bulb" type="submit">受け取る</button>
@@ -581,8 +595,9 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     </form>
       <p class="hero-safe">お知らせ以外には使いません。<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
       <a class="btn btn-ghost-w btn-sm hero-vote" href="#who">先に、食べたいものを選ぶ（30秒） ↗</a>
+      <p class="hero-tease">投票すると、あなたの「食べたい」カードがつくれます</p>
       <p class="trust waiting" id="waiting" hidden></p>
-      <p class="trust">南草津駅周辺まちづくりの社会実験<br>実施：UDCみなくさ・立命館大学</p>
+      <p class="trust">南草津駅周辺まちづくりの社会実験<br class="pc-only">（実施：UDCみなくさ・立命館大学）</p>
     </div>
   </div>
 </section>
@@ -615,7 +630,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   <div class="wrap">
     <div class="section-head">
       <div><p class="eyebrow">帰り道から、選んでみよう。</p><h2 class="h2">あなたなら、<br>どのよりみち？</h2></div>
-      <p class="lead">仕事帰りに一品。学校帰りに、ひと息。<br>絵を選んで、駅前でほしいものを教えてください。</p>
+      <p class="lead">仕事帰りに一品。学校帰りに、ひと息。<br>絵を選んで、駅前でほしいものを教えてください。<br><b style="color:var(--leaf)">投票すると、あなたの「食べたい」カードがつくれます。</b></p>
     </div>
     <div class="personas" id="personas" role="group" aria-label="あなたの帰り道"></div>
     <div class="mine" id="mine" hidden aria-live="polite"></div>
@@ -636,6 +651,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       <p class="eyebrow">30秒で、いっしょにつくる。</p>
       <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしい？</h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールもいりません。結果はこのページで公開し、出店するお店のメニュー選びに使ってもらいます。</p>
+      <div class="card-tease"><img src="images/minakusa/yorimichi/share/bento.png" alt="カードの例：「南草津駅で、私はお弁当派。あなたは？」" width="1200" height="630" loading="lazy"><p><b>投票すると、あなたの「食べたい」カードがつくれます。</b>LINEで送ると、友だちにはこんなふうに届きます。</p></div>
       <div class="results" id="results" hidden></div>
     </div>
 
@@ -660,7 +676,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       </fieldset>
       <div class="form-foot">
         <button class="btn btn-bulb" type="submit" id="voteBtn" disabled>この内容で投票する</button>
-        <span class="small" style="color:#C9CEE6">1人1回。名前や連絡先は送られません。</span>
+        <span class="small" style="color:#C9CEE6">投票すると、あなたの「食べたい」カードがつくれます。名前や連絡先は送られません。</span>
       </div>
       <div class="msg" id="voteMsg" role="status"></div>
     </form>
@@ -675,9 +691,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       </form>
       <div class="msg" id="regMsg2" role="status" style="max-width:520px;margin-left:auto;margin-right:auto"></div>
       <div class="share-row">
-        <button class="btn btn-bulb btn-sm" type="button" id="voteCardBtn">わたしの1票カードをつくる</button>
-        
-        <a class="btn btn-ghost-w btn-sm" id="lineShare" href="#" target="_blank" rel="noopener">LINEで送る</a>
+        <button class="btn btn-bulb" type="button" id="voteCardBtn">私のカードで、友だちを誘う</button>
       </div>
       <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
     </div>
@@ -774,7 +788,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 </main>
 
 <footer>
-  <div class="footer-message"><p>いつもの駅に、<br><span>小さなおいしい発見を。</span></p><div class="fm-acts"><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a><button type="button" class="btn btn-line" data-share>南草津を使う人に、教える ↗</button></div></div>
+  <div class="footer-message"><p>いつもの駅に、<br><span>小さなおいしい発見を。</span></p><div class="fm-acts"><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a><button type="button" class="btn btn-line" data-share>私のカードで、友だちを誘う</button></div></div>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
     <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、帰り道と投票欄の絵はイラストで、どれも実際の会場・お店のようすとは異なります。</div>
@@ -788,16 +802,21 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   <div class="sk-p">
     <div class="sk-h"><span id="skTitle">シェア用の画像ができました</span><button type="button" class="sk-x" id="skClose" aria-label="閉じる">×</button></div>
     <img class="sk-img" id="skImg" alt="シェア用の画像" width="1080" height="1350">
-    <p class="sk-n">画像は長押し（パソコンは右クリック）でも保存できます。Instagramのストーリーズには、保存した画像をそのまま載せられます。</p>
+    <p class="sk-n">このカードとリンクで、友だちを誘えます。</p>
     <div class="sk-b">
-      <button type="button" class="main" id="skNative">画像をSNSでシェアする</button>
-      <a id="skLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
-      <a id="skThreads" href="#" target="_blank" rel="noopener">Threadsに投稿</a>
-      <a id="skX" href="#" target="_blank" rel="noopener">Xに投稿</a>
-      <a id="skSave" href="#" download="minakusa-yorimichi.jpg">画像を保存</a>
-      <button type="button" id="skCopy" style="grid-column:1/-1">文章とリンクをコピー</button>
+      <button type="button" class="main" id="skNative">共有する</button>
+      <a id="skLine" class="line" href="#" target="_blank" rel="noopener">LINEで友だちに送る</a>
     </div>
     <p class="sk-msg" id="skMsg" role="status"></p>
+    <details class="sk-more" id="skMore"><summary>ほかの方法（画像の保存・文章のコピー・Threads・X）</summary>
+      <div class="sk-b sk-b2">
+        <a id="skSave" href="#" download="minakusa-yorimichi.jpg">画像を保存</a>
+        <button type="button" id="skCopy">文章とリンクをコピー</button>
+        <a id="skThreads" href="#" target="_blank" rel="noopener">Threadsに投稿</a>
+        <a id="skX" href="#" target="_blank" rel="noopener">Xに投稿</a>
+      </div>
+      <p class="sk-n" style="margin-top:8px">画像は長押し（パソコンは右クリック）でも保存できます。Instagramのストーリーズには、保存した画像をそのまま載せられます。</p>
+    </details>
   </div>
 </div>
 
@@ -806,7 +825,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
 </div>
 
-<script src="assets/yorimichi-social.js?v=20261019b"></script>
+<script src="assets/yorimichi-social.js?v=20261019c"></script>
 <script>
 (function(){
   // ── 設定 ─────────────────────────────
@@ -819,7 +838,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
   var social = window.YorimichiSocial;
   // 共有画面で3つ選んだ人（まだ投票していない人）は、その3つをそのまま1票として送れる
-  if(social) social.init({foods:FOODS, page:PAGE_URL, vote:function(picks){
+  if(social) social.init({foods:FOODS, page:PAGE_URL, onUse:function(method){ cardUse('wish', method); }, vote:function(picks){
     return send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'共有画面', persona:(PERSONAS[myPersona]||{}).label||'',
       food: picks.map(function(n){ return FOODS[n][1]; }).join('／'), time:'（未回答）', exit:'（未回答）', comment:'', src:src
     }).then(function(){ store('minakusa_voted','1'); store('minakusa_vote_food', picks.map(function(n){ return FOODS[n][1]; }).join('／')); showVoted(); track('yorimichi_vote',{via:'share_dialog'}); });
@@ -849,14 +868,27 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   var FORM_VER = 'v2-20261019';   // 初期選択をなくした後の回答。集計はこの版以降だけを使う
   var src = '';
   try{ src = (new URLSearchParams(location.search).get('src')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30); }catch(e){}
-  // 会員の共有リンク（共有用ページ経由）には r=m023 が付く。台帳の紹介数に入るよう、会員の印を優先する（SNS名はutm_sourceに残る）
-  try{ var ref = (new URLSearchParams(location.search).get('r')||''); if(/^m\d{1,4}$/.test(ref)) src = ref; }catch(e){}
+  // 「紹介した会員」と「SNS名（流入元）」は別々に記録する。会員の共有リンクは ?src=share_line&r=m023 の形。
+  // 以前の形（?src=m023）で来た人は、紹介した会員に移し、流入元は member_link とする。
+  var REF = '';
+  try{ var rq = (new URLSearchParams(location.search).get('r')||''); if(/^m\d{1,4}$/.test(rq)) REF = rq; }catch(e){}
+  if(/^m\d{1,4}$/.test(src)){ if(!REF) REF = src; src = 'member_link'; }
   if(!src) src = 'none';
+  // カードを使った人を数えるための、端末ごとの印（個人を特定しない乱数。このブラウザの中だけに保存）
+  var DEV = '';
+  try{ DEV = localStorage.getItem('minakusa_dev') || ''; if(!/^[a-z0-9]{12,40}$/.test(DEV)){ DEV = (Math.random().toString(36).slice(2) + Date.now().toString(36) + Math.random().toString(36).slice(2)).slice(0,24); localStorage.setItem('minakusa_dev', DEV); } }catch(e){ DEV = ''; }
+  // カードを使った（共有・LINE・保存・コピー）ことを台帳に記録する。名前やメールは送らない。
+  function cardUse(card, method){
+    track('yorimichi_card_use', {card: card, method: method});
+    if(!API) return;
+    try{ fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({kind:'カード', card:card, method:method, src:src, ref:REF, dev:DEV}), keepalive:true}).catch(function(){}); }catch(e){}
+  }
 
   function track(name, params){ try{ if(window.bcTrack){ params = params || {}; params.src = src; window.bcTrack(name, params); } }catch(e){} }
   function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function send(data){
+    if(REF && !data.ref) data.ref = REF;
     if(API){
       // 台帳（Apps Script）へ。text/plain で送ると事前確認の通信が要らず、そのまま受け付けられる
       return fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)})
@@ -911,7 +943,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     } else { sec.hidden = true; }
     var wEl = document.getElementById('waiting');
     if(d.waiting){ wEl.textContent = 'いま'+d.waiting+'人が、第1回を待っています'; wEl.hidden = false; } else { wEl.hidden = true; }
-    if(API && d.earlyLimit){ var en = document.getElementById('earlyNote'); en.textContent = '登録した順に会員番号をお送りします。No.'+d.earlyLimit+'までの方には、日程と出店するお店を一般より先にお知らせします。'; en.hidden = false; }
+    if(API && d.earlyLimit){ var en = document.getElementById('earlyNote'); en.textContent = '会員番号No.'+d.earlyLimit+'までの方には、一般より先にお知らせします。'; en.hidden = false; }
     var R = d.results, rEl = document.getElementById('results');
     if(R && R.total >= 30 && R.top && R.top.length){
       rEl.innerHTML = '<p class="r-h">有効回答'+esc(R.total)+'件（'+esc(R.asof)+'時点）</p><ol>'+R.top.slice(0,5).map(function(t){ return '<li>'+esc(t[0])+'　'+esc(t[1])+'人が選択</li>'; }).join('')+'</ol>'+(R.used ? '<p class="r-note">'+esc(R.used)+'</p>' : '');
@@ -962,7 +994,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       if(load('minakusa_voted')){ body = '<div class="quick"><p class="q-done">あなたの1票は、もう届いています。ありがとうございます。</p><div class="q-foot"><a class="btn btn-tomato btn-sm" href="#register">第1回の日程を受け取る</a></div></div>'; }
       else {
         body = '<div class="quick" id="quick"><p class="q-h">あなたなら、何が買えたらうれしい？（3つまで）</p><div class="chips">'+p.quick.map(function(n){ var f = FOODS[n]; return '<label class="chip" for="q'+n+'"><input type="checkbox" id="q'+n+'" value="'+n+'"><span><em aria-hidden="true">'+f[0]+'</em>'+f[1]+'</span></label>'; }).join('')+'</div>'+
-          '<div class="q-foot"><button type="button" class="btn btn-tomato" id="qVote">この内容で1票を入れる</button><a class="small" href="#vote">ほかのものも選ぶ</a></div><div class="msg" id="qMsg" role="status"></div></div>';
+          '<div class="q-foot"><button type="button" class="btn btn-tomato" id="qVote">この内容で1票を入れる</button><a class="small" href="#vote">ほかのものも選ぶ</a></div><p class="q-tease">投票すると、あなたの「食べたい」カードがつくれます。</p><div class="msg" id="qMsg" role="status"></div></div>';
       }
     } else {
       body = '<div class="q-foot" style="margin-top:16px"><a class="btn btn-tomato" href="minakusa-ekimae.html?src=who">出店について見る</a><a class="btn btn-line" href="#register">第1回の日程を受け取る</a></div>';
@@ -982,7 +1014,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
         }).then(function(){
           store('minakusa_voted','1'); store('minakusa_vote_food', picks.slice(0,3).map(function(n){ return FOODS[n][1]; }).join('／')); if(social) social.voteDone(picks); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
           qEl.innerHTML = '<p class="q-done">1票、届きました。「'+FOODS[picks[0]][1]+'」が並ぶ日を、いっしょに待ちましょう。</p>'+
-            '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div><div class="sns-inline-cta"><button type="button" class="btn btn-bulb" data-share>食べたいものカードをつくる</button><span>画像と投稿文で、近くの人に教えよう。</span></div>';
+            '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div><div class="sns-inline-cta"><button type="button" class="btn btn-bulb" data-share>私のカードで、友だちを誘う</button><span>カードとリンクを、LINEなどでそのまま送れます。</span></div>';
           bindReg('regInline3','rEmail3','regMsg3','投票直後（帰り道）');
         }).catch(function(){ btn.disabled = false; btn.textContent = 'この内容で1票を入れる'; qm.className = 'msg ng'; qm.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。'; });
       });
@@ -996,7 +1028,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   function bindReg(formId, inputId, msgId, where){
     var f = document.getElementById(formId); if(!f) return;
     var m = document.getElementById(msgId), btn = f.querySelector('button[type=submit]');
-    if(load('minakusa_registered')){ var myNo = load('minakusa_no'); m.className='msg ok'; m.textContent='このブラウザからは登録済みです'+(myNo ? '（よりみち会員 No.'+('00'+myNo).slice(-3)+'）' : '')+'。日程が決まったらお知らせします。'; if(myNo){ var mb=document.createElement('button'); mb.type='button'; mb.className='mk-share'; mb.textContent='会員証をつくって、SNSでシェア'; mb.addEventListener('click', function(){ openShareKit('member'); }); m.appendChild(document.createElement('br')); m.appendChild(mb); } }
+    if(load('minakusa_registered')){ var myNo = load('minakusa_no'); m.className='msg ok'; m.textContent='このブラウザからは登録済みです'+(myNo ? '（よりみち会員 No.'+('00'+myNo).slice(-3)+'）' : '')+'。日程が決まったらお知らせします。'; if(myNo){ var mb=document.createElement('button'); mb.type='button'; mb.className='mk-share'; mb.textContent='私のカードで、友だちを誘う'; mb.addEventListener('click', function(){ openShareKit('member'); }); m.appendChild(document.createElement('br')); m.appendChild(mb); } }
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var em = document.getElementById(inputId);
@@ -1010,9 +1042,9 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
           store('minakusa_no', String(no));
           var n3 = ('00'+no).slice(-3), shareTxt = '南草津駅の帰り道に、小さなお店ができるらしい。わたしは「よりみち会員」No.'+n3+'。';
           m.innerHTML = '登録しました。あなたは<b>「よりみち会員」No.'+n3+'</b>です。'+(j.early ? '第1回の日程と出店するお店を、一般より先にお知らせします。' : '第1回の日程が決まったら、お知らせします。')+
-            '<br><button type="button" class="mk-share" data-member-card>会員証をつくって、SNSでシェア</button>';
+            '<br><button type="button" class="mk-share" data-member-card>私のカードで、友だちを誘う</button>';
           m.querySelector('[data-member-card]').addEventListener('click', function(){ openShareKit('member'); });
-          var ls = document.getElementById('lineShare'); if(ls) ls.href = 'https://line.me/R/share?text=' + encodeURIComponent(shareText + ' #南草津駅前よりみち #南草津\n' + PAGE_URL + '?src=m' + n3); shareUrl = PAGE_URL + '?src=m' + n3;
+          shareUrl = myRefUrl('line');
         } else {
           m.textContent='登録しました。第1回の日程が決まったら、このアドレスにお知らせします。';
         }
@@ -1040,15 +1072,13 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   // ── シェア ───────────────────────────
   var shareText = '南草津駅前に、小さなお店が並ぶらしい。帰り道に何が買えたらうれしいか、投票できるよ。';
   var shareUrl = PAGE_URL + '?src=share';
-  document.getElementById('lineShare').href = 'https://line.me/R/share?text=' + encodeURIComponent(shareText + '\n' + shareUrl);
-  var smsg = document.getElementById('shareMsg');
   // [data-share] は YorimichiSocial が扱う（共有画面を二重に開かない）。
 
   // ── シェアカード（会員証・1票カード）：登録した人・投票した人が、自分の番号や1票を画像で広められる ──
-  // リンクには会員番号の印（?src=m023）が付き、その人の紹介で増えた登録が台帳で数えられる。
+  // リンクには「どこで共有したか（src）」と「紹介した会員（r=m023）」を別々に付け、台帳で両方を数えられるようにする。
   var TAGS = ' #南草津駅前よりみち #南草津';
   var heroImg = new Image(); heroImg.src = 'images/minakusa/yorimichi/hero-sp-v2.jpg';
-  function myRefUrl(){ var no = load('minakusa_no'); return PAGE_URL + '?src=' + (no ? 'm' + ('00'+no).slice(-3) : 'share'); }
+  function myRefUrl(ch){ var no = load('minakusa_no'); return PAGE_URL + '?src=share_' + (ch || 'copy') + (no ? '&r=m' + ('00'+no).slice(-3) : ''); }
   function rr(c, x, y, w, h, r){ c.beginPath(); c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r); c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); }
   function drawCard(kind){
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350; var c = cv.getContext('2d');
@@ -1082,7 +1112,7 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
     return cv;
   }
   var skEl = document.getElementById('shareKit'), skMsg = document.getElementById('skMsg'), skBlob = null, skText = '', skKind = '', skLast = null;
-  function skUrl(){ return myRefUrl(); }
+  function skUrl(ch){ return myRefUrl(ch); }
   function openShareKit(kind){
     if(kind==='vote' && social){ social.open('wish'); return; }
     skKind = kind; skMsg.textContent = ''; skLast = document.activeElement;
@@ -1096,10 +1126,10 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
       document.getElementById('skImg').src = url; document.getElementById('skSave').href = url;
       document.getElementById('skSave').download = kind === 'member' ? 'yorimichi-member-' + n3 + '.jpg' : 'yorimichi-vote.jpg';
       cv.toBlob(function(b){ skBlob = b; }, 'image/jpeg', 0.92);
-      var u = skUrl();
-      document.getElementById('skLine').href = 'https://line.me/R/share?text=' + encodeURIComponent(skText + '\n' + u);
-      document.getElementById('skThreads').href = 'https://www.threads.net/intent/post?text=' + encodeURIComponent(skText + ' ' + u);
-      document.getElementById('skX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(skText) + '&url=' + encodeURIComponent(u);
+      document.getElementById('skLine').href = 'https://line.me/R/share?text=' + encodeURIComponent(skText + '\n' + skUrl('line'));
+      document.getElementById('skThreads').href = 'https://www.threads.net/intent/post?text=' + encodeURIComponent(skText + ' ' + skUrl('threads'));
+      document.getElementById('skX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(skText) + '&url=' + encodeURIComponent(skUrl('x'));
+      document.getElementById('skMore').open = false;
       skEl.hidden = false; document.getElementById('skClose').focus();
       track('yorimichi_share', {kind: kind, method: 'open'});
     };
@@ -1111,28 +1141,27 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
   document.getElementById('skClose').addEventListener('click', closeShareKit);
   skEl.addEventListener('click', function(e){ if(e.target === skEl) closeShareKit(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !skEl.hidden) closeShareKit(); });
-  ['skLine','skThreads','skX','skSave'].forEach(function(id){ document.getElementById(id).addEventListener('click', function(){ track('yorimichi_share', {kind: skKind, method: id.slice(2).toLowerCase()}); }); });
+  ['skLine','skThreads','skX','skSave'].forEach(function(id){ document.getElementById(id).addEventListener('click', function(){ var m = id.slice(2).toLowerCase(); track('yorimichi_share', {kind: skKind, method: m}); cardUse(skKind, m); }); });
   document.getElementById('skNative').addEventListener('click', function(){
-    var u = skUrl();
+    var u = skUrl('native');
     try{
       var file = skBlob ? new File([skBlob], skKind === 'member' ? 'yorimichi-member.jpg' : 'yorimichi-vote.jpg', {type:'image/jpeg'}) : null;
       if(file && navigator.canShare && navigator.canShare({files:[file]})){
-        navigator.share({files:[file], text: skText + ' ' + u}).then(function(){ track('yorimichi_share', {kind: skKind, method: 'native'}); }).catch(function(){});
+        navigator.share({files:[file], text: skText + ' ' + u}).then(function(){ track('yorimichi_share', {kind: skKind, method: 'native'}); cardUse(skKind, 'native'); }).catch(function(){});
         return;
       }
-      if(navigator.share){ navigator.share({title:'南草津駅前、よりみち。', text: skText, url: u}).then(function(){ track('yorimichi_share', {kind: skKind, method: 'native_link'}); }).catch(function(){}); return; }
+      if(navigator.share){ navigator.share({title:'南草津駅前、よりみち。', text: skText, url: u}).then(function(){ track('yorimichi_share', {kind: skKind, method: 'native_link'}); cardUse(skKind, 'native'); }).catch(function(){}); return; }
     }catch(err){}
-    skMsg.textContent = 'この端末では直接シェアできません。画像を保存して、Instagramなどに載せてください。';
+    skMsg.textContent = 'この端末では、ここから直接は共有できません。「LINEで友だちに送る」か、下の「ほかの方法」から画像を保存してください。';
+    document.getElementById('skMore').open = true;
   });
   document.getElementById('skCopy').addEventListener('click', function(){
-    var t = skText + ' ' + skUrl();
-    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ skMsg.textContent = '文章とリンクをコピーしました。'; track('yorimichi_share', {kind: skKind, method: 'copy'}); }).catch(function(){ skMsg.textContent = t; }); }
+    var t = skText + ' ' + skUrl('copy');
+    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ skMsg.textContent = '文章とリンクをコピーしました。'; track('yorimichi_share', {kind: skKind, method: 'copy'}); cardUse(skKind, 'copy'); }).catch(function(){ skMsg.textContent = t; }); }
     else { skMsg.textContent = t; }
   });
   document.getElementById('voteCardBtn').addEventListener('click', function(){ openShareKit('vote'); });
-  // 投票後の「近くの人に教える」「LINEで送る」も、会員なら紹介の印付きリンクにする
-  shareUrl = myRefUrl();
-  document.getElementById('lineShare').href = 'https://line.me/R/share?text=' + encodeURIComponent(shareText + TAGS + '\n' + shareUrl);
+  shareUrl = myRefUrl('line');
 })();
 </script>
 <script src="bc-analytics.js" defer></script>
