@@ -85,9 +85,10 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--bulb);box-shadow:0 0 0 3px rgba(255,214,107,.35)}
 .cover h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,6.6vw,74px);line-height:1.18;letter-spacing:.02em;margin-top:18px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .cover h1 span{display:block}
+.cover h1 .h1-st{color:var(--bulb)}
 .cover .lead{color:#fff;opacity:.92;font-size:17px;margin-top:18px;max-width:30em;text-shadow:0 1px 12px rgba(0,0,0,.4)}
 .hero-reg{margin-top:24px;max-width:520px}
-.hr-l{display:block;font-size:14px;font-weight:700;margin-bottom:8px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.hr-l{display:block;font-size:14px;font-weight:700;margin-bottom:8px;word-break:auto-phrase;text-shadow:0 1px 8px rgba(0,0,0,.4)}
 .hr-row{display:flex;gap:10px}
 .hr-row input{flex:1;min-width:0}
 .hero-vote{margin-top:14px}
@@ -291,8 +292,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <p class="cover-cap">完成イメージ（合成）です</p>
   <div class="wrap cover-in">
     <span class="pill"><i aria-hidden="true"></i>準備中・開催日は調整しています</span>
-    <h1><span>帰り道に、</span><span>寄り道したくなる</span><span>駅前へ。</span></h1>
-    <p class="lead">金曜の夕方を中心に、JR南草津駅の駅前に、おかず・パン・おやつなどの小さなお店が並ぶ予定です。帰り道に何が買えたらうれしいか、先に教えてください。</p>
+    <h1><span class="h1-st">南草津駅の</span><span>帰り道に、</span><span>小さなお店を。</span></h1>
+    <p class="lead">金曜の夕方を中心に、JR南草津駅の駅前で、おかず・パン・おやつなどを買えるようにする準備をしています。帰り道に何が買えたらうれしいか、先に教えてください。</p>
     <form class="hero-reg" id="regHero" novalidate>
       <label class="hr-l" for="rEmail0">第1回の日程と出店するお店を、メールで受け取る（無料）</label>
       <div class="hr-row">
