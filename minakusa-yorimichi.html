@@ -20,7 +20,7 @@
 <meta property="og:title" content="南草津駅前、よりみち。帰り道に、寄り道したくなる駅前へ">
 <meta property="og:description" content="西口・東口・改札前に、小さなお店が並ぶ予定です。帰り道に何が買えたらうれしい？ 投票受付中。">
 <meta property="og:url" content="https://www.bridgecycleco.com/minakusa-yorimichi.html">
-<meta property="og:image" content="https://www.bridgecycleco.com/images/minakusa/yorimichi/ogp.jpg">
+<meta property="og:image" content="https://www.bridgecycleco.com/images/minakusa/yorimichi/ogp.jpg?v=2">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -86,10 +86,21 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .hero[data-t="noon"] .orb{left:74%;top:8%;background:#FFF3B8;box-shadow:0 0 70px 26px rgba(255,243,184,.7)}
 .hero[data-t="eve"] .orb{left:83%;top:46%;background:#FF9A55;box-shadow:0 0 80px 30px rgba(255,140,70,.55)}
 .hero[data-t="night"] .orb{left:80%;top:10%;background:#F4F1DE;box-shadow:0 0 40px 8px rgba(244,241,222,.35),inset -18px -6px 0 0 #D8D3B6}
-.hero-in{position:relative;z-index:2;padding-top:44px}
+.hero-in{position:relative;z-index:2;padding-top:56px}
+.hero-in .lead{color:inherit;opacity:.85;margin-top:10px}
+/* 最初の画面（完成イメージ） */
+.cover{position:relative;min-height:min(90vh,780px);display:flex;align-items:flex-end;color:#fff;background:var(--night);overflow:hidden}
+.cover picture,.cover picture img{position:absolute;inset:0;width:100%;height:100%}
+.cover picture img{object-fit:cover;object-position:60% 50%}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,46,.88) 0%,rgba(18,22,46,.62) 38%,rgba(18,22,46,.08) 72%),linear-gradient(0deg,rgba(18,22,46,.55) 0%,transparent 35%)}
+.cover-in{position:relative;z-index:2;padding-top:80px;padding-bottom:64px;width:100%}
+.cover h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,6.6vw,74px);line-height:1.18;letter-spacing:.02em;margin-top:18px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.cover h1 span{display:block}
+.cover .lead{color:#fff;opacity:.92;font-size:17px;margin-top:18px;max-width:30em;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.cover-cap{position:absolute;right:16px;bottom:10px;z-index:2;font-size:11px;color:rgba(255,255,255,.75);margin:0}
 .hdr-cta .short{display:none}
 .sp-only{display:none}
-.hero h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,7.4vw,76px);line-height:1.18;letter-spacing:.02em}
+.hero h1,.hero-old-h1{font-family:'Dela Gothic One',sans-serif;font-size:clamp(38px,7.4vw,76px);line-height:1.18;letter-spacing:.02em}
 .hero h1 span{display:block}
 .hero .lead{color:inherit;opacity:.9;font-size:17px;margin-top:18px;max-width:34em}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
@@ -294,7 +305,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   .pick .btn{grid-column:1/-1}
   .pick .emo{font-size:34px}
   .hide-sp{display:none}
-  .hero-in{padding-top:30px}
+  .hero-in{padding-top:40px}
+  .cover{min-height:88vh}
+  .cover picture img{object-position:72% 50%}
+  .cover::after{background:linear-gradient(180deg,rgba(18,22,46,.15) 0%,rgba(18,22,46,.35) 35%,rgba(18,22,46,.92) 72%)}
+  .cover-in{padding-bottom:44px}
+  .cover .lead{font-size:15px}
+  .cover-cap{left:16px;right:16px;bottom:10px}
   .hero .lead{font-size:15px}
   .hero-cta .btn{flex:1;padding:12px 10px}
   #voteBtn{width:100%}
@@ -338,20 +355,33 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
 <main id="top">
 
-<!-- 最初の画面：時間で景色と並ぶお店が変わる -->
-<section class="hero lighting" id="hero" data-t="eve" style="padding:0">
-  <div class="sky morning"></div><div class="sky noon"></div><div class="sky eve"></div><div class="sky night"></div>
-  <div class="orb" aria-hidden="true"></div>
-
-  <div class="wrap hero-in">
+<!-- 最初の画面：完成イメージ -->
+<section class="cover" id="cover">
+  <picture>
+    <source media="(max-width:860px)" srcset="images/minakusa/yorimichi/hero-sp.jpg">
+    <img src="images/minakusa/yorimichi/hero-wide.jpg" alt="夕方の南草津駅前にテントのお店が並び、人が立ち寄っている完成イメージ" width="1305" height="941" fetchpriority="high">
+  </picture>
+  <div class="wrap cover-in">
     <span class="pill"><i aria-hidden="true"></i>準備中・開催日は調整しています</span>
-    <h1 style="margin-top:18px"><span>帰り道に、</span><span>寄り道したくなる</span><span>駅前へ。</span></h1>
+    <h1><span>帰り道に、</span><span>寄り道したくなる</span><span>駅前へ。</span></h1>
     <p class="lead">JR南草津駅の西口・東口・改札前に、小さなお店が並ぶ予定です。<br class="hide-sp">どんなお店があったらうれしいか、先に教えてください。</p>
     <div class="hero-cta">
       <a class="btn btn-bulb" href="#vote">30秒で投票する</a>
       <a class="btn btn-ghost-w" href="#register">開催日を先に知る</a>
     </div>
     <p class="trust">南草津駅周辺まちづくりの社会実験　実施：UDCみなくさ・立命館大学</p>
+  </div>
+  <p class="cover-cap">完成イメージです。実際の会場・お店のようすとは異なります。</p>
+</section>
+
+<!-- 時間で景色と並ぶお店が変わる -->
+<section class="hero" id="hero" data-t="eve" style="padding:0">
+  <div class="sky morning"></div><div class="sky noon"></div><div class="sky eve"></div><div class="sky night"></div>
+  <div class="orb" aria-hidden="true"></div>
+
+  <div class="wrap hero-in">
+    <h2 class="h2">あなたが通る時間の、<br>駅前のようす。</h2>
+    <p class="lead">下で時間を選ぶと、空の色と屋台の品が変わります。</p>
   </div>
 
   <svg class="scene" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMax slice" role="img" aria-label="駅前に屋台が並び、電球が灯るイメージ図">
@@ -760,6 +790,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   }
   seg.forEach(function(b){ b.addEventListener('click', function(){ setTime(b.getAttribute('data-t'), current!=='eve'&&current!=='night'); }); });
   setTime('eve', false);
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ hero.classList.add('lighting'); io.disconnect(); } }); },{threshold:.35});
+    io.observe(hero);
+  } else { hero.classList.add('lighting'); }
 
   // ── 投票欄の電球の飾り ───────────────────
   var gar = document.getElementById('garland');
