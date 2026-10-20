@@ -809,12 +809,13 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div class="kp-ov-body">
       <p class="kp-sub">EVENT OVERVIEW</p>
       <h2 class="kp-ja">どんな市？</h2>
-      <p class="kp-ov-lead">ふだんは通り過ぎるだけの南草津駅に、帰り道に寄れる小さなお店が並びます。南草津駅周辺のまちづくりの社会実験として、2027年2月まで試します。</p>
+      <p class="kp-ov-lead">ふだんは通り過ぎるだけの南草津駅に、帰り道に寄れる小さなお店が並びます。持ち帰りのほか、西口ではその場で食べられる飲食スペースも設ける予定です。南草津駅周辺のまちづくりの社会実験として、2027年2月まで試します。</p>
       <dl class="kp-table">
         <div><dt>イベント</dt><dd>南草津駅前、よりみち。</dd></div>
         <div><dt>日時</dt><dd><b id="nextTitle">第1回の日程は決まりしだい発表</b><span class="small" id="nextUpdateTop">　</span><span class="small">金曜の夕方が中心の予定。土日祝も検討中</span></dd></div>
         <div><dt>会場</dt><dd><b>JR南草津駅</b><span class="small">西口・東口・改札前（区画は関係機関の承認後に確定）</span></dd></div>
         <div><dt>並ぶもの</dt><dd>おかず・パン・おやつ・軽食など（予定）</dd></div>
+        <div><dt>食べる場所</dt><dd>持ち帰りのほか、西口に飲食スペース（予定）</dd></div>
         <div><dt>入場料</dt><dd><b>無料</b></dd></div>
         <div><dt>実施</dt><dd>UDCみなくさ・立命館大学<span class="small">出店者の募集・調整：BRIDGE CYCLE株式会社</span></dd></div>
       </dl>
@@ -948,7 +949,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <div class="kp-cat-body">
         <p class="kp-sub">FOOD</p>
         <h3 class="kp-cat-ja">食べもの</h3>
-        <p>今夜のおかず、明日のパン、帰り道のおやつ。持ち帰りやすいものを中心に、出店するお店を準備しています。</p>
+        <p>今夜のおかず、明日のパン、帰り道のおやつ。持ち帰りはもちろん、西口ではその場で食べられる飲食スペースも設ける予定です。</p>
       </div>
       <p class="kp-vempty" id="vendorEmpty">出店者紹介は、決まり次第お知らせします。</p>
       <details class="kp-acc" id="vendorAcc" hidden>
@@ -976,7 +977,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <details class="kp-map-det" id="mapDet" open><summary>駅のどのあたり？（位置関係の図を見る）</summary>
       <figure class="kp-map-fig">
         <svg viewBox="0 0 800 560" role="img" aria-labelledby="mapTitle">
-          <title id="mapTitle">南草津駅の売り場の位置関係。線路をはさんで西側に西口と東山道記念公園、東側に東口の駅前広場とバスのりば。改札前の自由通路が東西をつなぐ</title>
+          <title id="mapTitle">南草津駅の売り場の位置関係。線路をはさんで西側に西口と東山道記念公園（飲食スペースも予定）、東側に東口の駅前広場とバスのりば。改札前の自由通路が東西をつなぐ</title>
           <defs><pattern id="rail" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(28)"><line x1="0" y1="7" x2="14" y2="7" stroke="#22355F" stroke-width="2" opacity=".35"/></pattern></defs>
           <rect width="800" height="560" rx="18" fill="#FBF9F5"/>
           <g transform="rotate(28 400 280)">
@@ -1001,6 +1002,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
           
           <rect x="24" y="300" width="250" height="46" rx="23" fill="#3F7464"/>
           <text x="149" y="330" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">西口・公園前</text>
+          <text x="149" y="372" text-anchor="middle" font-size="17" font-weight="700" fill="#3F7464">飲食スペースも予定</text>
           <rect x="532" y="440" width="250" height="46" rx="23" fill="#22355F"/>
           <text x="657" y="470" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">東口・広場</text>
           <text x="40" y="520" font-size="24" font-weight="700" fill="#22355F" font-family="Shippori Mincho B1, serif">西口</text>
@@ -1139,7 +1141,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   var PERSONAS = {
     commute:{tag:'仕事帰りに', label:'仕事帰りに、駅を通る', sub:'今夜のおかずを、包んで持ち帰る', title:'仕事帰りのあなたへ', rows:[['いつ（案）','金曜の夕方'],['どこで（案）','改札前・東口'],['こんなもの','今夜のおかず・お弁当・ちょっと一杯']], quick:[0,1,5,2,3], foods:[0,1], time:1, exits:[2]},
     student:{tag:'授業終わりに', label:'学校や授業の帰り', sub:'パンとドリンクで、ひと息', title:'学校帰りのあなたへ', rows:[['いつ（案）','金曜の夕方、授業終わり'],['どこで（案）','東口のバスのりば（立命館行きなど）'],['こんなもの','学生向けの軽食・ドリンク']], quick:[8,3,4,0,5], foods:[8,3], time:1, exits:[1]},
-    neighbor:{tag:'土日の昼に', label:'駅の近くに住んでいる', sub:'親子で分ける、おやつ', title:'近くに住むあなたへ', rows:[['いつ（案）','土日の昼・金曜の夕方'],['どこで（案）','西口の公園前'],['こんなもの','お弁当・おやつ・地元の野菜']], quick:[1,9,6,4,2], foods:[1,9], time:2, exits:[0,3]},
+    neighbor:{tag:'土日の昼に', label:'駅の近くに住んでいる', sub:'親子で分ける、おやつ', title:'近くに住むあなたへ', rows:[['いつ（案）','土日の昼・金曜の夕方'],['どこで（案）','西口の公園前（飲食スペースも予定）'],['こんなもの','お弁当・おやつ・地元の野菜']], quick:[1,9,6,4,2], foods:[1,9], time:2, exits:[0,3]},
   };
   // 出店したい方は、来場者の3枚とは分けて、カードの下のリンクから出店者向けページへ案内する
 
