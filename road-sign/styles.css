@@ -688,7 +688,7 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 [data-when][hidden]{display:none!important}
 
 
-/* トオリミチ 2026-10-20: index-only brand redesign. Scoped to preserve subpages. */
+/* ミツカルート 2026-10-20: index-only brand redesign. Scoped to preserve subpages. */
 body.tor-design-v2{--navy:#203c34;--navy2:#142e26;--orange:#b98751;--ochre:#f4eadc;--paper:#f6f4ed;--bg:#eef1eb;--ink:#23372f;--muted:#60746a;--line:#dce5dc;--good:#236b4d;color:var(--ink);background:var(--paper);font-size:16px;line-height:1.8}
 .tor-design-v2 .topnav{background:rgba(246,244,237,.97);border-color:#e1e7de;backdrop-filter:blur(12px);box-shadow:none}
 .tor-design-v2 .navrow{min-height:78px}.tor-design-v2 .brand{font-size:22px;letter-spacing:-.055em}.tor-design-v2 .brand small{font-size:9px;letter-spacing:0;color:#648073}.tor-design-v2 .navright{gap:24px}
