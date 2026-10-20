@@ -497,3 +497,6 @@ body.tor-design-v3 .v3-scopeitem a:focus-visible{outline:3px solid #c8f56b;outli
  body.tor-design-v3 .v3-scopeitem{padding:19px 18px}
  body.tor-design-v3 #contact .contactform .fields label{font-size:16px}
 }
+
+/* CONVERSION UX NAV READABILITY: hide nonessential microscopic brand subtitle on narrow screens. */
+@media(max-width:480px){body.tor-brand .topnav .brand small{display:none}}
