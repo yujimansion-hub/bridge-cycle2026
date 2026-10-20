@@ -1342,11 +1342,20 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     }
     // 有効回答30件未満は「食べたいものを教える」、公開後は「みんなの結果と比べる」に案内を切り替える
     resultsReady=ready;
+    updateVotedHero();
     document.querySelectorAll('.vs-pre').forEach(function(el){el.hidden=ready;});
     document.querySelectorAll('.vs-post').forEach(function(el){el.hidden=!ready;});
     var main=document.getElementById('results'),done=document.getElementById('myVoteResults');
     if(main){main.innerHTML=html(false);main.hidden=false;main.classList.toggle('is-pending',!ready);}
     if(done)done.innerHTML=html(true);
+  }
+  function updateVotedHero(){
+    if(!load('minakusa_voted')) return;
+    var v=latestVoteData&&latestVoteData.stats&&Number(latestVoteData.stats.votes), hasN=Number.isFinite(v)&&v>0;
+    var hb=document.querySelector('.hero-vote-main'), mb=document.querySelector('#mbar a[href="#voteDone"]'), ht=document.querySelector('.hero-signup .hero-tease');
+    if(hb) hb.innerHTML = resultsReady ? 'みんなの投票結果を見る<small>あなたの1票と比べられます</small>' : '投票の途中経過を見る<small>あなたの1票は届いています</small>';
+    if(mb) mb.textContent = resultsReady ? '投票結果を見る' : '途中経過を見る';
+    if(ht) ht.textContent = resultsReady ? '投票ありがとうございました。' : '30件集まったら、みんなの結果を公開します'+(hasN?'（いま'+Math.floor(v)+'件）':'');
   }
   function refreshVoteResults(){
     if(!API)return;
@@ -1376,9 +1385,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     vf.style.display='none';vdone.style.display='block';
     document.querySelectorAll('a[href="#voteForm"]').forEach(function(a){
       a.setAttribute('href','#voteDone');
-      if(a.classList.contains('hero-vote-main')) a.innerHTML='投票のつづきを見る<small>あなたの1票と、次のお知らせ</small>';
-      else if(a.closest('#mbar')) a.textContent='投票のつづきを見る';
     });
+    updateVotedHero();
     renderVoteResults(latestVoteData);refreshVoteResults();
     if(location.hash==='#voteForm') requestAnimationFrame(function(){vdone.scrollIntoView({block:'start'});});
   }
