@@ -70,6 +70,8 @@
       if (window.bcRefActive) payload['紹介コード'] = String(window.bcRefActive).slice(0, 20);   // 紹介パートナー経由の申込みを記録
       for (const [k,v] of new FormData(form).entries()) {
         if (!v || v instanceof File || /^(website_url|consent|source_name)$/.test(k)) continue;
+        // An untouched legacy self-check should not clutter inquiry emails.
+        if (k === 'fit_score' && String(v).trim() === '未回答') continue;
         payload[LABELS[k]||k] = String(v).slice(0,1000);
       }
       track('lp_lead_submit_attempt', fid);
