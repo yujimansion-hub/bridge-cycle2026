@@ -1,5 +1,5 @@
 
-# トオリミチ：非公開の媒体管理台帳（公開リポジトリに上げない）
+# タドリツク：非公開の媒体管理台帳（公開リポジトリに上げない）
 road-sign/data/private/
 *ledger*.csv
 !road-sign/tools/boards_ledger_template.csv

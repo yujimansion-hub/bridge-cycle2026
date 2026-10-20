@@ -1,4 +1,4 @@
-# 写真の出典（トオリミチ）
+# 写真の出典（タドリツク）
 
 すべて Unsplash の写真（Unsplash License：商用利用可、クレジット表記不要）。2026-10-19 取得。
 ライセンス：https://unsplash.com/license
