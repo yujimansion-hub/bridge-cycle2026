@@ -346,3 +346,44 @@ body.tor-brand #owner-revenue .rs-controls{background:#edf0e7}
 body.tor-brand .topnav .navright .btn:hover{min-height:45px;font-size:12px;padding:11px 20px}
 @media(max-width:600px){body.tor-brand .topnav .navright{display:none}}
 @media(prefers-reduced-motion:reduce){body.tor-brand *,body.tor-brand *:before,body.tor-brand *:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* 2026-10-20: operating clinics as primary audience; package available regardless of opening year. */
+body.tor-brand[data-audience="clinic"] .existing-clinics{background:#f5f6f1;scroll-margin-top:84px}
+body.tor-brand[data-audience="clinic"] .existing-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:52px;align-items:center}
+body.tor-brand[data-audience="clinic"] .existing-copy h2{font-size:clamp(28px,3.4vw,42px);line-height:1.4;color:#181e1b;letter-spacing:-.035em}
+body.tor-brand[data-audience="clinic"] .existing-copy>p:not(.eyebrow){font-size:15px;color:#526348;margin:19px 0;line-height:1.9}
+body.tor-brand[data-audience="clinic"] .existing-benefits{padding:0;list-style:none;display:grid;gap:10px;margin:20px 0 25px}
+body.tor-brand[data-audience="clinic"] .existing-benefits li{padding-left:25px;position:relative;font-size:14px;color:#3b5c2d;font-weight:700}
+body.tor-brand[data-audience="clinic"] .existing-benefits li:before{content:"✓";position:absolute;left:3px;color:#347459}
+body.tor-brand[data-audience="clinic"] .existing-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+body.tor-brand[data-audience="clinic"] .existing-textlink{font-size:14px;font-weight:800;color:#3b5c2d;text-decoration:underline;text-underline-offset:5px}
+body.tor-brand[data-audience="clinic"] .existing-product{border:1px solid #d9dfd5;border-radius:18px;background:#fff;padding:33px 29px;box-shadow:0 17px 36px #193d2b10}
+body.tor-brand[data-audience="clinic"] .existing-product-label{color:#557363;font-size:12px;font-weight:800}
+body.tor-brand[data-audience="clinic"] .existing-product h3{font-size:24px;color:#181e1b;margin:12px 0 4px}
+body.tor-brand[data-audience="clinic"] .existing-product-price{font-size:37px;font-weight:900;line-height:1.5;color:#181e1b}
+body.tor-brand[data-audience="clinic"] .existing-product-price small{font-size:12px;color:#64806e;font-weight:600;white-space:nowrap}
+body.tor-brand[data-audience="clinic"] .existing-product p{color:#546a5c;font-size:14px;line-height:1.85;margin:11px 0 0}
+body.tor-brand[data-audience="clinic"] .existing-product .existing-product-note{border-top:1px solid #dbe4dc;padding-top:14px;font-size:12px;color:#687d70}
+body.tor-brand[data-audience="clinic"] .plan-scope-note{color:inherit;opacity:.85;line-height:1.75;margin-top:8px}
+body.tor-brand[data-audience="clinic"] .pricegrid .price.highlight .pstate{color:#d9e7ee}
+body.tor-brand[data-audience="clinic"] .existing-hero-note{font-size:13px;margin-top:13px}
+body.tor-brand[data-audience="clinic"] .existing-hero-note a{color:#fff;text-decoration:underline;text-underline-offset:5px;font-weight:800}
+@media(max-width:800px){body.tor-brand[data-audience="clinic"] .existing-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
+@media(max-width:360px){
+ body.tor-brand[data-audience="clinic"] .wrap{min-width:0;max-width:100%}
+ body.tor-brand[data-audience="clinic"] .existing-clinics .wrap,body.tor-brand[data-audience="clinic"] #price .wrap{padding-left:14px;padding-right:14px}
+ body.tor-brand[data-audience="clinic"] .existing-product{padding:22px 17px}
+ body.tor-brand[data-audience="clinic"] .existing-product-price{font-size:32px}
+ body.tor-brand[data-audience="clinic"] .kdoors-grid,body.tor-brand[data-audience="clinic"] .kdoor,body.tor-brand[data-audience="clinic"] .cmp,body.tor-brand[data-audience="clinic"] .cmflow,body.tor-brand[data-audience="clinic"] .ktiles{min-width:0;max-width:100%}
+ body.tor-brand[data-audience="clinic"] .kdoor{grid-template-columns:40px minmax(0,1fr);gap:10px;padding:16px 12px}
+ body.tor-brand[data-audience="clinic"] .kdoor-ic{width:40px;height:40px}
+ body.tor-brand[data-audience="clinic"] .kdoor-tx{min-width:0;overflow-wrap:anywhere}
+ body.tor-brand[data-audience="clinic"] .kdoor .btn{white-space:normal;min-width:0;padding:10px}
+ body.tor-brand[data-audience="clinic"] .cmp,body.tor-brand[data-audience="clinic"] .cmflow{grid-template-columns:minmax(0,1fr)}
+ body.tor-brand[data-audience="clinic"] .cmn:after{display:none}
+ body.tor-brand[data-audience="clinic"] .ktiles{grid-template-columns:minmax(0,1fr)}
+ body.tor-brand[data-audience="clinic"] .dsr{grid-template-columns:minmax(0,1fr) auto}
+ body.tor-brand[data-audience="clinic"] .dsr .dsnow,body.tor-brand[data-audience="clinic"] .dsr .dsfix{min-width:0;overflow-wrap:anywhere}
+ body.tor-brand[data-audience="clinic"] .kdlane,body.tor-brand[data-audience="clinic"] .kqmock{min-width:0;padding:15px}
+ body.tor-brand[data-audience="clinic"] .kreport,body.tor-brand[data-audience="clinic"] .kreport>*{max-width:100%;min-width:0}
+}
