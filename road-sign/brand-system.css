@@ -465,3 +465,38 @@ body.tor-design-v3 #contact .contactform :is(input,select,textarea){font-size:16
  body.tor-design-v3 .v3-intro .v3-kicker{font-size:14px}
  body.tor-design-v3 .v3-problem p,body.tor-design-v3 .v3-step p,body.tor-design-v3 .v3-service p{font-size:16px}
 }
+
+
+/* Conversion UX / 2026-10-20 — theme remains charcoal/lime. */
+body.tor-design-v3 .v3-scope{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:28px;
+ background:#ccd6c6;border:1px solid #ccd6c6;border-radius:14px;overflow:hidden;
+}
+body.tor-design-v3 .v3-scopeitem{min-width:0;padding:25px 24px;background:#f8faf5;}
+body.tor-design-v3 .v3-scopenum{display:block;font-size:14px;font-weight:750;color:#4a6945;margin-bottom:7px;letter-spacing:.01em;}
+body.tor-design-v3 .v3-scopeitem strong{display:block;color:#181e1b;font-weight:850;font-size:17px;line-height:1.5;}
+body.tor-design-v3 .v3-scopeitem p{font-size:15px;line-height:1.8;color:#455d4d;margin-top:7px;}
+body.tor-design-v3 #contact .contactform [hidden]{display:none!important}
+body.tor-design-v3 #contact .contactform [data-signage-only][hidden]{display:none!important}
+body.tor-design-v3 #contact .contactform .clinic-privacy-note{
+ padding:14px 16px;background:#f1f7e8;border:1px solid #d8e6c8;border-radius:10px;
+ color:#36553d;line-height:1.8;font-size:15px;margin-top:15px;
+}
+body.tor-design-v3 #contact .contactform .fields label{font-size:16px;line-height:1.6}
+body.tor-design-v3 #contact .contactform .optfields summary{font-size:15px;line-height:1.7}
+body.tor-design-v3 #contact .contactform .reqnote,
+body.tor-design-v3 #contact .contactform .consent-note{font-size:14px;line-height:1.75;color:#3e5949}
+body.tor-design-v3 #contact .contactform .notify-check{font-size:15px}
+body.tor-design-v3 .v3-scopeitem a:focus-visible{outline:3px solid #c8f56b;outline-offset:2px}
+@media(max-width:850px){
+ body.tor-design-v3 .v3-scope{grid-template-columns:1fr}
+ body.tor-design-v3 .v3-scopeitem{padding:20px 22px}
+ body.tor-design-v3 .v3-scopeitem p{font-size:15px}
+}
+@media(max-width:480px){
+ body.tor-design-v3 .v3-scopeitem{padding:19px 18px}
+ body.tor-design-v3 #contact .contactform .fields label{font-size:16px}
+}
+
+/* CONVERSION UX NAV READABILITY: hide nonessential microscopic brand subtitle on narrow screens. */
+@media(max-width:480px){body.tor-brand .topnav .brand small{display:none}}
