@@ -1,0 +1,190 @@
+/* トオリミチ / Unified Visual System v4
+   Scope: road-sign pages only. Applied last, after legacy and page-specific CSS.
+   Existing forms and JavaScript are intentionally left untouched.
+   Brand: evergreen (#203C34), warm ivory (#F6F4ED), warm gold (#B88650).
+*/
+body.tor-brand{
+ --navy:#203c34;--navy2:#142e26;--orange:#97683d;--ochre:#f5ebdf;
+ --paper:#f6f4ed;--bg:#edf1eb;--ink:#24362d;--muted:#65786d;
+ --line:#dce5da;--good:#24674d;
+ --tr-green:#203c34;--tr-dark:#142e26;--tr-ivory:#f6f4ed;
+ --tr-white:#fff;--tr-mist:#e9eee9;--tr-gold:#b88650;
+ --tr-text:#24362d;--tr-muted:#65786d;--tr-line:#dce5da;
+ --tr-radius:14px;--tr-shadow:0 14px 36px rgba(24,54,38,.075);
+ color:#24362d;background:#f6f4ed;color-scheme:light;
+ font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+ font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased
+}
+body.tor-brand *{box-sizing:border-box}
+body.tor-brand h1,body.tor-brand h2,body.tor-brand h3,
+body.tor-brand .brand,body.tor-brand .btn{
+ font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+ font-feature-settings:"palt";text-wrap:pretty
+}
+body.tor-brand h1,body.tor-brand h2,body.tor-brand h3{letter-spacing:-.035em}
+body.tor-brand h2{line-height:1.43}
+body.tor-brand a{transition:color .15s ease,background-color .15s ease,border-color .15s ease}
+body.tor-brand .wrap{max-width:1170px}
+body.tor-brand .topnav{
+ position:sticky;top:0;z-index:50;
+ background:rgba(246,244,237,.97);border-bottom:1px solid #dce5da;
+ margin:0;box-shadow:0 2px 14px rgba(20,47,33,.04);
+ backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)
+}
+body.tor-brand .topnav .wrap{max-width:1170px;margin:0 auto;padding:0 27px}
+body.tor-brand .topnav .navrow{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+body.tor-brand .topnav .brand{font-size:22px;line-height:1.25;font-weight:900;letter-spacing:-.055em;color:#203c34;text-decoration:none;white-space:nowrap}
+body.tor-brand .topnav .brand small{font:600 10px/1.65 "Noto Sans JP",sans-serif;color:#6b8071;letter-spacing:0}
+body.tor-brand .brand-mark{color:#b88650;font-size:18px;margin-left:2px}
+body.tor-brand .topnav .navright{margin-left:auto;display:flex;gap:16px;align-items:center;font-size:12.5px;font-weight:750}
+body.tor-brand .topnav .navright>a:not(.btn){color:#3d5849;text-decoration:none;white-space:nowrap}
+body.tor-brand .topnav .navright>a:not(.btn):hover,
+body.tor-brand .topnav .navright>a[aria-current="page"]{color:#875e34}
+body.tor-brand .btn,
+body.tor-brand .topnav .navright .btn,
+body.tor-brand .topnav .navright .btn:hover{
+ display:inline-flex;align-items:center;justify-content:center;text-align:center;
+ background:#203c34;color:#fff;border:1px solid #203c34;
+ border-radius:10px;box-shadow:0 8px 19px rgba(20,51,34,.13);
+ font-size:14px;font-weight:800;text-decoration:none;
+ min-height:52px;padding:12px 23px;line-height:1.55
+}
+body.tor-brand .btn:hover{background:#355d4d;color:#fff;border-color:#355d4d;transform:translateY(-1px)}
+body.tor-brand .btn.line,body.tor-brand .btn.darkline{
+ background:#fff;color:#203c34;box-shadow:none;border:1px solid #bccdc0
+}
+body.tor-brand .btn.line:hover,body.tor-brand .btn.darkline:hover{background:#eef3ee}
+body.tor-brand .topnav .navright .btn{min-height:44px;padding:10px 15px;font-size:12px;box-shadow:none;white-space:nowrap}
+body.tor-brand :is(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #b88650;outline-offset:3px}
+body.tor-brand .section{padding:88px 0}
+body.tor-brand .section.soft{background:#f6f4ed}
+body.tor-brand .section.blue{background:#e9eee9}
+body.tor-brand .sectionhead{max-width:860px;margin-bottom:35px}
+body.tor-brand .sectionhead h2{font-size:clamp(27px,3.2vw,41px);color:#203c34;line-height:1.43}
+body.tor-brand .sectionhead p{color:#64766b}
+body.tor-brand .hero:not(.v3-hero),
+body.tor-brand .ahero{background:#203c34;color:#fff}
+body.tor-brand .hero .herocopy h1,
+body.tor-brand .ahero h1,
+body.tor-brand .hero h1{color:#fff}
+body.tor-brand .hero .herocopy .lead,
+body.tor-brand .ahero p{color:#e7eee9}
+body.tor-brand .hero .herocopy h1 span[style*="color:"],
+body.tor-brand .ahero h1 span[style*="color:"]{color:#e5c08b!important}
+body.tor-brand .hero :is(.heroimage,.heroscene),
+body.tor-brand .ahero .aheropic{border-radius:0 0 48px 0}
+body.tor-brand .card,body.tor-brand .plan3,body.tor-brand .price,
+body.tor-brand .media,body.tor-brand .step,body.tor-brand .benefit-box,
+body.tor-brand .acard,body.tor-brand .acitycard,
+body.tor-brand .kdoor,body.tor-brand .kchart{
+ border-color:#dce5da;border-radius:14px;box-shadow:var(--tr-shadow)
+}
+body.tor-brand :is(.card,.media,.acard,.v3-service,.v3-problem) img{
+ filter:saturate(.84) contrast(1.02)
+}
+body.tor-brand .card h3,body.tor-brand .step h3,
+body.tor-brand .acard h3,body.tor-brand .acard b{color:#203c34}
+body.tor-brand .card .num,body.tor-brand .step>span{color:#97683d}
+body.tor-brand .mini-tag,body.tor-brand .tag{background:#e9eee9;color:#26543e}
+body.tor-brand .contactgrid{border-radius:17px;border:1px solid #dae6db;overflow:hidden;box-shadow:0 20px 42px rgba(19,47,32,.1)}
+body.tor-brand .contactinfo{background:#315447;color:white}
+body.tor-brand .contactinfo h2{color:white}
+body.tor-brand .contactinfo p{color:#e6eee6}
+body.tor-brand .contactform{background:#fff}
+body.tor-brand input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+body.tor-brand select,body.tor-brand textarea{
+ border-radius:9px;border-color:#b9cdbd;background:#fff;color:#243b2d
+}
+body.tor-brand .qstatus input:checked+span{background:#203c34;color:#fff;border-color:#203c34}
+body.tor-brand .faq summary{color:#203c34}
+body.tor-brand .sticky-mobile{background:rgba(246,244,237,.97);border-top:1px solid #d8e3d8;box-shadow:0 -5px 25px rgba(24,47,31,.09)}
+body.tor-brand .footer{background:#142e26;color:#d9e3da}
+body.tor-brand .footer a{color:#e8efe8}
+body.tor-brand .footer strong{color:#fff}
+body.tor-brand .manifesto{background:linear-gradient(180deg,rgba(20,46,38,.90),rgba(20,46,38,.96)),url(assets/v-town-dusk.webp) center/cover}
+body.tor-brand .apill.on{background:#203c34;color:#fff;border-color:#203c34}
+body.tor-brand .apill{border-color:#bfcfc2;color:#284c3b}
+body.tor-brand .ahero .areq,
+body.tor-brand .ahero .areqcard{border-radius:14px}
+body.tor-brand .v3-section{scroll-margin-top:82px}
+body.tor-brand .v3-intro .v3-kicker,
+body.tor-brand .v3-kicker{color:#846840}
+body.tor-brand .v3-section h2{color:#203c34}
+body.tor-brand #contact .v3-intro h2{color:#fff}
+body.tor-brand .v3-photo img{filter:saturate(.8) contrast(1.02)}
+body.tor-brand .v3-report,body.tor-brand .v3-step{border-color:#dce5da}
+body.tor-brand .v3-report{box-shadow:12px 16px 0 #e2e9df}
+body.tor-brand .v3-photo{box-shadow:12px 16px 0 #e2e9df}
+body.tor-brand .v3-service,body.tor-brand .v3-problem{border-radius:14px}
+body.tor-brand .v3-herocopy .v3-lead{color:#465d50}
+body.tor-brand #contact .contactinfo{background:#315447}
+body.tor-brand .v3-aboutcard{background:#e9eee9}
+/* Standalone proposal documents use exactly the same brand tokens and navigation,
+   but keep document-specific tables, page structure and illustrations intact. */
+body.tor-brand.tor-doc{
+ --ground:#f6f4ed;--paper:#fff;--ink:#24362d;--muted:#65786d;--line:#dce5da;
+ --navy:#203c34;--orange:#97683d;--orange-soft:#f6ebdd;
+ --field:#edf1eb;--verify:#765526;--verify-bg:#f7ebda;
+ --ok:#24674d;--ng:#a53a2a;--road:#c8d3c7;--map:#eef2e9;
+ --display:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+ --body:"Noto Sans JP","Hiragino Sans",sans-serif;
+ color-scheme:light;background:#f6f4ed;padding:0 0 45px!important
+}
+body.tor-brand.tor-doc .topnav{margin:0 0 26px!important;width:100%}
+body.tor-brand.tor-doc .topnav .brand{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-size:22px}
+body.tor-brand.tor-doc .memo{max-width:1080px;padding:15px 20px;border-radius:12px;background:#f7ebda;color:#665235;margin:0 auto 20px}
+body.tor-brand.tor-doc .doc{max-width:1080px;border:1px solid #dce5da;border-radius:16px;box-shadow:var(--tr-shadow);background:white}
+body.tor-brand.tor-doc .cover{background:#203c34}
+body.tor-brand.tor-doc .cover h1{color:white;letter-spacing:-.035em}
+body.tor-brand.tor-doc .cover .line{background:#d2ac70}
+body.tor-brand.tor-doc .covercta a,
+body.tor-brand.tor-doc .sitebar nav a.go{
+ background:#fff;color:#203c34;border-radius:9px;padding:12px 21px;font-weight:800
+}
+body.tor-brand.tor-doc .sitebar nav a.go{background:#203c34;color:white}
+body.tor-brand.tor-doc .doc .related a,
+body.tor-brand.tor-doc .doc .ans,
+body.tor-brand.tor-doc .doc .case,
+body.tor-brand.tor-doc .doc .res{border-color:#dce5da;border-radius:10px}
+body.tor-brand.tor-doc .doc :is(h2,h3,.a,.n,.q){font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif}
+body.tor-brand.tor-doc .doc h2,body.tor-brand.tor-doc .doc h3{color:#203c34}
+body.tor-brand.tor-doc .foot{border-top:4px solid #203c34;color:#62796a;background:#f9faf7}
+body.tor-brand.tor-doc .foot b{color:#203c34}
+body.tor-brand.tor-doc a[style*="background:#c75a22"]{background:#203c34!important;border-radius:9px!important}
+body.tor-brand.tor-doc a[style*="color:#c75a22"]{color:#875e34!important}
+@media(max-width:1120px){
+ body.tor-brand .topnav .navright{gap:10px;font-size:11.5px}
+ body.tor-brand .topnav .brand{font-size:20px}
+ body.tor-brand .topnav .brand small{font-size:9px}
+ body.tor-brand .topnav .navright .btn{padding:10px 11px}
+}
+@media(max-width:850px){
+ body.tor-brand .topnav .wrap{padding:0 19px}
+ body.tor-brand .topnav .navrow{min-height:64px}
+ body.tor-brand .topnav .brand{font-size:19px}
+ body.tor-brand .topnav .navright{gap:0;margin-left:auto}
+ body.tor-brand .topnav .navright a:not(.btn){display:none}
+ body.tor-brand .topnav .spmenu-btn{background:#fff;border-color:#b9cabc;color:#203c34;border-radius:10px;min-height:42px}
+ body.tor-brand .topnav .spmenu-ic i{background:#203c34}
+ body.tor-brand .topnav .spmenu{background:#f6f4ed;border-color:#dce5da}
+ body.tor-brand .topnav .spmenu a{color:#203c34;border-color:#dce5da}
+ body.tor-brand .section{padding:64px 0}
+ body.tor-brand .hero .herocopy{padding-top:44px;padding-bottom:35px}
+ body.tor-brand .hero :is(.heroimage,.heroscene){border-radius:0}
+ body.tor-brand.tor-doc .doc{border-radius:0;margin:0 14px}
+ body.tor-brand.tor-doc .memo{margin:0 14px 16px}
+ body.tor-brand .v3-section{scroll-margin-top:64px}
+}
+@media(max-width:480px){
+ body.tor-brand .topnav .brand{font-size:16px}
+ body.tor-brand .topnav .brand small{font-size:8px}
+ body.tor-brand .topnav .navright .btn{font-size:11px;padding:8px 10px;min-height:41px}
+ body.tor-brand.tor-doc .doc{margin:0 10px}
+ body.tor-brand.tor-doc .memo{margin:0 10px 12px}
+}
+@media(prefers-reduced-motion:reduce){body.tor-brand .btn,body.tor-brand a{transition:none}}
+@media print{
+ body.tor-brand .topnav{position:static}
+ body.tor-brand .topnav .navright,body.tor-brand .sticky-mobile{display:none!important}
+ body.tor-brand.tor-doc .doc{box-shadow:none}
+}
