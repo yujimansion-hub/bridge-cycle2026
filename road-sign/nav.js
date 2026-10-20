@@ -5,12 +5,12 @@
   if (!bar || document.getElementById('spmenu')) return;
   const here = (location.pathname.split('/').pop() || 'index.html');
   const items = [
-    ['./', 'index.html', '集客を見直したい方', '無料の集客診断'],
-    ['kaiin.html', 'kaiin.html', 'クリニック・歯科の方', '開院前からの集客'],
-    ['akiban.html', 'akiban.html', '看板を探す', '大津・草津・守山・栗東'],
-    ['maps.html', 'maps.html', '提案事例', '業種ごとのモデルプラン'],
-    ['partner.html', 'partner.html', '看板会社の方', '空き看板を登録する'],
-    ['owner.html', 'owner.html', '土地・建物の方', '広告スペースにできるか確認']
+    ['./', 'index.html', '集客診断', '無料診断・ご相談'],
+    ['kaiin.html', 'kaiin.html', 'クリニック', '開院・歯科の集客支援'],
+    ['akiban.html', 'akiban.html', '看板を探す', '空き媒体と希望条件の相談'],
+    ['maps.html', 'maps.html', '提案事例', '看板 × 検索 × 来店'],
+    ['owner.html', 'owner.html', '場所を貸す', '土地・外壁の広告活用'],
+    ['partner.html', 'partner.html', '看板会社', '媒体の登録・提携の相談']
   ];
   const btn = document.createElement('button');
   btn.type = 'button'; btn.className = 'spmenu-btn'; btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', 'spmenu');
