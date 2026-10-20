@@ -738,6 +738,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   .kp-map-det>summary::after{content:"+";font-size:22px;font-weight:400}.kp-map-det[open]>summary::after{content:"−"}
   .kp-map-det[open]>summary{margin-bottom:12px}
 }
+.hero-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0 14px;padding:0;counter-reset:none}
+.hero-steps li{position:relative;background:#F3EEE3;border-radius:10px;padding:8px 6px 8px;font-size:12px;line-height:1.5;text-align:center;font-weight:700;color:var(--ink)}
+.hero-steps li b{display:block;width:20px;height:20px;margin:0 auto 3px;border-radius:50%;background:var(--leaf);color:#fff;font-size:12px;line-height:20px}
+.hero-steps li:not(:last-child)::after{content:"→";position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--sub);z-index:1}
+.hero-steps[hidden],.hero-signup .hero-tease[hidden]{display:none}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
@@ -772,7 +777,12 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     </div>
     <div class="hero-signup">
       <a class="btn btn-tomato hero-vote-main" href="#voteForm">食べたいものに投票する<small>30秒・登録なしで投票できます</small></a>
-      <p class="hero-tease"><span class="vs-pre">選んだものは、出店するお店のメニュー選びに活かします</span><span class="vs-post" hidden>投票すると、みんなの「食べたい」結果と比べられます</span></p>
+      <ol class="hero-steps" aria-label="投票すると">
+        <li><b>1</b>食べたいものを<br>3つまで選ぶ</li>
+        <li><b>2</b>出店するお店に<br>届く</li>
+        <li><b>3</b><span class="vs-pre">30件で<br>結果を公開</span><span class="vs-post" hidden>みんなの結果と<br>比べられる</span></li>
+      </ol>
+      <p class="hero-tease" hidden></p>
       <form class="hero-reg" id="regHero" novalidate>
       <label class="hr-l" for="rEmail0">開催日が決まったら、メールで知らせてほしい方へ<small>第1回の日程と出店するお店をお送りします（無料）</small></label>
       <div class="hr-row">
@@ -1355,6 +1365,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     var hb=document.querySelector('.hero-vote-main'), mb=document.querySelector('#mbar a[href="#voteDone"]'), ht=document.querySelector('.hero-signup .hero-tease');
     if(hb) hb.innerHTML = resultsReady ? 'みんなの投票結果を見る<small>あなたの1票と比べられます</small>' : '投票の途中経過を見る<small>あなたの1票は届いています</small>';
     if(mb) mb.textContent = resultsReady ? '投票結果を見る' : '途中経過を見る';
+    var hsteps=document.querySelector('.hero-steps'); if(hsteps) hsteps.hidden=true; if(ht) ht.hidden=false;
     if(ht) ht.textContent = resultsReady ? '投票ありがとうございました。' : '30件集まったら、みんなの結果を公開します'+(hasN?'（いま'+Math.floor(v)+'件）':'');
   }
   function refreshVoteResults(){
