@@ -188,3 +188,6 @@ body.tor-brand.tor-doc a[style*="color:#c75a22"]{color:#875e34!important}
  body.tor-brand .topnav .navright,body.tor-brand .sticky-mobile{display:none!important}
  body.tor-brand.tor-doc .doc{box-shadow:none}
 }
+
+/* 2026-10-20: 390px幅でメニューボタンが3pxはみ出し横スクロールが出るのを修正 */
+@media(max-width:480px){body.tor-brand .topnav .navrow{gap:8px}body.tor-brand .topnav .brand{min-width:0;flex:1 1 auto;overflow:hidden}body.tor-brand .topnav .brand small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}body.tor-brand .topnav .navright,body.tor-brand .topnav .spmenu-btn{flex:none}body.tor-brand .topnav .spmenu-btn{margin-left:0;padding:6px 8px}body.tor-brand .topnav .navright>.btn{padding:9px 10px}}
