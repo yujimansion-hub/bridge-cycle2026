@@ -622,6 +622,8 @@ footer .wrap,footer .small{font-size:10px;line-height:1.9}
 .kp-vlist li b{font-family:'Dela Gothic One',sans-serif;font-weight:400;color:var(--bulb);font-size:13px;flex:none}
 .kp-vlist li.tbd span{opacity:.6}
 .kp-vnote{font-size:11px;opacity:.85;margin:0 0 18px}
+.vs-pre[hidden],.vs-post[hidden],.kp-acc[hidden],.kp-vempty[hidden]{display:none}
+.kp-vempty{grid-column:1/-1;margin:0;padding:16px 24px 18px;border-top:1px solid rgba(255,249,236,.45);font-size:14px;font-weight:700}
 .kp-cat-play{background:var(--night);color:#FFF9EC}.kp-cat-play .kp-cat-body{padding:26px 28px}
 .kp-map{background:var(--page);padding:72px 0}
 .kp-map-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:start}
@@ -703,6 +705,39 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 .sc-share-actions button{border:1px solid #173c51;color:#173c51;background:#fff}
 .sc-via{display:block;background:#fff0bc;color:#173c51;font-weight:900;font-size:12px;padding:6px 10px;border-radius:8px;margin-bottom:10px}
 .sc-share-actions a:focus-visible,.sc-share-actions button:focus-visible{outline:3px solid #dc492e;outline-offset:3px}
+
+/* ── 2026-10-20 予告段階の整理：投票を主役に・日本語見出し・出店者欄を短く・下部ボタン ── */
+.hero-vote-main{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;font-size:17px;line-height:1.4;padding:13px 16px;min-height:60px}
+.hero-vote-main small{display:block;font-size:12px;font-weight:500;opacity:.92;margin-top:2px}
+.hero-signup .hero-tease{margin:8px 0 14px;text-align:center;font-size:12px}
+.hero-reg{border-top:1px solid var(--line);padding-top:14px}
+.hr-l small{display:block;font-size:12px;font-weight:400;color:var(--sub);margin-top:2px}
+.kp-sub{font-family:'Jost','Noto Sans JP',sans-serif;font-size:12px;font-weight:500;letter-spacing:.18em;margin:0 0 4px;opacity:.75}
+.kp-ja{font-family:'Shippori Mincho B1','Noto Serif JP',serif;font-weight:800;font-size:clamp(28px,4vw,42px);line-height:1.35;letter-spacing:.02em;margin:0 0 18px;color:var(--ink)}
+.kp-ja-s{font-size:clamp(24px,3vw,32px)}
+.kp-cat-ja{font-family:'Shippori Mincho B1','Noto Serif JP',serif;font-weight:800;font-size:clamp(26px,3.4vw,36px);line-height:1.3;margin:0 0 12px;color:inherit}
+.seller-mini{padding:8px 0 40px}
+.seller-mini p{border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:14px;line-height:1.8;background:var(--paper);margin:0}
+.seller-mini b{display:block}
+.seller-mini a{color:var(--leaf);font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.mbar{transition:transform .25s ease}.mbar.is-off{transform:translateY(110%)}
+@media(max-width:860px){
+  .vote-art,.kp-ov-ph{display:none}
+  .hero-vote-main{font-size:16px}
+}
+/* 文字の最小サイズ：30〜40代が読みやすいよう、注記・ラベルも12px以上に */
+.hdr-cta .short,.brand small,.cover .pill,.scene-note small,.cover-cap,.hr-note,.hero-safe,.hero-safe a,.hero-signup .trust,.hero-signup .trust.waiting,
+.eyebrow,.ptag,legend small,.counter,.reg-card .small,.reg-card .small a,#regVia,.kp-cat-ph span,.kp-ov-ph figcaption,.vote-art figcaption,
+.kp-vlist li,.kp-vlist small,.kp-vnote,.kp-map-fig figcaption,#status .small,#status .small b,.info th,.info td,.info a,footer>div:not(.footer-message),footer a:not(.btn),footer .small{font-size:12px!important}
+.chip span{font-size:max(12px,1em)}
+@media(max-width:860px){.chips .chip span{font-size:13px!important}}
+.kp-map-det>summary{display:none}
+@media(max-width:860px){
+  .kp-map-det>summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;border:1px solid var(--night);border-radius:12px;padding:13px 16px;font-size:14px;font-weight:700;background:var(--paper)}
+  .kp-map-det>summary::-webkit-details-marker{display:none}
+  .kp-map-det>summary::after{content:"+";font-size:22px;font-weight:400}.kp-map-det[open]>summary::after{content:"−"}
+  .kp-map-det[open]>summary{margin-bottom:12px}
+}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 </head>
@@ -735,18 +770,18 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <p class="cover-cap">完成イメージ（合成）です</p>
     </div>
     <div class="hero-signup">
+      <a class="btn btn-tomato hero-vote-main" href="#who">食べたいものを選ぶ<small>30秒・名前もメールも不要</small></a>
+      <p class="hero-tease"><span class="vs-pre">投票すると、あなたの「食べたい」カードがつくれます</span><span class="vs-post" hidden>投票すると、みんなの「食べたい」結果と比べられます</span></p>
       <form class="hero-reg" id="regHero" novalidate>
-      <label class="hr-l" for="rEmail0">第1回の日程とお店を、メールで受け取る（無料）</label>
+      <label class="hr-l" for="rEmail0">開催案内をメールで受け取る（無料）<small>第1回の日程とお店が決まったらお知らせします</small></label>
       <div class="hr-row">
         <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
-        <button class="btn btn-bulb" type="submit">受け取る</button>
+        <button class="btn btn-bulb" type="submit">開催案内を受け取る</button>
       </div>
       <p class="hr-note" id="earlyNote" hidden></p>
       <div class="msg" id="regMsg0" role="status"></div>
     </form>
       <p class="hero-safe">お知らせ以外には使いません。<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
-      <a class="btn btn-ghost-w btn-sm hero-vote" href="#who">先に、食べたいものを選ぶ（30秒） ↗</a>
-      <p class="hero-tease">投票すると、みんなの「食べたい」結果が見られます</p>
       <p class="trust waiting" id="waiting" hidden></p>
       <p class="trust">南草津駅周辺まちづくりの社会実験<br class="pc-only">（実施：UDCみなくさ・立命館大学）</p>
     </div>
@@ -766,8 +801,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <figcaption>イメージ（イラスト）</figcaption>
     </figure>
     <div class="kp-ov-body">
-      <span class="kp-label">開催概要</span>
-      <h2 class="kp-en">EVENT<br>OVERVIEW</h2>
+      <p class="kp-sub">EVENT OVERVIEW</p>
+      <h2 class="kp-ja">どんな市？</h2>
       <p class="kp-ov-lead">ふだんは通り過ぎるだけの南草津駅に、帰り道に寄れる小さなお店が並びます。南草津駅周辺のまちづくりの社会実験として、2027年2月まで試します。</p>
       <dl class="kp-table">
         <div><dt>イベント</dt><dd>南草津駅前、よりみち。</dd></div>
@@ -777,7 +812,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         <div><dt>入場料</dt><dd><b>無料</b></dd></div>
         <div><dt>実施</dt><dd>UDCみなくさ・立命館大学<span class="small">出店者の募集・調整：BRIDGE CYCLE株式会社</span></dd></div>
       </dl>
-      <a class="btn btn-tomato btn-sm" href="#register">日程を先に知らせてもらう</a>
+      <a class="btn btn-tomato btn-sm" href="#register">開催案内を受け取る</a>
     </div>
   </div>
 </section>
@@ -797,12 +832,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <div class="wrap">
     <div class="section-head">
       <div><p class="eyebrow">帰り道から、選んでみよう。</p><h2 class="h2">あなたなら、<br>どのよりみち？</h2></div>
-      <p class="lead">仕事帰りに一品。学校帰りに、ひと息。<br>絵を選んで、駅前でほしいものを教えてください。<br><b style="color:var(--leaf)">投票すると、みんなの結果と自分の1票を比べられます。</b></p>
+      <p class="lead">仕事帰りに一品。学校帰りに、ひと息。<br>絵を選んで、駅前でほしいものを教えてください。<br><b style="color:var(--leaf)"><span class="vs-pre">有効回答が30件集まったら、みんなの結果を公開します。</span><span class="vs-post" hidden>投票すると、みんなの結果と自分の1票を比べられます。</span></b></p>
     </div>
     <div class="personas" id="personas" role="group" aria-label="あなたの帰り道"></div>
     <div class="mine" id="mine" hidden aria-live="polite"></div>
     <p class="small" style="margin-top:10px">絵はイメージのイラストです。並ぶお店や商品は、出店者が決まりしだい、了承を得た写真・商品名・価格でお知らせします。</p>
-    <p class="seller-link"><a href="minakusa-ekimae.html?src=who">お店をやっている・出店してみたい方は、出店者募集のページへ <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -818,7 +852,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div style="text-align:center">
       <p class="eyebrow">30秒で、いっしょにつくる。</p>
       <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしい？</h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールも不要。投票して、みんなが何を食べたいか見てみよう。投票結果は出店するお店のメニュー選びに活用します。</p>
+      <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールも不要。<span class="vs-pre">駅前で食べたいものを教えてください。</span><span class="vs-post" hidden>投票して、みんなが何を食べたいか見てみよう。</span>投票結果は出店するお店のメニュー選びに活用します。</p>
       <div class="results vote-results" id="results" aria-live="polite"><h4>みんなの「食べたい」投票</h4><p class="vr-meta">集計状況を確認しています。</p></div>
     </div>
 
@@ -831,7 +865,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       </fieldset>
       <div class="form-foot">
         <button class="btn btn-bulb" type="submit" id="voteBtn" disabled>この内容で投票する</button>
-        <span class="small" style="color:#C9CEE6">投票後は、みんなの結果または公開までの進み具合を表示します。名前・メール不要です。</span>
+        <span class="small" style="color:#C9CEE6"><span class="vs-pre">投票後は、結果公開までの進み具合を表示します。</span><span class="vs-post" hidden>投票後は、みんなの結果を表示します。</span>名前・メール不要です。</span>
       </div>
       <details class="more-q" id="moreQ">
         <summary>時間や出口も教える（任意）</summary>
@@ -855,16 +889,16 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div class="done vote-box" id="voteDone" tabindex="-1">
       <p class="big" aria-hidden="true">🏮</p>
       <h3>1票、届きました。</h3>
-      <p><b>みんなは何を選んだ？</b> あなたの1票と比べてみましょう。</p>
+      <p><span class="vs-pre"><b>ありがとうございます。</b> 有効回答が30件集まったら、みんなの結果を公開します。</span><span class="vs-post" hidden><b>みんなは何を選んだ？</b> あなたの1票と比べてみましょう。</span></p>
       <div class="vote-results" id="myVoteResults" aria-live="polite"><h4>みんなの投票結果</h4><p class="vr-meta">集計状況を確認しています。</p></div>
       <div class="share-row"><button class="btn btn-line" type="button" id="voteCardBtn">自分の「食べたい」カードも送る</button></div>
       <p class="small" style="margin-top:10px">送信や投稿はご自身で選べます。勝手に友だちへ送ることはありません。</p>
       <div class="msg" id="shareMsg" role="status" style="max-width:420px;margin-left:auto;margin-right:auto"></div>
       <div class="vote-next">
-        <p>投票の結果と第1回の日程を、メールで受け取りませんか。</p>
+        <p>開催案内（投票の結果と第1回の日程）を、メールで受け取りませんか。</p>
         <form class="inline-reg" id="regInline" novalidate>
           <input type="email" id="rEmail2" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレス">
-          <button class="btn btn-bulb" type="submit" id="regBtn2">受け取る</button>
+          <button class="btn btn-bulb" type="submit" id="regBtn2">開催案内を受け取る</button>
         </form>
         <div class="msg" id="regMsg2" role="status" style="max-width:520px;margin-left:auto;margin-right:auto"></div>
       </div>
@@ -898,27 +932,28 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <!-- 出店者（VENDORS）：KYOPOの「分類ごとの色の帯＋番号つき出店者一覧」を参考に -->
 <section id="vendors" class="kp-vend">
   <div class="wrap">
-    <span class="kp-label">出店者</span>
-    <h2 class="kp-en">VENDORS</h2>
-    <p class="lead">西口・東口・改札前に、全部で21の枠があります。出店が決まったお店から、番号つきでここに載せます。</p>
+    <p class="kp-sub">VENDORS</p>
+    <h2 class="kp-ja">出会えるお店</h2>
+    <p class="lead">出店するお店は、いま準備しています。決まったお店から、ここでご紹介します。</p>
     <div class="kp-cat kp-cat-food">
       <div class="kp-cat-ph"><img src="images/minakusa/yorimichi/market-painted-four-times-v1.webp" alt="駅前に小さなお店が並ぶイラスト" width="2172" height="724" loading="lazy"><span>イメージ（イラスト）</span></div>
       <div class="kp-cat-body">
-        <span class="kp-label kp-label-w">食べもの</span>
-        <p class="kp-cat-en">FOOD</p>
+        <p class="kp-sub">FOOD</p>
+        <h3 class="kp-cat-ja">食べもの</h3>
         <p>今夜のおかず、明日のパン、帰り道のおやつ。持ち帰りやすいものを中心に、出店するお店を準備しています。</p>
       </div>
-      <details class="kp-acc" id="vendorAcc">
-        <summary><span>No.001–021　出店者 VENDORS</span><b id="vendorCount">決まりしだい掲載</b></summary>
+      <p class="kp-vempty" id="vendorEmpty">出店者紹介は、決まり次第お知らせします。</p>
+      <details class="kp-acc" id="vendorAcc" hidden>
+        <summary><span>出店者の一覧</span><b id="vendorCount"></b></summary>
         <ol class="kp-vlist" id="vendorList"></ol>
-        <p class="kp-vnote">お店から掲載の許可をいただいたものだけを載せます。番号は売り場の番号ではありません。</p>
+        <p class="kp-vnote">お店から掲載の許可をいただいたものだけを載せます。番号は掲載の順番で、売り場の番号ではありません。</p>
       </details>
     </div>
     <div class="kp-cat kp-cat-play">
       <div class="kp-cat-body">
-        <span class="kp-label kp-label-w">にぎわい</span>
-        <p class="kp-cat-en">PLAY</p>
-        <p>食べもののほかに、学生の企画、地域の団体、子ども向けの体験なども募集しています。決まりしだいお知らせします。</p>
+        <p class="kp-sub">PLAY</p>
+        <h3 class="kp-cat-ja">にぎわい</h3>
+        <p>食べもののほかに、学生の企画、地域の団体、子ども向けの体験なども検討しています。決まりしだいお知らせします。</p>
       </div>
     </div>
   </div>
@@ -927,9 +962,10 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <!-- 会場マップ（MAP）と アクセス（ACCESS） -->
 <section id="map" class="kp-map">
   <div class="wrap">
-    <span class="kp-label">会場マップ</span>
-    <h2 class="kp-en">MAP</h2>
+    <p class="kp-sub">MAP</p>
+    <h2 class="kp-ja">会場の場所</h2>
     <div class="kp-map-grid">
+      <details class="kp-map-det" id="mapDet" open><summary>駅のどのあたり？（位置関係の図を見る）</summary>
       <figure class="kp-map-fig">
         <svg viewBox="0 0 800 560" role="img" aria-labelledby="mapTitle">
           <title id="mapTitle">南草津駅の売り場の位置関係。線路をはさんで西側に西口と東山道記念公園、東側に東口の駅前広場とバスのりば。改札前の自由通路が東西をつなぐ</title>
@@ -953,21 +989,22 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
           <text x="667" y="382" text-anchor="middle" font-size="19" fill="#22355F">バスのりば</text>
           <path d="M498 334 Q 530 330 560 344" fill="none" stroke="#22355F" stroke-width="3" stroke-dasharray="8 7"/>
           <path d="M400 318 V 418" stroke="#9C3A24" stroke-width="3"/><rect x="214" y="418" width="290" height="44" rx="22" fill="#9C3A24"/>
-          <text x="359" y="447" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">改札前・自由通路 No.017–021</text>
+          <text x="359" y="447" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">改札前・自由通路</text>
           
           <rect x="24" y="300" width="250" height="46" rx="23" fill="#3F7464"/>
-          <text x="149" y="330" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">西口・公園前 No.001–003</text>
+          <text x="149" y="330" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">西口・公園前</text>
           <rect x="532" y="440" width="250" height="46" rx="23" fill="#22355F"/>
-          <text x="657" y="470" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">東口・広場 No.004–016</text>
+          <text x="657" y="470" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">東口・広場</text>
           <text x="40" y="520" font-size="24" font-weight="700" fill="#22355F" font-family="Shippori Mincho B1, serif">西口</text>
           <text x="760" y="530" text-anchor="end" font-size="24" font-weight="700" fill="#22355F" font-family="Shippori Mincho B1, serif">東口</text>
           <g transform="translate(740 60)"><circle r="24" fill="none" stroke="#22355F" stroke-width="1.5"/><path d="M0 -18 L7 6 L0 2 L-7 6 Z" fill="#22355F"/><text y="-30" text-anchor="middle" font-size="14" fill="#22355F">北</text></g>
         </svg>
         <figcaption>図はおおよその位置関係です（線路をはさんで西口と東口があり、改札前の自由通路でつながっています）。区画と店の数は、関係機関の承認後に確定します。</figcaption>
       </figure>
+      </details>
       <div class="kp-access" id="access">
-        <span class="kp-label">アクセス</span>
-        <h2 class="kp-en kp-en-s">ACCESS</h2>
+        <p class="kp-sub">ACCESS</p>
+        <h2 class="kp-ja kp-ja-s">アクセス</h2>
         <ul class="kp-rows">
           <li><span>電車</span><b>JR琵琶湖線「南草津駅」の西口・東口・改札前</b></li>
           <li><span>京都駅から</span><b>JRで約20分</b></li>
@@ -989,7 +1026,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         <ul>
           <li>南草津駅周辺まちづくりの社会実験として、2027年2月まで行います</li>
           <li>実施はUDCみなくさ・立命館大学。出店者の募集と調整はBRIDGE CYCLEが担当します</li>
-          <li>出店するお店を募集しています（1枠3,300円から・2027年2月までのキャンペーン価格）</li>
+          <li>出店するお店の募集に向けて、企画を準備しています</li>
         </ul>
       </div>
       <div class="st-box st-open">
@@ -1005,24 +1042,10 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   </div>
 </section>
 
-<!-- 出店したい方へ -->
-<section id="seller">
+<!-- 出店したい方へ（一般向けページなので、短い案内とリンクだけ） -->
+<section id="seller" class="seller-mini">
   <div class="wrap">
-    <div class="seller">
-      <div>
-        <h2>この駅前で、売ってみませんか。</h2>
-        <p>1日26,860人が乗車する駅（JR西日本公表・2023年度）の前で、金曜の夕方を中心に出店できるよう準備しています。営業許可をお持ちの飲食店・キッチンカー・お菓子やパンのお店を募集しています。投票の結果も、出店前にお見せします。</p>
-        <div class="nums">
-          <div>出店料<b>1枠3,300円から</b></div>
-          <div>売上の歩合<b>なし</b></div>
-          <div>仮予約<b>0円</b></div>
-        </div>
-      </div>
-      <div style="text-align:center">
-        <a class="btn btn-bulb" href="minakusa-ekimae.html?src=yorimichi" style="width:100%">出店について見る</a>
-        <p class="small" style="margin-top:10px;color:#C9CEE6">料金・場所・条件は出店者募集ページへ</p>
-      </div>
-    </div>
+    <p><b>お店をやっている方・出店に関心のある方へ</b>出店の条件は、出店者向けのページでご案内しています。<a href="minakusa-ekimae.html?src=yorimichi">出店者向けのページへ <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -1052,7 +1075,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
     <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、帰り道と投票欄の絵はイラストで、どれも実際の会場・お店のようすとは異なります。</div>
     <div class="small" style="flex-basis:100%;order:4">このページでは、見られた回数や投票・登録の件数を数えるため、アクセス解析（Google Analytics）を使っています。入力した内容は送りません。</div>
-    <nav class="small" aria-label="関連ページ" style="flex-basis:100%;order:2;display:flex;flex-wrap:wrap;gap:6px 16px"><a href="minakusa-ekimae.html?src=yorimichi_footer">出店したい方（出店者の募集）</a><a href="tsugite.html">自分の店を始めたい方</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="./">運営：BRIDGE CYCLE株式会社</a></nav>
+    <nav class="small" aria-label="関連ページ" style="flex-basis:100%;order:2;display:flex;flex-wrap:wrap;gap:6px 16px"><a href="minakusa-ekimae.html?src=yorimichi_footer">出店に関心のある方へ</a><a href="tsugite.html">自分の店を始めたい方</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="./">運営：BRIDGE CYCLE株式会社</a></nav>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
   </div>
 </footer>
@@ -1079,8 +1102,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   </div>
 </div>
 
-<div class="mbar">
-  <a class="btn btn-ghost-w" href="#who">食べたいもの</a>
+<div class="mbar" id="mbar">
+  <a class="btn btn-ghost-w" href="#who">食べたいものを選ぶ</a>
   <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
 </div>
 
@@ -1110,7 +1133,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     student:{tag:'授業終わりに', label:'学校や授業の帰り', sub:'パンとドリンクで、ひと息', title:'学校帰りのあなたへ', rows:[['いつ（案）','金曜の夕方、授業終わり'],['どこで（案）','東口のバスのりば（立命館行きなど）'],['こんなもの','学生向けの軽食・ドリンク']], quick:[8,3,4,0,5], foods:[8,3], time:1, exits:[1]},
     neighbor:{tag:'土日の昼に', label:'駅の近くに住んでいる', sub:'親子で分ける、おやつ', title:'近くに住むあなたへ', rows:[['いつ（案）','土日の昼・金曜の夕方'],['どこで（案）','西口の公園前'],['こんなもの','お弁当・おやつ・地元の野菜']], quick:[1,9,6,4,2], foods:[1,9], time:2, exits:[0,3]},
   };
-  // 出店したい方は、来場者の3枚とは分けて、カードの下のリンクから出店者募集ページへ案内する
+  // 出店したい方は、来場者の3枚とは分けて、カードの下のリンクから出店者向けページへ案内する
 
   // 次のお知らせ日（例：'11月9日（月）'）と、投票の途中経過（30票以上で表示）。毎週ここを書き換える。
   var NEXT_UPDATE = '10月26日（月）';
@@ -1129,9 +1152,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     {d:'10.19', t:'食べたいもの投票を受付中です（名前・メール不要）', href:'#vote'},
     {d:'10.19', t:'開催案内のメール登録を始めました。会員番号No.100までは先にお知らせ', href:'#register'},
     {d:'10.26', t:'次の情報更新の予定（投票の途中経過と準備の進み具合）', href:'#status'},
-    {d:'募集', t:'出店するお店と、にぎわいの企画を募集しています', href:'minakusa-ekimae.html?src=yorimichi_news'}
+    {d:'準備', t:'出店するお店と、にぎわいの企画を準備しています（出店に関心のある方へ）', href:'minakusa-ekimae.html?src=yorimichi_news'}
   ];
-  var VENDOR_SLOTS = 21;   // 西口3・東口13・改札前5
   var FORM_VER = 'v2-20261019';   // 初期選択をなくした後の回答。集計はこの版以降だけを使う
   var src = '';
   try{ src = (new URLSearchParams(location.search).get('src')||'').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30); }catch(e){}
@@ -1179,7 +1201,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   // 表示の切り替え。最初はこのファイルの設定で描き、台帳があれば台帳の内容で描き直す
-  var coverPill = document.querySelector('.cover .pill').innerHTML, heroLabel = document.querySelector('.hr-l').textContent;
+  var coverPill = document.querySelector('.cover .pill').innerHTML, heroLabel = document.querySelector('.hr-l').innerHTML;
   // 出店者も集客の担い手に。店名+商品から一定のコードを生成し、掲載済みの情報だけで共有する
   function vendorCode(shop){
     var raw=String(shop.shop||'')+'|'+String(shop.item||''), h=2166136261;
@@ -1212,15 +1234,17 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   }
   function renderVendors(shops){
     var set = (shops||[]).filter(function(s){ return s.status==='出店予定'; }), tbd = (shops||[]).filter(function(s){ return s.status!=='出店予定'; });
+    // 区画は承認前のため枠数は出さない。掲載許諾のあるお店だけを掲載順に並べ、0件なら一文だけ見せる
     var rows = set.concat(tbd), html = '';
-    for(var i=0;i<VENDOR_SLOTS;i++){
-      var no = 'No.'+('00'+(i+1)).slice(-3), s = rows[i];
-      html += s ? '<li><b>'+no+'</b><span>'+esc(s.shop||'')+'<br><small>'+esc(s.item||'')+(s.status==='出店予定'?'':'（検討中）')+'</small></span></li>' : '<li class="tbd"><b>'+no+'</b><span>準備中</span></li>';
-    }
+    rows.forEach(function(s, i){
+      html += '<li><b>'+(i+1)+'</b><span>'+esc(s.shop||'')+'<br><small>'+esc(s.item||'')+(s.status==='出店予定'?'':'（検討中）')+'</small></span></li>';
+    });
     document.getElementById('vendorList').innerHTML = html;
-    document.getElementById('vendorCount').textContent = set.length ? VENDOR_SLOTS+'枠中 '+set.length+'店が決定' : '決まりしだい掲載';
+    document.getElementById('vendorCount').textContent = [set.length ? set.length+'店が出店予定' : '', tbd.length ? tbd.length+'店が検討中' : ''].filter(Boolean).join('・');
+    document.getElementById('vendorAcc').hidden = !rows.length;
+    document.getElementById('vendorEmpty').hidden = !!rows.length;
   }
-  var latestVoteData=null;
+  var latestVoteData=null, resultsReady=false;
   function render(d){
     latestVoteData=d;
     if(social) social.update(d);
@@ -1233,11 +1257,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       document.querySelector('.cover .pill').innerHTML = '<i aria-hidden="true"></i>'+esc(round)+'　'+esc(ev.date)+' '+esc(ev.time)+'　'+esc(ev.place);
       document.getElementById('nextTitle').textContent = round+' '+ev.date+' '+ev.time;
       top.textContent = ev.place+(ev.shops ? '・'+ev.shops+'店が出店' : '');
-      document.querySelector('.hr-l').textContent = '出店するお店と前日のお知らせを、メールで受け取る（無料）';
+      document.querySelector('.hr-l').innerHTML = '開催案内をメールで受け取る（無料）<small>出店するお店と前日のお知らせを送ります</small>';
     } else {
       document.querySelector('.cover .pill').innerHTML = coverPill;
       document.getElementById('nextTitle').textContent = '第1回の日程は決まりしだい発表';
-      document.querySelector('.hr-l').textContent = heroLabel;
+      document.querySelector('.hr-l').innerHTML = heroLabel;
     }
     renderNews(ev); renderVendors(shops);
     var sec = document.getElementById('shops');
@@ -1273,7 +1297,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         ready=!!(r&&Number(r.total)>=30&&Array.isArray(r.top)&&r.top.length),
         mine=(load('minakusa_vote_food')||'').split('／').filter(Boolean);
     function html(personal){
-      var h='<h4>'+(personal?'みんなの結果と、あなたの1票':'みんなの「食べたい」投票')+'</h4>';
+      var h='<h4>'+(personal?(ready?'みんなの結果と、あなたの1票':'あなたの1票と、公開までの進み具合'):'みんなの「食べたい」投票')+'</h4>';
       if(!ready){
         h+='<p class="vr-meta">有効回答30件以上でランキングを公開します。少ない票数では順位が変動しやすいためです。</p>';
         if(hasNumber){
@@ -1282,7 +1306,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
               '<p class="vr-note">'+(left?'あと'+left+'件で公開基準に届きます。':'公開基準に到達しました。次の集計更新後に確認できます。')+' 数字は更新まで最大約2分遅れることがあります。</p>';
         }else h+='<p class="vr-note">現在、集計状況を取得できていません。架空の票数や順位は表示しません。</p>';
         if(personal&&mine.length)h+='<p class="vr-picks">あなたが選んだもの：'+mine.map(esc).join('・')+'</p>';
-        h+='<div class="vr-actions"><button type="button" class="btn btn-bulb btn-sm" data-share>友だちにも1票聞いてみる →</button><a class="btn btn-line btn-sm" href="#register">結果公開の案内を受け取る</a></div>';
+        h+='<div class="vr-actions"><button type="button" class="btn btn-bulb btn-sm" data-share>友だちにも1票聞いてみる →</button><a class="btn btn-line btn-sm" href="#register">開催案内を受け取る</a></div>';
         return h;
       }
       var total=Math.floor(Number(r.total)),max=0;
@@ -1299,9 +1323,13 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         h+='<p class="vr-picks">あなたの選択：'+mine.map(esc).join('・')+'。'+(hit.length?'「'+hit.map(esc).join('」「')+'」が上位に入っています。':'あなたの回答も集計に含まれます。')+'</p>';
       }
       h+='<p class="vr-note">途中順位であり、実際の出店・販売商品が確定したものではありません。'+esc(r.used||'')+'</p>'+
-        '<div class="vr-actions"><button type="button" class="btn btn-bulb btn-sm" data-share data-share-mode="results">みんなの結果を友だちと比べる →</button><a class="btn btn-line btn-sm" href="#register">次の結果を受け取る</a></div>';
+        '<div class="vr-actions"><button type="button" class="btn btn-bulb btn-sm" data-share data-share-mode="results">みんなの結果を友だちと比べる →</button><a class="btn btn-line btn-sm" href="#register">開催案内を受け取る</a></div>';
       return h;
     }
+    // 有効回答30件未満は「食べたいものを教える」、公開後は「みんなの結果と比べる」に案内を切り替える
+    resultsReady=ready;
+    document.querySelectorAll('.vs-pre').forEach(function(el){el.hidden=ready;});
+    document.querySelectorAll('.vs-post').forEach(function(el){el.hidden=!ready;});
     var main=document.getElementById('results'),done=document.getElementById('myVoteResults');
     if(main){main.innerHTML=html(false);main.hidden=false;}
     if(done)done.innerHTML=html(true);
@@ -1332,6 +1360,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   vf.addEventListener('change', refreshVote);
   function showVoted(){vf.style.display='none';vdone.style.display='block';renderVoteResults(latestVoteData);refreshVoteResults();}
   if(load('minakusa_voted')) showVoted();
+  // スマホでは位置関係の図をたたんでおく（ページを短く）。PCは開いたまま
+  try{ if(window.matchMedia('(max-width:860px)').matches) document.getElementById('mapDet').open=false; }catch(e){}
+  // スマホ下部のボタンは、最初の画面の投票・登録欄が見えているあいだは隠す（欄の下端を覆わないため）
+  (function(){ var bar=document.getElementById('mbar'), hs=document.querySelector('.hero-signup'); if(!bar||!hs||!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(es){ bar.classList.toggle('is-off', es[0].isIntersecting); }).observe(hs); })();
   vf.addEventListener('submit', function(e){
     e.preventDefault();
     var food = vals(vf,'food'); if(!food.length) return;
@@ -1353,13 +1386,13 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     pEl.querySelectorAll('.persona').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-k')===k ? 'true':'false'); });
     var body = '';
     if(p.quick){
-      if(load('minakusa_voted')){ body = '<div class="quick"><p class="q-done">あなたの1票は、もう届いています。ありがとうございます。</p><div class="q-foot"><a class="btn btn-tomato btn-sm" href="#register">第1回の日程を受け取る</a></div></div>'; }
+      if(load('minakusa_voted')){ body = '<div class="quick"><p class="q-done">あなたの1票は、もう届いています。ありがとうございます。</p><div class="q-foot"><a class="btn btn-tomato btn-sm" href="#register">開催案内を受け取る</a></div></div>'; }
       else {
         body = '<div class="quick" id="quick"><p class="q-h">あなたなら、何が買えたらうれしい？（3つまで）</p><div class="chips">'+p.quick.map(function(n){ var f = FOODS[n]; return '<label class="chip" for="q'+n+'"><input type="checkbox" id="q'+n+'" value="'+n+'"><span><em aria-hidden="true">'+f[0]+'</em>'+f[1]+'</span></label>'; }).join('')+'</div>'+
-          '<div class="q-foot"><button type="button" class="btn btn-tomato" id="qVote">この内容で1票を入れる</button><a class="small" href="#vote">ほかのものも選ぶ</a></div><p class="q-tease">投票後は、みんなの結果または公開までの進み具合を見られます。</p><div class="msg" id="qMsg" role="status"></div></div>';
+          '<div class="q-foot"><button type="button" class="btn btn-tomato" id="qVote">この内容で1票を入れる</button><a class="small" href="#vote">ほかのものも選ぶ</a></div><p class="q-tease">'+(resultsReady?'投票後は、みんなの結果を見られます。':'投票後は、結果公開までの進み具合を見られます。')+'</p><div class="msg" id="qMsg" role="status"></div></div>';
       }
     } else {
-      body = '<div class="q-foot" style="margin-top:16px"><a class="btn btn-tomato" href="minakusa-ekimae.html?src=who">出店について見る</a><a class="btn btn-line" href="#register">第1回の日程を受け取る</a></div>';
+      body = '<div class="q-foot" style="margin-top:16px"><a class="btn btn-tomato" href="minakusa-ekimae.html?src=who">出店について見る</a><a class="btn btn-line" href="#register">開催案内を受け取る</a></div>';
     }
     mineEl.innerHTML = '<p class="mine-t">'+p.title+'</p><dl class="mine-dl">'+p.rows.map(function(r){ return '<div><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>'; }).join('')+'</dl>' + body;
     mineEl.hidden = false;
@@ -1375,9 +1408,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
           food: picks.map(function(n){ return FOODS[n][1]; }).join('／'), time:'（未回答）', exit:'（未回答）', comment:'', src:src
         }).then(function(){
           store('minakusa_voted','1'); store('minakusa_vote_food', picks.slice(0,3).map(function(n){ return FOODS[n][1]; }).join('／')); if(social) social.voteDone(picks); showVoted(); track('yorimichi_vote',{via:'persona', persona:k});
-          qEl.innerHTML = '<p class="q-done">1票、届きました。みんなは何を選んだ？</p><div class="q-foot"><a class="btn btn-tomato" href="#voteDone">みんなの投票結果を見る →</a></div>'+
-            '<form class="inline-reg" id="regInline3" style="margin:12px 0 0" novalidate><input type="email" id="rEmail3" autocomplete="email" aria-label="メールアドレス" placeholder="メールアドレスで日程を受け取る"><button class="btn btn-bulb" type="submit">受け取る</button></form><div class="msg" id="regMsg3" role="status"></div><div class="sns-inline-cta"><button type="button" class="btn btn-bulb" data-share>私のカードで、友だちを誘う</button><span>カードとリンクを、LINEなどでそのまま送れます。</span></div>';
-          bindReg('regInline3','rEmail3','regMsg3','投票直後（帰り道）');
+          qEl.innerHTML = '<p class="q-done">'+(resultsReady?'1票、届きました。みんなは何を選んだ？':'1票、届きました。ありがとうございます。')+'</p><div class="q-foot"><a class="btn btn-tomato" href="#voteDone">'+(resultsReady?'みんなの投票結果を見る →':'集計の進み具合を見る →')+'</a></div>'+
+            '<div class="sns-inline-cta"><button type="button" class="btn btn-bulb" data-share>私のカードで、友だちを誘う</button><span>カードとリンクを、LINEなどでそのまま送れます。</span></div>';
            setTimeout(function(){document.getElementById('voteDone').scrollIntoView({behavior:'smooth',block:'start'});},180);
         }).catch(function(){ btn.disabled = false; btn.textContent = 'この内容で1票を入れる'; qm.className = 'msg ng'; qm.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。'; });
       });
