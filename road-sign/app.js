@@ -63,7 +63,7 @@
       if (!form.querySelector('[name="consent"]').checked) {form.querySelector('[name="consent"]').focus();return;}
       const type = form.dataset.form || 'advertiser', fid = form.dataset.formId || type;
       const at = form.querySelector('[name="submitted_at"]'); if (at) at.value = new Date().toISOString();   // 送信ボタンを押した時刻
-      const SUBJ = {media_partner:['【トオリミチ】看板会社からの試験提携相談','看板会社'], owner:['【トオリミチ】壁面・土地の広告スペース確認依頼','建物・土地の所有者'], media_register:['【トオリミチ】空き媒体の登録','看板会社（媒体登録）'], advertiser:['【トオリミチ】集客診断・看板相談','広告主'], clinic:['【トオリミチ】クリニック・歯科の集客診断依頼','クリニック・歯科'], board:['【トオリミチ】空き看板への相談','広告主（空き看板）']};
+      const SUBJ = {media_partner:['【ミツカルート】看板会社からの試験提携相談','看板会社'], owner:['【ミツカルート】壁面・土地の広告スペース確認依頼','建物・土地の所有者'], media_register:['【ミツカルート】空き媒体の登録','看板会社（媒体登録）'], advertiser:['【ミツカルート】集客診断・看板相談','広告主'], clinic:['【ミツカルート】クリニック・歯科の集客診断依頼','クリニック・歯科'], board:['【ミツカルート】空き看板への相談','広告主（空き看板）']};
       const [subject, kind] = SUBJ[type] || SUBJ.advertiser;
       const no = receipt();
       const payload = {_subject: subject + '（' + no + '）', _template: 'table', 受付番号: no, 種別: kind, フォーム: fid, 個人情報の取扱いへの同意: 'あり'};
