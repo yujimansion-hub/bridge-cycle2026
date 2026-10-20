@@ -387,3 +387,81 @@ body.tor-brand[data-audience="clinic"] .existing-hero-note a{color:#fff;text-dec
  body.tor-brand[data-audience="clinic"] .kdlane,body.tor-brand[data-audience="clinic"] .kqmock{min-width:0;padding:15px}
  body.tor-brand[data-audience="clinic"] .kreport,body.tor-brand[data-audience="clinic"] .kreport>*{max-width:100%;min-width:0}
 }
+
+
+/* READABILITY LOCK 2026-10-20.
+   Keep charcoal #181e1b, lime #c8f56b, ivory #f5f6f1.
+   Labels >=14px; paragraphs >=16px; active buttons >=16px.
+*/
+body.tor-design-v3 .rw-hero-meta,
+body.tor-design-v3 .rw-hero-meta span,
+body.tor-design-v3 .rw-hero-meta span:last-child,
+body.tor-design-v3 .v3-intro .v3-kicker,
+body.tor-design-v3 .v3-section .v3-kicker,
+body.tor-design-v3 .v3-problem small,
+body.tor-design-v3 .v3-service small,
+body.tor-design-v3 .v3-step small,
+body.tor-design-v3 .v3-reporthead span,
+body.tor-design-v3 .rw-facts dt,
+body.tor-design-v3 .rw-facts dd small,
+body.tor-design-v3 .rw-stage-panel>p,
+body.tor-design-v3 .rw-stage-panel li>span,
+body.tor-design-v3 .rw-street-copy span,
+body.tor-design-v3 .v3-pills span,
+body.tor-design-v3 .v3-reportnote{
+ font-size:14px;line-height:1.6;letter-spacing:.015em;
+}
+body.tor-design-v3 .v3-problem p,
+body.tor-design-v3 .v3-step p,
+body.tor-design-v3 .v3-service p,
+body.tor-design-v3 .v3-intro>p:not(.v3-kicker),
+body.tor-design-v3 .v3-bodytext,
+body.tor-design-v3 .v3-service a,
+body.tor-design-v3 .v3-aboutcard p,
+body.tor-design-v3 .v3-faq details p,
+body.tor-design-v3 .v3-reportrow p,
+body.tor-design-v3 .v3-proof,
+body.tor-design-v3 .rw-hero-copy p{font-size:16px;line-height:1.85;color:#3c4e3d}
+body.tor-design-v3 .v3-step .v3-step-price{font-size:15px;line-height:1.85}
+body.tor-design-v3 .v3-step .v3-step-price a{font-size:15px}
+body.tor-design-v3 .rw-stage-panel li b{font-size:16px;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
+body.tor-design-v3 .rw-stage-panel li{cursor:default}
+body.tor-design-v3 .rw-stage-panel li i{display:none!important}
+body.tor-design-v3 .v3-problem{cursor:default;transition:none}
+body.tor-design-v3 .v3-problem:hover{transform:none}
+body.tor-design-v3 .v3-problem img{transition:none}
+body.tor-design-v3 .rw-secondary,
+body.tor-design-v3 .rw-primary,
+body.tor-design-v3 #contact .contactform .btn,
+body.tor-design-v3 .v3-actions .btn{font-size:16px}
+body.tor-design-v3 #contact .contactform label,
+body.tor-design-v3 #contact .privacy-check,
+body.tor-design-v3 #contact .contactform legend{font-size:15px}
+body.tor-design-v3 #contact .contactform :is(input,select,textarea){font-size:16px}
+@media(max-width:850px){
+ body.tor-design-v3 .rw-hero-meta{font-size:14px;gap:8px}
+ body.tor-design-v3 .rw-stage-panel>p{font-size:14px}
+ body.tor-design-v3 .rw-stage-panel li>span{font-size:14px}
+ body.tor-design-v3 .rw-stage-panel li b{font-size:16px}
+ body.tor-design-v3 .rw-facts dt,body.tor-design-v3 .rw-facts dd small{font-size:14px}
+ body.tor-design-v3 .v3-intro .v3-kicker{font-size:14px}
+ body.tor-design-v3 .v3-problem p,body.tor-design-v3 .v3-step p{font-size:16px}
+}
+@media(max-width:480px){
+ body.tor-design-v3 .rw-hero-meta{font-size:14px;flex-wrap:wrap}
+ body.tor-design-v3 .rw-hero-copy p{font-size:16px}
+ body.tor-design-v3 .rw-stage-panel ol{grid-template-columns:repeat(3,minmax(0,1fr))}
+ body.tor-design-v3 .rw-stage-panel li{min-width:0;padding:0 8px}
+ body.tor-design-v3 .rw-stage-panel li:first-child{padding-left:0}
+ body.tor-design-v3 .rw-stage-panel li:last-child{padding-right:0}
+ body.tor-design-v3 .rw-stage-panel li b{font-size:15px;white-space:normal;overflow-wrap:anywhere}
+ body.tor-design-v3 .rw-stage-panel li>span{font-size:14px}
+ body.tor-design-v3 .rw-stage-panel>p{font-size:14px}
+ body.tor-design-v3 .rw-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+ body.tor-design-v3 .rw-facts>div{min-width:0;padding:0 6px}
+ body.tor-design-v3 .rw-facts dt{font-size:14px;line-height:1.45}
+ body.tor-design-v3 .rw-facts dd{font-size:21px;white-space:normal}
+ body.tor-design-v3 .rw-facts dd small{font-size:14px;display:inline-block}
+ body.tor-design-v3 .v3-intro .v3-kicker{font-size:14px}
+ body.tor-design-v3 .v3-problem p,body.tor-design-v3 .v3-step p,body.tor-design-v3 .v3-service p{font-size:16px}
+}
