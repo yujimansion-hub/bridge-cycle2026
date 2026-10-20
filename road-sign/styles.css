@@ -686,3 +686,69 @@ h1.hkicker,.hero3 h1.hkicker{font-family:"Noto Sans JP",sans-serif;font-size:13p
 .qstatus input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
 .contactform .qstatus.full,.contactform .full{grid-column:1/-1}
 [data-when][hidden]{display:none!important}
+
+
+/* トオリミチ 2026-10-20: index-only brand redesign. Scoped to preserve subpages. */
+body.tor-design-v2{--navy:#203c34;--navy2:#142e26;--orange:#b98751;--ochre:#f4eadc;--paper:#f6f4ed;--bg:#eef1eb;--ink:#23372f;--muted:#60746a;--line:#dce5dc;--good:#236b4d;color:var(--ink);background:var(--paper);font-size:16px;line-height:1.8}
+.tor-design-v2 .topnav{background:rgba(246,244,237,.97);border-color:#e1e7de;backdrop-filter:blur(12px);box-shadow:none}
+.tor-design-v2 .navrow{min-height:78px}.tor-design-v2 .brand{font-size:22px;letter-spacing:-.055em}.tor-design-v2 .brand small{font-size:9px;letter-spacing:0;color:#648073}.tor-design-v2 .navright{gap:24px}
+.tor-design-v2 .btn{background:var(--navy);color:white;box-shadow:0 9px 23px #173b2e20;transition:transform .18s,background .18s}
+.tor-design-v2 .btn:hover{background:#34634e;transform:translateY(-2px)}
+.tor-design-v2 .btn.line{background:#fff;color:var(--navy);border-color:#b9cbbf;box-shadow:none}
+.tor-design-v2 .section{padding:94px 0}.tor-design-v2 .soft{background:#f6f4ed}.tor-design-v2 .blue{background:#e9eee8}
+.tor-design-v2 .hero3{background:#f6f4ed;color:var(--ink);border-bottom:1px solid var(--line)}
+.tor-design-v2 .hero3 .herogrid{min-height:610px;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:36px}
+.tor-design-v2 .hero3 .herocopy{padding:70px 0 78px}
+.tor-design-v2 .hero3 .hkicker{color:#557667;font-size:11.5px;letter-spacing:.13em;font-weight:800}
+.tor-design-v2 .hero3 .hcatch{font-size:clamp(34px,3.55vw,53px);line-height:1.43;letter-spacing:-.04em;margin-top:18px}
+.tor-design-v2 .hero3 .hcatch .hk1,.tor-design-v2 .hero3 .hcatch .hk2{white-space:normal;color:#233c31}
+.tor-design-v2 .hero3 .hcatch .hk2{color:#587c6a}
+.tor-design-v2 .hero3 .herocopy .lead{color:#405a4b;line-height:1.86;margin-top:22px;font-size:16px;font-weight:500;max-width:510px}
+.tor-design-v2 .hero3 .herocopy .lead .leadb{color:#405a4b;font-weight:500;margin-top:5px}
+.tor-design-v2 .hero3 .doors,.tor-design-v2 .hero3 .doorpanel{display:none!important}
+.tor-design-v2 .v2-hero-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:31px}
+.tor-design-v2 .v2-hero-actions .btn{padding:13px 23px;font-size:14px}
+.tor-design-v2 .v2-hero-secondary{color:var(--navy);font-weight:800;font-size:14px}
+.tor-design-v2 .v2-hero-secondary:not([hidden]){display:inline-flex;align-items:center}
+.tor-design-v2 .v2-assurance{color:#667c6d;font-size:12px;margin-top:18px;font-weight:600}.tor-design-v2 .v2-assurance span{color:#9bac9d;padding:0 3px}
+.tor-design-v2 .hero3 .heroscene{min-height:610px;position:relative;padding:0;display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden;background:linear-gradient(0deg,rgba(23,54,39,.82),rgba(23,54,39,.12) 65%),url(assets/v-hero-road.webp) center/cover no-repeat;border-radius:0 0 75px 0}
+.tor-design-v2 .hero3 .heroscene .scin{display:none}
+.tor-design-v2 .v2-scene-caption{position:relative;z-index:2;color:#fff;padding:0 36px 41px}
+.tor-design-v2 .v2-scene-caption span{display:block;font-size:13px;font-weight:650;letter-spacing:.08em;margin-bottom:9px}
+.tor-design-v2 .v2-scene-caption strong{display:block;font-weight:800;font-size:23px}.tor-design-v2 .v2-scene-caption em{font-style:normal;color:#e3bd81;margin:0 8px}
+.tor-design-v2 .promise{background:#fff;border-color:var(--line);padding:21px 0}
+.tor-design-v2 #compare{background:#fff}
+.tor-design-v2 .sectionhead{max-width:900px;margin-bottom:36px}
+.tor-design-v2 .sectionhead h2{font-size:clamp(28px,3vw,42px);line-height:1.45;letter-spacing:-.04em}
+.tor-design-v2 .rstep{border-radius:12px;box-shadow:0 8px 24px #12382c12}
+.tor-design-v2 .rstep figcaption{background:linear-gradient(180deg,transparent,rgba(20,46,38,.92))}
+.tor-design-v2 .rstep figcaption b{background:#b88650}
+.tor-design-v2 .dsflat,.tor-design-v2 .card,.tor-design-v2 .plan3{box-shadow:0 11px 27px #173b2910;border-color:var(--line)}
+.tor-design-v2 .section.soft#industry{background:#eef2ec}
+.tor-design-v2 #omoi{background:linear-gradient(180deg,rgba(18,42,33,.88),rgba(18,42,33,.95)),url(assets/v-town-dusk.webp) center/cover no-repeat}
+.tor-design-v2 #contact .contactgrid{box-shadow:0 16px 48px #153b2919;border:1px solid #d8e2d9}
+.tor-design-v2 #contact .contactinfo{background:#203c34}
+.tor-design-v2 #contact .contactform{background:#fff}
+.tor-design-v2 .qstatus input:checked+span{background:var(--navy);color:white}
+.tor-design-v2 .sticky-mobile{background:rgba(250,251,248,.97);border-top:1px solid #d3e0d5}
+.tor-design-v2 .footer{background:#142e26;color:#bdcfbf}
+@media(max-width:850px){
+.tor-design-v2 .navrow{min-height:66px}.tor-design-v2 .brand{font-size:17px}.tor-design-v2 .brand small{font-size:9px}
+.tor-design-v2 .hero3 .herogrid{display:flex;flex-direction:column;gap:0}
+.tor-design-v2 .hero3 .herocopy{display:contents}
+.tor-design-v2 .hero3 .herocopy>h1{order:1;margin-top:35px}
+.tor-design-v2 .hero3 .herocopy>.lead{order:2}
+.tor-design-v2 .hero3 .herocopy>.v2-hero-actions{order:3;margin:22px 0 0}
+.tor-design-v2 .hero3 .herocopy>.v2-assurance{order:4;margin-bottom:25px}
+.tor-design-v2 .hero3 .heroscene{order:5;min-height:270px;margin:0 -19px;border-radius:0;background-position:center 52%}
+.tor-design-v2 .v2-scene-caption{padding:0 21px 23px}.tor-design-v2 .v2-scene-caption strong{font-size:18px}
+.tor-design-v2 .hero3 .hcatch{font-size:clamp(29px,7.6vw,44px);line-height:1.36}
+.tor-design-v2 .hero3 .herocopy .lead{font-size:14px;line-height:1.9;margin:15px 0 0}
+.tor-design-v2 .v2-hero-actions .btn{width:100%}
+.tor-design-v2 .v2-hero-secondary:not([hidden]){width:100%;justify-content:center}
+.tor-design-v2 .section{padding:64px 0}
+}
+@media(max-width:480px){.tor-design-v2 .v2-assurance{font-size:10.5px}.tor-design-v2 .hero3 .hcatch{font-size:clamp(27px,7.3vw,36px)}.tor-design-v2 .navright>.btn{padding:9px 12px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.tor-design-v2 .btn{transition:none}}
+@media print{.tor-design-v2 .hero3 .heroscene{min-height:340px}.tor-design-v2 .hero3 .herocopy{padding:20px 0}}
+
