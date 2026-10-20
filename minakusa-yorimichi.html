@@ -770,10 +770,10 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <p class="cover-cap">完成イメージ（合成）です</p>
     </div>
     <div class="hero-signup">
-      <a class="btn btn-tomato hero-vote-main" href="#who">食べたいものを選ぶ<small>30秒・名前もメールも不要</small></a>
+      <a class="btn btn-tomato hero-vote-main" href="#who">食べたいものに投票する<small>30秒・登録なしで投票できます</small></a>
       <p class="hero-tease"><span class="vs-pre">選んだものは、出店するお店のメニュー選びに活かします</span><span class="vs-post" hidden>投票すると、みんなの「食べたい」結果と比べられます</span></p>
       <form class="hero-reg" id="regHero" novalidate>
-      <label class="hr-l" for="rEmail0">開催案内をメールで受け取る（無料）<small>第1回の日程とお店が決まったらお知らせします</small></label>
+      <label class="hr-l" for="rEmail0">開催日が決まったら、メールで知らせてほしい方へ<small>第1回の日程と出店するお店をお送りします（無料）</small></label>
       <div class="hr-row">
         <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
         <button class="btn btn-bulb" type="submit">開催案内を受け取る</button>
@@ -1257,7 +1257,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       document.querySelector('.cover .pill').innerHTML = '<i aria-hidden="true"></i>'+esc(round)+'　'+esc(ev.date)+' '+esc(ev.time)+'　'+esc(ev.place);
       document.getElementById('nextTitle').textContent = round+' '+ev.date+' '+ev.time;
       top.textContent = ev.place+(ev.shops ? '・'+ev.shops+'店が出店' : '');
-      document.querySelector('.hr-l').innerHTML = '開催案内をメールで受け取る（無料）<small>出店するお店と前日のお知らせを送ります</small>';
+      document.querySelector('.hr-l').innerHTML = '開催の前日に、メールで知らせてほしい方へ<small>出店するお店と前日のお知らせをお送りします（無料）</small>';
     } else {
       document.querySelector('.cover .pill').innerHTML = coverPill;
       document.getElementById('nextTitle').textContent = '第1回の日程は決まりしだい発表';
