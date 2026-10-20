@@ -191,3 +191,21 @@ body.tor-brand.tor-doc a[style*="color:#c75a22"]{color:#875e34!important}
 
 /* 2026-10-20: 390px幅でメニューボタンが3pxはみ出し横スクロールが出るのを修正 */
 @media(max-width:480px){body.tor-brand .topnav .navrow{gap:8px}body.tor-brand .topnav .brand{min-width:0;flex:1 1 auto;overflow:hidden}body.tor-brand .topnav .brand small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}body.tor-brand .topnav .navright,body.tor-brand .topnav .spmenu-btn{flex:none}body.tor-brand .topnav .spmenu-btn{margin-left:0;padding:6px 8px}body.tor-brand .topnav .navright>.btn{padding:9px 10px}}
+
+/* 2026-10-20: keep V3 measurement cohort; improve audience fit & small mobile CTA hierarchy. */
+body.tor-design-v3 .v3-step .v3-step-price{margin-top:17px;border-top:1px solid var(--tr-line,#dce5da);padding-top:13px;color:#51695a;font-size:13px;line-height:1.85}
+body.tor-design-v3 .v3-step .v3-step-price strong{display:inline-block;white-space:nowrap;color:#203c34;font-size:15px}
+body.tor-design-v3 .v3-step .v3-step-price a{display:inline-block;margin-top:6px;color:#245842;text-decoration:underline;text-underline-offset:4px;font-weight:800}
+body.tor-design-v3 .v3-reportrow p{color:#435d4c;line-height:1.9;font-weight:500}
+body.tor-design-v3 .v3-eyebrow{letter-spacing:.045em}
+body.tor-design-v3 .v3-section .v3-kicker{letter-spacing:.035em}
+@media(max-width:850px){
+ body.tor-design-v3 .topnav .navright>.btn{display:none!important}
+ body.tor-design-v3 .topnav .spmenu-btn{margin-left:auto}
+}
+
+@media(max-width:360px){
+ body.tor-brand[data-audience="clinic"] .herocopy,body.tor-brand[data-audience="clinic"] .hero .wrap,body.tor-brand[data-audience="clinic"] .herogrid{min-width:0;max-width:100%}
+ body.tor-brand[data-audience="clinic"] .herocopy h1{overflow-wrap:anywhere;font-size:clamp(25px,8.3vw,34px)}
+ body.tor-brand[data-audience="clinic"] .topnav .brand{font-size:15px}
+}
