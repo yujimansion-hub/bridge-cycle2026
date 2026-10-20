@@ -25,7 +25,7 @@
 #vendors[hidden]{display:none!important}
 @media(max-width:860px){
  #voteForm,#voteDone{scroll-margin-top:80px}
- .food-inspiration h3{font-size:25px;margin-bottom:18px}
+ .food-inspiration h3{font-size:clamp(20px,6vw,25px);margin-bottom:18px}
  .food-ideas-grid{gap:12px}
  .food-ideas-grid figcaption b{font-size:14px}
  .food-ideas-grid figcaption span{font-size:12px}
