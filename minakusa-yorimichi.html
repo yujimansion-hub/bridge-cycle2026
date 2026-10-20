@@ -740,6 +740,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 }
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
+<link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020a">
 </head>
 <body>
 
@@ -767,10 +768,10 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       </picture>
       <p class="scene-note"><small>帰り道の、小さな楽しみ。</small>きょうは、何を<br>持って帰ろう？</p>
       <span class="scene-star" aria-hidden="true">✦</span><span class="scene-star" aria-hidden="true">✦</span>
-      <p class="cover-cap">完成イメージ（合成）です</p>
+      <p class="cover-cap">完成イメージ（合成）｜区画・店数は調整中</p>
     </div>
     <div class="hero-signup">
-      <a class="btn btn-tomato hero-vote-main" href="#who">食べたいものに投票する<small>30秒・登録なしで投票できます</small></a>
+      <a class="btn btn-tomato hero-vote-main" href="#voteForm">食べたいものに投票する<small>30秒・登録なしで投票できます</small></a>
       <p class="hero-tease"><span class="vs-pre">選んだものは、出店するお店のメニュー選びに活かします</span><span class="vs-post" hidden>投票すると、みんなの「食べたい」結果と比べられます</span></p>
       <form class="hero-reg" id="regHero" novalidate>
       <label class="hr-l" for="rEmail0">開催日が決まったら、メールで知らせてほしい方へ<small>第1回の日程と出店するお店をお送りします（無料）</small></label>
@@ -778,7 +779,6 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
         <button class="btn btn-bulb" type="submit">開催案内を受け取る</button>
       </div>
-      <p class="hr-note" id="earlyNote" hidden></p>
       <div class="msg" id="regMsg0" role="status"></div>
     </form>
       <p class="hero-safe">お知らせ以外には使いません。<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
@@ -796,10 +796,16 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <!-- 開催概要（EVENT OVERVIEW） -->
 <section id="overview" class="kp-ov">
   <div class="wrap kp-ov-grid">
-    <figure class="kp-ov-ph">
-      <img src="images/minakusa/yorimichi/ill-shop-v2.jpg" alt="駅前の小さなお店で、おかずやパンを売っているイラスト" width="640" height="480" loading="lazy">
-      <figcaption>イメージ（イラスト）</figcaption>
-    </figure>
+    <div class="food-inspiration" aria-labelledby="foodIdeasTitle">
+      <p class="eyebrow">帰り道に、持って帰りたい。</p>
+      <h3 id="foodIdeasTitle">今夜のおかず。明日のパン。<br>ちょっといい、おやつ。</h3>
+      <div class="food-ideas-grid">
+        <figure><img src="images/minakusa/yorimichi/food-osozai-v1.webp" alt="紙の容器に入ったおかずを包む手元のイラスト" width="1254" height="1254" loading="lazy"><figcaption><b>今夜のおかず</b><span>包んで、食卓へ。</span></figcaption></figure>
+        <figure><img src="images/minakusa/yorimichi/food-bread-v1.webp" alt="ふんわりした断面のパンとサンドイッチのイラスト" width="1254" height="1254" loading="lazy"><figcaption><b>明日のパン</b><span>朝が、少し楽しみ。</span></figcaption></figure>
+        <figure><img src="images/minakusa/yorimichi/food-oyatsu-v1.webp" alt="紙の上に並んだ焼き菓子とスコーンのイラスト" width="1254" height="1254" loading="lazy"><figcaption><b>帰り道のおやつ</b><span>ひと息のおともに。</span></figcaption></figure>
+      </div>
+      <p class="food-ideas-note">イラストはイメージです。販売する商品・価格は未定です。</p>
+    </div>
     <div class="kp-ov-body">
       <p class="kp-sub">EVENT OVERVIEW</p>
       <h2 class="kp-ja">どんな市？</h2>
@@ -831,8 +837,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <section id="who">
   <div class="wrap">
     <div class="section-head">
-      <div><p class="eyebrow">帰り道から、選んでみよう。</p><h2 class="h2">あなたなら、<br>どのよりみち？</h2></div>
-      <p class="lead">仕事帰りに一品。学校帰りに、ひと息。<br>絵を選んで、駅前でほしいものを教えてください。<br><b style="color:var(--leaf)"><span class="vs-pre">有効回答が30件集まったら、みんなの結果を公開します。</span><span class="vs-post" hidden>投票すると、みんなの結果と自分の1票を比べられます。</span></b></p>
+      <div><p class="eyebrow">自分の帰り道も、想像してみよう。</p><h2 class="h2">あなたなら、<br>どのよりみち？</h2></div>
+      <p class="lead">仕事帰りに一品。学校帰りに、ひと息。<br>絵を選ぶと、帰り道に合わせた楽しみ方が見られます。<br><b style="color:var(--leaf)"><span class="vs-pre">有効回答が30件集まったら、みんなの結果を公開します。</span><span class="vs-post" hidden>投票すると、みんなの結果と自分の1票を比べられます。</span></b></p>
     </div>
     <div class="personas" id="personas" role="group" aria-label="あなたの帰り道"></div>
     <div class="mine" id="mine" hidden aria-live="polite"></div>
@@ -853,11 +859,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <p class="eyebrow">30秒で、いっしょにつくる。</p>
       <h2 class="h2">帰り道に、何が買えたら<br class="hide-sp">うれしい？</h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">名前もメールも不要。<span class="vs-pre">駅前で食べたいものを教えてください。</span><span class="vs-post" hidden>投票して、みんなが何を食べたいか見てみよう。</span>投票結果は出店するお店のメニュー選びに活用します。</p>
-      <div class="results vote-results" id="results" aria-live="polite"><h4>みんなの「食べたい」投票</h4><p class="vr-meta">集計状況を確認しています。</p></div>
     </div>
 
     <form id="voteForm" class="vote-box" novalidate>
       <div id="snsInvite" class="sns-invite" hidden><strong></strong><p>同じものでも、違うものでも。あなたの食べたいものを3つまで教えてください。名前・メールは不要です。</p></div>
+      <p class="vote-update-notice" id="voteUpdateNotice">次のお知らせは10月26日（月）の予定です（投票の途中経過・開催準備の進み具合）。開催日ではありません。</p>
       <fieldset>
         <legend>買いたいもの<small>3つまで</small></legend>
         <div class="chips" id="foodChips"></div>
@@ -886,6 +892,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <div class="msg" id="voteMsg" role="status"></div>
     </form>
 
+    <div class="results vote-results" id="results" aria-live="polite"><h4>みんなの「食べたい」投票</h4><p class="vr-meta">集計状況を確認しています。</p></div>
+
     <div class="done vote-box" id="voteDone" tabindex="-1">
       <p class="big" aria-hidden="true">🏮</p>
       <h3>1票、届きました。</h3>
@@ -911,7 +919,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <div class="wrap reg-grid">
     <div>
       <p class="eyebrow">よりみちの、つづきを受け取ろう。</p>
-      <h2 class="h2">第1回の日程を、<br>先にお知らせします。</h2>
+      <h2 class="h2">第1回の日程とお店を、<br>メールでお知らせ。</h2>
       <p class="lead">メールアドレスだけで登録できます。お知らせ以外には使いません。</p>
       <ul>
         <li>第1回の日程と、出店するお店</li>
@@ -930,7 +938,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 
 <!-- 決まっていること・まだ決まっていないこと -->
 <!-- 出店者（VENDORS）：KYOPOの「分類ごとの色の帯＋番号つき出店者一覧」を参考に -->
-<section id="vendors" class="kp-vend">
+<section id="vendors" class="kp-vend" hidden>
   <div class="wrap">
     <p class="kp-sub">VENDORS</p>
     <h2 class="kp-ja">出会えるお店</h2>
@@ -1025,17 +1033,17 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         <h3>決まっていること</h3>
         <ul>
           <li>南草津駅周辺まちづくりの社会実験として、2027年2月まで行います</li>
-          <li>実施はUDCみなくさ・立命館大学。出店者の募集と調整はBRIDGE CYCLEが担当します</li>
           <li>出店するお店の募集に向けて、企画を準備しています</li>
         </ul>
       </div>
       <div class="st-box st-open">
         <h3>まだ決まっていないこと</h3>
         <ul>
-          <li>最初の開催日と、出店できる場所（西口・東口・改札前で、関係機関と調整中）</li>
+          <li>開催日・曜日・時間（このページの時間はすべて案です）</li>
+          <li>出店できる場所（西口・東口・改札前で、関係機関と調整中）</li>
           <li>出店するお店と、買えるもの</li>
-          <li>開催する時間と曜日（このページの時間はすべて案です）</li>
         </ul>
+        <p class="small" id="vendorPrep">お店の紹介は準備中です。了承を得た写真・商品名・価格から、順にお知らせします。</p>
         <p class="small" id="nextUpdate">決まったものから、このページと開催案内でお知らせします。</p>
       </div>
     </div>
@@ -1073,7 +1081,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <div class="footer-message"><p>南草津駅に、<br><span>おいしい寄り道を。</span></p><div class="fm-acts"><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a><button type="button" class="btn btn-line" data-share>私のカードで、友だちを誘う</button></div></div>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
-    <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、帰り道と投票欄の絵はイラストで、どれも実際の会場・お店のようすとは異なります。</div>
+    <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、食べものや帰り道の絵はイラストです。実際の会場・出店商品とは異なり、区画・店数・販売商品は調整中です。</div>
     <div class="small" style="flex-basis:100%;order:4">このページでは、見られた回数や投票・登録の件数を数えるため、アクセス解析（Google Analytics）を使っています。入力した内容は送りません。</div>
     <nav class="small" aria-label="関連ページ" style="flex-basis:100%;order:2;display:flex;flex-wrap:wrap;gap:6px 16px"><a href="minakusa-ekimae.html?src=yorimichi_footer">出店に関心のある方へ</a><a href="tsugite.html">自分の店を始めたい方</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="./">運営：BRIDGE CYCLE株式会社</a></nav>
     <div><a href="https://www.bridgecycleco.com/privacy.html">プライバシーポリシー</a>　<a href="mailto:info@bridgecycleco.com">お問い合わせ</a></div>
@@ -1103,7 +1111,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 </div>
 
 <div class="mbar" id="mbar">
-  <a class="btn btn-ghost-w" href="#who">食べたいものを選ぶ</a>
+  <a class="btn btn-ghost-w" href="#voteForm">食べたいものを選ぶ</a>
   <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
 </div>
 
@@ -1149,8 +1157,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 
   // NEWS（流れるお知らせ帯）。新しいものを上に。href はページ内（#vote など）か URL
   var NEWS = [
-    {d:'10.19', t:'食べたいもの投票を受付中です（名前・メール不要）', href:'#vote'},
-    {d:'10.19', t:'開催案内のメール登録を始めました。会員番号No.100までは先にお知らせ', href:'#register'},
+    {d:'10.19', t:'食べたいもの投票を受付中です（名前・メール不要）', href:'#voteForm'},
+    {d:'10.19', t:'第1回の日程と出店するお店を、メールでお知らせします（無料）', href:'#register'},
     {d:'10.26', t:'次の情報更新の予定（投票の途中経過と準備の進み具合）', href:'#status'},
     {d:'準備', t:'出店するお店と、にぎわいの企画を準備しています（出店に関心のある方へ）', href:'minakusa-ekimae.html?src=yorimichi_news'}
   ];
@@ -1228,7 +1236,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   });
   function renderNews(ev){
     var list = (ev ? [{d:'開催', t:(ev.round||'第1回')+'　'+ev.date+' '+ev.time+'　'+ev.place, href:'#overview'}] : []).concat(NEWS);
-    var one = list.map(function(n){ return '<li><a href="'+esc(n.href)+'"><b>'+esc(n.d)+'</b>'+esc(n.t)+'</a></li>'; }).join('');
+    var one = list.map(function(n){ var href=n.href==='#voteForm'&&load('minakusa_voted')?'#voteDone':n.href; return '<li><a href="'+esc(href)+'"><b>'+esc(n.d)+'</b>'+esc(n.t)+'</a></li>'; }).join('');
     // 途切れずに流れるよう2回並べる（2回目は読み上げない）
     document.getElementById('newsTrack').innerHTML = one + one.replace(/<li>/g,'<li aria-hidden="true">').replace(/<a /g,'<a tabindex="-1" ');
   }
@@ -1243,6 +1251,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     document.getElementById('vendorCount').textContent = [set.length ? set.length+'店が出店予定' : '', tbd.length ? tbd.length+'店が検討中' : ''].filter(Boolean).join('・');
     document.getElementById('vendorAcc').hidden = !rows.length;
     document.getElementById('vendorEmpty').hidden = !!rows.length;
+    document.getElementById('vendors').hidden = !rows.length;
+    document.getElementById('vendorPrep').hidden = !!rows.length;
   }
   var latestVoteData=null, resultsReady=false;
   function render(d){
@@ -1250,7 +1260,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     if(social) social.update(d);
     var nu = d.nextUpdate, top = document.getElementById('nextUpdateTop');
     top.textContent = nu ? '次の情報更新：'+nu+'（開催日ではありません）' : '　';
-    if(nu) document.getElementById('nextUpdate').innerHTML = '次の更新は<b>'+esc(nu)+'</b>の予定です（開催準備の進み具合と投票の状況）。決まったものから、このページと開催案内でお知らせします。';
+    document.getElementById('nextUpdate').innerHTML = nu ? '次の更新は<b>'+esc(nu)+'</b>の予定です（開催準備の進み具合と投票の状況）。決まったものから、このページと開催案内でお知らせします。' : '決まったものから、このページと開催案内でお知らせします。';
+    document.getElementById('voteUpdateNotice').textContent = nu ? '次のお知らせは'+nu+'の予定です（投票の途中経過・開催準備の進み具合）。開催日ではありません。' : '投票の途中経過と開催準備の進み具合は、決まりしだいお知らせします。';
     var ev = d.nextEvent, shops = d.shops || [];
     if(ev){
       var round = ev.round || '第1回';
@@ -1288,24 +1299,25 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     } else { sec.hidden = true; }
     var wEl = document.getElementById('waiting');
     if(d.waiting){ wEl.textContent = 'いま'+d.waiting+'人が、第1回を待っています'; wEl.hidden = false; } else { wEl.hidden = true; }
-    if(API && d.earlyLimit){ var en = document.getElementById('earlyNote'); en.textContent = '会員番号No.'+d.earlyLimit+'までの方には、一般より先にお知らせします。'; en.hidden = false; }
     renderVoteResults(d);
   }
   function renderVoteResults(d){
     var r=d&&d.results, val=d&&d.stats&&d.stats.votes, n=Number(val),
         hasNumber=val!==null&&val!==undefined&&val!==''&&Number.isFinite(n)&&n>=0,
         ready=!!(r&&Number(r.total)>=30&&Array.isArray(r.top)&&r.top.length),
-        mine=(load('minakusa_vote_food')||'').split('／').filter(Boolean);
+        mine=(load('minakusa_vote_food')||'').split('／').filter(Boolean),
+        updateDate=d&&typeof d.nextUpdate==='string'?d.nextUpdate:NEXT_UPDATE;
     function html(personal){
-      var h='<h4>'+(personal?(ready?'みんなの結果と、あなたの1票':'あなたの1票と、公開までの進み具合'):'みんなの「食べたい」投票')+'</h4>';
+      var h='<h4>'+(personal?(ready?'みんなの結果と、あなたの1票':'あなたの1票と、次のお知らせ'):(ready?'みんなの「食べたい」投票':'投票の途中経過'))+'</h4>';
       if(!ready){
-        h+='<p class="vr-meta">有効回答30件以上でランキングを公開します。少ない票数では順位が変動しやすいためです。</p>';
+        if(personal&&mine.length)h+='<p class="vr-picks">あなたが選んだもの：'+mine.map(esc).join('・')+'</p>';
+        h+='<p class="vr-update">'+(updateDate?'次のお知らせは <b>'+esc(updateDate)+'</b> の予定です。':'次のお知らせは、決まりしだいご案内します。')+'</p><p class="vr-update-note">投票の途中経過と、開催準備の進み具合をお知らせします。</p>';
+        h+='<p class="vr-meta">ランキングは有効回答30件以上で公開します。少ない回答数で順位が変わりやすいためです。</p>';
         if(hasNumber){
           var votes=Math.floor(n),left=Math.max(0,30-votes),pct=Math.min(100,Math.round(votes/30*100));
           h+='<span class="vr-num">'+votes+'件 / 公開基準30件</span><div class="vr-progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="'+Math.min(30,votes)+'" aria-label="投票結果の公開基準までの件数"><i style="width:'+pct+'%"></i></div>'+
               '<p class="vr-note">'+(left?'あと'+left+'件で公開基準に届きます。':'公開基準に到達しました。次の集計更新後に確認できます。')+' 数字は更新まで最大約2分遅れることがあります。</p>';
-        }else h+='<p class="vr-note">現在、集計状況を取得できていません。架空の票数や順位は表示しません。</p>';
-        if(personal&&mine.length)h+='<p class="vr-picks">あなたが選んだもの：'+mine.map(esc).join('・')+'</p>';
+        }else h+='<p class="vr-note">集計状況は、確認できしだい表示します。</p>';
         h+='<div class="vr-actions"><button type="button" class="btn btn-bulb btn-sm" data-share>友だちにも1票聞いてみる →</button><a class="btn btn-line btn-sm" href="#register">開催案内を受け取る</a></div>';
         return h;
       }
@@ -1331,7 +1343,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     document.querySelectorAll('.vs-pre').forEach(function(el){el.hidden=ready;});
     document.querySelectorAll('.vs-post').forEach(function(el){el.hidden=!ready;});
     var main=document.getElementById('results'),done=document.getElementById('myVoteResults');
-    if(main){main.innerHTML=html(false);main.hidden=false;}
+    if(main){main.innerHTML=html(false);main.hidden=false;main.classList.toggle('is-pending',!ready);}
     if(done)done.innerHTML=html(true);
   }
   function refreshVoteResults(){
@@ -1358,7 +1370,16 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     vbtn.disabled = n===0; vbtn2.disabled = n===0;
   }
   vf.addEventListener('change', refreshVote);
-  function showVoted(){vf.style.display='none';vdone.style.display='block';renderVoteResults(latestVoteData);refreshVoteResults();}
+  function showVoted(){
+    vf.style.display='none';vdone.style.display='block';
+    document.querySelectorAll('a[href="#voteForm"]').forEach(function(a){
+      a.setAttribute('href','#voteDone');
+      if(a.classList.contains('hero-vote-main')) a.innerHTML='投票のつづきを見る<small>あなたの1票と、次のお知らせ</small>';
+      else if(a.closest('#mbar')) a.textContent='投票のつづきを見る';
+    });
+    renderVoteResults(latestVoteData);refreshVoteResults();
+    if(location.hash==='#voteForm') requestAnimationFrame(function(){vdone.scrollIntoView({block:'start'});});
+  }
   if(load('minakusa_voted')) showVoted();
   // スマホでは位置関係の図をたたんでおく（ページを短く）。PCは開いたまま
   try{ if(window.matchMedia('(max-width:860px)').matches) document.getElementById('mapDet').open=false; }catch(e){}
@@ -1562,5 +1583,6 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <script src="bc-analytics.js" defer></script>
 </body>
 </html>
+
 
 

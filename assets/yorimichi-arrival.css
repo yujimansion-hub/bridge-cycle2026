@@ -1,0 +1,43 @@
+/* 2026-10-20: a shorter path from the preview to the food ballot. */
+#voteForm,#voteDone{scroll-margin-top:86px}
+.food-inspiration{min-width:0}
+.food-inspiration>.eyebrow{font-size:12px;letter-spacing:.08em;margin:0 0 10px;color:var(--leaf)}
+.food-inspiration h3{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(23px,2.8vw,32px);line-height:1.6;letter-spacing:.025em;margin:0 0 24px}
+.food-ideas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.food-ideas-grid figure{margin:0;min-width:0}
+.food-ideas-grid img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:12px;background:#eee7d9}
+.food-ideas-grid figcaption{padding-top:12px;line-height:1.7}
+.food-ideas-grid figcaption b{display:block;color:var(--ink);font-size:15px;font-weight:700;letter-spacing:0}
+.food-ideas-grid figcaption span{display:block;font-size:12px;color:var(--sub);margin-top:2px}
+.food-ideas-note{font-size:12px;line-height:1.8;margin:18px 0 0;color:var(--sub)}
+.cover-cap{max-width:90%;text-align:center;line-height:1.7}
+.vote-update-notice{font-size:14px;line-height:1.85;color:#f1ebd9;background:rgba(255,214,107,.1);border-left:3px solid var(--bulb);padding:13px 16px;margin:0 0 24px}
+#results{margin-top:32px}
+.vote-results .vr-update{font-size:16px;line-height:1.85;color:#fff;margin-top:14px}
+.vote-results .vr-update b{color:var(--bulb);font-size:20px;font-weight:700;white-space:nowrap}
+.vote-results .vr-update-note{font-size:13px;color:#d7e3e7;line-height:1.8;margin:5px 0 16px}
+.vote-results.is-pending .vr-meta{font-size:12px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+.vote-results.is-pending .vr-num{font-size:14px;font-weight:500;color:#e6e9f5;margin:12px 0 7px}
+.vote-results.is-pending .vr-progress{height:4px;max-width:420px;opacity:.8}
+.vote-results.is-pending .vr-note{margin-top:8px;font-size:12px}
+.vote-results.is-pending .vr-actions{margin-top:18px}
+#vendorPrep{margin:14px 0 10px}
+#vendors[hidden]{display:none!important}
+@media(max-width:860px){
+ #voteForm,#voteDone{scroll-margin-top:80px}
+ .food-inspiration h3{font-size:25px;margin-bottom:18px}
+ .food-ideas-grid{gap:12px}
+ .food-ideas-grid figcaption b{font-size:14px}
+ .food-ideas-grid figcaption span{font-size:12px}
+ .food-ideas-note{margin-top:14px}
+ .vote-update-notice{font-size:13px;padding:12px 13px;margin-bottom:22px}
+ .vote-results .vr-update{font-size:14px}
+ .vote-results .vr-update b{font-size:18px}
+ .cover-cap{font-size:12px!important;right:12px;bottom:10px;padding:4px 9px}
+}
+@media(max-width:380px){
+ .food-ideas-grid{gap:9px}
+ .food-ideas-grid figcaption b{font-size:13px}
+ .food-ideas-grid figcaption span{font-size:12px;letter-spacing:-.025em}
+ .cover-cap{max-width:calc(100% - 24px)}
+}
