@@ -1,0 +1,154 @@
+/* Brand V3 – faithful implementation of proposed editorial LP.
+   CSS is scoped to the homepage, not the other road-sign subpages. */
+body.tor-design-v3{
+  --navy:#203c34;--navy2:#142e26;--orange:#b88650;--ochre:#f4eadc;
+  --paper:#f6f4ed;--bg:#eef1eb;--ink:#23332e;--muted:#67796f;--line:#dce4dc;--good:#236b4d;
+  background:#f6f4ed;color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.8
+}
+.tor-design-v3 .wrap{max-width:1170px;padding:0 28px}
+.tor-design-v3 .topnav{background:rgba(246,244,237,.97);box-shadow:none;border-color:#e0e7dd;backdrop-filter:blur(14px)}
+.tor-design-v3 .navrow{min-height:77px}
+.tor-design-v3 .brand{font-size:25px;letter-spacing:-.07em;font-weight:900;color:#203c34}
+.tor-design-v3 .brand i,.tor-design-v3 .v3-footbrand i{font-style:normal;color:#b88650}
+.tor-design-v3 .brand small{font-size:10px;color:#728578;font-weight:600;letter-spacing:0}
+.tor-design-v3 .navright{gap:25px;color:#203c34;font-size:13px}
+.tor-design-v3 .btn{background:#203c34;color:#fff;border-radius:10px;min-height:54px;box-shadow:0 9px 20px rgba(32,60,52,.12);font-size:14px;transition:transform .2s,background .2s}
+.tor-design-v3 .btn:hover{transform:translateY(-2px);background:#31594d}
+.tor-design-v3 .btn:focus-visible,.tor-design-v3 a:focus-visible,.tor-design-v3 button:focus-visible,.tor-design-v3 input:focus-visible,.tor-design-v3 select:focus-visible{outline:3px solid #d8a15b;outline-offset:3px}
+.tor-design-v3 .v3-hero{padding:70px 0 96px}
+.tor-design-v3 .v3-herogrid{display:grid;grid-template-columns:1.03fr 1fr;align-items:center;gap:62px}
+.tor-design-v3 .v3-eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:#64816f;margin:0 0 23px}
+.tor-design-v3 .v3-herocopy h1{font-size:clamp(39px,4.35vw,64px);font-weight:900;line-height:1.35;letter-spacing:-.06em;color:#20392f;margin:0 0 27px}
+.tor-design-v3 .v3-herocopy h1 span{color:#668976;display:block}
+.tor-design-v3 .v3-herocopy .v3-lead{color:#465d50;font-size:16.5px;line-height:2.0;max-width:520px;font-weight:500}
+.tor-design-v3 .v3-herocopy .v3-lead b{display:block;font-weight:600}
+.tor-design-v3 .v3-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:30px 0 0}
+.tor-design-v3 .v3-actions .btn{padding:14px 25px;min-width:245px}
+.tor-design-v3 .v3-link{color:#203c34;font-size:14px;font-weight:800;border-bottom:1px solid #9bb2a4;padding:6px 0;white-space:nowrap}
+.tor-design-v3 .v3-proof{font-size:12px;margin:20px 0 0;color:#667970;line-height:1.8}
+.tor-design-v3 .v3-photo{height:535px;position:relative;overflow:hidden;border-radius:6px 6px 90px 6px;margin:0;box-shadow:14px 18px 0 #e4e9df;background:#6c8572}
+.tor-design-v3 .v3-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(.95) saturate(.86)}
+.tor-design-v3 .v3-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 47%,rgba(14,38,25,.79))}
+.tor-design-v3 .v3-photocap{position:absolute;bottom:32px;left:34px;right:24px;color:white;z-index:1}
+.tor-design-v3 .v3-photocap small{display:block;letter-spacing:.12em;font-weight:700;font-size:12px;margin-bottom:8px}
+.tor-design-v3 .v3-photocap strong{font-size:24px;letter-spacing:.01em}
+.tor-design-v3 .v3-photocap em{font-style:normal;color:#e0b978;margin:0 8px}
+.tor-design-v3 .v3-section{padding:102px 0;scroll-margin-top:75px}
+.tor-design-v3 .v3-white{background:#fff}
+.tor-design-v3 .v3-mist{background:#e9eee9}
+.tor-design-v3 .v3-intro{max-width:800px;margin:0 auto 42px;text-align:center}
+.tor-design-v3 .v3-section .v3-kicker{font-size:12px;letter-spacing:.18em;color:#728e7b;font-weight:800;margin-bottom:15px}
+.tor-design-v3 .v3-section h2{font-size:clamp(29px,3.4vw,44px);letter-spacing:-.055em;font-weight:900;color:#20392f;line-height:1.45}
+.tor-design-v3 .v3-intro p{font-size:15px;margin:16px auto 0;line-height:2;color:#687a70}
+.tor-design-v3 .v3-problems{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.tor-design-v3 .v3-problem{border:1px solid #e2e8df;border-radius:13px;background:#fff;overflow:hidden;box-shadow:0 12px 24px #133b2c0a}
+.tor-design-v3 .v3-problem img{display:block;width:100%;aspect-ratio:1.43;object-fit:cover}
+.tor-design-v3 .v3-problembody{padding:24px 23px 28px}
+.tor-design-v3 .v3-problem small{font-size:11px;letter-spacing:.1em;color:#b0814d;font-weight:900}
+.tor-design-v3 .v3-problem h3{color:#233a31;font-weight:800;font-size:20px;line-height:1.5;margin:12px 0}
+.tor-design-v3 .v3-problem p{font-size:13.5px;line-height:1.85;color:#68796f}
+.tor-design-v3 .v3-reportgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+.tor-design-v3 .v3-reportgrid h2{margin:0 0 19px}
+.tor-design-v3 .v3-bodytext{color:#66786d;font-size:15px;line-height:2}
+.tor-design-v3 .v3-checks{list-style:none;margin:23px 0 27px;padding:0;display:grid;gap:12px}
+.tor-design-v3 .v3-checks li{padding-left:27px;position:relative;color:#244c3a;font-weight:700;font-size:14px}
+.tor-design-v3 .v3-checks li:before{content:"✓";color:#37775d;font-weight:900;position:absolute;left:0}
+.tor-design-v3 .v3-report{background:white;border:1px solid #d9e4db;border-radius:15px;padding:27px;box-shadow:17px 22px 0 #e4e9df}
+.tor-design-v3 .v3-reporthead{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dce4dd;padding:0 0 15px;margin:0 0 10px;gap:16px}
+.tor-design-v3 .v3-reporthead b{font-size:19px;color:#203c34}
+.tor-design-v3 .v3-reporthead span{background:#f1e6d7;color:#84603b;padding:4px 11px;border-radius:60px;font-size:11px;font-weight:800}
+.tor-design-v3 .v3-reportrow{padding:18px 0;border-bottom:1px solid #e7eee8}
+.tor-design-v3 .v3-reportrow .v3-rowtop{display:flex;gap:10px;justify-content:space-between;align-items:center}
+.tor-design-v3 .v3-reportrow b{color:#203c34;font-size:14px}
+.tor-design-v3 .v3-reportrow em{font-style:normal;background:#f9ebdc;color:#a06b3e;border-radius:30px;padding:1px 9px;font-size:11px;font-weight:800}
+.tor-design-v3 .v3-reportrow p{font-size:12.5px;color:#6a7e70;line-height:1.8;margin-top:6px}
+.tor-design-v3 .v3-reportnote{font-size:11px;color:#7a867d;margin:14px 0 0}
+.tor-design-v3 .v3-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.tor-design-v3 .v3-step{padding:29px 28px;background:#fff;border:1px solid #dde6df;border-radius:12px;min-height:220px}
+.tor-design-v3 .v3-step small{font-size:11px;font-weight:900;letter-spacing:.12em;color:#b38b57}
+.tor-design-v3 .v3-step h3{font-size:19px;margin:16px 0 12px;color:#203b31}
+.tor-design-v3 .v3-step p{font-size:13.5px;line-height:1.85;color:#64786c}
+.tor-design-v3 .v3-services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:21px}
+.tor-design-v3 .v3-service{background:white;border-radius:12px;border:1px solid #dce6de;overflow:hidden;display:flex;flex-direction:column}
+.tor-design-v3 .v3-service img{display:block;width:100%;aspect-ratio:1.55;object-fit:cover}
+.tor-design-v3 .v3-servicebody{padding:23px;display:flex;flex:1;flex-direction:column}
+.tor-design-v3 .v3-service small{font-size:11px;color:#a97845;letter-spacing:.1em;font-weight:900}
+.tor-design-v3 .v3-service h3{font-size:21px;color:#203c34;margin:9px 0}
+.tor-design-v3 .v3-service p{font-size:13.5px;color:#63766b;margin-bottom:17px;line-height:1.85}
+.tor-design-v3 .v3-service a{color:#265640;font-weight:900;text-decoration:underline;text-underline-offset:5px;font-size:14px;margin-top:auto}
+.tor-design-v3 .v3-aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}
+.tor-design-v3 .v3-aboutcard{background:#e9eee9;border-radius:16px;padding:37px;display:flex;align-items:center;gap:21px}
+.tor-design-v3 .v3-aboutcard img{width:108px;height:108px;border-radius:50%;border:4px solid #fff;object-fit:cover;flex-shrink:0}
+.tor-design-v3 .v3-aboutcard b{display:block;font-size:18px;color:#203c34}
+.tor-design-v3 .v3-aboutcard p{font-size:13px;color:#64796b}
+.tor-design-v3 .v3-pills{display:flex;gap:10px;flex-wrap:wrap;margin:21px 0 0}
+.tor-design-v3 .v3-pills span{border:1px solid #c6d6c9;color:#385b46;border-radius:40px;font-size:12px;padding:7px 12px;font-weight:700}
+.tor-design-v3 .v3-faq{max-width:860px;margin:auto}
+.tor-design-v3 .v3-faq details{background:#fff;border:1px solid #dbe5dc;border-radius:11px;margin:0 0 10px;padding:20px 24px}
+.tor-design-v3 .v3-faq summary{font-weight:800;color:#203c34;cursor:pointer}
+.tor-design-v3 .v3-faq details p{font-size:14px;color:#687a6d;margin:12px 0 0}
+.tor-design-v3 #contact{background:#203c34;padding:90px 0 102px}
+.tor-design-v3 #contact .v3-intro h2{color:#fff}
+.tor-design-v3 #contact .v3-intro .v3-kicker{color:#b5ceb9}
+.tor-design-v3 #contact .v3-intro p{color:#d2e0d6}
+.tor-design-v3 #contact .contactgrid{background:white;border-radius:17px;overflow:hidden;box-shadow:0 20px 35px #0d251c22}
+.tor-design-v3 #contact .contactinfo{background:#315447;padding:39px}
+.tor-design-v3 #contact .contactinfo h2{font-size:30px;color:#fff}
+.tor-design-v3 #contact .contactinfo p{color:#e5ece4}
+.tor-design-v3 #contact .contactform{background:#fff}
+.tor-design-v3 #contact .contactform .btn{background:#203c34}
+.tor-design-v3 #contact label{color:#294536}
+.tor-design-v3 #contact .privacy-check{color:#294536}
+.tor-design-v3 #contact input:not([type=checkbox]):not([type=radio]),.tor-design-v3 #contact select,.tor-design-v3 #contact textarea{border-radius:8px;border:1px solid #bbcec1}
+.tor-design-v3 .footer{background:#142b22;color:#cbd6cb}
+.tor-design-v3 .sticky-mobile{background:#f7f8f5f5;border-top:1px solid #ccdacd}
+.tor-design-v3 .sticky-mobile .btn{width:100%}
+@media(max-width:950px){
+ .tor-design-v3 .v3-herogrid{gap:32px;grid-template-columns:1fr 1fr}
+ .tor-design-v3 .v3-aboutgrid{gap:35px}
+ .tor-design-v3 .v3-reportgrid{gap:32px}
+ .tor-design-v3 .v3-herocopy h1{font-size:clamp(32px,4.5vw,48px)}
+ .tor-design-v3 .v3-photo{height:455px}
+}
+@media(max-width:850px){
+ .tor-design-v3 .wrap{padding:0 20px}
+ .tor-design-v3 .navrow{min-height:65px}.tor-design-v3 .brand{font-size:20px}.tor-design-v3 .brand small{font-size:9px}
+ .tor-design-v3 .v3-hero{padding:40px 0 52px}
+ .tor-design-v3 .v3-herogrid,.tor-design-v3 .v3-reportgrid,.tor-design-v3 .v3-aboutgrid{grid-template-columns:1fr}
+ .tor-design-v3 .v3-hero .v3-herogrid{gap:31px}
+ .tor-design-v3 .v3-herocopy h1{font-size:clamp(33px,7.1vw,49px);line-height:1.35}
+ .tor-design-v3 .v3-eyebrow{margin-bottom:17px}
+ .tor-design-v3 .v3-herocopy .v3-lead{font-size:15px}
+ .tor-design-v3 .v3-actions .btn{width:100%}
+ .tor-design-v3 .v3-link{margin:auto}
+ .tor-design-v3 .v3-photo{height:330px;border-radius:6px 6px 55px 6px;box-shadow:8px 10px 0 #e3e9e1}
+ .tor-design-v3 .v3-photocap{bottom:23px;left:20px}
+ .tor-design-v3 .v3-photocap strong{font-size:19px}
+ .tor-design-v3 .v3-section{padding:67px 0;scroll-margin-top:60px}
+ .tor-design-v3 .v3-section .v3-kicker{font-size:10px}
+ .tor-design-v3 .v3-section h2{font-size:clamp(28px,6vw,38px)}
+ .tor-design-v3 .v3-problems,.tor-design-v3 .v3-flow,.tor-design-v3 .v3-services{grid-template-columns:1fr;gap:15px}
+ .tor-design-v3 .v3-problem{display:grid;grid-template-columns:40% 60%}
+ .tor-design-v3 .v3-problem img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
+ .tor-design-v3 .v3-problembody{padding:16px}
+ .tor-design-v3 .v3-problem h3{font-size:17px}
+ .tor-design-v3 .v3-problem p{font-size:12.5px}
+ .tor-design-v3 .v3-intro{margin-bottom:28px}
+ .tor-design-v3 .v3-report{box-shadow:8px 11px 0 #e4e9df}
+ .tor-design-v3 .v3-step{min-height:0}
+ .tor-design-v3 .v3-service img{aspect-ratio:2.3}
+ .tor-design-v3 .v3-aboutcard{padding:24px}
+ .tor-design-v3 #contact{padding:65px 0 90px}
+ .tor-design-v3 #contact .contactgrid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+ .tor-design-v3 .v3-problem{display:block}
+ .tor-design-v3 .v3-problem img{aspect-ratio:1.85;height:auto}
+ .tor-design-v3 .v3-herocopy h1{font-size:clamp(32px,9vw,41px)}
+ .tor-design-v3 .v3-photo{height:275px}
+ .tor-design-v3 .v3-aboutcard{align-items:flex-start}
+ .tor-design-v3 .v3-aboutcard img{width:80px;height:80px}
+ .tor-design-v3 .v3-intro p{font-size:14px}
+ .tor-design-v3 #contact .contactinfo{padding:26px}
+}
+@media(prefers-reduced-motion:reduce){.tor-design-v3 .btn{transition:none;transform:none!important}}
