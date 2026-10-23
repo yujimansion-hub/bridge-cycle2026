@@ -822,6 +822,33 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 .hw-list li.hw-done{opacity:.5}
 @media(max-width:860px){.hw-list{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){.hw-lamp{animation:none}}
+/* ── LIVE レイヤー：ヘッダー下のライブバーと NOW / NEXT ── */
+.live-bar{background:var(--night);color:var(--page);border-top:1px solid rgba(255,255,255,.08)}
+.live-bar .wrap{display:flex;align-items:center;gap:14px;min-height:34px;padding-top:6px;padding-bottom:6px;font:500 12px/1.4 'Jost','Noto Sans JP',sans-serif;letter-spacing:.06em;white-space:nowrap;overflow:hidden}
+.lb-tag{display:inline-flex;align-items:center;gap:7px;font-weight:600;letter-spacing:.16em}
+.lb-tag i{width:8px;height:8px;border-radius:50%;background:#e2563b;box-shadow:0 0 0 0 rgba(226,86,59,.6);animation:lb-pulse 1.6s ease-out infinite}
+@keyframes lb-pulse{0%{box-shadow:0 0 0 0 rgba(226,86,59,.55)}100%{box-shadow:0 0 0 9px rgba(226,86,59,0)}}
+.lb-main{opacity:.8}
+.lb-clock{font:600 14px/1 'Jost',sans-serif;letter-spacing:.04em;font-variant-numeric:tabular-nums;color:var(--bulb)}
+.lb-votes b{font-weight:600;color:var(--bulb);font-variant-numeric:tabular-nums}
+.lb-next{margin-left:auto;color:var(--page);text-decoration:none;opacity:.85;overflow:hidden;text-overflow:ellipsis}
+.lb-next:hover{opacity:1;text-decoration:underline}
+.now-next{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);margin:14px 0 16px;background:var(--paper)}
+.nn-col{padding:14px 16px;min-width:0}
+.nn-col+.nn-col{border-left:1px solid var(--ink)}
+.nn-label{display:inline-flex;align-items:center;gap:7px;font:600 11px/1 'Jost',sans-serif;letter-spacing:.2em;color:var(--sub)}
+.nn-now .nn-label{color:var(--tomato)}
+.nn-now .nn-label i{width:7px;height:7px;border-radius:50%;background:var(--tomato);animation:lb-pulse 1.6s ease-out infinite}
+.nn-col p{margin:8px 0 2px;font-size:17px;font-weight:800;letter-spacing:-.02em;line-height:1.45;color:var(--ink)}
+.nn-col small{display:block;font-size:12px;color:var(--sub);line-height:1.6}
+@media(max-width:860px){
+  .live-bar .wrap{gap:10px;font-size:11px;padding-left:16px;padding-right:16px}
+  .lb-next,.lb-votes{display:none}
+  .lb-clock{margin-left:auto;font-size:13px}
+  .now-next{grid-template-columns:1fr}.nn-col+.nn-col{border-left:0;border-top:1px solid var(--ink)}
+  .nn-col p{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.lb-tag i,.nn-now .nn-label i{animation:none}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261023viral1">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
@@ -834,6 +861,15 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <div class="wrap">
     <a class="brand" href="#top"><svg class="mark" viewBox="0 0 20 26" aria-hidden="true"><path d="M10 2a8 8 0 0 0-4.6 14.5c.8.6 1.3 1.5 1.3 2.5V20h6.6v-1c0-1 .5-1.9 1.3-2.5A8 8 0 0 0 10 2z" fill="#FFD66B"/><rect x="6.7" y="21" width="6.6" height="3" rx="1" fill="#C9CEE6"/></svg>南草津駅前、よりみち。<small>南草津駅周辺まちづくりの社会実験</small></a>
     <a class="btn btn-bulb btn-sm hdr-cta" href="#register"><span class="full">開催案内を受け取る</span><span class="short">案内を受け取る</span></a>
+  </div>
+  <div class="live-bar" id="liveBar" aria-live="off">
+    <div class="wrap">
+      <span class="lb-tag"><i aria-hidden="true"></i><b id="lbTag">LIVE</b></span>
+      <span class="lb-main" id="lbMain">はじめての点灯まで</span>
+      <span class="lb-clock" id="lbClock" aria-hidden="true">--</span>
+      <span class="lb-votes" id="lbVotes" hidden>みんなの声 <b id="lbVotesN">0</b>票</span>
+      <a class="lb-next" href="#heTitle" id="lbNext">NEXT 11.30 MON はじめての点灯</a>
+    </div>
   </div>
 </header>
 
@@ -867,6 +903,10 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     </div>
       <section class="hero-event" aria-labelledby="heTitle">
         <h2 class="he-kicker" id="heTitle"><span>3 WEEKS GUIDE</span>3週間の楽しみ方</h2>
+        <div class="now-next" aria-live="polite">
+          <div class="nn-col nn-now"><span class="nn-label"><i aria-hidden="true"></i>NOW</span><p id="nnNow">投票受付中</p><small id="nnNowSub">あなたの「食べたい」が、お店選びの手がかりに</small></div>
+          <div class="nn-col nn-next"><span class="nn-label">NEXT</span><p id="nnNext">11.30 MON　はじめての点灯</p><small id="nnNextSub">初日の夕方、日の入りのころ（16:45ごろ）</small></div>
+        </div>
         <details class="he-purpose"><summary>みんなで変えるしくみ・投票の状況を見る</summary>
         <p class="he-msg"><b>変えるのは、みんなだ。</b><br>一票も、ひとつの寄り道も、3週間の先をつくる力に。<a class="he-more" href="#keep">どうなれば、この先も続く？ →</a></p>
         <div class="he-voice" id="heVoice" hidden>
@@ -1527,6 +1567,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     document.querySelectorAll('.vs-post').forEach(function(el){el.hidden=!ready;});
     (function(){ var box=document.getElementById('heVoice'); if(!box) return;
       var num=hasNumber?Math.floor(n):(ready?Math.floor(Number(r.total)):null);
+      window.__yvVotes=num; if(window.__yvLive) window.__yvLive();
       if(num===null){ box.hidden=true; return; }
       box.hidden=false;
       document.getElementById('heVoiceNote').textContent = ready ? 'みんなの結果を公開中。あなたの1票も、集計に加わります' : (num>=30 ? '30票に届きました。次の更新で結果を公開します' : '30票で、みんなの結果を公開します（あと'+(30-num)+'票）');
@@ -1600,6 +1641,47 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     if(location.hash==='#voteForm') requestAnimationFrame(function(){vdone.scrollIntoView({block:'start'});});
   }
   if(load('minakusa_voted')) showVoted();
+
+  // ── LIVE：ヘッダー下のライブバーと NOW / NEXT（日本時間。1秒ごとに更新） ──
+  (function(){
+    var FROM=Date.UTC(2026,10,30), TO=Date.UTC(2026,11,20), DAY=864e5;
+    var WEEKS=[['2026-11-30','2026-12-06','第1週','はじまりの週'],['2026-12-07','2026-12-13','第2週','あったか週'],['2026-12-14','2026-12-19','第3週','年末の手みやげ週'],['2026-12-20','2026-12-20','最終日','みんなの結果発表']];
+    var WD=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+    var $=function(id){return document.getElementById(id);};
+    if(!$('liveBar')) return;
+    function pad(n){return (n<10?'0':'')+n;}
+    function md(t){var d=new Date(t);return (d.getUTCMonth()+1)+'.'+pad(d.getUTCDate())+' '+WD[d.getUTCDay()];}
+    function render(){
+      var now=Date.now()+9*3600e3, today=Math.floor(now/DAY)*DAY, key=new Date(today).toISOString().slice(0,10), votes=window.__yvVotes;
+      if(typeof votes==='number'){ $('lbVotes').hidden=false; $('lbVotesN').textContent=votes; }
+      if(today<FROM){
+        var left=FROM+(16*60+45)*6e4-now, d=Math.floor(left/DAY), h=Math.floor(left%DAY/36e5), m=Math.floor(left%36e5/6e4), s=Math.floor(left%6e4/1e3);
+        $('lbTag').textContent='LIVE'; $('lbMain').textContent='はじめての点灯まで';
+        $('lbClock').textContent=d+'日 '+pad(h)+':'+pad(m)+':'+pad(s);
+        $('lbNext').textContent='NEXT 11.30 MON はじめての点灯';
+        $('nnNow').textContent='投票受付中'+(typeof votes==='number'?'・いま'+votes+'票':'');
+        $('nnNowSub').textContent='あなたの「食べたい」が、お店選びの手がかりに';
+        $('nnNext').textContent='11.30 MON　はじめての点灯';
+        $('nnNextSub').textContent='初日の夕方、日の入りのころ（16:45ごろ）';
+      } else if(today<=TO){
+        var day=Math.round((today-FROM)/DAY)+1, wk=WEEKS.filter(function(w){return key>=w[0]&&key<=w[1];})[0]||WEEKS[0];
+        var hour=new Date(now).getUTCHours();
+        $('lbTag').textContent='ON AIR'; $('lbMain').textContent='開催中 DAY '+day+'/21';
+        $('lbClock').textContent=pad(hour)+':'+pad(new Date(now).getUTCMinutes())+':'+pad(new Date(now).getUTCSeconds());
+        $('nnNow').textContent='DAY '+day+'　'+wk[2]+'・'+wk[3];
+        $('nnNowSub').textContent='西口・東口の駅前で開催中（各日の時間は案内のとおり）';
+        if(today===TO){ $('nnNext').textContent='きょう　みんなの結果発表'; $('nnNextSub').textContent='3週間の投票と声を、会場とこのページで'; $('lbNext').textContent='NEXT きょう 結果発表'; }
+        else if(hour<17){ $('nnNext').textContent='きょう　日の入りに点灯'; $('nnNextSub').textContent='灯りがついたら、よりみち'; $('lbNext').textContent='NEXT きょう 日の入りに点灯'; }
+        else { $('nnNext').textContent=md(today+DAY)+'　また、灯りがつきます'; $('nnNextSub').textContent=(today+DAY===TO)?'最終日は、みんなの結果発表':'あしたの帰り道も、よりみち'; $('lbNext').textContent='NEXT '+md(today+DAY); }
+      } else {
+        $('lbTag').textContent='THANK YOU'; $('lbMain').textContent='3週間、ありがとうございました'; $('lbClock').textContent='';
+        $('lbNext').textContent='結果とこれからの駅前は、このページで';
+        $('nnNow').textContent='3週間、ありがとうございました'; $('nnNowSub').textContent='みなさんの一票と寄り道が、これからの駅前の材料になります';
+        $('nnNext').textContent='結果とこれからの駅前'; $('nnNextSub').textContent='このページでお知らせします';
+      }
+    }
+    window.__yvLive=render; render(); setInterval(render,1000);
+  })();
   (function(){ var w=document.getElementById('heWeeks'); if(!w) return;
     var key=new Date(Date.now()+9*3600e3).toISOString().slice(0,10);
     w.querySelectorAll('li[data-from]').forEach(function(li){ var f=li.getAttribute('data-from'), t=li.getAttribute('data-to');
