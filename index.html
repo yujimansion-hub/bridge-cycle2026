@@ -151,6 +151,27 @@ html .shikumi-grid .flow3 li::before{position:absolute;left:0;top:18px;margin:0}
 .cost .r2 .bar{animation-delay:1.1s;animation-duration:.6s}
 @media (prefers-reduced-motion:reduce){.cost .bar{animation:none}}
 
+/* 自治体帯の図 */
+html .gyosei-band .gb{grid-template-columns:1.15fr .85fr;align-items:center}
+.gb-acts{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:22px}
+.gb-sub{color:#fff;font-size:14px}
+.gb-fig{margin:0;background:#fff;color:var(--ai);border-radius:16px;padding:22px 22px 18px}
+.gb-fig figcaption{font-size:13px;font-weight:700;color:var(--ai-2);margin-bottom:10px}
+.gb-row{display:grid;grid-template-columns:64px 110px 1fr;gap:12px;align-items:center;padding:6px 0}
+.gb-row svg{width:110px;height:58px}
+.gb-when{font-size:13px;font-weight:700;color:var(--ai-3)}
+.gb-row.after .gb-when{color:var(--tape-d)}
+.gb-what{font-size:13px;color:var(--ai-3);line-height:1.5}
+.gb-what b{display:block;font-size:18px;color:var(--ai-3)}
+.gb-row:not(.after) .gb-what b{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:#c8d0de}
+.gb-row.after .gb-what b{color:var(--ai)}
+.gb-arrow{height:18px;margin-left:120px;position:relative}
+.gb-arrow::before{content:"";position:absolute;left:0;top:0;width:2px;height:12px;background:var(--ai-3)}
+.gb-arrow::after{content:"";position:absolute;left:-4px;top:10px;border:5px solid transparent;border-top:7px solid var(--ai-3)}
+html .gyosei-band .gb-note{font-size:12.5px;color:var(--ai-2);margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);line-height:1.6;max-width:none!important}
+@media (max-width:860px){html .gyosei-band .gb{grid-template-columns:1fr}}
+@media (max-width:400px){.gb-row{grid-template-columns:56px 84px 1fr;gap:8px}.gb-row svg{width:84px;height:46px}.gb-arrow{margin-left:100px}}
+
 /* 入口：3つの立場 */
 .doors{padding:72px 0 64px}
 .doors-q{font-size:clamp(25px,3.4vw,34px);font-weight:700;line-height:1.4}
@@ -589,8 +610,23 @@ footer p{margin-top:6px}
           <h2>支援の成果を、数字で示せる形に。</h2>
           <p>商工団体への補助を「相談件数」から「支援先の生産性の伸び」で評価する成果連動型へ。その見直しを最初に提案し、実現させた代表が、調査・計画づくりから事業者への伴走までお受けします。</p>
           <ul><li>事業者実態調査</li><li>創業塾・承継セミナー</li><li>空き店舗・商店街の承継調査</li><li>振興計画の策定支援</li><li>補助事業の伴走</li></ul>
+          <div class="gb-acts"><a class="gb-btn" href="gyosei.html" data-t="top_gyosei_band">業務受託のご案内</a><a class="gb-sub" href="gyosei.html#yosan" data-t="top_gyosei_yosan">予算化前の参考見積・仕様のご相談（無料）</a></div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:10px"><a class="gb-btn" href="gyosei.html" data-t="top_gyosei_band">業務受託のご案内</a><a href="gyosei.html#yosan" data-t="top_gyosei_yosan" style="color:#fff;font-size:14px;text-align:center;text-decoration:underline">予算化前の参考見積・仕様のご相談（無料）</a></div>
+        <figure class="gb-fig" aria-label="補助制度の評価の見直し：見直し前は相談件数、見直し後は支援先の生産性の伸び">
+          <figcaption>大津市の商工団体への補助、評価のものさし</figcaption>
+          <div class="gb-row">
+            <span class="gb-when">見直し前</span>
+            <svg viewBox="0 0 120 64" aria-hidden="true"><g fill="#c8d0de"><rect x="6" y="40" width="14" height="18" rx="2"/><rect x="26" y="40" width="14" height="18" rx="2"/><rect x="46" y="40" width="14" height="18" rx="2"/><rect x="66" y="40" width="14" height="18" rx="2"/><rect x="86" y="40" width="14" height="18" rx="2"/></g><path d="M6 30h94" stroke="#c8d0de" stroke-width="2" stroke-dasharray="4 4"/></svg>
+            <span class="gb-what"><b>相談件数</b>相談を何件受けたか</span>
+          </div>
+          <div class="gb-arrow" aria-hidden="true"></div>
+          <div class="gb-row after">
+            <span class="gb-when">見直し後</span>
+            <svg viewBox="0 0 120 64" aria-hidden="true"><g fill="#9bcf53"><rect x="6" y="48" width="14" height="10" rx="2"/><rect x="26" y="40" width="14" height="18" rx="2"/><rect x="46" y="30" width="14" height="28" rx="2"/><rect x="66" y="18" width="14" height="40" rx="2"/><rect x="86" y="6" width="14" height="52" rx="2"/></g></svg>
+            <span class="gb-what"><b>生産性の伸び</b>支援先がどれだけ伸びたか</span>
+          </div>
+          <p class="gb-note">代表が最初に提案し、滋賀県・近畿経済産業局にも掛け合って実現（令和6年）</p>
+        </figure>
       </div>
     </div>
   </section>
