@@ -31,7 +31,7 @@
   function postText(){
     var text;
     if(mode==='announce'&&announcement.date){
-      text='南草津駅を、みんなで変える。\n変えるのは、みんなだ。\n'+announcement.date+'／'+announcement.place+'。入場無料。\nあなたの一票。いつもの寄り道。友だちへのひと声。\nその一つひとつが、次の駅前をつくる。\nいっしょに、南草津駅を変えよう。食べたいものの投票も受付中。\n'+announcement.note;
+      text='南草津駅を、みんなで変える。\nいつもの帰り道に、「今日は何があるかな」の楽しみを。\n'+announcement.date+'／'+announcement.place+'。入場無料。\n3週間のあとも、「また来たい」が続く駅前へ。\nその未来を、あなたとつくりたい。\nまずは、あなたの「食べたい」を一票に。友だちも誘ってね。\n'+announcement.note;
     }else if(mode==='results'&&data.results&&data.results.total>=30){
       text='南草津駅の帰り道、何が買えたらうれしい？\n'+data.results.asof+'時点・有効回答'+data.results.total+'件の途中経過です。\n'+data.results.top.slice(0,3).map(function(t,i){return(i+1)+'. '+t[0]+'（'+t[1]+'人が選択）';}).join('\n')+'\nあなたの食べたいものも、教えてください。';
     }else if(mode==='event'&&data.nextEvent){
@@ -47,7 +47,7 @@
     document.getElementById('snsText').value=full;
     document.getElementById('snsLine').href='https://line.me/R/share?text='+encodeURIComponent(postText()+'\n'+shareLink('line'));
     document.getElementById('snsThreads').href='https://www.threads.com/intent/post?text='+encodeURIComponent(postText()+'\n'+shareLink('threads'));
-    var xt=mode==='announce'&&announcement.date?'南草津駅を、みんなで変える。\n変えるのは、みんなだ。\n'+announcement.date+'\n'+announcement.place+'。入場無料。\n各日の出店・時間・お店は順次公開。':mode==='event'&&data.nextEvent?'南草津駅前、よりみち。\n'+data.nextEvent.date+' '+data.nextEvent.time+'\n'+data.nextEvent.place:mode==='results'&&data.results?'南草津駅で何が買えたらうれしい？\n有効回答'+data.results.total+'件の途中経過。あなたの食べたいものも教えてください。':picks.length?'南草津駅で「'+shortNames[picks[0]]+'」が買えたらうれしい。あなたは何派？\n名前・メール不要の投票受付中。'+periodText():'南草津駅で、何が買えたらうれしい？ 名前・メール不要の投票受付中。'+periodText();
+    var xt=mode==='announce'&&announcement.date?'南草津駅を、みんなで変える。\nいつもの帰り道に、小さな楽しみを。\n'+announcement.date+'\n'+announcement.place+'。入場無料。\n各日の出店・時間・お店は順次公開。':mode==='event'&&data.nextEvent?'南草津駅前、よりみち。\n'+data.nextEvent.date+' '+data.nextEvent.time+'\n'+data.nextEvent.place:mode==='results'&&data.results?'南草津駅で何が買えたらうれしい？\n有効回答'+data.results.total+'件の途中経過。あなたの食べたいものも教えてください。':picks.length?'南草津駅で「'+shortNames[picks[0]]+'」が買えたらうれしい。あなたは何派？\n名前・メール不要の投票受付中。'+periodText():'南草津駅で、何が買えたらうれしい？ 名前・メール不要の投票受付中。'+periodText();
     document.getElementById('snsX').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(xt)+'&url='+encodeURIComponent(shareLink('x'));
     ['snsThreads','snsX'].forEach(function(id){document.getElementById(id).hidden={snsThreads:'threads',snsX:'x'}[id]!==channel;});
     document.getElementById('snsFoodOptions').hidden=mode!=='wish';
@@ -89,7 +89,7 @@
         if(img&&img.complete&&img.naturalWidth){var scale=Math.max(296/img.naturalWidth,artH/img.naturalHeight),dw=img.naturalWidth*scale,dh=img.naturalHeight*scale;c.drawImage(img,ax+(296-dw)/2,artY+(artH-dh)/2,dw,dh);}
         c.restore();c.fillStyle='#173C51';c.font='900 29px \"Noto Sans JP\", sans-serif';c.fillText(label,ax+20,artY+artH+48);
       });
-      c.font='900 42px \"Noto Sans JP\", sans-serif';c.fillText('変えるのは、みんなだ。',72,artY+artH+125);
+      c.font='900 40px \"Noto Sans JP\", sans-serif';c.fillText('「また来たい」が、続く駅前へ。',72,artY+artH+125);
     }
     if(!rows.length&&mode!=='announce'){
       // まだ選んでいない人のカード：10の候補を並べて「あなたなら、どれ？」と問いかける（空白を作らない）
@@ -114,7 +114,7 @@
       y+=rowHeight;
     });
     var foot=H-(format==='story'?455:340);
-    pill(c,mode==='announce'?'いっしょに、南草津駅を変えよう。':mode==='event'?'帰り道に、よりみちしよう。':'あなたの食べたいものは？',72,foot,936,90,'#FFD35B','#173C51',39);
+    pill(c,mode==='announce'?'その未来を、あなたとつくりたい。':mode==='event'?'帰り道に、よりみちしよう。':'あなたの食べたいものは？',72,foot,936,90,'#FFD35B','#173C51',39);
     c.fillStyle='#173C51';c.font='700 30px "Noto Sans JP", sans-serif';
     c.fillText(mode==='announce'?'お店と最新の予定は、リンクから。':mode==='event'?'くわしくは、リンクから。':'名前・メール不要／3つまで選んで投票',72,foot+150);
     c.font='500 24px "Noto Sans JP", sans-serif';
