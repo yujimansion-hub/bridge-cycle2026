@@ -29,3 +29,24 @@ const link=new URL(social.test.shareLink('line'));assert.equal(link.pathname,'/y
 social.update({results:null});assert.match(social.test.postText(),/11月30日/,'Backend refresh preserves announcement');
 social.test.setMode('wish');social.voteDone([2,2,4,99]);assert.equal(new URL(social.test.shareLink('copy')).searchParams.get('w'),'2-4');assert.match(social.test.postText(),/11月30日/);assert.doesNotMatch(social.test.postText(),/開催日は調整中/);
 console.log('PASS: scripts parse; explicit picks, 3-choice limit, returning voters, announcement text, share URLs and refresh stability');
+
+const makeReceiver=(search)=>{
+  let voteCalls=0,loadHandlers=[],events=[],invite={hidden:true,querySelector:()=>invite.title},storage=new Map();
+  invite.title={textContent:''};let receiver={addEventListener:(name,fn)=>{if(name==='load')loadHandlers.push(fn);},bcTrack:(name,params)=>events.push({name,params})};
+  vm.runInNewContext(src,{window:receiver,document:{getElementById:id=>id==='snsInvite'?invite:null,querySelector:()=>null,addEventListener:()=>{}},localStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)},location:{search},URL,URLSearchParams,Image:function(){}});
+  receiver.YorimichiSocial.init({foods:Array.from({length:10},(_,i)=>['emoji','候補'+i]),page:'https://www.bridgecycleco.com/minakusa-yorimichi.html',announcement,vote:()=>{voteCalls++;}});
+  loadHandlers.forEach(fn=>fn());
+  return {api:receiver.YorimichiSocial,invite,events,storage,voteCalls};
+};
+const invited=makeReceiver('?src=share_instagram&w=2-4-99-2');
+assert.equal(invited.invite.hidden,false);assert.match(invited.invite.title.textContent,/パン・スイーツ/);
+assert.equal(new URL(invited.api.test.shareLink('copy')).searchParams.has('w'),false,'An invitation never becomes the recipient own choices');
+assert.equal(invited.voteCalls,0,'Opening a shared card never submits a vote');
+assert.equal(invited.storage.has('minakusa_voted'),false);
+const fromAnnouncement=makeReceiver('?src=share_threads&m=announce');
+assert.equal(fromAnnouncement.events.filter(e=>e.name==='yorimichi_share_landing').length,1,'Announcement traffic is counted without requiring food choices');
+assert.equal(fromAnnouncement.invite.hidden,true,'Announcement is not presented as a food preference');
+social.voteDone([2]);assert.match(social.test.postText(),/私はパン派。あなたは？/);assert.match(social.test.postText(),/楽しい駅に/);
+store.set('minakusa_no','bad-ref');assert.equal(new URL(social.test.shareLink('line')).searchParams.has('r'),false);
+store.set('minakusa_no','23');assert.equal(new URL(social.test.shareLink('line')).searchParams.get('r'),'m023');
+console.log('PASS: personal share caption, referral validation, all-channel landings, recipient choices stay empty, no automatic vote');
