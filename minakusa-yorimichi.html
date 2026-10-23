@@ -776,6 +776,24 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 .he-msg b{color:var(--tomato)}
 .about-msg{margin:12px 0 18px;font-size:17px;font-weight:700;line-height:1.7;color:var(--ink)}.about-msg b{color:var(--tomato)}
 @media(max-width:860px){.he-msg{font-size:14px}.about-msg{font-size:15px}}
+.he-voice{margin:12px 0 0;padding:12px 14px;border:1.5px dashed var(--tomato);border-radius:12px;background:#fff}
+.hv-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 6px;margin:0;font-size:14px;font-weight:700;color:var(--ink)}
+.hv-top b{font-family:'Shippori Mincho B1',serif;font-size:30px;color:var(--tomato);font-variant-numeric:tabular-nums;line-height:1}
+.hv-top small{flex-basis:100%;font-size:12px;font-weight:700;color:var(--sub)}
+.hv-live{width:10px;height:10px;border-radius:50%;background:var(--tomato);align-self:center;animation:hv-pulse 1.6s ease-out infinite}
+@keyframes hv-pulse{0%{box-shadow:0 0 0 0 rgba(183,72,40,.45)}100%{box-shadow:0 0 0 10px rgba(183,72,40,0)}}
+.hv-bar{height:8px;border-radius:99px;background:#F1E4DA;margin-top:8px;overflow:hidden}
+.hv-bar i{display:block;height:100%;width:0;background:var(--tomato);border-radius:99px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.hv-ask{margin:8px 0 0;font-size:13px;font-weight:700}.hv-ask a{color:var(--tomato)}
+.change-road{list-style:none;margin:6px 0 26px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;counter-reset:road}
+.change-road li{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 12px 12px;font-size:13px;line-height:1.6}
+.change-road li b{display:block;font-size:13px;color:var(--sub);margin-bottom:2px}
+.change-road li.now{border:2px solid var(--tomato);background:#FBF1EA}
+.change-road li.now b{color:var(--tomato)}
+.change-road li.now::after{content:"いまここ";position:absolute;top:-10px;right:10px;background:var(--tomato);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:1px 8px}
+.change-road li.done{opacity:.55}
+@media(max-width:860px){.change-road{grid-template-columns:1fr 1fr}.hv-top b{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.hv-live{animation:none}.hv-bar i{transition:none}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
@@ -804,6 +822,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         <p class="he-kicker" id="heTitle"><span>開催決定</span>2026年・西口と東口の駅前で</p>
         <p class="he-dates"><span class="he-d"><b>11.30</b><small>月</small></span><span class="he-to" aria-label="から">→</span><span class="he-d"><b>12.20</b><small>日</small></span></p>
         <p class="he-msg">3週間の社会実験で、これからの南草津駅が変わります。<b>変えるのは、みんなです。</b></p>
+        <div class="he-voice" id="heVoice" hidden>
+          <p class="hv-top"><span class="hv-live" aria-hidden="true"></span>みんなの声 <b id="heVoiceN">0</b>票<small id="heVoiceNote">30票で、みんなの結果を公開します</small></p>
+          <div class="hv-bar" aria-hidden="true"><i id="heVoiceBar"></i></div>
+          <p class="hv-ask"><a href="#voteForm">あなたの1票を足す →</a></p>
+        </div>
         <p class="he-count" id="heCount" aria-live="polite">開催まで あと<b>—</b>日</p>
         <details class="he-calendar"><summary>3週間の会期カレンダーを見る</summary>
         <div class="he-cal" role="img" aria-label="11月30日（月）から12月20日（日）までの会期。各日の出店・時間は決まりしだいお知らせします">
@@ -1145,6 +1168,12 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <div class="wrap">
     <h2 class="h2">変えるのは、みんな。<br>この3週間から、次の駅前へ。</h2>
     <p class="about-msg">3週間の社会実験で、これからの南草津駅が変わります。<b>変えるのは、みんなです。</b>投票も、寄り道のひと品も、駅前の使い方を決める材料になります。</p>
+    <ol class="change-road" id="changeRoad" aria-label="駅前が変わっていく道のり">
+      <li data-from="2026-10-01"><b>いま</b><span>投票で、駅前にほしいものを伝える</span></li>
+      <li data-from="2026-11-30"><b>11/30〜12/20</b><span>寄り道して、買って、確かめる</span></li>
+      <li data-from="2026-12-21"><b>会期のあと</b><span>投票と売れ行きを、個人やお店が分からない形で集計する</span></li>
+      <li data-from="2027-01-01"><b>これから</b><span>集計を、南草津駅前の使い方を考える材料にする</span></li>
+    </ol>
     <div class="about">
       <div>
         <p>通り過ぎるだけの駅前が、立ち寄りたくなる場所になれるか。11月30日（月）〜12月20日（日）の3週間で、出店するお店の反応と、立ち寄る人の動きを確かめます。その結果を、実施者が今後の駅前の使い方を検討するための判断材料にします。</p>
@@ -1428,6 +1457,19 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     updateVotedHero();
     document.querySelectorAll('.vs-pre').forEach(function(el){el.hidden=ready;});
     document.querySelectorAll('.vs-post').forEach(function(el){el.hidden=!ready;});
+    (function(){ var box=document.getElementById('heVoice'); if(!box) return;
+      var num=hasNumber?Math.floor(n):(ready?Math.floor(Number(r.total)):null);
+      if(num===null){ box.hidden=true; return; }
+      box.hidden=false;
+      document.getElementById('heVoiceNote').textContent = ready ? 'みんなの結果を公開中。あなたの1票も、集計に加わります' : (num>=30 ? '30票に届きました。次の更新で結果を公開します' : '30票で、みんなの結果を公開します（あと'+(30-num)+'票）');
+      var ask=box.querySelector('.hv-ask a'); if(ask){ if(load('minakusa_voted')){ ask.textContent='あなたの1票も入っています。結果を見る →'; ask.setAttribute('href','#voteDone'); } }
+      document.getElementById('heVoiceBar').style.width = Math.min(100,Math.round(num/30*100))+'%';
+      var el=document.getElementById('heVoiceN'), from=Number(el.getAttribute('data-n')||0);
+      el.setAttribute('data-n',num);
+      var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce||from===num){ el.textContent=num; return; }
+      var t0=null; (function step(t){ if(!t0)t0=t; var k=Math.min(1,(t-t0)/900); el.textContent=Math.round(from+(num-from)*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(step); })(performance.now());
+    })();
     var main=document.getElementById('results'),done=document.getElementById('myVoteResults');
     if(main){main.innerHTML=html(false);main.hidden=false;main.classList.toggle('is-pending',!ready);}
     if(done)done.innerHTML=html(true);
@@ -1490,6 +1532,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     if(location.hash==='#voteForm') requestAnimationFrame(function(){vdone.scrollIntoView({block:'start'});});
   }
   if(load('minakusa_voted')) showVoted();
+  (function(){ var road=document.getElementById('changeRoad'); if(!road) return;
+    var jst=new Date(Date.now()+9*3600e3), key=jst.toISOString().slice(0,10), items=road.querySelectorAll('li'), cur=-1;
+    items.forEach(function(li,i){ if(key>=li.getAttribute('data-from')) cur=i; });
+    items.forEach(function(li,i){ li.classList.toggle('now',i===cur); li.classList.toggle('done',i<cur); });
+  })();
 
   // ── 開催のお知らせ：カウントダウンと3週間のカレンダー（日本時間で計算） ──
   (function(){
