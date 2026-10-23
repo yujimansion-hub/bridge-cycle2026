@@ -1,0 +1,52 @@
+/* 南草津駅前 出店者募集 / festival edition（一般向け「よりみち。」と同じテイスト）。2026-10-23
+   見た目だけを上書きする。インラインの style を属性セレクタで置き換えるため !important を使う。
+   戻すときは minakusa-ekimae.html の <link> 1行と、本文の fest- で始まる要素を消す。 */
+:root{--f-night:#17372f;--f-night2:#244b40;--f-ink:#193a32;--f-sub:#5c6960;--f-page:#f6f2e9;--f-paper:#fffdf7;--f-line:#d5d8c9;--f-tomato:#b84b35;--f-leaf:#345c48;--f-bulb:#e5edb4}
+body{background:var(--f-page)!important;color:var(--f-ink)!important}
+a{color:var(--f-leaf)}
+#lp-root [style*="background: #F4F5F1"]{background:var(--f-page)!important}
+#lp-root [style*="color: #1B2626"],#lp-root [style*="color: #17242A"]{color:var(--f-ink)!important}
+#lp-root [style*="color: #4A5856"],#lp-root [style*="color: #33413F"]{color:var(--f-sub)!important}
+#lp-root [style*="background: #FFFFFF"]{background:var(--f-paper)!important}
+#lp-root [style*="border: 1px solid #D9DED8"],#lp-root [style*="border-bottom: 1px solid #D9DED8"],#lp-root [style*="border-top: 1px solid #D9DED8"]{border-color:var(--f-line)!important}
+/* テラコッタ */
+#lp-root [style*="background: #B5541A"]{background:var(--f-tomato)!important}
+#lp-root [style*="color: #B5541A"]{color:var(--f-tomato)!important}
+#lp-root [style*="border-top: 6px solid #B5541A"],#lp-root [style*="border-top: 8px solid #B5541A"],#lp-root [style*="border: 1px solid #B5541A"]{border-color:var(--f-tomato)!important}
+/* 深緑 */
+#lp-root [style*="background: #0D6B5E"],#lp-root [style*="background: #17242A"],#lp-root [style*="background: #1B2626"]{background:var(--f-night)!important}
+#lp-root [style*="color: #0D6B5E"]{color:var(--f-leaf)!important}
+#lp-root [style*="border-top: 8px solid #0D6B5E"],#lp-root [style*="border-top: 6px solid #0D6B5E"]{border-color:var(--f-leaf)!important}
+#lp-root svg[stroke="#0D6B5E"]{stroke:var(--f-leaf)}
+#lp-root [style*="background: #E3EFEB"]{background:#e9ecdc!important}
+/* 暗い面のアクセント（黄）→ 薄い黄緑 */
+#lp-root [style*="color: #F2B33D"]{color:var(--f-bulb)!important}
+#lp-root [style*="background: #F2B33D"]{background:var(--f-bulb)!important;color:var(--f-night)!important}
+/* 見出しの書体：太いゴシック → Noto Sans JP 800、字間を詰める */
+#lp-root [style*="Zen Kaku Gothic New"]{font-family:'Noto Sans JP',sans-serif!important;font-weight:800!important;letter-spacing:-.035em}
+/* 角：まるいボタン・カードを、よりみち。と同じ控えめな角に */
+#lp-root a[style*="border-radius: 999px"],#lp-root button[style*="border-radius: 999px"]{border-radius:3px!important}
+#lp-root [style*="border-radius: 20px"],#lp-root [style*="border-radius: 16px"]{border-radius:4px!important}
+#lp-root header{background:rgba(246,242,233,.96)!important;border-bottom:1px solid var(--f-line)!important}
+
+/* ── festival の追加要素 ── */
+.fest-bar{background:var(--f-night);color:var(--f-page)}
+.fest-bar>div{max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;gap:14px;font:500 12px/1.4 'Jost','Noto Sans JP',sans-serif;letter-spacing:.08em;white-space:nowrap;overflow:hidden}
+.fest-bar .fb-tag{display:inline-flex;align-items:center;gap:7px;font-weight:600;letter-spacing:.18em}
+.fest-bar .fb-tag i{width:8px;height:8px;border-radius:50%;background:#e2563b;animation:fb-pulse 1.6s ease-out infinite}
+@keyframes fb-pulse{0%{box-shadow:0 0 0 0 rgba(226,86,59,.55)}100%{box-shadow:0 0 0 9px rgba(226,86,59,0)}}
+.fest-bar .fb-clock{color:var(--f-bulb);font-weight:600;font-variant-numeric:tabular-nums}
+.fest-bar .fb-right{margin-left:auto;opacity:.85}
+.fest-meta{display:flex;justify-content:space-between;gap:16px;padding:0 0 12px;border-bottom:1px solid var(--f-ink);font:500 12px/1.4 'Jost',sans-serif;letter-spacing:.14em;color:var(--f-ink)}
+.fest-date{color:var(--f-ink)}
+.fest-date span{display:block;font:600 13px/1 'Jost',sans-serif;letter-spacing:.1em;margin-bottom:6px}
+.fest-date p{margin:0;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;font:600 clamp(32px,3.6vw,46px)/1 'Jost',sans-serif;letter-spacing:-.045em}
+.fest-date small{font-size:12px;font-weight:500;letter-spacing:.02em}
+.fest-date i{font-style:normal;font-weight:400;font-size:.6em}
+.fest-date em{font-style:normal;font-size:12px;letter-spacing:.12em;border:1px solid var(--f-tomato);color:var(--f-tomato);padding:4px 8px;align-self:center}
+.fest-marquee{background:var(--f-night);color:var(--f-page);overflow:hidden;white-space:nowrap;padding:12px 0}
+.fest-marquee>div{display:inline-flex;gap:28px;padding-left:28px;font:600 13px/1 'Jost',sans-serif;letter-spacing:.24em;animation:fm-run 38s linear infinite}
+.fest-marquee i{font-style:normal;color:var(--f-bulb)}
+@keyframes fm-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:700px){.fest-bar .fb-right,.fest-bar .fb-tag+span{display:none}.fest-bar .fb-clock{margin-left:auto}.fest-meta{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.fest-bar .fb-tag i,.fest-marquee>div{animation:none}}
