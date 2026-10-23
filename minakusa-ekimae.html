@@ -1069,5 +1069,58 @@ root.addEventListener('change',function(e){ if(e.target.type!=='range') fire('ch
   tick(); setInterval(tick,1000);
 })();
 </script>
+<style id="sp-short-css">
+@media (max-width:760px){
+  .sp-swipe{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory;gap:12px!important;margin-left:-20px!important;margin-right:-20px!important;padding:4px 20px 10px!important;scrollbar-width:none;grid-template-columns:none!important;flex-direction:row!important;flex-wrap:nowrap!important}
+  .sp-swipe::-webkit-scrollbar{display:none}
+  .sp-swipe>*{flex:0 0 84%!important;scroll-snap-align:start;margin:0!important;min-width:0}
+  .sp-hint{font-size:12px;opacity:.7;text-align:right;margin:2px 0 0}
+  .sp-q{cursor:pointer;position:relative;padding-right:28px!important}
+  .sp-q::after{content:"＋";position:absolute;right:2px;top:0;font-weight:700}
+  .sp-faq-item.sp-open .sp-q::after{content:"－"}
+  .sp-faq-item:not(.sp-open)>:not(.sp-q){display:none!important}
+}
+</style>
+<script id="sp-short">
+/* スマホで縦を短く：料金・出店場所を横めくり、よくある質問をたたむ（見た目は変えない） */
+(function(){
+  if(!window.matchMedia('(max-width:760px)').matches)return;
+  function hint(el){var p=document.createElement('p');p.className='sp-hint';p.setAttribute('aria-hidden','true');p.textContent='横にめくれます';el.parentNode.insertBefore(p,el.nextSibling);}
+  function run(){
+    var root=document.getElementById('lp-root'); if(!root||!document.getElementById('price'))return false;
+    if(root.getAttribute('data-sp'))return true; root.setAttribute('data-sp','1');
+    /* 料金：西口・東口の2枠 */
+    [].forEach.call(document.getElementById('price').children,function(c){
+      if(c.children.length===2&&/西口/.test(c.children[0].textContent)&&/東口/.test(c.children[1].textContent)){c.classList.add('sp-swipe');hint(c);}
+    });
+    /* 出店場所：2つの地図ブロック */
+    var v=document.getElementById('venue');
+    if(v){[].forEach.call(v.children,function(c){
+      if(c.children.length===2&&c.getBoundingClientRect().height>900){c.classList.add('sp-swipe');hint(c);}
+    });}
+    /* よくある質問 */
+    var secs=root.querySelectorAll('section'),faq=null;
+    [].forEach.call(secs,function(s){if(!faq&&/よくある質問/.test(s.textContent)&&!s.id)faq=s;});
+    if(faq){[].forEach.call(faq.querySelectorAll('div'),function(list){
+      if(list.children.length>=4&&!list.closest('.sp-faq-item')&&[].every.call(list.children,function(it){return /？/.test((it.firstElementChild||{}).textContent||'')})){
+        [].forEach.call(list.children,function(it){
+          var q=it.firstElementChild; if(!q||it.children.length<2)return;
+          it.classList.add('sp-faq-item'); q.classList.add('sp-q'); q.setAttribute('role','button'); q.setAttribute('tabindex','0'); q.setAttribute('aria-expanded','false');
+          function tg(){var o=it.classList.toggle('sp-open');q.setAttribute('aria-expanded',o?'true':'false');}
+          q.addEventListener('click',tg); q.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});
+        });
+      }
+    });}
+    /* 区画の上下の余白を詰める */
+    [].forEach.call(root.querySelectorAll('section'),function(s){
+      var cs=getComputedStyle(s),pt=parseFloat(cs.paddingTop),pb=parseFloat(cs.paddingBottom);
+      if(pt>=48)s.style.paddingTop='36px'; if(pb>=48)s.style.paddingBottom='36px';
+    });
+    return true;
+  }
+  function go(n){if(run()||n>40)return;setTimeout(function(){go(n+1)},100);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){go(0)});else go(0);
+})();
+</script>
 </body>
 </html>

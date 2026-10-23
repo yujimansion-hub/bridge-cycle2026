@@ -182,6 +182,38 @@ footer nav{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:12px}
 footer nav a{text-decoration:none}
 footer nav a:hover{text-decoration:underline}
 .rv{opacity:1}
+
+/* スマホで短く */
+details.mf>summary{list-style:none;cursor:default;pointer-events:none}
+details.mf>summary::-webkit-details-marker{display:none}
+details.fine>summary{display:none}
+@media (max-width:700px){
+  html section{padding:44px 0}
+  html .sec{font-size:23px}
+  .hero .sub{font-size:15.5px}
+  .hero .who{display:none}
+  html .rt{padding:18px 18px 16px}
+  html .rt dl{margin-top:8px}
+  html .j20{gap:20px;margin-top:20px}
+  html .tl li{padding-bottom:14px}
+  html .tl .d{font-size:18px}
+  details.mf>summary{pointer-events:auto;cursor:pointer;position:relative;padding-right:30px}
+  details.mf>summary::after{content:"";position:absolute;right:8px;top:50%;width:12px;height:12px;margin-top:-6px;background:linear-gradient(var(--ai),var(--ai)) center/12px 2px no-repeat,linear-gradient(var(--ai),var(--ai)) center/2px 12px no-repeat}
+  details.mf[open]>summary::after{background:linear-gradient(var(--ai),var(--ai)) center/12px 2px no-repeat}
+  html .faq{margin-top:28px}
+  html .faq h3{display:inline;font-size:16px;color:var(--ai)}
+  html .faq>summary{padding:16px 30px 16px 0}
+  details.fine>summary{display:block;font-size:14px;font-weight:700;padding:14px 30px 0 0;color:var(--ai-2)}
+  html .calc .r{padding:12px 0}
+  html .og ul{grid-template-columns:repeat(3,1fr)}
+  html .og li{padding:10px 6px 0 0;border:0}
+  html .og li+li{padding-left:8px;border-left:1px solid var(--rule);border-top:0}
+  html .og li b{font-size:15px}
+  html .og li span{font-size:12px;line-height:1.5;display:block}
+  html .two{gap:28px;margin-top:20px}
+  html .warn li,html .steps li{padding-top:10px;padding-bottom:10px}
+  html .ct .alt-ways{margin-top:12px}
+}
 </style>
 <script src="bc-analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "補助金申請サポート", "serviceType": "補助金の申請支援", "areaServed": ["大津市", "滋賀県", "京都府"], "provider": {"@type": "ProfessionalService", "name": "BRIDGE CYCLE株式会社", "url": "https://www.bridgecycleco.com/", "address": {"@type": "PostalAddress", "addressRegion": "滋賀県", "addressLocality": "大津市", "addressCountry": "JP"}}}</script>
@@ -251,14 +283,14 @@ footer nav a:hover{text-decoration:underline}
   </div>
   <p class="mut" style="margin-top:14px">出典：小規模事業者持続化補助金〈一般型・通常枠〉第20回 公募要領（第8版）。最新の要件は<a href="https://official.jizokukanb.com/" target="_blank" rel="noopener">事務局の公式サイト</a>でご確認ください。</p>
 
-  <div class="faq">
-    <h3>よくある質問</h3>
+  <details class="faq mf" open>
+    <summary><h3>よくある質問（5問）</h3></summary>
     <details><summary>第20回の持続化補助金は、いつまでに申請すればいいですか</summary><p>申請の締切は2026年12月15日（火）17時です。申請の前に、地域の商工会・商工会議所で事業支援計画書（様式4）の発行を受ける必要があり、その受付締切は12月4日（金）です。計画書づくりには時間がかかるため、11月中に相談を始めるのが安全です。</p></details>
     <details><summary>補助額はいくらですか</summary><p>補助率は原則2/3、通常枠の上限は50万円です。インボイス特例や賃金引上げ特例に当てはまると、上限が上乗せされます。補助金は後払いで、いったん全額を支払ってから、実績報告のあとに受け取ります。</p></details>
     <details><summary>ホームページの制作だけで申請できますか</summary><p>できません。ウェブサイト関連費だけでの申請は認められておらず、チラシなど他の経費と組み合わせる必要があります。ウェブサイト関連費の補助金交付申請額の上限は30万円です。</p></details>
     <details><summary>BRIDGE CYCLEに頼むと、費用はいくらですか</summary><p>初回相談と着手金は0円です。採択（交付決定）されたときだけ、補助額の12%（持続化補助金は最低5万円・税別）をいただきます。不採択なら0円です。</p></details>
     <details><summary>大津市以外でも相談できますか</summary><p>滋賀県と京都府の事業者の方を中心に、オンラインでも対応しています。</p></details>
-  </div>
+  </details>
   <div class="btnrow">
     <a class="btn" href="#contact">第20回の申請について、初回相談（0円）を申し込む</a>
     <a href="yomu-setsubi-hojokin.html">読みもの：設備投資の補助金は「見積書をもらった日」に相談する</a>
@@ -347,7 +379,7 @@ footer nav a:hover{text-decoration:underline}
       <div class="r"><span>不採択なら</span><small>相談料も着手金もなし</small><b class="z">0円</b></div>
     </div>
   </div>
-  <p class="mut" style="margin-top:14px">税別。報酬は採択（交付決定）時に発生し、交付決定から14日以内にお支払いいただきます（補助金の入金は実績報告後のため、ご希望により入金時までの分割に応じます）。採択後に辞退された場合も報酬は発生します。申請書の作成に着手した後、ご都合で取り下げる場合のみキャンセル料（実費相当・上限3万円）。実績報告のサポートは別途3万円（任意）。申請書はご本人の作成を支援するもので、代行ではありません。所在地により連携する中小企業診断士が担当する場合があります。</p>
+  <details class="mf fine" open><summary><span>料金の細かい条件</span></summary><p class="mut" style="margin-top:14px">税別。報酬は採択（交付決定）時に発生し、交付決定から14日以内にお支払いいただきます（補助金の入金は実績報告後のため、ご希望により入金時までの分割に応じます）。採択後に辞退された場合も報酬は発生します。申請書の作成に着手した後、ご都合で取り下げる場合のみキャンセル料（実費相当・上限3万円）。実績報告のサポートは別途3万円（任意）。申請書はご本人の作成を支援するもので、代行ではありません。所在地により連携する中小企業診断士が担当する場合があります。</p></details>
 </div></section>
 
 <section id="ogata"><div class="w">
@@ -473,6 +505,10 @@ document.getElementById('cSend').onclick=async()=>{
     if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.15});
   els.forEach(function(e){io.observe(e);});
 })();
+</script>
+<script>
+(function(){if(!window.matchMedia('(max-width:700px)').matches)return;
+document.querySelectorAll('details.mf').forEach(function(d){d.removeAttribute('open');});})();
 </script>
 </body>
 </html>
