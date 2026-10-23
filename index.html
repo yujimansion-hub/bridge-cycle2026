@@ -203,6 +203,18 @@
   @media (max-width:900px){.st4{grid-template-columns:1fr 1fr}}
   @media (max-width:520px){.st4{grid-template-columns:1fr}}
 
+  /* 自治体・支援機関の方へ（目立つ帯） */
+  .gyosei-band{background:var(--ai);color:#fff;padding:38px 0}
+  .gyosei-band .gb{display:grid;grid-template-columns:1fr auto;gap:22px 32px;align-items:center}
+  .gyosei-band .gb-tag{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--ai);background:var(--tape);padding:3px 10px;border-radius:3px;margin-bottom:12px}
+  .gyosei-band h2{font-family:var(--serif);font-size:clamp(21px,4.2vw,28px);line-height:1.45;margin:0 0 10px;color:#fff}
+  .gyosei-band p{font-size:15px;line-height:1.85;color:#dfe5f0;margin:0}
+  .gyosei-band ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+  .gyosei-band li{font-size:13px;border:1px solid rgba(255,255,255,.35);border-radius:3px;padding:3px 9px;color:#fff}
+  .gyosei-band .gb-btn{display:inline-block;background:var(--tape);color:var(--ai);font-weight:700;font-size:16px;text-decoration:none;padding:15px 26px;border-radius:6px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  .gyosei-band .gb-btn:hover{filter:brightness(1.05)}
+  @media (max-width:720px){.gyosei-band .gb{grid-template-columns:1fr}.gyosei-band .gb-btn{text-align:center}}
+
   /* 連携先の方へ */
   .partners{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
   .partners a{display:block;border:1.5px solid var(--ai);border-radius:6px;padding:14px 12px;text-decoration:none;background:var(--paper);font-size:14px;line-height:1.55;transition:background .15s}
@@ -707,6 +719,21 @@ section.doors{padding:34px 0 48px}
     </div>
   </section>
 
+  <!-- 自治体・支援機関の方へ -->
+  <section class="gyosei-band" id="gyosei" aria-label="自治体・支援機関の方へ">
+    <div class="w">
+      <div class="gb">
+        <div>
+          <span class="gb-tag">自治体・支援機関の方へ</span>
+          <h2>支援の成果を、数字で示せる形に。</h2>
+          <p>商工団体への補助を「相談件数」から「支援先の生産性の伸び」で評価する成果連動型へ。その見直しを最初に提案し、実現させた代表が、調査・計画づくりから事業者への伴走までお受けします。</p>
+          <ul><li>事業者実態調査</li><li>創業塾・承継セミナー</li><li>空き店舗・商店街の承継調査</li><li>振興計画の策定支援</li><li>補助事業の伴走</li></ul>
+        </div>
+        <a class="gb-btn" href="gyosei.html" data-t="top_gyosei_band">業務受託のご案内 →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ほかにやっていること -->
   <section class="alt" id="partner">
     <div class="w">
@@ -846,7 +873,7 @@ section.doors{padding:34px 0 48px}
     <span class="disp">店じまいを、まちのはじまりに。</span>
     BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28
     <nav aria-label="フッター">
-      <a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="minakusa-ekimae.html">南草津駅前の出店</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="hojokin.html">補助金申請サポート</a><a href="road-sign/">看板広告（タドリツク）</a><a href="uchino-chef-recruit.html">うちのシェフ</a><a href="camp.html">キャンプ場の平日収益化</a><a href="tsuzukeru.html">経営計画</a><a href="akinai.html">わたしのこれから診断</a><a href="partner-fudosan.html">連携先の方へ</a>
+      <a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="minakusa-ekimae.html">南草津駅前の出店</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="hojokin.html">補助金申請サポート</a><a href="road-sign/">看板広告（タドリツク）</a><a href="uchino-chef-recruit.html">うちのシェフ</a><a href="camp.html">キャンプ場の平日収益化</a><a href="tsuzukeru.html">経営計画</a><a href="akinai.html">わたしのこれから診断</a><a href="gyosei.html">自治体・支援機関の方へ</a><a href="partner-fudosan.html">連携先の方へ</a>
     </nav>
     <nav aria-label="規約">
       <a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a><a href="shokei-kiyaku.html">秘密保持・直接取引に関する規約</a>
