@@ -172,6 +172,48 @@ html .gyosei-band .gb-note{font-size:12.5px;color:var(--ai-2);margin-top:10px;pa
 @media (max-width:860px){html .gyosei-band .gb{grid-template-columns:1fr}}
 @media (max-width:400px){.gb-row{grid-template-columns:56px 84px 1fr;gap:8px}.gb-row svg{width:84px;height:46px}.gb-arrow{margin-left:100px}}
 
+/* スマホで短く */
+details.mf>summary{list-style:none;cursor:default;pointer-events:none}
+details.mf>summary::-webkit-details-marker{display:none}
+.swipe-hint{display:none}
+@media (max-width:760px){
+  section{padding:44px 0}
+  .sec{font-size:23px}
+  .sec-lead,.j4-lead{font-size:15px}
+  html .tags3,html .j4-sub{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:-20px;margin-right:-20px;padding:14px 20px 8px;scrollbar-width:none}
+  html .tags3::-webkit-scrollbar,html .j4-sub::-webkit-scrollbar{display:none}
+  html .tags3>*,html .j4-sub>article{flex:0 0 82%;scroll-snap-align:start}
+  html .tags3 .ima-none{flex-basis:100%}
+  html .swipe-hint{display:block;font-size:12.5px;color:var(--ai-3);text-align:right;margin-top:2px}
+  .j4-sub p:not(.big){font-size:14px}
+  .j4-core{padding:24px 20px;margin-top:22px}
+  .j4-core .facts{margin-top:12px}
+  .gyosei-band{padding:36px 0}
+  html .gyosei-band ul{display:none}
+  html .j4-core .acts{display:none}
+  html .j4-core{grid-template-columns:1fr;gap:0}
+  details.mf>summary{pointer-events:auto;cursor:pointer;position:relative;padding-right:30px}
+  details.mf>summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;margin-top:-6px;background:linear-gradient(var(--ai),var(--ai)) center/12px 2px no-repeat,linear-gradient(var(--ai),var(--ai)) center/2px 12px no-repeat}
+  details.mf[open]>summary::after{background:linear-gradient(var(--ai),var(--ai)) center/12px 2px no-repeat}
+  html .hoka{gap:0;margin-top:18px}
+  html .hoka h3{padding:14px 0;border-bottom:1px solid var(--rule)}
+  html .hoka details[open] h3{border-bottom:2px solid var(--ai)}
+  #company details.mf>summary .sec{display:inline}
+  html .company{margin-top:16px}
+  html .person{grid-template-columns:96px 1fr;gap:4px 16px;align-items:center}
+  html .person .photo{width:96px;height:118px}
+  html .person>div:last-child{display:contents}
+  html .person .photo{grid-row:1/3}
+  html .person h3{grid-column:2;grid-row:1;font-size:21px;align-self:end}
+  html .person .role{grid-column:2;grid-row:2;align-self:start;font-size:12.5px;margin:0}
+  html .person p:first-of-type{margin-top:14px}
+  html .person p,html .person .follow{grid-column:1/-1}
+  html .person .p-more,html .follow>p{display:none}
+  html .follow{margin-top:10px;padding-top:14px}
+  html footer{padding:32px 0 100px}
+  html footer .f-x{display:none}
+}
+
 /* 入口：3つの立場 */
 .doors{padding:72px 0 64px}
 .doors-q{font-size:clamp(25px,3.4vw,34px);font-weight:700;line-height:1.4}
@@ -516,6 +558,7 @@ footer p{margin-top:6px}
       <h2 class="sec">いま、登録されているお店</h2>
       <p class="sec-lead">店主が自分で登録したお店です。店名は載せていません。引き継ぐのは、内装と設備です。<span id="ima-wait"></span></p>
       <div class="tags3" id="ima-tags" aria-live="polite"></div>
+      <p class="swipe-hint" aria-hidden="true">横にめくれます</p>
       <p class="ima-more"><a class="btn2" href="matching.html#mise" data-t="hub_ima_all">お店の一覧を見る</a><a class="btn2 g" href="keisai.html" data-t="hub_ima_reg">お店を登録する（無料）</a></p>
     </div>
   </section>
@@ -598,6 +641,7 @@ footer p{margin-top:6px}
           </ul>
         </article>
       </div>
+      <p class="swipe-hint" aria-hidden="true">横にめくれます</p>
     </div>
   </section>
 
@@ -636,17 +680,17 @@ footer p{margin-top:6px}
     <div class="w">
       <h2 class="sec">ほかに、やっていること</h2>
       <div class="hoka">
-        <div>
-          <h3>閉める・渡すを考える方へ</h3>
+        <details class="mf" open>
+          <summary><h3>閉める・渡すを考える方へ</h3></summary>
           <ul>
             <li><a href="yomu.html">閉める前に読む</a><span>閉店費用・居抜き開業・補助金のコラム</span></li>
             <li><a href="genjo-kaifuku.html">原状回復の費用を計算</a><span>業種と広さから、壊す工事代の目安</span></li>
             <li><a href="shimekata.html">閉め方の相談</a><span>閉めると決めたあとも、ひとりにしない</span></li>
             <li><a href="gyaku-shimei.html">掲載店への直接相談（逆指名承継）の決まり</a><span>登録・確認・費用のくわしい説明</span></li>
           </ul>
-        </div>
-        <div>
-          <h3>連携先の方へ</h3>
+        </details>
+        <details class="mf" open>
+          <summary><h3>連携先の方へ</h3></summary>
           <ul>
             <li><a href="partner-fudosan.html">不動産オーナー・管理会社</a><span>退去前の情報連携と空室対策</span></li>
             <li><a href="partner-kinyu.html">金融機関</a><span>承継・創業の融資案件の連携</span></li>
@@ -655,15 +699,15 @@ footer p{margin-top:6px}
             <li><a href="partner-shien.html">診断士・支援機関</a><span>承継パートナーの募集</span></li>
             <li><a href="partners.html">紹介パートナー</a><span>紹介して、成果に応じてお礼を受け取る</span></li>
           </ul>
-        </div>
-        <div>
-          <h3>ほかの事業</h3>
+        </details>
+        <details class="mf" open>
+          <summary><h3>ほかの事業</h3></summary>
           <ul>
             <li><a href="minakusa-yorimichi.html?src=top" data-t="top_minakusa_public">南草津駅前、よりみち。</a><span>駅を使う一般の方向け。帰り道に何が買えたらうれしいか、投票受付中</span></li>
             <li><a href="uchino-chef-recruit.html">うちのシェフ</a><span>料理を、まず喜ばれるところから</span></li>
             <li><a href="akinai.html">わたしのこれから診断</a><span>何を始めるかの前に、持っているものを整理する</span></li>
           </ul>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -678,7 +722,7 @@ footer p{margin-top:6px}
           <h3>中村 裕二</h3>
           <div class="role">BRIDGE CYCLE株式会社 代表取締役<br>元 商工会経営指導員（瀬田商工会・大津北商工会）</div>
           <p>商工会の経営指導員として約20年、500以上の事業者の開業・承継・閉店に立ち会ってきました。失敗を避けてきた経験より、失敗を乗り越えてきた経験のほうが役に立つ。だから「失敗しない方法」ではなく、「うまくいかなくても戻れる始め方」と「壊さずに渡せる閉め方」を扱っています。</p>
-          <p>在職中には、大津市の商工団体向け補助制度を「相談件数」から「支援先の生産性の伸び」で評価する成果連動型へ見直すことを最初に提案し、県・国にも掛け合って実現させました。大津市中小企業・小規模企業振興ビジョンの策定では円卓会議の委員を、策定後も令和6年まで振興推進会議の委員を務めました。<a href="gyosei.html#career">公的な仕事の経歴 →</a></p>
+          <p class="p-more">在職中には、大津市の商工団体向け補助制度を「相談件数」から「支援先の生産性の伸び」で評価する成果連動型へ見直すことを最初に提案し、県・国にも掛け合って実現させました。大津市中小企業・小規模企業振興ビジョンの策定では円卓会議の委員を、策定後も令和6年まで振興推進会議の委員を務めました。<a href="gyosei.html#career">公的な仕事の経歴 →</a></p>
           <p><a href="akinai-profile.html">代表のプロフィールを見る →</a></p>
           <div class="follow">
             <p>まだ相談するほどではない方へ。小さな商いを始める・続ける・渡す人の話を、ここで書いています。</p>
@@ -734,7 +778,8 @@ footer p{margin-top:6px}
   <!-- 会社概要 -->
   <section class="alt" id="company">
     <div class="w">
-            <h2 class="sec">会社概要</h2>
+            <details class="mf" open>
+      <summary><h2 class="sec">会社概要</h2></summary>
       <table class="company">
         <tr><th>会社名</th><td>BRIDGE CYCLE株式会社</td></tr>
         <tr><th>設立</th><td>2026年3月17日</td></tr>
@@ -747,6 +792,7 @@ footer p{margin-top:6px}
         <tr><th>しないこと</th><td>不動産の仲介、医療機器の売買、お客さま・患者さまの情報の受け渡し</td></tr>
         <tr><th>お問い合わせ</th><td><a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>／<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINE @907kxssd</a><br><small>営業のお電話はご遠慮ください。ご相談は、LINEかメールでお受けしています。</small></td></tr>
       </table>
+      </details>
     </div>
   </section>
 
@@ -777,9 +823,9 @@ footer p{margin-top:6px}
       <a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a><a href="shokei-kiyaku.html">秘密保持・直接取引に関する規約</a>
     </nav>
     <p>SNS：<a href="https://www.threads.com/@bridgecycle_otsu" rel="me">Threads</a>　<a href="https://www.instagram.com/bridgecycle_otsu/" rel="me">Instagram</a>（@bridgecycle_otsu）　<a href="https://note.com/bridgecycle_2026" rel="me">note</a></p>
-    <p>紹介・連携パートナー：<a href="partners.html">紹介パートナー制度（承継成立で1件2万円）</a>　<a href="torihiki.html">酒販・卸・厨房設備・税理士の方へ</a>　<a href="hitokoto.html">LINEで送る紹介文面集</a>　<a href="partner-fudosan.html">不動産会社の方へ</a></p>
-    <p>この試算を、あなたのサイトやブログに：<a href="shisan-kit.html">試算ツールを埋め込む（無料・紹介のお礼あり）</a></p>
-    <p>業種別の承継：<a href="shokei-inshokuten.html">飲食店</a>　<a href="shokei-biyoshitsu.html">美容室</a>　<a href="shokei-clinic.html">クリニック・歯科</a></p>
+    <p class="f-x">紹介・連携パートナー：<a href="partners.html">紹介パートナー制度（承継成立で1件2万円）</a>　<a href="torihiki.html">酒販・卸・厨房設備・税理士の方へ</a>　<a href="hitokoto.html">LINEで送る紹介文面集</a>　<a href="partner-fudosan.html">不動産会社の方へ</a></p>
+    <p class="f-x">この試算を、あなたのサイトやブログに：<a href="shisan-kit.html">試算ツールを埋め込む（無料・紹介のお礼あり）</a></p>
+    <p class="f-x">業種別の承継：<a href="shokei-inshokuten.html">飲食店</a>　<a href="shokei-biyoshitsu.html">美容室</a>　<a href="shokei-clinic.html">クリニック・歯科</a></p>
   </div>
 </footer>
 
@@ -822,6 +868,10 @@ footer p{margin-top:6px}
     new IntersectionObserver(function(es){past=!es[0].isIntersecting;set()}).observe(hero);
     new IntersectionObserver(function(es){atEnd=es[0].isIntersecting;set()},{threshold:.25}).observe(end);
   })();
+</script>
+<script>
+(function(){if(!window.matchMedia('(max-width:760px)').matches)return;
+document.querySelectorAll('details.mf').forEach(function(d){d.removeAttribute('open');});})();
 </script>
 </body>
 </html>
