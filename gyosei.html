@@ -138,12 +138,41 @@ form .btn{grid-column:1/-1;justify-self:start;cursor:pointer;font-family:inherit
 footer{border-top:1px solid var(--line);padding:32px 0 40px;font-size:14px;color:var(--ink-2)}
 footer .w{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 footer .tagline{color:var(--ink);font-weight:700}
+
+/* 画像・図の追加 */
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:30px;height:30px;flex:none}
+.career-head{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
+.rep{margin:0}
+.rep{display:flex;gap:16px;align-items:center;background:var(--mist);border-radius:16px;padding:14px}
+.rep img{width:96px;height:118px;object-fit:cover;border-radius:12px;flex:none}
+.rep figcaption{font-size:13px;color:var(--ink-3);line-height:1.6}
+.rep b{display:block;font-size:16px;color:var(--ink)}
+@media (max-width:760px){.career-head{grid-template-columns:1fr;gap:20px}.rep{display:flex;gap:14px;align-items:center}.rep img{width:88px;height:108px;border-radius:12px}.rep figcaption{margin-top:0}}
+html .svc{grid-template-columns:76px 1.1fr 2fr .8fr 1fr;align-items:center}
+.svc-th{display:block;width:76px;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 1px 0 var(--line);transition:transform .2s}
+.svc-th img{display:block;width:100%;height:auto}
+.svc-th:hover{transform:translateY(-2px)}
+@media (max-width:860px){html .svc{grid-template-columns:64px 1fr auto;gap:6px 16px}.svc-th{width:64px;grid-row:1/4}.svc-name,.svc-desc{grid-column:2/-1!important}.svc-price{grid-column:2}.svc-dl{grid-column:3}}
+.yosan-head{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
+.fan{position:relative;display:block;height:250px;text-decoration:none}
+.fan img{position:absolute;width:150px;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.35);top:10px}
+.fan img:nth-child(1){left:10px;transform:rotate(-8deg)}
+.fan img:nth-child(2){left:70px;transform:rotate(-1deg);top:0}
+.fan img:nth-child(3){left:130px;transform:rotate(6deg)}
+.fan span{position:absolute;left:0;right:0;bottom:-6px;text-align:center;font-size:13px;font-weight:700;color:#fff}
+@media (max-width:860px){.yosan-head{grid-template-columns:1fr;gap:18px}.fan{height:210px;width:290px}.fan img{width:124px}.fan img:nth-child(2){left:62px}.fan img:nth-child(3){left:116px}}
+.form-rep{display:flex;gap:14px;align-items:center;margin-top:22px}
+.form-rep img{width:72px;height:88px;object-fit:cover;border-radius:12px;flex:none}
+.form-rep p{font-size:14.5px;color:var(--ink-2);margin:0}
+@media (prefers-reduced-motion:reduce){.svc-th{transition:none}}
+.nb{display:inline-block}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
 <body>
 <header class="top"><div class="w">
-  <a class="brand" href="index.html">BRIDGE CYCLE</a>
+  <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2b4f"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="#9bcf53" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>BRIDGE CYCLE</a>
   <nav class="nav" aria-label="ページ内">
     <a href="#career">代表の経歴</a><a href="#services">お受けできる業務</a><a href="#yosan">予算化前のご相談</a><a href="#ways">ご依頼の形</a>
   </nav>
@@ -186,8 +215,13 @@ footer .tagline{color:var(--ink);font-weight:700}
 </ul></div></section>
 
 <section class="sec" id="career"><div class="w">
-  <h2 class="h2">施策をつくる側と、使う側の両方にいました。</h2>
-  <p class="h2-lead">商工会の職員として、市の振興ビジョンの策定・推進と、商工団体への補助制度の見直しに関わってきました。</p>
+  <div class="career-head">
+    <div>
+      <h2 class="h2">施策をつくる側と、使う側の両方にいました。</h2>
+      <p class="h2-lead">商工会の職員として、市の振興ビジョンの策定・推進と、商工団体への補助制度の見直しに関わってきました。</p>
+    </div>
+    <figure class="rep"><img src="assets/profile-yuji-340.webp" alt="代表取締役 中村裕二" width="340" height="420" loading="lazy" decoding="async"><figcaption><b>中村 裕二</b><span class="nb">BRIDGE CYCLE株式会社</span> <span class="nb">代表取締役</span><br>元 商工会経営指導員<span class="nb">（瀬田商工会・大津北商工会）</span></figcaption></figure>
+  </div>
   <ol class="tl">
     <li><span class="y">令和4年</span><div class="t">
       <h3>大津市中小企業・小規模企業振興ビジョンの策定</h3>
@@ -214,30 +248,35 @@ footer .tagline{color:var(--ink);font-weight:700}
   <p class="h2-lead">それぞれ、予算要求や仕様づくりにそのまま使える「仕様書のたたき台」をご用意しています。概算は規模を仮に置いた例です（税込・実費別）。</p>
   <ul class="svcs">
         <li class="svc">
+          <a class="svc-th" href="gyosei/01-jittai-chosa.pdf" target="_blank" rel="noopener" data-t="gyosei_thumb_01" aria-label="事業者実態調査の仕様書のたたき台（PDF）を開く"><img src="gyosei/thumb-01.webp" alt="" width="240" height="339" loading="lazy" decoding="async"></a>
           <h3 class="svc-name">事業者実態調査</h3>
           <p class="svc-desc">小規模事業者へのアンケートと聞き取り、集計・分析、報告書まで。施策の効果を測る指標から設計します。</p>
           <p class="svc-price"><span class="k">概算の例</span><b>約165万円</b></p>
           <a class="svc-dl" href="gyosei/01-jittai-chosa.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_01">仕様書のたたき台（PDF）</a>
         </li>
         <li class="svc">
+          <a class="svc-th" href="gyosei/02-sogyo-shokei-seminar.pdf" target="_blank" rel="noopener" data-t="gyosei_thumb_02" aria-label="創業塾・事業承継セミナーの運営の仕様書のたたき台（PDF）を開く"><img src="gyosei/thumb-02.webp" alt="" width="240" height="339" loading="lazy" decoding="async"></a>
           <h3 class="svc-name">創業塾・事業承継セミナーの運営</h3>
           <p class="svc-desc">企画、講師、受講者の募集、個別相談、受講後のフォローまで。開業・承継に進んだ人数を追える形にします。</p>
           <p class="svc-price"><span class="k">概算の例</span><b>約88万円</b></p>
           <a class="svc-dl" href="gyosei/02-sogyo-shokei-seminar.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_02">仕様書のたたき台（PDF）</a>
         </li>
         <li class="svc">
+          <a class="svc-th" href="gyosei/03-akitenpo-shokei-chosa.pdf" target="_blank" rel="noopener" data-t="gyosei_thumb_03" aria-label="空き店舗・商店街の承継調査の仕様書のたたき台（PDF）を開く"><img src="gyosei/thumb-03.webp" alt="" width="240" height="339" loading="lazy" decoding="async"></a>
           <h3 class="svc-name">空き店舗・商店街の承継調査</h3>
           <p class="svc-desc">閉店予定・空き店舗の把握、継ぎ手候補の調査、承継の手引きづくり。退店前承継の仕組みを生かします。</p>
           <p class="svc-price"><span class="k">概算の例</span><b>約154万円</b></p>
           <a class="svc-dl" href="gyosei/03-akitenpo-shokei-chosa.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_03">仕様書のたたき台（PDF）</a>
         </li>
         <li class="svc">
+          <a class="svc-th" href="gyosei/04-shinko-keikaku.pdf" target="_blank" rel="noopener" data-t="gyosei_thumb_04" aria-label="中小企業振興計画の策定支援の仕様書のたたき台（PDF）を開く"><img src="gyosei/thumb-04.webp" alt="" width="240" height="339" loading="lazy" decoding="async"></a>
           <h3 class="svc-name">中小企業振興計画の策定支援</h3>
           <p class="svc-desc">現状分析、事業者・支援機関への聞き取り、施策と成果指標の整理、会議運営の支援。</p>
           <p class="svc-price"><span class="k">概算の例</span><b>約385万円</b></p>
           <a class="svc-dl" href="gyosei/04-shinko-keikaku.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_04">仕様書のたたき台（PDF）</a>
         </li>
         <li class="svc">
+          <a class="svc-th" href="gyosei/05-hojo-banso.pdf" target="_blank" rel="noopener" data-t="gyosei_thumb_05" aria-label="補助事業の伴走・事務局の仕様書のたたき台（PDF）を開く"><img src="gyosei/thumb-05.webp" alt="" width="240" height="339" loading="lazy" decoding="async"></a>
           <h3 class="svc-name">補助事業の伴走・事務局</h3>
           <p class="svc-desc">補助金・支援金を受けた事業者への伴走、成果の取りまとめ、事例集づくり。</p>
           <p class="svc-price"><span class="k">概算の例</span><b>約253万円</b></p>
@@ -248,8 +287,13 @@ footer .tagline{color:var(--ink);font-weight:700}
 </div></section>
 
 <section class="sec yosan" id="yosan"><div class="w">
-  <h2 class="h2">来年度の事業は、<br>予算化の前からご相談ください。</h2>
-  <p class="h2-lead">予算要求のための参考見積から、仕様の組み立て、使える財源の確認まで無料でお手伝いします。発注をお約束いただく必要はありません。</p>
+  <div class="yosan-head">
+    <div>
+      <h2 class="h2">来年度の事業は、<br>予算化の前からご相談ください。</h2>
+      <p class="h2-lead">予算要求のための参考見積から、仕様の組み立て、使える財源の確認まで無料でお手伝いします。発注をお約束いただく必要はありません。</p>
+    </div>
+    <a class="fan" href="#services" aria-label="仕様書のたたき台の一覧へ"><img src="gyosei/thumb-04.webp" alt="" width="240" height="339"><img src="gyosei/thumb-03.webp" alt="" width="240" height="339"><img src="gyosei/thumb-01.webp" alt="" width="240" height="339"><span>仕様書のたたき台 5種</span></a>
+  </div>
   <ol class="steps">
     <li><span class="n">1</span><h3>目的と測る数字を決める</h3><p>事業で変えたいことと、終わったときに確かめる指標を一緒に整理します。</p></li>
     <li><span class="n">2</span><h3>参考見積をお出しする</h3><p>予算要求の根拠になる概算を、積算の考え方とあわせてお渡しします。</p></li>
@@ -287,6 +331,7 @@ footer .tagline{color:var(--ink);font-weight:700}
   <div class="form-side">
     <h2 class="h2">業務のご相談</h2>
     <p>予算を組む前の段階でも構いません。参考見積・仕様のご相談は無料です。2営業日以内にご返信します。</p>
+    <div class="form-rep"><img src="assets/profile-yuji-340.webp" alt="" width="340" height="420" loading="lazy" decoding="async"><p>ご相談には、代表の中村が自分でお返事します。</p></div>
     <p class="contact">BRIDGE CYCLE株式会社<br>代表取締役 中村 裕二<br>TEL 080-5309-9770（平日10〜17時）<br>info@bridgecycleco.com</p>
   </div>
   <form action="https://formspree.io/f/xykqvdbp" method="POST">
