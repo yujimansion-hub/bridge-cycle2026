@@ -61,7 +61,6 @@ header .w{display:flex;align-items:center;gap:20px;height:64px}
 .gnav a.line{background:var(--line);color:#fff;font-weight:700;padding:9px 16px;border-radius:8px}
 .gnav .p3{display:none}
 @media (max-width:1200px){.brand small{display:none}}
-@media (min-width:1400px){.gnav .p3{display:inline}}
 @media (max-width:860px){.gnav a:not(.line){display:none}}
 
 /* ヒーロー */
@@ -89,6 +88,33 @@ header .w{display:flex;align-items:center;gap:20px;height:64px}
 .cost .go{display:block;margin-top:18px;text-align:center;background:var(--ai);color:#fff;font-weight:700;text-decoration:none;padding:14px;border-radius:10px}
 .cost .go small{display:block;font-weight:400;font-size:12.5px;opacity:.85}
 @media (max-width:900px){.top2{padding:40px 0 40px}.top2 .w{grid-template-columns:1fr;gap:32px}}
+
+.top2-rep{display:flex;align-items:center;gap:14px;margin-top:26px;text-decoration:none;max-width:36em}
+.top2-rep img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 20%;flex:none;border:2px solid #fff;box-shadow:0 0 0 1px var(--rule)}
+.top2-rep span{font-size:14px;line-height:1.6;color:var(--ai-2)}
+.top2-rep b{display:block;color:var(--ai);font-size:15px}
+.top2-rep:hover b{text-decoration:underline;text-underline-offset:3px}
+/* 信用の帯：ヒーロー直下 */
+.trustsec .w{padding-top:0;padding-bottom:0}
+@media (max-width:900px){
+  .top2{padding:28px 0 32px}
+  .top2-where{font-size:13px;margin-bottom:10px}
+  .top2 h1{font-size:30px}
+  .top2-sub{font-size:15.5px;margin-top:14px}
+  .top2-gyo{margin-top:16px}
+  .top2-gyo a{font-size:13px;padding:5px 12px}
+  .top2-rep{margin-top:18px}
+  .top2-co{display:none}
+  .cost{padding:20px 18px 18px}
+}
+/* 期間限定の帯：スマホでは1行に縮める（トップのみ） */
+@media (max-width:640px){
+  html #campBand a{padding:8px 12px;gap:4px 8px}
+  html #campBand .cb-main{font-size:13px;width:auto}
+  html #campBand .cb-main small,html #campBand .cb-date{display:none}
+  html #campBand .cb-tag{font-size:10.5px;padding:2px 7px}
+  html #campBand .cb-go{display:none}
+}
 
 /* 入口：3つの立場 */
 .doors{padding:72px 0 64px}
@@ -330,7 +356,7 @@ footer p{margin-top:6px}
     <nav class="gnav" aria-label="サイト内">
       <a href="#tenshu" data-door="tenshu">お店をやっている方</a>
       <a class="p2" href="#hajimeru" data-door="hajimeru">お店を始めたい方</a>
-      <a class="p3" href="matching.html#mise">登録されたお店</a>
+      <a href="matching.html#mise">登録されたお店</a>
       <a class="p3" href="#faq">よくあるご質問</a>
       <a class="p3" href="#company">会社概要</a>
       <a class="p3" href="partners.html" data-t="hub_nav_partners">紹介・連携パートナー</a>
@@ -348,6 +374,7 @@ footer p{margin-top:6px}
         <h1><span class="nb">店を渡したい人と、</span><span class="nb">始めたい人を、</span><span class="nb">つなぐ。</span></h1>
         <p class="top2-sub">飲食店・美容室・クリニックの内装と設備を、壊さずに次の人へ。補助金や、店を続けるための相談もできます。</p>
         <p class="top2-gyo"><a href="shokei-inshokuten.html" data-t="hub_gyo_food">飲食店</a><a href="shokei-biyoshitsu.html" data-t="hub_gyo_beauty">美容室・サロン</a><a href="shokei-clinic.html" data-t="hub_gyo_clinic">クリニック・歯科</a></p>
+        <a class="top2-rep" href="#person" data-t="hub_hero_rep"><img src="assets/profile-yuji-340.webp" alt="" width="56" height="56" fetchpriority="low"><span><b>代表 中村裕二</b>元商工会の経営指導員として約20年、500社以上の開業・承継・閉店を支援</span></a>
         <p class="top2-co">お店の登録と一覧は全国から（オンライン・0円）。成約まで支援するのは大津市と京都市の周辺です。</p>
       </div>
       <aside class="cost" aria-labelledby="cost-h">
@@ -359,6 +386,17 @@ footer p{margin-top:6px}
       </aside>
     </div>
   </div>
+
+  <section class="trustsec" aria-label="BRIDGE CYCLEについて">
+    <div class="w">
+      <div class="trust">
+        <div><b>認定経営革新等支援機関</b>中小企業庁の認定（認定番号 109825000112）</div>
+        <div><b>経営支援500社超</b>代表が商工会の経営指導員として約20年</div>
+        <div><b>成約支援は大津市・京都市の周辺</b>登録と一覧は全国から（オンライン）</div>
+        <div><b>お金を預かりません</b>代金は当事者どうしで直接やりとり</div>
+      </div>
+    </div>
+  </section>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
@@ -437,16 +475,7 @@ footer p{margin-top:6px}
   </section>
 
   <!-- 信用 -->
-  <section class="trustsec" aria-label="BRIDGE CYCLEについて">
-    <div class="w">
-      <div class="trust">
-        <div><b>認定経営革新等支援機関</b>中小企業庁の認定（認定番号 109825000112）</div>
-        <div><b>経営支援500社超</b>代表が商工会の経営指導員として約20年</div>
-        <div><b>成約支援は大津市・京都市の周辺</b>登録と一覧は全国から（オンライン）</div>
-        <div><b>お金を預かりません</b>代金は当事者どうしで直接やりとり</div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- 4つの事業 -->
   <section id="jigyo4">
