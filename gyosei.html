@@ -78,6 +78,20 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
 .link-card{display:block;text-decoration:none;color:inherit;background:var(--cream-2);border:1px solid var(--line);border-radius:3px;padding:16px 18px;margin-top:12px}
 .link-card b{color:var(--teal)}
 @media(max-width:520px){.lead-num{grid-template-columns:1fr}.compare{grid-template-columns:1fr}.compare .arrow{transform:rotate(90deg);height:20px}.menu-row{grid-template-columns:1fr}}
+.yosan{background:#fff;border:2px solid var(--teal);border-radius:4px;padding:24px 20px}
+.yosan h2{font-family:"Shippori Mincho",serif;font-size:clamp(20px,4.5vw,24px);line-height:1.5;color:var(--ink);margin-bottom:8px}
+.yosan .lead{font-size:15px;color:var(--ink-soft);line-height:1.85;margin-bottom:16px}
+.y3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.y3 div{background:var(--teal-bg);border-radius:3px;padding:12px}
+.y3 b{display:block;font-size:15px;color:var(--teal);margin-bottom:4px}
+.y3 span{font-size:13.5px;color:var(--ink-soft);line-height:1.7;display:block}
+.dl{list-style:none;border-top:1px solid var(--line)}
+.dl li{border-bottom:1px solid var(--line)}
+.dl a{display:flex;justify-content:space-between;gap:12px;padding:11px 2px;text-decoration:none;color:var(--ink);font-size:15px}
+.dl a span{color:var(--teal);font-size:13.5px;white-space:nowrap}
+.dl a:hover{background:var(--cream-2)}
+.ybtn{display:block;text-align:center;background:var(--vermillion);color:#fff;font-weight:700;font-size:16px;text-decoration:none;padding:15px;border-radius:3px;margin-top:18px}
+@media(max-width:600px){.y3{grid-template-columns:1fr}}
 </style>
 <script src="bc-analytics.js"></script>
 </head>
@@ -130,6 +144,24 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
   <p class="note">金額は業務の範囲を決める前の目安です（税込）。少額の見積合わせ・随意契約、公募型プロポーザル、専門家派遣・講師のご依頼のいずれにも対応します。</p>
 </div></section>
 
+<section id="yosan"><div class="wrap">
+  <div class="yosan">
+    <div class="section-label" style="margin-bottom:10px">予算化の前のご相談</div>
+    <h2>来年度の事業を考えている段階から、ご相談ください。</h2>
+    <p class="lead">予算要求のための参考見積、仕様の組み立て、使える財源の整理まで、無料でお手伝いします。発注をお約束いただく必要はありません。</p>
+    <div class="y3">
+      <div><b>参考見積・概算</b><span>予算要求の根拠になる概算を、積算の考え方とあわせてお出しします。</span></div>
+      <div><b>仕様のたたき台</b><span>業務内容・成果物・スケジュール・成果指標を、担当課の目的に合わせて整理します。</span></div>
+      <div><b>財源の整理</b><span>国の地方創生関連の交付金や県の補助事業など、活用できそうな財源を一緒に確認します。</span></div>
+    </div>
+    <div class="section-label" style="margin-bottom:6px">仕様書のたたき台（ダウンロード）</div>
+    <ul class="dl"><li><a href="gyosei/01-jittai-chosa.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_01">① 事業者実態調査<span>PDF・概算例 約165万円</span></a></li><li><a href="gyosei/02-sogyo-shokei-seminar.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_02">② 創業塾・事業承継セミナーの運営<span>PDF・概算例 約88万円</span></a></li><li><a href="gyosei/03-akitenpo-shokei-chosa.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_03">③ 空き店舗・商店街の承継調査<span>PDF・概算例 約154万円</span></a></li><li><a href="gyosei/04-shinko-keikaku.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_04">④ 中小企業振興計画の策定支援<span>PDF・概算例 約385万円</span></a></li><li><a href="gyosei/05-hojo-banso.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_05">⑤ 補助事業の伴走・事務局<span>PDF・概算例 約253万円</span></a></li></ul>
+    <p class="note">いずれも参考資料です。規模・回数・金額は事業に合わせて調整してください。特定の事業者に限定する条件は含めていません。</p>
+    <a class="ybtn" href="#soudan" data-t="gyosei_yosan_cta">予算化前の相談をする →</a>
+  </div>
+  <p class="note">※公告中の案件については、公平性のため個別のご質問にはお答えできません。発注者が定める質問の手続きをご利用ください。</p>
+</div></section>
+
 <section><div class="wrap">
   <div class="section-label">進め方で大事にしていること</div>
   <div class="step"><div class="step-no">1</div><div><div class="step-title">はじめに、測るものを決める</div><div class="step-body">事業の目的に合わせて、売上・付加価値・開業数など、終わったときに確かめる数字を先に決めます。</div></div></div>
@@ -147,15 +179,17 @@ footer .mincho{color:var(--teal);font-size:15px;letter-spacing:.1em;display:bloc
   <a class="link-card" href="partner-jichitai.html">空き店舗対策としての<b>段階型開業プログラム</b>（1日出店→14日間→1か月開店→承継）はこちら →</a>
 </div></section>
 
-<section class="form-section flow-bg"><div class="wrap">
+<section class="form-section flow-bg" id="soudan"><div class="wrap">
   <h2>業務のご相談</h2>
-  <p class="sub">予算を組む前の段階でも構いません。担当者から2営業日以内にご返信します。</p>
+  <p class="sub">予算を組む前の段階でも構いません。参考見積・仕様のご相談は無料です。担当者から2営業日以内にご返信します。</p>
   <form action="https://formspree.io/f/xykqvdbp" method="POST">
     <input type="hidden" name="partner_type" value="自治体・支援機関（業務受託）">
     <div class="field"><label>機関名・部署名 <span style="color:var(--vermillion)">*</span></label><input type="text" name="organization" required placeholder="例：〇〇市 商工観光課"></div>
     <div class="field"><label>お名前 <span style="color:var(--vermillion)">*</span></label><input type="text" name="name" required placeholder="例：山田 太郎"></div>
     <div class="field"><label>メールアドレス <span style="color:var(--vermillion)">*</span></label><input type="email" name="email" required placeholder="例：info@example.lg.jp"></div>
     <div class="field"><label>電話番号（任意）</label><input type="tel" name="phone" placeholder="例：077-000-0000"></div>
+    <div class="field"><label>ご相談の段階</label>
+      <select name="stage"><option value="">選んでください（任意）</option><option>来年度の事業を検討中（予算化前）</option><option>予算要求のための参考見積がほしい</option><option>仕様の組み立てを相談したい</option><option>予算化済み・発注方法を検討中</option><option>専門家派遣・講師の依頼</option><option>その他</option></select></div>
     <div class="field"><label>ご相談の業務</label>
       <select name="menu"><option value="">選んでください（任意）</option><option>事業者実態調査</option><option>創業塾・事業承継セミナー</option><option>空き店舗・商店街の承継調査</option><option>中小企業振興計画の策定支援</option><option>補助事業の伴走・事務局</option><option>専門家派遣・講師</option><option>その他</option></select></div>
     <div class="field"><label>ご相談内容</label><textarea name="message" placeholder="事業の目的、時期、予算の目安など、分かる範囲でご記入ください。"></textarea></div>
