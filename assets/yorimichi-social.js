@@ -119,6 +119,7 @@
     c.fillText(mode==='announce'?'お店と最新の予定は、リンクから。':mode==='event'?'くわしくは、リンクから。':'名前・メール不要／3つまで選んで投票',72,foot+150);
     c.font='500 24px "Noto Sans JP", sans-serif';
     textLines(c,mode==='announce'?announcement.note:mode==='event'?'日時・場所の最新情報は案内ページをご確認ください。':announcement.date?announcement.date+'。各日の出店・時間・商品は順次お知らせ。':'開催日は調整中。食べたいもののリクエストです。',72,foot+200,920,36,2);
+    if(mode==='announce'){c.font='500 22px "Noto Sans JP", sans-serif';c.fillText('イラストはイメージ。販売する商品・価格は未定です。',72,foot+236);}
     if(format==='story'){pill(c,'↓ ここにリンクスタンプを ↓',202,H-140,676,54,'#EAE7DD','#536775',25);}
     c.font='500 21px "Noto Sans JP", sans-serif';c.fillStyle='#536775';c.fillText('南草津駅周辺まちづくりの社会実験',72,H-(format==='story'?190:42));
     var alt='南草津駅前、よりみち。'+rows.map(function(r){return r.text+(r.sub?' '+r.sub:'');}).join('、')+'。'+(mode==='announce'?announcement.date+'。'+announcement.place+'。'+announcement.note:mode==='event'?'開催案内':'食べたいもの投票。'+periodText());

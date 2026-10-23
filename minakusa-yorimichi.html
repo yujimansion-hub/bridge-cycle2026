@@ -775,7 +775,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
-<link rel="stylesheet" href="assets/yorimichi-join.css?v=20261023join1">
+<link rel="stylesheet" href="assets/yorimichi-join.css?v=20261023join2">
 </head>
 <body>
 
@@ -807,6 +807,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
           <p class="he-legend" aria-hidden="true"><span class="lg-wd"></span>平日<span class="lg-we"></span>土日</p>
         </div><p class="he-calendar-note">会期のカレンダーです。各日の出店・時間は、決まりしだいお知らせします。</p></details>
         <ul class="he-tags"><li>入場無料</li><li>おかず・パン・おやつ</li><li>西口に飲食スペース（予定）</li></ul>
+        <a class="btn btn-tomato he-mobile-action" href="#voteForm"><b>食べたいものに投票する <span aria-hidden="true">→</span></b><small>30秒・名前・メール不要</small></a>
       </section>
     </div>
     <div class="hero-scene">
@@ -1180,7 +1181,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
 </div>
 
-<script src="assets/yorimichi-social.js?v=20261023join1"></script>
+<script src="assets/yorimichi-social.js?v=20261023join2"></script>
 <script>
 (function(){
   // ── 設定 ─────────────────────────────
@@ -1445,7 +1446,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     vf.querySelectorAll('input[name=food]').forEach(function(i){ i.disabled = !i.checked && n>=3; });
     vbtn.disabled = n===0; vbtn2.disabled = n===0;
   }
-  vf.addEventListener('change', refreshVote);
+  vf.addEventListener('change', function(){refreshVote();vmsg.className='msg';vmsg.textContent='';});
   document.querySelectorAll('[data-vote-choice]').forEach(function(a){
     a.addEventListener('click', function(){
       if(load('minakusa_voted')) return;
@@ -1488,8 +1489,8 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   // スマホでは位置関係の図をたたんでおく（ページを短く）。PCは開いたまま
   try{ if(window.matchMedia('(max-width:860px)').matches) document.getElementById('mapDet').open=false; }catch(e){}
   // スマホ下部のボタンは、最初の画面の投票・登録欄が見えているあいだは隠す（欄の下端を覆わないため）
-  (function(){ var bar=document.getElementById('mbar'), hs=document.querySelector('.hero-signup'); if(!bar||!hs||!('IntersectionObserver' in window)) return;
-    new IntersectionObserver(function(es){ bar.classList.toggle('is-off', es[0].isIntersecting); }).observe(hs); })();
+  (function(){ var bar=document.getElementById('mbar'), hs=window.matchMedia('(max-width:860px)').matches?document.querySelector('.he-mobile-action'):document.querySelector('.hero-vote-main'); if(!bar||!hs||!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(es){ bar.classList.toggle('is-off', es[0].intersectionRatio>=0.8); },{threshold:[0,0.8,1]}).observe(hs); })();
   vf.addEventListener('submit', function(e){
     e.preventDefault();
     var food = vals(vf,'food'); if(!food.length) return;
