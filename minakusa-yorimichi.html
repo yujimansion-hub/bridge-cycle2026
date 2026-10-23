@@ -826,6 +826,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261023viral1">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
 <link rel="stylesheet" href="assets/yorimichi-join.css?v=20261023action1">
+<link rel="stylesheet" href="assets/yorimichi-festival.css?v=20261023festival1">
 </head>
 <body>
 
@@ -839,17 +840,33 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <main id="top">
 
 <!-- 最初の画面 -->
-<section class="cover" id="cover">
+<section class="cover festival-cover" id="cover">
   <div class="wrap cover-in">
+    <div class="festival-meta"><span>MINAMIKUSATSU STATION</span><span>FOOD, IDEAS &amp; YOU.</span></div>
     <div class="hero-copy">
-      <span class="pill"><i aria-hidden="true"></i>南草津駅の未来が動く、3週間。</span>
-      <h1 class="h1-calm h1-action h1-fun"><span class="hero-place">南草津駅を、</span><span><em>みんなで楽しい駅に。</em></span></h1>
+      <p class="pill">南草津駅の未来が動く、3週間。</p>
+      <div class="festival-date" aria-label="会期：2026年11月30日（月）から12月20日（日）">
+        <span class="festival-year">2026</span>
+        <p><span>11.30<small>MON</small></span><i aria-label="から">—</i><span>12.20<small>SUN</small></span></p>
+      </div>
+      <p class="festival-location">JR南草津駅 西口・東口の駅前 <span>入場無料</span></p>
+      <h1 class="h1-calm h1-action h1-fun"><span class="hero-place">南草津駅を、</span><span>みんなで</span><span><em>楽しい駅に。</em></span></h1>
       <p class="lead lead-calm">おかず・パン・おやつなど、小さなお店が並ぶ予定。<br>いつもの帰り道に、「今日は何があるかな」の楽しみを。<br><strong class="hero-rally">その未来を、あなたとつくりたい。</strong></p>
       <a class="btn btn-tomato hero-vote-main" href="#voteForm">食べたいものに投票する<small>30秒・名前・メール不要／3つまで選べます</small></a>
-      <!-- 会期を短く案内。各日の出店が確定するまでは、会期と営業日を区別する -->
+      <p class="festival-day-note">各日の出店・時間・お店は、決まりしだいお知らせします。</p>
+    </div>
+    <div class="hero-scene">
+      <div class="festival-art">
+        <picture>
+          <source media="(max-width:860px)" srcset="images/minakusa/yorimichi/hero-sp-v2.jpg">
+          <img src="images/minakusa/yorimichi/hero-wide-v2.jpg" alt="夕方の南草津駅前に小さなお店が並び、帰り道の人が立ち寄る完成イメージ" width="1305" height="941" fetchpriority="high">
+        </picture>
+        <div class="festival-art-type" aria-hidden="true"><p>YORIMICHI<br>WEEKS<span>’26</span></p><div><span>食べる。選ぶ。誘う。</span><span>3 WEEKS / OUR STATION</span></div></div>
+      </div>
+      <p class="cover-cap">完成イメージ（合成）｜区画・店数は調整中</p>
+    </div>
       <section class="hero-event" aria-labelledby="heTitle">
-        <p class="he-kicker" id="heTitle"><span>開催決定</span>2026年・西口と東口の駅前で</p>
-        <p class="he-dates"><span class="he-d"><b>11.30</b><small>月</small></span><span class="he-to" aria-label="から">→</span><span class="he-d"><b>12.20</b><small>日</small></span></p>
+        <h2 class="he-kicker" id="heTitle"><span>3 WEEKS GUIDE</span>3週間の楽しみ方</h2>
         <details class="he-purpose"><summary>みんなで変えるしくみ・投票の状況を見る</summary>
         <p class="he-msg"><b>変えるのは、みんなだ。</b><br>一票も、ひとつの寄り道も、3週間の先をつくる力に。<a class="he-more" href="#keep">どうなれば、この先も続く？ →</a></p>
         <div class="he-voice" id="heVoice" hidden>
@@ -876,35 +893,31 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         </div><p class="he-calendar-note">会期のカレンダーです。各日の出店・時間は、決まりしだいお知らせします。</p></details>
         <ul class="he-tags"><li>入場無料</li><li>おかず・パン・おやつ</li><li>西口に飲食スペース（予定）</li></ul>
       </section>
-    </div>
-    <div class="hero-scene">
-      <picture>
-        <source media="(max-width:860px)" srcset="images/minakusa/yorimichi/hero-sp-v2.jpg">
-        <img src="images/minakusa/yorimichi/hero-wide-v2.jpg" alt="夕方の南草津駅前に小さなお店が並び、帰り道の人が立ち寄る完成イメージ" width="1305" height="941" fetchpriority="high">
-      </picture>
-      <p class="scene-note"><small>あなたと、みんなと。</small>また来たい。<br>そう思える駅前へ。</p>
-      <span class="scene-star" aria-hidden="true">✦</span><span class="scene-star" aria-hidden="true">✦</span>
-      <p class="cover-cap">完成イメージ（合成）｜区画・店数は調整中</p>
-    </div>
     <div class="hero-signup">
-      <ol class="hero-steps" aria-label="3つの参加のしかた">
-        <li><b>1</b>一票で<br>声を届ける</li>
-        <li><b>2</b>お店に<br>寄ってみる</li>
-        <li><b>3</b>友だちに<br>知らせる</li>
-      </ol>
-      <p class="hero-tease" hidden></p>
-      <button class="hero-invite" type="button" data-share data-share-mode="announce">この予告を、友だちに送る <span aria-hidden="true">↗</span></button>
-      <form class="hero-reg" id="regHero" novalidate>
-      <label class="hr-l" for="rEmail0">出店するお店が決まったら、メールで知らせてほしい方へ<small>出店するお店と、開催前のお知らせをお送りします（無料）</small></label>
-      <div class="hr-row">
-        <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
-        <button class="btn btn-bulb" type="submit">開催案内を受け取る</button>
+      <div class="festival-invite">
+        <p class="festival-label">JOIN THE DAYS</p>
+        <ol class="hero-steps" aria-label="3つの参加のしかた">
+          <li><b>01</b>一票で<br>声を届ける</li>
+          <li><b>02</b>お店に<br>寄ってみる</li>
+          <li><b>03</b>友だちに<br>知らせる</li>
+        </ol>
+        <p class="hero-tease" hidden></p>
+        <button class="hero-invite" type="button" data-share data-share-mode="announce">この予告を、友だちに送る <span aria-hidden="true">↗</span></button>
+        <p class="trust">南草津駅周辺まちづくりの社会実験<br>（実施：UDCみなくさ・立命館大学）</p>
       </div>
-      <div class="msg" id="regMsg0" role="status"></div>
-    </form>
-      <p class="hero-safe">お知らせ以外には使いません。<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
-      <p class="trust waiting" id="waiting" hidden></p>
-      <p class="trust">南草津駅周辺まちづくりの社会実験<br class="pc-only">（実施：UDCみなくさ・立命館大学）</p>
+      <div class="festival-newsletter">
+        <p class="festival-label">STAY TUNED</p>
+        <form class="hero-reg" id="regHero" novalidate>
+          <label class="hr-l" for="rEmail0">出会えるお店を、いち早く。<small>出店するお店と、開催前のお知らせをメールでお送りします（無料）</small></label>
+          <div class="hr-row">
+            <input type="email" id="rEmail0" autocomplete="email" placeholder="メールアドレス">
+            <button class="btn btn-bulb" type="submit">開催案内を受け取る</button>
+          </div>
+          <div class="msg" id="regMsg0" role="status"></div>
+        </form>
+        <p class="hero-safe">お知らせ以外には使いません。<a href="https://www.bridgecycleco.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+        <p class="trust waiting" id="waiting" hidden></p>
+      </div>
     </div>
   </div>
 </section>
@@ -917,11 +930,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <!-- 食べたい気持ちから、実際の投票へ。選択のみでは送信しない -->
 <section class="join-menu" id="join" aria-labelledby="joinTitle">
   <div class="wrap">
-    <div class="join-heading"><div><p class="join-kicker">「食べたい」が、未来の一歩に。</p><h2 id="joinTitle">あなたは、<em>何派？</em></h2></div><p>南草津駅で、これが買えたら。<br>その「食べたい」を、一票に。</p></div>
+    <div class="join-heading"><div><p class="join-kicker"><span class="festival-section-en">FOOD PICKS</span>「食べたい」が、未来の一歩に。</p><h2 id="joinTitle">あなたは、<em>何派？</em></h2></div><p>南草津駅で、これが買えたら。<br>その「食べたい」を、一票に。</p></div>
     <div class="join-foods">
-      <a class="join-food" href="#voteForm" data-vote-choice="0"><span class="join-number" aria-hidden="true">01</span><img src="images/minakusa/yorimichi/food-osozai-v1.webp" alt="紙の容器に入ったおかずを包む手元のイラスト" width="1254" height="1254" loading="lazy"><div><h3>おかず派</h3><p>晩ごはんに、もう一品。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
-      <a class="join-food" href="#voteForm" data-vote-choice="2"><span class="join-number" aria-hidden="true">02</span><img src="images/minakusa/yorimichi/food-bread-v1.webp" alt="ふんわりした断面のパンとサンドイッチのイラスト" width="1254" height="1254" loading="lazy"><div><h3>パン派</h3><p>明日の朝が、楽しみに。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
-      <a class="join-food" href="#voteForm" data-vote-choice="4"><span class="join-number" aria-hidden="true">03</span><img src="images/minakusa/yorimichi/food-oyatsu-v1.webp" alt="紙の上に並んだ焼き菓子とスコーンのイラスト" width="1254" height="1254" loading="lazy"><div><h3>おやつ派</h3><p>がんばった今日に、ひと息。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
+      <a class="join-food" href="#voteForm" data-vote-choice="0"><span class="join-number" aria-hidden="true">01</span><img src="images/minakusa/yorimichi/food-osozai-v1.webp" alt="紙の容器に入ったおかずを包む手元のイラスト" width="1254" height="1254" loading="lazy"><div><h3><small>OSOZAI</small>おかず派</h3><p>晩ごはんに、もう一品。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
+      <a class="join-food" href="#voteForm" data-vote-choice="2"><span class="join-number" aria-hidden="true">02</span><img src="images/minakusa/yorimichi/food-bread-v1.webp" alt="ふんわりした断面のパンとサンドイッチのイラスト" width="1254" height="1254" loading="lazy"><div><h3><small>BREAD</small>パン派</h3><p>明日の朝が、楽しみに。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
+      <a class="join-food" href="#voteForm" data-vote-choice="4"><span class="join-number" aria-hidden="true">03</span><img src="images/minakusa/yorimichi/food-oyatsu-v1.webp" alt="紙の上に並んだ焼き菓子とスコーンのイラスト" width="1254" height="1254" loading="lazy"><div><h3><small>SWEETS</small>おやつ派</h3><p>がんばった今日に、ひと息。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
     </div>
     <p class="join-note">ほかの食べたいものも、投票欄で選べます。投票は最後の送信ボタンで確定します。<br>イラストはイメージです。販売する商品・価格は未定です。</p>
     <div class="join-social" aria-labelledby="friendTitle">
@@ -934,7 +947,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <!-- 参加が実験の判断材料になることを、来場者の言葉で伝える -->
 <section class="future-experiment" id="experiment" aria-labelledby="experimentTitle">
   <div class="wrap">
-    <div class="future-intro"><p class="join-kicker">みんなで変える。その先に。</p><h2 id="experimentTitle">3週間のあとも、<br><em>「また来たい」</em>が<br>続く駅前へ。</h2><p>買って帰りたい、ひと品がある。<br>「一緒に寄ろう」と、誘いたい人がいる。<br>そんな小さな楽しみが、いつもの帰り道にあったら。<br><strong>あなたは、どんな駅前にしたいですか。</strong><br>その気持ちを、一票と寄り道で教えてください。</p></div>
+    <div class="future-intro"><p class="join-kicker"><span class="festival-section-en">OUR NEXT DAYS</span>みんなで変える。その先に。</p><h2 id="experimentTitle">3週間のあとも、<br><em>「また来たい」</em>が<br>続く駅前へ。</h2><p>買って帰りたい、ひと品がある。<br>「一緒に寄ろう」と、誘いたい人がいる。<br>そんな小さな楽しみが、いつもの帰り道にあったら。<br><strong>あなたは、どんな駅前にしたいですか。</strong><br>その気持ちを、一票と寄り道で教えてください。</p></div>
     <ol class="future-actions">
       <li><span aria-hidden="true">01</span><h3>「食べたい」を、届ける。</h3><p>晩ごはんのおかず。明日のパン。自分へのおやつ。<br>あなたの一票が、お店やメニューを考える手がかりになります。</p><a href="#voteForm">食べたいものに投票する <b aria-hidden="true">↗</b></a></li>
       <li><span aria-hidden="true">02</span><h3>気になるお店に、寄る。</h3><p>ひと品を選ぶ。お店の人と、ひと言交わす。<br>その寄り道から、あなたの好きな駅前を見つけてください。</p><a href="#register">出会えるお店のお知らせを受け取る <b aria-hidden="true">↗</b></a></li>
@@ -1246,7 +1259,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 </main>
 
 <footer>
-  <div class="footer-message"><p>南草津駅を、<br><span>みんなで変える。</span></p><div class="fm-acts"><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a><button type="button" class="btn btn-line" data-share>私のカードで、友だちを誘う</button></div></div>
+  <div class="footer-message"><p>南草津駅を、<br><span>みんなで楽しい駅に。</span></p><div class="fm-acts"><a class="btn btn-bulb" href="#register">開催案内を受け取る ↗</a><button type="button" class="btn btn-line" data-share>私のカードで、友だちを誘う</button></div></div>
   <div class="wrap">
     <div>南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）<br>出店者の募集・調整：BRIDGE CYCLE株式会社／滋賀県大津市におの浜2-1-28</div>
     <div class="small" style="flex-basis:100%;order:3">最初の画面の画像は完成イメージ（合成）、食べものや帰り道の絵はイラストです。実際の会場・出店商品とは異なり、区画・店数・販売商品は調整中です。</div>
