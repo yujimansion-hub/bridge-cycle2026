@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var foods=[], page='', voteFn=null, voting=false, picks=[], data={}, dialog, canvas, blob, imageUrl='', revision=0, returnFocus, mode='wish';
-  var format='feed', channel='native', busy=false, onUse=null;
+  var format='feed', channel='native', busy=false, onUse=null, announcement={}, foodArt=[], artStarted=false;
   var slugs=['okazu','bento','bread','coffee','sweets','otsumami','vegetables','souvenir','student','oyatsu'];
   var shortNames=['おかず','お弁当','パン','コーヒー','スイーツ','おつまみ','野菜','手みやげ','軽食','おやつ'];
   var root='https://www.bridgecycleco.com/';
@@ -12,22 +12,33 @@
   function use(method){try{if(onUse)onUse(method);}catch(e){}}
   function message(s){var el=document.getElementById('snsMessage');if(el)el.textContent=s;}
   function shareLink(ch){
-    var url=new URL('yorimichi-share/'+(picks.length&&mode==='wish'?slugs[picks[0]]:'index')+'.html',root);
+    var url=new URL('yorimichi-share/'+(mode==='announce'?'announce':picks.length&&mode==='wish'?slugs[picks[0]]:'index')+'.html',root);
     url.searchParams.set('src','share_'+ch);
     if(picks.length&&mode==='wish')url.searchParams.set('w',picks.join('-'));
-    if(mode==='event'||mode==='results')url.searchParams.set('m',mode);
+    if(mode==='event'||mode==='results'||mode==='announce')url.searchParams.set('m',mode);
     var no=read('minakusa_no');if(no&&/^\d{1,4}$/.test(no))url.searchParams.set('r','m'+('00'+no).slice(-3));
     return url.href;
   }
+  function periodText(){return announcement.date ? announcement.date+'、'+announcement.place+'で。' : '開催日は調整中。';}
+  function loadFoodArt(){
+    if(artStarted)return;artStarted=true;
+    ['food-osozai-v1.webp','food-bread-v1.webp','food-oyatsu-v1.webp'].forEach(function(file){
+      var img=new Image();foodArt.push(img);
+      img.onload=function(){if(dialog&&dialog.open&&mode==='announce')renderCard();};
+      img.src=new URL('images/minakusa/yorimichi/'+file,root).href;
+    });
+  }
   function postText(){
     var text;
-    if(mode==='results'&&data.results&&data.results.total>=30){
+    if(mode==='announce'&&announcement.date){
+      text='南草津駅前、なんか始まるらしいよ。\n'+announcement.date+'、いつもの駅前で、おいしい3週間。\n'+announcement.place+'。入場無料。\nおかずも、パンも、おやつも。食べたいものの投票も受付中。\n'+announcement.note;
+    }else if(mode==='results'&&data.results&&data.results.total>=30){
       text='南草津駅の帰り道、何が買えたらうれしい？\n'+data.results.asof+'時点・有効回答'+data.results.total+'件の途中経過です。\n'+data.results.top.slice(0,3).map(function(t,i){return(i+1)+'. '+t[0]+'（'+t[1]+'人が選択）';}).join('\n')+'\nあなたの食べたいものも、教えてください。';
     }else if(mode==='event'&&data.nextEvent){
       var e=data.nextEvent;text='南草津駅に、おいしい寄り道を。\n'+(e.round||'次回')+' '+e.date+' '+e.time+'\n'+e.place+(e.shops?'／'+e.shops+'店が出店':'')+'\n'+(data.shops||[]).slice(0,3).map(function(s){return '・'+s.item+(s.price?' '+s.price:'')+(s.status==='出店予定'?'':'（検討中）');}).join('\n')+'\n帰り道に、よりみちしませんか。';
     }else{
       text=picks.length?'南草津駅で、私は「'+picks.map(function(n){return foods[n][1];}).join('」「')+'」が買えたらうれしい。\nあなたは何派？':'南草津駅の帰り道、何が買えたらうれしい？';
-      text+='\n名前・メール不要で、食べたいものを3つまで選べます。\n開催日は調整中。実際の出店商品は決まりしだいお知らせ。';
+      text+='\n名前・メール不要で、食べたいものを3つまで選べます。\n'+periodText()+'\n各日の出店・時間・商品は、決まりしだいお知らせ。';
     }
     return text+'\n#南草津駅前よりみち #南草津';
   }
@@ -36,7 +47,7 @@
     document.getElementById('snsText').value=full;
     document.getElementById('snsLine').href='https://line.me/R/share?text='+encodeURIComponent(postText()+'\n'+shareLink('line'));
     document.getElementById('snsThreads').href='https://www.threads.com/intent/post?text='+encodeURIComponent(postText()+'\n'+shareLink('threads'));
-    var xt=mode==='event'&&data.nextEvent?'南草津駅前、よりみち。\n'+data.nextEvent.date+' '+data.nextEvent.time+'\n'+data.nextEvent.place:mode==='results'&&data.results?'南草津駅で何が買えたらうれしい？\n有効回答'+data.results.total+'件の途中経過。あなたの食べたいものも教えてください。':picks.length?'南草津駅で「'+shortNames[picks[0]]+'」が買えたらうれしい。あなたは何派？\n名前・メール不要の投票受付中。開催日は調整中。':'南草津駅で、何が買えたらうれしい？ 名前・メール不要の投票受付中。開催日は調整中。';
+    var xt=mode==='announce'&&announcement.date?'南草津駅前、なんか始まるらしいよ。\n'+announcement.date+'\n'+announcement.place+'。入場無料。\n各日の出店・時間・お店は順次公開。':mode==='event'&&data.nextEvent?'南草津駅前、よりみち。\n'+data.nextEvent.date+' '+data.nextEvent.time+'\n'+data.nextEvent.place:mode==='results'&&data.results?'南草津駅で何が買えたらうれしい？\n有効回答'+data.results.total+'件の途中経過。あなたの食べたいものも教えてください。':picks.length?'南草津駅で「'+shortNames[picks[0]]+'」が買えたらうれしい。あなたは何派？\n名前・メール不要の投票受付中。'+periodText():'南草津駅で、何が買えたらうれしい？ 名前・メール不要の投票受付中。'+periodText();
     document.getElementById('snsX').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(xt)+'&url='+encodeURIComponent(shareLink('x'));
     ['snsThreads','snsX'].forEach(function(id){document.getElementById(id).hidden={snsThreads:'threads',snsX:'x'}[id]!==channel;});
     document.getElementById('snsFoodOptions').hidden=mode!=='wish';
@@ -64,10 +75,23 @@
     c.font='900 68px "Noto Sans JP", sans-serif';
     if(mode==='results'&&data.results){c.fillText('みんなの食べたいもの。',72,top);c.font='700 32px "Noto Sans JP", sans-serif';c.fillText(data.results.asof+'時点／有効回答'+data.results.total+'件',72,top+70);}
     else if(mode==='event'&&data.nextEvent){c.fillText('次の、よりみち。',72,top);c.font='700 34px "Noto Sans JP", sans-serif';c.fillText('南草津駅前で、待っています。',72,top+70);}
+    else if(mode==='announce'){c.fillText('いつもの駅で、',72,top);c.fillText('おいしい3週間。',72,top+100);}
     else{c.fillText('南草津駅で、',72,top);c.fillText(picks.length?'私はこれが食べたい。':'何が買えたらうれしい？',72,top+100);}
-    var rows=mode==='results'&&data.results?data.results.top.slice(0,3).map(function(t,i){return{emoji:String(i+1),text:t[0],sub:t[1]+'人が選択'};}):mode==='event'&&data.nextEvent?[{emoji:'日',text:data.nextEvent.date,sub:data.nextEvent.time},{emoji:'場',text:data.nextEvent.place,sub:data.nextEvent.shops?data.nextEvent.shops+'店が出店':''}]:picks.map(function(n){return{emoji:foods[n][0],text:foods[n][1],sub:''};});
+    var rows=mode==='results'&&data.results?data.results.top.slice(0,3).map(function(t,i){return{emoji:String(i+1),text:t[0],sub:t[1]+'人が選択'};}):mode==='event'&&data.nextEvent?[{emoji:'日',text:data.nextEvent.date,sub:data.nextEvent.time},{emoji:'場',text:data.nextEvent.place,sub:data.nextEvent.shops?data.nextEvent.shops+'店が出店':''}]:mode==='announce'?[]:picks.map(function(n){return{emoji:foods[n][0],text:foods[n][1],sub:''};});
     var y=top+175,rowHeight=format==='story'?205:165;
-    if(!rows.length){
+    if(mode==='announce'){
+      var ay=top+190,artY=ay+135,artH=format==='story'?330:230;
+      c.fillStyle='#173C51';c.font='900 52px \"Noto Sans JP\", sans-serif';c.fillText(announcement.shortDate||announcement.date,72,ay);
+      c.font='700 30px \"Noto Sans JP\", sans-serif';c.fillText(announcement.place,72,ay+65);
+      ['おかずも。','パンも。','おやつも。'].forEach(function(label,i){
+        var ax=72+i*320,img=foodArt[i];
+        c.save();c.beginPath();c.roundRect(ax,artY,296,artH,24);c.clip();c.fillStyle='#F2EADD';c.fillRect(ax,artY,296,artH);
+        if(img&&img.complete&&img.naturalWidth){var scale=Math.max(296/img.naturalWidth,artH/img.naturalHeight),dw=img.naturalWidth*scale,dh=img.naturalHeight*scale;c.drawImage(img,ax+(296-dw)/2,artY+(artH-dh)/2,dw,dh);}
+        c.restore();c.fillStyle='#173C51';c.font='900 29px \"Noto Sans JP\", sans-serif';c.fillText(label,ax+20,artY+artH+48);
+      });
+      c.font='700 34px \"Noto Sans JP\", sans-serif';c.fillText('あの人に、よりみちのおさそい。',72,artY+artH+125);
+    }
+    if(!rows.length&&mode!=='announce'){
       // まだ選んでいない人のカード：10の候補を並べて「あなたなら、どれ？」と問いかける（空白を作らない）
       var gEnd=H-(format==='story'?495:370),cellH=Math.floor((gEnd-y)/5),cellW=456,fs=format==='story'?30:25;
       foods.forEach(function(f,n){
@@ -90,14 +114,14 @@
       y+=rowHeight;
     });
     var foot=H-(format==='story'?455:340);
-    pill(c,mode==='event'?'帰り道に、よりみちしよう。':'あなたの食べたいものは？',72,foot,936,90,'#FFD35B','#173C51',39);
+    pill(c,mode==='announce'?'いっしょに、よりみちしよう。':mode==='event'?'帰り道に、よりみちしよう。':'あなたの食べたいものは？',72,foot,936,90,'#FFD35B','#173C51',39);
     c.fillStyle='#173C51';c.font='700 30px "Noto Sans JP", sans-serif';
-    c.fillText(mode==='event'?'くわしくは、リンクから。':'名前・メール不要／3つまで選んで投票',72,foot+150);
+    c.fillText(mode==='announce'?'お店と最新の予定は、リンクから。':mode==='event'?'くわしくは、リンクから。':'名前・メール不要／3つまで選んで投票',72,foot+150);
     c.font='500 24px "Noto Sans JP", sans-serif';
-    textLines(c,mode==='event'?'日時・場所の最新情報は案内ページをご確認ください。':'開催日は調整中。食べたいもののリクエストです。\n出店する商品は、決まりしだいお知らせします。'.replace('\n',''),72,foot+200,920,36,2);
+    textLines(c,mode==='announce'?announcement.note:mode==='event'?'日時・場所の最新情報は案内ページをご確認ください。':announcement.date?announcement.date+'。各日の出店・時間・商品は順次お知らせ。':'開催日は調整中。食べたいもののリクエストです。',72,foot+200,920,36,2);
     if(format==='story'){pill(c,'↓ ここにリンクスタンプを ↓',202,H-140,676,54,'#EAE7DD','#536775',25);}
     c.font='500 21px "Noto Sans JP", sans-serif';c.fillStyle='#536775';c.fillText('南草津駅周辺まちづくりの社会実験',72,H-(format==='story'?190:42));
-    var alt='南草津駅前、よりみち。'+rows.map(function(r){return r.text+(r.sub?' '+r.sub:'');}).join('、')+'。'+(mode==='event'?'開催案内':'食べたいもの投票。開催日は調整中。');
+    var alt='南草津駅前、よりみち。'+rows.map(function(r){return r.text+(r.sub?' '+r.sub:'');}).join('、')+'。'+(mode==='announce'?announcement.date+'。'+announcement.place+'。'+announcement.note:mode==='event'?'開催案内':'食べたいもの投票。'+periodText());
     canvas.setAttribute('aria-label',alt);
     canvas.toBlob(function(b){if(ticket!==revision)return;busy=false;if(!b){message('画像を作れませんでした。投稿文とリンクはコピーできます。');return;}blob=b;if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=URL.createObjectURL(b);document.getElementById('snsDownload').disabled=false;document.getElementById('snsNative').disabled=false;},'image/png');
   }
@@ -139,15 +163,15 @@
     ['snsLine','snsThreads','snsX'].forEach(function(id){document.getElementById(id).addEventListener('click',function(){var ch={snsLine:'line',snsThreads:'threads',snsX:'x'}[id];track('yorimichi_share_intent',{channel:ch,method:ch});use(ch);});});
   }
   function open(nextMode){
-    if(!dialog)prepare();mode=nextMode||'wish';if(mode==='results'&&!(data.results&&data.results.total>=30))mode='wish';if(mode==='event'&&!data.nextEvent)mode='wish';
-    returnFocus=document.activeElement;var more=document.getElementById('snsMore');if(more&&!dialog.open)more.open=false;document.getElementById('snsTitle').textContent=mode==='results'?'投票の途中経過を、届けよう。':mode==='event'?'次のよりみちを、知らせよう。':'私はこれ派。あなたは？';
+    if(!dialog)prepare();mode=nextMode||'wish';if(mode==='results'&&!(data.results&&data.results.total>=30))mode='wish';if(mode==='event'&&!data.nextEvent)mode='wish';if(mode==='announce'&&!announcement.date)mode='wish';if(mode==='announce')loadFoodArt();
+    returnFocus=document.activeElement;var more=document.getElementById('snsMore');if(more&&!dialog.open)more.open=false;document.getElementById('snsTitle').textContent=mode==='announce'?'あの人に、よりみちのおさそい。':mode==='results'?'投票の途中経過を、届けよう。':mode==='event'?'次のよりみちを、知らせよう。':'私はこれ派。あなたは？';
     dialog.querySelectorAll('#snsFoodOptions input').forEach(function(i){i.checked=picks.indexOf(Number(i.value))>=0;i.disabled=!i.checked&&picks.length>=3;});
     if(!dialog.open){dialog.showModal();document.body.classList.add('sns-open');}
     message('');syncLinks();syncVote();document.getElementById('snsClose').focus();
     Promise.resolve(document.fonts?document.fonts.ready:null).then(renderCard);track('yorimichi_share_open');
   }
   function init(config){
-    foods=config.foods;page=config.page;voteFn=typeof config.vote==='function'?config.vote:null;onUse=typeof config.onUse==='function'?config.onUse:null;picks=clean(read('minakusa_share_picks')||'');
+    foods=config.foods;page=config.page;announcement=config.announcement||{};voteFn=typeof config.vote==='function'?config.vote:null;onUse=typeof config.onUse==='function'?config.onUse:null;picks=clean(read('minakusa_share_picks')||'');
     if(!picks.length&&read('minakusa_voted')){picks=clean(String(read('minakusa_vote_food')||'').split('／').map(function(label){return foods.findIndex(function(f){return f[1]===label;});}));}
     var q=new URLSearchParams(location.search),incoming=clean(q.get('w')||'');
     if(incoming.length&&/^share_(instagram|line|threads|x|native|copy)$/.test(q.get('src')||'')){
@@ -161,3 +185,4 @@
   function update(d){data=d||{};if(dialog&&dialog.open)refresh();var rs=document.querySelector('[data-share-mode="results"]'),ev=document.querySelector('[data-share-mode="event"]');if(rs)rs.disabled=!(data.results&&data.results.total>=30);if(ev)ev.disabled=!data.nextEvent;}
   window.YorimichiSocial={init:init,open:open,voteDone:voteDone,update:update};
 })();
+

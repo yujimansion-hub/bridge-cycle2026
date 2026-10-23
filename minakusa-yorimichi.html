@@ -25,10 +25,10 @@
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.bridgecycleco.com/minakusa-yorimichi.html">
 <title>南草津駅前、よりみち。｜南草津駅に、おいしい寄り道を。</title>
-<meta name="description" content="JR南草津駅の西口・東口に、2026年11月30日（月）〜12月20日（日）の3週間、小さなお店が並びます（平日・土日祝。南草津駅周辺まちづくりの社会実験）。帰り道に何が買えたらうれしいか、投票で教えてください。開催日が決まったらお知らせします。">
+<meta name="description" content="JR南草津駅の西口・東口に、2026年11月30日（月）〜12月20日（日）の3週間、小さなお店が並びます（平日・土日祝。南草津駅周辺まちづくりの社会実験）。あなたの「食べたい」を投票して、友だちと楽しみをシェア。出店日・時間・お店は順次お知らせします。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="南草津駅前、よりみち。｜南草津駅に、おいしい寄り道を。">
-<meta property="og:description" content="南草津駅前に、小さなお店が並ぶ予定です。帰り道に何が買えたらうれしい？ 投票受付中。">
+<meta property="og:description" content="11月30日〜12月20日、南草津駅の西口・東口で。おかずも、パンも、おやつも。食べたいものに投票して、友だちを誘おう。出店日・時間・お店は順次公開。">
 <meta property="og:url" content="https://www.bridgecycleco.com/minakusa-yorimichi.html">
 <meta property="og:image" content="https://www.bridgecycleco.com/images/minakusa/yorimichi/ogp-v2.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -775,6 +775,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
+<link rel="stylesheet" href="assets/yorimichi-join.css?v=20261023join1">
 </head>
 <body>
 
@@ -793,18 +794,19 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <div class="hero-copy">
       <span class="pill"><i aria-hidden="true"></i>開催決定・出店するお店を準備中</span>
       <h1 class="h1-calm"><span>南草津駅に、</span><span>おいしい<em>寄り道</em>を。</span></h1>
-      <p class="lead lead-calm">いつもの帰り道が、少し好きになる。<br>今夜のおかずも、授業帰りのおやつも。<br>小さな市を、駅前で準備中です。</p>
-      <!-- 開催のお知らせ（会期・カウントダウン・3週間のカレンダー）。日付は HE_FROM / HE_TO と合わせる -->
+      <p class="lead lead-calm">帰る前に、ちょっといいこと。<br>おかずも、パンも、おやつも。<br>いつもの駅前で、おいしい3週間。</p>
+      <!-- 会期を短く案内。各日の出店が確定するまでは、会期と営業日を区別する -->
       <section class="hero-event" aria-labelledby="heTitle">
-        <p class="he-kicker" id="heTitle"><span>開催決定</span>2026年・21日間・西口と東口で</p>
+        <p class="he-kicker" id="heTitle"><span>開催決定</span>2026年・西口と東口の駅前で</p>
         <p class="he-dates"><span class="he-d"><b>11.30</b><small>月</small></span><span class="he-to" aria-label="から">→</span><span class="he-d"><b>12.20</b><small>日</small></span></p>
         <p class="he-count" id="heCount" aria-live="polite">開催まで あと<b>—</b>日</p>
-        <div class="he-cal" role="img" aria-label="11月30日（月）から12月20日（日）までの3週間。平日は夕方、土日祝は昼から開く予定">
+        <details class="he-calendar"><summary>3週間の会期カレンダーを見る</summary>
+        <div class="he-cal" role="img" aria-label="11月30日（月）から12月20日（日）までの会期。各日の出店・時間は決まりしだいお知らせします">
           <div class="he-wk" aria-hidden="true"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span class="sat">土</span><span class="sun">日</span></div>
           <div class="he-days" id="heDays" aria-hidden="true"></div>
-          <p class="he-legend" aria-hidden="true"><span class="lg-wd"></span>平日は夕方<span class="lg-we"></span>土日は昼から（時間は案）</p>
-        </div>
-        <ul class="he-tags"><li>入場無料</li><li>持ち帰りの夕食・おやつ</li><li>西口に飲食スペース（予定）</li></ul>
+          <p class="he-legend" aria-hidden="true"><span class="lg-wd"></span>平日<span class="lg-we"></span>土日</p>
+        </div><p class="he-calendar-note">会期のカレンダーです。各日の出店・時間は、決まりしだいお知らせします。</p></details>
+        <ul class="he-tags"><li>入場無料</li><li>おかず・パン・おやつ</li><li>西口に飲食スペース（予定）</li></ul>
       </section>
     </div>
     <div class="hero-scene">
@@ -812,18 +814,19 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         <source media="(max-width:860px)" srcset="images/minakusa/yorimichi/hero-sp-v2.jpg">
         <img src="images/minakusa/yorimichi/hero-wide-v2.jpg" alt="夕方の南草津駅前に小さなお店が並び、帰り道の人が立ち寄る完成イメージ" width="1305" height="941" fetchpriority="high">
       </picture>
-      <p class="scene-note"><small>帰り道の、小さな楽しみ。</small>きょうは、何を<br>持って帰ろう？</p>
+      <p class="scene-note"><small>いつもの駅に、小さな楽しみ。</small>帰る前に、<br>ひとつ楽しみ。</p>
       <span class="scene-star" aria-hidden="true">✦</span><span class="scene-star" aria-hidden="true">✦</span>
       <p class="cover-cap">完成イメージ（合成）｜区画・店数は調整中</p>
     </div>
     <div class="hero-signup">
       <a class="btn btn-tomato hero-vote-main" href="#voteForm">食べたいものに投票する<small>30秒・登録なしで投票できます</small></a>
       <ol class="hero-steps" aria-label="投票すると">
-        <li><b>1</b>食べたいものを<br>3つまで選ぶ</li>
-        <li><b>2</b>出店するお店に<br>届く</li>
-        <li><b>3</b><span class="vs-pre">30件で<br>結果を公開</span><span class="vs-post" hidden>みんなの結果と<br>比べられる</span></li>
+        <li><b>1</b>選んで<br>投票する</li>
+        <li><b>2</b>お店選びに<br>活かす</li>
+        <li><b>3</b>カードで<br>友だちを誘う</li>
       </ol>
       <p class="hero-tease" hidden></p>
+      <button class="hero-invite" type="button" data-share data-share-mode="announce">この予告を、友だちに送る <span aria-hidden="true">↗</span></button>
       <form class="hero-reg" id="regHero" novalidate>
       <label class="hr-l" for="rEmail0">出店するお店が決まったら、メールで知らせてほしい方へ<small>出店するお店と、開催前のお知らせをお送りします（無料）</small></label>
       <div class="hr-row">
@@ -844,19 +847,22 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <div class="news-view"><ul class="news-track" id="newsTrack"></ul></div>
 </div>
 
+<!-- 食べたい気持ちから、実際の投票へ。選択のみでは送信しない -->
+<section class="join-menu" id="join" aria-labelledby="joinTitle">
+  <div class="wrap">
+    <div class="join-heading"><div><p class="join-kicker">はじまる前から、いっしょにつくろう。</p><h2 id="joinTitle">あなたは、<em>何派？</em></h2></div><p>南草津駅で、これが買えたら。<br>その「食べたい」を、一票に。</p></div>
+    <div class="join-foods">
+      <a class="join-food" href="#voteForm" data-vote-choice="0"><span class="join-number" aria-hidden="true">01</span><img src="images/minakusa/yorimichi/food-osozai-v1.webp" alt="紙の容器に入ったおかずを包む手元のイラスト" width="1254" height="1254" loading="lazy"><div><h3>おかず派</h3><p>晩ごはんに、もう一品。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
+      <a class="join-food" href="#voteForm" data-vote-choice="2"><span class="join-number" aria-hidden="true">02</span><img src="images/minakusa/yorimichi/food-bread-v1.webp" alt="ふんわりした断面のパンとサンドイッチのイラスト" width="1254" height="1254" loading="lazy"><div><h3>パン派</h3><p>明日の朝が、楽しみに。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
+      <a class="join-food" href="#voteForm" data-vote-choice="4"><span class="join-number" aria-hidden="true">03</span><img src="images/minakusa/yorimichi/food-oyatsu-v1.webp" alt="紙の上に並んだ焼き菓子とスコーンのイラスト" width="1254" height="1254" loading="lazy"><div><h3>おやつ派</h3><p>きょうの自分に、ひと息。</p><span class="join-food-link">選んで、投票へ <b aria-hidden="true">↗</b></span></div></a>
+    </div>
+    <p class="join-note">ほかの食べたいものも、投票欄で選べます。投票は最後の送信ボタンで確定します。<br>イラストはイメージです。販売する商品・価格は未定です。</p>
+  </div>
+</section>
+
 <!-- 開催概要（EVENT OVERVIEW） -->
 <section id="overview" class="kp-ov">
   <div class="wrap kp-ov-grid">
-    <div class="food-inspiration" aria-labelledby="foodIdeasTitle">
-      <p class="eyebrow">帰り道に、持って帰りたい。</p>
-      <h3 id="foodIdeasTitle">今夜のおかず。明日のパン。<br>ちょっといい、おやつ。</h3>
-      <div class="food-ideas-grid">
-        <figure><img src="images/minakusa/yorimichi/food-osozai-v1.webp" alt="紙の容器に入ったおかずを包む手元のイラスト" width="1254" height="1254" loading="lazy"><figcaption><b>今夜のおかず</b><span>今夜の食卓へ。</span></figcaption></figure>
-        <figure><img src="images/minakusa/yorimichi/food-bread-v1.webp" alt="ふんわりした断面のパンとサンドイッチのイラスト" width="1254" height="1254" loading="lazy"><figcaption><b>明日のパン</b><span>明日の楽しみ。</span></figcaption></figure>
-        <figure><img src="images/minakusa/yorimichi/food-oyatsu-v1.webp" alt="紙の上に並んだ焼き菓子とスコーンのイラスト" width="1254" height="1254" loading="lazy"><figcaption><b>今日のおやつ</b><span>ひと息の時間。</span></figcaption></figure>
-      </div>
-      <p class="food-ideas-note">イラストはイメージです。販売する商品・価格は未定です。</p>
-    </div>
     <div class="kp-ov-body">
       <p class="kp-sub">EVENT OVERVIEW</p>
       <h2 class="kp-ja">どんな市？</h2>
@@ -872,6 +878,13 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       </dl>
       <a class="btn btn-tomato btn-sm" href="#register">開催案内を受け取る</a>
     </div>
+    <aside class="join-invite" aria-labelledby="inviteTitle">
+      <p class="join-kicker">南草津を使う、あの人へ。</p><span class="invite-mark" aria-hidden="true">↗</span>
+      <h2 id="inviteTitle">「駅前、<br>なんか始まる<br>らしいよ。」</h2>
+      <p>仕事帰りの同僚に。<br>学校帰りの友だちに。<br>いつもの駅の、小さな楽しみを。</p>
+      <button class="btn btn-tomato" type="button" data-share data-share-mode="announce">開催の予告を送る <span aria-hidden="true">↗</span></button>
+      <p class="invite-help">日付入りの画像とリンクを作れます。<br>LINE・Instagram・Threadsなどでどうぞ。</p>
+    </aside>
   </div>
 </section>
 
@@ -1167,7 +1180,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   <a class="btn btn-bulb" href="#register">開催案内を受け取る</a>
 </div>
 
-<script src="assets/yorimichi-social.js?v=20261019d"></script>
+<script src="assets/yorimichi-social.js?v=20261023join1"></script>
 <script>
 (function(){
   // ── 設定 ─────────────────────────────
@@ -1180,7 +1193,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   var FOODS = [['🍱','夕ごはんのおかず・惣菜'],['🍙','お弁当'],['🥐','パン・サンドイッチ'],['☕','コーヒー・ドリンク'],['🍰','スイーツ・焼き菓子'],['🍢','おつまみ・お酒'],['🥬','地元の野菜・果物'],['🎁','手みやげ・草津のお土産'],['🌮','学生向けの軽食'],['🍡','子どもと食べるおやつ']];
   var social = window.YorimichiSocial;
   // 共有画面で3つ選んだ人（まだ投票していない人）は、その3つをそのまま1票として送れる
-  if(social) social.init({foods:FOODS, page:PAGE_URL, onUse:function(method){ cardUse('wish', method); }, vote:function(picks){
+  if(social) social.init({foods:FOODS, page:PAGE_URL, announcement:{date:'11月30日（月）〜12月20日（日）', shortDate:'2026.11.30 → 12.20', place:'南草津駅 西口・東口の駅前', note:'各日の出店・時間・お店は、決まりしだいお知らせします。'}, onUse:function(method){ cardUse('wish', method); }, vote:function(picks){
     return send({ _subject:'【南草津】食べたいもの投票', kind:'投票', form_ver:FORM_VER, via:'共有画面', persona:(PERSONAS[myPersona]||{}).label||'',
       food: picks.map(function(n){ return FOODS[n][1]; }).join('／'), time:'（未回答）', exit:'（未回答）', comment:'', src:src
     }).then(function(){ store('minakusa_voted','1'); store('minakusa_vote_food', picks.map(function(n){ return FOODS[n][1]; }).join('／')); showVoted(); track('yorimichi_vote',{via:'share_dialog'}); });
@@ -1433,6 +1446,21 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     vbtn.disabled = n===0; vbtn2.disabled = n===0;
   }
   vf.addEventListener('change', refreshVote);
+  document.querySelectorAll('[data-vote-choice]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(load('minakusa_voted')) return;
+      var n=Number(a.getAttribute('data-vote-choice'));
+      var input=vf.querySelectorAll('input[name=food]')[n];
+      if(!input) return;
+      if(!input.checked && vals(vf,'food').length>=3){
+        vmsg.className='msg ng';vmsg.textContent='3つ選択済みです。入れ替えるときは、選んだものを1つ外してください。';
+      }else{
+        input.checked=true;refreshVote();vmsg.className='msg ok';
+        vmsg.textContent='「'+input.value+'」を選びました。ほかの候補も選べます。最後に送信すると1票になります。';
+      }
+      track('yorimichi_food_entry',{choice:String(n)});
+    });
+  });
   function showVoted(){
     vf.style.display='none';vdone.style.display='block';
     document.querySelectorAll('a[href="#voteForm"]').forEach(function(a){
@@ -1453,9 +1481,9 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     for(var t=from;t<=to;t+=DAY){ var d=new Date(t), dw=d.getUTCDay(), md=d.getUTCDate(), first=(t===from||md===1);
       h+='<i class="'+((dw===0||dw===6)?'we':'')+(t===today?' today':'')+(t<today?' past':'')+(first?' m':'')+'">'+(first?(d.getUTCMonth()+1)+'/'+md:md)+'</i>'; }
     days.innerHTML=h;
-    if(today<from){ cnt.innerHTML='開催まで あと<b>'+Math.round((from-today)/DAY)+'</b>日'; }
-    else if(today<=to){ var left=Math.round((to-today)/DAY); cnt.innerHTML=left?'いま開催中・最終日まで あと<b>'+left+'</b>日':'<b>きょう</b>が最終日です'; }
-    else { cnt.textContent='今回の開催は終了しました。ご来場ありがとうございました。'; }
+    if(today<from){ cnt.innerHTML='初日まで あと<b>'+Math.round((from-today)/DAY)+'</b>日'; }
+    else if(today<=to){ var left=Math.round((to-today)/DAY); cnt.innerHTML=left?'会期中・最終日まで あと<b>'+left+'</b>日':'<b>きょう</b>が最終日です'; }
+    else { cnt.textContent='今回の会期は終了しました。ご来場ありがとうございました。'; }
   })();
   // スマホでは位置関係の図をたたんでおく（ページを短く）。PCは開いたまま
   try{ if(window.matchMedia('(max-width:860px)').matches) document.getElementById('mapDet').open=false; }catch(e){}
@@ -1520,7 +1548,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   function bindReg(formId, inputId, msgId, where){
     var f = document.getElementById(formId); if(!f) return;
     var m = document.getElementById(msgId), btn = f.querySelector('button[type=submit]');
-    if(load('minakusa_registered')){ var myNo = load('minakusa_no'); m.className='msg ok'; m.textContent='このブラウザからは登録済みです'+(myNo ? '（よりみち会員 No.'+('00'+myNo).slice(-3)+'）' : '')+'。日程が決まったらお知らせします。'; if(myNo){ var mb=document.createElement('button'); mb.type='button'; mb.className='mk-share'; mb.textContent='私のカードで、友だちを誘う'; mb.addEventListener('click', function(){ openShareKit('member'); }); m.appendChild(document.createElement('br')); m.appendChild(mb); } }
+    if(load('minakusa_registered')){ var myNo = load('minakusa_no'); m.className='msg ok'; m.textContent='このブラウザからは登録済みです'+(myNo ? '（よりみち会員 No.'+('00'+myNo).slice(-3)+'）' : '')+'。出店するお店と、開催前のお知らせをお送りします。'; if(myNo){ var mb=document.createElement('button'); mb.type='button'; mb.className='mk-share'; mb.textContent='私のカードで、友だちを誘う'; mb.addEventListener('click', function(){ openShareKit('member'); }); m.appendChild(document.createElement('br')); m.appendChild(mb); } }
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var em = document.getElementById(inputId);
@@ -1562,7 +1590,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   var gt; window.addEventListener('resize', function(){ clearTimeout(gt); gt=setTimeout(drawGarland,150); });
 
   // ── シェア ───────────────────────────
-  var shareText = '南草津駅前に、小さなお店が並ぶらしい。帰り道に何が買えたらうれしいか、投票できるよ。';
+  var shareText = '11月30日〜12月20日、南草津駅前で、おいしい寄り道。食べたいものに投票できるよ。';
   var shareUrl = PAGE_URL + '?src=share';
   // [data-share] は YorimichiSocial が扱う（共有画面を二重に開かない）。
 
@@ -1659,6 +1687,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <script src="bc-analytics.js" defer></script>
 </body>
 </html>
+
 
 
 
