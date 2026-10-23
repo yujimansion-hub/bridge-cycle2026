@@ -116,6 +116,20 @@ header .w{display:flex;align-items:center;gap:20px;height:64px}
   html #campBand .cb-go{display:none}
 }
 
+.room-img{display:block;aspect-ratio:2/1;border-radius:14px;overflow:hidden;margin-bottom:12px;background:var(--mist)}
+.room-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.room:hover .room-img img{transform:scale(1.03)}
+.doors-cr{display:block!important;font-size:12px;color:var(--ai-3);margin-top:8px}
+.j4-sub article.hot,.j4-sub article{padding-top:0;overflow:hidden}
+html .j4-sub article{padding-top:0}
+.biz-img{display:block;margin:0 -22px 18px;aspect-ratio:9/5;background:var(--mist);overflow:hidden}
+.biz-img img,.biz-img svg{width:100%;height:100%;object-fit:cover;display:block}
+html .j4-sub .badge{z-index:1;top:12px}
+.shikumi-fig{margin:26px 0 8px;max-width:860px}
+.shikumi-fig img{width:100%;height:auto;border-radius:16px;border:1px solid var(--rule)}
+@media (max-width:860px){.room-img{aspect-ratio:5/2;margin-bottom:8px}}
+@media (prefers-reduced-motion:reduce){.room-img img{transition:none}}
+
 /* 入口：3つの立場 */
 .doors{padding:72px 0 64px}
 .doors-q{font-size:clamp(25px,3.4vw,34px);font-weight:700;line-height:1.4}
@@ -428,6 +442,7 @@ footer p{margin-top:6px}
         <div class="room room-a on" id="tenshu" role="tabpanel" aria-labelledby="tab-tenshu">
           <span id="shokei" class="anc"></span><span id="watasu" class="anc"></span>
           <h2 class="room-h">お店をやっている方</h2>
+          <span class="room-img"><img src="images/door-tenshu.webp" alt="棚にパンが並ぶ店内（イメージ）" width="720" height="360" loading="lazy" decoding="async"></span>
           <a class="act main" href="keisai.html" data-t="hub_act_keisai"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-tegami"/></svg></i><span class="tx"><b>お店を登録する（無料）</b><span>30秒の試算つき。店名は載りません</span></span><em class="osu">おすすめ</em></a>
           <a class="act sub" href="yameru.html" data-t="hub_act_neuchi"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-nefuda"/></svg></i><b>まず、値打ちだけ知る</b><span>30秒・匿名</span></a>
           <a class="act sub" href="zousaku.html" data-t="hub_act_zousaku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-fukidashi"/></svg></i><b>閉めることを相談する</b><span>写真で無料確認</span></a>
@@ -435,19 +450,21 @@ footer p{margin-top:6px}
         <div class="room room-b" id="hajimeru" role="tabpanel" aria-labelledby="tab-hajimeru">
           <span id="jigyo" class="anc"></span><span id="tamesu" class="anc"></span>
           <h2 class="room-h">お店を始めたい方</h2>
+          <span class="room-img"><img src="images/door-hajimeru.webp" alt="木の壁と照明のカフェの客席（イメージ）" width="720" height="360" loading="lazy" decoding="async"></span>
           <a class="act main" href="matching.html#mise" data-t="hub_act_mise"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-mushi"/></svg></i><span class="tx"><b>登録されたお店を見る</b><span>見るのは0円。全国のお店です</span></span></a>
           <a class="act sub" href="tsugite.html#touroku" data-t="hub_act_touroku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg></i><b>条件を登録しておく</b><span>1分・無料</span></a>
           <a class="act sub" href="uriba-kokaido.html" data-t="hub_act_uriba"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-tento"/></svg></i><b>売り場で、試しに売る</b><span>旧大津公会堂</span></a>
         </div>
         <div class="room room-c" id="tsuzukeru" role="tabpanel" aria-labelledby="tab-tsuzukeru">
           <h2 class="room-h">お金の相談をしたい方</h2>
-          <a class="act main" href="hojokin.html" data-t="hub_act_hojokin"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-shorui"/></svg></i><span class="tx"><b>補助金を相談する</b><span>着手金0円。採択されたときだけ</span></span></a>
+          <span class="room-img"><img src="images/door-sodan.webp" alt="オレンジ色の椅子が並ぶ客席（イメージ）" width="720" height="360" loading="lazy" decoding="async"></span>
+          <a class="act main" href="hojokin.html" data-t="hub_act_hojokin"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-shorui"/></svg></i><span class="tx"><b>補助金を相談する</b><span>使えるかの確認は0円</span></span></a>
           <a class="act sub" href="tsuzukeru.html" data-t="hub_act_keikaku"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-graph"/></svg></i><b>続ける計画をつくる</b><span>数字で確かめる</span></a>
           <a class="act sub" href="https://line.me/R/oaMessage/@907kxssd/?%E8%A8%AD%E5%82%99%E6%8A%95%E8%B3%87%E3%83%BB%E7%B5%8C%E5%96%B6%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E8%A8%AD%E5%82%99%E3%82%84%E5%86%85%E5%AE%B9%EF%BC%9A%0A%E8%A6%8B%E7%A9%8D%E9%87%91%E9%A1%8D%EF%BC%88%E5%88%86%E3%81%8B%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A" target="_blank" rel="noopener" data-t="hub_act_setsubi"><i class="pic"><svg class="ic" aria-hidden="true"><use href="#i-setsubi"/></svg></i><b>設備を買う前に相談</b><span>LINEで一言</span></a>
         </div>
       </div>
       <p class="doors-line">迷ったら、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_door_line">LINEで一言</a>ください。どこから話せばいいか、こちらで整理します。</p>
-      <p class="doors-cr">のれんの写真はイメージです（wei／Omar Ramadan／Minyeong Jeong・Unsplash）。</p>
+      <p class="doors-cr">店内の写真はイメージです（wei／Omar Ramadan／Minyeong Jeong・Unsplash）。</p>
     </div>
   </section>
 
@@ -465,6 +482,7 @@ footer p{margin-top:6px}
   <section id="shikumi">
     <div class="w">
       <h2 class="sec">しくみは、これだけです</h2>
+      <figure class="shikumi-fig"><img src="images/shikumi-twoway.webp" alt="承継は、店主からも、継ぎ手からも始められます。閉めようかなと考える店主と、この店を継ぎたい継ぎ手を、BRIDGE CYCLEがつなぐ図" width="1000" height="562" loading="lazy" decoding="async"></figure>
       <ol class="flow3">
         <li><b>店主が、お店を登録する</b><span>無料。店名は一覧に載りません。</span></li>
         <li><b>当社が、始めたい人の資金を確かめる</b><span>お店の希望額以上の自己資金があるかを、オンラインで。</span></li>
@@ -504,6 +522,7 @@ footer p{margin-top:6px}
       <div class="j4-sub">
         <article class="hot">
           <span class="badge">出店者を募集中</span>
+          <span class="biz-img"><img src="images/biz-uriba.webp" alt="旧大津公会堂の前庭と入口" width="720" height="400" loading="lazy" decoding="async"></span>
           <span class="v">試す</span>
           <h3>売り場レンタル</h3>
           <p class="big">駅前で、毎週売る。</p>
@@ -514,16 +533,18 @@ footer p{margin-top:6px}
           </ul>
         </article>
         <article>
+          <span class="biz-img"><img src="images/biz-hojokin.webp" alt="店主と支援者が話している様子（イメージ）" width="408" height="227" loading="lazy" decoding="async"></span>
           <span class="v">備える</span>
           <h3>補助金申請サポート</h3>
-          <p class="big">着手金0円。</p>
-          <p>認定経営革新等支援機関として、開業・設備投資の補助金を申請から支えます。料金は採択されたときだけ。</p>
+          <p class="big">使えるか、0円で確認。</p>
+          <p>認定経営革新等支援機関として、開業・設備投資の補助金を申請から支えます。持続化補助金は着手金0円、料金は採択されたときだけ。</p>
           <ul>
             <li><a href="hojokin.html" data-t="biz4_hojokin">補助金を相談する</a></li>
             <li><a href="tsuzukeru.html" data-t="biz4_keikaku">続ける計画をつくる</a></li>
           </ul>
         </article>
         <article>
+          <span class="biz-img sign" aria-hidden="true"><svg viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice"><rect width="360" height="200" fill="#eef2f7"/><path d="M0 160 Q90 140 180 150 T360 140 V200 H0Z" fill="#dfe6ef"/><path d="M0 182 L360 168" stroke="#c8d1de" stroke-width="10"/><rect x="118" y="88" width="10" height="84" fill="#6b7590"/><rect x="232" y="88" width="10" height="84" fill="#6b7590"/><rect x="80" y="34" width="200" height="70" rx="8" fill="#1d2b4f"/><rect x="92" y="46" width="70" height="10" rx="5" fill="#9bcf53"/><rect x="92" y="64" width="120" height="8" rx="4" fill="#fff" opacity=".85"/><rect x="92" y="80" width="90" height="8" rx="4" fill="#fff" opacity=".55"/><path d="M236 58 h22 l-8 -8 M258 58 l-8 8" stroke="#9bcf53" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="300" cy="60" r="16" fill="#fff" stroke="#1d2b4f" stroke-width="3"/><path d="M300 52 a6 6 0 0 1 6 6 c0 6 -6 12 -6 12 s-6 -6 -6 -12 a6 6 0 0 1 6 -6z" fill="#1d2b4f"/></svg></span>
           <span class="v">知らせる</span>
           <h3>看板広告（タドリツク）</h3>
           <p class="big">集客診断0円。</p>
