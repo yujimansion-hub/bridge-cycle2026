@@ -187,6 +187,22 @@ footer{padding:20px 0 40px;font-size:12px;color:var(--sub)}
   [].forEach.call($('bring').querySelectorAll('input'),function(c){ var k='b'+c.getAttribute('data-b')+'_'+(load('date')||''); c.checked=load(k)==='1'; c.addEventListener('change',function(){ save('b'+c.getAttribute('data-b')+'_'+$('date').value, c.checked?'1':'0'); }); });
 
   var steps=[];
+  // 売上報告のお知らせ（販売終了の30分後に予定を入れ、その時と翌朝9時に通知）。端末のカレンダーが通知を出す
+  function reminderIcs(st,en){
+    var d=dateSel.value.replace(/-/g,''), base=Date.UTC(+d.slice(0,4),+d.slice(4,6)-1,+d.slice(6,8))-9*3600e3;
+    function z(ms){ return new Date(ms).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''); }
+    var s1=base+(en+30)*6e4, e1=s1+15*6e4, morning=base+(24*60+9*60)*6e4, after=Math.round((morning-s1)/6e4);
+    var report=lineUrl('【売上報告】\n'+who()+'\n売上金額：　　　円\n人数（買ってくれたお客さんの数）：　　　人\n売れた時間帯（わかれば）：\n※集計画面の写真を添えます');
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//BRIDGE CYCLE//yorimichi-vendor//JA','BEGIN:VEVENT',
+      'UID:yorimichi-report-'+d+'-'+en+'-'+Math.random().toString(36).slice(2,8)+'@bridgecycleco.com','DTSTAMP:'+z(Date.now()),
+      'DTSTART:'+z(s1),'DTEND:'+z(e1),'SUMMARY:【よりみち】売上金額と人数をLINEで報告',
+      'DESCRIPTION:実証実験のため、全出店者の条件です（24時間以内）。下のリンクから送れます。\\n'+report,
+      'URL:'+report,
+      'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:売上金額と人数をLINEで報告','TRIGGER:PT0M','END:VALARM',
+      'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:まだなら、売上金額と人数をLINEで報告（24時間以内）','TRIGGER:PT'+after+'M','END:VALARM',
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    return 'data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+  }
   function who(){ return '屋号：'+($('shop').value||'（屋号）')+'\n出店日：'+(dateSel.options[dateSel.selectedIndex]||{}).text+'\n売り場：'+$('area').value+($('spot').value?'・区画'+$('spot').value:''); }
   function build(){
     var ok=dateSel.value && $('slot').value;
@@ -206,7 +222,7 @@ footer{padding:20px 0 40px;font-size:12px;color:var(--sub)}
       {t:en+60, h:'売上金額と人数を報告（24時間以内）', d:'実証実験のため、全出店者の条件です。売れた時間帯もわかれば。決済アプリやレジの「1日の集計画面」の写真を添えてください。', must:1, report:1}
     );
     $('tl').innerHTML=steps.map(function(x,i){
-      var btn = x.report ? '<a class="btn btn-line" target="_blank" rel="noopener" href="'+lineUrl('【売上報告】\n'+who()+'\n売上金額：　　　円\n人数（買ってくれたお客さんの数）：　　　人\n売れた時間帯（わかれば）：\n※集計画面の写真を添えます')+'">売上報告をLINEで送る</a>' : (x.line ? '<a class="btn btn-line" target="_blank" rel="noopener" href="'+lineUrl(x.line)+'">LINEで送る</a>' : '');
+      var btn = x.report ? '<a class="btn btn-line" target="_blank" rel="noopener" href="'+lineUrl('【売上報告】\n'+who()+'\n売上金額：　　　円\n人数（買ってくれたお客さんの数）：　　　人\n売れた時間帯（わかれば）：\n※集計画面の写真を添えます')+'">売上報告をLINEで送る</a>' + '<a class="btn" id="remindIcs" download="yorimichi-report.ics" href="'+reminderIcs(st,en)+'">報告を忘れないよう、スマホのカレンダーにお知らせを入れる</a>' : (x.line ? '<a class="btn btn-line" target="_blank" rel="noopener" href="'+lineUrl(x.line)+'">LINEで送る</a>' : '');
       return '<li id="st'+i+'"><input type="checkbox" aria-label="'+x.h+' 完了" data-i="'+i+'"><span class="t">'+hm(x.t)+(x.report?'〜翌日':'')+'</span><span class="h">'+x.h+(x.must?'<span class="must">必ず</span>':'')+'</span><span class="d">'+x.d+'</span>'+btn+'</li>';
     }).join('');
     [].forEach.call($('tl').querySelectorAll('input'),function(c){ var k='s'+c.getAttribute('data-i')+'_'+dateSel.value; c.checked=load(k)==='1'; c.closest('li').classList.toggle('done',c.checked);
@@ -221,7 +237,7 @@ footer{padding:20px 0 40px;font-size:12px;color:var(--sub)}
     $('prog').style.width=(steps.length?Math.round(done/steps.length*100):0)+'%';
     var nb=$('nowBtn'); nb.classList.add('hide');
     if(!steps.length){ $('nowTime').textContent='—'; $('nowTitle').textContent='出店日・売り場・枠を選んでください'; $('nowBody').textContent=''; return; }
-    if(key<dateSel.value){ $('nowTime').textContent='前日まで'; $('nowTitle').textContent='持ち物を確認して、前日のLINEを待つ'; $('nowBody').textContent='前日に、区画と搬入口をLINEでお知らせします。届いた区画の記号を上の「区画」に入れておくと、当日の連絡が速くなります。'; return; }
+    if(key<dateSel.value){ $('nowTime').textContent='前日まで'; $('nowTitle').textContent='持ち物を確認して、前日のLINEを待つ'; $('nowBody').textContent='前日に、区画と搬入口をLINEでお知らせします。届いた区画の記号を上の「区画」に入れておくと、当日の連絡が速くなります。下の「売上報告」にある、カレンダーにお知らせを入れるボタンも、いま押しておくと安心です。'; return; }
     if(key>dateSel.value){ var rep=steps[steps.length-1], li=$('st'+(steps.length-1));
       if(li && !li.classList.contains('done')){ $('nowTime').textContent='24時間以内'; $('nowTitle').textContent='売上金額と人数を報告する'; $('nowBody').textContent='実証実験のため、全出店者の条件です。'; nb.textContent='売上報告をLINEで送る'; nb.href=li.querySelector('a').href; nb.classList.remove('hide'); li.classList.add('is-now'); }
       else { $('nowTime').textContent='おつかれさまでした'; $('nowTitle').textContent='報告まで完了です'; $('nowBody').textContent='ありがとうございました。'; }
