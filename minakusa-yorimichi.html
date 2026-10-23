@@ -849,6 +849,55 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   .nn-col p{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){.lb-tag i,.nn-now .nn-label i{animation:none}}
+/* ── 期間限定の告知（ツアー日程風） ── */
+.tour{padding:0 0 72px;background:var(--night);color:var(--page);overflow:hidden}
+.tour-marquee{border-bottom:1px solid rgba(246,242,233,.18);overflow:hidden;white-space:nowrap;padding:12px 0}
+.tm-track{display:inline-flex;gap:28px;padding-left:28px;font:600 13px/1 'Jost',sans-serif;letter-spacing:.24em;animation:tm-run 38s linear infinite}
+.tm-track i{font-style:normal;color:var(--bulb)}
+@keyframes tm-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tour-head{display:grid;grid-template-columns:auto 1fr;gap:20px 56px;align-items:end;padding:56px 0 34px;border-bottom:1px solid rgba(246,242,233,.3)}
+.tour-eyebrow{grid-column:1/-1;margin:0;font:500 12px/1 'Jost',sans-serif;letter-spacing:.3em;color:var(--bulb)}
+.tour-title{margin:0;font:600 clamp(64px,10vw,148px)/.86 'Jost',sans-serif;letter-spacing:-.06em;color:var(--page)}
+.tour-title span{color:var(--bulb)}
+.tour-meta p{margin:0;font-size:15px;line-height:1.9;color:rgba(246,242,233,.82)}
+.tour-meta b{color:var(--page)}
+.tour-left{margin-top:14px!important;font:600 13px/1.4 'Jost','Noto Sans JP',sans-serif!important;letter-spacing:.12em;color:var(--bulb)!important}
+.tour-list{list-style:none;margin:0;padding:0}
+.td-row{display:grid;grid-template-columns:120px 1fr auto auto;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid rgba(246,242,233,.18)}
+.td-row time{display:flex;align-items:baseline;gap:8px}
+.td-row time b{font:600 28px/1 'Jost',sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.td-row time small{font:500 11px/1 'Jost',sans-serif;letter-spacing:.15em;opacity:.7}
+.td-we time small{color:var(--bulb);opacity:1}
+.td-name{font:600 15px/1.4 'Jost','Noto Sans JP',sans-serif;letter-spacing:.08em}
+.td-name em{display:block;font-style:normal;font-family:'Noto Sans JP',sans-serif;font-weight:500;font-size:13px;letter-spacing:0;opacity:.75;margin-top:2px}
+.td-venue{font-size:12px;opacity:.7}
+.td-status{min-width:118px;text-align:center;font:600 11px/1 'Jost',sans-serif;letter-spacing:.16em;border:1px solid rgba(246,242,233,.55);padding:9px 10px}
+.td-key .td-name{font-size:19px}.td-key time b{font-size:36px}
+.td-row.is-today{background:rgba(229,237,180,.08)}
+.td-row.is-today .td-status{background:var(--bulb);color:var(--night);border-color:var(--bulb)}
+.td-row.is-past{opacity:.38}
+.tour-all{margin-top:6px}
+.tour-all summary{cursor:pointer;list-style:none;padding:16px 0;font:600 13px/1 'Jost','Noto Sans JP',sans-serif;letter-spacing:.12em;border-bottom:1px solid rgba(246,242,233,.18)}
+.tour-all summary::-webkit-details-marker{display:none}
+.tour-all summary::after{content:" +";color:var(--bulb)}.tour-all[open] summary::after{content:" −"}
+.tour-all .td-row{padding:11px 0}.tour-all .td-row time b{font-size:20px}.tour-all .td-name{font-size:13px}
+.tour-note{margin:12px 0 0;font-size:12px;opacity:.7}
+.tour-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.tour-actions .btn-bulb{background:var(--bulb);color:var(--night);border-color:var(--bulb)}
+.tour-actions .btn-line{color:var(--page);border-color:rgba(246,242,233,.6);background:transparent}
+@media(max-width:860px){
+  .tour{padding-bottom:52px}
+  .tour-head{grid-template-columns:1fr;padding:40px 0 26px;gap:16px}
+  .tour-title{font-size:clamp(64px,22vw,96px)}
+  .td-row{grid-template-columns:76px 1fr;gap:4px 14px;padding:14px 0}
+  .td-row time{flex-direction:column;gap:4px;grid-row:span 2}
+  .td-row time b{font-size:24px}.td-key time b{font-size:28px}
+  .td-venue{grid-column:2;font-size:11px}
+  .td-status{grid-column:2;justify-self:start;min-width:0;padding:6px 8px;font-size:10px}
+  .tour-all .td-row{grid-template-columns:64px 1fr}.tour-all .td-venue{display:none}
+  .tour-actions .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.tm-track{animation:none}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261023viral1">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
@@ -962,6 +1011,31 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
   </div>
 </section>
 <!-- NEWS（KYOPOの流れるお知らせ帯を参考に）。中身は下の JS の NEWS で書き換える -->
+<!-- 期間限定の告知（アーティストのツアー日程のように）。日付は会期に合わせる -->
+<section class="tour" id="dates" aria-labelledby="tourTitle">
+  <div class="tour-marquee" aria-hidden="true"><div class="tm-track"><span>21 DAYS ONLY</span><i>✦</i><span>11.30 — 12.20</span><i>✦</i><span>MINAMIKUSATSU STATION</span><i>✦</i><span>FREE ENTRY</span><i>✦</i><span>21 DAYS ONLY</span><i>✦</i><span>11.30 — 12.20</span><i>✦</i><span>MINAMIKUSATSU STATION</span><i>✦</i><span>FREE ENTRY</span><i>✦</i></div></div>
+  <div class="wrap">
+    <div class="tour-head">
+      <p class="tour-eyebrow">LIMITED · 2026 WINTER</p>
+      <h2 class="tour-title" id="tourTitle"><span>21</span> DAYS<br>ONLY</h2>
+      <div class="tour-meta">
+        <p>この駅前に、お店が並ぶのは<b>21日間だけ</b>。<br>終わったら、いつもの駅前に戻ります。</p>
+        <p class="tour-left" id="tourLeft" aria-live="polite"></p>
+      </div>
+    </div>
+    <ol class="tour-list tour-key"><li class="td-row td-key" data-date="2026-11-30"><time datetime="2026-11-30"><b>11.30</b><small>MON</small></time><span class="td-name">OPENING NIGHT<em>はじめての点灯</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row td-key td-we" data-date="2026-12-20"><time datetime="2026-12-20"><b>12.20</b><small>SUN</small></time><span class="td-name">FINAL DAY<em>みんなの結果発表</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li></ol>
+    <details class="tour-all">
+      <summary>全21日の日程を見る</summary>
+      <ol class="tour-list"><li class="td-row td-key" data-date="2026-11-30"><time datetime="2026-11-30"><b>11.30</b><small>MON</small></time><span class="td-name">OPENING NIGHT<em>はじめての点灯</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-01"><time datetime="2026-12-01"><b>12.01</b><small>TUE</small></time><span class="td-name">WEEK 1<em>はじまりの週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-02"><time datetime="2026-12-02"><b>12.02</b><small>WED</small></time><span class="td-name">WEEK 1<em>はじまりの週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-03"><time datetime="2026-12-03"><b>12.03</b><small>THU</small></time><span class="td-name">WEEK 1<em>はじまりの週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-04"><time datetime="2026-12-04"><b>12.04</b><small>FRI</small></time><span class="td-name">WEEK 1<em>はじまりの週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row td-we" data-date="2026-12-05"><time datetime="2026-12-05"><b>12.05</b><small>SAT</small></time><span class="td-name">WEEK 1<em>はじまりの週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row td-we" data-date="2026-12-06"><time datetime="2026-12-06"><b>12.06</b><small>SUN</small></time><span class="td-name">WEEK 1<em>はじまりの週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-07"><time datetime="2026-12-07"><b>12.07</b><small>MON</small></time><span class="td-name">WEEK 2<em>あったか週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-08"><time datetime="2026-12-08"><b>12.08</b><small>TUE</small></time><span class="td-name">WEEK 2<em>あったか週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-09"><time datetime="2026-12-09"><b>12.09</b><small>WED</small></time><span class="td-name">WEEK 2<em>あったか週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-10"><time datetime="2026-12-10"><b>12.10</b><small>THU</small></time><span class="td-name">WEEK 2<em>あったか週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-11"><time datetime="2026-12-11"><b>12.11</b><small>FRI</small></time><span class="td-name">WEEK 2<em>あったか週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row td-we" data-date="2026-12-12"><time datetime="2026-12-12"><b>12.12</b><small>SAT</small></time><span class="td-name">WEEK 2<em>あったか週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row td-we" data-date="2026-12-13"><time datetime="2026-12-13"><b>12.13</b><small>SUN</small></time><span class="td-name">WEEK 2<em>あったか週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-14"><time datetime="2026-12-14"><b>12.14</b><small>MON</small></time><span class="td-name">WEEK 3<em>年末の手みやげ週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-15"><time datetime="2026-12-15"><b>12.15</b><small>TUE</small></time><span class="td-name">WEEK 3<em>年末の手みやげ週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-16"><time datetime="2026-12-16"><b>12.16</b><small>WED</small></time><span class="td-name">WEEK 3<em>年末の手みやげ週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-17"><time datetime="2026-12-17"><b>12.17</b><small>THU</small></time><span class="td-name">WEEK 3<em>年末の手みやげ週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row" data-date="2026-12-18"><time datetime="2026-12-18"><b>12.18</b><small>FRI</small></time><span class="td-name">WEEK 3<em>年末の手みやげ週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row td-we" data-date="2026-12-19"><time datetime="2026-12-19"><b>12.19</b><small>SAT</small></time><span class="td-name">WEEK 3<em>年末の手みやげ週</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li><li class="td-row td-key td-we" data-date="2026-12-20"><time datetime="2026-12-20"><b>12.20</b><small>SUN</small></time><span class="td-name">FINAL DAY<em>みんなの結果発表</em></span><span class="td-venue">南草津駅 西口・東口</span><span class="td-status">COMING SOON</span></li></ol>
+      <p class="tour-note">各日の出店・時間は、決まりしだいお知らせします。平日は夕方、土日は昼からの予定です（時間は案）。</p>
+    </details>
+    <div class="tour-actions">
+      <a class="btn btn-bulb" id="tourGcal" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85%E5%89%8D%E3%80%81%E3%82%88%E3%82%8A%E3%81%BF%E3%81%A1%E3%80%82&amp;dates=20261130%2F20261221&amp;details=JR%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85%20%E8%A5%BF%E5%8F%A3%E3%83%BB%E6%9D%B1%E5%8F%A3%E3%81%AE%E9%A7%85%E5%89%8D%E3%80%82%E5%85%A5%E5%A0%B4%E7%84%A1%E6%96%99%E3%80%82https%3A%2F%2Fwww.bridgecycleco.com%2Fminakusa-yorimichi.html&amp;location=JR%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85">Googleカレンダーに入れる ↗</a>
+      <a class="btn btn-line" id="tourIcs" href="#" download="yorimichi-2026.ics">iPhoneなどのカレンダーに入れる</a>
+    </div>
+  </div>
+</section>
+
 <div class="news-bar" aria-label="お知らせ">
   <span class="news-tag">NEWS</span>
   <div class="news-view"><ul class="news-track" id="newsTrack"></ul></div>
@@ -1641,6 +1715,22 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     if(location.hash==='#voteForm') requestAnimationFrame(function(){vdone.scrollIntoView({block:'start'});});
   }
   if(load('minakusa_voted')) showVoted();
+
+  // ── 21 DAYS ONLY：日程の状態（COMING SOON / TONIGHT / NOW ON / FINISHED）と、カレンダー用 .ics ──
+  (function(){
+    var sec=document.getElementById('dates'); if(!sec) return;
+    var now=new Date(Date.now()+9*3600e3), key=now.toISOString().slice(0,10), hour=now.getUTCHours();
+    sec.querySelectorAll('.td-row').forEach(function(li){
+      var d=li.getAttribute('data-date'), st=li.querySelector('.td-status');
+      li.classList.toggle('is-today', d===key); li.classList.toggle('is-past', d<key);
+      st.textContent = d<key ? 'FINISHED' : (d===key ? (hour<16?'TODAY':'NOW ON') : 'COMING SOON');
+    });
+    var FROM=Date.UTC(2026,10,30), TO=Date.UTC(2026,11,20), today=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()), DAY=864e5, el=document.getElementById('tourLeft');
+    if(el){ el.textContent = today<FROM ? 'OPENING NIGHT まで あと '+Math.round((FROM-today)/DAY)+' 日' : (today<=TO ? 'NOW ON — のこり '+(Math.round((TO-today)/DAY)+1)+' 日' : 'THANK YOU — 21日間、ありがとうございました'); }
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//BRIDGE CYCLE//yorimichi//JA','BEGIN:VEVENT','UID:yorimichi-2026@bridgecycleco.com','DTSTAMP:20261023T000000Z','DTSTART;VALUE=DATE:20261130','DTEND;VALUE=DATE:20261221','SUMMARY:南草津駅前、よりみち。','LOCATION:JR南草津駅 西口・東口の駅前','DESCRIPTION:21日間だけの、駅前の小さな市（入場無料）。https://www.bridgecycleco.com/minakusa-yorimichi.html','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    var a=document.getElementById('tourIcs'); if(a) a.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+    ['tourGcal','tourIcs'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click',function(){ track('yorimichi_add_calendar',{via:id}); }); });
+  })();
 
   // ── LIVE：ヘッダー下のライブバーと NOW / NEXT（日本時間。1秒ごとに更新） ──
   (function(){
