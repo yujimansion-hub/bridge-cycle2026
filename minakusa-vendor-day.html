@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<!--
+  ■ 南草津駅前、よりみち。出店者の「当日ガイド」（2026-10-23〜）
+  ・説明しなくても当日の行動がそろうように、出店者がスマホで開いたまま使うページ。
+  ・屋号・出店日・売り場・枠を選ぶと、到着・設営・点灯・販売終了・撤収・報告の時刻が自動で出て、
+    いまやることが一番上に表示される。LINEへの連絡はボタン1つ（文面は入力済み）。
+  ・入力内容はこの端末の中（localStorage）にだけ保存。送信はしない。
+  ・時間・ルールは minakusa-ekimae.html（出店者募集）と同じ内容。変えるときは両方を直す。
+  ・noindex（出店が決まった方にだけ、決済のご案内と一緒にURLを送る）。
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>当日ガイド｜南草津駅前、よりみち。出店者向け</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#17372f">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&amp;family=Jost:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{--night:#17372f;--ink:#193a32;--sub:#5c6960;--page:#f6f2e9;--paper:#fffdf7;--line:#d5d8c9;--tomato:#b84b35;--leaf:#345c48;--bulb:#e5edb4;--line-green:#06A548}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.7 'Noto Sans JP',sans-serif}
+a{color:var(--leaf)}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;z-index:10;background:var(--night);color:var(--page)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px;padding-bottom:10px}
+.brand{font-weight:800;font-size:15px;letter-spacing:-.02em}
+.brand small{display:block;font:500 11px/1.3 'Jost','Noto Sans JP',sans-serif;letter-spacing:.14em;opacity:.8}
+.clock{font:600 20px/1 'Jost',sans-serif;color:var(--bulb);font-variant-numeric:tabular-nums}
+h1{margin:22px 0 4px;font-size:26px;line-height:1.35;font-weight:800;letter-spacing:-.03em}
+.lead{margin:0 0 16px;color:var(--sub);font-size:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px;margin:0 0 14px}
+.label{font:600 11px/1 'Jost','Noto Sans JP',sans-serif;letter-spacing:.18em;color:var(--sub);margin:0 0 10px}
+/* 設定 */
+.setup label{display:block;font-size:13px;font-weight:700;margin:10px 0 4px}
+.setup input,.setup select{width:100%;min-height:48px;padding:10px 12px;font:inherit;font-size:16px;border:1px solid var(--ink);border-radius:3px;background:#fff;color:var(--ink)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.note{font-size:12px;color:var(--sub);margin:8px 0 0}
+/* いまやること */
+.now{background:var(--night);color:var(--page);border:0}
+.now .label{color:var(--bulb)}
+.now-time{font:600 15px/1 'Jost',sans-serif;letter-spacing:.06em;color:var(--bulb)}
+.now-title{margin:6px 0 4px;font-size:22px;font-weight:800;line-height:1.4;letter-spacing:-.02em}
+.now-body{margin:0;font-size:14px;opacity:.9}
+.now .btn{margin-top:12px}
+/* ボタン */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;padding:10px 14px;border-radius:3px;border:1px solid var(--ink);background:#fff;color:var(--ink);font:inherit;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;text-align:center}
+.btn-line{background:var(--line-green);border-color:var(--line-green);color:#fff}
+.btn-red{background:var(--tomato);border-color:var(--tomato);color:#fff}
+.btn+.btn{margin-top:8px}
+/* タイムライン */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{position:relative;padding:12px 0 14px 46px;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0}
+.tl input[type=checkbox]{position:absolute;left:4px;top:14px;width:26px;height:26px;accent-color:var(--leaf)}
+.tl .t{font:600 14px/1 'Jost',sans-serif;letter-spacing:.04em;color:var(--tomato)}
+.tl .h{display:block;margin:4px 0 2px;font-weight:800;font-size:17px;line-height:1.4}
+.tl .d{display:block;font-size:14px;color:var(--sub)}
+.tl .must{display:inline-block;margin-left:6px;font:600 10px/1 'Jost','Noto Sans JP',sans-serif;letter-spacing:.1em;color:#fff;background:var(--tomato);padding:3px 6px;border-radius:2px;vertical-align:middle}
+.tl li.done .h,.tl li.done .d{opacity:.45;text-decoration:line-through}
+.tl li.is-now{background:#fbf1ea;margin:0 -16px;padding-left:62px;padding-right:16px}
+.tl li.is-now input{left:20px}
+.tl .btn{margin-top:10px;min-height:46px;font-size:15px}
+/* 持ち物・ルール */
+.check{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:2px}
+.check label{display:flex;align-items:center;gap:12px;min-height:44px;font-size:15px;border-bottom:1px solid var(--line)}
+.check input{width:24px;height:24px;flex:none;accent-color:var(--leaf)}
+.check small{color:var(--sub);font-size:12px}
+.rules{list-style:none;margin:0;padding:0}
+.rules li{display:grid;grid-template-columns:28px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rules li b{font:600 16px/1.5 'Jost',sans-serif}
+.rules .ok b{color:var(--leaf)}.rules .ng b{color:var(--tomato)}
+.sos{border:2px solid var(--tomato)}
+.sos p{margin:0 0 10px;font-weight:700}
+.progress{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin:8px 0 0}
+.progress i{display:block;height:100%;width:0;background:var(--leaf);transition:width .3s}
+footer{padding:20px 0 40px;font-size:12px;color:var(--sub)}
+.hide{display:none!important}
+@media print{header,.now,.btn,.setup .note{display:none!important}body{background:#fff}.card{break-inside:avoid;border-color:#999}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">当日ガイド<small>YORIMICHI · VENDORS</small></div><div class="clock" id="clock" aria-live="off">--:--</div></div></header>
+<main class="wrap">
+  <h1>このページを開いたまま、<br>上から順に進めてください。</h1>
+  <p class="lead">出店日・売り場・枠を一度選ぶと、時刻と「いまやること」が自動で出ます。運営への連絡は、緑のボタンを押すだけ（文面は入力済み）です。</p>
+
+  <section class="card setup" aria-labelledby="setupT">
+    <p class="label" id="setupT">1. はじめに選ぶ（この端末に保存されます）</p>
+    <label for="shop">屋号</label>
+    <input id="shop" type="text" autocomplete="organization" placeholder="例：よりみち食堂">
+    <div class="row2">
+      <div><label for="date">出店日</label><select id="date"></select></div>
+      <div><label for="area">売り場</label><select id="area"><option value="西口">西口・公園前</option><option value="東口">東口・駅前広場</option></select></div>
+    </div>
+    <label for="slot">枠（販売する時間）</label>
+    <select id="slot"></select>
+    <label for="spot">区画（前日のLINEで届いた記号。わからなければ空欄）</label>
+    <input id="spot" type="text" placeholder="例：A、C、E（北側）">
+    <p class="note">時刻は会期中の案です。前日に届くLINEの内容が違う場合は、LINEを優先してください。</p>
+  </section>
+
+  <section class="card now" aria-live="polite" aria-labelledby="nowT">
+    <p class="label" id="nowT">いま やること</p>
+    <p class="now-time" id="nowTime">—</p>
+    <p class="now-title" id="nowTitle">出店日・売り場・枠を選んでください</p>
+    <p class="now-body" id="nowBody"></p>
+    <a class="btn btn-line hide" id="nowBtn" target="_blank" rel="noopener">LINEで送る</a>
+  </section>
+
+  <section class="card" aria-labelledby="tlT">
+    <p class="label" id="tlT">2. 当日の流れ（終わったらチェック）</p>
+    <ol class="tl" id="tl"></ol>
+    <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+  </section>
+
+  <section class="card" aria-labelledby="bringT">
+    <p class="label" id="bringT">3. 持ち物（前日の夜に確認）</p>
+    <ul class="check" id="bring"></ul>
+  </section>
+
+  <section class="card" aria-labelledby="ruleT">
+    <p class="label" id="ruleT">4. 会場のルール</p>
+    <ul class="rules">
+      <li class="ok"><b>○</b><span>販売は枠の時間内だけ。設営は枠の60分前から、撤収・清掃は終了後45分以内。</span></li>
+      <li class="ok"><b>○</b><span>テントは2.5m×2.5m〜3m×3mで、区画の中に。重りで固定する。</span></li>
+      <li class="ok"><b>○</b><span>営業許可証を、見える場所に掲示する。</span></li>
+      <li class="ok"><b>○</b><span>ゴミ・廃油は全部持ち帰る。終わったら区画をもとの状態に戻す。</span></li>
+      <li class="ng"><b>×</b><span>ペグ打ち・テープなどの貼り付け。</span></li>
+      <li class="ng"><b>×</b><span>区画の外、点字ブロック、バス・タクシーの乗り場に物や車を置く。消火栓や設備の前をふさぐ。</span></li>
+      <li class="ng"><b>×</b><span>裸火・ガス・発電機の無断使用（事前の申請と承認が必要。発電機は低騒音型のみ）。</span></li>
+      <li class="ng"><b>×</b><span>大きな声での呼び込み・つきまとい。東口はバスの運行が最優先、誘導員の指示に従う。</span></li>
+    </ul>
+  </section>
+
+  <section class="card sos" aria-labelledby="sosT">
+    <p class="label" id="sosT">5. 困ったとき</p>
+    <p>けが・火災・事故は、まず119番（事件は110番）。そのあと運営へ。</p>
+    <a class="btn btn-red" href="tel:119">119番に電話する</a>
+    <a class="btn btn-line" id="sosLine" target="_blank" rel="noopener">運営にLINEで連絡する</a>
+    <p class="note" style="font-weight:400;margin-top:10px">会場にいる受付（運営スタッフ）に、直接声をかけても大丈夫です。</p>
+  </section>
+
+  <section class="card" aria-labelledby="weatherT">
+    <p class="label" id="weatherT">6. 天気が悪いとき</p>
+    <ul class="rules">
+      <li class="ok"><b>○</b><span>中止するときは、<b style="font-family:inherit">当日午前7時まで</b>にLINEかメールで連絡します（当日午前6時に草津市に気象警報が出ている場合など）。連絡がなければ開催です。</span></li>
+      <li class="ok"><b>○</b><span>小雨なら原則開催。ご自身の判断で取りやめる場合は、出店者都合のキャンセルと同じ扱いです。</span></li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">南草津駅周辺まちづくりの社会実験（実施：UDCみなくさ・立命館大学）／出店者の募集・調整：BRIDGE CYCLE株式会社<br>出店のルールの全体は <a href="minakusa-ekimae.html#dayflow">出店者募集のページ</a> をご覧ください。</footer>
+
+<script>
+(function(){
+  var LINE_ID='%40907kxssd';
+  function lineUrl(text){ return 'https://line.me/R/oaMessage/'+LINE_ID+'/?'+encodeURIComponent(text); }
+  function save(k,v){ try{ localStorage.setItem('ymd_'+k,v); }catch(e){} }
+  function load(k){ try{ return localStorage.getItem('ymd_'+k); }catch(e){ return null; } }
+  function $(id){ return document.getElementById(id); }
+  function pad(n){ return (n<10?'0':'')+n; }
+  function hm(min){ min=((min%1440)+1440)%1440; return pad(Math.floor(min/60))+':'+pad(min%60); }
+  function toMin(s){ var p=s.split(':'); return (+p[0])*60+(+p[1]); }
+  var WD=['日','月','火','水','木','金','土'];
+
+  // 会期（11/30〜12/20）と、売り場・曜日ごとの枠（出店者募集ページと同じ）
+  var DATES=[]; for(var t=Date.UTC(2026,10,30); t<=Date.UTC(2026,11,20); t+=864e5){ var d=new Date(t); DATES.push({key:d.toISOString().slice(0,10), label:(d.getUTCMonth()+1)+'/'+d.getUTCDate()+'（'+WD[d.getUTCDay()]+'）', we:(d.getUTCDay()===0||d.getUTCDay()===6)}); }
+  var SLOTS={ '西口':{wd:[['15:00','20:00']], we:[['11:00','16:00'],['10:00','18:00']]}, '東口':{wd:[['15:30','20:30']], we:[['10:00','15:00'],['16:00','21:00'],['11:00','19:00']]} };
+  var DUSK='16:45';
+
+  var dateSel=$('date'); dateSel.innerHTML='<option value="">選んでください</option>'+DATES.map(function(d){ return '<option value="'+d.key+'">'+d.label+'</option>'; }).join('');
+  function fillSlots(){
+    var d=DATES.filter(function(x){return x.key===dateSel.value;})[0], area=$('area').value, list=d?SLOTS[area][d.we?'we':'wd']:[];
+    var cur=$('slot').value;
+    $('slot').innerHTML=list.length?list.map(function(s){ return '<option value="'+s[0]+'-'+s[1]+'">'+s[0]+'〜'+s[1]+(toMin(s[1])-toMin(s[0])>=480?'（通し）':'')+'</option>'; }).join(''):'<option value="">先に出店日を選んでください</option>';
+    if(cur && [].some.call($('slot').options,function(o){return o.value===cur;})) $('slot').value=cur;
+  }
+  ['shop','date','area','slot','spot'].forEach(function(k){ var v=load(k); if(v!==null){ if(k==='slot'){ fillSlots(); } $(k).value=v; } });
+  fillSlots(); var sv=load('slot'); if(sv) $('slot').value=sv;
+
+  // 持ち物
+  var BRING=[['テント（2.5m×2.5m〜3m×3m）と重り','ペグは使えません'],['テーブル・什器',''],['照明（電池式のLEDライトなど）','日の入り（16:45ごろ）に灯りをつけます'],['延長コード','電源のある区画のみ'],['商品・包装資材',''],['釣り銭・決済用のスマホ／端末',''],['ゴミ袋・消毒用品','ゴミは全部持ち帰り'],['営業許可証（掲示用）',''],['このページを開いたスマホ（充電しておく）','']];
+  $('bring').innerHTML=BRING.map(function(b,i){ return '<li><label><input type="checkbox" data-b="'+i+'"><span>'+b[0]+(b[1]?'<br><small>'+b[1]+'</small>':'')+'</span></label></li>'; }).join('');
+  [].forEach.call($('bring').querySelectorAll('input'),function(c){ var k='b'+c.getAttribute('data-b')+'_'+(load('date')||''); c.checked=load(k)==='1'; c.addEventListener('change',function(){ save('b'+c.getAttribute('data-b')+'_'+$('date').value, c.checked?'1':'0'); }); });
+
+  var steps=[];
+  function who(){ return '屋号：'+($('shop').value||'（屋号）')+'\n出店日：'+(dateSel.options[dateSel.selectedIndex]||{}).text+'\n売り場：'+$('area').value+($('spot').value?'・区画'+$('spot').value:''); }
+  function build(){
+    var ok=dateSel.value && $('slot').value;
+    if(!ok){ $('tl').innerHTML='<li><span class="d">上で出店日・売り場・枠を選ぶと、ここに時刻つきの流れが出ます。</span></li>'; steps=[]; tick(); return; }
+    var s=$('slot').value.split('-'), st=toMin(s[0]), en=toMin(s[1]), dusk=toMin(DUSK);
+    steps=[
+      {t:st-60, h:'到着・受付', d:'会場の受付（運営スタッフ）に到着を伝える。キッチンカーは誘導員の案内で、歩行者に気をつけて区画へ。', must:1, line:'【到着しました】\n'+who()},
+      {t:st-60, h:'設営', d:'区画の中にテントを立て、重りで固定。営業許可証を掲示。通路・点字ブロック・消火栓の前をあける。'},
+      {t:st-5, h:'設営完了の写真をLINEへ', d:'区画の全体が写る写真を1枚。出店の記録に使います。', must:1, line:'【設営完了】写真を送ります\n'+who()},
+      {t:st, h:'販売開始', d:'枠の時間をまるごと販売に使えます。困ったことはLINEへ。'},
+    ];
+    if(dusk>st && dusk<en) steps.push({t:dusk, h:'点灯（灯りがついたら、よりみち）', d:'日の入りのころ、テントの照明をつける。会場の全店で、同じころに灯りをともします。', must:1});
+    steps.push(
+      {t:en, h:'販売終了', d:'時間ちょうどで販売を終える（延長はできません）。'},
+      {t:en, h:'撤収・清掃', d:'ゴミ・廃油は全部持ち帰り。区画をもとの状態に戻す。'},
+      {t:en+40, h:'撤収完了の写真をLINEへ', d:'何も残っていない区画の写真を1枚送り、受付に一声かけて終了。', must:1, line:'【撤収完了】写真を送ります\n'+who()},
+      {t:en+60, h:'売上金額と人数を報告（24時間以内）', d:'実証実験のため、全出店者の条件です。売れた時間帯もわかれば。決済アプリやレジの「1日の集計画面」の写真を添えてください。', must:1, report:1}
+    );
+    $('tl').innerHTML=steps.map(function(x,i){
+      var btn = x.report ? '<a class="btn btn-line" target="_blank" rel="noopener" href="'+lineUrl('【売上報告】\n'+who()+'\n売上金額：　　　円\n人数（買ってくれたお客さんの数）：　　　人\n売れた時間帯（わかれば）：\n※集計画面の写真を添えます')+'">売上報告をLINEで送る</a>' : (x.line ? '<a class="btn btn-line" target="_blank" rel="noopener" href="'+lineUrl(x.line)+'">LINEで送る</a>' : '');
+      return '<li id="st'+i+'"><input type="checkbox" aria-label="'+x.h+' 完了" data-i="'+i+'"><span class="t">'+hm(x.t)+(x.report?'〜翌日':'')+'</span><span class="h">'+x.h+(x.must?'<span class="must">必ず</span>':'')+'</span><span class="d">'+x.d+'</span>'+btn+'</li>';
+    }).join('');
+    [].forEach.call($('tl').querySelectorAll('input'),function(c){ var k='s'+c.getAttribute('data-i')+'_'+dateSel.value; c.checked=load(k)==='1'; c.closest('li').classList.toggle('done',c.checked);
+      c.addEventListener('change',function(){ save(k,c.checked?'1':'0'); c.closest('li').classList.toggle('done',c.checked); tick(); }); });
+    tick();
+  }
+  function tick(){
+    var now=new Date(Date.now()+9*3600e3), key=now.toISOString().slice(0,10), min=now.getUTCHours()*60+now.getUTCMinutes();
+    $('clock').textContent=pad(now.getUTCHours())+':'+pad(now.getUTCMinutes());
+    var lis=$('tl').querySelectorAll('li[id^=st]'), done=0;
+    [].forEach.call(lis,function(li){ if(li.classList.contains('done')) done++; li.classList.remove('is-now'); });
+    $('prog').style.width=(steps.length?Math.round(done/steps.length*100):0)+'%';
+    var nb=$('nowBtn'); nb.classList.add('hide');
+    if(!steps.length){ $('nowTime').textContent='—'; $('nowTitle').textContent='出店日・売り場・枠を選んでください'; $('nowBody').textContent=''; return; }
+    if(key<dateSel.value){ $('nowTime').textContent='前日まで'; $('nowTitle').textContent='持ち物を確認して、前日のLINEを待つ'; $('nowBody').textContent='前日に、区画と搬入口をLINEでお知らせします。届いた区画の記号を上の「区画」に入れておくと、当日の連絡が速くなります。'; return; }
+    if(key>dateSel.value){ var rep=steps[steps.length-1], li=$('st'+(steps.length-1));
+      if(li && !li.classList.contains('done')){ $('nowTime').textContent='24時間以内'; $('nowTitle').textContent='売上金額と人数を報告する'; $('nowBody').textContent='実証実験のため、全出店者の条件です。'; nb.textContent='売上報告をLINEで送る'; nb.href=li.querySelector('a').href; nb.classList.remove('hide'); li.classList.add('is-now'); }
+      else { $('nowTime').textContent='おつかれさまでした'; $('nowTitle').textContent='報告まで完了です'; $('nowBody').textContent='ありがとうございました。'; }
+      return; }
+    // 当日：まだチェックしていない最初の手順で、時刻が来ているもの（なければ次の手順）
+    var idx=-1;
+    for(var i=0;i<steps.length;i++){ var l=$('st'+i); if(l && !l.classList.contains('done')){ idx=i; break; } }
+    if(idx<0){ $('nowTime').textContent='完了'; $('nowTitle').textContent='きょうの流れはすべて完了です'; $('nowBody').textContent='おつかれさまでした。'; return; }
+    var s=steps[idx], late=min>=s.t, li2=$('st'+idx); li2.classList.add('is-now');
+    $('nowTime').textContent=(late?'いま（'+hm(s.t)+'〜）':hm(s.t)+' から　あと'+(s.t-min)+'分');
+    $('nowTitle').textContent=s.h; $('nowBody').textContent=s.d;
+    var a=li2.querySelector('a'); if(a){ nb.textContent=a.textContent; nb.href=a.href; nb.classList.remove('hide'); }
+  }
+  ['shop','date','area','slot','spot'].forEach(function(k){ $(k).addEventListener('change',function(){ if(k==='date'||k==='area') fillSlots(); ['shop','date','area','slot','spot'].forEach(function(j){ save(j,$(j).value); }); build(); }); $(k).addEventListener('input',function(){ save(k,$(k).value); }); });
+  $('sosLine').href=lineUrl('【至急】\n'+'屋号・売り場：\n状況：');
+  $('sosLine').addEventListener('click',function(){ this.href=lineUrl('【至急】\n'+who()+'\n状況：'); });
+  build(); setInterval(tick,30000);
+})();
+</script>
+</body>
+</html>
