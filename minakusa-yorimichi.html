@@ -807,6 +807,21 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 .keep-note{margin:12px 0 0;font-size:12px;color:var(--sub)}
 .keep-act{margin:12px 0 0}
 @media(max-width:860px){.keep{padding:18px 16px}.keep-list{grid-template-columns:1fr}}
+.he-weeks{margin:12px 0 0}
+.hw-daily{display:flex;align-items:center;gap:10px;margin:0 0 8px;padding:10px 12px;border-radius:10px;background:#22355F;color:#F6EFE2;font-size:13px;line-height:1.6!important}
+.hw-daily b{color:#FFD66B;margin-right:4px}
+.hw-lamp{flex:none;width:14px;height:14px;border-radius:50%;background:#FFD66B;box-shadow:0 0 0 0 rgba(255,214,107,.6);animation:hw-glow 2.8s ease-in-out infinite}
+@keyframes hw-glow{0%,100%{box-shadow:0 0 4px 1px rgba(255,214,107,.5)}50%{box-shadow:0 0 14px 6px rgba(255,214,107,.75)}}
+.hw-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.hw-list li{position:relative;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px;font-weight:700;line-height:1.45;color:var(--ink)}
+.hw-list li b{display:block;font-size:11px;color:var(--sub);font-weight:700}
+.hw-list li small{display:block;margin-top:2px;font-size:12px;font-weight:400;color:var(--sub)}
+.hw-list li.hw-final{border-color:var(--tomato);background:#FBF1EA}.hw-list li.hw-final b{color:var(--tomato)}
+.hw-list li.hw-now{border:2px solid var(--tomato)}
+.hw-list li.hw-now::after{content:"今週";position:absolute;top:-9px;right:8px;background:var(--tomato);color:#fff;font-size:11px;border-radius:99px;padding:0 7px}
+.hw-list li.hw-done{opacity:.5}
+@media(max-width:860px){.hw-list{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.hw-lamp{animation:none}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261023viral1">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
@@ -844,6 +859,15 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
         </div>
         </details>
         <p class="he-count" id="heCount" aria-live="polite">開催まで あと<b>—</b>日</p>
+        <div class="he-weeks" id="heWeeks">
+          <p class="hw-daily"><span class="hw-lamp" aria-hidden="true"></span><span><b>毎日、日の入りのころに灯りがつきます。</b>灯りがついたら、よりみち。</span></p>
+          <ol class="hw-list" aria-label="3週間の楽しみ方">
+            <li data-from="2026-11-30" data-to="2026-12-06"><b>第1週・11/30〜</b>はじまりの週<small>初日の夕方、はじめての点灯</small></li>
+            <li data-from="2026-12-07" data-to="2026-12-13"><b>第2週・12/7〜</b>あったか週<small>寒い夕方に、温かいもの</small></li>
+            <li data-from="2026-12-14" data-to="2026-12-19"><b>第3週・12/14〜</b>年末の手みやげ週<small>持ち帰りと、贈りものに</small></li>
+            <li data-from="2026-12-20" data-to="2026-12-20" class="hw-final"><b>12/20・最終日</b>みんなの結果発表<small>3週間の投票と声を、会場とこのページで</small></li>
+          </ol>
+        </div>
         <details class="he-calendar"><summary>3週間の会期カレンダーを見る</summary>
         <div class="he-cal" role="img" aria-label="11月30日（月）から12月20日（日）までの会期。各日の出店・時間は決まりしだいお知らせします">
           <div class="he-wk" aria-hidden="true"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span class="sat">土</span><span class="sun">日</span></div>
@@ -1189,7 +1213,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     <p class="about-msg">この駅の未来をつくるのは、ここを使う一人ひとり。<b>あなたも、駅前を変える一人です。</b>一票を入れる。お店に立ち寄る。ひと品を買う。その声と行動を、次の駅前につなげます。</p>
     <ol class="change-road" id="changeRoad" aria-label="駅前が変わっていく道のり">
       <li data-from="2026-10-01"><b>いま</b><span>投票で、駅前にほしいものを伝える</span></li>
-      <li data-from="2026-11-30"><b>11/30〜12/20</b><span>寄り道して、買って、確かめる</span></li>
+      <li data-from="2026-11-30"><b>11/30〜12/20</b><span>寄り道して、買って、確かめる。最終日（12/20）に、みんなの結果を発表</span></li>
       <li data-from="2026-12-21"><b>会期のあと</b><span>投票と売れ行きを、個人やお店が分からない形で集計する</span></li>
       <li data-from="2027-01-01"><b>これから</b><span>集計を、南草津駅前の使い方を考える材料にする</span></li>
     </ol>
@@ -1563,6 +1587,11 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     if(location.hash==='#voteForm') requestAnimationFrame(function(){vdone.scrollIntoView({block:'start'});});
   }
   if(load('minakusa_voted')) showVoted();
+  (function(){ var w=document.getElementById('heWeeks'); if(!w) return;
+    var key=new Date(Date.now()+9*3600e3).toISOString().slice(0,10);
+    w.querySelectorAll('li[data-from]').forEach(function(li){ var f=li.getAttribute('data-from'), t=li.getAttribute('data-to');
+      li.classList.toggle('hw-now', key>=f && key<=t && !li.classList.contains('hw-final')); li.classList.toggle('hw-done', key>t); });
+  })();
   (function(){ var road=document.getElementById('changeRoad'); if(!road) return;
     var jst=new Date(Date.now()+9*3600e3), key=jst.toISOString().slice(0,10), items=road.querySelectorAll('li'), cur=-1;
     items.forEach(function(li,i){ if(key>=li.getAttribute('data-from')) cur=i; });
