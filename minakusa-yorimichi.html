@@ -743,6 +743,35 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 .hero-steps li b{display:block;width:20px;height:20px;margin:0 auto 3px;border-radius:50%;background:var(--leaf);color:#fff;font-size:12px;line-height:20px}
 .hero-steps li:not(:last-child)::after{content:"→";position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--sub);z-index:1}
 .hero-steps[hidden],.hero-signup .hero-tease[hidden]{display:none}
+/* ── 開催のお知らせ（最初の画面） ── */
+.hero-event{position:relative;margin-top:26px;background:var(--paper);border:1.5px solid var(--night);border-radius:16px;padding:18px 20px 16px;box-shadow:5px 5px 0 #EEDBAA;overflow:hidden}
+.hero-event p{line-height:1.4}
+.he-kicker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0;font-size:13px;font-weight:700;color:var(--sub)}
+.he-kicker span{display:inline-block;background:var(--tomato);color:#fff;border-radius:6px;padding:3px 10px;font-size:13px;letter-spacing:.08em;animation:he-glow 2.4s ease-in-out infinite}
+@keyframes he-glow{0%,100%{box-shadow:0 0 0 0 rgba(183,72,40,.0)}50%{box-shadow:0 0 0 6px rgba(183,72,40,.18)}}
+.he-dates{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;margin:10px 0 0;line-height:1;color:var(--ink)}
+.he-d b{font-family:'Shippori Mincho B1','Noto Serif JP',serif;font-weight:800;font-size:clamp(38px,4.4vw,56px);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.he-d small{font-size:15px;font-weight:700;margin-left:4px;color:var(--sub)}
+.he-to{font-size:24px;color:var(--tomato);padding-bottom:8px}
+.he-len{margin-left:auto;align-self:center;border:1.5px solid var(--tomato);color:var(--tomato);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:700}
+.he-count{margin:10px 0 0;font-size:15px;font-weight:700;color:var(--ink)}
+.he-count b{font-family:'Shippori Mincho B1',serif;font-size:32px;color:var(--tomato);margin:0 4px;font-variant-numeric:tabular-nums}
+.he-cal{margin-top:12px}
+.he-wk,.he-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.he-wk span{font-size:12px;font-weight:700;color:var(--sub)}.he-wk .sat{color:#2F5E8C}.he-wk .sun{color:var(--tomato)}
+.he-days{margin-top:4px}
+.he-days i{font-style:normal;display:grid;place-items:center;height:30px;border-radius:7px;font-size:13px;font-weight:700;background:#EFE8DA;color:var(--ink);font-variant-numeric:tabular-nums}
+.he-days i.we{background:#F6D9C9;color:#8A3218}
+.he-days i.today{outline:2px solid var(--tomato);outline-offset:1px}
+.he-days i.past{opacity:.35}
+.he-days i.m{font-size:11px}
+.he-legend{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:8px 0 0;font-size:12px;color:var(--sub)}
+.he-legend span{display:inline-block;width:12px;height:12px;border-radius:3px;margin-left:6px}.he-legend span:first-child{margin-left:0}
+.lg-wd{background:#EFE8DA}.lg-we{background:#F6D9C9}
+.he-tags{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0}
+.he-tags li{font-size:12px;font-weight:700;border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 10px;color:var(--ink)}
+@media(max-width:860px){.hero-event{margin-top:18px;padding:16px 16px 14px}.he-days i{height:26px;font-size:12px}.he-cal{margin-top:8px}.he-d b{font-size:clamp(34px,10vw,44px)}.he-count b{font-size:28px}}
+@media(prefers-reduced-motion:reduce){.he-kicker span{animation:none}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
@@ -762,9 +791,21 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 <section class="cover" id="cover">
   <div class="wrap cover-in">
     <div class="hero-copy">
-      <span class="pill"><i aria-hidden="true"></i>11月30日（月）〜12月20日（日）の3週間・準備中</span>
+      <span class="pill"><i aria-hidden="true"></i>開催決定・出店するお店を準備中</span>
       <h1 class="h1-calm"><span>南草津駅に、</span><span>おいしい<em>寄り道</em>を。</span></h1>
       <p class="lead lead-calm">いつもの帰り道が、少し好きになる。<br>今夜のおかずも、授業帰りのおやつも。<br>小さな市を、駅前で準備中です。</p>
+      <!-- 開催のお知らせ（会期・カウントダウン・3週間のカレンダー）。日付は HE_FROM / HE_TO と合わせる -->
+      <section class="hero-event" aria-labelledby="heTitle">
+        <p class="he-kicker" id="heTitle"><span>開催決定</span>2026年・21日間・西口と東口で</p>
+        <p class="he-dates"><span class="he-d"><b>11.30</b><small>月</small></span><span class="he-to" aria-label="から">→</span><span class="he-d"><b>12.20</b><small>日</small></span></p>
+        <p class="he-count" id="heCount" aria-live="polite">開催まで あと<b>—</b>日</p>
+        <div class="he-cal" role="img" aria-label="11月30日（月）から12月20日（日）までの3週間。平日は夕方、土日祝は昼から開く予定">
+          <div class="he-wk" aria-hidden="true"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span class="sat">土</span><span class="sun">日</span></div>
+          <div class="he-days" id="heDays" aria-hidden="true"></div>
+          <p class="he-legend" aria-hidden="true"><span class="lg-wd"></span>平日は夕方<span class="lg-we"></span>土日は昼から（時間は案）</p>
+        </div>
+        <ul class="he-tags"><li>入場無料</li><li>持ち帰りの夕食・おやつ</li><li>西口に飲食スペース（予定）</li></ul>
+      </section>
     </div>
     <div class="hero-scene">
       <picture>
@@ -1402,6 +1443,20 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
     if(location.hash==='#voteForm') requestAnimationFrame(function(){vdone.scrollIntoView({block:'start'});});
   }
   if(load('minakusa_voted')) showVoted();
+
+  // ── 開催のお知らせ：カウントダウンと3週間のカレンダー（日本時間で計算） ──
+  (function(){
+    var HE_FROM=[2026,11,30], HE_TO=[2026,12,20];
+    var days=document.getElementById('heDays'), cnt=document.getElementById('heCount'); if(!days||!cnt) return;
+    var jst=new Date(Date.now()+9*3600e3), today=Date.UTC(jst.getUTCFullYear(),jst.getUTCMonth(),jst.getUTCDate());
+    var from=Date.UTC(HE_FROM[0],HE_FROM[1]-1,HE_FROM[2]), to=Date.UTC(HE_TO[0],HE_TO[1]-1,HE_TO[2]), DAY=864e5, h='';
+    for(var t=from;t<=to;t+=DAY){ var d=new Date(t), dw=d.getUTCDay(), md=d.getUTCDate(), first=(t===from||md===1);
+      h+='<i class="'+((dw===0||dw===6)?'we':'')+(t===today?' today':'')+(t<today?' past':'')+(first?' m':'')+'">'+(first?(d.getUTCMonth()+1)+'/'+md:md)+'</i>'; }
+    days.innerHTML=h;
+    if(today<from){ cnt.innerHTML='開催まで あと<b>'+Math.round((from-today)/DAY)+'</b>日'; }
+    else if(today<=to){ var left=Math.round((to-today)/DAY); cnt.innerHTML=left?'いま開催中・最終日まで あと<b>'+left+'</b>日':'<b>きょう</b>が最終日です'; }
+    else { cnt.textContent='今回の開催は終了しました。ご来場ありがとうございました。'; }
+  })();
   // スマホでは位置関係の図をたたんでおく（ページを短く）。PCは開いたまま
   try{ if(window.matchMedia('(max-width:860px)').matches) document.getElementById('mapDet').open=false; }catch(e){}
   // スマホ下部のボタンは、最初の画面の投票・登録欄が見えているあいだは隠す（欄の下端を覆わないため）
