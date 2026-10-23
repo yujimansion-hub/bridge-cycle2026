@@ -11,125 +11,177 @@
 <meta property="og:url" content="https://www.bridgecycleco.com/hojokin.html">
 <meta property="og:image" content="https://www.bridgecycleco.com/ogp.png">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%231B3B5F"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="%239FBBD6" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round"/></svg>'>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
- color-scheme:light;
- --paper:#EDEEEA;--card:#fff;--card2:#F4F4F0;
- --ink:#15171C;--ink2:#4A4C52;--ink3:#767870;
- --rule:#D9DAD3;--rule2:#C3C4BC;
- --ai:#1B3B5F;--aimid:#3D6389;--aipale:#E7EEF5;
- --shu:#A8382C;--shupale:#F6E7E4;
- --mid:#2E6B4F;--midpale:#E3EFE9;
- --kin:#8A6D1F;--kinpale:#F5F0E0;
- --serif:"Shippori Mincho",serif;
-}
+:root{color-scheme:light;--ai:#1d2b4f;--ai-2:#4a5674;--ai-3:#6b7590;--mist:#f2f5f9;--rule:#d9e0ea;--tape:#9bcf53;--tape-d:#2f5d0e;--leaf:#eef7e1;--warn:#a8382c;--line:#06c755}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-[id]{scroll-margin-top:70px}
-body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:14.5px;line-height:1.95}
-.wrap{max-width:860px;margin:0 auto;padding:0 22px}
-a{color:var(--aimid)}
-b{color:var(--ai)}
-.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 93%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
-.nav .wrap{display:flex;align-items:center;gap:14px;padding:13px 22px}
-.logo{font-weight:800;letter-spacing:.09em;font-size:15px;color:var(--ink);text-decoration:none}
-.logo b{color:var(--aimid)}
-.nav .l{font-size:12.5px;color:var(--ink3);text-decoration:none}
-.nav .cta{margin-left:auto;background:var(--ai);color:#fff;text-decoration:none;font-weight:700;font-size:13px;border-radius:999px;padding:9px 18px}
-@media(max-width:640px){.nav .l{display:none}}
-.hero{padding:62px 0 54px;border-bottom:1px solid var(--rule);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
-@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:30px}}
-/* 料金の図解パネル */
-.pricebox{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:22px 22px 18px;
- box-shadow:0 1px 2px rgba(20,22,26,.06),0 14px 34px rgba(20,22,26,.10);transform:rotate(.8deg)}
-.pricebox .pb-t{font-size:11px;letter-spacing:.16em;color:var(--aimid);font-weight:700;margin-bottom:12px}
-.pricebox .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule)}
-.pricebox .row .k{font-size:12.5px;font-weight:700;color:var(--ink2)}
-.pricebox .row .v{font-family:var(--serif);font-weight:800;font-size:20px;color:var(--ai);white-space:nowrap}
-.pricebox .row .v small{font-size:11px;color:var(--ink3);font-family:inherit;font-weight:400}
-.pricebox .split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.pricebox .oc{border-radius:12px;padding:12px 12px;text-align:center}
-.pricebox .oc b{display:block;font-family:var(--serif);font-size:16px}
-.pricebox .oc span{font-size:10.5px;display:block;margin-top:2px;line-height:1.5}
-.pricebox .oc.ok{background:var(--midpale);color:var(--mid)}
-.pricebox .oc.ng{background:var(--card2);color:var(--ink2);border:1px dashed var(--rule2)}
-.trustline{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.tchip{font-size:11px;font-weight:700;border-radius:999px;padding:4px 13px}
-.tchip.g{background:var(--midpale);color:var(--mid)}
-.tchip.a{background:var(--aipale);color:var(--ai)}
-.tchip.k{background:var(--kinpale);color:var(--kin)}
-/* 実績タイル */
-.rec4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
-@media(max-width:760px){.rec4{grid-template-columns:1fr 1fr}}
-.rec{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 14px;text-align:center}
-.rec .t{font-size:11.5px;font-weight:700;color:var(--ink2);line-height:1.6}
-.rec .v{font-family:var(--serif);font-weight:800;font-size:clamp(20px,3.4vw,27px);color:var(--ai);margin:4px 0 2px}
-.rec .v small{font-size:12px;color:var(--mid);font-family:inherit}
-.rec .s{font-size:10.5px;color:var(--ink3)}
-/* 実例タイル */
-.extiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
-@media(max-width:680px){.extiles{grid-template-columns:1fr}}
-.ext{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;text-align:center}
-.ext .a{font-size:11.5px;color:var(--ink3);font-weight:700}
-.ext .b{font-family:var(--serif);font-weight:800;font-size:19px;color:var(--ai);margin:2px 0}
-.ext .c{font-size:11px;color:var(--ink3);line-height:1.6}
-.ext.ng .b{color:var(--ink2)}
-/* さりげない出現 */
-.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.rv.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
-.badge{display:inline-block;font-size:11.5px;letter-spacing:.14em;color:var(--ai);font-weight:700;border:1.5px solid var(--rule2);background:rgba(255,255,255,.75);border-radius:999px;padding:6px 16px;margin-bottom:20px}
-h1{font-family:var(--serif);font-size:clamp(26px,5.5vw,40px);line-height:1.45;font-weight:800}
-h1 u{text-decoration:none;border-bottom:5px solid var(--aimid);padding-bottom:2px}
-.lead{margin-top:18px;color:var(--ink2);max-width:60ch}
-section{padding:52px 0;border-bottom:1px solid var(--rule)}
-h2{font-family:var(--serif);font-size:clamp(19px,3.6vw,25px);font-weight:800;margin-bottom:14px}
-.eyebrow{font-size:11.5px;letter-spacing:.18em;color:var(--aimid);font-weight:700;margin-bottom:8px}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 22px;box-shadow:0 1px 2px rgba(20,22,26,.05),0 8px 22px rgba(20,22,26,.06)}
-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card)}
-th,td{border-bottom:1px solid var(--rule);padding:13px 10px;text-align:left;vertical-align:top}
-th{font-size:11.5px;color:var(--ink3);font-weight:700}
-td .nm{font-weight:800;display:block}
-td .who{display:inline-block;font-size:10.5px;font-weight:700;border-radius:999px;padding:1px 9px;margin-left:6px;vertical-align:1px}
-td .who.o{background:var(--shupale);color:var(--shu)}
-td .who.t{background:var(--aipale);color:var(--ai)}
-td .who.b{background:var(--midpale);color:var(--mid)}
-td.pr{white-space:nowrap;text-align:right;font-family:var(--serif);font-weight:800;font-size:15px;color:var(--ai)}
-td.pr small{display:block;font-size:10.5px;color:var(--ink3);font-family:inherit;font-weight:400}
-tr.free td.pr{color:var(--mid)}
-tr.set{background:var(--aipale)}
-.note3{display:grid;gap:12px;margin-top:16px}
-.n3{background:var(--card);border-left:4px solid var(--kin);border-radius:0 12px 12px 0;padding:14px 18px}
-.n3 b{display:block;color:var(--kin);margin-bottom:2px}
-.why{background:var(--ai);color:#EAF0F6;border-radius:16px;padding:26px 26px;margin-top:20px}
-.why h3{font-family:var(--serif);font-size:18px;color:#fff;margin-bottom:8px}
-.why b{color:#fff}
-.mut{color:var(--ink3);font-size:12.5px}
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:16px}
-.flow .st{position:relative}
-.flow .st:not(:last-child)::after{content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);
- color:var(--aimid);font-weight:800;font-size:17px}
-@media(max-width:680px){.flow .st:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-22px;transform:translateX(-50%)}}
-.st{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:15px 16px}
-.st .no{font-family:var(--serif);font-weight:800;color:var(--aimid);font-size:13px}
-.st b{display:block;margin:2px 0 3px}
-.st p{font-size:12.5px;color:var(--ink2);line-height:1.8}
-@media(max-width:680px){.flow{grid-template-columns:1fr;gap:26px}}
-.fld{margin-bottom:14px}
-.fld label{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin-bottom:5px}
-.fld .req{color:var(--shu);font-size:10.5px;margin-left:6px}
-.fld input,.fld select,.fld textarea{width:100%;border:1.5px solid var(--rule2);border-radius:9px;background:#fff;color:var(--ink);font:inherit;padding:11px 13px}
-.fld textarea{min-height:96px;resize:vertical}
-.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--aimid);outline-offset:1px}
-.btn{display:inline-block;border:none;background:var(--ai);color:#fff;border-radius:999px;padding:14px 30px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;color:var(--ai);background:#fff;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;font-feature-settings:"palt"}
+a{color:var(--ai)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--tape);outline-offset:2px}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+.nb{display:inline-block}
+.mut{font-size:13px;color:var(--ai-3);line-height:1.75}
+/* header */
+.hd{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.hd .w{display:flex;align-items:center;gap:22px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.1em;text-decoration:none;white-space:nowrap}
+.brand svg{width:30px;height:30px}
+.hd nav{display:flex;gap:20px;margin-left:auto;font-size:14px;align-items:center}
+.hd nav a{text-decoration:none;color:var(--ai-2)}
+.hd nav a.cta{background:var(--ai);color:#fff;font-weight:700;padding:9px 16px;border-radius:8px}
+@media (max-width:760px){.hd nav a:not(.cta){display:none}}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--mist),#fff);padding:60px 0 56px}
+.hero .w{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.where{font-size:14px;color:var(--ai-2);margin-bottom:14px}
+.hero h1{font-size:clamp(30px,4.6vw,48px);line-height:1.32;font-weight:700}
+.hero .sub{margin-top:18px;font-size:17px;color:var(--ai-2);max-width:28em}
+.hero .who{margin-top:22px;display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;font-size:14px;color:var(--ai-2)}
+.hero .who b{color:var(--ai)}
+.routes{display:grid;gap:14px}
+.rt{display:block;text-decoration:none;background:#fff;border:2px solid var(--ai);border-radius:16px;padding:22px 22px 18px;position:relative}
+.rt.b{border-color:var(--rule)}
+.rt .q{font-size:14px;font-weight:700;color:var(--ai-2)}
+.rt h2{font-size:21px;line-height:1.45;margin-top:2px}
+.rt dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:12px;font-size:14px;align-items:baseline}
+.rt dt{color:var(--ai-3)}
+.rt dd{font-weight:700;font-size:17px}
+.rt dd.z{color:var(--tape-d)}
+.rt .go{display:inline-block;margin-top:14px;font-weight:700;font-size:15px;border-bottom:2px solid var(--tape)}
+.rt.a .go{background:var(--ai);color:#fff;border:0;border-radius:10px;padding:11px 18px;display:block;text-align:center}
+.rt .tag{position:absolute;top:-12px;right:18px;font-size:12px;font-weight:700;background:var(--tape);color:var(--ai);border-radius:999px;padding:1px 12px}
+@media (max-width:900px){.hero{padding:40px 0}.hero .w{grid-template-columns:1fr;gap:30px}}
+/* results strip */
+.rec{background:var(--ai);color:#fff}
+.rec .w{display:grid;grid-template-columns:repeat(4,1fr)}
+.rec .c{padding:24px 18px;border-left:1px solid rgba(255,255,255,.18)}
+.rec .c:first-child{border-left:0;padding-left:0}
+.rec .t{font-size:13.5px;color:#cfd6e4}
+.rec .v{font-size:32px;font-weight:700;line-height:1.3}
+.rec .v small{font-size:15px;font-weight:400;margin-left:2px}
+.rec .s{font-size:13px;color:#cfd6e4}
+.rec-n{font-size:12.5px;color:var(--ai-3);padding-top:10px}
+@media (max-width:760px){.rec .w{grid-template-columns:1fr 1fr}.rec .c{padding:18px 14px}.rec .c:nth-child(3){border-left:0;padding-left:0}.rec .c:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18)}.rec .v{font-size:26px}}
+/* sections */
+section{padding:80px 0}
+section.alt{background:var(--mist)}
+.sec{font-size:clamp(24px,3.2vw,32px);line-height:1.4;font-weight:700}
+.lead{color:var(--ai-2);margin-top:10px;max-width:42em}
+@media (max-width:700px){section{padding:56px 0}}
+/* package */
+.pk{display:grid;grid-template-columns:1fr auto;gap:16px 32px;align-items:center;text-decoration:none;margin-top:26px;background:#fff;border:2px solid var(--ai);border-radius:16px;padding:26px 28px}
+.pk .tg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.pk .tg span{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 12px;background:var(--mist)}
+.pk .tg span.hot{background:var(--tape);color:var(--ai)}
+.pk .ttl{font-size:21px;font-weight:700;line-height:1.5}
+.pk .dsc{color:var(--ai-2);font-size:15px;margin-top:4px}
+.pk .go{background:var(--ai);color:#fff;font-weight:700;padding:13px 22px;border-radius:10px;white-space:nowrap}
+@media (max-width:700px){.pk{grid-template-columns:1fr;padding:22px}.pk .go{text-align:center}}
+/* schedule (filled by script) */
+#skList{margin-top:24px;border-top:2px solid var(--ai)}
+#schedule .sk{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--rule)}
+#schedule .sk .nm{font-weight:700;font-size:17px}
+#schedule .sk .rd{font-size:13px;color:var(--ai-3)}
+#schedule .sk .bdg{flex:none;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px}
+#schedule .sk .bdg.open{background:var(--leaf);color:var(--tape-d)}
+#schedule .sk .bdg.soon{background:var(--mist);color:var(--ai-2)}
+#schedule .sk .bdg.tbd{background:#fff;color:var(--ai-3);border:1px solid var(--rule)}
+#schedule .sk .dt{font-size:14px;color:var(--ai-2)}
+#schedule .sk .dt b{font-size:16px;color:var(--ai)}
+#schedule .sk .left{margin-left:auto;font-size:14px;font-weight:700;color:var(--tape-d)}
+#schedule .sk .memo{width:100%;font-size:13px;color:var(--ai-3)}
+#schedule .fallback{padding:18px 0;color:var(--ai-2);font-size:15px}
+/* 第20回 */
+.j20{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start}
+.tl{list-style:none;border-left:3px solid var(--rule);margin-left:8px}
+.tl li{position:relative;padding:0 0 22px 24px}
+.tl li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--ai)}
+.tl li.end::before{background:var(--ai)}
+.tl .d{font-size:21px;font-weight:700;line-height:1.4}
+.tl .k{font-size:14px;color:var(--ai-2)}
+.tl li.end .d{color:var(--warn)}
+.j20 .box{background:var(--mist);border-radius:16px;padding:24px}
+.j20 .box h3{font-size:17px}
+.j20 .box p{color:var(--ai-2);margin-top:8px;font-size:15px}
+.j20 .box .pt{margin-top:14px;padding-top:14px;border-top:1px solid var(--rule)}
+.j20 .box .pt b{display:block;font-size:15px;color:var(--ai)}
+@media (max-width:800px){.j20{grid-template-columns:1fr;gap:28px}}
+.faq{margin-top:40px;border-top:2px solid var(--ai)}
+.faq h3{font-size:16px;padding:16px 0 4px;color:var(--ai-2)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:16.5px;padding:16px 40px 16px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:12px;height:12px;margin-top:-6px;background:linear-gradient(var(--ai),var(--ai)) center/12px 2px no-repeat,linear-gradient(var(--ai),var(--ai)) center/2px 12px no-repeat}
+.faq details[open] summary::after{background:linear-gradient(var(--ai),var(--ai)) center/12px 2px no-repeat}
+.faq details p{color:var(--ai-2);padding:0 0 18px;max-width:46em}
+.btnrow{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:28px}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:16px;text-decoration:none;background:var(--ai);color:#fff;padding:14px 24px;border-radius:10px}
 .btn:disabled{opacity:.55;cursor:not-allowed}
-.fmsg{font-size:13px;margin-top:10px;min-height:1.5em}
-footer{background:#132B45;color:#9FB4C9;padding:36px 0 46px;font-size:12px;line-height:2}
-footer a{color:#C6D6E5}
-footer b{color:#fff!important}
-button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offset:2px;border-radius:4px}
+/* price */
+.calc{margin-top:28px;border-top:2px solid var(--ai)}
+.calc .r{display:grid;grid-template-columns:1fr auto;gap:4px 20px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--rule)}
+.calc .r span{font-size:16px}
+.calc .r small{grid-column:1;font-size:13px;color:var(--ai-3)}
+.calc .r b{grid-row:1/3;grid-column:2;font-size:24px;text-align:right;white-space:nowrap}
+.calc .r b.z{color:var(--tape-d)}
+.calc .ex{background:var(--mist);border-radius:12px;padding:6px 18px;margin-top:16px;border:0}
+.calc .ex .r{border-color:#e1e7ef}
+.calc .ex .r:last-child{border:0}
+.calc .ex b{font-size:20px}
+/* ogata */
+.og{display:grid;grid-template-columns:1.2fr 1fr;gap:28px 48px;align-items:start;margin-top:28px}
+.og ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ai)}
+.og li{padding:14px 14px 0 0}
+.og li+li{padding-left:14px;border-left:1px solid var(--rule)}
+.og li b{display:block;font-size:20px}
+.og li span{font-size:13.5px;color:var(--ai-2)}
+.og .pr{background:#fff;border:2px solid var(--ai);border-radius:16px;padding:22px}
+.og .pr h3{font-size:16px}
+.og .pr .r{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.og .pr .r b{font-size:20px;white-space:nowrap}
+.og .pr p{font-size:13.5px;color:var(--ai-2);margin-top:10px}
+.og .pr .btn{display:block;text-align:center;margin-top:16px}
+.og .more{display:inline-block;margin-top:12px;font-weight:700}
+@media (max-width:860px){.og{grid-template-columns:1fr}}
+@media (max-width:560px){.og ul{grid-template-columns:1fr}.og li+li{padding-left:0;border-left:0;border-top:1px solid var(--rule)}.og li{padding:12px 0}}
+/* before + flow */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:28px}
+.two h3{font-size:18px;padding-bottom:10px;border-bottom:2px solid var(--ai)}
+.warn{list-style:none}
+.warn li{padding:14px 0 14px 34px;border-bottom:1px solid var(--rule);position:relative;color:var(--ai-2);font-size:15px}
+.warn li::before{content:"!";position:absolute;left:0;top:16px;width:22px;height:22px;border-radius:50%;background:var(--warn);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;line-height:1}
+.warn b{display:block;color:var(--ai);font-size:16px}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;padding:14px 0 14px 44px;border-bottom:1px solid var(--rule);position:relative;color:var(--ai-2);font-size:15px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:14px;width:30px;height:30px;border-radius:50%;background:var(--ai);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;color:var(--ai);font-size:16px}
+@media (max-width:800px){.two{grid-template-columns:1fr;gap:40px}}
+/* contact */
+.ct{background:var(--ai);color:#fff}
+.ct .w{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.ct .sec{color:#fff}
+.ct .lead{color:#d5dbe8}
+.ct .alt-ways{margin-top:22px;font-size:15px;color:#d5dbe8}
+.ct .alt-ways a{color:#fff;font-weight:700}
+.ct .line{display:inline-block;margin-top:12px;background:var(--line);color:#fff;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:10px}
+.card{background:#fff;color:var(--ai);border-radius:16px;padding:26px}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.fld .req{font-size:12px;color:var(--warn);margin-left:8px}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:16px;color:var(--ai);border:1.5px solid #c3ccd9;border-radius:10px;padding:11px 13px;background:#fff}
+.fld textarea{min-height:110px;resize:vertical}
+.fmsg{font-size:14px;margin-top:10px;min-height:1.5em}
+.card .mut a{color:var(--ai)}
+@media (max-width:860px){.ct .w{grid-template-columns:1fr;gap:28px}}
+footer{padding:40px 0 60px;font-size:13.5px;color:var(--ai-2);line-height:1.9}
+footer b{color:var(--ai)}
+footer nav{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:12px}
+footer nav a{text-decoration:none}
+footer nav a:hover{text-decoration:underline}
+.rv{opacity:1}
 </style>
 <script src="bc-analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "補助金申請サポート", "serviceType": "補助金の申請支援", "areaServed": ["大津市", "滋賀県", "京都府"], "provider": {"@type": "ProfessionalService", "name": "BRIDGE CYCLE株式会社", "url": "https://www.bridgecycleco.com/", "address": {"@type": "PostalAddress", "addressRegion": "滋賀県", "addressLocality": "大津市", "addressCountry": "JP"}}}</script>
@@ -137,118 +189,101 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 </head>
 <body>
 
-<div id="campBand" data-from="hojokin"></div>
-<script src="camp-band.js"></script>
-<nav class="nav"><div class="wrap">
-  <a class="logo" href="./" title="BRIDGE CYCLE株式会社 トップへ">BRIDGE <b>CYCLE</b></a>
-  <a class="l" href="#results">実績</a>
-  <a class="l" href="#menu">料金</a>
-  <a class="l" href="#caution">注意点</a>
-  <a class="l" href="#flow">進め方</a>
-  <a class="cta" href="#contact">相談する（0円）</a>
-</div></nav>
 
-<header class="hero"><div class="wrap">
-  <div>
-    <span class="badge">補助金サポート｜国の認定経営革新等支援機関</span>
-    <h1>採択されなければ、<br><u>0円</u>。</h1>
-    <p class="lead">結果を出せなければ、費用をとらない。着手金0円。使えるかどうかは、0円の相談で先にお伝えします。</p>
-    <div class="trustline">
-      <span class="tchip g">初回相談 0円</span>
-      <span class="tchip a">着手金 0円</span>
-      <span class="tchip k">採択時 補助額の12%</span>
-    </div>
-    <p style="margin-top:22px"><a class="btn" href="#contact">初回相談を申し込む（0円）</a></p>
-  </div>
-  <div class="pricebox" aria-hidden="true">
-    <div class="pb-t">料金のしくみ</div>
-    <div class="row"><span class="k">初回相談</span><span class="v" style="color:var(--mid)">0円</span></div>
-    <div class="row"><span class="k">着手金</span><span class="v" style="color:var(--mid)">0円</span></div>
-    <div class="split">
-      <div class="oc ok"><b>採択なら</b><span>補助額×12%<br>（持続化は最低5万円）</span></div>
-      <div class="oc ng"><b>不採択なら</b><span>0円</span></div>
-    </div>
-  </div>
+<div id="campBand" data-from="hojokin"></div>
+<header class="hd"><div class="w">
+  <a class="brand" href="./" title="BRIDGE CYCLE株式会社 トップへ"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2b4f"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="#9bcf53" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>BRIDGE CYCLE</a>
+  <nav aria-label="このページ内">
+    <a href="#results">実績</a>
+    <a href="#jizokuka20">第20回の日程</a>
+    <a href="#menu">料金</a>
+    <a href="#flow">進め方</a>
+    <a class="cta" href="#contact">相談する（0円）</a>
+  </nav>
 </div></header>
 
-<section id="ogata" style="padding:26px 0 8px"><div class="wrap">
-<div style="background:var(--ai);color:#fff;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:16px">
-<div style="font-size:12.5px;font-weight:700;letter-spacing:.08em;color:#CFE0F0">設備投資の大型補助金（省力化投資・新事業進出・ものづくり補助金など）</div>
-<div style="font-family:var(--serif);font-size:clamp(24px,5.4vw,34px);font-weight:800;line-height:1.4">その設備投資、補助金は使えますか。</div>
-<p style="font-size:14px;color:#E6ECF2;line-height:1.9">使える補助金の候補と、準備することを整理してお返しします。見積書がなくても、設備名と概算金額で相談できます。確認と結果のご説明までは無料です。</p>
-<div style="display:flex;flex-wrap:wrap;gap:10px"><div style="flex:1 1 180px;background:rgba(255,255,255,.08);border-radius:12px;padding:14px 16px"><div style="font-family:var(--serif);font-size:24px;font-weight:800;color:#CFE0F0;line-height:1.3">翌営業日</div><div style="font-size:13px;color:#E6ECF2">使える補助金の候補を無料で回答</div></div><div style="flex:1 1 180px;background:rgba(255,255,255,.08);border-radius:12px;padding:14px 16px"><div style="font-family:var(--serif);font-size:24px;font-weight:800;color:#CFE0F0;line-height:1.3">来社不要</div><div style="font-size:13px;color:#E6ECF2">面談はオンライン、確認はLINEで</div></div><div style="flex:1 1 180px;background:rgba(255,255,255,.08);border-radius:12px;padding:14px 16px"><div style="font-family:var(--serif);font-size:24px;font-weight:800;color:#CFE0F0;line-height:1.3">入金まで伴走</div><div style="font-size:13px;color:#E6ECF2">採択後もオプションで支えます</div></div></div>
-<div style="background:#fff;color:var(--ink);border-radius:12px;padding:16px 18px;font-size:13.5px;line-height:1.9">
-<b style="font-size:14.5px">料金（採択までの申請支援・税別）</b><br>
-着手金 <b>5万円</b>＋採択時の成功報酬 <b>採択額の10%</b>（申請書類の作成・提出は連携する行政書士が担当）<br>
-交付申請・実績報告のサポートはオプション（別途お見積り）<br>
-<span style="color:var(--ink2)">例：補助額1,000万円で採択なら総額<b>105万円</b>。不採択なら5万円のみ。</span>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
-<a href="hojokin-ogata.html#form" style="background:#CFE0F0;color:var(--ai);text-decoration:none;font-weight:800;padding:13px 22px;border-radius:999px;font-size:15px">使える補助金を無料で確認する</a>
-<a href="hojokin-ogata.html" style="color:#fff;font-size:14px">大型補助金サポートの詳細を見る →</a>
-</div>
-</div>
-<p style="font-size:12.5px;color:var(--ink3);margin-top:10px">このページの以下は、小規模事業者持続化補助金（第20回）のご案内です。料金と進め方は大型補助金と異なります。</p>
-</div></section>
-<section id="results"><div class="wrap">
-  <p class="eyebrow">RESULTS</p>
-  <h2>これまでの支援実績</h2>
-  <div class="rec4">
-    <div class="rec"><div class="t">ものづくり補助金</div><div class="v">5<small>／5件</small></div><div class="s">採択率 100%</div></div>
-    <div class="rec"><div class="t">事業再構築補助金</div><div class="v">6<small>／8件</small></div><div class="s">採択率 75%</div></div>
-    <div class="rec"><div class="t">小規模事業者<br>持続化補助金</div><div class="v">約150<small>件</small></div><div class="s">申請支援の累計</div></div>
-    <div class="rec"><div class="t">元商工会経営指導員</div><div class="v">歴20<small>年</small></div><div class="s">支援実績500社超</div></div>
+<main>
+<div class="hero"><div class="w">
+  <div>
+    <p class="where">補助金サポート ／ 国の認定経営革新等支援機関</p>
+    <h1><span class="nb">使える補助金か、</span><span class="nb">まず0円で</span><span class="nb">確かめる。</span></h1>
+    <p class="sub">元商工会の経営指導員が、計画づくりから申請まで一緒に進めます。要件に合わなければ、その場でお伝えします。</p>
+    <p class="who"><span class="nb"><b>持続化補助金</b> 約150件の支援</span><span class="nb"><b>ものづくり補助金</b> 5件中5件採択</span></p>
   </div>
-  <p class="mut" style="margin-top:12px">※商工会経営指導員時代を含む過去の実績です。採択を約束するものではありません。</p>
+  <div class="routes">
+    <a class="rt a" href="#jizokuka20">
+      <span class="tag">受付 12/15（火）17時まで</span>
+      <p class="q">チラシ・ホームページ・小さな改装なら</p>
+      <h2>小規模事業者持続化補助金</h2>
+      <dl><dt>着手金</dt><dd class="z">0円</dd><dt>採択されたら</dt><dd>補助額の12%<small style="font-weight:400;font-size:13px">（最低5万円）</small></dd><dt>不採択なら</dt><dd class="z">0円</dd></dl>
+      <span class="go">第20回の日程と、いまやること</span>
+    </a>
+    <a class="rt b" href="#ogata">
+      <p class="q">機械・設備に数百万円以上かけるなら</p>
+      <h2>設備投資の大型補助金</h2>
+      <dl><dt>着手金</dt><dd>5万円</dd><dt>採択されたら</dt><dd>採択額の10%</dd></dl>
+      <span class="go">大型補助金のご案内</span>
+    </a>
+  </div>
+</div></div>
+
+<div class="rec" id="results" aria-label="これまでの支援実績"><div class="w">
+  <div class="c"><div class="t">ものづくり補助金</div><div class="v">5<small>／5件</small></div><div class="s">採択率 100%</div></div>
+  <div class="c"><div class="t">事業再構築補助金</div><div class="v">6<small>／8件</small></div><div class="s">採択率 75%</div></div>
+  <div class="c"><div class="t">小規模事業者持続化補助金</div><div class="v">約150<small>件</small></div><div class="s">申請支援の累計</div></div>
+  <div class="c"><div class="t">元商工会経営指導員</div><div class="v">20<small>年</small></div><div class="s">支援実績500社超</div></div>
+</div></div>
+<div class="w"><p class="rec-n">※商工会経営指導員時代を含む過去の実績です。採択を約束するものではありません。</p></div>
+
+<section id="jizokuka20"><div class="w">
+  <h2 class="sec">第20回 持続化補助金（大津・滋賀）の日程と、いまやること</h2>
+  <div class="j20">
+    <ol class="tl">
+      <li><div class="d">2026年11月5日</div><div class="k">申請受付の開始</div></li>
+      <li><div class="d">2026年12月4日（金）</div><div class="k">事業支援計画書（様式4）の発行受付締切。地域の商工会・商工会議所で発行を受けます</div></li>
+      <li class="end"><div class="d">2026年12月15日（火）17時</div><div class="k">申請の締切</div></li>
+    </ol>
+    <div class="box">
+      <h3>11月中に、計画の骨子を固めるのが安全です</h3>
+      <p>計画書は、商工会・商工会議所の確認を受けてから申請します。締切の直前は窓口が混み合います。当社は、使えるかどうかの判定から、計画書づくり、申請までを伴走します。</p>
+      <div class="pt"><b>補助率・上限</b>原則2/3・通常枠50万円（特例で上乗せあり）。補助金は後払いです。</div>
+    </div>
+  </div>
+  <p class="mut" style="margin-top:14px">出典：小規模事業者持続化補助金〈一般型・通常枠〉第20回 公募要領（第8版）。最新の要件は<a href="https://official.jizokukanb.com/" target="_blank" rel="noopener">事務局の公式サイト</a>でご確認ください。</p>
+
+  <div class="faq">
+    <h3>よくある質問</h3>
+    <details><summary>第20回の持続化補助金は、いつまでに申請すればいいですか</summary><p>申請の締切は2026年12月15日（火）17時です。申請の前に、地域の商工会・商工会議所で事業支援計画書（様式4）の発行を受ける必要があり、その受付締切は12月4日（金）です。計画書づくりには時間がかかるため、11月中に相談を始めるのが安全です。</p></details>
+    <details><summary>補助額はいくらですか</summary><p>補助率は原則2/3、通常枠の上限は50万円です。インボイス特例や賃金引上げ特例に当てはまると、上限が上乗せされます。補助金は後払いで、いったん全額を支払ってから、実績報告のあとに受け取ります。</p></details>
+    <details><summary>ホームページの制作だけで申請できますか</summary><p>できません。ウェブサイト関連費だけでの申請は認められておらず、チラシなど他の経費と組み合わせる必要があります。ウェブサイト関連費の補助金交付申請額の上限は30万円です。</p></details>
+    <details><summary>BRIDGE CYCLEに頼むと、費用はいくらですか</summary><p>初回相談と着手金は0円です。採択（交付決定）されたときだけ、補助額の12%（持続化補助金は最低5万円・税別）をいただきます。不採択なら0円です。</p></details>
+    <details><summary>大津市以外でも相談できますか</summary><p>滋賀県と京都府の事業者の方を中心に、オンラインでも対応しています。</p></details>
+  </div>
+  <div class="btnrow">
+    <a class="btn" href="#contact">第20回の申請について、初回相談（0円）を申し込む</a>
+    <a href="yomu-setsubi-hojokin.html">読みもの：設備投資の補助金は「見積書をもらった日」に相談する</a>
+  </div>
 </div></section>
 
-<!-- 業種別パッケージ（持続化補助金で使う制作パッケージへの導線） -->
-<section id="packages"><div class="wrap">
-  <p class="eyebrow">PACKAGES</p>
-  <h2>期間限定のパッケージ</h2>
-  <p class="mut" style="margin:6px 0 14px">持続化補助金で「何を作るか」まで決めてある、定額の制作パッケージです。下の「料金」にある申請支援（成功報酬）とは別の料金体系です。</p>
-  <style>
-    #packages .pk{display:flex;gap:16px;align-items:center;flex-wrap:wrap;text-decoration:none;color:inherit}
-    #packages .pk .txt{flex:1 1 320px;min-width:0}
-    #packages .pk .tag{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:3px 12px;background:var(--midpale);color:var(--mid);margin-bottom:6px}
-    #packages .pk .ttl{font-weight:800;font-size:16px;color:var(--ai);line-height:1.5}
-    #packages .pk .dsc{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.7}
-    #packages .pk .go{flex:none;background:var(--ai);color:#fff;font-weight:700;font-size:13px;border-radius:999px;padding:9px 18px;white-space:nowrap}
-    #packages .pk:hover .go{background:var(--aimid)}
-    #packages .pk .tag.hot{background:#E4572E;color:#fff;margin-right:6px}
-    #packages .pk{border:2px solid #E4572E}
-  </style>
-  <a class="card pk" href="camp.html?utm_source=bridgecycle&amp;utm_medium=card&amp;utm_campaign=camp&amp;utm_content=hojokin">
-    <div class="txt">
-      <span class="tag hot">期間限定・受付 11/20（金）まで</span><span class="tag">第20回 持続化補助金・先着20施設</span>
+<section id="packages" class="alt"><div class="w">
+  <h2 class="sec">期間限定のパッケージ</h2>
+  <p class="lead">持続化補助金で「何を作るか」まで決めてある、定額の制作パッケージです。下の申請支援（成功報酬）とは別の料金です。</p>
+  <a class="pk" href="camp.html?utm_source=bridgecycle&amp;utm_medium=card&amp;utm_campaign=camp&amp;utm_content=hojokin">
+    <div>
+      <p class="tg"><span class="hot">受付 11/20（金）まで</span><span>第20回 持続化補助金・先着20施設</span></p>
       <div class="ttl">キャンプ場の平日を、仕事客の売上に。</div>
       <div class="dsc">予約・事前決済ができるサイト＋集客チラシのデザインで、平日のコワーキング利用を売り出します。税別10万円（交付決定後の着手金3万円、納品時7万円）。計画書への助言・添削は無料。</div>
     </div>
-    <span class="go">詳しく見る →</span>
+    <span class="go">詳しく見る</span>
   </a>
 </div></section>
 
 <!-- 公募スケジュール（Googleシートから自動表示） -->
-<section id="schedule"><div class="wrap">
-  <p class="eyebrow">SCHEDULE</p>
-  <h2>いま申請できる補助金</h2>
-  <p class="mut" style="margin:6px 0 14px">正確な要件・締切は各公式サイトでご確認ください。</p>
-  <style>
-    #schedule .sk{border:1px solid #DDD6C9;border-radius:12px;background:#fff;padding:14px 16px;margin-bottom:10px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
-    #schedule .sk .nm{font-weight:800;font-size:14.5px;min-width:0}
-    #schedule .sk .rd{font-size:11.5px;color:#6B6357}
-    #schedule .sk .bdg{flex:none;font-size:11px;font-weight:800;border-radius:999px;padding:3px 12px}
-    #schedule .sk .bdg.open{background:#E3EFE9;color:#2E6B4F}
-    #schedule .sk .bdg.soon{background:var(--aipale);color:var(--aimid)}
-    #schedule .sk .bdg.tbd{background:#F1EDE3;color:#8A6D1F}
-    #schedule .sk .dt{font-size:12.5px;color:#3A362E}
-    #schedule .sk .dt b{font-family:Georgia,serif;font-size:15px}
-    #schedule .sk .left{flex:none;margin-left:auto;font-size:12px;font-weight:800;color:#2E6B4F}
-    #schedule .sk .memo{width:100%;font-size:11.5px;color:#6B6357;margin-top:2px}
-    #schedule .fallback{border:1px dashed #C9BFA9;border-radius:12px;padding:16px 18px;font-size:13px;color:#3A362E;background:#FBF9F3}
-  </style>
+<section id="schedule"><div class="w">
+  <h2 class="sec">いま申請できる補助金</h2>
+  <p class="lead">正確な要件・締切は各公式サイトでご確認ください。</p>
   <div id="skList"><div class="fallback">スケジュールを読み込んでいます…</div></div>
-  <p class="mut" style="margin-top:10px;font-size:11px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>ほか。掲載のない補助金もご相談いただけます。</p>
+  <p class="mut" style="margin-top:12px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>ほか。掲載のない補助金もご相談いただけます。</p>
 </div></section>
 
 <script>
@@ -299,91 +334,100 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--aimid);outline-offs
 })();
 </script>
 
-<section id="jizokuka20"><div class="wrap">
-  <p class="eyebrow">第20回 持続化補助金</p>
-  <h2>第20回 小規模事業者持続化補助金（大津・滋賀）の日程と、いまやること</h2>
-  <div style="overflow-x:auto;margin:14px 0"><table style="width:100%;border-collapse:collapse;font-size:15px;background:#fff">
-    <tr><th style="text-align:left;padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">申請受付の開始</th><td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">2026年11月5日</td></tr>
-    <tr><th style="text-align:left;padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">事業支援計画書（様式4）の発行受付締切</th><td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">2026年12月4日（金）<small>地域の商工会・商工会議所で発行を受けます</small></td></tr>
-    <tr><th style="text-align:left;padding:10px;border-bottom:1px solid rgba(0,0,0,.12)">申請の締切</th><td style="padding:10px;border-bottom:1px solid rgba(0,0,0,.12)"><b>2026年12月15日（火）17時</b></td></tr>
-    <tr><th style="text-align:left;padding:10px">補助率・上限</th><td style="padding:10px">原則2/3・通常枠50万円（特例で上乗せあり）。補助金は後払い</td></tr>
-  </table></div>
-  <p>計画書は、商工会・商工会議所の確認を受けてから申請します。締切の直前は窓口が混み合うため、<b>11月中に計画の骨子を固める</b>のが安全です。当社は、使えるかどうかの判定から、計画書づくり、申請までを伴走します。着手金0円、採択されたときだけ補助額の12%（最低5万円・税別）です。</p>
-  <p class="mut" style="font-size:13px">出典：小規模事業者持続化補助金〈一般型・通常枠〉第20回 公募要領（第8版）。最新の要件は<a href="https://official.jizokukanb.com/" target="_blank" rel="noopener">事務局の公式サイト</a>でご確認ください。</p>
-  <h3 style="margin:22px 0 10px;font-size:17px">よくある質問</h3>
-  <details style="background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:12px 16px;margin:0 0 10px"><summary style="font-weight:700;cursor:pointer">第20回の持続化補助金は、いつまでに申請すればいいですか</summary><p style="margin:8px 0 0">申請の締切は2026年12月15日（火）17時です。申請の前に、地域の商工会・商工会議所で事業支援計画書（様式4）の発行を受ける必要があり、その受付締切は12月4日（金）です。計画書づくりには時間がかかるため、11月中に相談を始めるのが安全です。</p></details><details style="background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:12px 16px;margin:0 0 10px"><summary style="font-weight:700;cursor:pointer">補助額はいくらですか</summary><p style="margin:8px 0 0">補助率は原則2/3、通常枠の上限は50万円です。インボイス特例や賃金引上げ特例に当てはまると、上限が上乗せされます。補助金は後払いで、いったん全額を支払ってから、実績報告のあとに受け取ります。</p></details><details style="background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:12px 16px;margin:0 0 10px"><summary style="font-weight:700;cursor:pointer">ホームページの制作だけで申請できますか</summary><p style="margin:8px 0 0">できません。ウェブサイト関連費だけでの申請は認められておらず、チラシなど他の経費と組み合わせる必要があります。ウェブサイト関連費の補助金交付申請額の上限は30万円です。</p></details><details style="background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:12px 16px;margin:0 0 10px"><summary style="font-weight:700;cursor:pointer">BRIDGE CYCLEに頼むと、費用はいくらですか</summary><p style="margin:8px 0 0">初回相談と着手金は0円です。採択（交付決定）されたときだけ、補助額の12%（持続化補助金は最低5万円・税別）をいただきます。不採択なら0円です。</p></details><details style="background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:12px 16px;margin:0 0 10px"><summary style="font-weight:700;cursor:pointer">大津市以外でも相談できますか</summary><p style="margin:8px 0 0">滋賀県と京都府の事業者の方を中心に、オンラインでも対応しています。</p></details>
-  <p style="margin-top:14px"><a class="btn" href="#contact">第20回の申請について、初回相談（0円）を申し込む</a></p>
-  <p class="mut" style="font-size:14px">読みもの：<a href="yomu-setsubi-hojokin.html">設備投資の補助金は「見積書をもらった日」に相談する</a></p>
+<section id="menu" class="alt"><div class="w">
+  <h2 class="sec">持続化補助金の料金</h2>
+  <p class="lead">採択されなければ、費用はかかりません。</p>
+  <div class="calc">
+    <div class="r"><span>初回相談（60分）</span><small>使えるか、いつか、を判定</small><b class="z">0円</b></div>
+    <div class="r"><span>着手金</span><small>計画づくりと申請書類の伴走</small><b class="z">0円</b></div>
+    <div class="r"><span>採択されたとき</span><small>持続化補助金は最低5万円</small><b>補助額の12%</b></div>
+    <div class="ex">
+      <div class="r"><span>補助額50万円で採択なら</span><small>採択後に一括</small><b>6万円</b></div>
+      <div class="r"><span>補助額500万円で採択なら</span><small>採択後に一括</small><b>60万円</b></div>
+      <div class="r"><span>不採択なら</span><small>相談料も着手金もなし</small><b class="z">0円</b></div>
+    </div>
+  </div>
+  <p class="mut" style="margin-top:14px">税別。報酬は採択（交付決定）時に発生し、交付決定から14日以内にお支払いいただきます（補助金の入金は実績報告後のため、ご希望により入金時までの分割に応じます）。採択後に辞退された場合も報酬は発生します。申請書の作成に着手した後、ご都合で取り下げる場合のみキャンセル料（実費相当・上限3万円）。実績報告のサポートは別途3万円（任意）。申請書はご本人の作成を支援するもので、代行ではありません。所在地により連携する中小企業診断士が担当する場合があります。</p>
 </div></section>
 
-<section id="menu"><div class="wrap">
-  <p class="eyebrow">PRICE</p>
-  <h2>料金</h2>
-  <div class="extiles rv" style="margin-top:6px">
-    <div class="ext"><span class="a">初回相談（60分）</span><span class="b" style="color:var(--mid)">0円</span><span class="c">使えるか、いつか、を判定</span></div>
-    <div class="ext"><span class="a">着手金</span><span class="b" style="color:var(--mid)">0円</span><span class="c">計画づくりと申請書類の伴走</span></div>
-    <div class="ext"><span class="a">採択時</span><span class="b">補助額の12%</span><span class="c">持続化補助金は最低5万円。不採択なら0円</span></div>
-  </div>
-  <div class="extiles rv">
-    <div class="ext"><span class="a">持続化補助金 50万円なら</span><span class="b">6万円</span><span class="c">採択後に一括</span></div>
-    <div class="ext"><span class="a">補助額 500万円なら</span><span class="b">60万円</span><span class="c">採択後に一括</span></div>
-    <div class="ext ng"><span class="a">不採択なら</span><span class="b">0円</span><span class="c">相談料も着手金もなし</span></div>
-  </div>
-  <p class="mut" style="margin-top:12px">税別。報酬は採択（交付決定）時に発生し、交付決定から14日以内にお支払いいただきます（補助金の入金は実績報告後のため、ご希望により入金時までの分割に応じます）。採択後に辞退された場合も報酬は発生します。申請書の作成に着手した後、ご都合で取り下げる場合のみキャンセル料（実費相当・上限3万円）。実績報告のサポートは別途3万円（任意）。申請書はご本人の作成を支援するもので、代行ではありません。所在地により連携する中小企業診断士が担当する場合があります。</p>
-</div></section>
-
-
-<section id="caution"><div class="wrap">
-  <p class="eyebrow">BEFORE YOU START</p>
-  <h2>先に、3つだけ。</h2>
-  <div class="note3 rv">
-    <div class="n3"><b>誰でも使えるわけではありません。</b>要件に合わなければ、お断りします。</div>
-    <div class="n3"><b>申請できる時期が決まっています。</b>公募期間を外れると、次回まで待ちます。</div>
-    <div class="n3"><b>交付決定前の発注は、対象外です。</b>「先に進めて、後から申請」はできません。</div>
+<section id="ogata"><div class="w">
+  <h2 class="sec">その設備投資、補助金は使えますか。</h2>
+  <p class="lead">省力化投資・新事業進出・ものづくり補助金など、設備投資の大型補助金です。見積書がなくても、設備名と概算金額で相談できます。確認と結果のご説明までは無料です。</p>
+  <div class="og">
+    <div>
+      <ul>
+        <li><b>翌営業日</b><span>使える補助金の候補を無料で回答</span></li>
+        <li><b>来社不要</b><span>面談はオンライン、確認はLINEで</span></li>
+        <li><b>入金まで伴走</b><span>採択後もオプションで支えます</span></li>
+      </ul>
+      <a class="more" href="hojokin-ogata.html">大型補助金サポートの詳細</a>
+    </div>
+    <div class="pr">
+      <h3>料金（採択までの申請支援・税別）</h3>
+      <div class="r"><span>着手金</span><b>5万円</b></div>
+      <div class="r"><span>採択されたとき</span><b>採択額の10%</b></div>
+      <p>例：補助額1,000万円で採択なら総額105万円。不採択なら5万円のみ。申請書類の作成・提出は連携する行政書士が担当します。交付申請・実績報告のサポートはオプション（別途お見積り）です。</p>
+      <a class="btn" href="hojokin-ogata.html#form">使える補助金を無料で確認する</a>
+    </div>
   </div>
 </div></section>
 
-<section id="flow"><div class="wrap">
-  <p class="eyebrow">FLOW</p>
-  <h2>3ステップ</h2>
-  <div class="flow rv">
-    <div class="st"><span class="no">STEP 1</span><b>相談する（0円）</b><p>使えるか、いつか、をお伝えします。</p></div>
-    <div class="st"><span class="no">STEP 2</span><b>契約する（0円）</b><p>計画と申請書類を一緒に作ります。</p></div>
-    <div class="st"><span class="no">STEP 3</span><b>申請する</b><p>採択されたら、補助額の12%。されなければ0円。</p></div>
+<section id="caution" class="alt"><div class="w">
+  <h2 class="sec">始める前に知っておくこと</h2>
+  <div class="two">
+    <div>
+      <h3>先に、3つだけ</h3>
+      <ul class="warn">
+        <li><b>誰でも使えるわけではありません。</b>要件に合わなければ、お断りします。</li>
+        <li><b>申請できる時期が決まっています。</b>公募期間を外れると、次回まで待ちます。</li>
+        <li><b>交付決定前の発注は、対象外です。</b>「先に進めて、後から申請」はできません。</li>
+      </ul>
+    </div>
+    <div id="flow">
+      <h3>進め方</h3>
+      <ol class="steps">
+        <li><b>相談する（0円）</b>使えるか、いつか、をお伝えします。</li>
+        <li><b>契約する（持続化は0円）</b>計画と申請書類を一緒に作ります。</li>
+        <li><b>申請する</b>持続化補助金は、採択されたら補助額の12%。されなければ0円。</li>
+      </ol>
+    </div>
   </div>
 </div></section>
 
-<section id="contact"><div class="wrap" style="max-width:640px">
-  <p class="eyebrow">CONTACT</p>
-  <h2>初回相談（0円）を申し込む</h2>
-  <p style="margin-bottom:18px">2営業日以内にご返信します。相談だけで終わって構いません。</p>
+<section id="contact" class="ct"><div class="w">
+  <div>
+    <h2 class="sec">初回相談（0円）を申し込む</h2>
+    <p class="lead">2営業日以内にご返信します。相談だけで終わって構いません。</p>
+    <p class="alt-ways">フォームのほか、公式LINE・<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a> でも受け付けています。<br><a class="line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで相談する</a></p>
+  </div>
   <div class="card" id="cform">
-    <div class="fld"><label>お名前<span class="req">必須</span></label><input id="cName" autocomplete="name" placeholder="例：中村 裕二"></div>
-    <div class="fld"><label>メールアドレス<span class="req">必須</span></label><input id="cMail" type="email" autocomplete="email" inputmode="email" placeholder="例：you@example.com"></div>
-    <div class="fld"><label>ご相談の種類</label><select id="cKind">
+    <div class="fld"><label for="cName">お名前<span class="req">必須</span></label><input id="cName" autocomplete="name" placeholder="例：中村 裕二"></div>
+    <div class="fld"><label for="cMail">メールアドレス<span class="req">必須</span></label><input id="cMail" type="email" autocomplete="email" inputmode="email" placeholder="例：you@example.com"></div>
+    <div class="fld"><label for="cKind">ご相談の種類</label><select id="cKind">
       <option>これから決めたい／使える補助金を知りたい</option>
       <option>設備投資・改装の補助金</option>
       <option>販路開拓・小規模事業者持続化補助金</option>
       <option>事業承継・M&amp;A関連の補助金</option>
       <option>その他</option></select></div>
-    <div class="fld"><label>ご状況（差し支えない範囲で）</label><textarea id="cMsg" placeholder="例：来春に大津市内でカフェの承継を検討しています。自己資金は300万円ほどで、残りを融資で考えています。"></textarea></div>
+    <div class="fld"><label for="cMsg">ご状況（差し支えない範囲で）</label><textarea id="cMsg" placeholder="例：来春に大津市内でカフェの承継を検討しています。自己資金は300万円ほどで、残りを融資で考えています。"></textarea></div>
     <button class="btn" id="cSend" style="width:100%">この内容で申し込む</button>
     <p class="fmsg" id="cOut" role="status" aria-live="polite"></p>
-    <p class="mut">送信いただいた内容は、本件のご連絡の目的にのみ利用します（<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>）。フォームのほか、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINE</a>・<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a> でもご相談を受け付けています。</p>
+    <p class="mut">送信いただいた内容は、本件のご連絡の目的にのみ利用します（<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>）。</p>
   </div>
 </div></section>
+</main>
 
-<footer><div class="wrap">
-  <p><b style="color:var(--ink2)">BRIDGE CYCLE株式会社</b>（滋賀県大津市）｜国の認定経営革新等支援機関（認定番号 109825000112）</p>
-  <p style="margin-top:6px">
-    <a href="./">会社トップ</a>｜
-    <a href="matching.html">退店前承継マッチング</a>｜
-    <a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a>｜
-    <a href="uriba-ginkobo.html">売り場レンタル（銀工房）</a>｜
-    <a href="camp.html">キャンプ場の平日収益化（持続化補助金パッケージ）</a>｜
-    <a href="tokushoho.html">特定商取引法に基づく表記（補助金申請支援の価格を含む）</a>｜
+<footer><div class="w">
+  <p><b>BRIDGE CYCLE株式会社</b>（滋賀県大津市）｜国の認定経営革新等支援機関（認定番号 109825000112）</p>
+  <nav aria-label="関連ページ">
+    <a href="./">会社トップ</a>
+    <a href="matching.html">退店前承継マッチング</a>
+    <a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a>
+    <a href="uriba-ginkobo.html">売り場レンタル（銀工房）</a>
+    <a href="camp.html">キャンプ場の平日収益化（持続化補助金パッケージ）</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記（補助金申請支援の価格を含む）</a>
     <a href="privacy.html">プライバシーポリシー</a>
-  </p>
+  </nav>
 </div></footer>
 
 <script>
@@ -393,7 +437,7 @@ document.getElementById('cSend').onclick=async()=>{
   const out=document.getElementById('cOut'),btn=document.getElementById('cSend');
   const name=document.getElementById('cName').value.trim();
   const mail=document.getElementById('cMail').value.trim();
-  out.style.color='var(--shu)';
+  out.style.color='var(--warn)';
   if(!name){out.textContent='お名前を入力してください。';return;}
   if(!mail||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){out.textContent='メールアドレスを確認してください。';return;}
   out.textContent='';btn.disabled=true;btn.textContent='送信しています…';
@@ -412,7 +456,7 @@ document.getElementById('cSend').onclick=async()=>{
     document.getElementById('cform').innerHTML='<div style="text-align:center;padding:30px 8px">'
       +'<div style="font-size:42px;line-height:1">✓</div>'
       +'<div style="font-size:17px;font-weight:800;margin-top:12px">受け付けました。</div>'
-      +'<div style="font-size:13px;color:var(--ink2);margin-top:10px;line-height:1.9">確認の自動返信メールをお送りしました。<br>担当者より2営業日以内にご返信します。</div></div>';
+      +'<div style="font-size:13px;color:var(--ai-2);margin-top:10px;line-height:1.9">確認の自動返信メールをお送りしました。<br>担当者より2営業日以内にご返信します。</div></div>';
   }catch(e){
     btn.disabled=false;btn.textContent='この内容で申し込む';
     out.textContent=location.protocol==='file:'
