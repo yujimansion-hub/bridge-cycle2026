@@ -794,6 +794,19 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
 .change-road li.done{opacity:.55}
 @media(max-width:860px){.change-road{grid-template-columns:1fr 1fr}.hv-top b{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.hv-live{animation:none}.hv-bar i{transition:none}}
+.he-more{display:block;margin-top:6px;font-size:13px;color:var(--tomato);text-decoration:underline;text-underline-offset:3px}
+.keep{margin:0 0 28px;padding:22px;background:#fff;border:1.5px solid var(--night);border-radius:16px}
+.keep h3{margin:0;font-family:'Shippori Mincho B1','Noto Serif JP',serif;font-weight:800;font-size:clamp(22px,2.6vw,28px);line-height:1.4}
+.keep-lead{margin:8px 0 14px;font-size:14px;line-height:1.8;color:var(--sub)}
+.keep-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;counter-reset:k}
+.keep-list li{counter-increment:k;position:relative;padding:14px 14px 14px 52px;border-radius:12px;background:#FBF6EE;font-size:13px;line-height:1.7}
+.keep-list li::before{content:counter(k);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--tomato);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.keep-list b{display:block;font-size:15px;color:var(--ink)}
+.keep-list span{display:block;color:var(--sub)}
+.keep-list em{display:block;margin-top:6px;font-style:normal;font-weight:700;color:var(--tomato)}
+.keep-note{margin:12px 0 0;font-size:12px;color:var(--sub)}
+.keep-act{margin:12px 0 0}
+@media(max-width:860px){.keep{padding:18px 16px}.keep-list{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="assets/yorimichi-social.css?v=20261019d">
 <link rel="stylesheet" href="assets/yorimichi-arrival.css?v=20261020b">
@@ -821,7 +834,7 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <section class="hero-event" aria-labelledby="heTitle">
         <p class="he-kicker" id="heTitle"><span>開催決定</span>2026年・西口と東口の駅前で</p>
         <p class="he-dates"><span class="he-d"><b>11.30</b><small>月</small></span><span class="he-to" aria-label="から">→</span><span class="he-d"><b>12.20</b><small>日</small></span></p>
-        <p class="he-msg">3週間の社会実験で、これからの南草津駅が変わります。<b>変えるのは、みんなです。</b></p>
+        <p class="he-msg">3週間の社会実験で、これからの南草津駅が変わります。<b>変えるのは、みんなです。</b><a class="he-more" href="#keep">どうなれば、この先も続く？ →</a></p>
         <div class="he-voice" id="heVoice" hidden>
           <p class="hv-top"><span class="hv-live" aria-hidden="true"></span>みんなの声 <b id="heVoiceN">0</b>票<small id="heVoiceNote">30票で、みんなの結果を公開します</small></p>
           <div class="hv-bar" aria-hidden="true"><i id="heVoiceBar"></i></div>
@@ -1174,6 +1187,18 @@ footer{border-top:1px solid var(--line);background:var(--paper)}
       <li data-from="2026-12-21"><b>会期のあと</b><span>投票と売れ行きを、個人やお店が分からない形で集計する</span></li>
       <li data-from="2027-01-01"><b>これから</b><span>集計を、南草津駅前の使い方を考える材料にする</span></li>
     </ol>
+    <section class="keep" id="keep" aria-labelledby="keepH">
+      <h3 id="keepH">どうなれば、この先も続く？</h3>
+      <p class="keep-lead">この3週間の結果しだいです。会期のあと、次の4つを見て、実施者（UDCみなくさ・立命館大学）がこれからの駅前の使い方を検討します。</p>
+      <ol class="keep-list">
+        <li><b>立ち寄る人がいたか</b><span>お店に来たお客さんの数と、時間帯（出店者の売上報告から）</span><em>あなたにできること：帰りに、ひと品買ってみる</em></li>
+        <li><b>お店がやっていけたか</b><span>売れ行きと、出店したお店の手ごたえ</span><em>あなたにできること：気に入ったお店を、友だちに教える</em></li>
+        <li><b>ほしい声があったか</b><span>投票の数と中身、「こんなお店があったら」の声</span><em>あなたにできること：投票して、ひとこと書く</em></li>
+        <li><b>気持ちよく使えたか</b><span>通る人のじゃまにならず、事故やトラブルなく開けたか</span><em>あなたにできること：通路をあけて、ゴミは持ち帰る</em></li>
+      </ol>
+      <p class="keep-note">続けるための数の目標は決めていません。集計は、個人やお店が分からない形で行います。</p>
+      <p class="keep-act"><a class="btn btn-tomato btn-sm" href="#voteForm">まず、1票を入れる</a></p>
+    </section>
     <div class="about">
       <div>
         <p>通り過ぎるだけの駅前が、立ち寄りたくなる場所になれるか。11月30日（月）〜12月20日（日）の3週間で、出店するお店の反応と、立ち寄る人の動きを確かめます。その結果を、実施者が今後の駅前の使い方を検討するための判断材料にします。</p>
