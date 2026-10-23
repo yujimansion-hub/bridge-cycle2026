@@ -31,7 +31,7 @@
   function postText(){
     var text;
     if(mode==='announce'&&announcement.date){
-      text='南草津駅前、なんか始まるらしいよ。\n'+announcement.date+'、いつもの駅前で、おいしい3週間。\n'+announcement.place+'。入場無料。\nおかずも、パンも、おやつも。食べたいものの投票も受付中。\n'+announcement.note;
+      text='南草津駅は、もっと楽しくなる？\nその答えを、みんなで試す3週間。\n'+announcement.date+'／'+announcement.place+'。入場無料。\nあなたの一票も、ひとつのお買いものも、駅前のこれからを考える材料に。\n食べたいものの投票も受付中。\n'+announcement.note;
     }else if(mode==='results'&&data.results&&data.results.total>=30){
       text='南草津駅の帰り道、何が買えたらうれしい？\n'+data.results.asof+'時点・有効回答'+data.results.total+'件の途中経過です。\n'+data.results.top.slice(0,3).map(function(t,i){return(i+1)+'. '+t[0]+'（'+t[1]+'人が選択）';}).join('\n')+'\nあなたの食べたいものも、教えてください。';
     }else if(mode==='event'&&data.nextEvent){
@@ -47,7 +47,7 @@
     document.getElementById('snsText').value=full;
     document.getElementById('snsLine').href='https://line.me/R/share?text='+encodeURIComponent(postText()+'\n'+shareLink('line'));
     document.getElementById('snsThreads').href='https://www.threads.com/intent/post?text='+encodeURIComponent(postText()+'\n'+shareLink('threads'));
-    var xt=mode==='announce'&&announcement.date?'南草津駅前、なんか始まるらしいよ。\n'+announcement.date+'\n'+announcement.place+'。入場無料。\n各日の出店・時間・お店は順次公開。':mode==='event'&&data.nextEvent?'南草津駅前、よりみち。\n'+data.nextEvent.date+' '+data.nextEvent.time+'\n'+data.nextEvent.place:mode==='results'&&data.results?'南草津駅で何が買えたらうれしい？\n有効回答'+data.results.total+'件の途中経過。あなたの食べたいものも教えてください。':picks.length?'南草津駅で「'+shortNames[picks[0]]+'」が買えたらうれしい。あなたは何派？\n名前・メール不要の投票受付中。'+periodText():'南草津駅で、何が買えたらうれしい？ 名前・メール不要の投票受付中。'+periodText();
+    var xt=mode==='announce'&&announcement.date?'南草津駅は、もっと楽しくなる？\nみんなで試す3週間。\n'+announcement.date+'\n'+announcement.place+'。入場無料。\n各日の出店・時間・お店は順次公開。':mode==='event'&&data.nextEvent?'南草津駅前、よりみち。\n'+data.nextEvent.date+' '+data.nextEvent.time+'\n'+data.nextEvent.place:mode==='results'&&data.results?'南草津駅で何が買えたらうれしい？\n有効回答'+data.results.total+'件の途中経過。あなたの食べたいものも教えてください。':picks.length?'南草津駅で「'+shortNames[picks[0]]+'」が買えたらうれしい。あなたは何派？\n名前・メール不要の投票受付中。'+periodText():'南草津駅で、何が買えたらうれしい？ 名前・メール不要の投票受付中。'+periodText();
     document.getElementById('snsX').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(xt)+'&url='+encodeURIComponent(shareLink('x'));
     ['snsThreads','snsX'].forEach(function(id){document.getElementById(id).hidden={snsThreads:'threads',snsX:'x'}[id]!==channel;});
     document.getElementById('snsFoodOptions').hidden=mode!=='wish';
@@ -75,7 +75,7 @@
     c.font='900 68px "Noto Sans JP", sans-serif';
     if(mode==='results'&&data.results){c.fillText('みんなの食べたいもの。',72,top);c.font='700 32px "Noto Sans JP", sans-serif';c.fillText(data.results.asof+'時点／有効回答'+data.results.total+'件',72,top+70);}
     else if(mode==='event'&&data.nextEvent){c.fillText('次の、よりみち。',72,top);c.font='700 34px "Noto Sans JP", sans-serif';c.fillText('南草津駅前で、待っています。',72,top+70);}
-    else if(mode==='announce'){c.fillText('いつもの駅で、',72,top);c.fillText('おいしい3週間。',72,top+100);}
+    else if(mode==='announce'){c.fillText('南草津駅は、',72,top);c.fillText('もっと楽しくなる？',72,top+100);}
     else{c.fillText('南草津駅で、',72,top);c.fillText(picks.length?'私はこれが食べたい。':'何が買えたらうれしい？',72,top+100);}
     var rows=mode==='results'&&data.results?data.results.top.slice(0,3).map(function(t,i){return{emoji:String(i+1),text:t[0],sub:t[1]+'人が選択'};}):mode==='event'&&data.nextEvent?[{emoji:'日',text:data.nextEvent.date,sub:data.nextEvent.time},{emoji:'場',text:data.nextEvent.place,sub:data.nextEvent.shops?data.nextEvent.shops+'店が出店':''}]:mode==='announce'?[]:picks.map(function(n){return{emoji:foods[n][0],text:foods[n][1],sub:''};});
     var y=top+175,rowHeight=format==='story'?205:165;
@@ -89,7 +89,7 @@
         if(img&&img.complete&&img.naturalWidth){var scale=Math.max(296/img.naturalWidth,artH/img.naturalHeight),dw=img.naturalWidth*scale,dh=img.naturalHeight*scale;c.drawImage(img,ax+(296-dw)/2,artY+(artH-dh)/2,dw,dh);}
         c.restore();c.fillStyle='#173C51';c.font='900 29px \"Noto Sans JP\", sans-serif';c.fillText(label,ax+20,artY+artH+48);
       });
-      c.font='700 34px \"Noto Sans JP\", sans-serif';c.fillText('あの人に、よりみちのおさそい。',72,artY+artH+125);
+      c.font='700 34px \"Noto Sans JP\", sans-serif';c.fillText('その答えを、みんなで試す3週間。',72,artY+artH+125);
     }
     if(!rows.length&&mode!=='announce'){
       // まだ選んでいない人のカード：10の候補を並べて「あなたなら、どれ？」と問いかける（空白を作らない）
@@ -114,7 +114,7 @@
       y+=rowHeight;
     });
     var foot=H-(format==='story'?455:340);
-    pill(c,mode==='announce'?'いっしょに、よりみちしよう。':mode==='event'?'帰り道に、よりみちしよう。':'あなたの食べたいものは？',72,foot,936,90,'#FFD35B','#173C51',39);
+    pill(c,mode==='announce'?'一票も、寄り道も、参加になる。':mode==='event'?'帰り道に、よりみちしよう。':'あなたの食べたいものは？',72,foot,936,90,'#FFD35B','#173C51',39);
     c.fillStyle='#173C51';c.font='700 30px "Noto Sans JP", sans-serif';
     c.fillText(mode==='announce'?'お店と最新の予定は、リンクから。':mode==='event'?'くわしくは、リンクから。':'名前・メール不要／3つまで選んで投票',72,foot+150);
     c.font='500 24px "Noto Sans JP", sans-serif';
