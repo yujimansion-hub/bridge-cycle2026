@@ -75,7 +75,7 @@
       if(img&&img.complete&&img.naturalWidth){var scale=Math.max(w/img.naturalWidth,h/img.naturalHeight),dw=img.naturalWidth*scale,dh=img.naturalHeight*scale;c.drawImage(img,x+(w-dw)/2,y+(h-dh)/2,dw,dh);}
       else{c.fillStyle='#FFF9EC';c.fillRect(x,y,w,h);c.font=(picks.length===1?160:100)+'px "Noto Color Emoji", "Apple Color Emoji", sans-serif';c.textAlign='center';c.fillText(foods[n][0],x+w/2,y+h*.62);c.textAlign='left';}
       c.restore();c.fillStyle='#173C51';c.font='900 '+(picks.length===1?52:40)+'px "Noto Sans JP", sans-serif';
-      textLines(c,foods[n][1],x,y+h+66,w,55,2);
+      textLines(c,picks.length===1?foods[n][1]:shortNames[n]+'派',x,y+h+66,w,55,2);
     });
     c.fillStyle='#173C51';c.font='700 32px "Noto Sans JP", sans-serif';
     c.fillText('あなたの「食べたい」で、駅前を楽しく。',72,H-(format==='story'?585:440));
