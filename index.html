@@ -130,6 +130,27 @@ html .j4-sub .badge{z-index:1;top:12px}
 @media (max-width:860px){.room-img{aspect-ratio:5/2;margin-bottom:8px}}
 @media (prefers-reduced-motion:reduce){.room-img img{transition:none}}
 
+/* しくみ：図と手順を横並び */
+.shikumi-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:28px}
+.shikumi-grid .shikumi-fig{margin:0;max-width:none}
+html .shikumi-grid .flow3{grid-template-columns:1fr;margin-top:0;border-top:2px solid var(--ai)}
+html .shikumi-grid .flow3 li{padding:18px 0 16px 46px;border-left:0;border-top:0;border-bottom:1px solid var(--rule);position:relative}
+html .shikumi-grid .flow3 li::before{position:absolute;left:0;top:18px;margin:0}
+.shikumi-grid .flow3 span{font-size:14.5px}
+@media (max-width:900px){.shikumi-grid{grid-template-columns:1fr;gap:24px}}
+/* 最後の相談：代表の顔 */
+.last-grid{display:grid;grid-template-columns:1fr 240px;gap:48px;align-items:center}
+.last-rep{margin:0}
+.last-rep img{width:240px;height:296px;object-fit:cover;border-radius:16px;border:3px solid rgba(255,255,255,.15)}
+.last-rep figcaption{font-size:14px;color:#d5dbe8;margin-top:12px;line-height:1.6}
+.last-rep b{display:block;color:#fff;font-size:16px}
+@media (max-width:760px){.last-grid{grid-template-columns:1fr;gap:28px}.last-rep{display:flex;gap:16px;align-items:center;order:-1}.last-rep img{width:84px;height:104px;border-radius:12px}.last-rep figcaption{margin-top:0}}
+/* ヒーローの比較バー：読み込み時に一度だけ伸びる */
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.cost .bar{transform-origin:left center;animation:grow 1.1s cubic-bezier(.2,.7,.2,1) .35s both}
+.cost .r2 .bar{animation-delay:1.1s;animation-duration:.6s}
+@media (prefers-reduced-motion:reduce){.cost .bar{animation:none}}
+
 /* 入口：3つの立場 */
 .doors{padding:72px 0 64px}
 .doors-q{font-size:clamp(25px,3.4vw,34px);font-weight:700;line-height:1.4}
@@ -482,12 +503,14 @@ footer p{margin-top:6px}
   <section id="shikumi">
     <div class="w">
       <h2 class="sec">しくみは、これだけです</h2>
+      <div class="shikumi-grid">
       <figure class="shikumi-fig"><img src="images/shikumi-twoway.webp" alt="承継は、店主からも、継ぎ手からも始められます。閉めようかなと考える店主と、この店を継ぎたい継ぎ手を、BRIDGE CYCLEがつなぐ図" width="1000" height="562" loading="lazy" decoding="async"></figure>
       <ol class="flow3">
         <li><b>店主が、お店を登録する</b><span>無料。店名は一覧に載りません。</span></li>
         <li><b>当社が、始めたい人の資金を確かめる</b><span>お店の希望額以上の自己資金があるかを、オンラインで。</span></li>
         <li><b>確かめた人にだけ、店名が伝わる</b><span>そのあとは、店主と直接やり取りします。情報をお伝えしてから14日以内に店主と初回の面談ができなければ、情報料は全額お返しします（ご自身の都合で日程が合わなかった場合を除く）。当社の支援を受けて進めることもできます（成約したときだけ料金）。</span></li>
       </ol>
+      </div>
       <p class="about-link2"><a href="matching.html">マッチングのくわしい案内</a><a href="taiten-zen-shokei.html">退店前承継とは</a><span>業種別：<a href="shokei-inshokuten.html">飲食店</a><a href="shokei-biyoshitsu.html">美容室</a><a href="shokei-clinic.html">クリニック・歯科</a></span></p>
     </div>
   </section>
@@ -692,7 +715,8 @@ footer p{margin-top:6px}
   </section>
 
   <section class="last" id="contact">
-    <div class="w">
+    <div class="w last-grid">
+      <div>
       <h2 class="sec"><span class="nb">どこから相談すればいいか、</span><br><span class="nb">分からなくても</span><span class="nb">大丈夫です。</span></h2>
       <p>閉めるか迷っている、店を始めたい、補助金を使いたい。どの段階でも、まずはLINEで一言どうぞ。代表がお返事します。</p>
       <div class="btns">
@@ -700,6 +724,8 @@ footer p{margin-top:6px}
         <a class="btn btn-tape" href="soudan.html">相談を予約する</a>
         <a class="btn btn-ghost" href="mailto:info@bridgecycleco.com">メールで問い合わせる</a>
       </div>
+      </div>
+      <figure class="last-rep"><img src="assets/profile-yuji-340.webp" alt="代表取締役 中村裕二" width="340" height="420" loading="lazy" decoding="async"><figcaption><b>代表 中村裕二</b>相談には、代表が自分でお返事します。</figcaption></figure>
     </div>
   </section>
 </main>
