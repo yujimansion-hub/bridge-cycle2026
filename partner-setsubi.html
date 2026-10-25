@@ -116,6 +116,31 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
  .sticky-cta.hide{display:none}
  footer{padding-bottom:96px}
 }
+
+/* Sales conversion path: two clear next actions, usable sales asset, compact mobile flow */
+.dealer-hero-note{font-size:13px;color:#dce4ed;margin:14px 0 0}
+.partner-micro{display:inline-block;padding:5px 12px;border:1px solid rgba(155,207,83,.58);color:#dff1cd;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:15px}
+.answer-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.answer-bar div{border:1px solid #d6e0dc;background:white;border-radius:10px;padding:17px}
+.answer-bar b{display:block;color:var(--navy);font-size:15px}
+.answer-bar p{font-size:13px;color:var(--soft);margin:6px 0 0}
+.sales-video{display:grid;grid-template-columns:1.25fr 1fr;gap:25px;align-items:center}
+.sales-video video{display:block;width:100%;background:#102237;border-radius:13px;aspect-ratio:16/9}
+.sales-video p{color:var(--soft);font-size:14px}
+.sales-video .btn{margin-top:13px}
+.sales-path{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sales-path a{display:block;background:#fff;border:2px solid var(--line);border-radius:13px;padding:21px;text-decoration:none}
+.sales-path a.first{border-color:var(--lime-ink);background:#f7fbf2}
+.sales-path strong{font-size:19px;color:var(--navy)}
+.sales-path span{display:block;font-size:13px;line-height:1.75;color:var(--soft);margin-top:7px}
+.sales-path em{display:block;margin-top:13px;color:#0e5e52;font-size:14px;font-weight:700;font-style:normal}
+.quickcase{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.quickcase>div{padding:18px;background:var(--bg);border-radius:11px}
+.quickcase b{color:var(--navy);font-size:15px}
+.quickcase p{font-size:13px;color:var(--soft);margin-top:8px}
+.form-simplified{display:none}
+@media(max-width:760px){.answer-bar,.quickcase{grid-template-columns:1fr}.answer-bar{gap:7px}.answer-bar div{padding:11px 14px}.answer-bar div p{margin-top:2px}.sales-video,.sales-path{grid-template-columns:1fr}.sales-path a{padding:16px}.hero .wrap{padding-top:31px;padding-bottom:33px}.hero-cta{margin-top:17px}.zero{margin-top:18px}.sales-video video{max-height:240px}#entry .form-box .field:has(#dept),#entry .form-box .field:has(#tel){display:none}}
+
 </style>
 <script src="bc-analytics.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"設備販売会社向け補助金提案・申請支援パートナー","serviceType":"設備販売会社向け補助金提案・事業計画支援","provider":{"@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/"},"areaServed":["滋賀県","京都府"],"audience":{"@type":"BusinessAudience","audienceType":"設備販売会社・設備メーカー・厨房機器販売会社・システム販売会社"},"offers":{"@type":"Offer","description":"設備販売会社側の提携登録料・月額費用は0円"}}</script>
@@ -125,26 +150,28 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <header class="top">
 <div class="wrap">
 <a class="brand" href="./"><img src="logo.png" alt="" width="30" height="30">BRIDGE CYCLE</a>
-<a class="btn btn-main btn-sm" href="#entry">試行提携に登録</a>
+<a class="btn btn-main btn-sm" href="#entry">無料で相談・試行する</a>
 </div>
 </header>
 
 <main>
 <section class="hero" aria-labelledby="h1">
 <div class="wrap">
-<div class="eyebrow" id="hello">設備・システムを販売する皆さまへ｜業務提携のご案内</div>
+<div class="eyebrow" id="hello">設備・システムを販売する皆さまへ｜業務提携のご案内</div><div class="partner-micro">販売会社の登録料0円・月額0円・紹介ノルマなし</div>
 <h1 id="h1">設備販売に、<br><em>補助金提案</em>という武器を。</h1><p style="font-size:17px;font-weight:700;margin-top:18px">機械・厨房設備・製造設備・システムの販売会社さまへ。予算で止まった商談を、もう一度動かします。</p>
 <p class="lead">導入には前向きなのに、「予算が…」で止まったお客様はいませんか。補助金・融資を使った設備投資計画を、認定経営革新等支援機関の当社が社長と一緒につくります。御社は、いつもの提案に集中してください。</p>
 <div class="hero-cta">
-<a class="btn btn-main" href="#entry">30日間の試行提携に登録（1分）</a>
-<a class="btn btn-ghost" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで質問する</a>
-</div>
+<a class="btn btn-main" href="#entry" data-track="main-entry">30日間・1件から試してみる ›</a>
+<a class="btn btn-ghost" href="#choose-path" data-track="main-how">まず仕組みを確認する ›</a>
+</div><p class="dealer-hero-note">まだ案件がなくても大丈夫です。まずは説明だけでも歓迎します。</p>
 <div class="zero" aria-label="提携企業さまの費用負担">
 <span>登録料 0円</span><span>月額費用 0円</span><span>紹介ノルマなし</span><span>独占契約なし</span>
 </div>
 </div>
 </section>
 
+<section class="alt" id="choose-path" style="padding:36px 0" aria-labelledby="choose-title"><div class="wrap"><div class="label">YOUR NEXT STEP</div><h2 id="choose-title" style="margin-bottom:12px">御社の状況に合わせて、始め方を選べます。</h2><div class="sales-path"><a href="#entry" class="first" data-track="path-case"><strong>すでに商談が1件ある</strong><span>設備名・概算金額が分かれば、補助金を使える可能性を一緒に確認します。お客様の同意が取れてから正式にご紹介ください。</span><em>30日間の試行提携へ ›</em></a><a href="#entry" data-track="path-info"><strong>まだ案件がない・まず知りたい</strong><span>営業担当者向けに仕組みをご説明します。登録料・月額費用・紹介ノルマはありません。</span><em>まずは30分の説明を希望する ›</em></a></div><div class="answer-bar"><div><b>御社がすること</b><p>設備提案・見積、顧客への紹介確認</p></div><div><b>当社がすること</b><p>制度の一次確認・投資計画の整理</p></div><div><b>契約と費用</b><p>設備販売会社の提携費用は0円。申請支援は顧客との別契約</p></div></div></div></section>
+<section id="sales-tool" aria-labelledby="tool-h" style="padding:43px 0"><div class="wrap"><div class="label">営業で使える30秒の説明動画</div><h2 id="tool-h">口頭だけでは伝わらない補助金活用を、30秒で。</h2><div class="sales-video"><video controls playsinline preload="metadata" aria-label="設備投資・補助金相談の30秒紹介動画"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/24b78806-ef40-466e-9d0a-ef5d5dffec2c.mp4" type="video/mp4">動画を再生できません。</video><div><h3 style="color:var(--navy);font-size:21px">お客様に、まず見せる。</h3><p>設備導入を迷っている経営者向けの紹介動画です。営業担当者が補助金の可能性を話すきっかけにご利用いただけます。</p><p>※動画中の数字は一定の条件に基づく説明用試算です。実際の対象経費・採択額・支援費用は案件ごとに確認します。</p><a class="btn btn-main" href="hojokin.html#equipment-movie" data-track="video-customer">お客様向けの動画ページを見る ›</a></div></div></div></section>
 <section aria-labelledby="target-partner-heading" style="padding:32px 0;background:#f5f7f3"><div class="wrap"><h2 id="target-partner-heading" style="font-size:24px;margin:0 0 12px">こんな設備販売会社・メーカーの方へ</h2><p style="font-size:14px;line-height:1.85">製造業向け機械設備、食品製造機械、厨房機器、包装機械、省人化設備、産業用ロボット、業務システム、IT・DXツールなどを販売する企業の皆さま。商談で「補助金は使える？」「自己負担を抑えたい」と聞かれたとき、制度の確認から経営計画までご一緒します。</p><p style="font-size:13px;margin-top:9px;color:#4A5562">※設備や顧客の条件によって対象にならない場合があります。競争見積・公募ルールに従い、販売会社の採用や補助金の採択を保証するものではありません。</p></div></section>
 <section aria-labelledby="h-merit">
 <div class="wrap">
@@ -187,6 +214,7 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 </div>
 </section>
 
+<section id="sample-case" style="padding:42px 0"><div class="wrap"><div class="label">EXAMPLE</div><h2>「設備の見積は出した。その先」で一緒にできること。</h2><div class="quickcase"><div><b>01 設備の目的を確認</b><p>省人化・生産能力・新事業のどこに投資効果があるか整理</p></div><div><b>02 制度と資金の確認</b><p>要件・スケジュール・自己負担・発注のタイミングを確認</p></div><div><b>03 顧客の意思決定</b><p>補助金が使える場合も使えない場合も、次の判断材料を提供</p></div></div><p class="note">これは支援の進め方の例であり、実際の成約実績・採択率を示すものではありません。設備の選定と販売契約はお客様と販売会社の判断によります。</p></div></section>
 <section class="alt" aria-labelledby="h-step">
 <div class="wrap">
 <div class="label">HOW IT STARTS</div>
@@ -227,7 +255,7 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <section class="form-sec" id="entry" aria-labelledby="h-entry">
 <div class="wrap">
 <div class="label">ENTRY</div>
-<h2 id="h-entry">30日間の試行提携に登録する</h2>
+<h2 id="h-entry">まずは無料で、1件の相談から。</h2><p style="margin:-9px 0 20px;color:#dae2ee">案件がなくても、30分のご説明だけでも構いません。登録後、翌営業日までに折り返します。</p>
 <form class="form-box" id="pform" novalidate>
 <div class="field"><label for="company">会社名<span class="req">必須</span></label><input type="text" id="company" autocomplete="organization" placeholder="株式会社〇〇"></div>
 <div class="field"><label for="person">ご担当者名<span class="req">必須</span></label><input type="text" id="person" autocomplete="name" placeholder="山田 太郎"></div>
@@ -253,7 +281,7 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 </fieldset>
 <div class="field"><label for="memo">ご質問・展示会でのメモ<span class="opt">任意</span></label><textarea id="memo" placeholder="展示会で話した内容や、気になっていることがあればご記入ください"></textarea></div>
 <label class="agree"><input type="checkbox" id="agree"><span>いただいた情報は、提携のご連絡と支援のためにのみ使います。<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意して登録します。</span></label>
-<div style="margin-top:20px"><button class="btn btn-main" type="submit" id="send" style="width:100%">試行提携に登録する（無料）</button></div>
+<div style="margin-top:20px"><button class="btn btn-main" type="submit" id="send" style="width:100%">無料で相談・試行提携を申し込む ›</button></div>
 <div id="out" role="alert"></div>
 </form>
 <div class="alt-contact">フォームが手間なときは、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">公式LINE（@907kxssd）</a>に会社名だけ送ってください。<br>メール：<a href="mailto:info@bridgecycleco.com">info@bridgecycleco.com</a>　電話：080-5309-9770（平日10〜17時）</div>
@@ -269,7 +297,7 @@ BRIDGE CYCLE株式会社　代表取締役 中村裕二<br>滋賀県大津市に
 </div>
 </footer>
 
-<a class="btn btn-main sticky-cta" id="stickyCta" href="#entry">30日間の試行提携に登録（1分）</a>
+<a class="btn btn-main sticky-cta" id="stickyCta" href="#entry">設備販売の補助金提携を相談する（無料）</a>
 
 <script>
 /* 展示会QRから来た方へのあいさつ（ref=EXPO26 など） */
