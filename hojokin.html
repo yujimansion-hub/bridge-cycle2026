@@ -636,6 +636,17 @@ const EP='https://formsubmit.co/ajax/info@bridgecycleco.com';
     a.addEventListener('click',()=>{if(options.includes(a.dataset.consultKind)) picker.value=a.dataset.consultKind;});
   });
 })();
+/* Conversion measurement: event names only; no names, emails, or free-text fields. */
+(function(){
+  function emit(name,values){try{if(typeof window.bcTrack==='function')window.bcTrack(name,values||{});}catch(e){}}
+  document.querySelectorAll('a[data-t]').forEach(function(el){
+    el.addEventListener('click',function(){emit('hojokin_cta_click',{cta_id:el.getAttribute('data-t')||'unknown'});});
+  });
+  var clip=document.querySelector('#equipment-movie video');
+  if(clip){var started=false;clip.addEventListener('play',function(){if(!started){started=true;emit('hojokin_video_play',{video_name:'equipment30'});}});}
+  var form=document.getElementById('cform');
+  if(form){var begun=false;form.addEventListener('input',function(){if(!begun){begun=true;emit('hojokin_form_start',{form:'hojokin'});}},true);}
+})();
 document.getElementById('cSend').onclick=async()=>{
   const out=document.getElementById('cOut'),btn=document.getElementById('cSend');
   const name=document.getElementById('cName').value.trim();
@@ -658,6 +669,7 @@ document.getElementById('cSend').onclick=async()=>{
     const r=await fetch(EP,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
     const j=await r.json().catch(()=>({}));
     if(!r.ok||String(j.success)!=='true')throw new Error('not delivered');
+    if(typeof window.bcTrack==='function')window.bcTrack('generate_lead',{form:'hojokin'});
     document.getElementById('cform').innerHTML='<div style="text-align:center;padding:30px 8px">'
       +'<div style="font-size:42px;line-height:1">✓</div>'
       +'<div style="font-size:17px;font-weight:800;margin-top:12px">受け付けました。</div>'
