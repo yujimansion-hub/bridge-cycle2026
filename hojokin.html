@@ -214,6 +214,17 @@ details.fine>summary{display:none}
   html .warn li,html .steps li{padding-top:10px;padding-bottom:10px}
   html .ct .alt-ways{margin-top:12px}
 }
+
+/* Equipment-investment video: preserves the existing page design */
+#equipment-movie{background:var(--mist);padding:54px 0 62px;scroll-margin-top:76px}
+.eqm-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:30px;align-items:center;margin-top:22px}
+.eqm-eyebrow{display:inline-block;font-weight:700;font-size:13px;color:var(--tape-d);margin-bottom:8px}
+.eqm-player{background:#091c24;border-radius:14px;overflow:hidden;border:1px solid var(--rule);box-shadow:0 14px 34px rgba(16,36,51,.12)}
+.eqm-player video{width:100%;height:auto;aspect-ratio:16/9;display:block;background:#091c24}
+.eqm-copy p{font-size:15px;color:var(--ai-2);line-height:1.85;margin-top:12px}
+.eqm-copy .btn{margin-top:15px}
+.eqm-small{font-size:12px;color:var(--ai-3);line-height:1.8;margin-top:17px}
+@media(max-width:850px){.eqm-layout{grid-template-columns:1fr}.eqm-copy .btn{display:block;text-align:center}}
 </style>
 <script src="bc-analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "補助金申請サポート", "serviceType": "補助金の申請支援", "areaServed": ["大津市", "滋賀県", "京都府"], "provider": {"@type": "ProfessionalService", "name": "BRIDGE CYCLE株式会社", "url": "https://www.bridgecycleco.com/", "address": {"@type": "PostalAddress", "addressRegion": "滋賀県", "addressLocality": "大津市", "addressCountry": "JP"}}}</script>
@@ -266,6 +277,28 @@ details.fine>summary{display:none}
   <div class="c"><div class="t">元商工会経営指導員</div><div class="v">20<small>年</small></div><div class="s">支援実績500社超</div></div>
 </div></div>
 <div class="w"><p class="rec-n">※商工会経営指導員時代を含む過去の実績です。採択を約束するものではありません。</p></div>
+
+
+<section id="equipment-movie" aria-labelledby="equipment-movie-heading"><div class="w">
+  <span class="eqm-eyebrow">設備販売会社のご紹介にも対応 ／ 30秒動画</span>
+  <h2 class="sec" id="equipment-movie-heading">「予算がない」で止まった設備投資を、もう一度。</h2>
+  <p class="lead">補助金・融資・投資計画という選択肢を、30秒の動画でご紹介します。設備販売会社の方も、お客様へのご説明にご利用いただけます。</p>
+  <div class="eqm-layout">
+    <div class="eqm-player">
+      <video controls playsinline preload="metadata" aria-label="BRIDGE CYCLEの設備投資支援についての30秒CM（日本語男性ナレーション付き）">
+        <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/24b78806-ef40-466e-9d0a-ef5d5dffec2c.mp4" type="video/mp4">
+        お使いのブラウザーは動画再生に対応していません。
+      </video>
+    </div>
+    <div class="eqm-copy">
+      <h3 style="font-size:20px;line-height:1.5">機械の見積もりがある。<br>でも、投資の判断が進まない。</h3>
+      <p>設備の仕様や導入効果を整理し、利用できる制度・自己負担・資金調達の可能性を一緒に確認します。</p>
+      <a class="btn" href="#contact" data-t="hojokin_video_to_contact">設備投資の無料相談を申し込む</a>
+      <p style="font-size:13px">大型の設備投資については<a href="#ogata">支援内容・料金</a>もご確認ください。</p>
+    </div>
+  </div>
+  <p class="eqm-small">※動画はイメージです。動画中の「1,000万円→約407万円」は、一定の補助率・対象経費・支援費用を仮定した説明用の試算であり、実際の補助額・自己負担・当社の料金を確約するものではありません。制度により要件・上限・採択審査が異なります。補助金は原則後払いです。</p>
+</div></section>
 
 <section id="jizokuka20"><div class="w">
   <h2 class="sec">第20回 持続化補助金（大津・滋賀）の日程と、いまやること</h2>
