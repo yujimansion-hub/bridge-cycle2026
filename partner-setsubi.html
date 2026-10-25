@@ -300,6 +300,16 @@ BRIDGE CYCLE株式会社　代表取締役 中村裕二<br>滋賀県大津市に
 <a class="btn btn-main sticky-cta" id="stickyCta" href="#entry">設備販売の補助金提携を相談する（無料）</a>
 
 <script>
+/* Two-step conversion: preselect enquiry purpose without collecting personal content in analytics. */
+(function(){
+  var first=document.querySelector('[data-track="path-case"]'),info=document.querySelector('[data-track="path-info"]');
+  function choose(value){var el=document.querySelector('input[name="kind"][value="'+value+'"]');if(el)el.checked=true;}
+  if(first)first.addEventListener('click',function(){choose('お客様を紹介したい（試行提携）');});
+  if(info)info.addEventListener('click',function(){choose('まずは詳しく話を聞きたい');});
+  document.querySelectorAll('[data-track]').forEach(function(a){a.addEventListener('click',function(){if(window.bcTrack)window.bcTrack('partner_setsubi_cta',{cta:a.getAttribute('data-track')});});});
+  var v=document.querySelector('#sales-tool video'),played=false;
+  if(v)v.addEventListener('play',function(){if(!played){played=true;if(window.bcTrack)window.bcTrack('partner_setsubi_video_play');}});
+})();
 /* 展示会QRから来た方へのあいさつ（ref=EXPO26 など） */
 (function(){
   try{
