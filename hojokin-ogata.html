@@ -338,6 +338,7 @@ button:disabled{opacity:.6;cursor:wait}
 /* 送信先：FormSubmit（info@bridgecycleco.com宛・本番ドメインで有効化済み） */
 (function(){
   var EP='https://formsubmit.co/ajax/info@bridgecycleco.com';
+  try{var r0=new URLSearchParams(location.search).get('ref');if(r0)sessionStorage.setItem('bc_ref',r0.slice(0,40));}catch(e){}
   var f=document.getElementById('hform');
   f.addEventListener('submit',async function(ev){
     ev.preventDefault();
@@ -348,13 +349,14 @@ button:disabled{opacity:.6;cursor:wait}
     if(!mail||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){out.textContent='メールアドレスを確認してください。';return;}
     if(!v('equip')){out.textContent='設備名と概算金額を入力してください。';return;}
     out.textContent='';btn.disabled=true;btn.textContent='送信しています…';
+    var REF='';try{REF=(new URLSearchParams(location.search).get('ref')||sessionStorage.getItem('bc_ref')||'').slice(0,40);if(REF)sessionStorage.setItem('bc_ref',REF);}catch(e){}
     var data={
-      '会社名':company,'メール':mail,
+      '会社名':company,'メール':mail,'紹介元':REF||'（なし）',
       '設備名と概算金額':v('equip'),
       '導入の予定時期':v('when')||'（未選択）',
       'ホームページ':v('url')||'（未記入）',
       '結果のご説明（15分）':document.getElementById('explain').checked?'希望する':'希望しない',
-      _subject:'【大型補助金 一次確認】'+company,
+      _subject:'【大型補助金 一次確認】'+company+(REF?'（紹介：'+REF+'）':''),
       _replyto:mail,_template:'table',
       _autoresponse:'【BRIDGE CYCLE】補助金の一次確認のお申し込みを受け付けました。\n\nこのメールは自動返信です。お申し込みありがとうございます。\n必要な情報がそろっていれば、翌営業日までに一次確認シートをお送りします。不足があるときは、こちらからご連絡します。\n\n見積書がある方は、このメールに返信して添付してください（任意）。決算書などは、ご依頼が決まってからお願いします。\n\nBRIDGE CYCLE株式会社（滋賀県大津市・認定経営革新等支援機関）\ninfo@bridgecycleco.com'
     };
