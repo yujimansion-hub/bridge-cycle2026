@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /ig/note/
 
 Sitemap: https://www.bridgecycleco.com/sitemap.xml
