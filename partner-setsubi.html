@@ -217,6 +217,8 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 .how-simple{padding:40px 0}.how-flow{grid-template-columns:1fr;gap:7px}.how-step{min-height:auto;padding:14px 15px}.how-arrow{transform:rotate(90deg);font-size:17px;line-height:1}
 .cost-strip{grid-template-columns:1fr}.cost-strip>div{border-right:0;border-bottom:1px solid #d3decb;padding:9px 13px}.cost-strip>div:last-child{border-bottom:0}}
 
+/* Keep hidden-by-default optional contact fields visible when opened on mobile */
+@media(max-width:760px){#entry .extra-fields[open] .field:has(#dept),#entry .extra-fields[open] .field:has(#tel){display:flex!important}}
 /* Keep first contact friction low */
 .triage{padding:50px 0}.form-sec{padding:48px 0}.form-step{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:800;border-radius:6px;padding:3px 10px;margin:0 0 12px}
 .extra-fields{background:#f5f7f9;border:1px solid #d8dfe5;border-radius:10px;margin:16px 0;padding:12px 15px}
