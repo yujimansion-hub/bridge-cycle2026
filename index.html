@@ -668,6 +668,38 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 @media(max-width:860px){.site-head .w{height:65px}.site-head .gnav a:not(.line):not(.lineg){display:none}.top2{padding:53px 0 62px!important}.top2>.w{grid-template-columns:1fr!important;max-width:740px;gap:30px!important}.top2 h1{font-size:clamp(39px,7vw,61px)!important}.trust{grid-template-columns:repeat(3,1fr)}.trust div{padding:16px 13px}.trust b{font-size:12px}.service-head{grid-template-columns:1fr;gap:10px}.business-hub .core5{grid-template-columns:1fr!important;gap:13px!important}.core5 article.focus-service{padding:23px!important}.card-num{display:none}.mission-layout{grid-template-columns:1fr;gap:34px}}
 @media(max-width:620px){.site-head .w{height:61px}.site-head .brand{font-size:15px}.site-head .brand svg{width:32px;height:32px}.site-head .gnav a.line{font-size:11px;padding:9px 11px}.top2{padding:43px 0 48px!important}.top2-where{font-size:10px!important;letter-spacing:0;margin-bottom:22px!important}.hero-eyebrow{font-size:9px;letter-spacing:.12em}.top2 h1{font-size:clamp(32px,8vw,48px)!important;line-height:1.44!important;white-space:normal}.top2-sub{font-size:13px!important;line-height:1.88!important;margin-top:19px!important}.home-hero-actions{gap:9px!important;margin-top:22px!important}.home-hero-actions a{flex:auto!important;width:100%!important;font-size:12px!important;padding:14px 15px!important}.top2-rep{margin-top:23px!important}.top2-rep img{width:42px!important;height:42px!important}.top2-rep span{font-size:10px!important}.top2 .home-intro-panel{padding:19px!important;border-radius:6px!important}.top2 .home-intro-panel:before{left:19px;right:19px}.top2 .home-intro-panel h2{font-size:18px!important}.home-intro-panel a.path{padding:13px 0!important;grid-template-columns:20px 1fr 17px}.home-intro-panel .home-panel-copy b{font-size:13px!important}.home-intro-panel .home-panel-copy small,.home-intro-panel .home-panel-copy em{font-size:10px!important}.trustsec{display:block!important}.trust{grid-template-columns:1fr}.trust div{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;border-bottom:1px solid #d5ded5;padding:11px 0;font-size:10px}.trust b{flex:0 0 43%;margin:0;font-size:11px}.trust-clarify{font-size:9px;padding:8px 0 12px!important}.business-hub{padding:55px 0 61px!important}.business-hub h2{font-size:35px!important}.business-hub .intro{font-size:12px!important}.core5 article.focus-service{display:flex!important;padding:21px!important;gap:10px!important}.core5 h3{font-size:23px!important}.core5 p{font-size:12px!important}.home-mission{padding:58px 0}.mission-story h2{font-size:36px}.mission-story>p:not(.mission-kicker){font-size:13px}.mission-links strong{font-size:21px}}
 
+
+/* 成果物の展示 */
+.works{background:#fff;padding:92px 0 96px}
+.works .w{max-width:1240px}
+.works .eyebrow{font-size:11px;letter-spacing:.18em;color:#63823d;font-weight:700}
+.works h2{font-family:"Zen Old Mincho",serif;font-size:clamp(32px,3.6vw,48px);letter-spacing:-.04em;line-height:1.35;margin:12px 0 10px;color:#142237}
+.works .lead{font-size:14px;line-height:2;color:#576677;max-width:560px}
+.works-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:38px}
+.work{display:flex;flex-direction:column;text-decoration:none;color:#142237;border:1px solid #dfe4e8;border-radius:14px;overflow:hidden;background:#f6f5f0;transition:transform .2s,box-shadow .2s}
+.work:hover{transform:translateY(-4px);box-shadow:0 22px 46px #11243d17}
+.work-pv{position:relative;height:250px;padding:22px 22px 0;overflow:hidden;display:flex;justify-content:center}
+.work-paper{width:100%;max-width:300px;background:#fff;border-radius:6px 6px 0 0;box-shadow:0 10px 26px #11243d1f;padding:14px 15px;font-size:10.5px;line-height:1.5}
+.work-paper .ph{display:flex;justify-content:space-between;border-bottom:2px solid #142237;padding-bottom:5px;margin-bottom:8px;font-size:9px;color:#6b7590}
+.work-paper .ph b{color:#142237;letter-spacing:.1em}
+.work-paper .pt{font-weight:800;font-size:13px}
+.work-paper .pv{background:#142237;color:#fff;border-radius:5px;padding:6px 8px;font-weight:700;margin:6px 0}
+.work-paper .pg{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.work-paper .pg div{background:#f3f6f9;border-radius:5px;padding:4px 7px;color:#6b7590;font-size:9px}
+.work-paper .pg strong{display:block;font-size:17px;color:#142237}
+.work-paper .pg .g{background:#eef7e3}.work-paper .pg .g strong{color:#3f6812}
+.work-paper table{width:100%;border-collapse:collapse;font-size:10px}
+.work-paper td{border-bottom:1px dotted #d5dce6;padding:4px 2px;vertical-align:top}
+.work-paper .hi{color:#9b1c1c;font-weight:700;white-space:nowrap}.work-paper .md{color:#8a4b00;font-weight:700;white-space:nowrap}
+.work-pv img{width:auto;height:290px;border-radius:4px;box-shadow:0 10px 26px #11243d26;background:#fff}
+.work-stamp{position:absolute;top:14px;right:14px;background:#fff6e8;color:#8a4b00;border:1px solid #f0d3a6;font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px}
+.work-body{background:#fff;border-top:1px solid #dfe4e8;padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;gap:6px}
+.work-body .k{font-size:10px;letter-spacing:.08em;color:#6c8b4f;font-weight:700}
+.work-body h3{font-size:19px;line-height:1.4}
+.work-body p{font-size:13px;color:#576677;line-height:1.75}
+.work-body .go{margin-top:auto;padding-top:8px;font-size:13px;font-weight:700;color:#142237}
+.works-note{font-size:11px;color:#6b7590;margin-top:16px}
+@media(max-width:900px){.works-grid{grid-template-columns:1fr;max-width:520px}.works{padding:60px 0}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","ProfessionalService"],"@id":"https://www.bridgecycleco.com/#org","name":"BRIDGE CYCLE株式会社","alternateName":["BRIDGE CYCLE","ブリッジサイクル"],"url":"https://www.bridgecycleco.com/","logo":{"@type":"ImageObject","url":"https://www.bridgecycleco.com/logo.png","width":512,"height":512},"image":"https://www.bridgecycleco.com/ogp.png?v=20261007","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","@id":"https://www.bridgecycleco.com/#founder","name":"中村裕二","jobTitle":"代表取締役","url":"https://www.bridgecycleco.com/akinai-profile.html","image":"https://www.bridgecycleco.com/assets/profile-yuji-340.webp","worksFor":{"@id":"https://www.bridgecycleco.com/#org"},"sameAs":["https://www.threads.com/@bridgecycle_otsu","https://www.instagram.com/bridgecycle_otsu/","https://note.com/bridgecycle_2026","https://nakamurayuji.substack.com/"]},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":[{"@type":"AdministrativeArea","name":"滋賀県"},{"@type":"AdministrativeArea","name":"京都府"}],"contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"info@bridgecycleco.com","url":"https://www.bridgecycleco.com/contact.html","availableLanguage":"ja"},"slogan":"店じまいを、まちのはじまりに。","description":"滋賀県大津市の認定経営革新等支援機関。補助金申請支援、自治体の産業振興調査・計画策定支援、看板広告・集客診断、退店前承継、売り場レンタルを提供。","knowsAbout":["補助金申請支援","小規模事業者持続化補助金","ものづくり補助金","省力化投資補助金","産業振興計画","地域経済調査","商工業振興実態調査","看板広告","クリニック集客","退店前承継","事業承継","居抜き開業","売り場レンタル"],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"認定経営革新等支援機関","recognizedBy":{"@type":"GovernmentOrganization","name":"中小企業庁"}},"hasOfferCatalog":{"@type":"OfferCatalog","name":"BRIDGE CYCLEの支援","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"自治体向け産業振興・企業実態調査・計画策定支援","url":"https://www.bridgecycleco.com/gyosei.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"退店前承継（店を閉める方）","url":"https://www.bridgecycleco.com/zousaku.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"退店前承継（店を始めたい方・継ぎ手）","url":"https://www.bridgecycleco.com/tsugite.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"逆指名承継","url":"https://www.bridgecycleco.com/gyaku-shimei.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"売り場レンタル（南草津駅前・出店者募集）","url":"https://www.bridgecycleco.com/minakusa-ekimae.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"売り場レンタル（旧大津公会堂）","url":"https://www.bridgecycleco.com/uriba-kokaido.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"補助金申請サポート","url":"https://www.bridgecycleco.com/hojokin.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"看板広告と集客診断（タドリツク）","url":"https://www.bridgecycleco.com/road-sign/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"続けるための経営計画","url":"https://www.bridgecycleco.com/tsuzukeru.html"}}]},"sameAs":["https://www.instagram.com/bridgecycle_otsu/","https://www.threads.com/@bridgecycle_otsu","https://note.com/bridgecycle_2026","https://nakamurayuji.substack.com/","https://line.me/R/ti/p/@907kxssd"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://www.bridgecycleco.com/#website", "name": "BRIDGE CYCLE", "alternateName": ["BRIDGE CYCLE株式会社", "ブリッジサイクル"], "url": "https://www.bridgecycleco.com/", "inLanguage": "ja", "publisher": {"@id": "https://www.bridgecycleco.com/#org"}}</script>
@@ -766,6 +798,43 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
  </div>
  <p class="note">※一次診断・相談の範囲は各サービスページでご確認ください。補助金の採択、設備受注、集客成果を保証するものではありません。</p>
 </div></section>
+
+<section class="works" id="works" aria-labelledby="works-h"><div class="w">
+ <p class="eyebrow">SELECTED WORK / 成果物の見本</p>
+ <h2 id="works-h">言葉より、<br>仕事の中身を<span style="white-space:nowrap">見てください。</span></h2>
+ <p class="lead">相談のあとにお渡しするものを、そのまま公開しています。どれも架空の案件で作った見本で、実在の企業・医院の情報ではありません。</p>
+ <div class="works-grid">
+  <a class="work" href="setsubi-sheet-sample.html" data-t="works_setsubi">
+   <div class="work-pv"><span class="work-stamp">見本</span><div class="work-paper">
+    <div class="ph"><b>BRIDGE CYCLE</b><span>投資判断シート</span></div>
+    <div class="pt">自動包装機 800万円</div>
+    <div class="pv">結論：進める価値あり</div>
+    <div class="pg"><div>補助金なし<strong>3.2年</strong></div><div class="g">採択時<strong>1.8年</strong></div></div>
+    <p style="margin-top:6px;color:#6b7590">実質負担447万円／年間効果250万円／発注は交付決定のあと</p>
+   </div></div>
+   <div class="work-body"><span class="k">設備販売会社・経営者の方へ</span><h3>投資判断シート</h3><p>社長がその場で決められるよう、結論・実質負担・回収年数・発注の時期をA4・1枚に。</p><span class="go">見本を開く →</span></div>
+  </a>
+  <a class="work" href="gyosei/01-jittai-chosa.pdf" target="_blank" rel="noopener" data-t="works_gyosei">
+   <div class="work-pv"><span class="work-stamp">PDF</span><img src="gyosei/thumb-01.webp" alt="事業者実態調査の仕様書のたたき台の表紙" width="205" height="290" loading="lazy"></div>
+   <div class="work-body"><span class="k">自治体・商工団体の方へ</span><h3>仕様書のたたき台</h3><p>予算要求や発注にそのまま使える形で。調査の設計から成果の測り方まで、5業務分を公開しています。</p><span class="go">事業者実態調査の例を開く →</span></div>
+  </a>
+  <a class="work" href="road-sign/kaiin.html#shindan" data-t="works_clinic">
+   <div class="work-pv"><span class="work-stamp">見本</span><div class="work-paper">
+    <div class="ph"><b>タドリツク</b><span>集客診断票</span></div>
+    <div class="pt">〇〇クリニック 様</div>
+    <table>
+     <tr><td>診療時間</td><td>マップに未登録</td><td class="hi">高</td></tr>
+     <tr><td>予約の入口</td><td>予約ボタンがない</td><td class="hi">高</td></tr>
+     <tr><td>来院の案内</td><td>駐車場の記載なし</td><td class="md">中</td></tr>
+     <tr><td>電話番号</td><td>各媒体で一致</td><td>不要</td></tr>
+    </table>
+    <div class="pv" style="margin-top:8px">結論：マップ登録と予約の入口を先に</div>
+   </div></div>
+   <div class="work-body"><span class="k">クリニック・歯科医院の方へ</span><h3>集客診断票</h3><p>地図・検索・予約までを点検し、直すべき上位3つを優先度つきでお返しします。問題がなければ「対応不要」と書きます。</p><span class="go">見本を見る →</span></div>
+  </a>
+ </div>
+ <p class="works-note">※補助金の採択、設備の受注、集客の成果を保証するものではありません。</p>
+</div></section>
 <section class="home-mission" id="mission" aria-labelledby="mission-h"><div class="w mission-layout">
  <div class="mission-story"><p class="mission-kicker">OUR ORIGIN / OUR FUTURE</p><h2 id="mission-h">店じまいを、<br><em>まちのはじまりに。</em></h2><p>BRIDGE CYCLEの原点は、地域の小さな商い。閉店前に次の担い手を探す。新しい商いを、まず小さく試す。企業支援で得た知見を、地域の現場でも実践しています。</p><span class="mission-caption">LOCAL EXPERIMENTS FROM OTSU, SHIGA</span></div>
  <div class="mission-links">
@@ -780,34 +849,6 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 
 
   <!-- 自治体・支援機関の方へ -->
-  <section class="gyosei-band" id="gyosei" aria-label="自治体・支援機関の方へ">
-    <div class="w">
-      <div class="gb">
-        <div>
-          <span class="gb-tag">自治体・支援機関の方へ</span>
-          <h2>支援の成果を、数字で示せる形に。</h2>
-          <p>商工団体への補助を「相談件数」から「支援先の生産性の伸び」で評価する成果連動型へ。その見直しを最初に提案し、実現させた代表が、調査・計画づくりから事業者への伴走までお受けします。</p>
-          <ul><li>事業者実態調査</li><li>創業塾・承継セミナー</li><li>空き店舗・商店街の承継調査</li><li>振興計画の策定支援</li><li>補助事業の伴走</li></ul>
-          <div class="gb-acts"><a class="gb-btn" href="gyosei.html" data-t="top_gyosei_band">業務受託のご案内</a><a class="gb-sub" href="gyosei.html#yosan" data-t="top_gyosei_yosan">予算化前の参考見積・仕様のご相談（無料）</a></div>
-        </div>
-        <figure class="gb-fig" aria-label="補助制度の評価の見直し：見直し前は相談件数、見直し後は支援先の生産性の伸び">
-          <figcaption>大津市の商工団体への補助、評価のものさし</figcaption>
-          <div class="gb-row">
-            <span class="gb-when">見直し前</span>
-            <svg viewBox="0 0 120 64" aria-hidden="true"><g fill="#c8d0de"><rect x="6" y="40" width="14" height="18" rx="2"/><rect x="26" y="40" width="14" height="18" rx="2"/><rect x="46" y="40" width="14" height="18" rx="2"/><rect x="66" y="40" width="14" height="18" rx="2"/><rect x="86" y="40" width="14" height="18" rx="2"/></g><path d="M6 30h94" stroke="#c8d0de" stroke-width="2" stroke-dasharray="4 4"/></svg>
-            <span class="gb-what"><b>相談件数</b>相談を何件受けたか</span>
-          </div>
-          <div class="gb-arrow" aria-hidden="true"></div>
-          <div class="gb-row after">
-            <span class="gb-when">見直し後</span>
-            <svg viewBox="0 0 120 64" aria-hidden="true"><g fill="#9bcf53"><rect x="6" y="48" width="14" height="10" rx="2"/><rect x="26" y="40" width="14" height="18" rx="2"/><rect x="46" y="30" width="14" height="28" rx="2"/><rect x="66" y="18" width="14" height="40" rx="2"/><rect x="86" y="6" width="14" height="52" rx="2"/></g></svg>
-            <span class="gb-what"><b>生産性の伸び</b>支援先がどれだけ伸びたか</span>
-          </div>
-          <p class="gb-note">代表が最初に提案し、滋賀県・近畿経済産業局にも掛け合って実現（令和6年）</p>
-        </figure>
-      </div>
-    </div>
-  </section>
 
 
   <!-- 代表 -->
