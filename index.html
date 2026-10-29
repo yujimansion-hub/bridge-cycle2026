@@ -410,6 +410,12 @@ footer nav{display:flex;flex-wrap:wrap;gap:4px 16px;margin:14px 0}
 footer nav a{text-decoration:none}
 footer nav a:hover{text-decoration:underline}
 footer p{margin-top:6px}
+footer .fcols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 28px;margin:22px 0 14px}
+footer .fcols nav{display:flex;flex-direction:column;gap:3px;margin:0}
+footer .fcols b{font-size:12px;letter-spacing:.06em;color:var(--ai);margin-bottom:4px}
+footer .fcols a{font-size:13px;line-height:1.7}
+@media(max-width:860px){footer .fcols{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){footer .fcols{grid-template-columns:1fr}}
 
 /* スマホの下の入口 */
 .mbar{display:none}
@@ -954,17 +960,23 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 <footer>
   <div class="w">
     <span class="disp">店じまいを、まちのはじまりに。</span>
-    BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28
-    <nav aria-label="フッター">
-      <a href="zousaku.html">店を閉める方</a><a href="tsugite.html">店を始めたい方</a><a href="minakusa-ekimae.html">南草津駅前の出店</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="hojokin.html">補助金申請サポート</a><a href="road-sign/">看板広告（タドリツク）</a><a href="uchino-chef-recruit.html">うちのシェフ</a><a href="camp.html">キャンプ場の平日収益化</a><a href="tsuzukeru.html">経営計画</a><a href="akinai.html">わたしのこれから診断</a><a href="gyosei.html">自治体・支援機関の方へ</a><a href="partner-fudosan.html">連携先の方へ</a>
-    </nav>
-    <nav aria-label="規約">
-      <a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a><a href="shokei-kiyaku.html">秘密保持・直接取引に関する規約</a>
-    </nav>
+    BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28　認定経営革新等支援機関
+    <div class="fcols">
+      <nav aria-label="主な事業"><b>主な事業</b>
+        <a href="partner-setsubi.html">設備販売会社の方へ（無料一次診断）</a><a href="hojokin-ogata.html">大型補助金の申請支援</a><a href="hojokin.html">持続化補助金のサポート</a><a href="gyosei.html">自治体・商工団体の方へ</a><a href="road-sign/kaiin.html">クリニック・歯科の集客</a><a href="road-sign/">看板広告（タドリツク）</a><a href="contact.html">ご相談窓口</a>
+      </nav>
+      <nav aria-label="店舗と地域"><b>店舗・地域での実践</b>
+        <a href="zousaku.html">店を閉める方（退店前承継）</a><a href="tsugite.html">店を始めたい方</a><a href="uriba-kokaido.html">売り場レンタル（旧大津公会堂）</a><a href="minakusa-ekimae.html">南草津駅前の出店</a><a href="partner-fudosan.html">不動産会社・連携先の方へ</a><a href="partners.html">紹介パートナー制度</a>
+      </nav>
+      <nav aria-label="そのほか"><b>そのほか</b>
+        <a href="tsuzukeru.html">続けるための経営計画</a><a href="camp.html">キャンプ場の平日収益化</a><a href="uchino-chef-recruit.html">うちのシェフ</a><a href="akinai.html">わたしのこれから診断</a>
+      </nav>
+      <nav aria-label="会社"><b>会社</b>
+        <a href="#company">会社概要</a><a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a><a href="shokei-kiyaku.html">秘密保持・直接取引に関する規約</a>
+      </nav>
+    </div>
     <p>SNS：<a href="https://www.threads.com/@bridgecycle_otsu" rel="me">Threads</a>　<a href="https://www.instagram.com/bridgecycle_otsu/" rel="me">Instagram</a>（@bridgecycle_otsu）　<a href="https://note.com/bridgecycle_2026" rel="me">note</a></p>
-    <p class="f-x">紹介・連携パートナー：<a href="partners.html">紹介パートナー制度（承継成立で1件2万円）</a>　<a href="torihiki.html">酒販・卸・厨房設備・税理士の方へ</a>　<a href="hitokoto.html">LINEで送る紹介文面集</a>　<a href="partner-fudosan.html">不動産会社の方へ</a></p>
-    <p class="f-x">この試算を、あなたのサイトやブログに：<a href="shisan-kit.html">試算ツールを埋め込む（無料・紹介のお礼あり）</a></p>
-    <p class="f-x">業種別の承継：<a href="shokei-inshokuten.html">飲食店</a>　<a href="shokei-biyoshitsu.html">美容室</a>　<a href="shokei-clinic.html">クリニック・歯科</a></p>
+    <p class="f-x">店舗の承継の関連：<a href="torihiki.html">酒販・卸・厨房設備・税理士の方へ</a>　<a href="hitokoto.html">LINEで送る紹介文面集</a>　<a href="shisan-kit.html">試算ツールを埋め込む</a>　業種別：<a href="shokei-inshokuten.html">飲食店</a>　<a href="shokei-biyoshitsu.html">美容室</a>　<a href="shokei-clinic.html">クリニック・歯科</a></p>
   </div>
 </footer>
 
