@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>投資判断シート（見本）｜BRIDGE CYCLE</title>
+<meta name="description" content="設備商談を前に進めるための投資判断シートの見本。架空の食品包装機800万円の案件で、資金計画・導入効果・回収年数・発注時期をA4・1枚にまとめたもの。">
+<link rel="icon" href="favicon.ico">
+<style>
+:root{--navy:#1D2B4F;--navy-2:#2A3B66;--lime:#9BCF53;--lime-ink:#3F6812;--ink:#1B2430;--soft:#4A5562;--line:#D5DCE6;--mist:#F3F6F9;--warn:#8A4B00;--warn-bg:#FFF6E8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E9EDF2;color:var(--ink);font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",system-ui,sans-serif;font-feature-settings:"palt";-webkit-font-smoothing:antialiased;line-height:1.6}
+.bar{max-width:794px;margin:16px auto 10px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}
+.bar a{color:var(--navy);font-weight:700}
+.bar button{font:inherit;font-weight:700;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+.page{position:relative;max-width:794px;margin:0 auto 32px;background:#fff;box-shadow:0 6px 24px rgba(29,43,79,.12);padding:34px 40px 26px;overflow:hidden}
+.page::before{content:"見本";position:absolute;right:-18px;top:118px;transform:rotate(18deg);font-size:120px;font-weight:900;color:rgba(29,43,79,.045);pointer-events:none}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--navy);padding-bottom:10px}
+.hd .brand{display:flex;align-items:center;gap:8px;font-weight:800;letter-spacing:.12em;font-size:13px;color:var(--navy)}
+.hd .brand svg{width:26px;height:26px}
+.hd .meta{font-size:10.5px;color:var(--soft);text-align:right;line-height:1.5}
+.ttl{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin:16px 0 4px}
+.ttl h1{font-size:23px;line-height:1.3;color:var(--navy)}
+.ttl h1 small{display:block;font-size:12px;font-weight:700;color:var(--lime-ink);letter-spacing:.1em;margin-bottom:3px}
+.tag{flex:none;font-size:10.5px;font-weight:700;color:var(--warn);background:var(--warn-bg);border:1px solid #F0D3A6;border-radius:6px;padding:4px 8px;line-height:1.45;max-width:210px}
+.case{font-size:12.5px;color:var(--soft);margin-bottom:12px}
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;background:var(--navy);color:#fff;border-radius:10px;padding:13px 16px;margin-bottom:14px}
+.verdict .lb{font-size:10.5px;letter-spacing:.12em;color:var(--lime);font-weight:700;grid-row:span 2}
+.verdict b{font-size:17px;line-height:1.4}
+.verdict p{font-size:12px;color:#D8E0EC;line-height:1.55}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{border:1px solid var(--line);border-radius:9px;padding:11px 13px}
+.box h2{font-size:12.5px;color:var(--navy);display:flex;gap:7px;align-items:center;margin-bottom:6px}
+.box h2 i{font-style:normal;display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:var(--lime);color:var(--navy);font-size:10.5px;font-weight:800}
+.box p,.box li{font-size:11.5px;color:var(--ink);line-height:1.6}
+.box ul{padding-left:1.1em}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+td{padding:3px 0;border-bottom:1px dotted var(--line);vertical-align:top}
+td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;padding-left:8px}
+tr.sum td{border-bottom:0;border-top:1.5px solid var(--navy);font-weight:800;color:var(--navy);padding-top:5px}
+.minus{color:#1F6E3A}
+.note{font-size:10.5px;color:var(--soft);margin-top:5px;line-height:1.5}
+.payback{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
+.payback div{background:var(--mist);border-radius:7px;padding:7px 9px}
+.payback span{display:block;font-size:10.5px;color:var(--soft)}
+.payback strong{font-size:20px;color:var(--navy);font-variant-numeric:tabular-nums}
+.payback strong small{font-size:11px}
+.payback .good{background:#EEF7E3}
+.payback .good strong{color:var(--lime-ink)}
+.flow{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:10.5px;margin:4px 0 6px}
+.flow span{background:var(--mist);border-radius:5px;padding:3px 7px;font-weight:700;color:var(--navy)}
+.flow span.stop{background:#FDECEC;color:#9B1C1C}
+.flow em{font-style:normal;color:var(--soft)}
+.wide{grid-column:1/-1}
+.talk{background:#F5FAEE;border-color:#C9E2A6}
+.talk p{font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.6}
+.ft{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:14px;padding-top:9px;font-size:10px;color:var(--soft);line-height:1.5}
+.ft b{color:var(--navy)}
+.disc{font-size:9.5px;color:var(--soft);margin-top:7px;line-height:1.5}
+@media(max-width:640px){
+ .page{padding:22px 16px 18px}
+ .page::before{font-size:80px}
+ .grid,.payback{grid-template-columns:1fr}
+ .ttl{flex-direction:column;gap:8px}.tag{max-width:none}
+ .ttl h1{font-size:20px}
+ .verdict{grid-template-columns:1fr}.verdict .lb{grid-row:auto}
+ .ft{flex-direction:column}
+}
+@page{size:A4;margin:8mm}
+@media print{
+ body{background:#fff}
+ .bar{display:none}
+ .page{box-shadow:none;margin:0;max-width:none;padding:0}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="bar"><a href="partner-setsubi.html#sheet-sample">‹ 設備販売会社の方へ</a><button type="button" onclick="window.print()">印刷・PDFで保存</button></div>
+
+<main class="page">
+  <header class="hd">
+    <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2b4f"/><path d="M12 41 Q32 15 52 41" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M20 46 Q32 31 44 46" fill="none" stroke="#9bcf53" stroke-width="4.5" stroke-linecap="round"/></svg>BRIDGE CYCLE</div>
+    <div class="meta">設備投資の判断資料｜経営者さま向け<br>作成：BRIDGE CYCLE株式会社（認定経営革新等支援機関）</div>
+  </header>
+
+  <div class="ttl">
+    <h1><small>INVESTMENT DECISION SHEET</small>投資判断シート</h1>
+    <p class="tag">見本：架空の案件です。数字は説明のための仮定で、実在の企業・支援実績ではありません。</p>
+  </div>
+  <p class="case">案件：食品製造業（従業員18名）／ 自動包装機の導入 ／ 見積額 800万円（税別）／ 目的：包装工程の省人化</p>
+
+  <section class="verdict" aria-label="結論">
+    <span class="lb">結論</span>
+    <b>進める価値あり。補助金がなくても約3年で回収できる投資です。</b>
+    <p>決めることは2つだけ。「補助金に申請するか」と「入金までのつなぎ資金」。採択されれば回収は約1.8年に縮まります。</p>
+  </section>
+
+  <div class="grid">
+    <section class="box">
+      <h2><i>1</i>資金計画（税別）</h2>
+      <table>
+        <tr><td>設備費（見積額）</td><td class="n">800万円</td></tr>
+        <tr><td>補助金（候補：省力化投資補助金、補助率1/2と仮定）</td><td class="n minus">△400万円</td></tr>
+        <tr><td>申請支援の費用（着手金7万円＋採択額の10%）</td><td class="n">47万円</td></tr>
+        <tr class="sum"><td>採択時の実質負担</td><td class="n">447万円</td></tr>
+      </table>
+      <p class="note">補助金は設置・支払いのあとに入金されます。いったん設備費全額と消費税（計880万円）の手当てが必要です。</p>
+    </section>
+
+    <section class="box">
+      <h2><i>2</i>導入後の効果（年間）</h2>
+      <table>
+        <tr><td>包装作業の削減（2名→1名、年1,800時間）</td><td class="n">270万円</td></tr>
+        <tr><td>保守・消耗品の増加</td><td class="n">△20万円</td></tr>
+        <tr class="sum"><td>年間の効果</td><td class="n">250万円</td></tr>
+      </table>
+      <p class="note">時給は社会保険料込み1,500円で換算。空いた1名は製造工程へ配置換えする前提で、人員削減ではありません。</p>
+    </section>
+
+    <section class="box">
+      <h2><i>3</i>投資の回収年数</h2>
+      <div class="payback">
+        <div><span>補助金なし（800万円÷250万円）</span><strong>3.2<small>年</small></strong></div>
+        <div class="good"><span>採択時（447万円÷250万円）</span><strong>1.8<small>年</small></strong></div>
+      </div>
+      <p class="note">厳しめの確認：削減時間が半分（年900時間）でも、補助金なし7.0年・採択時3.9年。効果の実測が判断の分かれ目です。</p>
+    </section>
+
+    <section class="box">
+      <h2><i>4</i>発注の時期（ここが最大の注意点）</h2>
+      <div class="flow"><span>申請</span><em>→</em><span>採択</span><em>→</em><span>交付決定</span><em>→</em><span>発注・設置</span><em>→</em><span>実績報告</span><em>→</em><span>入金</span></div>
+      <p>交付決定の<b>前に</b>発注・契約すると、補助の対象外になります。見積の有効期限を、交付決定の予定時期まで延ばせるかをご確認ください。</p>
+    </section>
+
+    <section class="box wide">
+      <h2><i>5</i>決める前に確認すること（3つ）</h2>
+      <ul>
+        <li><b>現状の作業時間を1週間だけ実測する。</b>年1,800時間の削減は聞き取りによる仮定です。実測で回収年数が確定します。</li>
+        <li><b>制度の要件を満たせるか。</b>賃上げなどの要件や、事業計画の期間中に守る条件を、最新の公募要領で確認します。</li>
+        <li><b>つなぎ資金。</b>入金までの880万円を、自己資金・取引金融機関の融資のどちらで賄うかを先に相談します。</li>
+      </ul>
+    </section>
+
+    <section class="box wide talk">
+      <h2><i>6</i>次の商談で、社長にお伝えすること</h2>
+      <p>「補助金がなくても約3年で元が取れる設備です。申請するなら、採択で約1.8年。発注は交付決定のあとにしましょう。まず1週間、包装の作業時間を測らせてください。」</p>
+    </section>
+  </div>
+
+  <p class="disc">※本シートは、架空の案件で作成した見本です。補助金の制度名・補助率・要件は公募回によって変わり、採択や融資の実行を保証するものではありません。実際のシートは、最新の公募要領と案件の条件にもとづいて作成します。</p>
+
+  <footer class="ft">
+    <div><b>BRIDGE CYCLE株式会社</b>　滋賀県大津市におの浜2-1-28　info@bridgecycleco.com<br>認定経営革新等支援機関（中小企業庁）認定番号 109825000112</div>
+    <div style="text-align:right"><b>店じまいを、まちのはじまりに。</b><br>設備の営業は御社。補助金・資金計画は当社。</div>
+  </footer>
+</main>
+</body>
+</html>
