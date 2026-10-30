@@ -8,12 +8,16 @@
   if(!BC_ANALYTICS_ID) { window.bcTrack=function(){}; return; }
 
   var page = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/,'') || 'index';
-  var group = /\/road-sign\//.test(location.pathname) ? 'ロードサイン' :
-    /^(index|yameru|genjo|taiten|check|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite|zousaku|keisai|gyaku-shimei|shokei)/.test(page) ? '退店前承継' :
-    /^(partner|fudosan)/.test(page) ? 'パートナー' :
+  var path = location.pathname;
+  var group = page==='index' ? 'トップ' :
+    /\/road-sign\//.test(path) ? '医院集客' :
+    (/\/gyosei\//.test(path) || /^(gyosei|partner-jichitai)/.test(page)) ? '行政・地域' :
+    /^(hojokin|partner-setsubi|setsubi|yomu-setsubi|heijitsu|camp)/.test(page) ? '補助金・設備投資' :
+    /^(contact)$/.test(page) ? '相談窓口' :
+    /^(yameru|genjo|taiten|check|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite|zousaku|keisai|gyaku-shimei|shokei|torihiki|hitokoto|shisan|toritsugi|fudosan|partner-fudosan)/.test(page) ? '退店前承継' :
+    /^(partner|partners)/.test(page) ? 'パートナー' :
     /^(uriba|kokaido|yoyaku|thanks-kokaido|kanryo|bridge-cycle-kokaido)/.test(page) ? '売り場レンタル' :
     /^yomu/.test(page) ? '閉める前に読む' :
-    /^(hojokin|heijitsu|camp)/.test(page) ? '補助金' :
     /^uchino/.test(page) ? 'うちのシェフ' :
     /^kasu/.test(page) ? '空きスペース貸し' :
     /^akinai/.test(page) ? 'わたしのこれから診断' :
@@ -52,6 +56,8 @@
     var p={page_name:page,content_group:group}; if(ref)p.ref_code=ref;
     for(var k in (params||{})) p[k]=params[k];
     gtag('event',name,p);
+    /* フォーム送信の完了は、GA4推奨の generate_lead でも記録する（キーイベント用） */
+    if(name==='form_submit') gtag('event','generate_lead',p);
   };
 
   /* リンク・ボタンの押下（どこから押されたかだけを送る） */

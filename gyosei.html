@@ -414,7 +414,7 @@ html .svc{grid-template-columns:76px 1.1fr 2fr .8fr 1fr;align-items:center}
     <div class="form-rep"><img src="assets/profile-yuji-340.webp" alt="" width="340" height="420" loading="lazy" decoding="async"><p>ご相談には、代表の中村が自分でお返事します。</p></div>
     <p class="contact">BRIDGE CYCLE株式会社<br>代表取締役 中村 裕二<br>TEL 080-5309-9770（平日10〜17時）<br>info@bridgecycleco.com</p>
   </div>
-  <form action="https://formspree.io/f/xykqvdbp" method="POST">
+  <form id="gyosei-form" action="https://formspree.io/f/xykqvdbp" method="POST">
     <input type="hidden" name="partner_type" value="自治体・支援機関（業務受託）">
     <div class="f"><label for="org">機関名・部署名<span class="req">必須</span></label><input id="org" type="text" name="organization" required autocomplete="organization"></div>
     <div class="f"><label for="nm">お名前<span class="req">必須</span></label><input id="nm" type="text" name="name" required autocomplete="name"></div>
@@ -433,5 +433,13 @@ html .svc{grid-template-columns:76px 1.1fr 2fr .8fr 1fr;align-items:center}
   <span class="tagline">戻れるから、踏み出せる。</span>
   <span>BRIDGE CYCLE株式会社（滋賀県大津市・認定経営革新等支援機関）　<a href="index.html">トップページ</a></span>
 </div></footer>
+<script>
+(function(){var f=document.getElementById('gyosei-form');if(!f)return;
+f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button[type=submit]');if(b){b.disabled=true;b.textContent='送信しています…';}
+fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(!r.ok)throw new Error(r.status);
+try{window.bcTrack&&window.bcTrack('form_submit',{form:'gyosei'});}catch(_){}
+f.innerHTML='<p style="font-weight:700;font-size:16px;margin:0 0 6px">ご相談を受け付けました。</p><p style="margin:0">内容を確認し、代表の中村から原則2営業日以内にメールでご連絡します。</p>';
+}).catch(function(){if(b){b.disabled=false;b.textContent='相談内容を送る';}f.submit();});});})();
+</script>
 </body>
 </html>
