@@ -14,17 +14,17 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BRIDGE CYCLE株式会社">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="止まった事業に、次の一手を。｜BRIDGE CYCLE株式会社">
+<meta property="og:title" content="戻れるから、踏み出せる。｜BRIDGE CYCLE株式会社">
 <meta property="og:description" content="ものづくり・省力化補助金の申請支援、設備商談の無料一次診断、自治体の産業調査・公共空間活用。滋賀・京都の認定支援機関。">
 <meta property="og:url" content="https://www.bridgecycleco.com/">
-<meta property="og:image" content="https://www.bridgecycleco.com/ogp.png?v=20261007">
+<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/954f6a53-87ef-48e4-8eea-9445bb87b73e.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="閉める前。始める前。お金を使う前。小さな商いの、大きな判断を一緒に考える。BRIDGE CYCLE">
+<meta property="og:image:alt" content="退路を断つな。道を増やせ。戻れるから、踏み出せる。BRIDGE CYCLE">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="止まった事業に、次の一手を。｜BRIDGE CYCLE">
+<meta name="twitter:title" content="戻れるから、踏み出せる。｜BRIDGE CYCLE">
 <meta name="twitter:description" content="補助金・設備投資支援と自治体の地域産業支援。滋賀県大津市の認定支援機関BRIDGE CYCLE。">
-<meta name="twitter:image" content="https://www.bridgecycleco.com/ogp.png?v=20261007">
+<meta name="twitter:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/954f6a53-87ef-48e4-8eea-9445bb87b73e.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
@@ -706,6 +706,32 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 .work-body .go{margin-top:auto;padding-top:8px;font-size:13px;font-weight:700;color:#142237}
 .works-note{font-size:11px;color:#6b7590;margin-top:16px}
 @media(max-width:900px){.works-grid{grid-template-columns:1fr;max-width:520px}.works{padding:60px 0}}
+
+/* Brand film: brand message and native player, deferred loading */
+.brandfilm{background:#101d2e;color:#f6faf8;padding:clamp(58px,7vw,94px) 0;position:relative;overflow:hidden}
+.brandfilm:before{content:"";position:absolute;right:-150px;top:-260px;width:680px;height:680px;border-radius:50%;border:1px solid rgba(197,235,130,.17);pointer-events:none}
+.brandfilm .w{max-width:1240px;position:relative}
+.brandfilm-grid{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.35fr);gap:clamp(28px,4.5vw,66px);align-items:center}
+.brandfilm-copy,.brandfilm-stage{min-width:0}
+.brandfilm-kicker{display:flex;align-items:center;flex-wrap:wrap;gap:9px;color:#b8c7d1;font-size:10px;font-weight:800;letter-spacing:.14em;margin:0 0 24px}
+.brandfilm-live{width:8px;height:8px;border-radius:50%;background:#c5eb82;box-shadow:0 0 0 5px rgba(197,235,130,.11)}
+.brandfilm-time{margin-left:auto;color:#c5eb82;letter-spacing:.1em}
+.brandfilm h2{font-family:"Zen Old Mincho","Hiragino Mincho ProN",serif;font-size:clamp(35px,3.5vw,53px);font-weight:700;letter-spacing:-.045em;line-height:1.48;margin:0}
+.brandfilm h2 em{font-style:normal;color:#c5eb82}
+.brandfilm-lead{font-size:14px;color:#d0dbe3;line-height:2.2;margin:25px 0 0}
+.brandfilm-tagline{font-size:16px;font-weight:800;color:#f6faf8;letter-spacing:.04em;border-left:3px solid #c5eb82;padding-left:13px;margin:26px 0 0}
+.brandfilm-link{display:inline-flex;gap:22px;align-items:center;color:#142237;background:#c5eb82;text-decoration:none;border-radius:5px;padding:12px 17px;font-size:12px;font-weight:800;margin-top:28px;transition:transform .2s,background .2s}
+.brandfilm-link:hover{background:#e4ffb7;transform:translateY(-2px)}
+.brandfilm-player{border:1px solid rgba(207,234,210,.26);border-radius:12px;overflow:hidden;background:#142237;box-shadow:0 28px 65px rgba(0,0,0,.35)}
+.brandfilm-player video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#142237;object-fit:contain}
+.brandfilm-stage{margin:0}
+.brandfilm-stage figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:13px 2px 0;color:#b1c6d1;font-size:10px;letter-spacing:.12em;font-weight:800}
+.brandfilm-note{font-size:11px;color:#a7b9c5;line-height:1.85;margin:12px 0 0}
+.brandfilm-hero-link{margin:16px 0 0;display:inline-flex;gap:9px;align-items:center;color:#c5eb82!important;text-decoration:none;font-weight:700;font-size:12px;border-bottom:1px solid rgba(197,235,130,.42);padding-bottom:5px}
+.brandfilm-hero-link:hover{color:#e4ffc4!important}
+@media(max-width:970px){.brandfilm-grid{grid-template-columns:1fr;gap:29px}.brandfilm-copy{max-width:720px}.brandfilm h2{font-size:clamp(36px,5vw,49px)}}
+@media(max-width:620px){.brandfilm{padding:45px 0 55px}.brandfilm-kicker{margin-bottom:16px}.brandfilm h2{font-size:clamp(33px,8vw,42px)}.brandfilm-lead{font-size:13px;line-height:2}.brandfilm-tagline{font-size:14px}.brandfilm-stage figcaption{font-size:9px}.brandfilm-note{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.brandfilm-link{transition:none}.brandfilm-link:hover{transform:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","ProfessionalService"],"@id":"https://www.bridgecycleco.com/#org","name":"BRIDGE CYCLE株式会社","alternateName":["BRIDGE CYCLE","ブリッジサイクル"],"url":"https://www.bridgecycleco.com/","logo":{"@type":"ImageObject","url":"https://www.bridgecycleco.com/logo.png","width":512,"height":512},"image":"https://www.bridgecycleco.com/ogp.png?v=20261007","email":"info@bridgecycleco.com","foundingDate":"2026-03-17","founder":{"@type":"Person","@id":"https://www.bridgecycleco.com/#founder","name":"中村裕二","jobTitle":"代表取締役","url":"https://www.bridgecycleco.com/akinai-profile.html","image":"https://www.bridgecycleco.com/assets/profile-yuji-340.webp","worksFor":{"@id":"https://www.bridgecycleco.com/#org"},"sameAs":["https://www.threads.com/@bridgecycle_otsu","https://www.instagram.com/bridgecycle_otsu/","https://note.com/bridgecycle_2026","https://nakamurayuji.substack.com/"]},"address":{"@type":"PostalAddress","postalCode":"520-0801","addressRegion":"滋賀県","addressLocality":"大津市","streetAddress":"におの浜2-1-28","addressCountry":"JP"},"areaServed":[{"@type":"AdministrativeArea","name":"滋賀県"},{"@type":"AdministrativeArea","name":"京都府"}],"contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"info@bridgecycleco.com","url":"https://www.bridgecycleco.com/contact.html","availableLanguage":"ja"},"slogan":"店じまいを、まちのはじまりに。","description":"滋賀県大津市の認定経営革新等支援機関。ものづくり・省力化・新事業進出補助金の申請支援と設備投資の資金計画、自治体向けの産業調査・振興計画・公共空間活用の業務受託を中心に、クリニックの集客診断、退店前承継を提供。","knowsAbout":["補助金申請支援","ものづくり補助金","省力化投資補助金","新事業進出補助金","小規模事業者持続化補助金","設備投資","資金計画","自治体業務受託","産業振興計画","地域経済調査","商工業振興実態調査","公共空間活用","社会実験","クリニック集客","看板広告","退店前承継","事業承継","居抜き開業","売り場レンタル"],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"認定経営革新等支援機関","recognizedBy":{"@type":"GovernmentOrganization","name":"中小企業庁"}},"hasOfferCatalog":{"@type":"OfferCatalog","name":"BRIDGE CYCLEの支援","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"ものづくり・省力化・新事業進出補助金の申請支援","url":"https://www.bridgecycleco.com/hojokin-ogata.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"設備販売会社向け 設備商談の無料一次診断","url":"https://www.bridgecycleco.com/partner-setsubi.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"自治体向け産業振興・企業実態調査・計画策定支援","url":"https://www.bridgecycleco.com/gyosei.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"公共空間の短期活用・効果検証（自治体向け）","url":"https://www.bridgecycleco.com/gyosei/06-koukyou-kukan.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"退店前承継（店を閉める方）","url":"https://www.bridgecycleco.com/zousaku.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"退店前承継（店を始めたい方・継ぎ手）","url":"https://www.bridgecycleco.com/tsugite.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"逆指名承継","url":"https://www.bridgecycleco.com/gyaku-shimei.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"売り場レンタル（南草津駅前・出店者募集）","url":"https://www.bridgecycleco.com/minakusa-ekimae.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"売り場レンタル（旧大津公会堂）","url":"https://www.bridgecycleco.com/uriba-kokaido.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"補助金申請サポート","url":"https://www.bridgecycleco.com/hojokin.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"看板広告と集客診断（タドリツク）","url":"https://www.bridgecycleco.com/road-sign/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"続けるための経営計画","url":"https://www.bridgecycleco.com/tsuzukeru.html"}}]},"sameAs":["https://www.instagram.com/bridgecycle_otsu/","https://www.threads.com/@bridgecycle_otsu","https://note.com/bridgecycle_2026","https://nakamurayuji.substack.com/","https://line.me/R/ti/p/@907kxssd"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://www.bridgecycleco.com/#website", "name": "BRIDGE CYCLE", "alternateName": ["BRIDGE CYCLE株式会社", "ブリッジサイクル"], "url": "https://www.bridgecycleco.com/", "inLanguage": "ja", "publisher": {"@id": "https://www.bridgecycleco.com/#org"}}</script>
@@ -733,7 +759,7 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 
 
 <header class="site-head"><div class="w">
- <a class="brand" href="./" aria-label="BRIDGE CYCLE トップ"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#142237"/><path d="M12 41 Q32 15 52 41" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M20 46 Q32 31 44 46" fill="none" stroke="#c5eb82" stroke-width="4.5" stroke-linecap="round"/></svg><span>BRIDGE CYCLE<small>店じまいを、まちのはじまりに。</small></span></a>
+ <a class="brand" href="./" aria-label="BRIDGE CYCLE トップ"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#142237"/><path d="M12 41 Q32 15 52 41" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M20 46 Q32 31 44 46" fill="none" stroke="#c5eb82" stroke-width="4.5" stroke-linecap="round"/></svg><span>BRIDGE CYCLE<small>戻れるから、踏み出せる。</small></span></a>
  <nav class="gnav" aria-label="サイト内"><a href="#main-business" data-t="hub_nav_services">事業紹介</a><a href="partner-setsubi.html#diagnosis" data-t="hub_nav_hojokin">設備投資</a><a href="gyosei.html" data-t="hub_nav_gyosei">行政向け</a><a href="road-sign/kaiin.html" data-t="hub_nav_clinic">医院集客</a><a href="#mission">地域での実践</a><a href="#company">会社概要</a><a class="lineg" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener" data-t="hub_line">LINEで相談</a><a class="line" href="contact.html" data-t="hub_contact">相談する ↗</a></nav>
 </div>
 </header>
@@ -745,12 +771,13 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
   <div class="hero-copy">
    <p class="top2-where"><span class="status-dot"></span> 滋賀・京都から、企業と地域の次の一手を。</p>
    <p class="hero-eyebrow">BUSINESS DESIGN <span>×</span> REAL-WORLD EXECUTION</p>
-   <h1 id="hero-title">止まった事業に、<br><span class="top2-accent">次の一手を。</span></h1>
-   <p class="top2-sub">設備投資の資金計画、地域産業の事業づくり、医院の集客改善。課題を整理するだけで終わらず、<strong>次の判断と実行</strong>につながる道筋をつくります。</p>
+   <h1 id="hero-title">戻れるから、<br><span class="top2-accent">踏み出せる。</span></h1>
+   <p class="top2-sub">決める前に、確かめる。設備投資・補助金、自治体の事業づくり、医院の集客改善。<strong>進む・見直す・見送る</strong>ための判断材料を整え、実行につながる道筋をつくります。</p>
    <div class="home-hero-actions">
     <a href="partner-setsubi.html#diagnosis" data-t="home_hero_partner">設備商談を無料で診断 <span aria-hidden="true">↗</span></a>
     <a class="secondary" href="hojokin-ogata.html" data-t="home_hero_subsidy">設備投資の補助金を相談 <span aria-hidden="true">↗</span></a>
    </div>
+   <a class="brandfilm-hero-link" href="#brand-film" data-t="home_film_hero">▶ &nbsp; BRIDGE CYCLEの考え方を40秒で見る ↓</a>
    <a class="top2-rep" href="#person" data-t="hub_hero_rep"><img src="assets/profile-yuji-340.webp" alt="" width="56" height="56"><span><b>代表 中村裕二</b>元商工会経営指導員。約20年・500社超の経営支援経験（代表個人の通算）</span><span class="rep-arr" aria-hidden="true">↗</span></a>
   </div>
   <aside class="home-intro-panel" aria-labelledby="first-h">
@@ -762,7 +789,7 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
    <div class="path-more"><span>OTHER SERVICES</span><a href="zousaku.html" data-t="home_quick_successor">店舗の承継 ↗</a><a href="#mission">地域の実践 ↗</a></div>
   </aside>
  </div>
- <span class="hero-giant" aria-hidden="true">MOVE FORWARD.</span>
+ <span class="hero-giant" aria-hidden="true">MORE WAYS.</span>
 </section>
 
   <section class="trustsec" aria-label="BRIDGE CYCLEについて">
@@ -776,6 +803,30 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
     </div>
       <div class="w"><p class="trust-clarify">※「約20年」「500社超」は代表個人の通算実績であり、2026年設立の当社単独の実績ではありません。</p></div>
   </section>
+
+
+<!-- Our point of view: official 40-second brand film -->
+<section class="brandfilm" id="brand-film" aria-labelledby="brandfilm-title">
+ <div class="w brandfilm-grid">
+  <div class="brandfilm-copy">
+   <p class="brandfilm-kicker"><span class="brandfilm-live" aria-hidden="true"></span> OUR POINT OF VIEW <span class="brandfilm-time">BRAND FILM / 00:40</span></p>
+   <h2 id="brandfilm-title">退路を断つな。<br><em>道を増やせ。</em></h2>
+   <p class="brandfilm-lead">大きな決断を、一発勝負にしない。<br>試す。確かめる。選ぶ。<br>引き返せなくなる前に、判断できる道を増やす。</p>
+   <p class="brandfilm-tagline">戻れるから、踏み出せる。</p>
+   <a class="brandfilm-link" href="#main-business" data-t="home_film_services">具体的なサービスを見る <span aria-hidden="true">↗</span></a>
+  </div>
+  <figure class="brandfilm-stage">
+   <div class="brandfilm-player">
+    <video id="brand-film-player" controls playsinline preload="none" poster="assets/brand-film-202610.svg" width="1280" height="720" aria-label="退路を断つな。道を増やせ。BRIDGE CYCLEの40秒ブランドムービー。企業ドラマ風のオリジナルBGM付き。">
+     <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/356a267c-5a80-422a-80d1-9c2f50f6375d.mp4" type="video/mp4">
+     お使いのブラウザーで再生できない場合は、<a href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/356a267c-5a80-422a-80d1-9c2f50f6375d.mp4" target="_blank" rel="noopener">動画を開いてください</a>。
+    </video>
+   </div>
+   <figcaption><span>BRIDGE CYCLE / BRAND FILM</span><span>音声あり / 40秒</span></figcaption>
+   <p class="brandfilm-note">※当社の考え方を表現したイメージ映像です。実際の支援実績の再現ではありません。「戻れる」とは、契約・投資の前にリスクを確かめ、選択肢を残すという意味です。</p>
+  </figure>
+ </div>
+</section>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
@@ -960,7 +1011,7 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 
 <footer>
   <div class="w">
-    <span class="disp">店じまいを、まちのはじまりに。</span>
+    <span class="disp">戻れるから、踏み出せる。</span>
     BRIDGE CYCLE株式会社　滋賀県大津市におの浜2-1-28　認定経営革新等支援機関
     <div class="fcols">
       <nav aria-label="主な事業"><b>主な事業</b>
@@ -1024,6 +1075,14 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 <script>
 (function(){if(!window.matchMedia('(max-width:760px)').matches)return;
 document.querySelectorAll('details.mf').forEach(function(d){d.removeAttribute('open');});})();
+</script>
+<script>
+(function(){
+ var video=document.getElementById('brand-film-player');
+ if(!video||typeof window.bcTrack!=='function')return;
+ video.addEventListener('play',function(){try{window.bcTrack('brand_film_play',{placement:'home',duration:40});}catch(e){}});
+ video.addEventListener('ended',function(){try{window.bcTrack('brand_film_complete',{placement:'home',duration:40});}catch(e){}});
+})();
 </script>
 </body>
 </html>
