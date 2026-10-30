@@ -535,6 +535,21 @@ https://www.bridgecycleco.com/matching.html
         <input type="file" id="permitFile2" name="営業許可証（追加）" accept="image/*,.pdf,application/pdf">
         <div class="hint">複数の許可をお持ちの場合（例：飲食店営業許可＋露店等の許可）は、2枚目をこちらに。</div>
       </div>
+      <div class="field"><label>この出店場所を、どこで知りましたか<span class="req">必須</span></label>
+        <select name="知ったきっかけ" required>
+          <option value="">選択してください</option>
+          <option>Instagram</option>
+          <option>Threads</option>
+          <option>Googleなどの検索</option>
+          <option>公式LINE</option>
+          <option>出店者・知人からの紹介</option>
+          <option>会場（前庭）で見かけた</option>
+          <option>チラシ・ポスター</option>
+          <option>その他</option>
+        </select>
+        <div class="hint">今後の募集の参考にします。</div>
+        <input type="hidden" name="流入元" id="uriSrc" value="">
+      </div>
       <div class="field"><label>ご質問・ご要望</label><textarea name="備考" placeholder="牛肉以外の商品を予定／搬入・駐車の相談／許可の種類の補足 など"></textarea></div>
       <div class="field"><label>火気について、いずれかを選択してください<span class="req">必須</span></label>
         <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px"><input type="radio" name="火気の使用" value="使用しない（電気調理・完成品のみ）" required style="width:auto;margin-top:5px"><label style="margin:0;font-weight:400;font-size:.9rem">火気は使用しない（電気調理・完成品のみ）</label></div>
@@ -1486,6 +1501,20 @@ https://www.bridgecycleco.com/matching.html
   }).catch(function(e){
     try{ console.warn("空き枠シートの読み込みに失敗（埋め込み値で表示継続）:", e && e.message); }catch(_){}
   });
+})();
+</script>
+
+<script>
+/* 流入元の記録：URLの utm_source / src、なければ参照元のドメインを、申込の「流入元」に入れる */
+(function(){
+  var v='';
+  try{
+    var q=new URLSearchParams(location.search);
+    v=q.get('utm_source')||q.get('src')||'';
+    if(!v && document.referrer){ var h=new URL(document.referrer).hostname; if(h && h!==location.hostname) v='ref:'+h; }
+    if(v){ sessionStorage.setItem('uriSrc',v); } else { v=sessionStorage.getItem('uriSrc')||'direct'; }
+  }catch(e){ v=v||'unknown'; }
+  var el=document.getElementById('uriSrc'); if(el) el.value=v;
 })();
 </script>
 </body>
