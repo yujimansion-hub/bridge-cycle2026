@@ -11,7 +11,7 @@
   var path = location.pathname;
   var group = page==='index' ? 'トップ' :
     /\/road-sign\//.test(path) ? '医院集客' :
-    (/\/gyosei\//.test(path) || /^(gyosei|partner-jichitai)/.test(page)) ? '行政・地域' :
+    (/\/gyosei\//.test(path) || /^(gyosei|partner-jichitai|koen)/.test(page)) ? '行政・地域' :
     /^(hojokin|partner-setsubi|setsubi|yomu-setsubi|heijitsu|camp)/.test(page) ? '補助金・設備投資' :
     /^(contact)$/.test(page) ? '相談窓口' :
     /^(yameru|genjo|taiten|check|soudan|watasu|seller-lp|owner-entry|matching|touroku|audition|tsugite|zousaku|keisai|gyaku-shimei|shokei|torihiki|hitokoto|shisan|toritsugi|fudosan|partner-fudosan)/.test(page) ? '退店前承継' :
