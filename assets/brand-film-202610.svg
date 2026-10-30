@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+<title id="title">退路を断つな。道を増やせ。 BRIDGE CYCLE ブランドムービー</title>
+<desc id="desc">濃紺の世界にライムグリーンの橋が架かり、複数の道が生まれる。</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b182a"/><stop offset="1" stop-color="#223c4d"/></linearGradient><linearGradient id="bridge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#71976c"/><stop offset=".6" stop-color="#c5eb82"/><stop offset="1" stop-color="#e4ffbd"/></linearGradient><pattern id="dots" width="46" height="46" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.2" fill="#97b0bd" opacity=".17"/></pattern><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="13"/></filter></defs>
+<rect width="1280" height="720" fill="url(#g)"/><rect width="1280" height="720" fill="url(#dots)"/>
+<path d="M640 550 Q790 455 910 320 T1320 128" stroke="#c5eb82" opacity=".33" stroke-width="29" fill="none" filter="url(#glow)"/>
+<path d="M640 550 Q790 455 910 320 T1320 128" stroke="url(#bridge)" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M695 520V600 M786 452V550 M880 369V474 M1004 263V365 M1117 187V280" stroke="#c5d6d1" stroke-width="3" opacity=".55"/>
+<path d="M620 555 Q865 635 1220 520" stroke="#b8c9d2" opacity=".24" stroke-width="2" fill="none"/>
+<g font-family="'Noto Sans JP','Yu Gothic','Hiragino Kaku Gothic ProN',sans-serif" font-weight="700">
+<text x="85" y="105" fill="#c5eb82" font-size="22" letter-spacing="4">BRIDGE CYCLE  /  BRAND FILM</text>
+<text x="85" y="292" fill="#f5f9f6" font-size="79">退路を断つな。</text>
+<text x="85" y="403" fill="#c5eb82" font-size="88">道を増やせ。</text>
+<text x="87" y="499" fill="#c8d7dd" font-size="32" font-weight="500">戻れるから、踏み出せる。</text>
+</g>
+<circle cx="1126" cy="560" r="57" fill="#c5eb82"/><path d="M1112 532 L1157 560 L1112 588 Z" fill="#142237"/>
+<text x="87" y="640" fill="#c0d0d7" font-family="Arial,sans-serif" font-size="22" letter-spacing="4">BRAND FILM   /   00:40</text>
+</svg>
