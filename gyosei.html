@@ -112,6 +112,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .yosan .btn{margin-top:40px;background:var(--signal);border-color:var(--signal);color:var(--ink)}
 .yosan .fine{font-size:13px;color:#aab4c8;margin-top:16px}
 @media (max-width:760px){.steps{grid-template-columns:1fr}.steps li+li{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.25)}.steps li{padding:20px 0}}
+.svc-th-public{display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;background:#1d3047;color:#fff;text-decoration:none;min-height:107px;padding:7px 2px}
+.svc-th-public span{font-family:Georgia,serif;font-size:26px;line-height:1}.svc-th-public small{font-size:8px;line-height:1.3;letter-spacing:.06em;text-align:center}
+.ppp-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:16px}
+.ppp-actions .btn{font-size:14px;padding:11px 17px}
+@media(max-width:860px){.svc-th-public{min-height:93px}.svc-th-public span{font-size:21px}}
+@media(max-width:760px){.ppp-actions .btn{width:100%;text-align:center}}
 /* 進め方・依頼の形 */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:36px}
 .two h3{font-size:18px;margin-bottom:12px}
@@ -318,6 +324,13 @@ html .svc{grid-template-columns:76px 1.1fr 2fr .8fr 1fr;align-items:center}
           <p class="svc-price"><span class="k">概算の例</span><b>約253万円</b></p>
           <a class="svc-dl" href="gyosei/05-hojo-banso.pdf" target="_blank" rel="noopener" data-t="gyosei_spec_05">仕様書のたたき台（PDF）</a>
         </li>
+        <li class="svc">
+           <a class="svc-th svc-th-public" href="gyosei/06-koukyou-kukan.html" data-t="gyosei_thumb_06" aria-label="公共空間の短期活用・効果検証の参考仕様書・積算モデルを開く"><span>06</span><small>PUBLIC<br>SPACE</small></a>
+           <h3 class="svc-name">公共空間の短期活用・効果検証</h3>
+           <p class="svc-desc">駅前・公共施設などを舞台に出店者募集から3週間の実証、来訪・購買の分析、次年度の活用判断まで。1会場・運営6日を想定。</p>
+           <p class="svc-price"><span class="k">概算の例（税込）</span><b>約165万円</b></p>
+           <a class="svc-dl" href="gyosei/06-koukyou-kukan.html" data-t="gyosei_spec_06">参考仕様書・積算を見る（印刷可）</a>
+         </li>
   </ul>
   <p class="svcs-note">少額の見積合わせ・随意契約、公募型プロポーザル、専門家派遣・講師のご依頼のいずれにも対応します。たたき台は参考資料で、特定の事業者に限る条件は含めていません。</p>
 </div></section>
@@ -328,7 +341,7 @@ html .svc{grid-template-columns:76px 1.1fr 2fr .8fr 1fr;align-items:center}
       <h2 class="h2">来年度の事業は、<br>予算化の前からご相談ください。</h2>
       <p class="h2-lead">予算要求のための参考見積から、仕様の組み立て、使える財源の確認まで無料でお手伝いします。発注をお約束いただく必要はありません。</p>
     </div>
-    <a class="fan" href="#services" aria-label="仕様書のたたき台の一覧へ"><img src="gyosei/thumb-04.webp" alt="" width="240" height="339"><img src="gyosei/thumb-03.webp" alt="" width="240" height="339"><img src="gyosei/thumb-01.webp" alt="" width="240" height="339"><span>仕様書のたたき台 5種</span></a>
+    <a class="fan" href="#services" aria-label="仕様書のたたき台の一覧へ"><img src="gyosei/thumb-04.webp" alt="" width="240" height="339"><img src="gyosei/thumb-03.webp" alt="" width="240" height="339"><img src="gyosei/thumb-01.webp" alt="" width="240" height="339"><span>仕様書のたたき台 6種</span></a>
   </div>
   <ol class="steps">
     <li><span class="n">1</span><h3>目的と測る数字を決める</h3><p>事業で変えたいことと、終わったときに確かめる指標を一緒に整理します。</p></li>
@@ -388,7 +401,7 @@ html .svc{grid-template-columns:76px 1.1fr 2fr .8fr 1fr;align-items:center}
       <li><b>03｜結果から次を判断</b><span>来場・購買・出店者の継続意向を集計し、継続・改善・終了の判断材料を残します。</span></li>
     </ol>
     <p class="ppp-metrics"><b>評価指標の例：</b>出店件数、購買率、追加売上・粗利、出店者の継続意向、次回利用希望。実施期間・費用は対象施設と契約範囲に応じて個別設計します。</p>
-    <a class="btn primary" href="#soudan" data-t="gyosei_ppp_contact">公共空間活用の相談をする ›</a>
+    <div class="ppp-actions"><a class="btn primary" href="gyosei/06-koukyou-kukan.html" data-t="gyosei_ppp_reference">参考仕様書・概算見積（165万円）を見る ›</a><a class="btn ghost" href="#soudan" data-t="gyosei_ppp_contact">公共空間活用の相談をする ›</a></div>
   </div>
   <p class="ppp-note">※京都府公民連携プラットフォームへの参加は、京都府との業務提携・委託契約・事業採択・共同事業の実施を意味するものではありません。上記は当社の提案メニューです。</p>
 </div></section>
