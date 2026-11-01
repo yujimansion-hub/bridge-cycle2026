@@ -6,6 +6,10 @@
 (function(){
   var BC_ANALYTICS_ID = "G-GYGZ9W6FQ9";
   if(!BC_ANALYTICS_ID) { window.bcTrack=function(){}; return; }
+  /* 本番の住所（bridgecycleco.com）以外では計測しない：手元のプレビューや作業中のファイル（file:// や開発用の住所）が数字に混ざらないように */
+  if(!/(^|\.)bridgecycleco\.com$/.test(location.hostname)) { window.bcTrack=function(){}; return; }
+  /* / と /index.html を同じページとして数える（表示中の住所も / にそろえる） */
+  try{ if(/\/index\.html$/.test(location.pathname)) history.replaceState(null,'',location.pathname.replace(/index\.html$/,'')+location.search+location.hash); }catch(e){}
 
   var page = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/,'') || 'index';
   var path = location.pathname;
@@ -39,6 +43,7 @@
   /* 自分のアクセスの印：一度 ?internal=1 付きで開いた端末・ブラウザは traffic_type=internal を送る（?internal=0 で解除） */
   try{if(/[?&]internal=1\b/.test(location.search))localStorage.setItem('bc_internal','1');if(/[?&]internal=0\b/.test(location.search))localStorage.removeItem('bc_internal');if(localStorage.getItem('bc_internal')==='1')gtag('set',{traffic_type:'internal'});}catch(e){}
   gtag('config',BC_ANALYTICS_ID,{
+    page_location: location.href.replace(/\/index\.html(?=[?#]|$)/,'/'),
     content_group: group,
     allow_google_signals:false,
     allow_ad_personalization_signals:false
