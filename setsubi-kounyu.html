@@ -146,6 +146,7 @@ footer a{color:inherit}
 <label class="field"><span>会社名・屋号 <b class="req">必須</b></span><input type="text" id="company" maxlength="120" autocomplete="organization" placeholder="例：株式会社〇〇" required></label>
 <label class="field"><span>メールアドレス <b class="req">必須</b></span><input type="email" id="email" maxlength="180" autocomplete="email" inputmode="email" placeholder="name@example.jp" required></label>
 <label class="field"><span>紹介元の設備販売会社 <small>任意</small></span><input type="text" id="vendor" maxlength="120" placeholder="紹介を受けた販売会社名（分かる場合）"></label>
+<input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 <label class="check"><input type="checkbox" id="explain"><span>無料一次確認の後、必要なら15分のオンライン説明も希望する</span></label>
 <label class="check"><input type="checkbox" id="agree" required><span><a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>を確認し、相談に必要な範囲での情報利用に同意します。<b class="req">必須</b></span></label>
 <button class="primary" type="submit" id="send">無料一次確認を申し込む　→</button>
@@ -156,7 +157,7 @@ footer a{color:inherit}
 <div id="success" role="status" aria-live="polite">
 <div style="font-size:44px;color:var(--teal)" aria-hidden="true">✓</div>
 <h2>無料一次確認を受け付けました。</h2>
-<p style="font-size:14px;color:var(--sub)">担当者が内容を確認し、原則翌営業日を目安にメールでご連絡します。自動返信メールは送信していません。見積書がある方は、担当者からのメールに添付してご返信ください（任意）。</p>
+<p id="success-note" style="font-size:14px;color:var(--sub)">ご入力のメールアドレスに受付確認メールをお送りしました。数分たっても届かない場合は、迷惑メールフォルダもご確認ください。担当者が内容を確認し、原則翌営業日を目安にメールでご連絡します。見積書がある方は、受付確認メールへの返信に添付してください（任意）。</p>
 <a href="/" style="font-size:14px">BRIDGE CYCLEのホームへ戻る →</a>
 </div>
 </form>
@@ -219,6 +220,7 @@ footer a{color:inherit}
 <script>
 (function(){
 "use strict";
+var GAS_ENDPOINT="https://script.google.com/macros/s/AKfycbxPWEX8MbMaAJ0LE92aw5f8G2FKE79hT-YywiBUA0RCl-Ra8sm3hqV_LktOA9FVMNSg/exec";
 var f=document.getElementById("lead-form"),s1=document.getElementById("stage1"),s2=document.getElementById("stage2"),ok=document.getElementById("success"),n=document.getElementById("next"),back=document.getElementById("back"),send=document.getElementById("send");
 var v=function(id){return document.getElementById(id).value.trim();};
 var tr=function(name,params){try{if(window.bcTrack)window.bcTrack(name,params);}catch(e){}};
@@ -241,13 +243,24 @@ var data={
 "会社名・屋号":company,"メール":email,"email":email,"紹介元コード":ref||"なし","紹介設備販売会社":v("vendor")||"未記入",
 "結果説明（15分）":document.getElementById("explain").checked?"希望":"希望なし",
 "_subject":"【設備購入者LP・無料一次確認】"+company+(ref?"（紹介："+ref+"）":""),
-"_replyto":email,"_template":"table"
+"_replyto":email,"_template":"table",
+"form":"setsubi_kounyu","_page":location.href.split("#")[0],"_honey":document.getElementById("hp_website").value
 };
 try{
-var r=await fetch("https://formsubmit.co/ajax/info@bridgecycleco.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});
+var auto=false;
+try{
+var g=await fetch(GAS_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
+var gj=await g.json();
+if(!gj||gj.success!==true)throw new Error("gas failed");
+auto=gj.autoreply===true;
+}catch(gasErr){
+var fs={};Object.keys(data).forEach(function(k){if(k!=="form"&&k!=="_page"&&k!=="_honey")fs[k]=data[k];});
+var r=await fetch("https://formsubmit.co/ajax/info@bridgecycleco.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(fs)});
 var j=await r.json().catch(function(){return {};});
 if(!r.ok||String(j.success)!=="true")throw new Error("delivery failed");
-tr("form_submit",{form:"setsubi_kounyu",ref_present:!!ref});
+}
+if(!auto){document.getElementById("success-note").textContent="担当者が内容を確認し、原則翌営業日を目安にメールでご連絡します。今回は受付確認メールをお送りできていない場合があります。見積書がある方は、担当者からのメールに添付してご返信ください（任意）。";}
+tr("form_submit",{form:"setsubi_kounyu",ref_present:!!ref,autoreply:auto});
 s1.style.display="none";s2.style.display="none";ok.style.display="block";document.getElementById("step-label").textContent="送信完了";document.getElementById("progress2").classList.add("active");
 }catch(err){out.textContent="送信できませんでした。時間をおいてお試しいただくか、info@bridgecycleco.comへご連絡ください。";send.disabled=false;send.textContent="無料一次確認を申し込む　→";}
 });
