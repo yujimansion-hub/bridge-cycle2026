@@ -151,12 +151,12 @@ footer a{color:inherit}
 <button class="primary" type="submit" id="send">無料一次確認を申し込む　→</button>
 <button class="back" type="button" id="back">← 3項目の入力に戻る</button>
 <p id="err2" class="form-error" role="alert" aria-live="polite"></p>
-<p class="form-footer">料金はこの段階では発生しません。自動返信後、必要情報がそろえば原則翌営業日を目安に一次回答します。</p>
+<p class="form-footer">料金はこの段階では発生しません。必要情報がそろえば、担当者から原則翌営業日を目安にメールで一次回答します。</p>
 </div>
 <div id="success" role="status" aria-live="polite">
 <div style="font-size:44px;color:var(--teal)" aria-hidden="true">✓</div>
 <h2>無料一次確認を受け付けました。</h2>
-<p style="font-size:14px;color:var(--sub)">確認メールをお送りします。追加情報が必要な場合はご連絡します。見積書がある方は自動返信メールに添付してご返信ください（任意）。</p>
+<p style="font-size:14px;color:var(--sub)">担当者が内容を確認し、原則翌営業日を目安にメールでご連絡します。自動返信メールは送信していません。見積書がある方は、担当者からのメールに添付してご返信ください（任意）。</p>
 <a href="/" style="font-size:14px">BRIDGE CYCLEのホームへ戻る →</a>
 </div>
 </form>
@@ -238,11 +238,10 @@ out.textContent="";send.disabled=true;send.textContent="送信しています…
 var data={
 "ご相談の種別":"設備投資の無料一次確認（購入者向け）",
 "設備名":v("equipment"),"概算金額（万円）":v("investment"),"導入目的":v("purpose"),"導入予定時期":v("timing")||"未定",
-"会社名・屋号":company,"メール":email,"紹介元コード":ref||"なし","紹介設備販売会社":v("vendor")||"未記入",
+"会社名・屋号":company,"メール":email,"email":email,"紹介元コード":ref||"なし","紹介設備販売会社":v("vendor")||"未記入",
 "結果説明（15分）":document.getElementById("explain").checked?"希望":"希望なし",
 "_subject":"【設備購入者LP・無料一次確認】"+company+(ref?"（紹介："+ref+"）":""),
-"_replyto":email,"_template":"table",
-"_autoresponse":"【BRIDGE CYCLE】設備投資の無料一次確認を受け付けました。\n\nお申し込みありがとうございます。必要情報がそろえば原則翌営業日を目安に一次回答します。追加資料が必要な場合はご連絡します。見積書があれば本メールに返信して添付できます（任意）。\n\nBRIDGE CYCLE株式会社\ninfo@bridgecycleco.com"
+"_replyto":email,"_template":"table"
 };
 try{
 var r=await fetch("https://formsubmit.co/ajax/info@bridgecycleco.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});
