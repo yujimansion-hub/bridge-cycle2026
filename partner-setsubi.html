@@ -278,7 +278,7 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <header class="top">
 <div class="wrap">
 <a class="brand" href="./"><img src="logo.png" alt="" width="30" height="30">BRIDGE CYCLE</a>
-<a class="btn btn-main btn-sm" href="#diagnosis">今ある案件を無料で相談</a>
+<a class="btn btn-main btn-sm" href="#referral-link">顧客に渡す紹介リンクを作る</a>
 </div>
 </header>
 
@@ -580,9 +580,9 @@ BRIDGE CYCLE株式会社　代表取締役 中村裕二<br>滋賀県大津市に
   function code(n){var h=2166136261;for(var i=0;i<n.length;i++)h=Math.imul(h^n.charCodeAt(i),16777619);return 'V-'+(h>>>0).toString(36).toUpperCase();}
   function url(){var n=inp.value.trim().slice(0,40);return n?base+'?ref='+code(n)+'&vendor='+encodeURIComponent(n):'';}
   inp.addEventListener('input',function(){var u=url();out.textContent=u||'御社名を入れると、リンクができます。';btn.textContent='紹介リンクをコピー';});
-  if(intro)intro.addEventListener('click',function(){var u=url();if(!u){inp.focus();return;}var msg='設備導入をご検討いただくにあたり、資金面の確認先をご案内します。補助金の候補だけでなく、自己負担・資金繰り・投資回収も無料で一次確認できます。ご相談は任意で、設備のご提案は引き続き弊社が担当します。\n\n'+u;try{navigator.clipboard.writeText(msg).then(function(){intro.textContent='紹介文をコピーしました';},function(){out.textContent=msg;});}catch(e){out.textContent=msg;}});
+  if(intro)intro.addEventListener('click',function(){var u=url();if(!u){inp.focus();return;}try{window.bcTrack&&window.bcTrack('referral_intro_copy',{source:'vendor_lp'});}catch(e){}var msg='設備導入をご検討いただくにあたり、資金面の確認先をご案内します。補助金の候補だけでなく、自己負担・資金繰り・投資回収も無料で一次確認できます。ご相談は任意で、設備のご提案は引き続き弊社が担当します。\n\n'+u;try{navigator.clipboard.writeText(msg).then(function(){intro.textContent='紹介文をコピーしました';},function(){out.textContent=msg;});}catch(e){out.textContent=msg;}});
   btn.addEventListener('click',function(){
-    var u=url();if(!u){inp.focus();return;}
+    var u=url();if(!u){inp.focus();return;}try{window.bcTrack&&window.bcTrack('referral_link_copy',{source:'vendor_lp'});}catch(e){}
     var done=function(){btn.textContent='リンクをコピーしました';};
     try{navigator.clipboard.writeText(u).then(done,function(){out.textContent=u;});}catch(e){out.textContent=u;}
   });
