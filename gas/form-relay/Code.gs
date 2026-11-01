@@ -50,9 +50,13 @@ function doPost(e) {
       .map(function (k) { return k + '：' + String(d[k]).slice(0, 2000); });
     var nbody = rows.join('\n') + '\n\n送信ページ：' + String(d._page || '').slice(0, 300)
       + '\n受信日時：' + Utilities.formatDate(new Date(), 'Asia/Tokyo', 'yyyy-MM-dd HH:mm');
+    var attachments = filesToBlobs_(d._files);
+    if (attachments.length) {
+      nbody += '\n添付：' + attachments.map(function (b) { return b.getName(); }).join('、');
+    }
     MailApp.sendEmail({
       to: OWNER, replyTo: email, name: 'BRIDGE CYCLE フォーム',
-      subject: subject, body: nbody, htmlBody: toHtml_(nbody)
+      subject: subject, body: nbody, htmlBody: toHtml_(nbody), attachments: attachments
     });
 
     // 2) 自動返信（上限内のみ）
@@ -107,6 +111,24 @@ function customReply_(raw) {
     + 'お心当たりのない場合は、お手数ですがこのメールを破棄してください。\n'
     + 'https://www.bridgecycleco.com/';
   return { ok: true, subject: subject, body: body };
+}
+
+/** 添付ファイル（base64）をメール添付に変換。最大5件・合計10MB、画像とPDFのみ */
+function filesToBlobs_(files) {
+  if (!Array.isArray(files)) return [];
+  var out = [], total = 0;
+  for (var i = 0; i < files.length && out.length < 5; i++) {
+    var f = files[i] || {};
+    var type = String(f.type || '');
+    if (!/^image\/|^application\/pdf$/.test(type) || typeof f.data !== 'string') continue;
+    var bytes = Utilities.base64Decode(f.data);
+    total += bytes.length;
+    if (total > 10 * 1024 * 1024) break;
+    var label = String(f.field || '添付').replace(/[\\\/:*?"<>|]/g, '').slice(0, 30);
+    var name = String(f.name || 'file').replace(/[\\\/:*?"<>|]/g, '').slice(0, 80);
+    out.push(Utilities.newBlob(bytes, type, label + '_' + name));
+  }
+  return out;
 }
 
 function toHtml_(t) {
