@@ -290,6 +290,7 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <p class="hero-tagline">その設備商談、<br><strong>補助金と資金計画でもう一度。</strong></p>
 <p class="lead">「予算が厳しい」「社内決裁が進まない」。そんなお客様への次の提案を、経営支援の専門家が一緒に考えます。御社は設備の営業に集中してください。</p>
 <div class="hero-cta"><a class="btn btn-main" href="#diagnosis" data-track="main-entry">止まった商談を無料で相談する ›</a><a class="btn btn-ghost" href="#sales-tool" data-track="main-how">30秒の営業動画を見る ↓</a></div>
+<p style="margin:13px 0 0;font-size:13px"><a href="setsubi-kounyu.html" style="color:#d9f5e9;font-weight:700">見積書と一緒に渡す：設備購入者向け無料一次確認ページ ↗</a></p>
 <p class="dealer-hero-note">顧客名は不要。設備の種類・金額・目的が分かればOK。</p>
 <div class="zero" aria-label="販売会社の提携条件"><span>販売会社の費用 0円</span><span>紹介ノルマなし</span><span>1案件から試せる</span></div>
 </div>
@@ -573,8 +574,9 @@ BRIDGE CYCLE株式会社　代表取締役 中村裕二<br>滋賀県大津市に
 (function(){
   var inp=document.getElementById('ref-name'),out=document.getElementById('ref-out'),btn=document.getElementById('ref-copy');
   if(!inp)return;
-  var base='https://www.bridgecycleco.com/hojokin-ogata.html';
-  function url(){var n=inp.value.trim().slice(0,40);return n?base+'?ref='+encodeURIComponent(n)+'#form':'';}
+  var base='https://www.bridgecycleco.com/setsubi-kounyu.html';
+  function code(n){var h=2166136261;for(var i=0;i<n.length;i++)h=Math.imul(h^n.charCodeAt(i),16777619);return 'V-'+(h>>>0).toString(36).toUpperCase();}
+  function url(){var n=inp.value.trim().slice(0,40);return n?base+'?ref='+code(n)+'&vendor='+encodeURIComponent(n):'';}
   inp.addEventListener('input',function(){var u=url();out.textContent=u||'御社名を入れると、リンクができます。';btn.textContent='リンクをコピー';});
   btn.addEventListener('click',function(){
     var u=url();if(!u){inp.focus();return;}
