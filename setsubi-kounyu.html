@@ -64,6 +64,10 @@ h1 em{font-style:normal;color:#a9e2d1}
 .check{display:flex;align-items:flex-start;gap:8px;font-size:12px;margin:10px 0 15px}
 .check input{accent-color:var(--teal);margin-top:5px}
 .check a{color:var(--teal2)}
+.ref-banner{background:rgba(230,247,239,.13);border-left:3px solid #91ddbf;color:#d9f2e8;padding:8px 12px;font-size:13px;border-radius:3px;margin:0 0 14px}
+.sample-link{display:inline-flex;align-items:center;gap:7px;margin-top:22px;padding:12px 16px;border-radius:9px;background:#e6f2ee;color:#00685f;text-decoration:none;font-size:14px;font-weight:800}
+.faq details{border-bottom:1px solid var(--line);padding:15px 2px}.faq summary{font-weight:700;cursor:pointer;font-size:15px}.faq p{font-size:14px;color:var(--sub);margin:8px 0 0}
+.mobile-cta{display:none}
 .eyebrow{font-size:12px;color:var(--teal);font-weight:800;letter-spacing:.16em}
 .section{padding:70px 0}
 .section.off{background:var(--off)}
@@ -95,7 +99,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;font-size:12px;color:var(
 footer .container{display:flex;justify-content:space-between;gap:18px}
 footer a{color:inherit}
 @media(max-width:850px){.hero .container{grid-template-columns:1fr;gap:28px;padding:45px 0 45px}.hero-copy{max-width:710px}.form-card{max-width:700px;width:100%}}
-@media(max-width:620px){.container{width:min(100% - 28px,1120px)}header .container{padding:11px 0}.small-top{font-size:10px}h1{font-size:34px}.lead{font-size:14px}.form-card{padding:20px 17px}.inline-fields,.three,.case,.outcomes,.trust{grid-template-columns:1fr}.outcomes{gap:6px}.section{padding:48px 0}.case{padding:23px}.feature{padding:19px}.bottom-cta h2{font-size:22px}footer .container{flex-direction:column}}
+@media(max-width:620px){.mobile-cta{display:block;position:fixed;z-index:40;bottom:12px;left:14px;right:14px;padding:13px;text-decoration:none;text-align:center;border-radius:12px;color:white;background:#087d71;box-shadow:0 5px 24px rgba(0,0,0,.22);font-size:14px;font-weight:800}.mobile-cta.is-hidden{display:none}.container{width:min(100% - 28px,1120px)}header .container{padding:11px 0}.small-top{font-size:10px}h1{font-size:34px}.lead{font-size:14px}.form-card{padding:20px 17px}.inline-fields,.three,.case,.outcomes,.trust{grid-template-columns:1fr}.outcomes{gap:6px}.section{padding:48px 0}.case{padding:23px}.feature{padding:19px}.bottom-cta h2{font-size:22px}footer .container{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -111,6 +115,7 @@ footer a{color:inherit}
 <div class="container">
 <div class="hero-copy">
 <div class="kicker">設備導入を検討中の経営者さまへ</div>
+<p class="ref-banner" id="ref-banner" hidden></p>
 <h1>設備を選んだら、<br>次は<em>「買い方」</em>を選ぶ。</h1>
 <p class="lead">補助金が使えるかだけではなく、自己負担・資金繰り・投資回収・発注時期まで。<strong>購入を決める前の無料一次確認</strong>をご利用ください。</p>
 <div class="hero-facts"><span>相談だけでもOK</span><span>無理な申請・契約なし</span><span>見積書がなくても相談可能</span></div>
@@ -131,7 +136,7 @@ footer a{color:inherit}
 <label class="field"><span>③ 導入目的 <b class="req">必須</b></span><select id="purpose" required><option value="">選択してください</option><option>省力化・人手不足対策</option><option>生産能力・売上の拡大</option><option>新商品・新サービス開発</option><option>品質・歩留まりの改善</option><option>その他・まだ整理中</option></select></label>
 <button class="primary" type="button" id="next">次へ：無料確認の申込みへ　→</button>
 <p id="err1" class="form-error" role="alert" aria-live="polite"></p>
-<p class="form-footer">入力内容はこの画面では送信されません。</p>
+<p class="form-footer">初回確認は0円。ここで契約が成立することはありません。入力内容はこの画面ではまだ送信されません。</p>
 </div>
 <div id="stage2">
 <h2>結果の送付先を<br>教えてください。</h2>
@@ -166,6 +171,7 @@ footer a{color:inherit}
 <article class="feature"><div class="num">02</div><h3>自己負担と資金繰り</h3><p>補助金は原則後払い。先に必要な資金や、融資・リースの選択肢を確認します。</p></article>
 <article class="feature"><div class="num">03</div><h3>投資効果と発注時期</h3><p>どれだけ生産性が上がるのか、いつ発注できるのか。判断に必要な情報を整理します。</p></article>
 </div>
+<a class="sample-link" href="/setsubi-sheet-sample.html" target="_blank" rel="noopener">判断材料の完成イメージを見る（架空事例・A4一枚） ↗</a>
 </div>
 </section>
 <section class="section">
@@ -187,6 +193,16 @@ footer a{color:inherit}
 <p class="fine" style="margin-top:18px">※制度の利用資格・採択・資金調達・設備購入を保証するものではありません。申請書類の作成など資格が必要な業務は、制度と法令に従い連携する専門家が担当します。販売会社への顧客情報共有は本人の同意の範囲内に限ります。</p>
 </div>
 </section>
+<section class="section faq" aria-labelledby="faq-title" style="padding-top:45px">
+<div class="container" style="max-width:840px">
+<div class="eyebrow">FAQ / よくあるご質問</div>
+<h2 id="faq-title">相談前の疑問にお答えします。</h2>
+<details><summary>見積書がなくても相談できますか？</summary><p>はい。設備名・おおよその金額・導入目的から確認します。詳細資料は必要になった段階でお願いしています。</p></details>
+<details><summary>無料一次確認のあと、必ず契約が必要ですか？</summary><p>いいえ。候補制度や確認事項をお伝えし、ご希望がある場合のみ別途有料支援の範囲と料金をご案内します。</p></details>
+<details><summary>設備販売会社に相談内容が伝わりますか？</summary><p>ご紹介元の記録は行いますが、個別の相談内容・計画・連絡先を販売会社に共有する場合は、ご本人の同意を確認します。</p></details>
+<details><summary>契約・発注はいつすればいいですか？</summary><p>対象制度によって異なります。交付決定前の発注・契約が補助対象外になる制度もありますので、購入を決める前に公募要領を確認してください。</p></details>
+</div>
+</section>
 <section class="bottom-cta">
 <div class="container">
 <h2>決める前に、確かめる。</h2>
@@ -196,6 +212,7 @@ footer a{color:inherit}
 </div>
 </section>
 </main>
+<a class="mobile-cta" href="#free-check" id="mobile-cta">無料一次確認へ進む（約1分） →</a>
 <footer><div class="container"><div><strong>BRIDGE CYCLE株式会社</strong>｜認定経営革新等支援機関（認定番号 109825000112）<br>滋賀県大津市におの浜2-1-28</div><div><a href="/privacy.html">プライバシーポリシー</a> ／ <a href="/tokushoho.html">特定商取引法表記</a> ／ <a href="/partner-setsubi.html">設備販売会社の方へ</a></div></div></footer>
 <script>
 (function(){
@@ -204,11 +221,12 @@ var f=document.getElementById("lead-form"),s1=document.getElementById("stage1"),
 var v=function(id){return document.getElementById(id).value.trim();};
 var tr=function(name,params){try{if(window.bcTrack)window.bcTrack(name,params);}catch(e){}};
 var started=false;
+var mobile=document.getElementById("mobile-cta");if(mobile&&"IntersectionObserver" in window){new IntersectionObserver(function(es){mobile.classList.toggle("is-hidden",es[0].isIntersecting);},{threshold:0.08}).observe(document.getElementById("free-check"));}
 f.addEventListener("input",function(){if(!started){started=true;tr("form_start",{form:"setsubi_kounyu"});}},true);
 var ref="";
-try{var qs=new URLSearchParams(location.search);ref=(qs.get("ref")||"").match(/^[A-Za-z0-9_-]{2,20}$/)?qs.get("ref").toUpperCase():"";var vendorName=(qs.get("vendor")||"").slice(0,120);if(vendorName)document.getElementById("vendor").value=vendorName;if(ref){sessionStorage.setItem("bc_ref",ref);}else{ref=(sessionStorage.getItem("bc_ref")||localStorage.getItem("bc_ref")||"").slice(0,20);}}catch(e){}
+try{var qs=new URLSearchParams(location.search);ref=(qs.get("ref")||"").match(/^[A-Za-z0-9_-]{2,20}$/)?qs.get("ref").toUpperCase():"";var vendorName=(qs.get("vendor")||"").slice(0,120);if(vendorName){document.getElementById("vendor").value=vendorName;var banner=document.getElementById("ref-banner");banner.textContent="紹介元の設備販売会社："+vendorName;banner.hidden=false;}if(ref){sessionStorage.setItem("bc_ref",ref);}else{ref=(sessionStorage.getItem("bc_ref")||localStorage.getItem("bc_ref")||"").slice(0,20);}}catch(e){}
 function stage(two){s1.style.display=two?"none":"block";s2.style.display=two?"block":"none";document.getElementById("step-label").textContent=two?"STEP 2 / 2":"STEP 1 / 2";document.getElementById("progress2").classList.toggle("active",two);if(two)document.getElementById("company").focus();else document.getElementById("equipment").focus();}
-n.addEventListener("click",function(){var amt=Number(v("investment"));if(!v("equipment")||!Number.isFinite(amt)||amt<=0||!v("purpose")){document.getElementById("err1").textContent="設備名・概算金額・導入目的を入力してください。";return;}document.getElementById("err1").textContent="";tr("form_step_complete",{form:"setsubi_kounyu",step:1});stage(true);});
+n.addEventListener("click",function(){var amt=Number(v("investment"));if(!v("equipment")||!Number.isFinite(amt)||amt<=0||amt>9999999||!v("purpose")){document.getElementById("err1").textContent="設備名・概算金額・導入目的を入力してください。";return;}document.getElementById("err1").textContent="";tr("form_step_complete",{form:"setsubi_kounyu",step:1});stage(true);});
 back.addEventListener("click",function(){stage(false);});
 f.addEventListener("submit",async function(e){
 e.preventDefault();
