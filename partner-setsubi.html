@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://www.bridgecycleco.com/partner-setsubi.html">
 <title>見積書に、もう一枚。｜設備販売会社向け無料紹介ツール・匿名診断｜BRIDGE CYCLE</title>
-<meta name="description" content="設備メーカー・販売会社向け。見積書に資金面の無料一次確認ページを添えるだけ。御社名入りの顧客紹介リンクを作成・コピー。見積前・検討中・保留案件に対応。匿名案件診断も無料。登録料・月額費用・紹介ノルマなし。">
+<meta name="description" content="設備メーカー・販売会社向け。見積書に資金面の無料一次確認ページを添えるだけ。御社専用の顧客紹介リンクを作成・コピー。見積前・検討中・保留案件に対応。匿名案件診断も無料。登録料・月額費用・紹介ノルマなし。">
 <meta property="og:title" content="見積書に、もう一枚。設備購入者に資金面の相談先を。｜BRIDGE CYCLE">
 <meta property="og:description" content="顧客に渡せる専用リンクを作成。補助金・自己負担・投資回収の無料一次確認。匿名案件でも相談可能。販売会社の費用0円。">
 <meta property="og:url" content="https://www.bridgecycleco.com/partner-setsubi.html">
@@ -304,7 +304,7 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <p class="deal-disclaimer">※再提案の選択肢を整理するサービスです。採択・受注は保証しません。</p>
 <p class="why3-h">ほかの補助金コンサルとの違い</p><ul class="why3"><li><b>紹介料のやりとりなし</b>どのメーカー・販売会社とも紹介料を払わず受け取らず。相見積もりでも中立で、お客様の費用に上乗せもありません。</li><li><b>翌営業日に、率直に回答</b>顧客名なしで原則翌営業日に一次回答。見込みが薄い案件は、その時点ではっきりお伝えします。</li><li><b>申請書類は行政書士が作成</b>改正行政書士法（2026年1月施行）に沿った体制。無資格の書類代行ではないので、安心してご紹介いただけます。</li><li><b>発注の時期まで見える</b>発注できる時期の目安を最初にお伝えし、採択・交付決定の節目もお客様の同意のもと御社にご連絡します。</li></ul>
 </div></div></section>
-<section id="referral-link" class="alt" aria-labelledby="referral-h" style="scroll-margin-top:78px"><div class="wrap" style="max-width:850px"><div class="label">HANDOVER LINK / 顧客紹介の入口</div><h2 id="referral-h">説明不要。御社名入りの紹介リンクを送るだけ。</h2><div class="talk reflink"><h3>御社名入りの紹介リンクを作る</h3><p style="color:#4A5562;font-size:13px;margin:0 0 12px">見積書を送るときにリンクと短い案内文を添えるだけ。お客様がご自身で一次確認を申し込みます。</p>
+<section id="referral-link" class="alt" aria-labelledby="referral-h" style="scroll-margin-top:78px"><div class="wrap" style="max-width:850px"><div class="label">HANDOVER LINK / 顧客紹介の入口</div><h2 id="referral-h">説明不要。御社名入りの紹介リンクを送るだけ。</h2><div class="talk reflink"><h3>御社専用の紹介リンクを作る</h3><p style="color:#4A5562;font-size:13px;margin:0 0 12px">見積書を送るときにリンクと短い案内文を添えるだけ。お客様がご自身で一次確認を申し込みます。</p>
 <label for="ref-name">御社名（または営業担当名）</label>
 <input id="ref-name" type="text" maxlength="40" placeholder="例：○○機械 大津営業所" autocomplete="organization">
 <output id="ref-out" for="ref-name" aria-live="polite">御社名を入れると、リンクができます。</output>
@@ -578,7 +578,7 @@ BRIDGE CYCLE株式会社　代表取締役 中村裕二<br>滋賀県大津市に
   if(!inp)return;
   var base='https://www.bridgecycleco.com/setsubi-kounyu.html';
   function code(n){var h=2166136261;for(var i=0;i<n.length;i++)h=Math.imul(h^n.charCodeAt(i),16777619);return 'V-'+(h>>>0).toString(36).toUpperCase();}
-  function url(){var n=inp.value.trim().slice(0,40);return n?base+'?ref='+code(n)+'&vendor='+encodeURIComponent(n):'';}
+  function url(){var n=inp.value.trim().slice(0,40);return n?base+'?ref='+code(n):'';}
   inp.addEventListener('input',function(){var u=url();out.textContent=u||'御社名を入れると、リンクができます。';btn.textContent='紹介リンクをコピー';});
   if(intro)intro.addEventListener('click',function(){var u=url();if(!u){inp.focus();return;}try{window.bcTrack&&window.bcTrack('referral_intro_copy',{source:'vendor_lp'});}catch(e){}var msg='設備導入をご検討いただくにあたり、資金面の確認先をご案内します。補助金の候補だけでなく、自己負担・資金繰り・投資回収も無料で一次確認できます。ご相談は任意で、設備のご提案は引き続き弊社が担当します。\n\n'+u;try{navigator.clipboard.writeText(msg).then(function(){intro.textContent='紹介文をコピーしました';},function(){out.textContent=msg;});}catch(e){out.textContent=msg;}});
   btn.addEventListener('click',function(){
