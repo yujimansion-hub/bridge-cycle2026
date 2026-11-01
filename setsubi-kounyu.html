@@ -206,14 +206,14 @@ var tr=function(name,params){try{if(window.bcTrack)window.bcTrack(name,params);}
 var started=false;
 f.addEventListener("input",function(){if(!started){started=true;tr("form_start",{form:"setsubi_kounyu"});}},true);
 var ref="";
-try{var qs=new URLSearchParams(location.search);ref=(qs.get("ref")||"").match(/^[A-Za-z0-9_-]{2,20}$/)?qs.get("ref").toUpperCase():"";if(ref){sessionStorage.setItem("bc_ref",ref);}else{ref=(sessionStorage.getItem("bc_ref")||localStorage.getItem("bc_ref")||"").slice(0,20);}}catch(e){}
+try{var qs=new URLSearchParams(location.search);ref=(qs.get("ref")||"").match(/^[A-Za-z0-9_-]{2,20}$/)?qs.get("ref").toUpperCase():"";var vendorName=(qs.get("vendor")||"").slice(0,120);if(vendorName)document.getElementById("vendor").value=vendorName;if(ref){sessionStorage.setItem("bc_ref",ref);}else{ref=(sessionStorage.getItem("bc_ref")||localStorage.getItem("bc_ref")||"").slice(0,20);}}catch(e){}
 function stage(two){s1.style.display=two?"none":"block";s2.style.display=two?"block":"none";document.getElementById("step-label").textContent=two?"STEP 2 / 2":"STEP 1 / 2";document.getElementById("progress2").classList.toggle("active",two);if(two)document.getElementById("company").focus();else document.getElementById("equipment").focus();}
 n.addEventListener("click",function(){var amt=Number(v("investment"));if(!v("equipment")||!Number.isFinite(amt)||amt<=0||!v("purpose")){document.getElementById("err1").textContent="設備名・概算金額・導入目的を入力してください。";return;}document.getElementById("err1").textContent="";tr("form_step_complete",{form:"setsubi_kounyu",step:1});stage(true);});
 back.addEventListener("click",function(){stage(false);});
 f.addEventListener("submit",async function(e){
 e.preventDefault();
 var out=document.getElementById("err2"),email=v("email"),company=v("company");
-if(!company||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)||!document.getElementById("agree").checked){out.textContent="会社名・メールアドレス・個人情報の同意をご確認ください。";return;}
+if(!company||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!document.getElementById("agree").checked){out.textContent="会社名・メールアドレス・個人情報の同意をご確認ください。";return;}
 out.textContent="";send.disabled=true;send.textContent="送信しています…";
 var data={
 "ご相談の種別":"設備投資の無料一次確認（購入者向け）",
@@ -222,7 +222,7 @@ var data={
 "結果説明（15分）":document.getElementById("explain").checked?"希望":"希望なし",
 "_subject":"【設備購入者LP・無料一次確認】"+company+(ref?"（紹介："+ref+"）":""),
 "_replyto":email,"_template":"table",
-"_autoresponse":"【BRIDGE CYCLE】設備投資の無料一次確認を受け付けました。\\n\\nお申し込みありがとうございます。必要情報がそろえば原則翌営業日を目安に一次回答します。追加資料が必要な場合はご連絡します。見積書があれば本メールに返信して添付できます（任意）。\\n\\nBRIDGE CYCLE株式会社\\ninfo@bridgecycleco.com"
+"_autoresponse":"【BRIDGE CYCLE】設備投資の無料一次確認を受け付けました。\n\nお申し込みありがとうございます。必要情報がそろえば原則翌営業日を目安に一次回答します。追加資料が必要な場合はご連絡します。見積書があれば本メールに返信して添付できます（任意）。\n\nBRIDGE CYCLE株式会社\ninfo@bridgecycleco.com"
 };
 try{
 var r=await fetch("https://formsubmit.co/ajax/info@bridgecycleco.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});
