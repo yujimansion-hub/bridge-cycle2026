@@ -1,0 +1,14 @@
+name: Assemble no-credit live film
+on:
+  push:
+    branches: [film/no-credit-live-action-20261103]
+    paths: ['.github/workflows/assemble-no-credit-live-film.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo 'video draft workflow ready'
