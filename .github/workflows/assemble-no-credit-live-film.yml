@@ -2,7 +2,8 @@ name: Assemble no-credit live film
 on:
   push:
     branches: [film/no-credit-live-action-20261103]
-    paths: ['.github/workflows/assemble-no-credit-live-film.yml']
+    paths:
+      - '.github/workflows/assemble-no-credit-live-film.yml'
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,4 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo 'video draft workflow ready'
+        with:
+          ref: film/no-credit-live-action-20261103
+          persist-credentials: true
+      - name: Install image tools
+        run: python3 -m pip install Pillow --quiet --break-system-packages
+      - name: Probe already owned existing video sources
+        run: python3 scripts/film_probe.py
+      - name: Commit film contact sheet for visual review
+        run: |
+          git config user.name "BRIDGE CYCLE Film Builder"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add film_preview/manifest.json film_preview/montage.b64
+          git commit -m "Film probe: source manifest and contact sheet" || true
+          git push origin HEAD:film/no-credit-live-action-20261103
