@@ -147,25 +147,21 @@ function iconShape(type){
 function onHome(){
  document.body.classList.add("bcq-home","bcq-visual-home");
  var hero=document.querySelector(".top2"),path=document.getElementById("entry-paths");
- var tagline=document.querySelector(".top2-sub");if(tagline)tagline.textContent="あなたは、どちらの立場ですか？";
  var heroCopy=hero&&hero.querySelector(".hero-copy");
  if(!heroCopy)return;
- var grid=el("nav","bcq-home-choices");grid.setAttribute("aria-label","目的から選ぶ");
- var choices=[
- ["設備販売会社","社名入りA4を無料作成","https://mitsumori-mikata.com/sheet?src=home_2choice","sell"],
- ["設備導入企業","補助金・自己負担を確認","/setsubi-kounyu.html#free-check","equipment"]
- ];
- choices.forEach(function(c){
-  var a=el("a","bcq-choice");a.href=c[2];
-  var icon=el("span","bcq-choice-icon");icon.appendChild(iconShape(c[3]));
-  var v=el("span","bcq-choice-copy");v.append(el("strong","",c[0]),el("small","",c[1]));
-  var arrow=el("span","bcq-choice-arrow","↗");arrow.setAttribute("aria-hidden","true");
-  a.append(icon,v,arrow);
-  a.addEventListener("click",function(){try{if(typeof window.bcTrack==="function")window.bcTrack("home_primary_choice",{audience:c[3],destination:c[3]==="sell"?"sheet_tool":"buyer_check"})}catch(e){}});
-  grid.appendChild(a);
- });
- var old=heroCopy.querySelector(".home-hero-actions");if(old)old.insertAdjacentElement("beforebegin",grid);else heroCopy.append(grid);
- var kicker=heroCopy.querySelector(".bc-home-kicker");if(kicker)kicker.remove();
+ // The two primary choices are real links in the HTML, not dynamically
+ // injected markup. Avoid layout shifts and duplicate cards.
+ var grid=heroCopy.querySelector(".bcq-home-choices");
+ if(grid){
+   grid.querySelectorAll("a[data-audience]").forEach(function(a){
+     a.addEventListener("click",function(){
+       try{if(typeof window.bcTrack==="function")window.bcTrack("home_primary_choice",{
+         audience:a.getAttribute("data-audience"),
+         destination:a.getAttribute("data-audience")==="sell"?"sheet_tool":"buyer_check"
+       })}catch(e){}
+     });
+   });
+ }
  if(path){
    var head=path.querySelector(".pathfinder-head h2");if(head)head.textContent="ほかのご相談";
    var footer=path.querySelector(".pathfinder-footer");
