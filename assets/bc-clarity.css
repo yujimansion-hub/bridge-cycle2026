@@ -128,3 +128,78 @@ body.bcq-sign{--bcq-navy:#225b4c;--bcq-bg:#f4faf7;--bcq-border:#d0e7da;--bcq-ink
  .bcq-visual-home .bcq-choice-copy small{font-size:11px;line-height:1.45}
  .bcq-visual-home .bcq-choice-arrow{font-size:16px}
 }
+
+
+/* HOME 2026-11-03: one decision, two paths, actual A4. Native HTML is usable without JS. */
+.home-focus .hero-copy{min-width:0}
+.home-focus .top2-sub{color:#d7e4eb!important;max-width:none!important;font-size:clamp(16px,1.55vw,19px)!important;line-height:1.55!important;margin:18px 0 18px!important}
+.home-focus .bcq-home-choices{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 14px;max-width:545px}
+.home-focus .bcq-choice{display:grid;grid-template-columns:50px minmax(0,1fr) 20px;gap:15px;align-items:center;min-height:90px;padding:16px 19px;background:#fff;border:1.5px solid #d7e3e7;border-radius:13px;box-shadow:0 7px 27px #081b3030}
+.home-focus .bcq-choice:first-child{background:#ecf8d9;border-color:#b8dd83}
+.home-focus .bcq-choice-icon{width:47px;height:47px;border-radius:12px}
+.home-focus .bcq-choice-icon svg{width:31px;height:31px}
+.home-focus .bcq-choice-copy strong{font-size:clamp(17px,1.65vw,20px);font-weight:900;color:#162b42}
+.home-focus .bcq-choice-copy small{font-size:clamp(12px,1.15vw,14px);color:#536676;line-height:1.65;font-weight:600}
+.home-focus .bcq-choice-arrow{display:block;font-size:21px;color:#4d6c85}
+.home-focus .home-seller-detail{display:inline-flex;color:#cbe7a5;font-size:12.5px;font-weight:750;text-underline-offset:4px;gap:8px;margin:4px 0 0}
+.home-focus .home-seller-detail:hover{color:#fff}
+.home-focus .top2-rep{margin-top:21px!important;padding-top:12px!important;border-top:1px solid #ffffff26;max-width:545px}
+.home-a4-preview{min-width:0;padding:19px 22px 19px;background:linear-gradient(145deg,#213b51,#10253a);border:1px solid #6f988a77;border-radius:19px;box-shadow:0 24px 65px #0003;position:relative}
+.home-a4-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:5px 14px;margin:0 0 7px}
+.home-a4-label{color:#b5d6ac;font-size:10px;font-weight:850;letter-spacing:.14em}
+.home-a4-head strong{color:#fff;font-size:clamp(15px,1.55vw,19px);font-weight:800}
+.home-a4-stage{height:clamp(314px,32vw,430px);display:flex;justify-content:center;align-items:center;position:relative;isolation:isolate;overflow:hidden}
+.home-a4-stage:before{content:"";position:absolute;inset:15% 5% 2%;background:radial-gradient(ellipse at center,#adc99c45 0,transparent 68%);filter:blur(21px);z-index:-1}
+.home-a4-paper{width:clamp(190px,21vw,282px);padding:9px;background:#fff;box-shadow:0 17px 43px #0007;transform:rotate(4deg);border-radius:4px}
+.home-a4-paper img{display:block;width:100%;height:auto}
+.home-a4-sticker{position:absolute;top:20%;right:0;background:#fff;color:#173453;border-radius:999px;padding:9px 15px;font-size:13px;box-shadow:0 9px 28px #0005;font-weight:900}
+.home-a4-sticker span{color:#619a37;font-size:16px;margin-right:5px}
+.home-a4-note{margin:7px 0 4px;color:#f0f6f4;line-height:1.7;font-size:13px;font-weight:750}
+.home-a4-fine{color:#a9bcc9;font-size:10px;line-height:1.5;margin:0}
+.home-brand-video{background:#ecf0ed;border-top:1px solid #d6dfdb;padding:0 0 0}
+.home-brand-video>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:0 auto;padding:23px 21px;cursor:pointer;color:#243e50;list-style:none}
+.home-brand-video>summary::-webkit-details-marker{display:none}
+.home-brand-video>summary small{display:block;letter-spacing:.13em;color:#6f827e;font-size:10px;font-weight:850}
+.home-brand-video>summary strong{display:block;font-size:17px;line-height:1.5}
+.home-brand-play{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:#172e48;color:#c5eb82;font-size:14px}
+.home-brand-video[open] .home-brand-play{transform:rotate(90deg)}
+.home-brand-video-inside{padding:3px 18px 30px!important}
+.home-brand-video .launch-film{max-width:720px;margin:0 auto;box-shadow:0 15px 28px #0b1d2420}
+.home-work-a4 .work-pv{background:linear-gradient(160deg,#e8f2dc,#f1f5ef)}
+.home-work-a4 .work-pv img{height:290px;width:auto;object-fit:contain;box-shadow:0 12px 25px #16283930}
+.home-work-a4 .work-stamp{color:#2f5922;border-color:#c5d8b5;background:#f3fbe9}
+.home-works-secondary{font-size:13px;line-height:1.8;color:#526473;background:#f5f7f5;border:1px solid #e4ebe5;padding:14px 17px;margin:18px 0 10px;border-radius:8px}
+.home-works-secondary a{font-weight:850;color:#23527a;text-underline-offset:3px}
+@media(max-width:900px){
+ .home-focus .top2>.w{grid-template-columns:1fr!important;gap:23px!important}
+ .home-focus .hero-copy{max-width:740px}
+ .home-a4-preview{width:100%;max-width:640px;margin:0 auto}
+ .home-a4-stage{height:360px}
+ .home-a4-paper{width:240px}
+}
+@media(max-width:600px){
+ .home-focus .top2>.w{gap:15px!important}
+ .home-focus .top2-sub{margin:12px 0 14px!important;font-size:16px!important}
+ .home-focus .bcq-home-choices{grid-template-columns:1fr!important;gap:9px!important}
+ .home-focus .bcq-choice{grid-template-columns:43px minmax(0,1fr) 14px!important;min-height:86px!important;gap:11px!important;padding:12px 14px!important;border-radius:11px!important}
+ .home-focus .bcq-choice-icon{width:43px!important;height:43px!important}
+ .home-focus .bcq-choice-icon svg{width:28px!important;height:28px!important}
+ .home-focus .bcq-choice-copy strong{font-size:17px!important}
+ .home-focus .bcq-choice-copy small{font-size:12px!important}
+ .home-focus .bcq-choice-arrow{display:block!important;font-size:18px!important}
+ .home-focus .home-seller-detail{font-size:12px}
+ .home-a4-preview{max-width:100%;padding:16px;border-radius:14px}
+ .home-a4-head strong{font-size:15px}
+ .home-a4-stage{height:275px}
+ .home-a4-paper{width:180px}
+ .home-a4-sticker{padding:6px 9px;font-size:11px;right:0}
+ .home-a4-note{font-size:12px}
+ .home-brand-video>summary{padding:19px 17px}
+ .home-brand-video>summary strong{font-size:15px}
+ .home-brand-video-inside{padding:0 14px 22px!important}
+ .home-works-secondary{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-focus .bcq-choice{transition:none}
+ .home-focus .bcq-choice:hover{transform:none}
+}
