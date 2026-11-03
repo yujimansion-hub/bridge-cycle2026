@@ -28,3 +28,5 @@ jobs:
           git add assets/BRIDGE_CYCLE_concept_liveaction_30s.mp4 film_preview/final_contact.b64 film_preview/render_meta.json
           git commit -m "Produce 30-second no-credit live-action concept film" || true
           git push origin HEAD:film/no-credit-live-action-20261103
+
+# Retry corrected FFmpeg concat playlist
