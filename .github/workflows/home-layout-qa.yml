@@ -31,3 +31,5 @@ jobs:
           git push origin HEAD:fix/home-layout-qa-20261103
 
 # 2026-11-03 latest live-page visual review
+
+# Latest public homepage 47aa930 verification
