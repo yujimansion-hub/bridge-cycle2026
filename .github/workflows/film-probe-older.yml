@@ -1,0 +1,28 @@
+name: Source-probe older owned footage
+on:
+  push:
+    branches: [film/no-credit-live-action-20261103]
+    paths: ['.github/workflows/film-probe-older.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  contact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: film/no-credit-live-action-20261103
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install Pillow --quiet --break-system-packages
+      - name: View earlier already-owned video clips
+        run: python3 scripts/film_probe_more.py
+      - name: Commit inspection contact sheet
+        run: |
+          git config user.name "BRIDGE CYCLE Film Builder"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add film_preview/more_montage.b64 film_preview/more_manifest.json
+          git commit -m "Inspect older live-action-style video sources" || true
+          git push origin HEAD:film/no-credit-live-action-20261103
