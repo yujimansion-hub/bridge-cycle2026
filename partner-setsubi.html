@@ -378,6 +378,26 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 }
 @media(prefers-reduced-motion:reduce){.visual-main-cta:hover{transform:none}.visual-optional-plus{transition:none}}
 
+
+/* Optional film shown only to the randomized on cohort; main A4 CTA is identical in both groups. */
+.visual-film[hidden]{display:none!important}
+.visual-film{background:#fff;padding:42px 0 39px;border-top:1px solid #e8ebe7}
+.visual-film-wrap{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);align-items:center;gap:36px}
+.visual-film-caption h2{font-family:"Noto Sans JP",sans-serif;font-size:clamp(24px,2.9vw,32px);font-weight:900;line-height:1.45;letter-spacing:-.045em;margin:0 0 8px}
+.visual-film-caption>p:last-child{margin:0;font-size:13px;color:#626f7c}
+.visual-film-player{position:relative;overflow:hidden;border-radius:14px;background:#142744;aspect-ratio:16/9;box-shadow:0 10px 32px rgba(15,37,61,.17)}
+.visual-film-player video{width:100%;height:100%;display:block;object-fit:contain}
+.visual-film-cover{position:absolute;inset:0;border:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:8px;padding:clamp(18px,3vw,38px);background:radial-gradient(circle at 87% 19%,rgba(149,201,105,.2),transparent 37%),linear-gradient(110deg,#112643f2,#173553ee);color:#fff;cursor:pointer;font-family:inherit}
+.visual-film-cover:focus-visible{outline:4px solid #a7cd67;outline-offset:-4px}
+.visual-film-cover-kicker{font-size:11px;letter-spacing:.12em;font-weight:700;color:#c5dda7}
+.visual-film-cover strong{font-size:clamp(26px,3.6vw,46px);font-weight:900;letter-spacing:-.055em;line-height:1.3}
+.visual-film-cover em{font-style:normal;color:#b8e37f}
+.visual-film-start{margin-top:7px;display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700}
+.visual-film-start>span{display:inline-grid;place-items:center;background:#b5df7c;color:#142744;width:41px;height:41px;border-radius:50%;padding-left:3px;font-size:13px}
+.visual-film-player.is-playing .visual-film-cover{display:none}
+.visual-film-disclaimer{max-width:900px;margin:15px auto 0;padding:0 20px;font-size:11px;color:#72808d;line-height:1.65}
+@media(max-width:760px){.visual-film{padding:33px 0 29px}.visual-film-wrap{grid-template-columns:1fr;gap:18px}.visual-film-caption h2{font-size:23px}.visual-film-cover strong{font-size:34px}}
+
 </style>
 <script src="bc-analytics.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"設備販売会社向け補助金提案・申請支援パートナー","serviceType":"設備販売会社向け補助金提案・事業計画支援","provider":{"@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/"},"areaServed":["滋賀県","京都府"],"audience":{"@type":"BusinessAudience","audienceType":"設備販売会社・設備メーカー・厨房機器販売会社・システム販売会社"},"offers":{"@type":"Offer","description":"設備販売会社側の提携登録料・月額費用は0円"}}</script>
@@ -445,6 +465,28 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
     </div>
     <p class="visual-legal">※候補・補助額は一次確認であり、採択・交付を保証しません。購入検討者が希望した場合に限り個別相談を受け付けます。申請支援は内容・料金を事前提示し、合意後に有料で対応します。</p>
   </div>
+</section>
+<section class="visual-film" id="concept-film" aria-labelledby="concept-film-title" hidden>
+  <div class="wrap visual-film-wrap">
+    <div class="visual-film-caption">
+      <p class="visual-section-kicker">BRAND FILM / 30 SEC</p>
+      <h2 id="concept-film-title">止まった商談に、<br>もうひとつの道を。</h2>
+      <p>実写調の30秒。音声あり・クリック再生。</p>
+    </div>
+    <div class="visual-film-player">
+      <video id="concept-film-video" playsinline preload="none" controls
+        aria-label="BRIDGE CYCLE 30秒コンセプトムービー。見積書にもう1枚。">
+        <source src="assets/BRIDGE_CYCLE_concept_liveaction_30s.mp4" type="video/mp4">
+        <a href="assets/BRIDGE_CYCLE_concept_liveaction_30s.mp4">動画を開く</a>
+      </video>
+      <button class="visual-film-cover" id="concept-film-play" type="button" aria-label="コンセプトムービー30秒を再生">
+        <span class="visual-film-cover-kicker">BRIDGE CYCLE / 30 SEC</span>
+        <strong>見積書に、<br><em>もう1枚。</em></strong>
+        <span class="visual-film-start"><span aria-hidden="true">▶</span> 30秒を見る</span>
+      </button>
+    </div>
+  </div>
+  <p class="visual-film-disclaimer">※実際の撮影・支援案件ではなく、既存のAI生成による実写調イメージ映像です。採択や受注を示すものではありません。</p>
 </section>
 <details class="visual-optional" id="optional-support">
   <summary class="visual-optional-trigger"><span><small>MORE SUPPORT</small><strong>紹介リンク・個別相談・詳しいご案内</strong></span><span class="visual-optional-plus" aria-hidden="true">＋</span></summary>
@@ -759,5 +801,72 @@ BRIDGE CYCLE株式会社　代表取締役 中村裕二<br>滋賀県大津市に
   });
 })();
 </script>
+
+<script>
+/* Randomized LP test: browser-sticky 50/50 video offer vs no video.
+   Conversion numerator is the A4 tool's successful sheet issuance, not a CTA click.
+   No fingerprint, buyer data, browser ID, or visitor token is sent. */
+(function(){
+  var EXP="partner_movie_v1", KEY="bc_"+EXP+"_variant";
+  var p=new URLSearchParams(location.search), debug=p.get("film_test");
+  var forced=debug==="on"||debug==="off";
+  var variant=forced?debug:null;
+  if(!variant)try{variant=localStorage.getItem(KEY);}catch(e){}
+  if(variant!=="on"&&variant!=="off") {
+    variant=Math.random()<.5?"on":"off";
+    try{localStorage.setItem(KEY,variant);}catch(e){}
+  }
+  var film=document.getElementById("concept-film");
+  if(film&&variant==="on")film.hidden=false;
+  var cover=document.getElementById("concept-film-play"),video=document.getElementById("concept-film-video");
+  function log(ev){
+    if(forced)return; /* QA preview must not contaminate real exposure/issue rates. */
+    var payload=JSON.stringify({experiment:EXP,variant:variant,event:ev});
+    var url="https://mitsumori-mikata.com/api/experiments/partner-movie";
+    try{
+      if(navigator.sendBeacon){
+        var sent=navigator.sendBeacon(url,new Blob([payload],{type:"text/plain"}));
+        if(sent)return;
+      }
+      fetch(url,{method:"POST",mode:"no-cors",keepalive:true,headers:{"content-type":"text/plain"},body:payload}).catch(function(){});
+    }catch(e){}
+  }
+  var seenKey="bc_"+EXP+"_seen";
+  if(!forced){
+    var seen=false;
+    try{seen=localStorage.getItem(seenKey)===variant;}catch(e){}
+    if(!seen){
+      log("view");
+      try{localStorage.setItem(seenKey,variant);}catch(e){}
+    }
+    if(window.bcTrack)try{window.bcTrack("partner_movie_ab_exposure",{experiment:EXP,variant:variant});}catch(e){}
+  }
+  // Preserve randomization across all routes into the external A4 tool.
+  document.querySelectorAll('a[href^="https://mitsumori-mikata.com/sheet"]').forEach(function(a){
+    try{
+      var u=new URL(a.href);
+      u.searchParams.set("src",forced?"partner_lp_demo":"partner_movie_v1_"+variant);
+      a.href=u.toString();
+      a.addEventListener("click",function(){
+        log("cta");
+        if(window.bcTrack)window.bcTrack("partner_movie_ab_cta",{experiment:EXP,variant:variant,placement:a.getAttribute("data-track")||"other"});
+      });
+    }catch(e){}
+  });
+  if(video&&cover&&variant==="on"){
+    cover.addEventListener("click",function(){
+      video.play().then(function(){video.closest(".visual-film-player").classList.add("is-playing");})
+        .catch(function(){video.setAttribute("controls","");video.closest(".visual-film-player").classList.add("is-playing");});
+    });
+    var counted=false;
+    video.addEventListener("play",function(){
+      video.closest(".visual-film-player").classList.add("is-playing");
+      if(counted)return;counted=true;log("play");
+      if(window.bcTrack)window.bcTrack("partner_movie_ab_play",{experiment:EXP,variant:variant});
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

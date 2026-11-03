@@ -65,6 +65,9 @@ if(!cfg){Object.keys(cohorts).some(function(g){if(cohorts[g].test(key)){cohort=g
 if(!cfg&&/^road-sign\/.+\.html$/.test(key))cfg=templates["road-sign/index.html"];
 if(["contact.html","soudan.html","check.html"].includes(key))return;
 if(!cfg||key==="index.html"){if(key==="index.html")onHome();return}
+// The equipment-vendor LP already has a single focused A4 CTA, illustrated steps,
+// and a randomized film experiment. Do not inject a second quick-action bar.
+if(key==="partner-setsubi.html")return;
 if(key.indexOf("akinai")===0)document.body.classList.add("bcq-akinai");
 if(key.indexOf("road-sign/")===0)document.body.classList.add("bcq-sign");
 var h1=document.querySelector("h1");if(!h1)return;
