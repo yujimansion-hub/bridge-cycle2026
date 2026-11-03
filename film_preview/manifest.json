@@ -1,0 +1,86 @@
+[
+  {
+    "name": "A_latest",
+    "ok": true,
+    "duration": 30.0,
+    "size": 10619372,
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "codec_name": "aac"
+      }
+    ]
+  },
+  {
+    "name": "B_latest",
+    "error": "curl: (22) The requested URL returned error: 403\n"
+  },
+  {
+    "name": "C_older",
+    "ok": true,
+    "duration": 30.0,
+    "size": 12395400,
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "codec_name": "aac"
+      }
+    ]
+  },
+  {
+    "name": "D_older",
+    "ok": true,
+    "duration": 30.0,
+    "size": 12369781,
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "codec_name": "aac"
+      }
+    ]
+  },
+  {
+    "name": "E_older",
+    "ok": true,
+    "duration": 30.0,
+    "size": 12337916,
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "codec_name": "aac"
+      }
+    ]
+  },
+  {
+    "name": "F_original_LP",
+    "ok": true,
+    "duration": 30.0,
+    "size": 5824401,
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "codec_name": "aac"
+      }
+    ]
+  }
+]
