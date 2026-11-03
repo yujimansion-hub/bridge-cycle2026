@@ -8,7 +8,7 @@ const path=require('path');
  const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1});
  const page=await context.newPage();const errors=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
- await page.goto('https://www.bridgecycleco.com/?qa='+Date.now(),{waitUntil:'domcontentloaded',timeout:45000});
+ await page.goto((process.env.QA_URL || 'https://www.bridgecycleco.com/')+'?qa='+Date.now(),{waitUntil:'domcontentloaded',timeout:45000});
  await page.waitForTimeout(2200);
  const data=await page.evaluate(()=>{
    const rect=(q)=>{const e=document.querySelector(q);if(!e)return null;const r=e.getBoundingClientRect(),cs=getComputedStyle(e);return {x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height),display:cs.display,grid:cs.gridTemplateColumns,color:cs.color,visibility:cs.visibility,overflowX:cs.overflowX}};
