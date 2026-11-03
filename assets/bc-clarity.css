@@ -108,28 +108,8 @@ body.bcq-sign{--bcq-navy:#225b4c;--bcq-bg:#f4faf7;--bcq-border:#d0e7da;--bcq-ink
 }
 @media(prefers-reduced-motion:reduce){.bcq-choice,.bcq-visual .bcq-action{transition:none}}
 
-/* Two clear, benefit-led routes: dealer vs equipment buyer. */
-.bcq-visual-home .top2 .hero-copy{min-width:0}
-.bcq-visual-home .bcq-home-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
-.bcq-visual-home .bcq-choice{min-height:158px;grid-template-columns:1fr 16px;grid-template-rows:48px auto;align-content:space-between;gap:8px 10px;padding:20px;border-width:2px;border-radius:17px;background:#fff}
-.bcq-visual-home .bcq-choice:first-child{border-color:#97b95a;background:#f3f8e9}
-.bcq-visual-home .bcq-choice:nth-child(2){border-color:#afc7de;background:#f1f6fc}
-.bcq-visual-home .bcq-choice-icon{grid-column:1;grid-row:1;height:46px;width:46px}
-.bcq-visual-home .bcq-choice-copy{grid-column:1;grid-row:2;gap:7px}
-.bcq-visual-home .bcq-choice-copy strong{font-size:clamp(18px,1.9vw,23px);line-height:1.25;letter-spacing:-.02em}
-.bcq-visual-home .bcq-choice-copy small{font-size:clamp(12px,1.2vw,14px);line-height:1.5;color:#405666;font-weight:650}
-.bcq-visual-home .bcq-choice-arrow{grid-column:2;grid-row:2;align-self:end;font-size:22px;display:block}
-.bcq-visual-home .pathfinder{border-top:1px solid #e3e8ed}
-@media(max-width:600px){
- .bcq-visual-home .bcq-home-choices{gap:9px}
- .bcq-visual-home .bcq-choice{min-height:132px;padding:13px 10px;border-radius:12px;grid-template-rows:32px auto;gap:8px}
- .bcq-visual-home .bcq-choice-icon{width:31px;height:31px}
- .bcq-visual-home .bcq-choice-copy strong{font-size:15px}
- .bcq-visual-home .bcq-choice-copy small{font-size:11px;line-height:1.45}
- .bcq-visual-home .bcq-choice-arrow{font-size:16px}
-}
-
-
+/* Retired the previous two-column vertically-stacked choice cards.
+   The following design owns the full card placement, avoiding competing grid rows. */
 /* HOME 2026-11-03: one decision, two paths, actual A4. Native HTML is usable without JS. */
 .home-focus .hero-copy{min-width:0}
 .home-focus .top2-sub{color:#d7e4eb!important;max-width:none!important;font-size:clamp(16px,1.55vw,19px)!important;line-height:1.55!important;margin:18px 0 18px!important}
@@ -202,4 +182,19 @@ body.bcq-sign{--bcq-navy:#225b4c;--bcq-bg:#f4faf7;--bcq-border:#d0e7da;--bcq-ink
 @media(prefers-reduced-motion:reduce){
  .home-focus .bcq-choice{transition:none}
  .home-focus .bcq-choice:hover{transform:none}
+}
+
+
+/* Keep the representative proof visible on the dark hero background. */
+.home-focus .top2-rep,
+.home-focus .top2-rep span{color:#d4e1ed!important}
+.home-focus .top2-rep b{color:#ffffff!important}
+.home-focus .top2-rep .rep-arr{color:#bde285!important}
+/* Explicitly restore automatic placement in case an earlier CSS version is cached. */
+.bcq-visual-home .home-focus .bcq-choice-icon{grid-column:1!important;grid-row:1!important}
+.bcq-visual-home .home-focus .bcq-choice-copy{grid-column:2!important;grid-row:1!important;min-width:0!important}
+.bcq-visual-home .home-focus .bcq-choice-arrow{grid-column:3!important;grid-row:1!important;align-self:center!important}
+@media(max-width:600px){
+ .bcq-visual-home .home-focus .bcq-choice-copy{grid-column:2!important;grid-row:1!important}
+ .bcq-visual-home .home-focus .bcq-choice-arrow{grid-column:3!important;grid-row:1!important}
 }
