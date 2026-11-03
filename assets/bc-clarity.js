@@ -79,12 +79,12 @@ function href(value){
 if(cfg[3]==="{form}"){var f=document.querySelector("main form,section form,.form-card");if(f&&!f.id&&!f.closest("[id]"))f.id="bcq-direct-form"}
 var sec=el("section","bcq");sec.setAttribute("aria-label","このページで最初にできること");
 var wrap=el("div","bcq-top"),copy=el("div","bcq-copy"),acts=el("div","bcq-actions");
-copy.append(el("p","bcq-kicker","ここから始める｜"+cfg[0]),el("h2","",cfg[1].split("。")[0]+"。"),el("p","bcq-summary",cfg[1]));
+var sentences=cfg[1].split("。").filter(Boolean);copy.append(el("p","bcq-kicker","ここから始める｜"+cfg[0]),el("h2","",sentences[0]+"。"));if(sentences.length>1)copy.append(el("p","bcq-summary",sentences.slice(1).join("。")+"。"));
 function link(label,url,alt){var target=href(url);if(url==="{first}"&&target==="/contact.html"&&!/相談|問い合わせ|応募/.test(label))label="内容について相談する";var a=el("a","bcq-action"+(alt?" alt":""),label+" →");a.href=target;a.dataset.bcClarity="1";a.dataset.bcAction=alt?"secondary":"primary";a.addEventListener("click",function(){try{if(typeof window.bcTrack==="function")window.bcTrack("ux_quick_action",{page:key,action:a.dataset.bcAction,destination:target})}catch(e){}});return a}
 var first=link(cfg[2],cfg[3],false),second=link(cfg[4],cfg[5],true);
 acts.append(first,second);wrap.append(copy,acts);sec.append(wrap);
 var flow=el("div","bcq-flow");cfg.slice(6,9).forEach(function(s){flow.append(el("span","",s))});sec.append(flow);
-sec.append(el("p","bcq-foot","※表示内容・料金・受付条件は各サービスの案内をご確認ください。成果や採択を保証するものではありません。"));
+var note="※料金・受付条件は各サービスの案内をご確認ください。";if(/^(hojokin|setsubi|partner-setsubi)/.test(key))note="※制度の要件や公募状況は変わります。補助金の採択や投資効果を保証するものではありません。";else if(key.startsWith("road-sign/"))note="※集客成果や検索順位を保証するものではありません。";else if(key.startsWith("akinai"))note="※診断は仕事・収入・将来の結果を保証するものではありません。";else if(/(matching|shokei|taiten|tsugite|zousaku|yameru)/.test(key))note="※賃貸借条件や設備の状態等は別途確認が必要です。成約は保証されません。";sec.append(el("p","bcq-foot",note));
 var hero=h1.closest("section,article")||h1.closest(".hero,.top,.v4-hero")||h1.parentElement;
 if(hero&&hero.parentNode)hero.insertAdjacentElement("afterend",sec);
 else{var main=document.querySelector("main");(main||document.body).append(sec)}
