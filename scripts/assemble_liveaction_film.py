@@ -14,8 +14,9 @@ TEMP.mkdir(exist_ok=True)
 W,H,FPS=1280,720,24
 BASE="https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/"
 SRC={
- "factory": "24b78806-ef40-466e-9d0a-ef5d5dffec2c.mp4",
- "story": "823e8b58-c11c-4d81-8ada-7cfd1af2edb0.mp4",
+ "paper": "ccca1552-df8e-4830-8d7e-e2a74d3e9a73.mp4",
+ "estimate": "8147c5d1-0b6f-4de8-8c05-d2746b6acdeb.mp4",
+ "machinery": "5503390e-b254-41ed-a03a-ec5fedaa359a.mp4",
 }
 def sh(cmd):
     print("RUN:",' '.join(str(x) for x in cmd[:7]),flush=True)
@@ -39,8 +40,8 @@ def overlay(title,section,index):
     # Transparent upper film tint + bottom branded vignette that hides the old hardcoded lower subtitles.
     p=img.load()
     for y in range(H):
-        if y<350:alpha=0
-        else:alpha=int(232*((y-350)/(H-350))**1.2)
+        if y<432:alpha=0
+        else:alpha=int(216*((y-432)/(H-432))**.87)
         if alpha>0:
             for x in range(W):
                 p[x,y]=(navy[0],navy[1],navy[2],alpha)
@@ -54,12 +55,12 @@ def overlay(title,section,index):
     d.text((1125,55),f"{index:02d} / 06",font=font(16),fill=(235,244,242,180))
     return img
 scenes=[
-    ("factory",0.0,4.0,"見積書に、\nもう1枚。","THE QUESTION"),
-    ("story",0.5,4.0,"「予算が…」\nその一言で。","THE WALL"),
-    ("factory",8.0,5.0,"まだ、\n終わりじゃない。","THE POSSIBILITY"),
-    ("factory",14.0,6.0,"道は、\nひとつじゃない。","THE TURN"),
-    ("factory",22.0,6.0,"もう一度、\n提案できる。","THE NEXT MOVE"),
-    ("story",26.0,2.5,"道を増やせ。","THE PROMISE"),
+    ("machinery",0.2,4.0,"見積書に、\nもう1枚。","THE SPARK"),
+    ("estimate",0.3,4.5,"「予算が…」","THE WALL"),
+    ("paper",0.6,5.0,"なら、別の道を。","THE IDEA"),
+    ("machinery",1.8,4.0,"やり方は、\n変えられる。","THE TURN"),
+    ("estimate",1.2,5.0,"決める前に、\n確かめる。","THE DECISION"),
+    ("paper",2.1,4.0,"もう一度、\n提案しよう。","THE NEXT MOVE"),
 ]
 # Render overlays + cinematic footage cut. No fabricated award/subsidy figures.
 segments=[]
@@ -103,7 +104,7 @@ if (ROOT/"assets/hojokin-sheet-sample.webp").exists():
     end.paste(paper,(914,143),paper)
 endpng=TEMP/"end.png";end.save(endpng)
 endmov=TEMP/"cut_6.mp4"
-sh(["ffmpeg","-hide_banner","-loglevel","error","-y","-loop","1","-framerate",str(FPS),"-i",str(endpng),"-t","2.5","-an","-vf","format=yuv420p","-c:v","libx264","-preset","fast","-crf","21",str(endmov)])
+sh(["ffmpeg","-hide_banner","-loglevel","error","-y","-loop","1","-framerate",str(FPS),"-i",str(endpng),"-t","3.5","-an","-vf","format=yuv420p","-c:v","libx264","-preset","fast","-crf","21",str(endmov)])
 segments.append(endmov)
 
 concat_txt=TEMP/"concat.txt"
@@ -158,7 +159,7 @@ sh(["ffmpeg","-hide_banner","-loglevel","error","-y","-i",str(silent),"-i",str(m
 
 # Human-review contact sheet, ASCII base64 in GitHub so the image can be inspected without binary download.
 tiles=[]
-for index,t in enumerate([2,6,10.5,16,22,26.3,28.5]):
+for index,t in enumerate([2,6,11,16.5,22,25.2,28.5]):
     jpg=TEMP/f"finished_{index}.jpg"
     sh(["ffmpeg","-hide_banner","-loglevel","error","-y","-ss",str(t),"-i",str(OUT),"-frames:v","1","-vf","scale=426:240","-q:v","4",str(jpg)])
     tiles.append(Image.open(jpg).convert("RGB"))
