@@ -1,4 +1,4 @@
-name: Audit current homepage layout
+name: Audit corrected homepage layout
 on:
   push:
     branches: [fix/home-layout-qa-20261103]
@@ -20,8 +20,11 @@ jobs:
           which google-chrome || which chromium || true
           mkdir -p /tmp/home-qa
           npm --prefix /tmp/home-qa install --no-audit --no-fund playwright-core@1.56.0
-      - name: Capture actual desktop and mobile layouts
-        run: NODE_PATH=/tmp/home-qa/node_modules node scripts/home-layout-qa.cjs
+      - name: Capture corrected local desktop and mobile layouts
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/home-server.log 2>&1 &
+          sleep 2
+          QA_URL=http://127.0.0.1:8765/ NODE_PATH=/tmp/home-qa/node_modules node scripts/home-layout-qa.cjs
       - name: Commit QA geometry and screenshots
         run: |
           git config user.name "BRIDGE CYCLE QA"
