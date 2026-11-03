@@ -43,7 +43,8 @@ var templates={
 "road-sign/akiban.html":["看板の設置先を探している方へ","看板の候補と、その先の検索・予約へのつながりを考えます。","看板の候補を相談","#contact","集客診断へ","/road-sign/#contact","候補を比較","設置条件を確認","診断も可能"],
 "road-sign/maps.html":["看板集客の事例を見たい方へ","看板から検索・予約まで、改善案を具体的に確認できます。","無料診断を申し込む","/road-sign/#contact","サービス全体を見る","/road-sign/","具体例","優先度で整理","無料診断あり"],
 "road-sign/owner.html":["看板スペースを提供したい方へ","掲載場所・条件についてご相談いただけます。","場所の相談をする","{first}","仕組みを知る","/road-sign/","看板スペース","条件確認","相談から"],
-"road-sign/partner.html":["看板会社・広告会社へ","看板の先にある検索・予約を組み合わせた提案ができます。","提携の登録・相談","#register","サービスを見る","/road-sign/","共同提案","店舗集客","相談から"]
+"road-sign/partner.html":["看板会社・広告会社へ","看板の先にある検索・予約を組み合わせた提案ができます。","提携の登録・相談","#register","サービスを見る","/road-sign/","共同提案","店舗集客","相談から"],
+"gyosei/06-koukyou-kukan.html":["自治体の公共空間活用担当へ","2日間の試行と3週間の標準版を比較し、次年度の判断材料を整理します。","予算化前に相談する","/gyosei.html#yosan","行政向け業務一覧","/gyosei.html","ライト版88万円","標準版165万円","税込参考額"]
 };
 var cohorts={
 "succession":/^(owner-entry|shimekata|tsuzukeru|keisai|shisan-kit|shisan|hitokoto|torihiki|partner-fudosan|partner-kit|partners)\.html$/,
@@ -79,7 +80,7 @@ if(cfg[3]==="{form}"){var f=document.querySelector("main form,section form,.form
 var sec=el("section","bcq");sec.setAttribute("aria-label","このページで最初にできること");
 var wrap=el("div","bcq-top"),copy=el("div","bcq-copy"),acts=el("div","bcq-actions");
 copy.append(el("p","bcq-kicker","ここから始める｜"+cfg[0]),el("h2","",cfg[1].split("。")[0]+"。"),el("p","bcq-summary",cfg[1]));
-function link(label,url,alt){var a=el("a","bcq-action"+(alt?" alt":""),label+" →");a.href=href(url);a.dataset.bcClarity="1";return a}
+function link(label,url,alt){var target=href(url);if(url==="{first}"&&target==="/contact.html"&&!/相談|問い合わせ|応募/.test(label))label="内容について相談する";var a=el("a","bcq-action"+(alt?" alt":""),label+" →");a.href=target;a.dataset.bcClarity="1";a.dataset.bcAction=alt?"secondary":"primary";a.addEventListener("click",function(){try{if(typeof window.bcTrack==="function")window.bcTrack("ux_quick_action",{page:key,action:a.dataset.bcAction,destination:target})}catch(e){}});return a}
 var first=link(cfg[2],cfg[3],false),second=link(cfg[4],cfg[5],true);
 acts.append(first,second);wrap.append(copy,acts);sec.append(wrap);
 var flow=el("div","bcq-flow");cfg.slice(6,9).forEach(function(s){flow.append(el("span","",s))});sec.append(flow);
