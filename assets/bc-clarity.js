@@ -77,32 +77,102 @@ function href(value){
  return value;
 }
 if(cfg[3]==="{form}"){var f=document.querySelector("main form,section form,.form-card");if(f&&!f.id&&!f.closest("[id]"))f.id="bcq-direct-form"}
-var sec=el("section","bcq");sec.setAttribute("aria-label","このページで最初にできること");
-var wrap=el("div","bcq-top"),copy=el("div","bcq-copy"),acts=el("div","bcq-actions");
-var sentences=cfg[1].split("。").filter(Boolean);copy.append(el("p","bcq-kicker","ここから始める｜"+cfg[0]),el("h2","",sentences[0]+"。"));if(sentences.length>1)copy.append(el("p","bcq-summary",sentences.slice(1).join("。")+"。"));
-function link(label,url,alt){var target=href(url);if(url==="{first}"&&target==="/contact.html"&&!/相談|問い合わせ|応募/.test(label))label="内容について相談する";var a=el("a","bcq-action"+(alt?" alt":""),label+" →");a.href=target;a.dataset.bcClarity="1";a.dataset.bcAction=alt?"secondary":"primary";a.addEventListener("click",function(){try{if(typeof window.bcTrack==="function")window.bcTrack("ux_quick_action",{page:key,action:a.dataset.bcAction,destination:target})}catch(e){}});return a}
-var first=link(cfg[2],cfg[3],false),second=link(cfg[4],cfg[5],true);
-acts.append(first,second);wrap.append(copy,acts);sec.append(wrap);
-var flow=el("div","bcq-flow");cfg.slice(6,9).forEach(function(s){flow.append(el("span","",s))});sec.append(flow);
-var note="※料金・受付条件は各サービスの案内をご確認ください。";if(/^(hojokin|setsubi|partner-setsubi)/.test(key))note="※制度の要件や公募状況は変わります。補助金の採択や投資効果を保証するものではありません。";else if(key.startsWith("road-sign/"))note="※集客成果や検索順位を保証するものではありません。";else if(key.startsWith("akinai"))note="※診断は仕事・収入・将来の結果を保証するものではありません。";else if(/(matching|shokei|taiten|tsugite|zousaku|yameru)/.test(key))note="※賃貸借条件や設備の状態等は別途確認が必要です。成約は保証されません。";sec.append(el("p","bcq-foot",note));
+/* Minimal visual quick actions: two choices, no repeated explanation or tag list. */
 var hero=h1.closest("section,article")||h1.closest(".hero,.top,.v4-hero")||h1.parentElement;
-if(hero&&hero.parentNode)hero.insertAdjacentElement("afterend",sec);
-else{var main=document.querySelector("main");(main||document.body).append(sec)}
+function readable(label){
+ var m={
+ "設備名・金額・目的を入力":"無料で確認","社名入り紹介リンクを作る":"紹介リンク作成","匿名で1件診断":"匿名診断","使える制度を無料確認":"補助金を確認",
+ "料金と支援内容を見る":"料金を見る","業務と参考仕様書":"業務・仕様書","予算化前に相談":"相談する","研修プログラムを見る":"研修内容を見る",
+ "店主：無料で登録":"店を登録","開業希望：お店を探す":"店を探す","お店の一覧を見る":"店舗一覧","出店の申込へ":"出店申込み",
+ "無料3分診断を始める":"3分診断","結果の見本を見る":"結果を見る","無料集客診断":"無料診断",
+ "無料診断を依頼":"無料診断","看板と検索の考え方":"集客の仕組み"
+ };return m[label]||label.replace("について","").replace("する","").replace("を見る","を見る");
+}
+function link(label,url,alt){
+ var target=href(url);
+ if(url==="{first}"&&target==="/contact.html"&&!/相談|問い合わせ|応募/.test(label))label="問い合わせ";
+ var a=el("a","bcq-action"+(alt?" alt":""),"");
+ a.href=target;a.dataset.bcClarity="1";a.dataset.bcAction=alt?"secondary":"primary";
+ var i=el("span","bcq-action-icon",alt?"↗":"→");
+ i.setAttribute("aria-hidden","true");
+ a.append(i,el("span","bcq-action-text",readable(label)));
+ a.addEventListener("click",function(){try{if(typeof window.bcTrack==="function")window.bcTrack("ux_quick_action",{page:key,action:a.dataset.bcAction,destination:target})}catch(e){}});
+ return a;
+}
+var first=link(cfg[2],cfg[3],false),second=link(cfg[4],cfg[5],true);
+var paths=hero?[...hero.querySelectorAll("a[href]")].map(function(a){return a.getAttribute("href")}):[];
+var bothShown=paths.includes(first.getAttribute("href"))&&paths.includes(second.getAttribute("href"));
+if(!bothShown){
+ var sec=el("nav","bcq bcq-visual");
+ sec.setAttribute("aria-label","すぐ使う");
+ sec.append(el("p","bcq-kicker",cfg[0]));
+ var actions=el("div","bcq-actions");
+ actions.append(first,second);sec.append(actions);
+ if(hero&&hero.parentNode)hero.insertAdjacentElement("afterend",sec);
+ else{var main=document.querySelector("main");(main||document.body).append(sec)}
+}
+shortenHero();
+function shortenHero(){
+ if(!hero)return;
+ var lead=hero.querySelector(".lead,.v4-lead,.rw-hero-copy p,.hero-description");
+ if(!lead||lead.closest(".form-card")||lead.querySelector("a,button,input,select,textarea"))return;
+ if(lead.textContent.trim().length<52)return;
+ lead.classList.add("bcq-compact-lead");
+ var toggle=el("button","bcq-expand","続きを読む ＋");toggle.type="button";toggle.setAttribute("aria-expanded","false");
+ toggle.addEventListener("click",function(){var on=lead.classList.toggle("bcq-open");toggle.textContent=on?"閉じる −":"続きを読む ＋";toggle.setAttribute("aria-expanded",String(on))});
+ lead.insertAdjacentElement("afterend",toggle);
+}
 if(document.querySelector(".mobile-cta,.sticky-cta,#stickyCta")||/^akinai/.test(key)||key==="setsubi-kounyu.html")return;
 if(first.getAttribute("href")==="/contact.html"&&/^road-sign\//.test(key))return;
 var floating=el("div","bcq-float");floating.append(el("span","bcq-float-label",cfg[0]),link(cfg[2],cfg[3],false));
 document.body.append(floating);document.body.classList.add("bcq-has-float");
-if("IntersectionObserver" in window){var io=new IntersectionObserver(function(entries){floating.hidden=entries[0].isIntersecting},{threshold:.1});io.observe(sec)}
-function onHome(){
- document.body.classList.add("bcq-home");
- var hero=document.querySelector(".top2"),path=document.getElementById("entry-paths");
- if(hero&&path&&hero.parentNode){hero.insertAdjacentElement("afterend",path)}
- var tagline=document.querySelector(".top2-sub");
- if(tagline)tagline.textContent="設備を買う・補助金を探す・商談を進める・地域施策を動かす。いまの課題に合った入口から、無料の一次確認・相談を始められます。";
- var copy=document.querySelector(".top2 .hero-copy");
- if(copy&&!copy.querySelector(".bc-home-kicker"))copy.insertBefore(el("p","bc-home-kicker","目的を選んで、すぐに始められます"),copy.firstChild);
- if(path){var head=path.querySelector(".pathfinder-head h2");if(head)head.textContent="あなたは、どちらの立場ですか？";
- var cards=path.querySelectorAll(".pathfinder-item");
- [["設備の購入を考えている方","補助金・自己負担を無料で確かめる"],["設備を販売する方","社名入り紹介リンクを作る・匿名診断する"],["自治体・支援機関の方","仕様書・見積のたたき台を見る"],["医院・クリニックの方","Googleマップ・予約の集客を無料診断"]].forEach(function(x,i){var card=cards[i];if(!card)return;var audience=card.querySelector(".pathfinder-audience"),detail=card.querySelector(".pathfinder-detail");if(audience)audience.textContent=x[0];if(detail)detail.textContent=x[1]})}
+if("IntersectionObserver" in window){var observing=hero||document.querySelector(".bcq");if(observing){var io=new IntersectionObserver(function(entries){floating.hidden=entries[0].isIntersecting},{threshold:.1});io.observe(observing)}}
+function iconShape(type){
+ var shapes={
+ equipment:["M3 21V10l6 3V7l6 3V4l6 3v14H3Z","M7 17h2m4 0h2m4 0h1"],
+ sell:["M3 6h18v12H3z","M7 10h10m-10 4h7","M16 14l2 2 3-4"],
+ store:["M3 10l2-6h14l2 6","M4 10v11h16V10M9 21v-7h6v7"],
+ public:["M3 9l9-6 9 6","M5 10v10m5-10v10m5-10v10m5-10v10M2 21h20"],
+ clinic:["M4 21V5h16v16M9 10h6m-3-3v6M8 21v-5h8v5"],
+ future:["M12 21V10M12 13C5 13 4 9 4 5c6 0 8 3 8 8M12 16c0-5 3-8 8-8 0 5-2 8-8 8"]
+ };
+ var svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
+ svg.setAttribute("viewBox","0 0 24 24");svg.setAttribute("width","32");svg.setAttribute("height","32");svg.setAttribute("fill","none");svg.setAttribute("stroke","currentColor");svg.setAttribute("stroke-width","1.8");svg.setAttribute("stroke-linecap","round");svg.setAttribute("stroke-linejoin","round");svg.setAttribute("aria-hidden","true");
+ (shapes[type]||shapes.equipment).forEach(function(d){var p=document.createElementNS("http://www.w3.org/2000/svg","path");p.setAttribute("d",d);svg.appendChild(p)});
+ return svg;
 }
+function onHome(){
+ document.body.classList.add("bcq-home","bcq-visual-home");
+ var hero=document.querySelector(".top2"),path=document.getElementById("entry-paths");
+ var tagline=document.querySelector(".top2-sub");if(tagline)tagline.textContent="何をしたいですか？";
+ var heroCopy=hero&&hero.querySelector(".hero-copy");
+ if(!heroCopy)return;
+ var grid=el("nav","bcq-home-choices");grid.setAttribute("aria-label","目的から選ぶ");
+ var choices=[
+ ["設備を買う","補助金・自己負担","/setsubi-kounyu.html","equipment"],
+ ["設備を売る","匿名診断・紹介","/partner-setsubi.html","sell"],
+ ["お店を継ぐ・渡す","店舗承継","/matching.html","store"],
+ ["行政・商工団体","調査・計画","/gyosei.html","public"],
+ ["医院の集客","看板・Googleマップ","/road-sign/","clinic"],
+ ["これからの仕事","無料3分診断","/akinai.html","future"]
+ ];
+ choices.forEach(function(c){
+  var a=el("a","bcq-choice");a.href=c[2];
+  var icon=el("span","bcq-choice-icon");icon.appendChild(iconShape(c[3]));
+  var v=el("span","bcq-choice-copy");v.append(el("strong","",c[0]),el("small","",c[1]));
+  var arrow=el("span","bcq-choice-arrow","↗");arrow.setAttribute("aria-hidden","true");
+  a.append(icon,v,arrow);grid.appendChild(a);
+ });
+ var old=heroCopy.querySelector(".home-hero-actions");if(old)old.insertAdjacentElement("beforebegin",grid);else heroCopy.append(grid);
+ var kicker=heroCopy.querySelector(".bc-home-kicker");if(kicker)kicker.remove();
+ if(path){
+   var head=path.querySelector(".pathfinder-head h2");if(head)head.textContent="そのほかのサービス";
+   var footer=path.querySelector(".pathfinder-footer");
+   if(footer){
+     var more=[["売り場を借りる","/uriba.html"],["研修を依頼","/koen.html"],["補助金の総合相談","/hojokin.html"],["相談する","/contact.html"]];
+     footer.innerHTML="";more.forEach(function(x){var a=el("a","bcq-more",x[0]+" ↗");a.href=x[1];footer.appendChild(a)})
+   }
+ }
+}
+
 })();
