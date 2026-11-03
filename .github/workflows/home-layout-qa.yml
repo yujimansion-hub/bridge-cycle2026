@@ -29,3 +29,5 @@ jobs:
           git add qa/home-layout-geometry.json qa/*.b64 qa/*_full.jpg
           git commit -m "Inspect live layout across five viewports" || true
           git push origin HEAD:fix/home-layout-qa-20261103
+
+# 2026-11-03 latest live-page visual review
