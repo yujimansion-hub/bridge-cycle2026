@@ -890,6 +890,8 @@ html .hero-microtrust{font-size:13px}
 .top2 .top2-what{color:#d6e7bf!important}
 .trustsec .trust{grid-template-columns:repeat(4,1fr)!important}
 @media (max-width:760px){.trustsec .trust{grid-template-columns:1fr 1fr!important}}
+@media (max-width:620px){.trustsec .trust{grid-template-columns:1fr!important}}
+@media (max-width:360px){.site-head .nav-x{display:none}}
 
 /* 2026-11-03 評価分析を受けた改善：買う側の訴求 */
 .top2 .top2-value{margin:18px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;color:#fff}
@@ -910,6 +912,19 @@ html .hero-microtrust{font-size:13px}
 .bq-big span{font-size:16px;font-weight:700;color:#c5eb82}
 .bq-ex{font-size:12.5px;line-height:1.7;margin:0;color:inherit;opacity:.85}
 .bq-know{margin:0 0 14px;padding:0;list-style:none}.bq-know li{position:relative;padding:0 0 9px 24px;font-size:15.5px;font-weight:700;line-height:1.5}.bq-know li:before{content:"✓";position:absolute;left:0;color:#c5eb82;font-weight:800}
+.bq-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;padding:0;list-style:none}.bq-tags li{background:#fff;border:1px solid #d9e1dc;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;color:#142237}
+@media(max-width:620px){
+ html .top2 .home-a4-preview{display:grid!important;grid-template-columns:96px 1fr;column-gap:14px;row-gap:4px;align-items:center;padding:14px 16px!important;margin-top:22px!important;min-height:0!important}
+ html .top2 .home-a4-head{grid-column:2;display:block!important;margin:0!important;padding:0!important}
+ html .top2 .home-a4-head .home-a4-label{display:none!important}
+ html .top2 .home-a4-head strong{font-size:16px!important}
+ html .top2 .home-a4-stage{grid-column:1;grid-row:1/span 3;height:auto!important;min-height:0!important;padding:0!important;margin:0!important;perspective:none!important}
+ html .top2 .home-a4-paper{width:96px!important;max-width:96px!important;transform:none!important;margin:0!important;box-shadow:0 6px 16px rgba(0,0,0,.35)!important}
+ html .top2 .home-a4-paper img{width:100%!important;height:auto!important}
+ html .top2 .home-a4-sticker{display:none!important}
+ html .top2 .home-a4-note{grid-column:2;font-size:12px!important;margin:0!important;line-height:1.6!important}
+ html .top2 .home-a4-fine{grid-column:2;font-size:10px!important;margin:0!important}
+}
 .bq-fee{font-size:13px;color:#4a5562;margin:18px 0 0;line-height:1.8}.bq-fee a{color:#142237;font-weight:700}
 .bq-flow{margin:0;padding:0;list-style:none;counter-reset:f}
 .bq-flow li{counter-increment:f;position:relative;padding:0 0 12px 34px;font-size:12.5px;line-height:1.6;color:#4a5562}
@@ -951,7 +966,7 @@ html .hero-microtrust{font-size:13px}
 
 <header class="site-head"><div class="w">
  <a class="brand" href="./" aria-label="BRIDGE CYCLE トップ"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#142237"/><path d="M12 41 Q32 15 52 41" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M20 46 Q32 31 44 46" fill="none" stroke="#c5eb82" stroke-width="4.5" stroke-linecap="round"/></svg><span>BRIDGE CYCLE<small>戻れるから、踏み出せる。</small></span></a>
- <nav class="gnav" aria-label="主なご案内"><a href="partner-setsubi.html" data-t="hub_nav_seller">設備を売る方</a><a href="setsubi-kounyu.html#free-check" data-t="hub_nav_buyer">設備を買う方</a><a href="gyosei.html" data-t="hub_nav_gyosei">行政・支援機関</a><a href="#entry-paths" data-t="hub_nav_services">その他の事業</a><a class="line" href="hojokin-ogata.html" data-t="hub_nav_consult">補助金を無料で確認</a></nav>
+ <nav class="gnav" aria-label="主なご案内"><a href="partner-setsubi.html" data-t="hub_nav_seller">設備を売る方</a><a href="setsubi-kounyu.html#free-check" data-t="hub_nav_buyer">設備を買う方</a><a href="gyosei.html" data-t="hub_nav_gyosei">行政・支援機関</a><a href="#entry-paths" data-t="hub_nav_services">その他の事業</a><a class="line" href="hojokin-ogata.html" data-t="hub_nav_consult"><span class="nav-x">補助金を</span>無料で確認</a></nav>
 </div>
 </header>
 
@@ -1008,7 +1023,7 @@ html .hero-microtrust{font-size:13px}
   <div class="bq-grid">
    <div class="bq-card bq-price"><span class="bq-label">無料の一次確認でわかること</span><ul class="bq-know"><li>使える補助金の候補</li><li>補助額と自己負担の目安</li><li>資金繰り・投資回収の考え方</li><li>発注前に注意すること</li></ul><p class="bq-ex">入力は設備名・概算金額・導入時期など、約1分。</p></div>
    <div class="bq-card"><span class="bq-label">依頼する場合の流れ</span><ol class="bq-flow"><li><b>無料の一次確認</b>候補と確認事項をお伝えします。依頼するかはその後で</li><li><b>経営計画を一緒につくる</b>数字まで、代表が経営者と作成します</li><li><b>申請</b>申請書類の作成・提出は連携する行政書士が担当</li></ol></div>
-   <div class="bq-card"><span class="bq-label">実績（代表個人の通算）</span><div class="bq-rec"><div><b>5<small>／5件</small></b>ものづくり補助金</div><div><b>6<small>／8件</small></b>事業再構築補助金</div></div><p class="bq-ex">商工会経営指導員の在職時を含みます。採択を保証するものではありません。</p></div>
+   <div class="bq-card"><span class="bq-label">補助金の対象になりやすい設備の例</span><ul class="bq-tags"><li>加工機・工作機械</li><li>包装機・充填機</li><li>食品機械・乾燥機</li><li>ロボット・自動化</li><li>冷凍冷蔵・空調</li><li>業務システム</li></ul><p class="bq-ex">制度ごとに要件が違います。対象になるかは一次確認でお伝えします。</p></div>
   </div>
   <p class="bq-fee">一次確認と結果のご説明までは無料です。申請支援をご依頼の場合の料金は<a href="hojokin-ogata.html" data-t="home_buyer_fee">大型補助金のページ</a>に掲載しています（成功報酬型・不採択なら着手金のみ）。</p>
   <div class="bq-cta"><a class="bq-btn" href="setsubi-kounyu.html#free-check" data-t="home_buyer_check">無料で一次確認する ↗</a><a class="bq-sub" href="hojokin-ogata.html" data-t="home_buyer_ogata">大型補助金の申請支援を見る →</a></div>
