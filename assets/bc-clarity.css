@@ -1,0 +1,47 @@
+/* BRIDGE CYCLE Clarity Layer — additive, brand-safe. 2026-11-03 */
+:root{--bcq-navy:#142237;--bcq-accent:#c5eb82;--bcq-border:#dae2e8;--bcq-bg:#f5f8fb;--bcq-ink:#152a38}
+.bcq{position:relative;isolation:isolate;max-width:1160px;width:calc(100% - 36px);margin:28px auto 54px;padding:24px 26px;background:var(--bcq-bg);border:1px solid var(--bcq-border);border-radius:18px;color:var(--bcq-ink);box-shadow:0 10px 32px rgba(20,34,55,.06);font-family:"Noto Sans JP","BIZ UDPGothic",system-ui,sans-serif;line-height:1.65;letter-spacing:normal;text-align:left}
+.bcq *{box-sizing:border-box}
+.bcq p,.bcq h2{margin:0}
+.bcq-top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(220px,.72fr);gap:24px;align-items:center}
+.bcq-kicker{font-size:12px;font-weight:800;letter-spacing:.08em;color:#365e61}
+.bcq h2{font-family:inherit;font-size:clamp(20px,2.4vw,27px);font-weight:800;line-height:1.45;letter-spacing:-.02em;margin:7px 0 8px;color:var(--bcq-ink)}
+.bcq-summary{font-size:14px;color:#4d626e;max-width:62ch}
+.bcq-actions{display:flex;flex-direction:column;gap:9px}
+.bcq-action{display:flex;justify-content:center;align-items:center;min-height:50px;padding:11px 16px;border:2px solid var(--bcq-navy);border-radius:11px;background:var(--bcq-navy);color:#fff!important;text-decoration:none!important;text-align:center;font-size:14px;font-weight:800;line-height:1.5;box-shadow:none;white-space:normal}
+.bcq-action:hover{background:#2d4662;color:#fff!important}
+.bcq-action:focus-visible,.bcq-mini a:focus-visible,.bcq-float a:focus-visible{outline:3px solid #447fdd;outline-offset:3px}
+.bcq-action.alt{background:#fff;color:var(--bcq-navy)!important}
+.bcq-action.alt:hover{background:#edf2f8}
+.bcq-flow{display:flex;gap:7px;flex-wrap:wrap;border-top:1px solid var(--bcq-border);padding-top:13px;margin-top:16px}
+.bcq-flow span{font-size:12px;font-weight:700;background:#fff;border:1px solid var(--bcq-border);border-radius:999px;padding:4px 10px;color:#4e6370}
+.bcq-foot{font-size:11px;color:#637783;margin-top:10px}
+.bcq-mini{margin:14px 0 0;font-size:13px}
+.bcq-mini a{font-weight:700;color:var(--bcq-navy)!important;text-underline-offset:3px}
+.bcq a,.bcq a:visited{opacity:1}
+.bcq-float{display:none}
+.bc-home-kicker{font-size:13px;font-weight:800;letter-spacing:.02em;color:#365567;margin:0 0 10px;padding-left:13px;border-left:4px solid #9bcf53}
+body.bcq-home .pathfinder{scroll-margin-top:80px}
+body.bcq-home .pathfinder-grid>a{min-height:195px}
+body.bcq-home .pathfinder-item{transition:transform .17s,box-shadow .17s}
+body.bcq-home .pathfinder-item:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(20,34,55,.12)}
+body.bcq-home .pathfinder-item:focus-visible{outline:3px solid #2370af;outline-offset:3px}
+body.bcq-akinai{--bcq-navy:#725249;--bcq-bg:#fffaf5;--bcq-border:#e8d5cb;--bcq-ink:#49342e}
+body.bcq-sign{--bcq-navy:#225b4c;--bcq-bg:#f4faf7;--bcq-border:#d0e7da;--bcq-ink:#173e34}
+@media(max-width:720px){
+ .bcq{width:calc(100% - 28px);padding:20px 18px;margin:22px auto 36px;border-radius:14px}
+ .bcq-top{grid-template-columns:1fr;gap:15px}
+ .bcq h2{font-size:21px}
+ .bcq-summary{font-size:14px}
+ .bcq-actions{display:grid;grid-template-columns:1fr}
+ .bcq-action{font-size:15px;min-height:52px}
+ .bcq-flow{gap:6px}
+ body.bcq-has-float{padding-bottom:78px!important}
+ .bcq-float{position:fixed;display:flex;align-items:center;gap:12px;z-index:9999;left:0;right:0;bottom:0;padding:10px max(14px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid #d9e2e7;box-shadow:0 -6px 24px rgba(0,0,0,.1);font-family:"Noto Sans JP",system-ui,sans-serif}
+ .bcq-float[hidden]{display:none!important}
+ .bcq-float-label{flex:1;min-width:0;font-size:12px;line-height:1.4;font-weight:700;color:#324956}
+ .bcq-float a{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-height:46px;max-width:65%;padding:9px 17px;border-radius:10px;background:var(--bcq-navy);color:#fff!important;font-size:13px;font-weight:800;text-decoration:none!important;text-align:center}
+ body.bcq-akinai .bcq-float{background:#fffaf5}
+}
+@media(prefers-reduced-motion:reduce){body.bcq-home .pathfinder-item{transition:none}}
+@media print{.bcq-float{display:none!important}.bcq{box-shadow:none}}
