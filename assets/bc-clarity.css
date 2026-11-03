@@ -107,3 +107,24 @@ body.bcq-sign{--bcq-navy:#225b4c;--bcq-bg:#f4faf7;--bcq-border:#d0e7da;--bcq-ink
  .bcq-visual-home .pathfinder-footer a.bcq-more{font-size:11.5px;min-height:37px;padding:7px 10px}
 }
 @media(prefers-reduced-motion:reduce){.bcq-choice,.bcq-visual .bcq-action{transition:none}}
+
+/* Two clear, benefit-led routes: dealer vs equipment buyer. */
+.bcq-visual-home .top2 .hero-copy{min-width:0}
+.bcq-visual-home .bcq-home-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.bcq-visual-home .bcq-choice{min-height:158px;grid-template-columns:1fr 16px;grid-template-rows:48px auto;align-content:space-between;gap:8px 10px;padding:20px;border-width:2px;border-radius:17px;background:#fff}
+.bcq-visual-home .bcq-choice:first-child{border-color:#97b95a;background:#f3f8e9}
+.bcq-visual-home .bcq-choice:nth-child(2){border-color:#afc7de;background:#f1f6fc}
+.bcq-visual-home .bcq-choice-icon{grid-column:1;grid-row:1;height:46px;width:46px}
+.bcq-visual-home .bcq-choice-copy{grid-column:1;grid-row:2;gap:7px}
+.bcq-visual-home .bcq-choice-copy strong{font-size:clamp(18px,1.9vw,23px);line-height:1.25;letter-spacing:-.02em}
+.bcq-visual-home .bcq-choice-copy small{font-size:clamp(12px,1.2vw,14px);line-height:1.5;color:#405666;font-weight:650}
+.bcq-visual-home .bcq-choice-arrow{grid-column:2;grid-row:2;align-self:end;font-size:22px;display:block}
+.bcq-visual-home .pathfinder{border-top:1px solid #e3e8ed}
+@media(max-width:600px){
+ .bcq-visual-home .bcq-home-choices{gap:9px}
+ .bcq-visual-home .bcq-choice{min-height:132px;padding:13px 10px;border-radius:12px;grid-template-rows:32px auto;gap:8px}
+ .bcq-visual-home .bcq-choice-icon{width:31px;height:31px}
+ .bcq-visual-home .bcq-choice-copy strong{font-size:15px}
+ .bcq-visual-home .bcq-choice-copy small{font-size:11px;line-height:1.45}
+ .bcq-visual-home .bcq-choice-arrow{font-size:16px}
+}
