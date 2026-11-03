@@ -5,7 +5,7 @@ var raw=location.pathname||"/",key=raw.endsWith("/")?(raw==="/"?"index.html":raw
 var templates={
 "index.html":null,
 "setsubi-kounyu.html":["設備を購入する経営者へ","補助金だけでなく、購入後の自己負担も無料で一次確認。","設備名・金額・目的を入力","#free-check","設備販売会社の方へ","/partner-setsubi.html","入力3項目","一次確認0円","購入を決める前"],
-"partner-setsubi.html":["設備販売会社・メーカーへ","顧客名なしで確認できる。見積書に添える紹介リンクも作れます。","社名入り紹介リンクを作る","#referral-link","匿名で1件診断","#diagnosis","登録不要","販売会社の費用0円","1案件から"],
+"partner-setsubi.html":["設備販売会社・メーカーへ","顧客名なしで確認できる。見積書に添える紹介リンクも作れます。","無料A4シートを作る","#sheet-tool","匿名で1件診断","#diagnosis","登録不要","販売会社の費用0円","1案件から"],
 "hojokin-ogata.html":["大型補助金を検討中の企業へ","対象制度・資金繰り・発注の順番を、契約前に整理します。","使える制度を無料確認","/setsubi-kounyu.html","料金と支援内容を見る","#q-hiyo","無料一次確認","採択保証なし","全国オンライン"],
 "hojokin.html":["小規模事業者の補助金相談","今の事業で申請できるか、何を準備するかを先に確認します。","相談する","/contact.html","大型設備投資はこちら","/hojokin-ogata.html","初回相談0円","条件確認から","正式依頼は別"],
 "setsubi-soudan.html":["設備投資を検討中の方へ","購入前に補助金・負担額・導入時期を一緒に整理します。","無料一次確認へ","/setsubi-kounyu.html","販売会社向け入口","/partner-setsubi.html","相談0円","見積前でも可","オンライン対応"],
@@ -149,8 +149,8 @@ function onHome(){
  if(!heroCopy)return;
  var grid=el("nav","bcq-home-choices");grid.setAttribute("aria-label","目的から選ぶ");
  var choices=[
- ["設備を買う","補助金・自己負担","/setsubi-kounyu.html","equipment"],
- ["設備を売る","匿名診断・紹介","/partner-setsubi.html","sell"],
+ ["設備を買う","補助金＋自己負担","/setsubi-kounyu.html#free-check","equipment"],
+ ["設備を売る","社名入りA4・無料","/partner-setsubi.html#sheet-tool","sell"],
  ["お店を継ぐ・渡す","店舗承継","/matching.html","store"],
  ["行政・商工団体","調査・計画","/gyosei.html","public"],
  ["医院の集客","看板・Googleマップ","/road-sign/","clinic"],
