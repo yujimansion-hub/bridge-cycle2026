@@ -107,7 +107,7 @@ sh(["ffmpeg","-hide_banner","-loglevel","error","-y","-loop","1","-framerate",st
 segments.append(endmov)
 
 concat_txt=TEMP/"concat.txt"
-concat_txt.write_text("".join("file '"+str(p.resolve()).replace("'","")+"'\\n" for p in segments))
+concat_txt.write_text(chr(10).join("file '"+str(p.resolve()).replace("'","")+"'" for p in segments)+chr(10))
 silent=TEMP/"silent.mp4"
 sh(["ffmpeg","-hide_banner","-loglevel","error","-y","-f","concat","-safe","0","-i",str(concat_txt),"-c","copy","-movflags","+faststart",str(silent)])
 
