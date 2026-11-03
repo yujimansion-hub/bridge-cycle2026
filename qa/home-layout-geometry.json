@@ -3,7 +3,7 @@
     "label": "desktop",
     "width": 1440,
     "height": 900,
-    "url": "http://127.0.0.1:8765/?qa=1793715009404",
+    "url": "https://www.bridgecycleco.com/?qa=1793715988093",
     "docWidth": 1440,
     "viewport": 1440,
     "bodyWidth": 1440,
@@ -11,7 +11,7 @@
       "x": 0,
       "y": 77,
       "width": 1440,
-      "height": 667,
+      "height": 781,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -22,7 +22,7 @@
       "x": 100,
       "y": 111,
       "width": 1240,
-      "height": 595,
+      "height": 709,
       "display": "grid",
       "grid": "530.156px 597.828px",
       "color": "rgb(255, 255, 255)",
@@ -33,7 +33,7 @@
       "x": 120,
       "y": 111,
       "width": 530,
-      "height": 595,
+      "height": 709,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -53,7 +53,7 @@
     },
     "choices": {
       "x": 120,
-      "y": 391,
+      "y": 504,
       "width": 530,
       "height": 192,
       "display": "grid",
@@ -65,7 +65,7 @@
     "cards": [
       {
         "x": 120,
-        "y": 391,
+        "y": 504,
         "width": 530,
         "height": 90,
         "display": "grid",
@@ -76,7 +76,7 @@
       },
       {
         "x": 120,
-        "y": 493,
+        "y": 606,
         "width": 530,
         "height": 90,
         "display": "grid",
@@ -88,7 +88,7 @@
     ],
     "preview": {
       "x": 722,
-      "y": 128,
+      "y": 185,
       "width": 598,
       "height": 560,
       "display": "block",
@@ -99,7 +99,7 @@
     },
     "paper": {
       "x": 867,
-      "y": 201,
+      "y": 257,
       "width": 309,
       "height": 410,
       "display": "block",
@@ -110,7 +110,7 @@
     },
     "topRep": {
       "x": 120,
-      "y": 647,
+      "y": 761,
       "width": 530,
       "height": 59,
       "display": "flex",
@@ -121,7 +121,7 @@
     },
     "video": {
       "x": 0,
-      "y": 1481,
+      "y": 4674,
       "width": 1440,
       "height": 91,
       "display": "block",
@@ -132,7 +132,7 @@
     },
     "trust": {
       "x": 0,
-      "y": 744,
+      "y": 858,
       "width": 1440,
       "height": 137,
       "display": "block",
@@ -142,9 +142,9 @@
       "overflowX": "visible"
     },
     "nav": {
-      "x": 715,
+      "x": 758,
       "y": 15,
-      "width": 605,
+      "width": 562,
       "height": 46,
       "display": "flex",
       "grid": "none",
@@ -159,7 +159,7 @@
     "label": "laptop",
     "width": 1024,
     "height": 768,
-    "url": "http://127.0.0.1:8765/?qa=1793715013254",
+    "url": "https://www.bridgecycleco.com/?qa=1793715991751",
     "docWidth": 1024,
     "viewport": 1024,
     "bodyWidth": 1024,
@@ -167,7 +167,7 @@
       "x": 0,
       "y": 77,
       "width": 1024,
-      "height": 614,
+      "height": 722,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -178,7 +178,7 @@
       "x": 0,
       "y": 111,
       "width": 1024,
-      "height": 542,
+      "height": 650,
       "display": "grid",
       "grid": "477px 477px",
       "color": "rgb(255, 255, 255)",
@@ -189,7 +189,7 @@
       "x": 20,
       "y": 111,
       "width": 477,
-      "height": 542,
+      "height": 650,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -209,7 +209,7 @@
     },
     "choices": {
       "x": 20,
-      "y": 338,
+      "y": 445,
       "width": 477,
       "height": 192,
       "display": "grid",
@@ -221,7 +221,7 @@
     "cards": [
       {
         "x": 20,
-        "y": 338,
+        "y": 445,
         "width": 477,
         "height": 90,
         "display": "grid",
@@ -232,7 +232,7 @@
       },
       {
         "x": 20,
-        "y": 440,
+        "y": 547,
         "width": 477,
         "height": 90,
         "display": "grid",
@@ -244,7 +244,7 @@
     ],
     "preview": {
       "x": 527,
-      "y": 156,
+      "y": 210,
       "width": 477,
       "height": 452,
       "display": "block",
@@ -255,7 +255,7 @@
     },
     "paper": {
       "x": 648,
-      "y": 221,
+      "y": 274,
       "width": 235,
       "height": 311,
       "display": "block",
@@ -266,7 +266,7 @@
     },
     "topRep": {
       "x": 20,
-      "y": 594,
+      "y": 702,
       "width": 477,
       "height": 59,
       "display": "flex",
@@ -277,7 +277,7 @@
     },
     "video": {
       "x": 0,
-      "y": 1380,
+      "y": 4580,
       "width": 1024,
       "height": 91,
       "display": "block",
@@ -288,7 +288,7 @@
     },
     "trust": {
       "x": 0,
-      "y": 691,
+      "y": 799,
       "width": 1024,
       "height": 137,
       "display": "block",
@@ -298,9 +298,9 @@
       "overflowX": "visible"
     },
     "nav": {
-      "x": 483,
+      "x": 515,
       "y": 16,
-      "width": 521,
+      "width": 489,
       "height": 44,
       "display": "flex",
       "grid": "none",
@@ -315,7 +315,7 @@
     "label": "tablet",
     "width": 768,
     "height": 1000,
-    "url": "http://127.0.0.1:8765/?qa=1793715015938",
+    "url": "https://www.bridgecycleco.com/?qa=1793715994629",
     "docWidth": 768,
     "viewport": 768,
     "bodyWidth": 768,
@@ -323,7 +323,7 @@
       "x": 0,
       "y": 66,
       "width": 768,
-      "height": 1039,
+      "height": 1101,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -334,7 +334,7 @@
       "x": 29,
       "y": 100,
       "width": 710,
-      "height": 967,
+      "height": 1029,
       "display": "grid",
       "grid": "670px",
       "color": "rgb(255, 255, 255)",
@@ -345,7 +345,7 @@
       "x": 49,
       "y": 100,
       "width": 670,
-      "height": 455,
+      "height": 517,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -365,7 +365,7 @@
     },
     "choices": {
       "x": 49,
-      "y": 320,
+      "y": 381,
       "width": 545,
       "height": 192,
       "display": "grid",
@@ -377,7 +377,7 @@
     "cards": [
       {
         "x": 49,
-        "y": 320,
+        "y": 381,
         "width": 545,
         "height": 90,
         "display": "grid",
@@ -388,7 +388,7 @@
       },
       {
         "x": 49,
-        "y": 422,
+        "y": 483,
         "width": 545,
         "height": 90,
         "display": "grid",
@@ -400,7 +400,7 @@
     ],
     "preview": {
       "x": 64,
-      "y": 584,
+      "y": 646,
       "width": 640,
       "height": 483,
       "display": "block",
@@ -411,7 +411,7 @@
     },
     "paper": {
       "x": 253,
-      "y": 645,
+      "y": 707,
       "width": 263,
       "height": 348,
       "display": "block",
@@ -433,7 +433,7 @@
     },
     "video": {
       "x": 0,
-      "y": 2176,
+      "y": 6730,
       "width": 768,
       "height": 91,
       "display": "block",
@@ -444,7 +444,7 @@
     },
     "trust": {
       "x": 0,
-      "y": 1105,
+      "y": 1167,
       "width": 768,
       "height": 117,
       "display": "block",
@@ -454,9 +454,9 @@
       "overflowX": "visible"
     },
     "nav": {
-      "x": 625,
+      "x": 608,
       "y": 10,
-      "width": 123,
+      "width": 140,
       "height": 44,
       "display": "flex",
       "grid": "none",
@@ -471,7 +471,7 @@
     "label": "mobile",
     "width": 390,
     "height": 844,
-    "url": "http://127.0.0.1:8765/?qa=1793715018668",
+    "url": "https://www.bridgecycleco.com/?qa=1793715997276",
     "docWidth": 390,
     "viewport": 390,
     "bodyWidth": 390,
@@ -479,7 +479,7 @@
       "x": 0,
       "y": 63,
       "width": 390,
-      "height": 864,
+      "height": 959,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -490,7 +490,7 @@
       "x": 0,
       "y": 85,
       "width": 390,
-      "height": 814,
+      "height": 909,
       "display": "grid",
       "grid": "350px",
       "color": "rgb(255, 255, 255)",
@@ -501,7 +501,7 @@
       "x": 20,
       "y": 85,
       "width": 350,
-      "height": 404,
+      "height": 498,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -521,7 +521,7 @@
     },
     "choices": {
       "x": 20,
-      "y": 264,
+      "y": 359,
       "width": 350,
       "height": 181,
       "display": "grid",
@@ -533,7 +533,7 @@
     "cards": [
       {
         "x": 20,
-        "y": 264,
+        "y": 359,
         "width": 350,
         "height": 86,
         "display": "grid",
@@ -544,7 +544,7 @@
       },
       {
         "x": 20,
-        "y": 359,
+        "y": 454,
         "width": 350,
         "height": 86,
         "display": "grid",
@@ -556,7 +556,7 @@
     ],
     "preview": {
       "x": 20,
-      "y": 509,
+      "y": 603,
       "width": 350,
       "height": 390,
       "display": "block",
@@ -567,7 +567,7 @@
     },
     "paper": {
       "x": 97,
-      "y": 568,
+      "y": 663,
       "width": 197,
       "height": 259,
       "display": "block",
@@ -589,7 +589,7 @@
     },
     "video": {
       "x": 0,
-      "y": 1945,
+      "y": 7042,
       "width": 390,
       "height": 80,
       "display": "block",
@@ -600,7 +600,7 @@
     },
     "trust": {
       "x": 0,
-      "y": 927,
+      "y": 1022,
       "width": 390,
       "height": 193,
       "display": "block",
@@ -610,9 +610,9 @@
       "overflowX": "visible"
     },
     "nav": {
-      "x": 264,
+      "x": 248,
       "y": 12,
-      "width": 106,
+      "width": 122,
       "height": 38,
       "display": "flex",
       "grid": "none",
@@ -627,7 +627,7 @@
     "label": "small",
     "width": 320,
     "height": 720,
-    "url": "http://127.0.0.1:8765/?qa=1793715021440",
+    "url": "https://www.bridgecycleco.com/?qa=1793716000327",
     "docWidth": 320,
     "viewport": 320,
     "bodyWidth": 320,
@@ -635,7 +635,7 @@
       "x": 0,
       "y": 63,
       "width": 320,
-      "height": 908,
+      "height": 1030,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -646,7 +646,7 @@
       "x": 0,
       "y": 85,
       "width": 320,
-      "height": 858,
+      "height": 980,
       "display": "grid",
       "grid": "280px",
       "color": "rgb(255, 255, 255)",
@@ -657,7 +657,7 @@
       "x": 20,
       "y": 85,
       "width": 280,
-      "height": 404,
+      "height": 526,
       "display": "block",
       "grid": "none",
       "color": "rgb(255, 255, 255)",
@@ -677,7 +677,7 @@
     },
     "choices": {
       "x": 20,
-      "y": 264,
+      "y": 387,
       "width": 280,
       "height": 181,
       "display": "grid",
@@ -689,7 +689,7 @@
     "cards": [
       {
         "x": 20,
-        "y": 264,
+        "y": 387,
         "width": 280,
         "height": 86,
         "display": "grid",
@@ -700,7 +700,7 @@
       },
       {
         "x": 20,
-        "y": 359,
+        "y": 482,
         "width": 280,
         "height": 86,
         "display": "grid",
@@ -712,7 +712,7 @@
     ],
     "preview": {
       "x": 20,
-      "y": 509,
+      "y": 631,
       "width": 280,
       "height": 434,
       "display": "block",
@@ -723,7 +723,7 @@
     },
     "paper": {
       "x": 62,
-      "y": 592,
+      "y": 714,
       "width": 197,
       "height": 259,
       "display": "block",
@@ -745,7 +745,7 @@
     },
     "video": {
       "x": 0,
-      "y": 1996,
+      "y": 7315,
       "width": 320,
       "height": 80,
       "display": "block",
@@ -756,7 +756,7 @@
     },
     "trust": {
       "x": 0,
-      "y": 971,
+      "y": 1093,
       "width": 320,
       "height": 213,
       "display": "block",
@@ -766,9 +766,9 @@
       "overflowX": "visible"
     },
     "nav": {
-      "x": 180,
+      "x": 179,
       "y": 10,
-      "width": 120,
+      "width": 139,
       "height": 42,
       "display": "flex",
       "grid": "none",
