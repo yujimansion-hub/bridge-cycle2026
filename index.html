@@ -68,6 +68,7 @@ header .w{display:flex;align-items:center;gap:20px;height:64px}
 .top2{padding:64px 0 56px;background:linear-gradient(180deg,var(--mist) 0%,#fff 100%)}
 .top2 .w{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .top2-where{font-size:14px;color:var(--ai-2);margin-bottom:16px}
+.top2-what{display:inline-block;font-size:14px;font-weight:700;color:var(--ai-2);border-left:3px solid #c5eb82;padding-left:10px;margin:0 0 14px;line-height:1.5}
 .top2 h1{font-size:clamp(32px,5vw,54px);line-height:1.3;font-weight:700;letter-spacing:.01em}
 .top2-sub{margin-top:20px;font-size:17px;color:var(--ai-2);max-width:30em}
 .top2-gyo{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
@@ -884,6 +885,11 @@ html .hero-microtrust{font-size:13px}
  html .site-head .brand small{display:none}
  html .site-head .gnav a.line{display:inline-flex!important;padding:9px 12px!important;font-size:13px!important}
 }
+
+/* 事業内容の明示・実績4項目（2026-11-03） */
+.top2 .top2-what{color:#d6e7bf!important}
+.trustsec .trust{grid-template-columns:repeat(4,1fr)!important}
+@media (max-width:760px){.trustsec .trust{grid-template-columns:1fr 1fr!important}}
 </style>
 
 <!-- Clarity navigation: progressive enhancement; existing forms untouched -->
@@ -920,9 +926,10 @@ html .hero-microtrust{font-size:13px}
 <section class="top2" id="top" aria-labelledby="hero-title">
  <div class="w">
   <div class="hero-copy">
+   <p class="top2-what">補助金と設備投資の支援｜滋賀・京都、オンラインで全国</p>
    <h1 id="hero-title">戻れるから、<br><span class="top2-accent">踏み出せる。</span></h1>
    <p class="launch-intro">決める前に、<strong>確かめる。</strong></p>
-   <p class="top2-sub">設備投資・地域施策・医院集客を、数字と現場で確かめる経営支援。<br><strong>進む・見直す・見送る</strong>ための判断材料を整え、次の一手を一緒につくります。</p>
+   <p class="top2-sub">中心は、補助金を使った設備投資の支援です。発注の前に、補助金・自己負担・発注の時期を確かめます。自治体の地域施策や医院の集客もお手伝いします。</p>
    <div class="home-hero-actions">
     <a href="setsubi-kounyu.html" data-t="home_hero_subsidy">設備投資：補助金＋自己負担を確認 <span aria-hidden="true">↗</span></a>
     <a class="secondary" href="partner-setsubi.html#sheet-tool" data-t="home_hero_partner">設備販売会社：社名入りA4を無料作成 <span aria-hidden="true">↗</span></a>
@@ -951,10 +958,11 @@ html .hero-microtrust{font-size:13px}
         <div><b>認定経営革新等支援機関</b>中小企業庁の認定（認定番号 109825000112）</div>
         <div><b>経営支援約20年</b>代表個人の商工会等での通算経験</div>
         <div><b>支援先500社超</b>代表個人の通算経営支援実績</div>
+        <div><b>大型補助金 11／13件採択</b>ものづくり5／5件・事業再構築6／8件（代表個人の通算）</div>
         
       </div>
     </div>
-      <div class="w"><p class="trust-clarify">※「約20年」「500社超」は代表個人の通算実績であり、2026年設立の当社単独の実績ではありません。</p></div>
+      <div class="w"><p class="trust-clarify">※「約20年」「500社超」「11／13件」は代表個人の通算実績であり、2026年設立の当社単独の実績ではありません。</p></div>
   </section>
 
 
