@@ -269,6 +269,24 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 .mini .mo{display:block;margin-top:10px;font-size:13px;font-weight:700;color:var(--teal)}
 .mini .stamp{position:absolute;top:12px;right:-6px;background:#FFF6E8;color:#8A4B00;border:1px solid #F0D3A6;font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;transform:rotate(4deg)}
 @media(max-width:760px){.sheet-teaser .st{grid-template-columns:1fr}.sheet-teaser h2{font-size:23px}}
+
+/* その場で渡せる補助金シート */
+.selfsheet{background:#EEF2F5;padding:58px 0;scroll-margin-top:78px}
+.selfsheet .ss{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;align-items:center}
+.selfsheet h2{margin-bottom:14px}
+.ss-lead{font-size:16px;color:var(--ink);margin:0 0 18px}
+.ss-steps{list-style:none;margin:0 0 18px;padding:0;counter-reset:ss;display:grid;gap:8px}
+.ss-steps li{counter-increment:ss;display:grid;grid-template-columns:34px 1fr;align-items:baseline;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.ss-steps li::before{content:counter(ss);grid-row:span 2;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.ss-steps b{color:var(--navy);font-size:15.5px}.ss-steps span{font-size:13.5px;color:var(--soft)}
+.ss-facts{margin:0 0 20px;padding-left:1.2em;font-size:14px;color:var(--ink)}.ss-facts li{margin:3px 0}
+.ss-fine{font-size:12px;color:var(--soft);margin:12px 0 0;line-height:1.75}
+.ss-sheet{display:block;text-decoration:none;text-align:center}
+.ss-sheet img{width:100%;max-width:440px;height:auto;background:#fff;border-radius:2px;transform:rotate(-1.4deg);box-shadow:0 18px 40px -14px rgba(29,43,79,.45),0 3px 8px rgba(29,43,79,.1);transition:transform .2s}
+.ss-sheet:hover img,.ss-sheet:focus-visible img{transform:rotate(0)}
+.ss-cap{display:block;margin-top:14px;font-size:12.5px;color:var(--soft)}
+@media(max-width:860px){.selfsheet .ss{grid-template-columns:1fr;gap:26px}.ss-sheet img{max-width:360px}}
+@media(prefers-reduced-motion:reduce){.ss-sheet img{transition:none}}
 </style>
 <script src="bc-analytics.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"設備販売会社向け補助金提案・申請支援パートナー","serviceType":"設備販売会社向け補助金提案・事業計画支援","provider":{"@type":"Organization","name":"BRIDGE CYCLE株式会社","url":"https://www.bridgecycleco.com/"},"areaServed":["滋賀県","京都府"],"audience":{"@type":"BusinessAudience","audienceType":"設備販売会社・設備メーカー・厨房機器販売会社・システム販売会社"},"offers":{"@type":"Offer","description":"設備販売会社側の提携登録料・月額費用は0円"}}</script>
@@ -283,7 +301,7 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <header class="top">
 <div class="wrap">
 <a class="brand" href="./"><img src="logo.png" alt="" width="30" height="30">BRIDGE CYCLE</a>
-<a class="btn btn-main btn-sm" href="#referral-link">顧客に渡す紹介リンクを作る</a>
+<a class="btn btn-main btn-sm" href="#sheet-tool">補助金シートを作る</a>
 </div>
 </header>
 
@@ -293,10 +311,10 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <p class="eyebrow" id="hello">設備メーカー・設備販売会社の方へ</p>
 <h1 id="h1">見積書に、<br><em>補助金診断を。</em></h1>
 <p class="hero-tagline">顧客名なし。販売会社の費用0円。</p>
-<p class="lead">見積中の設備を無料で一次診断。社名入りの紹介リンクも作れます。</p>
-<div class="hero-cta"><a class="btn btn-main" href="#referral-link" data-track="main-referral">顧客に渡す専用リンクを作る ›</a><a class="btn btn-ghost" href="#diagnosis" data-track="main-entry">匿名で1件、無料診断する ↓</a></div>
+<p class="lead">お客様の会社名なしで、御社名入りの補助金シートをその場で印刷。止まった商談は、当社が無料で一次診断します。</p>
+<div class="hero-cta"><a class="btn btn-main" href="#sheet-tool" data-track="main-sheet">お客様に渡す補助金シートを作る ›</a><a class="btn btn-ghost" href="#diagnosis" data-track="main-entry">匿名で1件、無料診断する ↓</a></div>
 <p style="margin:13px 0 0;font-size:13px"><a href="setsubi-kounyu.html" style="color:#d9f5e9;font-weight:700">見積書と一緒に渡す：設備購入者向け無料一次確認ページ ↗</a></p>
-<p class="dealer-hero-note">① お客様へそのまま転送　② 匿名案件で先に試す。2つの紹介方法から選べます。</p>
+<p class="dealer-hero-note">① その場で補助金シートを印刷して手渡す　② 紹介リンクをお客様へ転送　③ 匿名案件で先に試す。3つの使い方から選べます。</p>
 <div class="zero" aria-label="販売会社の提携条件"><span>販売会社の費用 0円</span><span>紹介ノルマなし</span><span>1案件から試せる</span></div>
 </div>
 <div class="deal-visual" aria-label="設備商談を前に進める3段階のイメージ">
@@ -308,6 +326,25 @@ footer .tl{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);f
 <div class="deal-stage reopened"><span class="deal-num">3</span><div><b>もう一度、経営者に提案</b><small>制度が合わなければ、融資・導入時期も検討</small></div></div>
 <p class="deal-disclaimer">※再提案の選択肢を整理するサービスです。採択・受注は保証しません。</p>
 <p class="why3-h">ほかの補助金コンサルとの違い</p><ul class="why3"><li><b>紹介料のやりとりなし</b>どのメーカー・販売会社とも紹介料を払わず受け取らず。相見積もりでも中立で、お客様の費用に上乗せもありません。</li><li><b>翌営業日に、率直に回答</b>顧客名なしで原則翌営業日に一次回答。見込みが薄い案件は、その時点ではっきりお伝えします。</li><li><b>申請書類は行政書士が作成</b>改正行政書士法（2026年1月施行）に沿った体制。無資格の書類代行ではないので、安心してご紹介いただけます。</li><li><b>発注の時期まで見える</b>発注できる時期の目安を最初にお伝えし、採択・交付決定の節目もお客様の同意のもと御社にご連絡します。</li></ul>
+</div></div></section>
+<section class="selfsheet" id="sheet-tool" aria-labelledby="selfsheet-h"><div class="wrap"><div class="ss">
+<div class="ss-copy">
+<div class="label">その場で渡せる・全国対応・無料</div>
+<h2 id="selfsheet-h">選んで、印刷して、<br>手渡すだけ。</h2>
+<p class="ss-lead">「補助金が使えるなら買いたい」と言われたら。お客様の条件を選ぶだけで、<strong>御社名入りの「補助金の一次確認シート」</strong>がA4・1枚でできます。</p>
+<ol class="ss-steps">
+<li><b>御社の情報を登録</b><span>社名と連絡先を一度だけ。約1分です。</span></li>
+<li><b>お客様の条件を選ぶ</b><span>所在地・業種・設備・投資額・時期。会社名は入れません。</span></li>
+<li><b>印刷して手渡す</b><span>PDFに保存してメールでも送れます。</span></li>
+</ol>
+<ul class="ss-facts"><li>発注前の注意（交付決定前の発注は対象外）を冒頭に明記</li><li>補助金あり・なしの自己負担を並べて表示</li><li>国の制度に加え、都道府県・市区町村の募集中の制度も毎日更新</li></ul>
+<a class="btn btn-main" href="https://mitsumori-mikata.com/sheet?src=hp_setsubi" target="_blank" rel="noopener" data-track="sheet_tool_open">補助金シートを作る（無料） ›</a>
+<p class="ss-fine">金額まで試算するのは、当社が公募要領を確認した制度だけです。地域の制度は公開データの一覧で、内容は当社で確認していません。お客様が補助金の相談を希望された場合だけ、シートのQRから当社につながります。</p>
+</div>
+<a class="ss-sheet" href="https://mitsumori-mikata.com/sheet?src=hp_setsubi" target="_blank" rel="noopener" data-track="sheet_tool_image" aria-label="補助金の一次確認シートの見本を見て、作成ページを開く">
+<img src="assets/hojokin-sheet-sample.webp" width="1000" height="1414" alt="補助金の一次確認シートの見本。上部に販売会社名、発注前の注意、資金計画の比較、使える可能性のある制度、地域の募集中の制度、相談用QRが載っている" loading="lazy" decoding="async">
+<span class="ss-cap">実際のシート（見本）。上部に御社名が入ります</span>
+</a>
 </div></div></section>
 <section id="referral-link" class="alt" aria-labelledby="referral-h" style="scroll-margin-top:78px"><div class="wrap" style="max-width:850px"><div class="label">HANDOVER LINK / 顧客紹介の入口</div><h2 id="referral-h">説明不要。御社名入りの紹介リンクを送るだけ。</h2><div class="talk reflink"><h3>御社専用の紹介リンクを作る</h3><p style="color:#4A5562;font-size:13px;margin:0 0 12px">見積書を送るときにリンクと短い案内文を添えるだけ。お客様がご自身で一次確認を申し込みます。</p>
 <label for="ref-name">御社名（または営業担当名）</label>
