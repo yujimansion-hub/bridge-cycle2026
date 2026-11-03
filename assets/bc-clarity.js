@@ -149,8 +149,8 @@ function onHome(){
  if(!heroCopy)return;
  var grid=el("nav","bcq-home-choices");grid.setAttribute("aria-label","目的から選ぶ");
  var choices=[
- ["設備を買う","補助金＋自己負担","/setsubi-kounyu.html","equipment"],
- ["設備を売る","社名入りA4・無料","/partner-setsubi.html","sell"],
+ ["設備を買う","補助金＋自己負担","/setsubi-kounyu.html#free-check","equipment"],
+ ["設備を売る","社名入りA4・無料","/partner-setsubi.html#sheet-tool","sell"],
  ["お店を継ぐ・渡す","店舗承継","/matching.html","store"],
  ["行政・商工団体","調査・計画","/gyosei.html","public"],
  ["医院の集客","看板・Googleマップ","/road-sign/","clinic"],
