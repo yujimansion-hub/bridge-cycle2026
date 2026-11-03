@@ -1,0 +1,51 @@
+[
+  {
+    "id": "G",
+    "error": "Command '['curl', '-fLs', '--retry', '1', '--connect-timeout', '12', '--max-time', '60', 'https://d2ol7oe51mr4n9.cloudfront.net/user_3Kge3VIyzevLQoBIXKMX9fw2Y59/74d289a0-248d-4cf4-a1e5-37f3536b1338.mp4', '-o', '/home/runner/work/bridge-cycle2026/brid"
+  },
+  {
+    "id": "H",
+    "duration": 30.0,
+    "bytes": 11827039
+  },
+  {
+    "id": "I",
+    "duration": 30.0,
+    "bytes": 8115360
+  },
+  {
+    "id": "J",
+    "duration": 30.002035,
+    "bytes": 9891098
+  },
+  {
+    "id": "K",
+    "duration": 30.0,
+    "bytes": 10471784
+  },
+  {
+    "id": "L",
+    "duration": 6.791667,
+    "bytes": 1117551
+  },
+  {
+    "id": "M",
+    "duration": 6.791667,
+    "bytes": 818184
+  },
+  {
+    "id": "N",
+    "duration": 6.791667,
+    "bytes": 1497450
+  },
+  {
+    "id": "O",
+    "duration": 30.000977,
+    "bytes": 11101049
+  },
+  {
+    "id": "P",
+    "duration": 30.0,
+    "bytes": 7150950
+  }
+]
