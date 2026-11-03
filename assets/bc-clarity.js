@@ -144,17 +144,13 @@ function iconShape(type){
 function onHome(){
  document.body.classList.add("bcq-home","bcq-visual-home");
  var hero=document.querySelector(".top2"),path=document.getElementById("entry-paths");
- var tagline=document.querySelector(".top2-sub");if(tagline)tagline.textContent="何をしたいですか？";
+ var tagline=document.querySelector(".top2-sub");if(tagline)tagline.textContent="あなたは、どちらの立場ですか？";
  var heroCopy=hero&&hero.querySelector(".hero-copy");
  if(!heroCopy)return;
  var grid=el("nav","bcq-home-choices");grid.setAttribute("aria-label","目的から選ぶ");
  var choices=[
- ["設備を買う","補助金＋自己負担","/setsubi-kounyu.html#free-check","equipment"],
- ["設備を売る","社名入りA4・無料","/partner-setsubi.html#sheet-tool","sell"],
- ["お店を継ぐ・渡す","店舗承継","/matching.html","store"],
- ["行政・商工団体","調査・計画","/gyosei.html","public"],
- ["医院の集客","看板・Googleマップ","/road-sign/","clinic"],
- ["これからの仕事","無料3分診断","/akinai.html","future"]
+ ["設備販売会社","社名入りA4を無料作成","/partner-setsubi.html#sheet-tool","sell"],
+ ["設備導入企業","補助金・自己負担を確認","/setsubi-kounyu.html#free-check","equipment"]
  ];
  choices.forEach(function(c){
   var a=el("a","bcq-choice");a.href=c[2];
@@ -166,10 +162,10 @@ function onHome(){
  var old=heroCopy.querySelector(".home-hero-actions");if(old)old.insertAdjacentElement("beforebegin",grid);else heroCopy.append(grid);
  var kicker=heroCopy.querySelector(".bc-home-kicker");if(kicker)kicker.remove();
  if(path){
-   var head=path.querySelector(".pathfinder-head h2");if(head)head.textContent="そのほかのサービス";
+   var head=path.querySelector(".pathfinder-head h2");if(head)head.textContent="ほかのご相談";
    var footer=path.querySelector(".pathfinder-footer");
    if(footer){
-     var more=[["売り場を借りる","/uriba.html"],["研修を依頼","/koen.html"],["補助金の総合相談","/hojokin.html"],["相談する","/contact.html"]];
+     var more=[["店舗承継","/matching.html"],["行政・商工団体","/gyosei.html"],["医院の集客","/road-sign/"],["3分診断","/akinai.html"],["売り場を借りる","/uriba.html"],["相談する","/contact.html"]];
      footer.innerHTML="";more.forEach(function(x){var a=el("a","bcq-more",x[0]+" ↗");a.href=x[1];footer.appendChild(a)})
    }
  }
