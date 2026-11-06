@@ -875,6 +875,7 @@ a:focus-visible{outline:3px solid #a4d06e;outline-offset:3px}
 .pathfinder-item:hover{border-color:var(--pf-c,#93be64)}
 .pathfinder-footer{background:#fff;border:1px solid #dce5e4;border-radius:9px;padding:14px 18px}
 .pathfinder-audience,.pathfinder-footer span{color:#4f6170!important}
+@media(max-width:620px){.pf-what{display:none}.pathfinder-item{gap:8px!important}}
 .pf-proof{font-size:12px;font-weight:800;color:#24413a;background:var(--pf-bg,#edf5e6);border-radius:6px;padding:5px 9px;line-height:1.5}
 
 @media(max-width:620px){.pf-what{font-size:12.5px}.pf-cta{font-size:13.5px}.pathfinder-head h2 br{display:inline!important}}
@@ -1065,7 +1066,7 @@ html .hero-microtrust{font-size:13px}
    
    <a class="pathfinder-item pf-gov" href="gyosei.html#services" data-t="home_quick_government"><span class="pf-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21v-6h6v6M2 10l10-6 10 6"/></svg></span><span class="pathfinder-audience">自治体・商工団体の方</span><strong>地域の課題を、<br>動く施策に。</strong><span class="pf-what">調査・仕様書・実行計画づくりを支援。予算化前の相談は無料です。</span><span class="pf-proof">✓ 参考仕様書を6業務分、公開中</span><span class="pf-cta">参考仕様書と概算を見る <span aria-hidden="true">→</span></span></a>
    <a class="pathfinder-item pf-clinic" href="road-sign/kaiin.html#fitcheck" data-t="home_quick_clinic"><span class="pf-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.6-7 11-7 11z"/><path d="M12 9v5M9.5 11.5h5"/></svg></span><span class="pathfinder-audience">クリニック・歯科医院の方</span><strong>広告を増やす前に、<br>集客の導線を点検。</strong><span class="pf-what">看板・地図・検索・予約までを無料で診断し、直す順番をお返しします。</span><span class="pf-proof">✓ まず4問のセルフチェック（メール不要）</span><span class="pf-cta">4問のチェックを始める <span aria-hidden="true">→</span></span></a>
-   <a class="pathfinder-item pf-shop" href="minakusa-ekimae.html#zones" data-t="home_quick_minakusa"><span class="pf-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 5 4h14l2 5.5Z"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg></span><span class="pathfinder-audience">飲食店・物販の方</span><strong>南草津駅前で、<br>小さく試す。</strong><span class="pf-what">UDCみなくさが進める駅前の社会実験。出店希望の先行相談を受付中です。開催日・区画・料金は調整中です。</span><span class="pf-proof">✓ 航空写真から希望の区画を選べる</span><span class="pf-cta">希望の区画を選ぶ <span aria-hidden="true">→</span></span></a>
+   <a class="pathfinder-item pf-shop" href="minakusa-ekimae.html#zones" data-t="home_quick_minakusa"><span class="pf-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 5 4h14l2 5.5Z"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg></span><span class="pathfinder-audience">飲食店・物販の方</span><strong>南草津駅前で、<br>小さく試す。</strong><span class="pf-what">UDCみなくさが進める駅前の社会実験。出店希望の先行相談を受付中です。開催日・区画・料金は調整中です。</span><span class="pf-proof">✓ 航空写真から希望の区画を選べる（開催条件は調整中）</span><span class="pf-cta">希望の区画を選ぶ <span aria-hidden="true">→</span></span></a>
   </div>
   <div class="pathfinder-footer"><span>ほかの相談を探す</span><a href="hojokin.html" data-t="home_path_subsidy">持続化補助金・補助金の総合相談 ↗</a><a href="zousaku.html" data-t="home_path_succession">退店前承継 ↗</a><a href="contact.html" data-t="home_path_contact">相談内容が決まっていない方 ↗</a></div>
   <p class="pathfinder-note">※一次診断・相談の範囲は各サービスページでご確認ください。補助金の採択、設備の受注、集客の成果を保証するものではありません。</p>
@@ -1362,5 +1363,7 @@ document.querySelectorAll('details.mf').forEach(function(d){d.removeAttribute('o
  video.addEventListener('ended',function(){try{window.bcTrack('brand_film_complete',{placement:'home',duration:40});}catch(e){}});
 })();
 </script>
+<script>/* 2026-11-07 #entry-paths が画面に半分以上表示されたら1回だけ記録（カード別クリック率の分母） */
+(function(){var t=document.getElementById('entry-paths');if(!t||!('IntersectionObserver' in window))return;var done=false;new IntersectionObserver(function(es,o){es.forEach(function(e){if(!done&&e.isIntersecting){done=true;try{window.bcTrack&&bcTrack('home_paths_view',{place:'entry-paths'})}catch(x){}o.disconnect();}});},{threshold:0.5}).observe(t);})();</script>
 </body>
 </html>
