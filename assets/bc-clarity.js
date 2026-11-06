@@ -162,14 +162,7 @@ function onHome(){
      });
    });
  }
- if(path){
-   var head=path.querySelector(".pathfinder-head h2");if(head)head.textContent="ほかのご相談";
-   var footer=path.querySelector(".pathfinder-footer");
-   if(footer){
-     var more=[["設備会社向け説明","/partner-setsubi.html"],["店舗承継","/matching.html"],["行政・商工団体","/gyosei.html"],["医院の集客","/road-sign/"],["3分診断","/akinai.html"],["売り場を借りる","/uriba.html"],["相談する","/contact.html"]];
-     footer.innerHTML="";more.forEach(function(x){var a=el("a","bcq-more",x[0]+" ↗");a.href=x[1];footer.appendChild(a)})
-   }
- }
+ // 2026-11-07: #entry-paths（課題別の3カード）はHTMLのまま表示する。見出しの差し替え・補助リンクの置き換えはしない
 }
 
 })();
