@@ -31,16 +31,18 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit}
 <script>/* START APP */
 const SCHEDULE_DAYS=[4,5,6,11,12,13,18,19,20],MAX_SELECT=12;
 const venueSlots=(day)=>{const dow=new Date(2026,11,day).getDay();if(dow===5)return [
-{id:'W-F',area:'西口駅前広場',time:'15:00〜20:00',price:3300,limit:3,color:'#2b765b',type:'evening'},
-{id:'E-AM',area:'東口・のりば3・4／5・6前',time:'7:00〜9:30',price:3300,limit:7,color:'#355d92',type:'morning'},
-{id:'E-PM',area:'東口・のりば3・4／5・6前',time:'17:00〜19:30',price:3300,limit:7,color:'#355d92',type:'evening'}];return [
-{id:'W-D',area:'西口駅前広場',time:'11:00〜16:00',price:3300,limit:3,color:'#2b765b',type:'day'},
-{id:'E-D',area:'東口・のりば1・2前',time:'10:00〜15:00',price:3300,limit:5,color:'#355d92',type:'day'},
-{id:'E-PM',area:'東口・のりば1・2前',time:'16:00〜21:00',price:3300,limit:5,color:'#355d92',type:'evening'}]};
+{id:'W-F',area:'西口A・駅前広場',time:'15:00〜20:00',price:3300,limit:7,color:'#2b765b',type:'evening'},
+{id:'C-AM',area:'東口C・のりば3・4前',time:'7:00〜9:30',price:3300,limit:4,color:'#355d92',type:'morning'},
+{id:'D-AM',area:'東口D・のりば5前',time:'7:00〜9:30',price:3300,limit:3,color:'#355d92',type:'morning'},
+{id:'C-PM',area:'東口C・のりば3・4前',time:'17:00〜19:30',price:3300,limit:4,color:'#355d92',type:'evening'},
+{id:'D-PM',area:'東口D・のりば5前',time:'17:00〜19:30',price:3300,limit:3,color:'#355d92',type:'evening'}];return [
+{id:'W-D',area:'西口A・駅前広場',time:'11:00〜16:00',price:3300,limit:7,color:'#2b765b',type:'day'},
+{id:'B-D',area:'東口B・のりば1・2前',time:'10:00〜15:00',price:3300,limit:5,color:'#355d92',type:'day'},
+{id:'B-PM',area:'東口B・のりば1・2前',time:'16:00〜21:00',price:3300,limit:5,color:'#355d92',type:'evening'}]};
 const jpdays=['日','月','火','水','木','金','土'];const dateLabel=day=>'12月'+day+'日（'+jpdays[new Date(2026,11,day).getDay()]+'）';
 let current=4,persona='all';const selected=new Map();const yen=n=>Number(n).toLocaleString('ja-JP')+'円';
 const $=id=>document.getElementById(id);
-function recommendation(s){if(persona==='truck')return s.id.startsWith('W');if(persona==='shop')return s.type==='evening';if(persona==='test')return s.type==='morning'||s.type==='day';if(persona==='other')return s.id.startsWith('E');return false;}
+function recommendation(s){if(persona==='truck')return s.id.startsWith('W');if(persona==='shop')return s.type==='evening';if(persona==='test')return s.type==='morning'||s.type==='day';if(persona==='other')return s.area.startsWith('東口');return false;}
 function drawDates(){const target=$('dateList');target.replaceChildren();SCHEDULE_DAYS.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='date-btn'+(current===d?' active':'');b.setAttribute('aria-pressed',current===d?'true':'false');b.innerHTML='<strong>12/'+d+'</strong><small>'+['日','月','火','水','木','金','土'][new Date(2026,11,d).getDay()]+'曜｜候補</small>';b.addEventListener('click',()=>{current=d;drawDates();drawSlots();});target.appendChild(b);});$('dateNow').textContent='12/'+current;}
 function drawSlots(){const target=$('slotList');target.replaceChildren();venueSlots(current).sort((a,b)=>Number(recommendation(b))-Number(recommendation(a))).forEach(s=>{const id=current+'-'+s.id;const on=selected.has(id),el=document.createElement('div');el.className='slot'+(recommendation(s)?' recommended':'');const info=document.createElement('div');const name=document.createElement('strong');name.textContent=s.area;const meta=document.createElement('small');meta.textContent=s.time+' ｜ 区画上限案 '+s.limit+'（残席表示ではありません）';const hint=document.createElement('span');hint.className='hint';hint.textContent=recommendation(s)?'おすすめ':' ';info.append(name,hint,meta);const action=document.createElement('div');action.style.textAlign='right';const p=document.createElement('div');p.className='price';p.textContent=yen(s.price);const b=document.createElement('button');b.type='button';b.textContent=on?'✓ 選択中':'＋ 追加';b.className=on?'selected':'';b.setAttribute('aria-pressed',on?'true':'false');b.addEventListener('click',()=>{if(on){selected.delete(id);}else if(selected.size>=MAX_SELECT){alert('一度に選べる希望枠は12件までです。');return;}else{selected.set(id,{...s,date:current});}drawSlots();drawCart();});action.append(p,b);el.append(info,action);target.appendChild(el);});}
 function calcTotal(){return [...selected.values()].reduce((sum,s)=>sum+s.price,0);}
