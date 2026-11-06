@@ -1,30 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
-<title id="title">Minamikusatsu vendor zone concept</title>
-<desc id="desc">Illustration: West exit A has seven potential stalls; East exit B has five, C four, and D and E three combined. E is located near D. Not a measured site plan.</desc>
-<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f3f7ed"/><stop offset="1" stop-color="#e6f0ea"/></linearGradient></defs>
-<rect width="1440" height="900" fill="url(#bg)"/>
-<text x="64" y="88" font-size="43" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#173f32">MINAMIKUSATSU / VENDOR ZONES</text>
-<text x="67" y="132" font-size="21" font-family="DejaVu Sans,Arial,sans-serif" fill="#557365">Draft layout for choosing a preferred area - NOT a surveyed plan</text>
-<rect x="58" y="182" width="1324" height="634" rx="32" fill="white"/>
-<rect x="536" y="225" width="368" height="100" rx="23" fill="#183e33"/>
-<text x="720" y="288" font-size="34" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="white" text-anchor="middle">JR STATION</text>
-<rect x="104" y="386" width="566" height="352" rx="30" fill="#e2f3e7" stroke="#27835a" stroke-width="4"/>
-<text x="140" y="449" font-size="31" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49">WEST EXIT</text>
-<text x="140" y="539" font-size="65" font-weight="900" font-family="DejaVu Sans,Arial,sans-serif" fill="#134a35">A</text>
-<text x="222" y="531" font-size="30" font-weight="700" font-family="DejaVu Sans,Arial,sans-serif" fill="#335e4c">7 proposed spots</text><rect x="139" y="592" width="64" height="64" rx="12" fill="#fff" stroke="#8bc1a4" stroke-width="2"/><text x="171" y="632" font-size="21" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49" text-anchor="middle">1</text><rect x="212" y="592" width="64" height="64" rx="12" fill="#fff" stroke="#8bc1a4" stroke-width="2"/><text x="244" y="632" font-size="21" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49" text-anchor="middle">2</text><rect x="285" y="592" width="64" height="64" rx="12" fill="#fff" stroke="#8bc1a4" stroke-width="2"/><text x="317" y="632" font-size="21" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49" text-anchor="middle">3</text><rect x="358" y="592" width="64" height="64" rx="12" fill="#fff" stroke="#8bc1a4" stroke-width="2"/><text x="390" y="632" font-size="21" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49" text-anchor="middle">4</text><rect x="431" y="592" width="64" height="64" rx="12" fill="#fff" stroke="#8bc1a4" stroke-width="2"/><text x="463" y="632" font-size="21" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49" text-anchor="middle">5</text><rect x="504" y="592" width="64" height="64" rx="12" fill="#fff" stroke="#8bc1a4" stroke-width="2"/><text x="536" y="632" font-size="21" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49" text-anchor="middle">6</text><rect x="577" y="592" width="64" height="64" rx="12" fill="#fff" stroke="#8bc1a4" stroke-width="2"/><text x="609" y="632" font-size="21" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#1c6b49" text-anchor="middle">7</text><text x="139" y="708" font-size="19" font-family="DejaVu Sans,Arial,sans-serif" fill="#527968">A1-A7 are draft IDs, not fixed positions</text>
-<rect x="764" y="386" width="571" height="352" rx="30" fill="#e7f0fc" stroke="#4779b7" stroke-width="4"/>
-<text x="804" y="449" font-size="31" font-weight="800" font-family="DejaVu Sans,Arial,sans-serif" fill="#36669e">EAST EXIT</text><rect x="807" y="477" width="214" height="87" rx="18" fill="#fff" stroke="#9fbada" stroke-width="2"/>
-<circle cx="857" cy="520" r="28" fill="#4779b7"/><text x="857" y="531" text-anchor="middle" font-size="27" font-weight="800" fill="#fff" font-family="DejaVu Sans,Arial,sans-serif">B</text>
-<text x="891" y="517" font-size="20" font-weight="800" fill="#315c92" font-family="DejaVu Sans,Arial,sans-serif">5 spots</text>
-<text x="891" y="544" font-size="15" fill="#6984a7" font-family="DejaVu Sans,Arial,sans-serif">weekends</text><rect x="1040" y="477" width="252" height="87" rx="18" fill="#fff" stroke="#9fbada" stroke-width="2"/>
-<circle cx="1090" cy="520" r="28" fill="#4779b7"/><text x="1090" y="531" text-anchor="middle" font-size="27" font-weight="800" fill="#fff" font-family="DejaVu Sans,Arial,sans-serif">C</text>
-<text x="1124" y="517" font-size="20" font-weight="800" fill="#315c92" font-family="DejaVu Sans,Arial,sans-serif">4 spots</text>
-<text x="1124" y="544" font-size="15" fill="#6984a7" font-family="DejaVu Sans,Arial,sans-serif">Friday</text><rect x="915" y="599" width="325" height="91" rx="18" fill="#fff" stroke="#9fbada" stroke-width="2"/>
-<circle cx="968" cy="645" r="27" fill="#4779b7"/><text x="968" y="655" text-anchor="middle" font-size="26" font-weight="800" fill="white" font-family="DejaVu Sans,Arial,sans-serif">D</text>
-<circle cx="1040" cy="645" r="27" fill="#4779b7"/><text x="1040" y="655" text-anchor="middle" font-size="26" font-weight="800" fill="white" font-family="DejaVu Sans,Arial,sans-serif">E</text>
-<text x="1085" y="638" font-size="19" font-weight="800" fill="#315c92" font-family="DejaVu Sans,Arial,sans-serif">3 spots</text>
-<text x="1085" y="662" font-size="14" fill="#6984a7" font-family="DejaVu Sans,Arial,sans-serif">combined / Friday</text>
-<text x="830" y="720" font-size="17" fill="#6483a1" font-family="DejaVu Sans,Arial,sans-serif">E is placed near D (concept only)</text>
-<rect x="60" y="840" width="1320" height="46" rx="13" fill="#fff2e8"/>
-<text x="86" y="869" font-size="18" fill="#995224" font-family="DejaVu Sans,Arial,sans-serif">Concept map only. Final locations, booth sizes and availability require organizer approval.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="maptitle mapdesc">
+<title id="maptitle">南草津駅前 出店候補エリア案内</title>
+<desc id="mapdesc">JR南草津駅を中心に、西口Aエリア（駅前広場・7区画想定）と、東口Bエリア（のりば1・2前）、Cエリア（のりば3・4前）、Dエリア（のりば5前）を示す概略図。区画の正確な位置や大きさは未確定。</desc>
+<defs>
+ <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F5F8F0"/><stop offset="1" stop-color="#EBF5EF"/></linearGradient>
+ <filter id="ds" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#12382D" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1440" height="900" fill="url(#background)"/>
+<text x="72" y="85" font-family="'Noto Sans CJK JP',sans-serif" font-size="44" font-weight="900" fill="#173F32">南草津駅前 ｜ 出店候補エリア</text>
+<text x="72" y="130" font-family="'Noto Sans CJK JP',sans-serif" font-size="22" fill="#577365">位置関係をつかむための概略案内図</text>
+<rect x="55" y="174" width="1330" height="615" rx="32" fill="#FFFFFF" filter="url(#ds)"/>
+<!-- station context -->
+<rect x="560" y="230" width="320" height="116" rx="25" fill="#173F32"/>
+<text x="720" y="290" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="39" fill="white" font-weight="900">JR 南草津駅</text>
+<text x="720" y="322" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="19" fill="#D6E9DE">駅の東西を行き来できます</text>
+<path d="M560 288H495" stroke="#74A08E" stroke-width="8" stroke-linecap="round"/>
+<path d="M880 288H945" stroke="#648DC1" stroke-width="8" stroke-linecap="round"/>
+<path d="M503 272L481 288 503 304" fill="none" stroke="#74A08E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M938 272L960 288 938 304" fill="none" stroke="#648DC1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- west -->
+<rect x="100" y="386" width="570" height="328" rx="30" fill="#E3F2E6" stroke="#19825B" stroke-width="4"/>
+<rect x="125" y="416" width="105" height="43" rx="21" fill="#19825B"/>
+<text x="177" y="445" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="24" font-weight="800" fill="white">西口</text>
+<rect x="125" y="474" width="58" height="58" rx="14" fill="#19825B"/><text x="154" y="515" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="34" font-weight="900" fill="white">A</text>
+<text x="200" y="515" font-family="'Noto Sans CJK JP',sans-serif" font-size="37" font-weight="900" fill="#154B38">駅前広場</text>
+<text x="130" y="565" font-family="'Noto Sans CJK JP',sans-serif" font-size="23" fill="#3D725A">7区画想定・キッチンカー・テントなど（案）</text>
+<g font-family="'Noto Sans CJK JP',sans-serif" font-size="22" font-weight="800" fill="#176645" text-anchor="middle">
+ <rect x="130" y="584" width="118" height="52" rx="12" fill="white" stroke="#77B69A" stroke-width="2"/><text x="189" y="617">A-1</text>
+ <rect x="262" y="584" width="118" height="52" rx="12" fill="white" stroke="#77B69A" stroke-width="2"/><text x="321" y="617">A-2</text>
+ <rect x="394" y="584" width="118" height="52" rx="12" fill="white" stroke="#77B69A" stroke-width="2"/><text x="453" y="617">A-3</text>
+ <rect x="526" y="584" width="118" height="52" rx="12" fill="white" stroke="#77B69A" stroke-width="2"/><text x="585" y="617">A-4</text>
+ <rect x="130" y="642" width="118" height="52" rx="12" fill="white" stroke="#77B69A" stroke-width="2"/><text x="189" y="675">A-5</text>
+ <rect x="262" y="642" width="118" height="52" rx="12" fill="white" stroke="#77B69A" stroke-width="2"/><text x="321" y="675">A-6</text>
+ <rect x="394" y="642" width="118" height="52" rx="12" fill="white" stroke="#77B69A" stroke-width="2"/><text x="453" y="675">A-7</text>
+</g>
+<!-- east -->
+<rect x="771" y="388" width="572" height="328" rx="30" fill="#E9F0FC" stroke="#4775B3" stroke-width="4"/>
+<rect x="797" y="416" width="105" height="43" rx="21" fill="#4775B3"/>
+<text x="849" y="445" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="24" font-weight="800" fill="white">東口</text>
+<text x="802" y="510" font-family="'Noto Sans CJK JP',sans-serif" font-size="35" font-weight="900" fill="#244F84">バスのりば周辺</text>
+<text x="802" y="550" font-family="'Noto Sans CJK JP',sans-serif" font-size="22" fill="#58749B">屋根の下の候補エリア（案）</text>
+<g font-family="'Noto Sans CJK JP',sans-serif" font-size="19" font-weight="800" fill="#2C6097" text-anchor="middle">
+ <rect x="800" y="582" width="166" height="118" rx="15" fill="white" stroke="#9EBBDF" stroke-width="2"/><text x="883.0" y="620" font-size="30" font-weight="900" fill="#244F84">B</text><text x="883.0" y="648">のりば</text><text x="883.0" y="671">1・2前</text><text x="883.0" y="693" font-size="16" font-weight="700" fill="#58749B">土・日</text>
+ <rect x="980" y="582" width="166" height="118" rx="15" fill="white" stroke="#9EBBDF" stroke-width="2"/><text x="1063.0" y="620" font-size="30" font-weight="900" fill="#244F84">C</text><text x="1063.0" y="648">のりば</text><text x="1063.0" y="671">3・4前</text><text x="1063.0" y="693" font-size="16" font-weight="700" fill="#58749B">金曜 朝夕</text>
+ <rect x="1160" y="582" width="166" height="118" rx="15" fill="white" stroke="#9EBBDF" stroke-width="2"/><text x="1243.0" y="620" font-size="30" font-weight="900" fill="#244F84">D</text><text x="1243.0" y="648">のりば</text><text x="1243.0" y="671">5前</text><text x="1243.0" y="693" font-size="16" font-weight="700" fill="#58749B">金曜 朝夕</text>
+</g>
+<rect x="72" y="814" width="1296" height="60" rx="14" fill="#FFF2E9"/>
+<circle cx="111" cy="845" r="13" fill="#D25C28"/>
+<text x="140" y="854" font-family="'Noto Sans CJK JP',sans-serif" font-size="22" font-weight="800" fill="#7D431F">概略図：実際の位置・形状・区画境界・利用可能時間は未確定です。正式案内が優先されます。</text>
 </svg>
