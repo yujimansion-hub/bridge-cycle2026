@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="maptitle mapdesc">
+<title id="maptitle">南草津駅前 出店候補エリア案内</title>
+<desc id="mapdesc">JR南草津駅を中心に、西口の駅前広場、東口のバスのりば1・2前、3・4前、5・6前の4つの候補エリアを示す概略図。区画の正確な位置や大きさは未確定。</desc>
+<defs>
+ <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F5F8F0"/><stop offset="1" stop-color="#EBF5EF"/></linearGradient>
+ <filter id="ds" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#12382D" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1440" height="900" fill="url(#background)"/>
+<text x="72" y="85" font-family="'Noto Sans CJK JP',sans-serif" font-size="44" font-weight="900" fill="#173F32">南草津駅前 ｜ 出店候補エリア</text>
+<text x="72" y="130" font-family="'Noto Sans CJK JP',sans-serif" font-size="22" fill="#577365">位置関係をつかむための概略案内図</text>
+<rect x="55" y="174" width="1330" height="615" rx="32" fill="#FFFFFF" filter="url(#ds)"/>
+<!-- station context -->
+<rect x="560" y="230" width="320" height="116" rx="25" fill="#173F32"/>
+<text x="720" y="290" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="39" fill="white" font-weight="900">JR 南草津駅</text>
+<text x="720" y="322" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="19" fill="#D6E9DE">駅の東西を行き来できます</text>
+<path d="M560 288H495" stroke="#74A08E" stroke-width="8" stroke-linecap="round"/>
+<path d="M880 288H945" stroke="#648DC1" stroke-width="8" stroke-linecap="round"/>
+<path d="M503 272L481 288 503 304" fill="none" stroke="#74A08E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M938 272L960 288 938 304" fill="none" stroke="#648DC1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- west -->
+<rect x="100" y="386" width="570" height="328" rx="30" fill="#E3F2E6" stroke="#19825B" stroke-width="4"/>
+<rect x="125" y="416" width="105" height="43" rx="21" fill="#19825B"/>
+<text x="177" y="445" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="24" font-weight="800" fill="white">西口</text>
+<text x="130" y="515" font-family="'Noto Sans CJK JP',sans-serif" font-size="39" font-weight="900" fill="#154B38">駅前広場</text>
+<text x="130" y="558" font-family="'Noto Sans CJK JP',sans-serif" font-size="23" fill="#3D725A">キッチンカー・テントなど（案）</text>
+<g font-family="'Noto Sans CJK JP',sans-serif" font-size="22" font-weight="800" fill="#176645" text-anchor="middle">
+ <rect x="130" y="596" width="151" height="72" rx="16" fill="white" stroke="#77B69A" stroke-width="2"/><text x="205" y="640">候補 ①</text>
+ <rect x="307" y="596" width="151" height="72" rx="16" fill="white" stroke="#77B69A" stroke-width="2"/><text x="382" y="640">候補 ②</text>
+ <rect x="484" y="596" width="151" height="72" rx="16" fill="white" stroke="#77B69A" stroke-width="2"/><text x="560" y="640">候補 ③</text>
+</g>
+<!-- east -->
+<rect x="771" y="388" width="572" height="328" rx="30" fill="#E9F0FC" stroke="#4775B3" stroke-width="4"/>
+<rect x="797" y="416" width="105" height="43" rx="21" fill="#4775B3"/>
+<text x="849" y="445" text-anchor="middle" font-family="'Noto Sans CJK JP',sans-serif" font-size="24" font-weight="800" fill="white">東口</text>
+<text x="802" y="515" font-family="'Noto Sans CJK JP',sans-serif" font-size="37" font-weight="900" fill="#244F84">バスのりば周辺</text>
+<text x="802" y="554" font-family="'Noto Sans CJK JP',sans-serif" font-size="22" fill="#58749B">屋根の下の候補エリア（案）</text>
+<g font-family="'Noto Sans CJK JP',sans-serif" font-size="21" font-weight="800" fill="#2C6097" text-anchor="middle">
+ <rect x="800" y="595" width="162" height="73" rx="15" fill="white" stroke="#9EBBDF" stroke-width="2"/><text x="881" y="625">のりば</text><text x="881" y="650">1・2前</text>
+ <rect x="976" y="595" width="162" height="73" rx="15" fill="white" stroke="#9EBBDF" stroke-width="2"/><text x="1057" y="625">のりば</text><text x="1057" y="650">3・4前</text>
+ <rect x="1152" y="595" width="162" height="73" rx="15" fill="white" stroke="#9EBBDF" stroke-width="2"/><text x="1233" y="625">のりば</text><text x="1233" y="650">5・6前</text>
+</g>
+<rect x="72" y="814" width="1296" height="60" rx="14" fill="#FFF2E9"/>
+<circle cx="111" cy="845" r="13" fill="#D25C28"/>
+<text x="140" y="854" font-family="'Noto Sans CJK JP',sans-serif" font-size="22" font-weight="800" fill="#7D431F">概略図：実際の位置・形状・区画境界・利用可能時間は未確定です。正式案内が優先されます。</text>
+</svg>
