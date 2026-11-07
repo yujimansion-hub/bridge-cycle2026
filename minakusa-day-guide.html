@@ -349,7 +349,7 @@ function render(){
  if(sameDay&&t<=new Date(lastT.getTime()+3*3600e3)){
   var c=ev[Math.max(cur,0)],n=ev[cur+1];
   var mins=n?Math.ceil((n.t-t)/60000):0;
-  now.className="now";now.innerHTML='<small>いまやること（'+hm(t)+'）</small><b>'+(cur<1?"出発の準備":c.b)+'</b><span class="cd">'+(n?"次の「"+n.b+"」まで あと"+(mins>=60?Math.floor(mins/60)+"時間"+(mins%60)+"分":mins+"分"):"おつかれさまでした。終了報告を送りましょう。")+'</span><button type="button" id="openStage">このときのチェックリストを開く ↓</button>';
+  now.className="now";now.innerHTML='<small>いまやること（'+hm(t)+'）</small><b>'+(cur<1?"出発の準備":c.k==="sell"?"営業中":c.k==="setup"?"設営中":c.k==="clean"?"撤収中":c.b)+'</b><span class="cd">'+(n?"次の「"+n.b+"」まで あと"+(mins>=60?Math.floor(mins/60)+"時間"+(mins%60)+"分":mins+"分"):"おつかれさまでした。終了報告を送りましょう。")+'</span><button type="button" id="openStage">このときのチェックリストを開く ↓</button>';
   $("openStage").onclick=function(){var k=cur<1?"prep":c.k;var tab=document.querySelector('[data-go="'+STAGE[k]+'"]');if(tab)tab.click();};
  }else{
   var days=Math.ceil((new Date(dayObj().toDateString())-new Date(t.toDateString()))/864e5);
