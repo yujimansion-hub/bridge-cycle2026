@@ -106,6 +106,47 @@ footer a{font-size:11px}
 .application-mode li{margin:1px 0}
 
 
+
+/* ===== 出店ナビ（申込から終了報告まで） ===== */
+.nav-j{background:var(--dark);color:#fff;border-radius:22px;padding:18px;margin:16px 0}
+.nav-j-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.nav-j-top b{font-size:17px}.nav-j-top span{font-size:12px;color:#b9d2c3;font-weight:800}
+.jbar{height:8px;border-radius:99px;background:#ffffff22;margin:10px 0 14px;overflow:hidden}.jbar i{display:block;height:100%;background:#7fd3a4;border-radius:99px;transition:width .3s}
+.jnext{background:#fff;color:var(--ink);border-radius:16px;padding:15px}
+.jnext small{display:block;font-size:11px;font-weight:900;color:var(--orange)}
+.jnext b{display:block;font-size:19px;line-height:1.4;margin:2px 0 4px}
+.jnext p{margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.7}
+.jnext .btns{display:grid;gap:8px}
+.jnext button,.jnext a{display:block;text-align:center;border:0;border-radius:12px;padding:13px;font:inherit;font-weight:900;font-size:15px;cursor:pointer;text-decoration:none}
+.jnext .go{background:var(--orange);color:#fff}.jnext .done{background:var(--lighter);color:var(--green)}
+.jsteps{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:2px}
+.jsteps li{display:flex;gap:10px;align-items:center;font-size:13px;padding:6px 4px;color:#cfe0d6}
+.jsteps li i{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #ffffff44;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:900}
+.jsteps li.ok{color:#8fb5a2}.jsteps li.ok i{background:#7fd3a4;border-color:#7fd3a4;color:var(--dark)}
+.jsteps li.now{color:#fff;font-weight:900}.jsteps li.now i{border-color:var(--orange);background:var(--orange);color:#fff}
+.jsteps li button{margin-left:auto;background:none;border:0;color:#8fb5a2;font:inherit;font-size:11px;text-decoration:underline;cursor:pointer}
+.jcomplete{text-align:center;padding:8px 0 4px}.jcomplete b{font-size:22px;display:block}.jcomplete p{color:#cfe0d6;font-size:13px;margin:6px 0 0}
+/* ===== 終了報告フォーム ===== */
+.final{background:#fff;border:2px solid var(--green);border-radius:20px;padding:18px;margin:16px 0}
+.final h3{margin:0 0 4px;font-size:18px}.final>p{margin:0 0 12px;font-size:13px;color:var(--muted)}
+.final .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.final .q{margin:0 0 14px}
+.final .q>label,.final .q>span{display:block;font-size:13px;font-weight:900;margin-bottom:5px}
+.final .q em{font-style:normal;font-size:10px;background:var(--orange);color:#fff;border-radius:5px;padding:1px 6px;margin-left:4px}
+.final input[type=number],.final select,.final textarea{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px;font:inherit;font-size:16px;background:#fbfcfa}
+.final textarea{min-height:70px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0}
+.chips span{display:block;border:1.5px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:800;cursor:pointer;background:#fff}
+.chips input:checked+span{background:var(--green);border-color:var(--green);color:#fff}
+.chips input:focus-visible+span{outline:3px solid #18644766}
+.stars span{min-width:44px;text-align:center}
+.final .send{width:100%;border:0;border-radius:14px;background:var(--orange);color:#fff;font:inherit;font-weight:900;font-size:17px;padding:16px;cursor:pointer}
+.final .send[disabled]{background:#9db3a7}
+.final .msg{color:#b13d22;font-size:13px;font-weight:800;margin-top:8px}
+.final.sent{border-color:var(--line);background:var(--lighter)}
+.final .thanks{font-size:15px;font-weight:900;color:var(--green);line-height:1.7}
 /* ===== 搬入口（仮） ===== */
 .gate{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:14px 0}
 .gate-ph{position:relative;background:#dfe7df}
@@ -179,8 +220,10 @@ footer a{font-size:11px}
 <body>
 <header class="topbar"><div class="wrap head"><a href="minakusa-ekimae.html" class="brand"><span class="brand-mark">BC</span><strong>南草津駅前・出店当日ガイド<small>BRIDGE CYCLE</small></strong></a><a href="minakusa-ekimae.html" class="back">募集案内に戻る ↗</a></div></header>
 <main>
-<section class="hero"><div class="wrap"><span class="eyebrow">VENDOR / MOBILE GUIDE</span><h1>今日することを、<br>順番に確認。</h1><p>JR南草津駅前の飲食出店に向けた、スマートフォン用の行動チェックリストです。出発前・到着・設営・営業・撤収・終了報告を1画面ずつ確認できます。</p><span class="tag">準備版｜集合場所・搬入時間・区画の詳細は未確定</span></div></section>
+<section class="hero"><div class="wrap"><span class="eyebrow">VENDOR / MOBILE GUIDE</span><h1>申込から撤収まで、<br>スマホで案内します。</h1><p>JR南草津駅前に出店するお店のための案内です。「次にやること」を1つずつ表示します。当日は時刻に合わせて案内し、写真で到着・撤収を報告。最後に売上・人数・アンケートを送れば完了です。</p><span class="tag">準備版｜集合場所・搬入時間・区画の詳細は未確定</span></div></section>
 <div class="wrap">
+<section class="nav-j" id="journey" aria-labelledby="jTitle"><div class="nav-j-top"><b id="jTitle">あなたの出店ナビ</b><span id="jCount">0 / 8</span></div><div class="jbar"><i id="jBar" style="width:0"></i></div>
+<div class="jnext" id="jNext"></div><ol class="jsteps" id="jSteps"></ol></section>
 <div class="application-mode" id="applicationMode" hidden role="note"><div class="application-mode-head"><span aria-hidden="true">✓</span><div><strong>申込後の準備ガイド</strong><small>申込受付と出店確定は別です</small></div></div><p>申込後は、以下の準備を進められます。<strong>出店日・区画・搬入場所・支払い条件が確定するまで、当日の予定として扱わないでください。</strong></p><ol><li>申込受付番号・確認メールを保存する</li><li>販売メニュー・営業許可・車両やテントの寸法を確認する</li><li>区画・日程・事前入金について正式な連絡を待つ</li></ol><p>出店が確定したら、このページの当日チェックリストを使ってください。</p></div>
 <div class="disclaimer" role="note"><b>出店当日のご利用にあたって</b>このページは現時点の一般的な手順を整理した準備版です。<strong>主催者・BRIDGE CYCLEから個別に届く確定案内と当日の係員の指示を必ず優先</strong>してください。チェックを付けても、運営への報告・受付は完了しません。</div>
 <div class="controls"><div class="context-controls">
@@ -257,7 +300,18 @@ footer a{font-size:11px}
 <label class="check-row"><input type="checkbox" data-check="finish-2" aria-label="振り返り：良かった点と改善したい点をメモした"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>振り返り</b><span>良かった点と改善したい点をメモした</span></span></label>
 <label class="check-row"><input type="checkbox" data-check="finish-3" aria-label="次回案内：次回出店がある場合、日程や最新の連絡を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>次回案内</b><span>次回出店がある場合、日程や最新の連絡を確認した</span></span></label></div>
 <div class="stage-tail"><span class="stage-count" data-stage-count="5">0 / 4 項目</span></div>
-<div class="report" id="reportBox"><b>終了報告をLINEで送る</b><div class="row"><div><label for="rQty">販売数（個）</label><input id="rQty" type="number" inputmode="numeric" min="0"></div><div><label for="rSales">売上（円）</label><input id="rSales" type="number" inputmode="numeric" min="0"></div></div><label for="rNote" style="margin-top:8px">よかった点・困ったこと（任意）</label><textarea id="rNote" maxlength="300"></textarea><button type="button" id="rSend">撤収完了と結果をLINEで送る</button></div></section></div>
+<form class="final" id="finalForm" novalidate><h3>📝 終了報告（これで完了）</h3><p>撤収が終わったら入力してください。約2分。数字はおおよそで大丈夫です。</p>
+<div class="row"><div class="q"><label for="fSales">売上（円）<em>必須</em></label><input id="fSales" type="number" inputmode="numeric" min="0" step="1" placeholder="例：32000"></div><div class="q"><label for="fPeople">お客さんの人数<em>必須</em></label><input id="fPeople" type="number" inputmode="numeric" min="0" step="1" placeholder="会計した人数"></div></div>
+<div class="row"><div class="q"><label for="fQty">販売数（個）</label><input id="fQty" type="number" inputmode="numeric" min="0" step="1"></div><div class="q"><label for="fPeak">いちばん売れた時間</label><select id="fPeak"><option value="">選ぶ</option><option>朝（〜10時）</option><option>昼（10〜14時）</option><option>午後（14〜17時）</option><option>夕方（17〜19時）</option><option>夜（19時〜）</option></select></div></div>
+<div class="q"><span>天気</span><div class="chips"><label><input type="radio" name="fWeather" value="晴れ"><span>☀️ 晴れ</span></label><label><input type="radio" name="fWeather" value="くもり"><span>☁️ くもり</span></label><label><input type="radio" name="fWeather" value="雨"><span>☔ 雨</span></label></div></div>
+<div class="q"><span>多かったお客さん（いくつでも）</span><div class="chips"><label><input type="checkbox" name="fWho" value="学生"><span>学生</span></label><label><input type="checkbox" name="fWho" value="会社員"><span>会社員</span></label><label><input type="checkbox" name="fWho" value="家族連れ"><span>家族連れ</span></label><label><input type="checkbox" name="fWho" value="近所の大人"><span>近所の大人</span></label><label><input type="checkbox" name="fWho" value="シニア"><span>シニア</span></label><label><input type="checkbox" name="fWho" value="常連さん"><span>常連さん</span></label></div></div>
+<div class="q"><span>今回の出店の満足度<em>必須</em></span><div class="chips stars"><label><input type="radio" name="fSat" value="1"><span>1</span></label><label><input type="radio" name="fSat" value="2"><span>2</span></label><label><input type="radio" name="fSat" value="3"><span>3</span></label><label><input type="radio" name="fSat" value="4"><span>4</span></label><label><input type="radio" name="fSat" value="5"><span>5</span></label></div></div>
+<div class="q"><span>また出店したいですか<em>必須</em></span><div class="chips"><label><input type="radio" name="fAgain" value="ぜひ出たい"><span>ぜひ出たい</span></label><label><input type="radio" name="fAgain" value="条件しだい"><span>条件しだい</span></label><label><input type="radio" name="fAgain" value="今回だけ"><span>今回だけ</span></label></div></div>
+<div class="q"><span>本店やSNSにつながる手応えは？</span><div class="chips"><label><input type="radio" name="fLink" value="あった"><span>あった</span></label><label><input type="radio" name="fLink" value="少し"><span>少し</span></label><label><input type="radio" name="fLink" value="なかった"><span>なかった</span></label></div></div>
+<div class="q"><label for="fGood">よかったこと</label><textarea id="fGood" maxlength="500"></textarea></div>
+<div class="q"><label for="fBad">困ったこと・運営への要望</label><textarea id="fBad" maxlength="500"></textarea></div>
+<button type="submit" class="send" id="fSend">報告を送って完了する</button><div class="msg" id="fMsg" role="alert" aria-live="polite"></div></form>
+</section></div>
 <div class="foot-nav"><button type="button" id="previous">← 前の段階</button><button type="button" id="next">次の段階へ →</button></div>
 <div class="extra">
 <div class="info-card"><h2>正式案内で確認すべきこと</h2><p>このページでは<strong>集合場所・搬入口・搬入開始時刻・臨時駐車場・当日の連絡先</strong>をまだ確定表示していません。</p><ul><li>集合・受付場所とスタッフへの連絡方法</li><li>出店確定済みの区画・営業開始と終了の時刻</li><li>車両の搬入路・駐車場・退出時刻</li><li>火気・電源・排水・雨天時の判断</li></ul><p>現行の募集条件には「開始60分前から設営」「終了後45分以内に撤収」という案がありますが、<strong>正式な運営指示が優先</strong>です。</p></div>
@@ -371,7 +425,7 @@ z.addEventListener("change",drawGate);drawGate();
 var PK="minakusa-vendor-profile-v1";
 function prof(){try{return JSON.parse(localStorage.getItem(PK)||"{}")||{};}catch(e){return {};}}
 var p=prof();$("meShop").value=p.shop||"";$("meEmail").value=p.email||"";
-function saveProf(){try{localStorage.setItem(PK,JSON.stringify({shop:$("meShop").value.trim(),email:$("meEmail").value.trim()}));}catch(e){}}
+function saveProf(){try{var o=prof();o.shop=$("meShop").value.trim();o.email=$("meEmail").value.trim();localStorage.setItem(PK,JSON.stringify(o));}catch(e){}}
 $("meShop").addEventListener("change",saveProf);$("meEmail").addEventListener("change",saveProf);
 
 /* ---- 写真を縮小（長辺1280px・JPEG）---- */
@@ -448,7 +502,7 @@ function events(){
  if(o[3]){ev.push({t:end,k:"clean",b:"朝の販売終了・片付け",s:"夕方まで場所を空けます。火と電源を止めて一度撤収。"});
   var s2=at(d,o[3][0]),e2=at(d,o[3][1]);ev.push({t:at(d,o[3][0],-60),k:"setup",b:"夕方の設営開始",s:"もう一度区画に設営。"});ev.push({t:s2,k:"sell",b:"夕方の開店",s:"帰宅する人が増える時間です。"});last=e2;}
  ev.push({t:last,k:"clean",b:"閉店・撤収開始",s:"火と電源を止め、ごみは全部持ち帰り。"});
- ev.push({t:at(last,hm(last),45),k:"done",b:"撤収完了（45分以内）",s:"場所を元どおりにして、片付けの写真を送る。終了報告もLINEで。"});
+ ev.push({t:at(last,hm(last),45),k:"done",b:"撤収完了（45分以内）",s:"場所を元どおりにして、片付けの写真を送る。最後に終了報告（売上・人数・アンケート）で完了。"});
  return ev;
 }
 function render(){
@@ -482,9 +536,96 @@ function report(){
  var msg="【南草津駅前 終了報告】\n出店日："+(date.value||"未入力")+"\nエリア："+zn+"（"+(o?o.text:"")+"）\n撤収：完了しました\n販売数："+($("rQty").value||"-")+"個\n売上："+($("rSales").value?Number($("rSales").value).toLocaleString("ja-JP"):"-")+"円\nひとこと："+($("rNote").value||"なし");
  window.open("https://line.me/R/oaMessage/%40907kxssd/?"+encodeURIComponent(msg),"_blank","noopener");
 }
-$("icsBtn").addEventListener("click",ics);var rs=$("rSend");if(rs)rs.addEventListener("click",report);
+$("icsBtn").addEventListener("click",ics);
 z.addEventListener("change",function(){fillSlots();render();});date.addEventListener("change",function(){fillSlots();render();});slot.addEventListener("change",render);
 fillSlots();render();setInterval(render,30000);
+})();
+</script>
+<script id="vendor-journey">
+(function(){"use strict";
+var $=function(i){return document.getElementById(i);};
+var ENDPOINT="https://script.google.com/macros/s/AKfycbxPWEX8MbMaAJ0LE92aw5f8G2FKE79hT-YywiBUA0RCl-Ra8sm3hqV_LktOA9FVMNSg/exec";
+var JK="minakusa-journey-v1",PK="minakusa-vendor-profile-v1";
+function rd(k){try{return JSON.parse(localStorage.getItem(k)||"{}")||{};}catch(e){return {};}}
+function wr(k,o){try{localStorage.setItem(k,JSON.stringify(o));}catch(e){}}
+var J=rd(JK),prof=rd(PK);
+var qs=new URLSearchParams(location.search);
+if(qs.get("from")==="application"&&!J.applied){J.applied=true;wr(JK,J);}
+var am=$("applicationMode");if(am)am.hidden=true;
+/* 申込時の情報を画面に反映 */
+if(prof.shop&&$("meShop")&&!$("meShop").value)$("meShop").value=prof.shop;
+if(prof.email&&$("meEmail")&&!$("meEmail").value)$("meEmail").value=prof.email;
+var z=$("zone"),date=$("date");
+if(prof.zone&&["A","B","C","D"].indexOf(prof.zone)>=0&&z&&!z.value){z.value=prof.zone;z.dispatchEvent(new Event("change"));}
+var slotEl=$("slot");
+if(!new URLSearchParams(location.search).get("date")&&prof.date&&date&&!date.value){date.value=prof.date;date.dispatchEvent(new Event("change"));}
+if(prof.slot&&slotEl&&slotEl.querySelector('option[value="'+prof.slot+'"]')){slotEl.value=prof.slot;slotEl.dispatchEvent(new Event("change"));}
+function keep(){prof=rd(PK);prof.zone=z.value;prof.date=date.value;prof.slot=slotEl?slotEl.value:"";wr(PK,prof);}
+[z,date,slotEl].forEach(function(el){if(el)el.addEventListener("change",keep);});
+function sent(kind){try{return !!localStorage.getItem("minakusa-photo-sent-v1:"+(date.value||"no-date")+":"+kind);}catch(e){return false;}}
+function dayStart(){if(!date.value)return null;var p=date.value.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+function openStage(n){var b=document.querySelector('[data-go="'+n+'"]');if(b)b.click();}
+function scrollTo(id){var e=$(id);if(e)e.scrollIntoView({behavior:"smooth",block:"start"});}
+var STEPS=[
+ {k:"applied",t:"申込を送る",d:"募集ページの申込フォームから送ります。",act:function(){location.href="minakusa-ekimae.html#entry";},btn:"申込フォームへ",self:false},
+ {k:"assigned",t:"区画と日程の連絡を受け取る",d:"当社からメールが届きます（3営業日以内が目安）。届いたら、下で出店日・エリア・時間枠を選んでください。",btn:"連絡が届いた",actLabel:"出店日・エリアを入れる",self:true,act:function(){scrollTo("meBox");}},
+ {k:"permit",t:"営業許可証を提出する",d:"連絡メールにある方法で、許可証の画像を送ってください。",btn:"提出した",self:true},
+ {k:"paid",t:"カードで出店料を払う（出店確定）",d:"メールで届くお支払いページから払うと、出店確定です。",btn:"支払った",self:true},
+ {k:"eve",t:"前日：準備と開催の連絡",d:"持ち物をチェック。前日22時までに開催するかの連絡が届きます。",btn:"準備できた",actLabel:"持ち物チェックを開く",self:true,act:function(){openStage(0);}},
+ {k:"arrive",t:"当日：到着・設営して写真を送る",d:"搬入口（仮）から入って設営。設営できたら写真で報告します。",auto:function(){return sent("arrival");},act:function(){openStage(1);var b=document.querySelector('[data-photo="arrival"]');if(b)b.scrollIntoView({behavior:"smooth",block:"center"});},btn:"到着の写真を送る"},
+ {k:"clean",t:"営業して、撤収したら写真を送る",d:"行列が歩道をふさがないように営業。片付けたら写真で報告します。",auto:function(){return sent("cleanup");},act:function(){openStage(4);var b=document.querySelector('[data-photo="cleanup"]');if(b)b.scrollIntoView({behavior:"smooth",block:"center"});},btn:"撤収の写真を送る"},
+ {k:"report",t:"終了報告：売上・人数・アンケート",d:"これを送れば完了です。",auto:function(){return !!J["report:"+(date.value||"")];},act:function(){openStage(5);var f=$("finalForm");if(f)f.scrollIntoView({behavior:"smooth",block:"start"});},btn:"終了報告を入力する"}
+];
+function isDone(s){return s.auto?s.auto():!!J[s.k];}
+function render(){
+ var n=0,cur=-1;STEPS.forEach(function(s,i){if(isDone(s))n++;else if(cur<0)cur=i;});
+ $("jCount").textContent=n+" / "+STEPS.length;$("jBar").style.width=Math.round(n/STEPS.length*100)+"%";
+ var nx=$("jNext");
+ if(cur<0){nx.innerHTML='<div class="jcomplete"><b>🎉 おつかれさまでした！</b><p style="color:var(--muted)">出店のすべてのステップが完了しました。<br>報告はBRIDGE CYCLEに届いています。</p></div>';}
+ else{var s=STEPS[cur],extra="";
+  if(cur===4){var d=dayStart();if(d){var days=Math.ceil((d-new Date(new Date().toDateString()))/864e5);extra=days>1?"（出店日まで あと"+days+"日）":days===1?"（明日が出店日です）":"";}}
+  nx.innerHTML='<small>次にやること（'+(cur+1)+'/'+STEPS.length+'）</small><b>'+s.t+extra+'</b><p>'+s.d+'</p><div class="btns">'+(s.act?'<button type="button" class="go" data-act="'+cur+'">'+(s.actLabel||s.btn)+'</button>':'')+(s.self?'<button type="button" class="done" data-self="'+cur+'">✓ '+s.btn+'</button>':'')+'</div>';}
+ $("jSteps").innerHTML=STEPS.map(function(s,i){var ok=isDone(s);return '<li class="'+(ok?"ok":i===cur?"now":"")+'"><i>'+(ok?"✓":i+1)+'</i>'+s.t+(ok&&s.self?'<button type="button" data-undo="'+i+'">戻す</button>':'')+'</li>';}).join("");
+}
+$("journey").addEventListener("click",function(e){
+ var a=e.target.closest("[data-act]"),sf=e.target.closest("[data-self]"),u=e.target.closest("[data-undo]");
+ if(a){var s=STEPS[+a.getAttribute("data-act")];if(s.act)s.act();}
+ if(sf){J[STEPS[+sf.getAttribute("data-self")].k]=true;wr(JK,J);render();}
+ if(u){J[STEPS[+u.getAttribute("data-undo")].k]=false;wr(JK,J);render();}
+});
+/* 写真送信・日付変更で進み具合を更新 */
+document.addEventListener("click",function(){setTimeout(render,1500);},true);
+if(date)date.addEventListener("change",render);setInterval(render,30000);
+
+/* ---- 終了報告（売上・人数・アンケート） ---- */
+var F=$("finalForm");
+function radio(n){var x=F.querySelector('input[name="'+n+'"]:checked');return x?x.value:"";}
+function multi(n){return [].map.call(F.querySelectorAll('input[name="'+n+'"]:checked'),function(x){return x.value;}).join("、");}
+function markSent(){var at=J["report:"+(date.value||"")];if(!at)return;F.classList.add("sent");F.innerHTML='<div class="thanks">✓ '+at+' に終了報告を送りました。<br>これで今回の出店はすべて完了です。おつかれさまでした！</div>';}
+F.addEventListener("submit",function(ev){ev.preventDefault();
+ var msg=$("fMsg"),btn=$("fSend"),shop=($("meShop").value||prof.shop||"").trim(),email=($("meEmail").value||prof.email||"").trim();
+ if(!shop||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="ページ上の「あなたのお店」に屋号とメールアドレスを入れてください。";return;}
+ if(!z.value||!date.value){msg.textContent="ページ上でエリアと出店日を選んでください。";return;}
+ if($("fSales").value===""||$("fPeople").value===""){msg.textContent="売上とお客さんの人数を入れてください。";return;}
+ if(!radio("fSat")||!radio("fAgain")){msg.textContent="満足度と「また出店したいか」を選んでください。";return;}
+ msg.textContent="";btn.disabled=true;btn.textContent="送信しています…";
+ var zn={A:"西口A",B:"東口B",C:"東口C",D:"東口D"}[z.value],so=$("slot")&&$("slot").selectedOptions[0],sales=+$("fSales").value,people=+$("fPeople").value;
+ var now=new Date(),hm=("0"+now.getHours()).slice(-2)+":"+("0"+now.getMinutes()).slice(-2);
+ var data={form:"minakusa_report","会社名・屋号":shop,email:email,"受付番号":prof.receipt||"不明","出店日":date.value,"エリア":zn,"時間枠":so?so.text:"",
+  "売上":sales.toLocaleString("ja-JP")+"円","お客さんの人数":people+"人","客単価":people?Math.round(sales/people).toLocaleString("ja-JP")+"円":"-","販売数":($("fQty").value||"-")+"個",
+  "いちばん売れた時間":$("fPeak").value||"-","天気":radio("fWeather")||"-","多かったお客さん":multi("fWho")||"-","満足度":radio("fSat")+" / 5","また出店したいか":radio("fAgain"),"本店・SNSへの手応え":radio("fLink")||"-",
+  "よかったこと":$("fGood").value||"なし","困ったこと・要望":$("fBad").value||"なし","撤収写真":sent("cleanup")?"送信済み":"未送信","送信時刻":hm,
+  _subject:"【南草津 終了報告】"+shop+"｜"+date.value.slice(5).replace("-","/")+" "+zn+"｜売上"+sales.toLocaleString("ja-JP")+"円・"+people+"人",_page:location.href.split("?")[0]};
+ fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})
+  .then(function(r){return r.json();}).then(function(j){if(!j||j.success!==true)throw new Error("relay");
+   J["report:"+date.value]=hm;wr(JK,J);markSent();render();
+   document.querySelectorAll('[data-check^="finish-"]').forEach(function(c){if(!c.checked){c.checked=true;c.dispatchEvent(new Event("change"));}});
+   try{window.bcTrack&&bcTrack("form_submit",{form:"minakusa_report"});}catch(e){}
+   $("journey").scrollIntoView({behavior:"smooth",block:"start"});
+  }).catch(function(){btn.disabled=false;btn.textContent="もう一度送る";msg.textContent="送れませんでした。電波のよい場所でもう一度お試しください。";});
+});
+if(date)date.addEventListener("change",function(){if(J["report:"+date.value])markSent();});
+markSent();render();
 })();
 </script>
 </body>

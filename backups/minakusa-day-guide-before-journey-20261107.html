@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10382e">
+<meta name="robots" content="noindex,follow">
+<title>出店当日のスマホガイド（準備版）｜南草津駅前・BRIDGE CYCLE</title>
+<meta name="description" content="JR南草津駅前の飲食出店に向けた当日の行動を、準備・到着・設営・営業・撤収・終了報告の6ステップで確認できるチェックリスト。集合や搬入の正式案内を優先してください。">
+<link rel="canonical" href="https://www.bridgecycleco.com/minakusa-day-guide.html">
+<style>
+:root{--dark:#10382e;--green:#186447;--lighter:#e6f1e7;--bg:#f4f7f2;--ink:#1b3029;--muted:#5c7064;--line:#d9e4da;--orange:#d96036;--white:#fff;--shadow:0 13px 35px rgba(18,61,43,.07)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}button{cursor:pointer}a{color:var(--green)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #db874f;outline-offset:3px}
+.wrap{width:min(930px,calc(100% - 36px));margin-inline:auto}
+.topbar{position:sticky;z-index:30;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:63px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--dark)}
+.brand-mark{background:var(--dark);border-radius:10px;color:white;display:grid;place-items:center;width:38px;height:38px;font-weight:900;font-size:14px}
+.brand strong{font-size:12px;line-height:1.4}.brand small{font-size:9px;display:block;font-weight:700;letter-spacing:.04em;color:#527061}
+.back{font-size:12px;text-decoration:none;font-weight:900;background:#eaf3e9;padding:9px 12px;border-radius:9px}
+.hero{background:linear-gradient(130deg,#10382e,#1a5741);color:#fff;padding:30px 0 32px}
+.eyebrow{display:inline-block;color:#c6e7c2;font-size:11px;letter-spacing:.14em;font-weight:900}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.3;letter-spacing:-.04em;margin:8px 0 8px}
+.hero p{font-size:13px;color:#d8e8de;margin:0;max-width:710px}
+.tag{display:inline-block;margin-top:16px;background:#fff3db;color:#72450f;border-radius:7px;padding:6px 10px;font-size:11px;font-weight:900}
+.disclaimer{background:#fff7e7;border:1px solid #edddba;border-radius:12px;padding:13px 16px;margin:18px 0 0;font-size:12px;color:#75532d}
+.disclaimer b{display:block;font-size:13px;color:#6a451a;margin-bottom:2px}
+.controls{background:white;border:1px solid var(--line);border-radius:18px;margin:22px 0;padding:18px;box-shadow:var(--shadow)}
+.context-controls{display:grid;grid-template-columns:1.2fr 1fr;gap:12px}
+.field label{font-size:12px;font-weight:900;display:block;margin-bottom:6px}
+.field select,.field input{border:1px solid #b9d4c1;background:#fafffa;border-radius:10px;min-height:46px;padding:9px 13px;width:100%;color:var(--ink)}
+.field-hint{font-size:11px;color:var(--muted);margin:8px 0 0}
+.map-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 15px;background:#edf5ef;border-radius:12px;margin-top:14px}
+.map-strip span{font-size:11px;color:#405c4c;flex:1 1 220px}
+.map-btn{display:inline-flex;justify-content:center;align-items:center;min-height:41px;background:var(--green);color:white;text-decoration:none;font-weight:900;font-size:12px;padding:8px 12px;border-radius:9px}
+.overview{margin:25px 0 14px}
+.overview-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.overview h2{font-size:20px;line-height:1.4;margin:0 0 2px}
+.overview p{font-size:12px;color:var(--muted);margin:0}
+.progress-text{font-weight:900;font-size:14px;color:var(--green)}
+.track{height:10px;background:#dce7dd;overflow:hidden;border-radius:99px;margin-top:11px}
+.fill{background:linear-gradient(90deg,#388869,#88bc7b);height:100%;width:0%;border-radius:99px;transition:width .2s}
+.stage-nav{display:flex;overflow-x:auto;gap:8px;scrollbar-width:thin;padding:13px 0 16px;scroll-snap-type:x proximity}
+.stage-tab{border:1px solid #d2e4d4;background:#fff;border-radius:12px;display:flex;align-items:center;gap:7px;padding:10px 12px;min-height:46px;white-space:nowrap;font-size:12px;font-weight:900;flex:none;scroll-snap-align:start;color:#42664f}
+.stage-tab.active{background:var(--dark);color:white;border-color:var(--dark)}
+.tab-num{font-weight:900;background:#e9f3e8;color:#266346;border-radius:50%;display:grid;place-items:center;width:23px;height:23px;line-height:1}
+.stage-tab.active .tab-num{background:#e9f4e6;color:var(--dark)}
+.tab-check{color:#38ad66;font-size:15px}
+.stage-panel{background:white;border:1px solid var(--line);border-radius:19px;padding:23px;box-shadow:var(--shadow);scroll-margin-top:87px}
+.stage-heading{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.stage-symbol{display:grid;place-items:center;width:52px;height:52px;border-radius:15px;background:#e8f3e8;font-size:25px;flex:none}
+.stage-overline{font-size:10px;letter-spacing:.1em;font-weight:900;color:var(--green)}
+.stage-heading h2{font-size:26px;line-height:1.32;letter-spacing:-.03em;margin:1px 0}
+.stage-heading p{font-size:12px;color:var(--muted);margin:0}
+.checklist{display:grid;gap:9px}
+.check-row{display:flex;align-items:flex-start;gap:14px;min-height:74px;padding:15px;border:1px solid #dce7dc;border-radius:13px;cursor:pointer;background:#fcfefb;position:relative}
+.check-row:has(input:checked){background:#edf8ec;border-color:#83b792}
+.check-row input{position:absolute;opacity:0;top:20px;left:20px;width:23px;height:23px}
+.check-custom{width:27px;height:27px;display:grid;place-items:center;border:2px solid #8dac98;border-radius:7px;flex:none;color:transparent;font-size:17px;line-height:1;font-weight:900;background:white;margin-top:2px}
+.check-row input:checked+.check-custom{background:var(--green);color:white;border-color:var(--green)}
+.check-row input:focus-visible+.check-custom{outline:3px solid var(--orange);outline-offset:3px}
+.check-copy{min-width:0}
+.check-copy b{display:block;font-size:14px;line-height:1.45}
+.check-copy>span{display:block;color:#536759;font-size:12px;line-height:1.7;margin-top:4px}
+.stage-tail{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-top:15px}
+.stage-count{font-size:12px;font-weight:900;color:#356e4c}
+.stage-link{font-size:12px;font-weight:900}
+.foot-nav{display:flex;gap:10px;margin:17px 0 30px}
+.foot-nav button{border-radius:12px;min-height:53px;flex:1;min-width:0;border:1px solid #bbd9c4;background:#eaf4e9;color:var(--dark);font-size:13px;font-weight:900;padding:8px 10px}
+.foot-nav #next{flex:1.65;background:var(--dark);color:white;border-color:var(--dark)}
+.foot-nav button:disabled{opacity:.35;cursor:not-allowed}
+.extra{display:grid;gap:15px;margin-bottom:40px}
+.info-card{background:white;border:1px solid var(--line);border-radius:15px;padding:18px}
+.info-card h2{font-size:18px;margin:0 0 8px}
+.info-card p,.info-card li{font-size:12px;color:#4b6656}
+.info-card p{margin:0 0 8px}.info-card ul{margin:8px 0 0;padding-left:19px}
+.info-card a{font-size:12px;font-weight:900}
+.alert-card{background:#fff4ed;border-color:#ecd1ba}
+.alert-card p{color:#684b38}
+.tool-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.ghost{border:1px solid #a3c5ab;padding:10px 14px;border-radius:9px;color:var(--green);background:white;font-size:12px;font-weight:900}
+footer{padding:22px 0 100px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;text-align:center}
+footer a{font-size:11px}
+.safenote{font-size:10px;color:#678073;margin:6px 0 0}
+.bottom-bar{position:fixed;z-index:25;left:0;right:0;bottom:0;display:none;background:#fffefaef;backdrop-filter:blur(12px);border-top:1px solid #c9dfcd;padding:10px 14px max(10px,env(safe-area-inset-bottom))}
+.bottom-inner{display:flex;align-items:center;gap:12px}
+.bottom-inner .bottom-text{flex:1;min-width:0}
+.bottom-text b{display:block;font-size:12px}
+.bottom-text span{font-size:10px;color:var(--muted);display:block}
+.bottom-inner button{font-size:12px;font-weight:900;background:var(--dark);color:white;padding:11px 15px;border:0;border-radius:9px;white-space:nowrap}
+[hidden]{display:none!important}
+@media(max-width:720px){.wrap{width:min(100% - 28px,930px)}.context-controls{grid-template-columns:1fr}.controls{padding:15px}.stage-panel{padding:17px}.check-row{padding:14px 12px}.bottom-bar{display:block}footer{padding-bottom:105px}.head{min-height:58px}.brand strong{font-size:11px}.back{font-size:11px;padding:8px}.hero{padding:24px 0 28px}.hero h1{font-size:30px}.overview h2{font-size:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* 申込直後は当日確定と誤認されない準備モード */
+.application-mode{margin:20px 0 0;background:#eef7ef;border:2px solid #a2d0ad;border-radius:15px;padding:16px 19px;color:#19472f}
+.application-mode-head{display:flex;align-items:center;gap:12px}
+.application-mode-head>span{display:grid;place-items:center;flex:none;background:#236e4b;color:white;border-radius:50%;width:30px;height:30px;font-weight:900}
+.application-mode-head strong{font-size:17px;display:block}
+.application-mode-head small{font-size:11px;color:#4b735b;display:block}
+.application-mode p{font-size:12px;margin:8px 0;line-height:1.75}
+.application-mode ol{margin:10px 0;padding-left:20px;font-size:12px;line-height:2}
+.application-mode li{margin:1px 0}
+
+
+/* ===== 搬入口（仮） ===== */
+.gate{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:14px 0}
+.gate-ph{position:relative;background:#dfe7df}
+.gate-ph img{display:block;width:100%;height:auto}
+.gate-pin{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.gate-pin b{background:var(--orange);color:#fff;font-size:12px;font-weight:900;padding:4px 9px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 10px #0003}
+.gate-pin i{width:3px;height:16px;background:var(--orange)}
+.gate-pin s{width:14px;height:14px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 0 0 4px #d9603655;text-decoration:none;margin-top:-2px}
+.gate-zone{position:absolute;border:2.5px dashed #fff;background:#1866474d;border-radius:8px;color:#fff;font-weight:900;font-size:12px;display:flex;align-items:flex-end;justify-content:flex-start;padding:4px 7px;text-shadow:0 1px 3px #000a}
+.gate-body{padding:14px 16px}
+.gate-body .tag{display:inline-block;background:#fff1e8;color:#a3471f;font-size:11px;font-weight:900;border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.gate-body b{display:block;font-size:15px;margin-bottom:4px}
+.gate-body ol{margin:6px 0 0;padding-left:20px;font-size:13px;line-height:1.75}
+.gate-body p{font-size:12px;color:var(--muted);margin:8px 0 0}
+.gate-body a{display:inline-block;margin-top:8px;font-size:13px;font-weight:900;color:var(--green)}
+/* ===== 写真で報告 ===== */
+.me{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin:14px 0}
+.me b{display:block;font-size:15px;margin-bottom:2px}.me p{font-size:12px;color:var(--muted);margin:0 0 10px}
+.me .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.me label{font-size:11px;font-weight:800;color:var(--muted)}
+.me input{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:15px;margin-top:3px}
+.photo{background:var(--dark);color:#fff;border-radius:18px;padding:16px;margin:16px 0}
+.photo b{display:block;font-size:17px}.photo>p{margin:4px 0 12px;font-size:13px;color:#cfe0d6}
+.photo ul{margin:0 0 12px;padding-left:18px;font-size:13px;color:#e7f1ea;line-height:1.75}
+.shoot{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--dark);border-radius:14px;padding:16px;font-weight:900;font-size:16px;cursor:pointer}
+.shoot input{position:absolute;width:1px;height:1px;opacity:0}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.thumbs div{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#ffffff1a}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.thumbs button{position:absolute;right:4px;top:4px;width:26px;height:26px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:14px;cursor:pointer}
+.photo .send{width:100%;border:0;border-radius:14px;background:var(--orange);color:#fff;font:inherit;font-weight:900;font-size:16px;padding:15px;cursor:pointer;margin-top:4px}
+.photo .send[disabled]{background:#6e8a7e;cursor:not-allowed}
+.photo .msg{font-size:13px;margin-top:10px;font-weight:700;color:#ffd2b8}
+.photo.sent{background:#e6f1e7;color:var(--ink)}.photo.sent>p,.photo.sent ul{color:var(--muted)}
+.photo .ok{font-size:14px;font-weight:900;color:var(--green);margin-top:8px}
+.photo .alt{display:block;margin-top:10px;font-size:12px;color:#cfe0d6}
+.photo.sent .alt{color:var(--muted)}
+/* ===== 当日タイムライン（時刻で今やることを案内） ===== */
+.tl{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 0;box-shadow:var(--shadow)}
+.tl h2{margin:0 0 4px;font-size:19px}.tl>p{margin:0 0 14px;font-size:13px;color:var(--muted)}
+.now{background:var(--dark);color:#fff;border-radius:16px;padding:16px 18px;margin-bottom:14px}
+.now small{display:block;font-size:11px;color:#b9d2c3;font-weight:800;letter-spacing:.04em}
+.now b{display:block;font-size:22px;line-height:1.35;margin:2px 0}
+.now .cd{font-size:14px;color:#ffd2b8;font-weight:800}
+.now button{margin-top:10px;border:0;border-radius:10px;background:var(--orange);color:#fff;font:inherit;font-weight:900;font-size:14px;padding:10px 14px;width:100%;cursor:pointer}
+.now.idle{background:var(--lighter);color:var(--ink)}.now.idle small{color:var(--muted)}.now.idle .cd{color:var(--green)}
+.tl ol{list-style:none;margin:0;padding:0;position:relative}
+.tl ol:before{content:"";position:absolute;left:62px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:52px 22px 1fr;gap:0 8px;align-items:start;padding:7px 0;position:relative}
+.tl li time{font-weight:900;font-size:15px;text-align:right;font-variant-numeric:tabular-nums;padding-top:1px}
+.tl li i{width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--line);margin:4px 0 0 4px;position:relative;z-index:1}
+.tl li b{display:block;font-size:14px}.tl li span{display:block;font-size:12px;color:var(--muted);line-height:1.6}
+.tl li.done{opacity:.45}.tl li.done i{background:var(--green);border-color:var(--green)}
+.tl li.cur i{border-color:var(--orange);background:var(--orange);box-shadow:0 0 0 5px #d9603630}
+.tl li.cur b{color:var(--orange)}
+.tl li.eve time{font-size:12px}
+.tl-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.tl-actions a,.tl-actions button{display:flex;align-items:center;justify-content:center;gap:6px;border-radius:12px;padding:12px 8px;font:inherit;font-size:13px;font-weight:900;text-decoration:none;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-align:center}
+.tl-actions .line{background:#06c755;border-color:#06c755;color:#fff}
+.tl-actions .sos{border-color:#e9b5a6;color:#a13b20;background:#fff5f2}
+.tl-empty{font-size:13px;color:var(--muted);background:var(--bg);border-radius:12px;padding:14px;text-align:center}
+.report{background:var(--bg);border-radius:14px;padding:14px;margin-top:12px}
+.report b{display:block;font-size:14px;margin-bottom:8px}
+.report .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.report label{font-size:11px;font-weight:800;color:var(--muted);display:block}
+.report input,.report textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;font:inherit;font-size:15px;margin-top:3px;background:#fff}
+.report textarea{min-height:60px;margin-top:3px}
+.report button{margin-top:10px;width:100%;border:0;border-radius:12px;background:#06c755;color:#fff;font:inherit;font-weight:900;font-size:14px;padding:12px;cursor:pointer}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap head"><a href="minakusa-ekimae.html" class="brand"><span class="brand-mark">BC</span><strong>南草津駅前・出店当日ガイド<small>BRIDGE CYCLE</small></strong></a><a href="minakusa-ekimae.html" class="back">募集案内に戻る ↗</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><span class="eyebrow">VENDOR / MOBILE GUIDE</span><h1>今日することを、<br>順番に確認。</h1><p>JR南草津駅前の飲食出店に向けた、スマートフォン用の行動チェックリストです。出発前・到着・設営・営業・撤収・終了報告を1画面ずつ確認できます。</p><span class="tag">準備版｜集合場所・搬入時間・区画の詳細は未確定</span></div></section>
+<div class="wrap">
+<div class="application-mode" id="applicationMode" hidden role="note"><div class="application-mode-head"><span aria-hidden="true">✓</span><div><strong>申込後の準備ガイド</strong><small>申込受付と出店確定は別です</small></div></div><p>申込後は、以下の準備を進められます。<strong>出店日・区画・搬入場所・支払い条件が確定するまで、当日の予定として扱わないでください。</strong></p><ol><li>申込受付番号・確認メールを保存する</li><li>販売メニュー・営業許可・車両やテントの寸法を確認する</li><li>区画・日程・事前入金について正式な連絡を待つ</li></ol><p>出店が確定したら、このページの当日チェックリストを使ってください。</p></div>
+<div class="disclaimer" role="note"><b>出店当日のご利用にあたって</b>このページは現時点の一般的な手順を整理した準備版です。<strong>主催者・BRIDGE CYCLEから個別に届く確定案内と当日の係員の指示を必ず優先</strong>してください。チェックを付けても、運営への報告・受付は完了しません。</div>
+<div class="controls"><div class="context-controls">
+<div class="field"><label id="zoneLabel" for="zone">あなたの出店エリア（確定案内に合わせて選択）</label><select id="zone"><option value="">まだ決まっていない</option><option value="A">西口A｜駅前広場</option><option value="B">東口B｜1・2番のりば付近</option><option value="C">東口C｜3・4番のりば付近</option><option value="D">東口D｜5番のりば付近</option></select></div>
+<div class="field"><label for="date">出店日</label><input type="date" id="date" min="2026-12-01" max="2026-12-31" aria-describedby="dateHint"></div>
+<div class="field"><label for="slot">出店する時間枠</label><select id="slot"><option value="">エリアと日付を選んでください</option></select></div>
+</div><p class="field-hint" id="dateHint">エリア・日付・時間枠を選ぶと、当日の時刻ごとに「いまやること」を表示します。チェック状態は日付ごとに保存されます。</p>
+<div class="map-strip" id="arrival-info"><span id="mapDescription">場所は未選択です。正式案内で西口・東口と搬入口をご確認ください。</span><a class="map-btn" id="mapLink" href="https://www.google.com/maps/search/?api=1&amp;query=JR%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85" target="_blank" rel="noopener noreferrer">Googleマップで駅を見る ↗</a></div>
+<p class="safenote">※地図は駅・出口周辺までの案内です。ブースの場所、車両の乗入れ口、駐車場所を案内するものではありません。</p>
+</div>
+<div class="me" id="meBox"><b>あなたのお店（写真報告に使います）</b><p>この端末にだけ保存されます。確定案内で届いたお名前とメールアドレスを入れてください。</p><div class="row"><div><label for="meShop">屋号・店名</label><input id="meShop" maxlength="80" autocomplete="organization"></div><div><label for="meEmail">メールアドレス</label><input id="meEmail" type="email" maxlength="180" autocomplete="email"></div></div></div>
+<section class="tl" id="timeline" aria-labelledby="tlTitle"><h2 id="tlTitle">当日の時間割</h2><p>設営は開始60分前から、撤収は終了後45分以内。当日は時刻に合わせて、いまやることを表示します。</p>
+<div id="tlNow" class="now idle" aria-live="polite"><small>いまやること</small><b>エリア・日付・時間枠を選んでください</b><span class="cd"></span></div>
+<ol id="tlList"></ol>
+<div class="tl-actions"><button type="button" id="icsBtn">📅 予定をスマホのカレンダーに入れる</button><a class="line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener noreferrer">💬 運営にLINEで連絡</a><a class="sos" href="tel:119">🚑 火事・急病 119</a><a class="sos" href="tel:110">🚓 事故・トラブル 110</a></div>
+</section>
+<div class="overview" id="guide"><div class="overview-top"><div><h2>当日の6ステップ</h2><p>確認できた項目にチェック。次の段階へ進めます。</p></div><div class="progress-text"><span id="doneCount">0</span> / <span id="totalCount">29</span> 項目</div></div><div class="track" role="progressbar" aria-label="当日のチェック進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><div class="fill" id="progressFill"></div></div></div>
+<div class="stage-nav" id="stageNav" role="navigation" aria-label="当日の段階を選ぶ"><button type="button" class="stage-tab active" data-go="0" aria-current="step"><span class="tab-num">1</span><span>出発前</span><small class="tab-check" data-tabdone="0" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="1" aria-current="false"><span class="tab-num">2</span><span>到着・受付</span><small class="tab-check" data-tabdone="1" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="2" aria-current="false"><span class="tab-num">3</span><span>設営</span><small class="tab-check" data-tabdone="2" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="3" aria-current="false"><span class="tab-num">4</span><span>営業中</span><small class="tab-check" data-tabdone="3" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="4" aria-current="false"><span class="tab-num">5</span><span>撤収</span><small class="tab-check" data-tabdone="4" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="5" aria-current="false"><span class="tab-num">6</span><span>終了報告</span><small class="tab-check" data-tabdone="5" aria-hidden="true"></small></button></div>
+<div id="panels"><section class="stage-panel" data-stage="0" id="stage-before"  aria-labelledby="stage-title-0">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🎒</div><div><span class="stage-overline">STEP 1 / 6</span><h2 id="stage-title-0">出発前</h2><p>家を出る前に確認</p></div></div>
+<div class="checklist" role="group" aria-label="出発前のチェックリスト"><label class="check-row"><input type="checkbox" data-check="before-0" aria-label="開催・区画：主催者から届いた開催可否、確定日程、区画番号を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>開催・区画</b><span>主催者から届いた開催可否、確定日程、区画番号を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-1" aria-label="時間・動線：搬入開始時刻、集合場所、車両の進入路・待機場所を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>時間・動線</b><span>搬入開始時刻、集合場所、車両の進入路・待機場所を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-2" aria-label="営業書類：営業許可の内容、食品衛生責任者、保険関係など必要書類を用意した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>営業書類</b><span>営業許可の内容、食品衛生責任者、保険関係など必要書類を用意した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-3" aria-label="食材と設備：食材・保冷器具・手洗い用品・釣銭／決済手段・ゴミ袋などを確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>食材と設備</b><span>食材・保冷器具・手洗い用品・釣銭／決済手段・ゴミ袋などを確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-4" aria-label="安全備品：必要な固定具・輪止め・消火器などを準備した（使用形態による）"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>安全備品</b><span>必要な固定具・輪止め・消火器などを準備した（使用形態による）</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="0">0 / 5 項目</span></div>
+</section>
+<section class="stage-panel" data-stage="1" id="stage-arrival" hidden aria-labelledby="stage-title-1">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">📍</div><div><span class="stage-overline">STEP 2 / 6</span><h2 id="stage-title-1">到着・受付</h2><p>駅前に着いたら</p></div></div>
+<div class="checklist" role="group" aria-label="到着・受付のチェックリスト"><label class="check-row"><input type="checkbox" data-check="arrival-0" aria-label="駅の出口：確定案内に記された西口／東口を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>駅の出口</b><span>確定案内に記された西口／東口を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-1" aria-label="駐車・待機：指定の待機場所・搬入時間を守り、公道やバス停付近で停車しない"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>駐車・待機</b><span>指定の待機場所・搬入時間を守り、公道やバス停付近で停車しない</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-2" aria-label="係員に確認：主催者が指定する受付・連絡方法で到着を伝えた"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>係員に確認</b><span>主催者が指定する受付・連絡方法で到着を伝えた</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-3" aria-label="区画位置：係員の案内で使用許可された区画と搬入経路を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>区画位置</b><span>係員の案内で使用許可された区画と搬入経路を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-4" aria-label="通行の確保：バス利用者・歩行者・車椅子・点字ブロックの動線を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>通行の確保</b><span>バス利用者・歩行者・車椅子・点字ブロックの動線を確認した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="1">0 / 5 項目</span><a href="#arrival-info" class="stage-link">エリア・地図を確認 ↓</a></div>
+<div class="gate" id="gateBox"><div class="gate-ph" id="gatePh"><img id="gateImg" src="images/minakusa/west.jpg" alt="搬入口の位置（仮）を示した航空写真"><div id="gateMarks"></div></div><div class="gate-body"><span class="tag">仮の案内です</span><b id="gateTitle">搬入口（仮）</b><ol id="gateSteps"></ol><p>関係機関の承認後に確定します。確定案内の内容と、当日の係員の指示を優先してください。</p><a id="gateMap" href="#" target="_blank" rel="noopener noreferrer">Googleマップで周辺を見る ↗</a></div></div>
+<div class="photo" data-photo="arrival"><b>📷 到着・設営したら、写真で報告</b><p>設営が終わったら撮って送ってください。運営が配置を確認します。</p><ul><li>区画全体（車両・テント・机が区画の中にあること）</li><li>通路側から見た様子（通路・点字ブロックがふさがっていないこと）</li></ul><label class="shoot"><input type="file" accept="image/*" capture="environment" multiple data-pick>写真を撮る（3枚まで）</label><div class="thumbs" data-thumbs></div><button type="button" class="send" data-send disabled>写真を送って報告する</button><div class="msg" data-msg role="status" aria-live="polite"></div><span class="alt">送れないときは、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:900">運営のLINE</a>に写真を送ってください。</span></div></section>
+<section class="stage-panel" data-stage="2" id="stage-setup" hidden aria-labelledby="stage-title-2">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🛠️</div><div><span class="stage-overline">STEP 3 / 6</span><h2 id="stage-title-2">設営</h2><p>開店前の準備</p></div></div>
+<div class="checklist" role="group" aria-label="設営のチェックリスト"><label class="check-row"><input type="checkbox" data-check="setup-0" aria-label="区画内に配置：車両・テント・机・看板は指定された範囲内に設置した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>区画内に配置</b><span>車両・テント・机・看板は指定された範囲内に設置した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-1" aria-label="転倒・火気対策：固定具・輪止め、火気使用や発電機の許可条件を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>転倒・火気対策</b><span>固定具・輪止め、火気使用や発電機の許可条件を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-2" aria-label="衛生設備：食品の温度管理、手洗い・消毒、異物混入対策を整えた"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>衛生設備</b><span>食品の温度管理、手洗い・消毒、異物混入対策を整えた</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-3" aria-label="電源・排水：電源や給排水の使用条件を確認し、無断接続していない"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>電源・排水</b><span>電源や給排水の使用条件を確認し、無断接続していない</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-4" aria-label="開店の安全確認：通路と避難動線に支障がなく、開店できる状態か確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>開店の安全確認</b><span>通路と避難動線に支障がなく、開店できる状態か確認した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="2">0 / 5 項目</span></div>
+</section>
+<section class="stage-panel" data-stage="3" id="stage-selling" hidden aria-labelledby="stage-title-3">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🍽️</div><div><span class="stage-overline">STEP 4 / 6</span><h2 id="stage-title-3">営業中</h2><p>安全に販売する</p></div></div>
+<div class="checklist" role="group" aria-label="営業中のチェックリスト"><label class="check-row"><input type="checkbox" data-check="selling-0" aria-label="販売品目：正式に認められた飲食メニューだけを提供している"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>販売品目</b><span>正式に認められた飲食メニューだけを提供している</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-1" aria-label="衛生管理：調理・保冷・保温・アレルゲン案内などを適切に管理している"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>衛生管理</b><span>調理・保冷・保温・アレルゲン案内などを適切に管理している</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-2" aria-label="行列の整理：お客様の列が歩道・駅出口・バス待機列を塞がないようにしている"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>行列の整理</b><span>お客様の列が歩道・駅出口・バス待機列を塞がないようにしている</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-3" aria-label="周辺への配慮：音・煙・臭い・ゴミなど周囲への影響を見ながら営業している"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>周辺への配慮</b><span>音・煙・臭い・ゴミなど周囲への影響を見ながら営業している</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-4" aria-label="売れ行きメモ：販売数量、来店傾向、商品への反応を簡単に記録した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>売れ行きメモ</b><span>販売数量、来店傾向、商品への反応を簡単に記録した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="3">0 / 5 項目</span></div>
+</section>
+<section class="stage-panel" data-stage="4" id="stage-cleanup" hidden aria-labelledby="stage-title-4">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🧹</div><div><span class="stage-overline">STEP 5 / 6</span><h2 id="stage-title-4">撤収</h2><p>元の状態に戻す</p></div></div>
+<div class="checklist" role="group" aria-label="撤収のチェックリスト"><label class="check-row"><input type="checkbox" data-check="cleanup-0" aria-label="営業終了：指定の終了時刻で販売を終え、火気と電源を安全に停止した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>営業終了</b><span>指定の終了時刻で販売を終え、火気と電源を安全に停止した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-1" aria-label="ゴミ・排水：ゴミ・廃油・排水を適切に持ち帰り、周辺設備に捨てていない"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>ゴミ・排水</b><span>ゴミ・廃油・排水を適切に持ち帰り、周辺設備に捨てていない</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-2" aria-label="原状回復：使用場所を清掃し、備品・看板・固定具をすべて回収した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>原状回復</b><span>使用場所を清掃し、備品・看板・固定具をすべて回収した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-3" aria-label="退出確認：歩行者やバスの動線を妨げず、指定の経路・時間で退出した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>退出確認</b><span>歩行者やバスの動線を妨げず、指定の経路・時間で退出した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-4" aria-label="最終点検：忘れ物・破損・汚れを確認し、必要に応じて現況を記録した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>最終点検</b><span>忘れ物・破損・汚れを確認し、必要に応じて現況を記録した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="4">0 / 5 項目</span></div>
+<div class="photo" data-photo="cleanup"><b>📷 片付けたら、写真で報告</b><p>撤収が終わったら、元どおりになった区画を撮って送ってください。</p><ul><li>片付け後の区画全体（ごみ・汚れが残っていないこと）</li><li>使った場所のまわり（油や水のこぼれがないこと）</li></ul><label class="shoot"><input type="file" accept="image/*" capture="environment" multiple data-pick>写真を撮る（3枚まで）</label><div class="thumbs" data-thumbs></div><button type="button" class="send" data-send disabled>写真を送って報告する</button><div class="msg" data-msg role="status" aria-live="polite"></div><span class="alt">送れないときは、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:900">運営のLINE</a>に写真を送ってください。</span></div></section>
+<section class="stage-panel" data-stage="5" id="stage-finish" hidden aria-labelledby="stage-title-5">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">✅</div><div><span class="stage-overline">STEP 6 / 6</span><h2 id="stage-title-5">終了報告</h2><p>次の出店につなげる</p></div></div>
+<div class="checklist" role="group" aria-label="終了報告のチェックリスト"><label class="check-row"><input type="checkbox" data-check="finish-0" aria-label="終了連絡：主催者が指定する方法で、撤収完了を連絡した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>終了連絡</b><span>主催者が指定する方法で、撤収完了を連絡した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="finish-1" aria-label="売上の確認：売上・販売数・費用を記録した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>売上の確認</b><span>売上・販売数・費用を記録した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="finish-2" aria-label="振り返り：良かった点と改善したい点をメモした"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>振り返り</b><span>良かった点と改善したい点をメモした</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="finish-3" aria-label="次回案内：次回出店がある場合、日程や最新の連絡を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>次回案内</b><span>次回出店がある場合、日程や最新の連絡を確認した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="5">0 / 4 項目</span></div>
+<div class="report" id="reportBox"><b>終了報告をLINEで送る</b><div class="row"><div><label for="rQty">販売数（個）</label><input id="rQty" type="number" inputmode="numeric" min="0"></div><div><label for="rSales">売上（円）</label><input id="rSales" type="number" inputmode="numeric" min="0"></div></div><label for="rNote" style="margin-top:8px">よかった点・困ったこと（任意）</label><textarea id="rNote" maxlength="300"></textarea><button type="button" id="rSend">撤収完了と結果をLINEで送る</button></div></section></div>
+<div class="foot-nav"><button type="button" id="previous">← 前の段階</button><button type="button" id="next">次の段階へ →</button></div>
+<div class="extra">
+<div class="info-card"><h2>正式案内で確認すべきこと</h2><p>このページでは<strong>集合場所・搬入口・搬入開始時刻・臨時駐車場・当日の連絡先</strong>をまだ確定表示していません。</p><ul><li>集合・受付場所とスタッフへの連絡方法</li><li>出店確定済みの区画・営業開始と終了の時刻</li><li>車両の搬入路・駐車場・退出時刻</li><li>火気・電源・排水・雨天時の判断</li></ul><p>現行の募集条件には「開始60分前から設営」「終了後45分以内に撤収」という案がありますが、<strong>正式な運営指示が優先</strong>です。</p></div>
+<div class="info-card alert-card"><h2>安全上のトラブルがあったら</h2><p>火災・事故・急病などの緊急時は、まず安全を確保して<strong>119（救急・消防）／110（警察）</strong>へ。通常の運営連絡は、出店確定時に案内される担当窓口を利用してください。</p><p>通行人・バス・車椅子利用者の動線をふさいでいる場合は販売・設営を中断し、係員の指示に従ってください。</p></div>
+<div class="info-card"><h2>この端末のチェック状況</h2><p>チェック内容は利用中のブラウザ内にのみ保存し、BRIDGE CYCLEへ自動送信しません。ほかの端末には同期されません。</p><div class="tool-row"><button type="button" class="ghost" id="clearProgress">この日のチェックをリセット</button><a href="minakusa-ekimae.html#rules">募集案内のルールを確認 ↗</a></div></div>
+</div>
+</div>
+</main>
+<footer><div class="wrap"><strong>BRIDGE CYCLE株式会社</strong><br>南草津駅前社会実験・出店者向け行動ガイド（準備版）<br><a href="minakusa-ekimae.html">出店者向け募集ページ</a></div></footer>
+<div class="bottom-bar" id="bottomBar"><div class="wrap bottom-inner"><div class="bottom-text"><b id="bottomTitle">1. 出発前</b><span id="bottomProgress">確認しながら進めましょう</span></div><button type="button" id="bottomNext">次へ →</button></div></div>
+<script>
+(function(){"use strict";
+const tabs=[...document.querySelectorAll("[data-go]")],panels=[...document.querySelectorAll("[data-stage]")],checks=[...document.querySelectorAll("[data-check]")];
+const z=document.getElementById("zone"),date=document.getElementById("date"),mapLink=document.getElementById("mapLink"),mapDescription=document.getElementById("mapDescription");
+let active=0,completed={},key="";
+const titleList=["出発前","到着・受付","設営","営業中","撤収","終了報告"];
+const qs=new URLSearchParams(location.search);
+const isApplication=qs.get("from")==="application";
+if(isApplication){
+ document.getElementById("applicationMode").hidden=false;
+ document.getElementById("zoneLabel").textContent="申し込み時の希望エリア（出店確定ではありません）";
+ document.title="申込後の準備ガイド｜南草津駅前・BRIDGE CYCLE";
+}
+const rememberedZone=qs.get("zone");
+if(["A","B","C","D"].includes(rememberedZone))z.value=rememberedZone;
+const d=qs.get("date");
+if(d&&/^\d{4}-\d\d-\d\d$/.test(d))date.value=d;
+const mapLinks={
+ A:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 西口 駅前広場"),
+ B:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 東口 バスのりば"),
+ C:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 東口 バスのりば"),
+ D:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 東口 バスのりば")
+};
+function setMap(){
+ const v=z.value;
+ mapLink.href=mapLinks[v]||"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("JR南草津駅");
+ mapDescription.textContent=v==="A"?"西口Aを選択中。地図は西口駅前周辺までです。":(["B","C","D"].includes(v)?"東口"+v+"を選択中。地図は東口周辺までです。":"エリアはまだ未選択です。確定案内に合わせて選んでください。");
+}
+function getKey(){return "minakusa-vendor-day-v1:"+(date.value||"date-not-set");}
+function save(){try{localStorage.setItem(key,JSON.stringify(completed));}catch(e){}}
+function load(){
+ key=getKey();let obj={};try{obj=JSON.parse(localStorage.getItem(key)||"{}")||{};}catch(e){}
+ completed=(obj&&typeof obj==="object"&&!Array.isArray(obj))?obj:{};
+ checks.forEach(c=>{c.checked=completed[c.dataset.check]===true;});refresh();
+}
+function refresh(){
+ let n=0;checks.forEach(c=>{if(c.checked)n++;});
+ document.getElementById("doneCount").textContent=String(n);
+ document.getElementById("totalCount").textContent=String(checks.length);
+ const pct=Math.round(n/checks.length*100),bar=document.getElementById("progressBar");
+ bar.setAttribute("aria-valuenow",String(pct));document.getElementById("progressFill").style.width=pct+"%";
+ panels.forEach((p,i)=>{const list=[...p.querySelectorAll("[data-check]")],num=list.filter(c=>c.checked).length;
+ const label=p.querySelector("[data-stage-count]");if(label)label.textContent=num+" / "+list.length+" 項目";
+ const check=tabs[i].querySelector("[data-tabdone]");if(check)check.textContent=num===list.length?"✓":"";});
+ const current=panels[active],count=[...current.querySelectorAll("[data-check]")].filter(x=>x.checked).length,total=current.querySelectorAll("[data-check]").length;
+ document.getElementById("bottomProgress").textContent=count+" / "+total+" 項目を確認済み";
+}
+function go(i,move){
+ if(i<0||i>=panels.length)return;
+ active=i;panels.forEach((p,n)=>{p.hidden=n!==i;});
+ tabs.forEach((b,n)=>{b.classList.toggle("active",n===i);b.setAttribute("aria-current",n===i?"step":"false");});
+ document.getElementById("previous").disabled=i===0;
+ document.getElementById("next").textContent=i===panels.length-1?"最初の段階に戻る ↺":"次の段階へ →";
+ document.getElementById("bottomNext").textContent=i===panels.length-1?"最初へ ↺":"次へ →";
+ document.getElementById("bottomTitle").textContent=(i+1)+". "+titleList[i];
+ refresh();
+ if(move){
+   tabs[i].scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",inline:"nearest",block:"nearest"});
+   document.getElementById("guide").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+ }
+}
+function next(){go(active===panels.length-1?0:active+1,true);}
+tabs.forEach((b,i)=>b.addEventListener("click",()=>go(i,true)));
+checks.forEach(c=>c.addEventListener("change",()=>{completed[c.dataset.check]=c.checked;save();refresh();}));
+document.getElementById("next").addEventListener("click",next);
+document.getElementById("bottomNext").addEventListener("click",next);
+document.getElementById("previous").addEventListener("click",()=>go(active-1,true));
+document.getElementById("clearProgress").addEventListener("click",()=>{
+ if(!confirm("この日のチェック状態をすべて消しますか？"))return;
+ completed={};save();checks.forEach(c=>c.checked=false);refresh();go(0,true);
+});
+date.addEventListener("change",load);
+z.addEventListener("change",setMap);
+setMap();load();go(0,false);
+})();
+</script>
+<script id="day-gate-photo">
+(function(){"use strict";
+var $=function(i){return document.getElementById(i);};
+var z=$("zone"),date=$("date"),slot=$("slot");
+/* ---- 搬入口（仮）---- */
+var GATES={
+ west:{img:"images/minakusa/west.jpg",title:"西口A：西口ロータリー側から",pin:[40,63],zone:[31,40,22,16,"広場 A"],
+  steps:["西口ロータリーの一般車乗降場側から、駅前広場の舗装部分へ入ります。","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。","テント・机は乗降場で荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"],
+  map:"南草津駅 西口 ロータリー"},
+ east:{img:"images/minakusa/east.jpg",title:"東口B・C・D：バスロータリーの外から",pin:[53,58],zone:[30,14,24,40,"のりば B/C/D"],
+  steps:["バスの運行を妨げないよう、バスロータリーの中では停車・荷下ろしをしません。","近くの駐車場などに車を止め、荷物は台車で区画まで運びます。","ロータリーの南東側の歩道から、点字ブロックとバス待ちの列を避けて区画へ。"],
+  map:"南草津駅 東口 バスロータリー"}
+};
+function drawGate(){
+ var v=z.value,g=v==="A"?GATES.west:(["B","C","D"].indexOf(v)>=0?GATES.east:null),box=$("gateBox");if(!box)return;
+ if(!g){box.hidden=true;return;}box.hidden=false;
+ $("gateImg").src=g.img;$("gateTitle").textContent="搬入口（仮）｜"+g.title;
+ $("gateSteps").innerHTML=g.steps.map(function(s){return "<li>"+s+"</li>";}).join("");
+ $("gateMarks").innerHTML='<div class="gate-zone" style="left:'+g.zone[0]+'%;top:'+g.zone[1]+'%;width:'+g.zone[2]+'%;height:'+g.zone[3]+'%">'+g.zone[4]+'</div><div class="gate-pin" style="left:'+g.pin[0]+'%;top:'+g.pin[1]+'%"><b>搬入口（仮）</b><i></i><s></s></div>';
+ $("gateMap").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(g.map);
+}
+z.addEventListener("change",drawGate);drawGate();
+
+/* ---- 自分の情報（端末内のみ）---- */
+var PK="minakusa-vendor-profile-v1";
+function prof(){try{return JSON.parse(localStorage.getItem(PK)||"{}")||{};}catch(e){return {};}}
+var p=prof();$("meShop").value=p.shop||"";$("meEmail").value=p.email||"";
+function saveProf(){try{localStorage.setItem(PK,JSON.stringify({shop:$("meShop").value.trim(),email:$("meEmail").value.trim()}));}catch(e){}}
+$("meShop").addEventListener("change",saveProf);$("meEmail").addEventListener("change",saveProf);
+
+/* ---- 写真を縮小（長辺1280px・JPEG）---- */
+function shrink(file){return new Promise(function(res,rej){
+ var url=URL.createObjectURL(file),img=new Image();
+ img.onload=function(){var s=Math.min(1,1280/Math.max(img.width,img.height)),c=document.createElement("canvas");
+  c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+  URL.revokeObjectURL(url);var d=c.toDataURL("image/jpeg",0.78);res(d);};
+ img.onerror=function(){URL.revokeObjectURL(url);rej(new Error("img"));};img.src=url;});}
+var ENDPOINT="https://script.google.com/macros/s/AKfycbxPWEX8MbMaAJ0LE92aw5f8G2FKE79hT-YywiBUA0RCl-Ra8sm3hqV_LktOA9FVMNSg/exec";
+var LABEL={arrival:"到着・設営",cleanup:"撤収完了"};
+function stamp(d){return ("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);}
+function sentKey(kind){return "minakusa-photo-sent-v1:"+(date.value||"no-date")+":"+kind;}
+
+document.querySelectorAll("[data-photo]").forEach(function(box){
+ var kind=box.getAttribute("data-photo"),pick=box.querySelector("[data-pick]"),th=box.querySelector("[data-thumbs]"),btn=box.querySelector("[data-send]"),msg=box.querySelector("[data-msg]"),shots=[];
+ function showSent(){var s=null;try{s=localStorage.getItem(sentKey(kind));}catch(e){}
+  var ok=box.querySelector(".ok");if(ok)ok.remove();
+  if(s){box.classList.add("sent");var d=document.createElement("div");d.className="ok";d.textContent="✓ "+s+" に"+LABEL[kind]+"の写真を送りました";btn.insertAdjacentElement("afterend",d);}else box.classList.remove("sent");}
+ function draw(){th.innerHTML=shots.map(function(s,i){return '<div><img src="'+s+'" alt="撮った写真'+(i+1)+'"><button type="button" data-del="'+i+'" aria-label="この写真を消す">×</button></div>';}).join("");btn.disabled=!shots.length;}
+ th.addEventListener("click",function(e){var b=e.target.closest("[data-del]");if(!b)return;shots.splice(+b.getAttribute("data-del"),1);draw();});
+ pick.addEventListener("change",function(){var fs=[].slice.call(pick.files||[]).slice(0,3-shots.length);msg.textContent=fs.length?"写真を準備しています…":"";
+  Promise.all(fs.map(shrink)).then(function(list){shots=shots.concat(list).slice(0,3);draw();msg.textContent="";}).catch(function(){msg.textContent="写真を読み込めませんでした。もう一度撮ってください。";});pick.value="";});
+ btn.addEventListener("click",function(){
+  var shop=$("meShop").value.trim(),email=$("meEmail").value.trim();
+  if(!shop||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="上の「あなたのお店」に屋号とメールアドレスを入れてください。";$("meBox").scrollIntoView({behavior:"smooth",block:"center"});return;}
+  if(!z.value||!date.value){msg.textContent="エリアと出店日を選んでください。";return;}
+  saveProf();btn.disabled=true;btn.textContent="送信しています…";msg.textContent="";
+  var now=new Date(),zn={A:"西口A",B:"東口B",C:"東口C",D:"東口D"}[z.value],so=slot&&slot.options[slot.selectedIndex];
+  var payload={form:"minakusa_photo_"+kind,"会社名・屋号":shop,email:email,"報告":LABEL[kind],"出店日":date.value,"エリア":zn,"時間枠":so?so.text:"","送信時刻":stamp(now),"枚数":shots.length+"枚",
+   _subject:"【南草津 "+LABEL[kind]+"の写真】"+shop+"｜"+date.value.slice(5).replace("-","/")+" "+zn+" "+stamp(now),_page:location.href.split("#")[0].split("?")[0],
+   _files:shots.map(function(d,i){return {field:LABEL[kind],name:date.value+"_"+z.value+"_"+kind+"_"+(i+1)+".jpg",type:"image/jpeg",data:d.split(",")[1]};})};
+  fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)})
+   .then(function(r){return r.json();}).then(function(j){if(!j||j.success!==true)throw new Error("relay");
+    try{localStorage.setItem(sentKey(kind),stamp(now));}catch(e){}
+    shots=[];draw();btn.textContent="写真を送って報告する";showSent();
+    try{window.bcTrack&&bcTrack("form_submit",{form:"minakusa_photo_"+kind});}catch(e){}
+   }).catch(function(){btn.disabled=false;btn.textContent="もう一度送る";msg.textContent="送れませんでした。電波のよい場所でもう一度お試しいただくか、運営のLINEに写真を送ってください。";});
+ });
+ date.addEventListener("change",showSent);showSent();
+});
+})();
+</script>
+<script id="day-timeline">
+(function(){"use strict";
+var $=function(i){return document.getElementById(i);};
+var z=$("zone"),date=$("date"),slot=$("slot"),list=$("tlList"),now=$("tlNow");if(!z||!date||!slot)return;
+/* 区画・曜日ごとの時間枠（募集ページの条件と同じ） */
+var SLOTS={
+ A:{5:[["15:00","20:00","金曜 15:00〜20:00"]],6:[["11:00","16:00","11:00〜16:00"],["10:00","18:00","通し 10:00〜18:00"]],0:[["11:00","16:00","11:00〜16:00"],["10:00","18:00","通し 10:00〜18:00"]]},
+ B:{6:[["10:00","15:00","10:00〜15:00"],["16:00","21:00","16:00〜21:00"],["11:00","19:00","通し 11:00〜19:00"]],0:[["10:00","15:00","10:00〜15:00"],["16:00","21:00","16:00〜21:00"],["11:00","19:00","通し 11:00〜19:00"]]},
+ C:{5:[["07:00","09:30","朝 7:00〜9:30"],["17:00","19:30","夕 17:00〜19:30"],["07:00","09:30","朝夕セット",["17:00","19:30"]]]},
+ D:{5:[["07:00","09:30","朝 7:00〜9:30"],["17:00","19:30","夕 17:00〜19:30"],["07:00","09:30","朝夕セット",["17:00","19:30"]]]}
+};
+var STAGE={prep:0,arrive:1,setup:2,sell:3,clean:4,done:5};
+function dayObj(){if(!date.value)return null;var p=date.value.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+function at(d,hm,add){var p=hm.split(":");var x=new Date(d);x.setHours(+p[0],+p[1]+(add||0),0,0);return x;}
+function hm(d){return ("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);}
+function fillSlots(){
+ var d=dayObj(),opts=(d&&SLOTS[z.value]&&SLOTS[z.value][d.getDay()])||[],keep=slot.value;
+ slot.innerHTML=opts.length?opts.map(function(o,i){return '<option value="'+i+'">'+o[2]+'</option>';}).join(""):'<option value="">'+(z.value&&d?"この日はこのエリアの開催がありません":"エリアと日付を選んでください")+'</option>';
+ if(opts.length){slot.value=(keep&&opts[+keep])?keep:"0";var q=new URLSearchParams(location.search).get("slot");if(q&&opts[+q]&&!fillSlots.done){slot.value=q;}}
+ fillSlots.done=true;
+}
+function events(){
+ var d=dayObj(),opts=(d&&SLOTS[z.value]&&SLOTS[z.value][d.getDay()])||[],o=opts[+slot.value];if(!o)return [];
+ var ev=[],eve=new Date(d);eve.setDate(eve.getDate()-1);eve.setHours(22,0,0,0);
+ ev.push({t:eve,k:"prep",b:"前日22時：開催の連絡",s:"雨天などで中止のときはLINEかメールで届きます。届いた内容を確認。",eve:true});
+ var start=at(d,o[0]),end=at(d,o[1]);
+ ev.push({t:at(d,o[0],-90),k:"prep",b:"出発",s:"許可証・食材・釣り銭・ごみ袋を最終確認して出発（目安）。"});
+ ev.push({t:at(d,o[0],-60),k:"setup",b:"到着・設営開始",s:"搬入口（仮）から入り、区画の中に設営。設営できたら到着の写真を送る。"});
+ ev.push({t:start,k:"sell",b:"開店",s:"行列が歩道やバスの列をふさがないように。"});
+ var last=end;
+ if(o[3]){ev.push({t:end,k:"clean",b:"朝の販売終了・片付け",s:"夕方まで場所を空けます。火と電源を止めて一度撤収。"});
+  var s2=at(d,o[3][0]),e2=at(d,o[3][1]);ev.push({t:at(d,o[3][0],-60),k:"setup",b:"夕方の設営開始",s:"もう一度区画に設営。"});ev.push({t:s2,k:"sell",b:"夕方の開店",s:"帰宅する人が増える時間です。"});last=e2;}
+ ev.push({t:last,k:"clean",b:"閉店・撤収開始",s:"火と電源を止め、ごみは全部持ち帰り。"});
+ ev.push({t:at(last,hm(last),45),k:"done",b:"撤収完了（45分以内）",s:"場所を元どおりにして、片付けの写真を送る。終了報告もLINEで。"});
+ return ev;
+}
+function render(){
+ var ev=events(),t=new Date();
+ if(!ev.length){list.innerHTML='<li style="display:block"><div class="tl-empty">エリア・日付・時間枠を選ぶと、当日の時間割が出ます。</div></li>';now.className="now idle";now.innerHTML='<small>いまやること</small><b>エリア・日付・時間枠を選んでください</b><span class="cd"></span>';return;}
+ var cur=-1;ev.forEach(function(e,i){if(t>=e.t)cur=i;});
+ list.innerHTML=ev.map(function(e,i){return '<li class="'+(i<cur?"done":i===cur?"cur":"")+(e.eve?" eve":"")+'"><time>'+(e.eve?"前日<br>":"")+hm(e.t)+'</time><i></i><div><b>'+e.b+'</b><span>'+e.s+'</span></div></li>';}).join("");
+ var first=ev[1].t,lastT=ev[ev.length-1].t,sameDay=t.toDateString()===dayObj().toDateString();
+ if(sameDay&&t<=new Date(lastT.getTime()+3*3600e3)){
+  var c=ev[Math.max(cur,0)],n=ev[cur+1];
+  var mins=n?Math.ceil((n.t-t)/60000):0;
+  now.className="now";now.innerHTML='<small>いまやること（'+hm(t)+'）</small><b>'+(cur<1?"出発の準備":c.k==="sell"?"営業中":c.k==="setup"?"設営中":c.k==="clean"?"撤収中":c.b)+'</b><span class="cd">'+(n?"次の「"+n.b+"」まで あと"+(mins>=60?Math.floor(mins/60)+"時間"+(mins%60)+"分":mins+"分"):"おつかれさまでした。終了報告を送りましょう。")+'</span><button type="button" id="openStage">このときのチェックリストを開く ↓</button>';
+  $("openStage").onclick=function(){var k=cur<1?"prep":c.k;var tab=document.querySelector('[data-go="'+STAGE[k]+'"]');if(tab)tab.click();};
+ }else{
+  var days=Math.ceil((new Date(dayObj().toDateString())-new Date(t.toDateString()))/864e5);
+  now.className="now idle";now.innerHTML='<small>いまやること</small><b>'+(days>0?"出店日まで あと"+days+"日":"この出店日は終わりました")+'</b><span class="cd">'+(days>0?"当日になると、時刻に合わせて自動で切り替わります。":"")+'</span>';
+ }
+}
+function ics(){
+ var ev=events();if(!ev.length){alert("エリア・日付・時間枠を選んでください。");return;}
+ function f(d){return d.getFullYear()+("0"+(d.getMonth()+1)).slice(-2)+("0"+d.getDate()).slice(-2)+"T"+("0"+d.getHours()).slice(-2)+("0"+d.getMinutes()).slice(-2)+"00";}
+ var lines=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//BRIDGE CYCLE//minakusa//JA","CALSCALE:GREGORIAN","BEGIN:VTIMEZONE","TZID:Asia/Tokyo","BEGIN:STANDARD","DTSTART:19700101T000000","TZOFFSETFROM:+0900","TZOFFSETTO:+0900","END:STANDARD","END:VTIMEZONE"];
+ ev.forEach(function(e,i){var end=new Date(e.t.getTime()+15*60000);
+  lines.push("BEGIN:VEVENT","UID:minakusa-"+f(e.t)+"-"+i+"@bridgecycleco.com","DTSTAMP:"+f(new Date()),"DTSTART;TZID=Asia/Tokyo:"+f(e.t),"DTEND;TZID=Asia/Tokyo:"+f(end),"SUMMARY:南草津駅前 "+e.b,"DESCRIPTION:"+e.s,"LOCATION:JR南草津駅","BEGIN:VALARM","TRIGGER:-PT10M","ACTION:DISPLAY","DESCRIPTION:"+e.b,"END:VALARM","END:VEVENT");});
+ lines.push("END:VCALENDAR");
+ var blob=new Blob([lines.join("\r\n")],{type:"text/calendar;charset=utf-8"}),a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);a.download="minakusa-"+date.value+".ics";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+}
+function report(){
+ var zn={A:"西口A",B:"東口B",C:"東口C",D:"東口D"}[z.value]||"エリア未選択",o=slot.options[slot.selectedIndex];
+ var msg="【南草津駅前 終了報告】\n出店日："+(date.value||"未入力")+"\nエリア："+zn+"（"+(o?o.text:"")+"）\n撤収：完了しました\n販売数："+($("rQty").value||"-")+"個\n売上："+($("rSales").value?Number($("rSales").value).toLocaleString("ja-JP"):"-")+"円\nひとこと："+($("rNote").value||"なし");
+ window.open("https://line.me/R/oaMessage/%40907kxssd/?"+encodeURIComponent(msg),"_blank","noopener");
+}
+$("icsBtn").addEventListener("click",ics);var rs=$("rSend");if(rs)rs.addEventListener("click",report);
+z.addEventListener("change",function(){fillSlots();render();});date.addEventListener("change",function(){fillSlots();render();});slot.addEventListener("change",render);
+fillSlots();render();setInterval(render,30000);
+})();
+</script>
+</body>
+</html>
