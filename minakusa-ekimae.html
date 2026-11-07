@@ -134,6 +134,46 @@ button.cal-cell.sel{border-color:var(--orange);box-shadow:0 0 0 2px #dd654033;ba
 .rules-list li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13px;line-height:1.8;color:var(--ink)}
 .rules-list li b{display:block;font-size:14px;color:var(--pine);margin-bottom:3px}
 @media(max-width:760px){.entry-days{grid-template-columns:repeat(2,1fr)}.rules-list{grid-template-columns:1fr}.entry-status{font-size:12px}}
+
+/* 2026-11-07: intuitive vendor journey + safe prelaunch gating */
+body #apply{display:none!important}body.is-prelaunch #entryForm,body.is-prelaunch #calendar{display:none!important}
+.ux-journey{background:#fff;border-bottom:1px solid #dfebdf;padding:32px 0 36px;scroll-margin-top:70px}
+.ux-journey-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:16px}
+.ux-journey-head span{font-size:10px;letter-spacing:.14em;font-weight:900;color:#2e7658}
+.ux-journey-head h2{font-size:clamp(21px,2.2vw,29px);letter-spacing:-.04em;margin:4px 0 0;line-height:1.45}
+.ux-journey-head p{margin:0;font-size:12px;color:#506e5c;max-width:490px}
+.ux-journey-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.ux-journey-card{display:flex;gap:12px;align-items:center;border:1px solid #cfdfd3;border-radius:14px;padding:15px;background:#f5faf4;text-decoration:none;min-width:0;transition:border-color .15s,transform .15s}
+.ux-journey-card:hover,.ux-journey-card:focus-visible{border-color:#388660;transform:translateY(-2px)}
+.ux-journey-card>b{font:900 27px 'DM Sans',sans-serif;color:#1d5f45}
+.ux-journey-card div{min-width:0;flex:1;line-height:1.5}
+.ux-journey-card strong{font-size:13px;display:block}
+.ux-journey-card small{font-size:10px;color:#50695d;display:block;margin-top:3px}
+.ux-journey-card>span{color:#206747;font-size:20px;font-weight:900}
+.ux-entry-preview{border:1px solid #cce2d2;background:#f3faf4;border-radius:17px;padding:19px 22px;margin:18px 0}
+.ux-entry-kicker{font-size:11px;color:#37694c;letter-spacing:.05em;font-weight:900}
+.ux-entry-chosen{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.ux-entry-chosen>div{padding:12px 13px;border:1px solid #e0ebe0;border-radius:11px;background:#fff;min-width:0}
+.ux-entry-chosen small{display:block;color:#5c7263;font-weight:800;font-size:11px}
+.ux-entry-chosen b{font-size:14px;overflow-wrap:anywhere}
+.ux-entry-preview p{font-size:12px;color:#546b58;margin:10px 0}
+.ux-entry-preview a{font-size:12px;color:#225d48;font-weight:900;margin-right:20px;text-underline-offset:3px}
+.ux-entry-reminder{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:#fff;padding:15px 18px;border-radius:15px;border:1px solid #dfebdf}
+.ux-entry-reminder b{font-size:12px;margin-right:6px}
+.ux-entry-reminder span{background:#eaf3e9;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:800}
+.ux-entry-reminder a{margin-left:auto;font-size:12px;color:#205b45;font-weight:900}
+#entry .section-head{margin-bottom:18px}#entry{background:#fffefa}
+.zone-card:has([data-zone="A"][aria-pressed="true"]),.zone-card:has(.lot-mini[aria-pressed="true"]){border:2px solid #2e845c;box-shadow:0 12px 33px #155a3525}
+.zone-card:has([data-zone="B"][aria-pressed="true"]),.zone-card:has([data-zone="C"][aria-pressed="true"]),.zone-card:has([data-zone="D"][aria-pressed="true"]){border:2px solid #4677a4;box-shadow:0 12px 33px #234b7620}
+.day[aria-pressed="true"]{box-shadow:0 0 0 3px #8dcda7a3}
+#schedule .day-panel{border:2px solid #d3e5d4}
+#zones,#schedule,#pricing,#entry{scroll-margin-top:86px}
+#zones.section,#schedule.section,#pricing.section,#entry.section{padding-top:65px;padding-bottom:65px}
+#benefits.section,#profits.section,#process.section,#rules.section,#faq.section{padding-top:58px;padding-bottom:58px}
+@media(max-width:950px){.ux-journey-head{display:block}.ux-journey-head p{margin-top:7px}}
+@media(max-width:760px){.ux-journey-grid{grid-template-columns:1fr}.ux-journey-card{padding:10px 14px}.ux-journey-card>b{font-size:24px}.ux-journey-head h2{font-size:23px}.ux-journey{padding:23px 0}.ux-entry-chosen{grid-template-columns:1fr}#zones.section,#schedule.section,#pricing.section,#entry.section{padding-block:38px}}
+@media(max-width:570px){.hero-grid{padding-block:33px 34px;gap:13px}.hero-visual{width:min(390px,100%);max-height:290px;overflow:hidden}.hero-img{aspect-ratio:1.75;border-radius:20px;height:210px}.hero-index{right:4px;top:10px}.hero-stamp{display:none}.hero-visual .hero-side{display:none}.hero h1{font-size:clamp(38px,10.8vw,51px)}.hero-actions .btn{width:100%}.quickfacts-inner{grid-template-columns:1fr 1fr;gap:12px;padding:15px 0}.fact{border:0;padding:8px 0;justify-content:flex-start}.fact:last-child{grid-column:1/-1;border-top:1px solid #cbdcca;padding-top:13px}.fact b{font-size:21px}.ux-entry-reminder a{margin-left:0}.zone-photo{aspect-ratio:8/5}.day-panel{padding:17px}.day-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.day{min-height:79px}.steps-nav{gap:5px;justify-content:space-between}.step{padding:6px 8px;font-size:10px}.step-connector{width:10px}.entry-status{flex-direction:column;gap:4px}.mobile-cta{box-shadow:0 -3px 18px #092c2221}}
+@media(prefers-reduced-motion:reduce){.ux-journey-card{transition:none}}
 </style>
 <script src="/bc-analytics.js"></script>
 <script id="minakusa-calendar-data">
@@ -240,7 +280,7 @@ window.MINAKUSA_ENTRY={
 <div class="mobile-cta"><a class="btn btn-orange" href="#entry" id="mobileCta">募集開始情報を確認する →</a></div>
 <script>
 (()=>{'use strict';
-const ZONES={ANY:{label:'場所は運営と相談',weekday:'any',detail:'希望エリアが決まらなければ、場所はおまかせでも大丈夫です。'},A:{label:'西口 A｜みなくさフードガーデン（7区画）',weekday:'any',detail:'番号は希望として伺います。実際の位置は出店確定時にお知らせします。'},B:{label:'東口 B｜のりば1・2前（5枠）',weekday:'weekend',detail:'Bは土日の売り場です。金曜日に出たい場合は、ほかの区画をお選びください。'},C:{label:'東口 C｜のりば3・4前（4枠）',weekday:'fri',detail:'Cは金曜朝夕の売り場です。土日に出たい場合は、ほかの区画をお選びください。'},D:{label:'東口 D｜のりば5前（3枠）',weekday:'fri',detail:'Dは金曜朝夕の売り場です。土日に出たい場合は、ほかの区画をお選びください。'}};
+const ZONES={ANY:{label:'場所はまだ決めていない',weekday:'any',detail:'場所は後から選ぶこともできます。気になる候補日を先に確認できます。'},A:{label:'西口 A｜みなくさフードガーデン（7区画）',weekday:'any',detail:'番号は希望として伺います。実際の位置は出店確定時にお知らせします。'},B:{label:'東口 B｜のりば1・2前（5枠）',weekday:'weekend',detail:'Bは土日の売り場です。金曜日に出たい場合は、ほかの区画をお選びください。'},C:{label:'東口 C｜のりば3・4前（4枠）',weekday:'fri',detail:'Cは金曜朝夕の売り場です。土日に出たい場合は、ほかの区画をお選びください。'},D:{label:'東口 D｜のりば5前（3枠）',weekday:'fri',detail:'Dは金曜朝夕の売り場です。土日に出たい場合は、ほかの区画をお選びください。'}};
 const DAYS=[4,5,6,11,12,13,18,19,20];
 const state={zone:'ANY',booth:null,days:new Set()};
 const $=id=>document.getElementById(id);
@@ -249,14 +289,16 @@ function isAllowed(day){const kind=ZONES[state.zone].weekday,dow=new Date(2026,1
 function formattedDays(){return [...state.days].sort((a,b)=>a-b).map(d=>'12/'+d+'('+jpDay(d)+')');}
 function zoneName(){return ZONES[state.zone].label+(state.zone==='A'&&state.booth?'／A'+state.booth+'（希望番号）':'');}
 function updateSummaries(){
- $('zoneSummary').textContent='希望エリア：'+zoneName();$('zoneHint').textContent=ZONES[state.zone].detail;
+ $('zoneSummary').textContent='選んだ候補：'+zoneName();$('zoneHint').textContent=ZONES[state.zone].detail;
+ const selectedZonePreview=$('selectionZonePreview');if(selectedZonePreview)selectedZonePreview.textContent=state.zone==='ANY'?'まだ選んでいません':zoneName();
  $('applyZoneSummary').textContent='希望場所：'+zoneName();
- const d=formattedDays();$('applyDaysSummary').textContent='希望日：'+(d.length?d.join('、'):'相談して決めたい');
+ const d=formattedDays();$('applyDaysSummary').textContent='確認した候補日：'+(d.length?d.join('、'):'まだ選んでいません');
  $('daysSelected').textContent=d.length?'選択中：'+d.length+'日':'まだ日付を選んでいません';
- $('daysSummarySub').textContent=d.length?d.join('、'):'日付が決まっていなくても相談できます。';
- $('zoneDayHelp').textContent=state.zone==='ANY'?'どの日も選べます。区画を選ぶと、その区画の曜日だけになります。':state.zone==='B'?'東口Bは土・日の売り場です。金曜日は選べません。':(state.zone==='C'||state.zone==='D')?'東口'+state.zone+'は金曜朝夕の売り場です。土日は選べません。':'西口Aは金・土・日から選べます。';
+ $('daysSummarySub').textContent=d.length?d.join('、'):'候補日を選んでも、まだ予約にはなりません。';
+ const selectedDatesPreview=$('selectionDatesPreview');if(selectedDatesPreview)selectedDatesPreview.textContent=d.length?d.join('、'):'まだ選んでいません';
+ $('zoneDayHelp').textContent=state.zone==='ANY'?'候補日の確認用です。場所を選ぶと、その区画に合う曜日だけ表示します。':state.zone==='B'?'東口Bは土・日の売り場です。金曜日は選べません。':(state.zone==='C'||state.zone==='D')?'東口'+state.zone+'は金曜朝夕の売り場です。土日は選べません。':'西口Aは金・土・日から選べます。';
 }
-function drawDates(){const grid=$('dateGrid');grid.replaceChildren();DAYS.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='day';b.disabled=!isAllowed(d);b.setAttribute('aria-pressed',String(state.days.has(d)));b.setAttribute('aria-label',`12月${d}日（${jpDay(d)}曜日）の出店希望を${state.days.has(d)?'解除':'選択'}`);const small=document.createElement('small');small.textContent=jpDay(d)+'曜';const number=document.createElement('strong');number.textContent=d;const label=document.createElement('span');label.className='subday';label.textContent=b.disabled?'対象外':'開催日';b.append(number,small,label);b.addEventListener('click',()=>{state.days.has(d)?state.days.delete(d):state.days.add(d);drawDates();});grid.append(b)});updateSummaries();}
+function drawDates(){const grid=$('dateGrid');grid.replaceChildren();DAYS.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='day';b.disabled=!isAllowed(d);b.setAttribute('aria-pressed',String(state.days.has(d)));b.setAttribute('aria-label',`12月${d}日（${jpDay(d)}曜日）の出店希望を${state.days.has(d)?'解除':'選択'}`);const small=document.createElement('small');small.textContent=jpDay(d)+'曜';const number=document.createElement('strong');number.textContent=d;const label=document.createElement('span');label.className='subday';label.textContent=b.disabled?'対象外':'候補日';b.append(number,small,label);b.addEventListener('click',()=>{state.days.has(d)?state.days.delete(d):state.days.add(d);drawDates();});grid.append(b)});updateSummaries();}
 function setZone(zone){if(!ZONES[zone])return;const previous=state.days.size;state.zone=zone;if(zone!=='A')state.booth=null;state.days=new Set([...state.days].filter(isAllowed));document.querySelectorAll('[data-zone]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.zone===zone)));document.querySelectorAll('[data-booth]').forEach(b=>b.setAttribute('aria-pressed',String(zone==='A'&&Number(b.dataset.booth)===state.booth)));if(previous!==state.days.size)$('zoneHint').textContent='希望する区画に合わない曜日は選択から外しました。';drawDates();}
 document.querySelectorAll('[data-zone]').forEach(b=>b.addEventListener('click',()=>setZone(b.dataset.zone)));
 document.querySelectorAll('[data-booth]').forEach(b=>b.addEventListener('click',()=>{const n=Number(b.dataset.booth);if(state.zone==='A'&&state.booth===n){state.booth=null}else{state.zone='A';state.booth=n}setZone(state.zone);document.querySelectorAll('[data-booth]').forEach(v=>v.setAttribute('aria-pressed',String(Number(v.dataset.booth)===state.booth)));updateSummaries();}));
@@ -338,19 +380,21 @@ var fields=$('entryFields'),btn=$('entrySubmit'),msg=$('entryMsg');
 var ZONE={A:'西口A（駅前広場）',B:'東口B（のりば1・2前）',C:'東口C（のりば3・4前）',D:'東口D（のりば5前）',ANY:'おまかせ'};
 var DOW={A:['金','土','日'],B:['土','日'],C:['金'],D:['金'],ANY:['金','土','日']};
 var open=C.open===true;
+document.body.classList.toggle('is-prelaunch',!open);
 
 /* ---- 受付状態の表示 ---- */
 function setState(){
   var st=$('entryStatus'),txt=$('entryStatusText');
   if(open){
-    st.className='entry-status open';st.querySelector('b').textContent='受付中';
+    st.className='entry-status open';st.querySelector('b').textContent='正式募集を受付中';
+    var nav=document.getElementById('navEntry');if(nav)nav.textContent='出店を申し込む →';
     txt.textContent='出店申込を受け付けています。'+(C.deadline?'締切は'+C.deadline+'です。':'区画が埋まり次第、締め切ります。')+'送信後、'+(C.replyDays||'3営業日以内')+'を目安にメールでご連絡します。';
     fields.disabled=false;btn.disabled=false;btn.textContent='この内容で申し込む';
-    var n=$('entryNotice');if(n)n.textContent='UDCみなくさによる南草津駅前の社会実験｜2026年12月の金・土・日（9日間）。出店申込を受け付けています'+(C.deadline?'（締切：'+C.deadline+'）':'')+'。';
+    var n=$('entryNotice');if(n)n.textContent='南草津駅前の飲食出店・社会実験｜12月の金・土・日の3週間を予定。出店申込受付中'+(C.deadline?'（締切：'+C.deadline+'）':'')+'。';
     var m=$('mobileCta');if(m){m.href='#entry';m.textContent='出店を申し込む →';}
-    var h=document.getElementById('applyTitle');if(h)h.innerHTML='まだ決めきれない方は、<br>相談からでもOK。';
+    var h=document.getElementById('entryTitle');if(h)h.textContent='出店申込フォーム';
   }else{
-    txt.textContent='いまは送信できません。'+(C.opensOn?'受付開始は'+C.opensOn+'の予定です。':'受付開始日は、決まりしだいこのページでお知らせします。')+'開始のお知らせを受け取りたい方は、上の先行相談からLINEかメールで「希望」をお送りください。';
+    txt.textContent='正式募集は現在準備中です。'+(C.opensOn?'受付開始は'+C.opensOn+'の予定です。':'募集開始日は、このページで決まりしだいご案内します。')+'事前相談・仮予約は受け付けていません。申込と事前入金は受付開始後、当社サイトの案内に従ってください。';
     fields.disabled=true;btn.disabled=true;
   }
 }
