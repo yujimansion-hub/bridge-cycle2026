@@ -88,13 +88,63 @@ dialog::backdrop{background:rgba(5,19,14,.85)}.modal-head{display:flex;justify-c
 .modal-overlays{position:absolute;inset:0;pointer-events:none}.modal-overlays button{pointer-events:none}
 .modal-overlays .area-lot{font-size:19px}
 @media(max-width:760px){.photo .area-lot{font-size:11px;border-width:1.5px}.photo .photo-draft-tag{font-size:9px}.modal-photo{min-width:580px}}
+
+/* Google Maps・公式バス停案内を踏まえた区画検討図。実際の位置や有効幅は示さない */
+.review-map-section{padding:37px 0 43px;background:#ecf4ed;border-block:1px solid #d4e3d7}
+.review-map-top{display:flex;gap:15px;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.review-map-top p{font-size:13px;color:#485f50;line-height:1.8;margin:7px 0 0}
+.review-map-draft{white-space:nowrap;background:#fff4df;color:#785527;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:900}
+.review-panels{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.review-panel{border:1px solid #bfd9c5;background:#fff;padding:20px;border-radius:17px;display:flex;flex-direction:column;gap:11px}
+.review-panel.blue{border-color:#cddcf0}
+.review-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.review-head b{font-size:17px}.review-head span{font-size:11px;color:#5a6e61}
+.review-panel p{font-size:12px;color:#485f53;line-height:1.8;margin:0}
+.review-panel>a,.review-links a{font-size:11.5px;color:#205e49;font-weight:900;text-underline-offset:4px}
+.review-links{display:flex;flex-wrap:wrap;gap:8px 16px}
+.review-west-groups{display:grid;grid-template-columns:1fr;gap:7px}
+.review-booths{border-radius:10px;background:#edf6eb;border:1px dashed #83b28c;padding:11px 13px}
+.review-booths b{font-size:12px;color:#2e6548}.review-booths span{font-size:15px;font-weight:900;display:block}.review-booths small{font-size:10.5px;color:#516b58}
+.review-no-go{border-radius:10px;background:#fbf1ea;border:1px solid #e5cab9;padding:10px 13px;text-align:center}
+.review-no-go b{display:block;font-size:13px;color:#805c47}.review-no-go small{font-size:10px;color:#6d645c}
+.review-bus-diagram{background:#edf3f9;border:1px solid #d7e4ef;border-radius:11px;padding:13px;line-height:1.45}
+.review-bus-top{border:1px dashed #537eaf;background:#fff;color:#315d89;border-radius:8px;padding:8px;text-align:center;font-size:13px;font-weight:900}
+.review-bus-top small{display:block;font-size:10px}
+.review-bus-middle{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:8px;min-height:110px;margin:8px 0}
+.review-bus-stop{border:1px dashed #537eaf;background:#fff;color:#315d89;border-radius:8px;padding:7px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+.review-bus-stop small{font-size:10px}
+.review-bus-road{display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #e6c0ac;background:#fff3ec;color:#80543b;border-radius:8px;padding:8px;text-align:center}
+.review-bus-road b{font-size:11px}.review-bus-road small{font-size:10px}
+.review-bus-foot{font-size:10px;color:#506275}
+.review-checks{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.review-checks b{font-size:12px;margin-right:9px}
+.review-checks span{font-size:11px;border-radius:99px;background:#fff;border:1px solid #d5e2d8;padding:6px 10px}
+.review-source-note{color:#506556;font-size:11px;line-height:1.65;margin:13px 0 0}
+.review-source-note a{color:#205e49;font-weight:800}
+@media(max-width:760px){.review-panels{grid-template-columns:1fr}.review-map-top{display:block}.review-map-draft{display:inline-block;margin-top:10px}.review-panel{padding:15px}}
+@media(max-width:380px){.review-bus-middle{grid-template-columns:1fr 1.2fr 1fr;gap:4px}.review-bus-stop{font-size:10px}}
 </style>
 </head>
 <body>
 <header><div class="wrap head"><a class="brand" href="minakusa-ekimae.html"><b>BC</b><span>南草津駅前 POP-UP<small>MINAMIKUSATSU × BRIDGE CYCLE</small></span></a><a class="head-link" href="minakusa-ekimae.html#zones">募集ページに戻る ↗</a></div></header>
 <main>
 <section class="hero"><div class="wrap"><div class="eyebrow">LOCATION GUIDE / DRAFT</div><h1>出店する場所を、<br>もっと具体的に。</h1><p>西口の「みなくさフードガーデン」と東口のB・C・Dを、写真・概略図・条件案で比較できます。区画を選んだら、その内容を先行相談ページに引き継げます。</p><div class="statuses"><span>西口A：7枠案</span><span>東口B・C・D</span><span>候補位置・条件は未確定</span></div></div></section>
-<nav class="summary-nav" aria-label="このページの見出し"><div class="wrap summary-inner"><a href="#overview">位置関係</a><a href="#photos">航空写真</a><a href="#west">西口A・仮番号</a><a href="#east">東口B・C・D</a><a href="#comparison">条件比較</a></div></nav>
+<nav class="summary-nav" aria-label="このページの見出し"><div class="wrap summary-inner"><a href="#map-review">地図から配置を検討</a><a href="#overview">位置関係</a><a href="#photos">航空写真</a><a href="#west">西口A・仮番号</a><a href="#east">東口B・C・D</a><a href="#comparison">条件比較</a></div></nav>
+<section class="review-map-section" id="map-review" aria-labelledby="review-title"><div class="wrap">
+<div class="review-map-top"><div><span class="eyebrow" style="color:#2b7050">MAP / FIELD CHECK</span><h2 id="review-title" class="section-title">地図で候補を絞り、現地で安全を確かめる。</h2><p>Googleマップの駅周辺情報と、2026年3月30日からのバスのりば配置を参照。<strong>航空写真だけで使用許可・面積・通行できる範囲は決められません。</strong></p></div><span class="review-map-draft">現地確認前の構想案</span></div>
+<div class="review-panels">
+<article class="review-panel"><div class="review-head"><b>西口A｜第1候補</b><span>舗装広場の2か所を調査</span></div><div class="review-west-groups"><div class="review-booths"><b>候補群①</b><span>A1・A2・A3・A4</span><small>4枠案：駅出口に近い広場側を優先調査</small></div><div class="review-no-go"><b>歩行者動線は確保</b><small>駅入口・点字ブロック・園路・搬入ルート</small></div><div class="review-booths"><b>候補群②</b><span>A5・A6・A7</span><small>3枠案：東山道記念公園側を優先調査</small></div></div><p>群の位置・距離・順序は<strong>配置の考え方</strong>です。公園内・広場内の使用可能範囲や収容可能枠数は未確認です。</p>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85%E8%A5%BF%E5%8F%A3%E3%80%80%E6%9D%B1%E5%B1%B1%E9%81%93%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92" target="_blank" rel="noopener noreferrer">Googleマップで西口周辺を見る ↗</a></article>
+<article class="review-panel blue"><div class="review-head"><b>東口B・C・D｜条件付き</b><span>2026年の乗り場配置を参照</span></div>
+<div class="review-bus-diagram" role="img" aria-label="バス停案内図の位置関係の概念図。図上部が3番・4番、左側が5番、右側が1番・2番。中央のバス車道と待機動線は出店できる場所と見なさない。">
+<div class="review-bus-top">3・4番のりば <small>候補C・歩道幅を確認</small></div>
+<div class="review-bus-middle"><div class="review-bus-stop">5番のりば <small>候補D</small></div><div class="review-bus-road"><b>バス走行・乗降動線</b><small>販売区画を置かない</small></div><div class="review-bus-stop">1・2番のりば <small>候補B</small></div></div>
+<div class="review-bus-foot">※バス事業者資料の位置関係を簡略化した図。方位・縮尺・歩道の使用可能範囲を示しません。</div></div>
+<p>まずBで歩行者幅・バス待機列の支障を確認。CとDは混雑・駅出入口への影響を慎重に調査します。<strong>Bの5枠、Cの4枠、Dの3枠はすべて未承認</strong>です。</p>
+<div class="review-links"><a href="https://shiga-teisan.co.jp/wp-content/uploads/2026/03/teisaninfo20260330.pdf" target="_blank" rel="noopener noreferrer">2026年3月30日からの乗り場位置（公式PDF） ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85%E6%9D%B1%E5%8F%A3%E3%83%90%E3%82%B9%E3%83%AD%E3%83%BC%E3%82%BF%E3%83%AA%E3%83%BC" target="_blank" rel="noopener noreferrer">Googleマップで東口周辺を見る ↗</a></div></article>
+</div><div class="review-checks"><b>現地・主催者確認で必要な5項目</b><span>①使用可能な範囲と管理者</span><span>②歩道・点字ブロック・バス待機列</span><span>③1枠の幅と奥行き</span><span>④キッチンカーの搬入・停車</span><span>⑤火気・電源・給排水の可否</span></div>
+<p class="review-source-note">参考：<a href="https://www.city.kusatsu.shiga.jp/shisei/kenkyu/UDC/UDCBK/school/index.html" target="_blank" rel="noopener noreferrer">草津市の駅前社会実験の実施報告</a>、<a href="https://shiga-teisan.co.jp/info/teisaninfo20260330/" target="_blank" rel="noopener noreferrer">滋賀帝産グループのバス停移転案内</a>。過去の実験実績は、今回の出店許可・区画数を保証するものではありません。</p>
+</div></section>
 <section class="section" id="overview"><div class="wrap"><h2 class="section-title">まず、駅の東西を確認。</h2><p class="intro">最初に全体の位置関係を把握し、そのあと個別の航空写真で確認してください。</p><div class="map-container"><img class="map-overview" src="images/minakusa/vendor-zone-map.svg" alt="JR南草津駅の西口A（最大7区画案）と、東口B（のりば1・2前）・C（のりば3・4前）・D（のりば5前）の概略位置図" width="1440" height="900"><div class="overview-foot"><p>これは位置関係を説明する<strong>概略図</strong>で、測量図・正式な区画配置図ではありません。</p><button type="button" class="btn btn-ghost" data-enlarge="images/minakusa/vendor-zone-map.svg" data-enlarge-label="南草津駅東西の概略配置図">概略図を大きく表示 <span aria-hidden="true">↗</span></button></div></div></div></section>
 <section class="section" id="photos" style="padding-top:0"><div class="wrap"><h2 class="section-title">航空写真から、場所を確認。</h2><p class="intro">写真の破線は<strong>仮配置イメージ</strong>です。西口の2つの候補位置付近に4枠＋3枠を試しに描いていますが、実際の枠の位置・個数配分・境界は未確定です。番号から希望を選べます。</p><div class="photo-grid">
 <article class="photo-card"><div class="photo-head"><div><b>西口A｜みなくさフードガーデン</b><small>駅前広場・キッチンカー／テントなどを想定</small></div><span class="flag">最大7枠案</span></div><div class="photo"><img src="images/minakusa/west.jpg" alt="JR南草津駅西口の航空写真" loading="lazy"><span class="photo-label">WEST / A</span><div class="west-lots-overlay" role="group" aria-label="写真上の西口A1からA7の仮区画線"><button type="button" data-area="A" data-booth="1" aria-label="西口A1（仮区画）を希望する" class="area-lot" aria-pressed="false">A1</button><button type="button" data-area="A" data-booth="2" aria-label="西口A2（仮区画）を希望する" class="area-lot" aria-pressed="false">A2</button><button type="button" data-area="A" data-booth="3" aria-label="西口A3（仮区画）を希望する" class="area-lot" aria-pressed="false">A3</button><button type="button" data-area="A" data-booth="4" aria-label="西口A4（仮区画）を希望する" class="area-lot" aria-pressed="false">A4</button><button type="button" data-area="A" data-booth="5" aria-label="西口A5（仮区画）を希望する" class="area-lot" aria-pressed="false">A5</button><button type="button" data-area="A" data-booth="6" aria-label="西口A6（仮区画）を希望する" class="area-lot" aria-pressed="false">A6</button><button type="button" data-area="A" data-booth="7" aria-label="西口A7（仮区画）を希望する" class="area-lot" aria-pressed="false">A7</button></div><span class="photo-draft-tag">仮の区画線・配置イメージ</span></div><div class="photo-bottom"><p>A1〜A4とA5〜A7を写真上の2つの候補位置付近に仮配置しました。区画位置・分け方・寸法は未確定です。</p><button type="button" class="btn btn-ghost" data-enlarge="images/minakusa/west.jpg" data-enlarge-label="南草津駅 西口Aの航空写真">写真を拡大</button></div></article>
@@ -112,8 +162,8 @@ dialog::backdrop{background:rgba(5,19,14,.85)}.modal-head{display:flex;justify-c
 <div class="area-mini east-zone" id="zone-c"><h3>東口C</h3><p><b>位置：</b>バスのりば3・4前</p><p><b>候補：</b>金曜日／4枠案</p><p><b>時間：</b>7:00〜9:30、17:00〜19:30</p><p><b>料金案：</b>各3,300円（税込）／朝夕セット5,500円案</p><button class="btn btn-ghost" type="button" data-area="C">東口Cを希望する ↗</button></div>
 <div class="area-mini east-zone" id="zone-d"><h3>東口D</h3><p><b>位置：</b>バスのりば5前</p><p><b>候補：</b>金曜日／3枠案</p><p><b>時間：</b>7:00〜9:30、17:00〜19:30</p><p><b>料金案：</b>各3,300円（税込）／朝夕セット5,500円案</p><button class="btn btn-ghost" type="button" data-area="D">東口Dを希望する ↗</button></div>
 </div></div></section>
-<section class="section" id="comparison" style="padding-top:10px"><div class="wrap"><h2 class="section-title">区画ごとの条件を比較。</h2><p class="intro">募集ページに表示している現時点の案をまとめています。区画の空き状況を示すものではありません。</p><div class="table-wrap"><table><thead><tr><th>候補</th><th>目安の場所</th><th>最大枠数案</th><th>開催曜日案</th><th>利用時間案</th><th>通常料金案</th></tr></thead><tbody><tr><td>西口A</td><td>みなくさフードガーデン</td><td>7</td><td>金・土・日</td><td>金15:00〜20:00／土日11:00〜16:00</td><td>3,300円</td></tr><tr><td>東口B</td><td>のりば1・2前</td><td>5</td><td>土・日</td><td>10:00〜15:00／16:00〜21:00</td><td>3,300円</td></tr><tr><td>東口C</td><td>のりば3・4前</td><td>4</td><td>金</td><td>7:00〜9:30／17:00〜19:30</td><td>3,300円</td></tr><tr><td>東口D</td><td>のりば5前</td><td>3</td><td>金</td><td>7:00〜9:30／17:00〜19:30</td><td>3,300円</td></tr></tbody></table></div>
-<div class="warning"><b>現時点で確定していないこと</b><p>①各枠の実測の幅・奥行き・境界　②バス停や歩行者動線からの離隔　③キッチンカーの停車・搬入位置　④電源・給排水・火気利用　⑤料金・開催日時・実際の枠数。正式な配置図と許認可条件が決まるまで、これらは未確定として扱います。</p></div>
+<section class="section" id="comparison" style="padding-top:10px"><div class="wrap"><h2 class="section-title">区画ごとの条件を比較。</h2><p class="intro">募集ページに表示している現時点の案をまとめています。区画の空き状況を示すものではありません。安全な使用範囲が確認できなければ枠数を減らす前提です。</p><div class="table-wrap"><table><thead><tr><th>候補</th><th>目安の場所</th><th>最大枠数案</th><th>開催曜日案</th><th>利用時間案</th><th>通常料金案</th></tr></thead><tbody><tr><td>西口A</td><td>みなくさフードガーデン</td><td>7</td><td>金・土・日</td><td>金15:00〜20:00／土日11:00〜16:00</td><td>3,300円</td></tr><tr><td>東口B</td><td>のりば1・2前</td><td>5</td><td>土・日</td><td>10:00〜15:00／16:00〜21:00</td><td>3,300円</td></tr><tr><td>東口C</td><td>のりば3・4前</td><td>4</td><td>金</td><td>7:00〜9:30／17:00〜19:30</td><td>3,300円</td></tr><tr><td>東口D</td><td>のりば5前</td><td>3</td><td>金</td><td>7:00〜9:30／17:00〜19:30</td><td>3,300円</td></tr></tbody></table></div>
+<div class="warning"><b>現地で適否が確認できない候補は、募集枠から除外します</b><p>歩行者の通行幅、バス待機列、車両動線、管理者の使用条件が確保できない場合、A1〜A7・B〜Dの表示枠数をそのまま受け入れることはできません。</p></div><div class="warning"><b>現時点で確定していないこと</b><p>①各枠の実測の幅・奥行き・境界　②バス停や歩行者動線からの離隔　③キッチンカーの停車・搬入位置　④電源・給排水・火気利用　⑤料金・開催日時・実際の枠数。正式な配置図と許認可条件が決まるまで、これらは未確定として扱います。</p></div>
 <div class="result" id="selection" role="status" aria-live="polite"><div><small>希望するエリア</small><b id="selectedLabel">まだ選んでいません</b><p>選んだ内容を出店希望の先行相談ページに引き継げます。</p></div><a class="btn" id="toApply" href="minakusa-ekimae.html#zones">候補日を選ぶ →</a></div>
 </div></section>
 <section class="next"><div class="wrap"><h2 class="section-title">相談までの流れ</h2><div class="steps"><div><b>① 候補区画を確認</b><p>航空写真・条件案から希望場所を選択します。仮番号でも構いません。</p></div><div><b>② 候補日を選択</b><p>選んだ場所に応じて金曜・週末の日付が切り替わります。</p></div><div><b>③ 無料の先行相談</b><p>出店内容をLINEまたはメールで送信。正式予約・支払いではありません。</p></div></div></div></section>
