@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10382e">
+<meta name="robots" content="noindex,follow">
+<title>出店当日のスマホガイド（準備版）｜南草津駅前・BRIDGE CYCLE</title>
+<meta name="description" content="JR南草津駅前の飲食出店に向けた当日の行動を、準備・到着・設営・営業・撤収・終了報告の6ステップで確認できるチェックリスト。集合や搬入の正式案内を優先してください。">
+<link rel="canonical" href="https://www.bridgecycleco.com/minakusa-day-guide.html">
+<style>
+:root{--dark:#10382e;--green:#186447;--lighter:#e6f1e7;--bg:#f4f7f2;--ink:#1b3029;--muted:#5c7064;--line:#d9e4da;--orange:#d96036;--white:#fff;--shadow:0 13px 35px rgba(18,61,43,.07)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}button{cursor:pointer}a{color:var(--green)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #db874f;outline-offset:3px}
+.wrap{width:min(930px,calc(100% - 36px));margin-inline:auto}
+.topbar{position:sticky;z-index:30;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:63px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--dark)}
+.brand-mark{background:var(--dark);border-radius:10px;color:white;display:grid;place-items:center;width:38px;height:38px;font-weight:900;font-size:14px}
+.brand strong{font-size:12px;line-height:1.4}.brand small{font-size:9px;display:block;font-weight:700;letter-spacing:.04em;color:#527061}
+.back{font-size:12px;text-decoration:none;font-weight:900;background:#eaf3e9;padding:9px 12px;border-radius:9px}
+.hero{background:linear-gradient(130deg,#10382e,#1a5741);color:#fff;padding:30px 0 32px}
+.eyebrow{display:inline-block;color:#c6e7c2;font-size:11px;letter-spacing:.14em;font-weight:900}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.3;letter-spacing:-.04em;margin:8px 0 8px}
+.hero p{font-size:13px;color:#d8e8de;margin:0;max-width:710px}
+.tag{display:inline-block;margin-top:16px;background:#fff3db;color:#72450f;border-radius:7px;padding:6px 10px;font-size:11px;font-weight:900}
+.disclaimer{background:#fff7e7;border:1px solid #edddba;border-radius:12px;padding:13px 16px;margin:18px 0 0;font-size:12px;color:#75532d}
+.disclaimer b{display:block;font-size:13px;color:#6a451a;margin-bottom:2px}
+.controls{background:white;border:1px solid var(--line);border-radius:18px;margin:22px 0;padding:18px;box-shadow:var(--shadow)}
+.context-controls{display:grid;grid-template-columns:1.2fr 1fr;gap:12px}
+.field label{font-size:12px;font-weight:900;display:block;margin-bottom:6px}
+.field select,.field input{border:1px solid #b9d4c1;background:#fafffa;border-radius:10px;min-height:46px;padding:9px 13px;width:100%;color:var(--ink)}
+.field-hint{font-size:11px;color:var(--muted);margin:8px 0 0}
+.map-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 15px;background:#edf5ef;border-radius:12px;margin-top:14px}
+.map-strip span{font-size:11px;color:#405c4c;flex:1 1 220px}
+.map-btn{display:inline-flex;justify-content:center;align-items:center;min-height:41px;background:var(--green);color:white;text-decoration:none;font-weight:900;font-size:12px;padding:8px 12px;border-radius:9px}
+.overview{margin:25px 0 14px}
+.overview-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.overview h2{font-size:20px;line-height:1.4;margin:0 0 2px}
+.overview p{font-size:12px;color:var(--muted);margin:0}
+.progress-text{font-weight:900;font-size:14px;color:var(--green)}
+.track{height:10px;background:#dce7dd;overflow:hidden;border-radius:99px;margin-top:11px}
+.fill{background:linear-gradient(90deg,#388869,#88bc7b);height:100%;width:0%;border-radius:99px;transition:width .2s}
+.stage-nav{display:flex;overflow-x:auto;gap:8px;scrollbar-width:thin;padding:13px 0 16px;scroll-snap-type:x proximity}
+.stage-tab{border:1px solid #d2e4d4;background:#fff;border-radius:12px;display:flex;align-items:center;gap:7px;padding:10px 12px;min-height:46px;white-space:nowrap;font-size:12px;font-weight:900;flex:none;scroll-snap-align:start;color:#42664f}
+.stage-tab.active{background:var(--dark);color:white;border-color:var(--dark)}
+.tab-num{font-weight:900;background:#e9f3e8;color:#266346;border-radius:50%;display:grid;place-items:center;width:23px;height:23px;line-height:1}
+.stage-tab.active .tab-num{background:#e9f4e6;color:var(--dark)}
+.tab-check{color:#38ad66;font-size:15px}
+.stage-panel{background:white;border:1px solid var(--line);border-radius:19px;padding:23px;box-shadow:var(--shadow);scroll-margin-top:87px}
+.stage-heading{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.stage-symbol{display:grid;place-items:center;width:52px;height:52px;border-radius:15px;background:#e8f3e8;font-size:25px;flex:none}
+.stage-overline{font-size:10px;letter-spacing:.1em;font-weight:900;color:var(--green)}
+.stage-heading h2{font-size:26px;line-height:1.32;letter-spacing:-.03em;margin:1px 0}
+.stage-heading p{font-size:12px;color:var(--muted);margin:0}
+.checklist{display:grid;gap:9px}
+.check-row{display:flex;align-items:flex-start;gap:14px;min-height:74px;padding:15px;border:1px solid #dce7dc;border-radius:13px;cursor:pointer;background:#fcfefb;position:relative}
+.check-row:has(input:checked){background:#edf8ec;border-color:#83b792}
+.check-row input{position:absolute;opacity:0;top:20px;left:20px;width:23px;height:23px}
+.check-custom{width:27px;height:27px;display:grid;place-items:center;border:2px solid #8dac98;border-radius:7px;flex:none;color:transparent;font-size:17px;line-height:1;font-weight:900;background:white;margin-top:2px}
+.check-row input:checked+.check-custom{background:var(--green);color:white;border-color:var(--green)}
+.check-row input:focus-visible+.check-custom{outline:3px solid var(--orange);outline-offset:3px}
+.check-copy{min-width:0}
+.check-copy b{display:block;font-size:14px;line-height:1.45}
+.check-copy>span{display:block;color:#536759;font-size:12px;line-height:1.7;margin-top:4px}
+.stage-tail{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-top:15px}
+.stage-count{font-size:12px;font-weight:900;color:#356e4c}
+.stage-link{font-size:12px;font-weight:900}
+.foot-nav{display:flex;gap:10px;margin:17px 0 30px}
+.foot-nav button{border-radius:12px;min-height:53px;flex:1;min-width:0;border:1px solid #bbd9c4;background:#eaf4e9;color:var(--dark);font-size:13px;font-weight:900;padding:8px 10px}
+.foot-nav #next{flex:1.65;background:var(--dark);color:white;border-color:var(--dark)}
+.foot-nav button:disabled{opacity:.35;cursor:not-allowed}
+.extra{display:grid;gap:15px;margin-bottom:40px}
+.info-card{background:white;border:1px solid var(--line);border-radius:15px;padding:18px}
+.info-card h2{font-size:18px;margin:0 0 8px}
+.info-card p,.info-card li{font-size:12px;color:#4b6656}
+.info-card p{margin:0 0 8px}.info-card ul{margin:8px 0 0;padding-left:19px}
+.info-card a{font-size:12px;font-weight:900}
+.alert-card{background:#fff4ed;border-color:#ecd1ba}
+.alert-card p{color:#684b38}
+.tool-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.ghost{border:1px solid #a3c5ab;padding:10px 14px;border-radius:9px;color:var(--green);background:white;font-size:12px;font-weight:900}
+footer{padding:22px 0 100px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;text-align:center}
+footer a{font-size:11px}
+.safenote{font-size:10px;color:#678073;margin:6px 0 0}
+.bottom-bar{position:fixed;z-index:25;left:0;right:0;bottom:0;display:none;background:#fffefaef;backdrop-filter:blur(12px);border-top:1px solid #c9dfcd;padding:10px 14px max(10px,env(safe-area-inset-bottom))}
+.bottom-inner{display:flex;align-items:center;gap:12px}
+.bottom-inner .bottom-text{flex:1;min-width:0}
+.bottom-text b{display:block;font-size:12px}
+.bottom-text span{font-size:10px;color:var(--muted);display:block}
+.bottom-inner button{font-size:12px;font-weight:900;background:var(--dark);color:white;padding:11px 15px;border:0;border-radius:9px;white-space:nowrap}
+[hidden]{display:none!important}
+@media(max-width:720px){.wrap{width:min(100% - 28px,930px)}.context-controls{grid-template-columns:1fr}.controls{padding:15px}.stage-panel{padding:17px}.check-row{padding:14px 12px}.bottom-bar{display:block}footer{padding-bottom:105px}.head{min-height:58px}.brand strong{font-size:11px}.back{font-size:11px;padding:8px}.hero{padding:24px 0 28px}.hero h1{font-size:30px}.overview h2{font-size:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* 申込直後は当日確定と誤認されない準備モード */
+.application-mode{margin:20px 0 0;background:#eef7ef;border:2px solid #a2d0ad;border-radius:15px;padding:16px 19px;color:#19472f}
+.application-mode-head{display:flex;align-items:center;gap:12px}
+.application-mode-head>span{display:grid;place-items:center;flex:none;background:#236e4b;color:white;border-radius:50%;width:30px;height:30px;font-weight:900}
+.application-mode-head strong{font-size:17px;display:block}
+.application-mode-head small{font-size:11px;color:#4b735b;display:block}
+.application-mode p{font-size:12px;margin:8px 0;line-height:1.75}
+.application-mode ol{margin:10px 0;padding-left:20px;font-size:12px;line-height:2}
+.application-mode li{margin:1px 0}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap head"><a href="minakusa-ekimae.html" class="brand"><span class="brand-mark">BC</span><strong>南草津駅前・出店当日ガイド<small>BRIDGE CYCLE</small></strong></a><a href="minakusa-ekimae.html" class="back">募集案内に戻る ↗</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><span class="eyebrow">VENDOR / MOBILE GUIDE</span><h1>今日することを、<br>順番に確認。</h1><p>JR南草津駅前の飲食出店に向けた、スマートフォン用の行動チェックリストです。出発前・到着・設営・営業・撤収・終了報告を1画面ずつ確認できます。</p><span class="tag">準備版｜集合場所・搬入時間・区画の詳細は未確定</span></div></section>
+<div class="wrap">
+<div class="application-mode" id="applicationMode" hidden role="note"><div class="application-mode-head"><span aria-hidden="true">✓</span><div><strong>申込後の準備ガイド</strong><small>申込受付と出店確定は別です</small></div></div><p>申込後は、以下の準備を進められます。<strong>出店日・区画・搬入場所・支払い条件が確定するまで、当日の予定として扱わないでください。</strong></p><ol><li>申込受付番号・確認メールを保存する</li><li>販売メニュー・営業許可・車両やテントの寸法を確認する</li><li>区画・日程・事前入金について正式な連絡を待つ</li></ol><p>出店が確定したら、このページの当日チェックリストを使ってください。</p></div>
+<div class="disclaimer" role="note"><b>出店当日のご利用にあたって</b>このページは現時点の一般的な手順を整理した準備版です。<strong>主催者・BRIDGE CYCLEから個別に届く確定案内と当日の係員の指示を必ず優先</strong>してください。チェックを付けても、運営への報告・受付は完了しません。</div>
+<div class="controls"><div class="context-controls">
+<div class="field"><label id="zoneLabel" for="zone">あなたの出店エリア（確定案内に合わせて選択）</label><select id="zone"><option value="">まだ決まっていない</option><option value="A">西口A｜駅前広場</option><option value="B">東口B｜1・2番のりば付近</option><option value="C">東口C｜3・4番のりば付近</option><option value="D">東口D｜5番のりば付近</option></select></div>
+<div class="field"><label for="date">出店日（任意）</label><input type="date" id="date" aria-describedby="dateHint"></div>
+</div><p class="field-hint" id="dateHint">日付を指定すると、その日ごとにチェック状態を管理できます。確定した出店日を入力してください。</p>
+<div class="map-strip" id="arrival-info"><span id="mapDescription">場所は未選択です。正式案内で西口・東口と搬入口をご確認ください。</span><a class="map-btn" id="mapLink" href="https://www.google.com/maps/search/?api=1&amp;query=JR%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85" target="_blank" rel="noopener noreferrer">Googleマップで駅を見る ↗</a></div>
+<p class="safenote">※地図は駅・出口周辺までの案内です。ブースの場所、車両の乗入れ口、駐車場所を案内するものではありません。</p>
+</div>
+<div class="overview" id="guide"><div class="overview-top"><div><h2>当日の6ステップ</h2><p>確認できた項目にチェック。次の段階へ進めます。</p></div><div class="progress-text"><span id="doneCount">0</span> / <span id="totalCount">29</span> 項目</div></div><div class="track" role="progressbar" aria-label="当日のチェック進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><div class="fill" id="progressFill"></div></div></div>
+<div class="stage-nav" id="stageNav" role="navigation" aria-label="当日の段階を選ぶ"><button type="button" class="stage-tab active" data-go="0" aria-current="step"><span class="tab-num">1</span><span>出発前</span><small class="tab-check" data-tabdone="0" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="1" aria-current="false"><span class="tab-num">2</span><span>到着・受付</span><small class="tab-check" data-tabdone="1" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="2" aria-current="false"><span class="tab-num">3</span><span>設営</span><small class="tab-check" data-tabdone="2" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="3" aria-current="false"><span class="tab-num">4</span><span>営業中</span><small class="tab-check" data-tabdone="3" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="4" aria-current="false"><span class="tab-num">5</span><span>撤収</span><small class="tab-check" data-tabdone="4" aria-hidden="true"></small></button>
+<button type="button" class="stage-tab" data-go="5" aria-current="false"><span class="tab-num">6</span><span>終了報告</span><small class="tab-check" data-tabdone="5" aria-hidden="true"></small></button></div>
+<div id="panels"><section class="stage-panel" data-stage="0" id="stage-before"  aria-labelledby="stage-title-0">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🎒</div><div><span class="stage-overline">STEP 1 / 6</span><h2 id="stage-title-0">出発前</h2><p>家を出る前に確認</p></div></div>
+<div class="checklist" role="group" aria-label="出発前のチェックリスト"><label class="check-row"><input type="checkbox" data-check="before-0" aria-label="開催・区画：主催者から届いた開催可否、確定日程、区画番号を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>開催・区画</b><span>主催者から届いた開催可否、確定日程、区画番号を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-1" aria-label="時間・動線：搬入開始時刻、集合場所、車両の進入路・待機場所を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>時間・動線</b><span>搬入開始時刻、集合場所、車両の進入路・待機場所を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-2" aria-label="営業書類：営業許可の内容、食品衛生責任者、保険関係など必要書類を用意した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>営業書類</b><span>営業許可の内容、食品衛生責任者、保険関係など必要書類を用意した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-3" aria-label="食材と設備：食材・保冷器具・手洗い用品・釣銭／決済手段・ゴミ袋などを確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>食材と設備</b><span>食材・保冷器具・手洗い用品・釣銭／決済手段・ゴミ袋などを確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="before-4" aria-label="安全備品：必要な固定具・輪止め・消火器などを準備した（使用形態による）"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>安全備品</b><span>必要な固定具・輪止め・消火器などを準備した（使用形態による）</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="0">0 / 5 項目</span></div>
+</section>
+<section class="stage-panel" data-stage="1" id="stage-arrival" hidden aria-labelledby="stage-title-1">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">📍</div><div><span class="stage-overline">STEP 2 / 6</span><h2 id="stage-title-1">到着・受付</h2><p>駅前に着いたら</p></div></div>
+<div class="checklist" role="group" aria-label="到着・受付のチェックリスト"><label class="check-row"><input type="checkbox" data-check="arrival-0" aria-label="駅の出口：確定案内に記された西口／東口を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>駅の出口</b><span>確定案内に記された西口／東口を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-1" aria-label="駐車・待機：指定の待機場所・搬入時間を守り、公道やバス停付近で停車しない"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>駐車・待機</b><span>指定の待機場所・搬入時間を守り、公道やバス停付近で停車しない</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-2" aria-label="係員に確認：主催者が指定する受付・連絡方法で到着を伝えた"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>係員に確認</b><span>主催者が指定する受付・連絡方法で到着を伝えた</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-3" aria-label="区画位置：係員の案内で使用許可された区画と搬入経路を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>区画位置</b><span>係員の案内で使用許可された区画と搬入経路を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="arrival-4" aria-label="通行の確保：バス利用者・歩行者・車椅子・点字ブロックの動線を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>通行の確保</b><span>バス利用者・歩行者・車椅子・点字ブロックの動線を確認した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="1">0 / 5 項目</span><a href="#arrival-info" class="stage-link">エリア・地図を確認 ↓</a></div>
+</section>
+<section class="stage-panel" data-stage="2" id="stage-setup" hidden aria-labelledby="stage-title-2">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🛠️</div><div><span class="stage-overline">STEP 3 / 6</span><h2 id="stage-title-2">設営</h2><p>開店前の準備</p></div></div>
+<div class="checklist" role="group" aria-label="設営のチェックリスト"><label class="check-row"><input type="checkbox" data-check="setup-0" aria-label="区画内に配置：車両・テント・机・看板は指定された範囲内に設置した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>区画内に配置</b><span>車両・テント・机・看板は指定された範囲内に設置した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-1" aria-label="転倒・火気対策：固定具・輪止め、火気使用や発電機の許可条件を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>転倒・火気対策</b><span>固定具・輪止め、火気使用や発電機の許可条件を確認した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-2" aria-label="衛生設備：食品の温度管理、手洗い・消毒、異物混入対策を整えた"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>衛生設備</b><span>食品の温度管理、手洗い・消毒、異物混入対策を整えた</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-3" aria-label="電源・排水：電源や給排水の使用条件を確認し、無断接続していない"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>電源・排水</b><span>電源や給排水の使用条件を確認し、無断接続していない</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="setup-4" aria-label="開店の安全確認：通路と避難動線に支障がなく、開店できる状態か確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>開店の安全確認</b><span>通路と避難動線に支障がなく、開店できる状態か確認した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="2">0 / 5 項目</span></div>
+</section>
+<section class="stage-panel" data-stage="3" id="stage-selling" hidden aria-labelledby="stage-title-3">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🍽️</div><div><span class="stage-overline">STEP 4 / 6</span><h2 id="stage-title-3">営業中</h2><p>安全に販売する</p></div></div>
+<div class="checklist" role="group" aria-label="営業中のチェックリスト"><label class="check-row"><input type="checkbox" data-check="selling-0" aria-label="販売品目：正式に認められた飲食メニューだけを提供している"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>販売品目</b><span>正式に認められた飲食メニューだけを提供している</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-1" aria-label="衛生管理：調理・保冷・保温・アレルゲン案内などを適切に管理している"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>衛生管理</b><span>調理・保冷・保温・アレルゲン案内などを適切に管理している</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-2" aria-label="行列の整理：お客様の列が歩道・駅出口・バス待機列を塞がないようにしている"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>行列の整理</b><span>お客様の列が歩道・駅出口・バス待機列を塞がないようにしている</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-3" aria-label="周辺への配慮：音・煙・臭い・ゴミなど周囲への影響を見ながら営業している"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>周辺への配慮</b><span>音・煙・臭い・ゴミなど周囲への影響を見ながら営業している</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="selling-4" aria-label="売れ行きメモ：販売数量、来店傾向、商品への反応を簡単に記録した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>売れ行きメモ</b><span>販売数量、来店傾向、商品への反応を簡単に記録した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="3">0 / 5 項目</span></div>
+</section>
+<section class="stage-panel" data-stage="4" id="stage-cleanup" hidden aria-labelledby="stage-title-4">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🧹</div><div><span class="stage-overline">STEP 5 / 6</span><h2 id="stage-title-4">撤収</h2><p>元の状態に戻す</p></div></div>
+<div class="checklist" role="group" aria-label="撤収のチェックリスト"><label class="check-row"><input type="checkbox" data-check="cleanup-0" aria-label="営業終了：指定の終了時刻で販売を終え、火気と電源を安全に停止した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>営業終了</b><span>指定の終了時刻で販売を終え、火気と電源を安全に停止した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-1" aria-label="ゴミ・排水：ゴミ・廃油・排水を適切に持ち帰り、周辺設備に捨てていない"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>ゴミ・排水</b><span>ゴミ・廃油・排水を適切に持ち帰り、周辺設備に捨てていない</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-2" aria-label="原状回復：使用場所を清掃し、備品・看板・固定具をすべて回収した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>原状回復</b><span>使用場所を清掃し、備品・看板・固定具をすべて回収した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-3" aria-label="退出確認：歩行者やバスの動線を妨げず、指定の経路・時間で退出した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>退出確認</b><span>歩行者やバスの動線を妨げず、指定の経路・時間で退出した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="cleanup-4" aria-label="最終点検：忘れ物・破損・汚れを確認し、必要に応じて現況を記録した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>最終点検</b><span>忘れ物・破損・汚れを確認し、必要に応じて現況を記録した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="4">0 / 5 項目</span></div>
+</section>
+<section class="stage-panel" data-stage="5" id="stage-finish" hidden aria-labelledby="stage-title-5">
+<div class="stage-heading"><div class="stage-symbol" aria-hidden="true">✅</div><div><span class="stage-overline">STEP 6 / 6</span><h2 id="stage-title-5">終了報告</h2><p>次の出店につなげる</p></div></div>
+<div class="checklist" role="group" aria-label="終了報告のチェックリスト"><label class="check-row"><input type="checkbox" data-check="finish-0" aria-label="終了連絡：主催者が指定する方法で、撤収完了を連絡した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>終了連絡</b><span>主催者が指定する方法で、撤収完了を連絡した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="finish-1" aria-label="売上の確認：売上・販売数・費用を記録した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>売上の確認</b><span>売上・販売数・費用を記録した</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="finish-2" aria-label="振り返り：良かった点と改善したい点をメモした"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>振り返り</b><span>良かった点と改善したい点をメモした</span></span></label>
+<label class="check-row"><input type="checkbox" data-check="finish-3" aria-label="次回案内：次回出店がある場合、日程や最新の連絡を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>次回案内</b><span>次回出店がある場合、日程や最新の連絡を確認した</span></span></label></div>
+<div class="stage-tail"><span class="stage-count" data-stage-count="5">0 / 4 項目</span></div>
+</section></div>
+<div class="foot-nav"><button type="button" id="previous">← 前の段階</button><button type="button" id="next">次の段階へ →</button></div>
+<div class="extra">
+<div class="info-card"><h2>正式案内で確認すべきこと</h2><p>このページでは<strong>集合場所・搬入口・搬入開始時刻・臨時駐車場・当日の連絡先</strong>をまだ確定表示していません。</p><ul><li>集合・受付場所とスタッフへの連絡方法</li><li>出店確定済みの区画・営業開始と終了の時刻</li><li>車両の搬入路・駐車場・退出時刻</li><li>火気・電源・排水・雨天時の判断</li></ul><p>現行の募集条件には「開始60分前から設営」「終了後45分以内に撤収」という案がありますが、<strong>正式な運営指示が優先</strong>です。</p></div>
+<div class="info-card alert-card"><h2>安全上のトラブルがあったら</h2><p>火災・事故・急病などの緊急時は、まず安全を確保して<strong>119（救急・消防）／110（警察）</strong>へ。通常の運営連絡は、出店確定時に案内される担当窓口を利用してください。</p><p>通行人・バス・車椅子利用者の動線をふさいでいる場合は販売・設営を中断し、係員の指示に従ってください。</p></div>
+<div class="info-card"><h2>この端末のチェック状況</h2><p>チェック内容は利用中のブラウザ内にのみ保存し、BRIDGE CYCLEへ自動送信しません。ほかの端末には同期されません。</p><div class="tool-row"><button type="button" class="ghost" id="clearProgress">この日のチェックをリセット</button><a href="minakusa-ekimae.html#rules">募集案内のルールを確認 ↗</a></div></div>
+</div>
+</div>
+</main>
+<footer><div class="wrap"><strong>BRIDGE CYCLE株式会社</strong><br>南草津駅前社会実験・出店者向け行動ガイド（準備版）<br><a href="minakusa-ekimae.html">出店者向け募集ページ</a></div></footer>
+<div class="bottom-bar" id="bottomBar"><div class="wrap bottom-inner"><div class="bottom-text"><b id="bottomTitle">1. 出発前</b><span id="bottomProgress">確認しながら進めましょう</span></div><button type="button" id="bottomNext">次へ →</button></div></div>
+<script>
+(function(){"use strict";
+const tabs=[...document.querySelectorAll("[data-go]")],panels=[...document.querySelectorAll("[data-stage]")],checks=[...document.querySelectorAll("[data-check]")];
+const z=document.getElementById("zone"),date=document.getElementById("date"),mapLink=document.getElementById("mapLink"),mapDescription=document.getElementById("mapDescription");
+let active=0,completed={},key="";
+const titleList=["出発前","到着・受付","設営","営業中","撤収","終了報告"];
+const qs=new URLSearchParams(location.search);
+const isApplication=qs.get("from")==="application";
+if(isApplication){
+ document.getElementById("applicationMode").hidden=false;
+ document.getElementById("zoneLabel").textContent="申し込み時の希望エリア（出店確定ではありません）";
+ document.title="申込後の準備ガイド｜南草津駅前・BRIDGE CYCLE";
+}
+const rememberedZone=qs.get("zone");
+if(["A","B","C","D"].includes(rememberedZone))z.value=rememberedZone;
+const d=qs.get("date");
+if(d&&/^\d{4}-\d\d-\d\d$/.test(d))date.value=d;
+const mapLinks={
+ A:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 西口 駅前広場"),
+ B:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 東口 バスのりば"),
+ C:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 東口 バスのりば"),
+ D:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("南草津駅 東口 バスのりば")
+};
+function setMap(){
+ const v=z.value;
+ mapLink.href=mapLinks[v]||"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("JR南草津駅");
+ mapDescription.textContent=v==="A"?"西口Aを選択中。地図は西口駅前周辺までです。":(["B","C","D"].includes(v)?"東口"+v+"を選択中。地図は東口周辺までです。":"エリアはまだ未選択です。確定案内に合わせて選んでください。");
+}
+function getKey(){return "minakusa-vendor-day-v1:"+(date.value||"date-not-set");}
+function save(){try{localStorage.setItem(key,JSON.stringify(completed));}catch(e){}}
+function load(){
+ key=getKey();let obj={};try{obj=JSON.parse(localStorage.getItem(key)||"{}")||{};}catch(e){}
+ completed=(obj&&typeof obj==="object"&&!Array.isArray(obj))?obj:{};
+ checks.forEach(c=>{c.checked=completed[c.dataset.check]===true;});refresh();
+}
+function refresh(){
+ let n=0;checks.forEach(c=>{if(c.checked)n++;});
+ document.getElementById("doneCount").textContent=String(n);
+ document.getElementById("totalCount").textContent=String(checks.length);
+ const pct=Math.round(n/checks.length*100),bar=document.getElementById("progressBar");
+ bar.setAttribute("aria-valuenow",String(pct));document.getElementById("progressFill").style.width=pct+"%";
+ panels.forEach((p,i)=>{const list=[...p.querySelectorAll("[data-check]")],num=list.filter(c=>c.checked).length;
+ const label=p.querySelector("[data-stage-count]");if(label)label.textContent=num+" / "+list.length+" 項目";
+ const check=tabs[i].querySelector("[data-tabdone]");if(check)check.textContent=num===list.length?"✓":"";});
+ const current=panels[active],count=[...current.querySelectorAll("[data-check]")].filter(x=>x.checked).length,total=current.querySelectorAll("[data-check]").length;
+ document.getElementById("bottomProgress").textContent=count+" / "+total+" 項目を確認済み";
+}
+function go(i,move){
+ if(i<0||i>=panels.length)return;
+ active=i;panels.forEach((p,n)=>{p.hidden=n!==i;});
+ tabs.forEach((b,n)=>{b.classList.toggle("active",n===i);b.setAttribute("aria-current",n===i?"step":"false");});
+ document.getElementById("previous").disabled=i===0;
+ document.getElementById("next").textContent=i===panels.length-1?"最初の段階に戻る ↺":"次の段階へ →";
+ document.getElementById("bottomNext").textContent=i===panels.length-1?"最初へ ↺":"次へ →";
+ document.getElementById("bottomTitle").textContent=(i+1)+". "+titleList[i];
+ refresh();
+ if(move){
+   tabs[i].scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",inline:"nearest",block:"nearest"});
+   document.getElementById("guide").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+ }
+}
+function next(){go(active===panels.length-1?0:active+1,true);}
+tabs.forEach((b,i)=>b.addEventListener("click",()=>go(i,true)));
+checks.forEach(c=>c.addEventListener("change",()=>{completed[c.dataset.check]=c.checked;save();refresh();}));
+document.getElementById("next").addEventListener("click",next);
+document.getElementById("bottomNext").addEventListener("click",next);
+document.getElementById("previous").addEventListener("click",()=>go(active-1,true));
+document.getElementById("clearProgress").addEventListener("click",()=>{
+ if(!confirm("この日のチェック状態をすべて消しますか？"))return;
+ completed={};save();checks.forEach(c=>c.checked=false);refresh();go(0,true);
+});
+date.addEventListener("change",load);
+z.addEventListener("change",setMap);
+setMap();load();go(0,false);
+})();
+</script>
+</body>
+</html>

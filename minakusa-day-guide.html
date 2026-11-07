@@ -104,6 +104,38 @@ footer a{font-size:11px}
 .application-mode p{font-size:12px;margin:8px 0;line-height:1.75}
 .application-mode ol{margin:10px 0;padding-left:20px;font-size:12px;line-height:2}
 .application-mode li{margin:1px 0}
+
+/* ===== 当日タイムライン（時刻で今やることを案内） ===== */
+.tl{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 0;box-shadow:var(--shadow)}
+.tl h2{margin:0 0 4px;font-size:19px}.tl>p{margin:0 0 14px;font-size:13px;color:var(--muted)}
+.now{background:var(--dark);color:#fff;border-radius:16px;padding:16px 18px;margin-bottom:14px}
+.now small{display:block;font-size:11px;color:#b9d2c3;font-weight:800;letter-spacing:.04em}
+.now b{display:block;font-size:22px;line-height:1.35;margin:2px 0}
+.now .cd{font-size:14px;color:#ffd2b8;font-weight:800}
+.now button{margin-top:10px;border:0;border-radius:10px;background:var(--orange);color:#fff;font:inherit;font-weight:900;font-size:14px;padding:10px 14px;width:100%;cursor:pointer}
+.now.idle{background:var(--lighter);color:var(--ink)}.now.idle small{color:var(--muted)}.now.idle .cd{color:var(--green)}
+.tl ol{list-style:none;margin:0;padding:0;position:relative}
+.tl ol:before{content:"";position:absolute;left:62px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:52px 22px 1fr;gap:0 8px;align-items:start;padding:7px 0;position:relative}
+.tl li time{font-weight:900;font-size:15px;text-align:right;font-variant-numeric:tabular-nums;padding-top:1px}
+.tl li i{width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--line);margin:4px 0 0 4px;position:relative;z-index:1}
+.tl li b{display:block;font-size:14px}.tl li span{display:block;font-size:12px;color:var(--muted);line-height:1.6}
+.tl li.done{opacity:.45}.tl li.done i{background:var(--green);border-color:var(--green)}
+.tl li.cur i{border-color:var(--orange);background:var(--orange);box-shadow:0 0 0 5px #d9603630}
+.tl li.cur b{color:var(--orange)}
+.tl li.eve time{font-size:12px}
+.tl-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.tl-actions a,.tl-actions button{display:flex;align-items:center;justify-content:center;gap:6px;border-radius:12px;padding:12px 8px;font:inherit;font-size:13px;font-weight:900;text-decoration:none;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-align:center}
+.tl-actions .line{background:#06c755;border-color:#06c755;color:#fff}
+.tl-actions .sos{border-color:#e9b5a6;color:#a13b20;background:#fff5f2}
+.tl-empty{font-size:13px;color:var(--muted);background:var(--bg);border-radius:12px;padding:14px;text-align:center}
+.report{background:var(--bg);border-radius:14px;padding:14px;margin-top:12px}
+.report b{display:block;font-size:14px;margin-bottom:8px}
+.report .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.report label{font-size:11px;font-weight:800;color:var(--muted);display:block}
+.report input,.report textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;font:inherit;font-size:15px;margin-top:3px;background:#fff}
+.report textarea{min-height:60px;margin-top:3px}
+.report button{margin-top:10px;width:100%;border:0;border-radius:12px;background:#06c755;color:#fff;font:inherit;font-weight:900;font-size:14px;padding:12px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -115,11 +147,17 @@ footer a{font-size:11px}
 <div class="disclaimer" role="note"><b>出店当日のご利用にあたって</b>このページは現時点の一般的な手順を整理した準備版です。<strong>主催者・BRIDGE CYCLEから個別に届く確定案内と当日の係員の指示を必ず優先</strong>してください。チェックを付けても、運営への報告・受付は完了しません。</div>
 <div class="controls"><div class="context-controls">
 <div class="field"><label id="zoneLabel" for="zone">あなたの出店エリア（確定案内に合わせて選択）</label><select id="zone"><option value="">まだ決まっていない</option><option value="A">西口A｜駅前広場</option><option value="B">東口B｜1・2番のりば付近</option><option value="C">東口C｜3・4番のりば付近</option><option value="D">東口D｜5番のりば付近</option></select></div>
-<div class="field"><label for="date">出店日（任意）</label><input type="date" id="date" aria-describedby="dateHint"></div>
-</div><p class="field-hint" id="dateHint">日付を指定すると、その日ごとにチェック状態を管理できます。確定した出店日を入力してください。</p>
+<div class="field"><label for="date">出店日</label><input type="date" id="date" min="2026-12-01" max="2026-12-31" aria-describedby="dateHint"></div>
+<div class="field"><label for="slot">出店する時間枠</label><select id="slot"><option value="">エリアと日付を選んでください</option></select></div>
+</div><p class="field-hint" id="dateHint">エリア・日付・時間枠を選ぶと、当日の時刻ごとに「いまやること」を表示します。チェック状態は日付ごとに保存されます。</p>
 <div class="map-strip" id="arrival-info"><span id="mapDescription">場所は未選択です。正式案内で西口・東口と搬入口をご確認ください。</span><a class="map-btn" id="mapLink" href="https://www.google.com/maps/search/?api=1&amp;query=JR%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85" target="_blank" rel="noopener noreferrer">Googleマップで駅を見る ↗</a></div>
 <p class="safenote">※地図は駅・出口周辺までの案内です。ブースの場所、車両の乗入れ口、駐車場所を案内するものではありません。</p>
 </div>
+<section class="tl" id="timeline" aria-labelledby="tlTitle"><h2 id="tlTitle">当日の時間割</h2><p>設営は開始60分前から、撤収は終了後45分以内。当日は時刻に合わせて、いまやることを表示します。</p>
+<div id="tlNow" class="now idle" aria-live="polite"><small>いまやること</small><b>エリア・日付・時間枠を選んでください</b><span class="cd"></span></div>
+<ol id="tlList"></ol>
+<div class="tl-actions"><button type="button" id="icsBtn">📅 予定をスマホのカレンダーに入れる</button><a class="line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener noreferrer">💬 運営にLINEで連絡</a><a class="sos" href="tel:119">🚑 火事・急病 119</a><a class="sos" href="tel:110">🚓 事故・トラブル 110</a></div>
+</section>
 <div class="overview" id="guide"><div class="overview-top"><div><h2>当日の6ステップ</h2><p>確認できた項目にチェック。次の段階へ進めます。</p></div><div class="progress-text"><span id="doneCount">0</span> / <span id="totalCount">29</span> 項目</div></div><div class="track" role="progressbar" aria-label="当日のチェック進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><div class="fill" id="progressFill"></div></div></div>
 <div class="stage-nav" id="stageNav" role="navigation" aria-label="当日の段階を選ぶ"><button type="button" class="stage-tab active" data-go="0" aria-current="step"><span class="tab-num">1</span><span>出発前</span><small class="tab-check" data-tabdone="0" aria-hidden="true"></small></button>
 <button type="button" class="stage-tab" data-go="1" aria-current="false"><span class="tab-num">2</span><span>到着・受付</span><small class="tab-check" data-tabdone="1" aria-hidden="true"></small></button>
@@ -179,7 +217,7 @@ footer a{font-size:11px}
 <label class="check-row"><input type="checkbox" data-check="finish-2" aria-label="振り返り：良かった点と改善したい点をメモした"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>振り返り</b><span>良かった点と改善したい点をメモした</span></span></label>
 <label class="check-row"><input type="checkbox" data-check="finish-3" aria-label="次回案内：次回出店がある場合、日程や最新の連絡を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>次回案内</b><span>次回出店がある場合、日程や最新の連絡を確認した</span></span></label></div>
 <div class="stage-tail"><span class="stage-count" data-stage-count="5">0 / 4 項目</span></div>
-</section></div>
+<div class="report" id="reportBox"><b>終了報告をLINEで送る</b><div class="row"><div><label for="rQty">販売数（個）</label><input id="rQty" type="number" inputmode="numeric" min="0"></div><div><label for="rSales">売上（円）</label><input id="rSales" type="number" inputmode="numeric" min="0"></div></div><label for="rNote" style="margin-top:8px">よかった点・困ったこと（任意）</label><textarea id="rNote" maxlength="300"></textarea><button type="button" id="rSend">撤収完了と結果をLINEで送る</button></div></section></div>
 <div class="foot-nav"><button type="button" id="previous">← 前の段階</button><button type="button" id="next">次の段階へ →</button></div>
 <div class="extra">
 <div class="info-card"><h2>正式案内で確認すべきこと</h2><p>このページでは<strong>集合場所・搬入口・搬入開始時刻・臨時駐車場・当日の連絡先</strong>をまだ確定表示していません。</p><ul><li>集合・受付場所とスタッフへの連絡方法</li><li>出店確定済みの区画・営業開始と終了の時刻</li><li>車両の搬入路・駐車場・退出時刻</li><li>火気・電源・排水・雨天時の判断</li></ul><p>現行の募集条件には「開始60分前から設営」「終了後45分以内に撤収」という案がありますが、<strong>正式な運営指示が優先</strong>です。</p></div>
@@ -264,6 +302,78 @@ document.getElementById("clearProgress").addEventListener("click",()=>{
 date.addEventListener("change",load);
 z.addEventListener("change",setMap);
 setMap();load();go(0,false);
+})();
+</script>
+<script id="day-timeline">
+(function(){"use strict";
+var $=function(i){return document.getElementById(i);};
+var z=$("zone"),date=$("date"),slot=$("slot"),list=$("tlList"),now=$("tlNow");if(!z||!date||!slot)return;
+/* 区画・曜日ごとの時間枠（募集ページの条件と同じ） */
+var SLOTS={
+ A:{5:[["15:00","20:00","金曜 15:00〜20:00"]],6:[["11:00","16:00","11:00〜16:00"],["10:00","18:00","通し 10:00〜18:00"]],0:[["11:00","16:00","11:00〜16:00"],["10:00","18:00","通し 10:00〜18:00"]]},
+ B:{6:[["10:00","15:00","10:00〜15:00"],["16:00","21:00","16:00〜21:00"],["11:00","19:00","通し 11:00〜19:00"]],0:[["10:00","15:00","10:00〜15:00"],["16:00","21:00","16:00〜21:00"],["11:00","19:00","通し 11:00〜19:00"]]},
+ C:{5:[["07:00","09:30","朝 7:00〜9:30"],["17:00","19:30","夕 17:00〜19:30"],["07:00","09:30","朝夕セット",["17:00","19:30"]]]},
+ D:{5:[["07:00","09:30","朝 7:00〜9:30"],["17:00","19:30","夕 17:00〜19:30"],["07:00","09:30","朝夕セット",["17:00","19:30"]]]}
+};
+var STAGE={prep:0,arrive:1,setup:2,sell:3,clean:4,done:5};
+function dayObj(){if(!date.value)return null;var p=date.value.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+function at(d,hm,add){var p=hm.split(":");var x=new Date(d);x.setHours(+p[0],+p[1]+(add||0),0,0);return x;}
+function hm(d){return ("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);}
+function fillSlots(){
+ var d=dayObj(),opts=(d&&SLOTS[z.value]&&SLOTS[z.value][d.getDay()])||[],keep=slot.value;
+ slot.innerHTML=opts.length?opts.map(function(o,i){return '<option value="'+i+'">'+o[2]+'</option>';}).join(""):'<option value="">'+(z.value&&d?"この日はこのエリアの開催がありません":"エリアと日付を選んでください")+'</option>';
+ if(opts.length){slot.value=(keep&&opts[+keep])?keep:"0";var q=new URLSearchParams(location.search).get("slot");if(q&&opts[+q]&&!fillSlots.done){slot.value=q;}}
+ fillSlots.done=true;
+}
+function events(){
+ var d=dayObj(),opts=(d&&SLOTS[z.value]&&SLOTS[z.value][d.getDay()])||[],o=opts[+slot.value];if(!o)return [];
+ var ev=[],eve=new Date(d);eve.setDate(eve.getDate()-1);eve.setHours(22,0,0,0);
+ ev.push({t:eve,k:"prep",b:"前日22時：開催の連絡",s:"雨天などで中止のときはLINEかメールで届きます。届いた内容を確認。",eve:true});
+ var start=at(d,o[0]),end=at(d,o[1]);
+ ev.push({t:at(d,o[0],-90),k:"prep",b:"出発",s:"許可証・食材・釣り銭・ごみ袋を最終確認して出発（目安）。"});
+ ev.push({t:at(d,o[0],-60),k:"setup",b:"到着・設営開始",s:"係員に到着を伝え、区画の中に設営。通路と点字ブロックは空けておく。"});
+ ev.push({t:start,k:"sell",b:"開店",s:"行列が歩道やバスの列をふさがないように。"});
+ var last=end;
+ if(o[3]){ev.push({t:end,k:"clean",b:"朝の販売終了・片付け",s:"夕方まで場所を空けます。火と電源を止めて一度撤収。"});
+  var s2=at(d,o[3][0]),e2=at(d,o[3][1]);ev.push({t:at(d,o[3][0],-60),k:"setup",b:"夕方の設営開始",s:"もう一度区画に設営。"});ev.push({t:s2,k:"sell",b:"夕方の開店",s:"帰宅する人が増える時間です。"});last=e2;}
+ ev.push({t:last,k:"clean",b:"閉店・撤収開始",s:"火と電源を止め、ごみは全部持ち帰り。"});
+ ev.push({t:at(last,hm(last),45),k:"done",b:"撤収完了（45分以内）",s:"場所を元どおりにして、終了報告をLINEで送る。"});
+ return ev;
+}
+function render(){
+ var ev=events(),t=new Date();
+ if(!ev.length){list.innerHTML='<li style="display:block"><div class="tl-empty">エリア・日付・時間枠を選ぶと、当日の時間割が出ます。</div></li>';now.className="now idle";now.innerHTML='<small>いまやること</small><b>エリア・日付・時間枠を選んでください</b><span class="cd"></span>';return;}
+ var cur=-1;ev.forEach(function(e,i){if(t>=e.t)cur=i;});
+ list.innerHTML=ev.map(function(e,i){return '<li class="'+(i<cur?"done":i===cur?"cur":"")+(e.eve?" eve":"")+'"><time>'+(e.eve?"前日<br>":"")+hm(e.t)+'</time><i></i><div><b>'+e.b+'</b><span>'+e.s+'</span></div></li>';}).join("");
+ var first=ev[1].t,lastT=ev[ev.length-1].t,sameDay=t.toDateString()===dayObj().toDateString();
+ if(sameDay&&t<=new Date(lastT.getTime()+3*3600e3)){
+  var c=ev[Math.max(cur,0)],n=ev[cur+1];
+  var mins=n?Math.ceil((n.t-t)/60000):0;
+  now.className="now";now.innerHTML='<small>いまやること（'+hm(t)+'）</small><b>'+(cur<1?"出発の準備":c.b)+'</b><span class="cd">'+(n?"次の「"+n.b+"」まで あと"+(mins>=60?Math.floor(mins/60)+"時間"+(mins%60)+"分":mins+"分"):"おつかれさまでした。終了報告を送りましょう。")+'</span><button type="button" id="openStage">このときのチェックリストを開く ↓</button>';
+  $("openStage").onclick=function(){var k=cur<1?"prep":c.k;var tab=document.querySelector('[data-go="'+STAGE[k]+'"]');if(tab)tab.click();};
+ }else{
+  var days=Math.ceil((new Date(dayObj().toDateString())-new Date(t.toDateString()))/864e5);
+  now.className="now idle";now.innerHTML='<small>いまやること</small><b>'+(days>0?"出店日まで あと"+days+"日":"この出店日は終わりました")+'</b><span class="cd">'+(days>0?"当日になると、時刻に合わせて自動で切り替わります。":"")+'</span>';
+ }
+}
+function ics(){
+ var ev=events();if(!ev.length){alert("エリア・日付・時間枠を選んでください。");return;}
+ function f(d){return d.getFullYear()+("0"+(d.getMonth()+1)).slice(-2)+("0"+d.getDate()).slice(-2)+"T"+("0"+d.getHours()).slice(-2)+("0"+d.getMinutes()).slice(-2)+"00";}
+ var lines=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//BRIDGE CYCLE//minakusa//JA","CALSCALE:GREGORIAN","BEGIN:VTIMEZONE","TZID:Asia/Tokyo","BEGIN:STANDARD","DTSTART:19700101T000000","TZOFFSETFROM:+0900","TZOFFSETTO:+0900","END:STANDARD","END:VTIMEZONE"];
+ ev.forEach(function(e,i){var end=new Date(e.t.getTime()+15*60000);
+  lines.push("BEGIN:VEVENT","UID:minakusa-"+f(e.t)+"-"+i+"@bridgecycleco.com","DTSTAMP:"+f(new Date()),"DTSTART;TZID=Asia/Tokyo:"+f(e.t),"DTEND;TZID=Asia/Tokyo:"+f(end),"SUMMARY:南草津駅前 "+e.b,"DESCRIPTION:"+e.s,"LOCATION:JR南草津駅","BEGIN:VALARM","TRIGGER:-PT10M","ACTION:DISPLAY","DESCRIPTION:"+e.b,"END:VALARM","END:VEVENT");});
+ lines.push("END:VCALENDAR");
+ var blob=new Blob([lines.join("\r\n")],{type:"text/calendar;charset=utf-8"}),a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);a.download="minakusa-"+date.value+".ics";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+}
+function report(){
+ var zn={A:"西口A",B:"東口B",C:"東口C",D:"東口D"}[z.value]||"エリア未選択",o=slot.options[slot.selectedIndex];
+ var msg="【南草津駅前 終了報告】\n出店日："+(date.value||"未入力")+"\nエリア："+zn+"（"+(o?o.text:"")+"）\n撤収：完了しました\n販売数："+($("rQty").value||"-")+"個\n売上："+($("rSales").value?Number($("rSales").value).toLocaleString("ja-JP"):"-")+"円\nひとこと："+($("rNote").value||"なし");
+ window.open("https://line.me/R/oaMessage/%40907kxssd/?"+encodeURIComponent(msg),"_blank","noopener");
+}
+$("icsBtn").addEventListener("click",ics);var rs=$("rSend");if(rs)rs.addEventListener("click",report);
+z.addEventListener("change",function(){fillSlots();render();});date.addEventListener("change",function(){fillSlots();render();});slot.addEventListener("change",render);
+fillSlots();render();setInterval(render,30000);
 })();
 </script>
 </body>
