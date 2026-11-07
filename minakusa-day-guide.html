@@ -216,6 +216,13 @@ footer a{font-size:11px}
 .report textarea{min-height:60px;margin-top:3px}
 .report button{margin-top:10px;width:100%;border:0;border-radius:12px;background:#06c755;color:#fff;font:inherit;font-weight:900;font-size:14px;padding:12px;cursor:pointer}
 </style>
+<script id="vendor-ledger-config">
+/* 出店者台帳（gas/minakusa-vendor）のウェブアプリURL。入れると、運営が台帳に入力した内容で「次にやること」が自動で切り替わる */
+window.MINAKUSA_VENDOR_API='';
+(function(){var q=new URLSearchParams(location.search).get("t");try{if(q&&/^[a-f0-9]{16,40}$/.test(q))localStorage.setItem("minakusa-vendor-token",q);}catch(e){}
+window.MINAKUSA_TOKEN=(function(){try{return localStorage.getItem("minakusa-vendor-token")||"";}catch(e){return q||"";}})();
+window.MINAKUSA_LEDGER=!!(window.MINAKUSA_VENDOR_API&&window.MINAKUSA_TOKEN);})();
+</script>
 </head>
 <body>
 <header class="topbar"><div class="wrap head"><a href="minakusa-ekimae.html" class="brand"><span class="brand-mark">BC</span><strong>南草津駅前・出店当日ガイド<small>BRIDGE CYCLE</small></strong></a><a href="minakusa-ekimae.html" class="back">募集案内に戻る ↗</a></div></header>
@@ -451,14 +458,15 @@ document.querySelectorAll("[data-photo]").forEach(function(box){
   Promise.all(fs.map(shrink)).then(function(list){shots=shots.concat(list).slice(0,3);draw();msg.textContent="";}).catch(function(){msg.textContent="写真を読み込めませんでした。もう一度撮ってください。";});pick.value="";});
  btn.addEventListener("click",function(){
   var shop=$("meShop").value.trim(),email=$("meEmail").value.trim();
-  if(!shop||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="上の「あなたのお店」に屋号とメールアドレスを入れてください。";$("meBox").scrollIntoView({behavior:"smooth",block:"center"});return;}
+  if(!window.MINAKUSA_LEDGER&&(!shop||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))){msg.textContent="上の「あなたのお店」に屋号とメールアドレスを入れてください。";$("meBox").scrollIntoView({behavior:"smooth",block:"center"});return;}
   if(!z.value||!date.value){msg.textContent="エリアと出店日を選んでください。";return;}
   saveProf();btn.disabled=true;btn.textContent="送信しています…";msg.textContent="";
   var now=new Date(),zn={A:"西口A",B:"東口B",C:"東口C",D:"東口D"}[z.value],so=slot&&slot.options[slot.selectedIndex];
   var payload={form:"minakusa_photo_"+kind,"会社名・屋号":shop,email:email,"報告":LABEL[kind],"出店日":date.value,"エリア":zn,"時間枠":so?so.text:"","送信時刻":stamp(now),"枚数":shots.length+"枚",
    _subject:"【南草津 "+LABEL[kind]+"の写真】"+shop+"｜"+date.value.slice(5).replace("-","/")+" "+zn+" "+stamp(now),_page:location.href.split("#")[0].split("?")[0],
    _files:shots.map(function(d,i){return {field:LABEL[kind],name:date.value+"_"+z.value+"_"+kind+"_"+(i+1)+".jpg",type:"image/jpeg",data:d.split(",")[1]};})};
-  fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)})
+  var req=window.MINAKUSA_LEDGER?{url:window.MINAKUSA_VENDOR_API,body:{action:"photo",t:window.MINAKUSA_TOKEN,kind:kind,date:date.value,files:payload._files.map(function(f){return {data:f.data};})}}:{url:ENDPOINT,body:payload};
+  fetch(req.url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(req.body)})
    .then(function(r){return r.json();}).then(function(j){if(!j||j.success!==true)throw new Error("relay");
     try{localStorage.setItem(sentKey(kind),stamp(now));}catch(e){}
     shots=[];draw();btn.textContent="写真を送って報告する";showSent();
@@ -576,16 +584,44 @@ var STEPS=[
  {k:"clean",t:"営業して、撤収したら写真を送る",d:"行列が歩道をふさがないように営業。片付けたら写真で報告します。",auto:function(){return sent("cleanup");},act:function(){openStage(4);var b=document.querySelector('[data-photo="cleanup"]');if(b)b.scrollIntoView({behavior:"smooth",block:"center"});},btn:"撤収の写真を送る"},
  {k:"report",t:"終了報告：売上・人数・アンケート",d:"これを送れば完了です。",auto:function(){return !!J["report:"+(date.value||"")];},act:function(){openStage(5);var f=$("finalForm");if(f)f.scrollIntoView({behavior:"smooth",block:"start"});},btn:"終了報告を入力する"}
 ];
+
+/* ---- 台帳モード：運営の入力と時刻で自動的に進む（出店者はボタンを押さない） ---- */
+var S=null;
+function applyServer(s){
+ if(!s||!s.ok)return;S=s;
+ J.applied=true;J.assigned=!!s.assigned;J.permit=!!s.permit;J.paid=!!s.paid;
+ if(s.shop&&$("meShop"))$("meShop").value=s.shop;
+ var mb=$("meBox");if(mb)mb.hidden=true;
+ if(s.zone&&z.value!==s.zone){z.value=s.zone;z.dispatchEvent(new Event("change"));}
+ if(s.focus&&date.value!==s.focus){date.value=s.focus;date.dispatchEvent(new Event("change"));}
+ var sl=$("slot");if(sl&&s.slot!==null&&s.slot!==undefined&&sl.value!==String(s.slot)&&sl.querySelector('option[value="'+s.slot+'"]')){sl.value=String(s.slot);sl.dispatchEvent(new Event("change"));}
+ try{if(s.arrival)localStorage.setItem("minakusa-photo-sent-v1:"+s.focus+":arrival",s.arrival);if(s.cleanup)localStorage.setItem("minakusa-photo-sent-v1:"+s.focus+":cleanup",s.cleanup);}catch(e){}
+ if(s.report)J["report:"+s.focus]=s.report;
+ render();
+}
+function pull(){if(!window.MINAKUSA_LEDGER)return;fetch(window.MINAKUSA_VENDOR_API+"?action=status&t="+encodeURIComponent(window.MINAKUSA_TOKEN)).then(function(r){return r.json();}).then(applyServer).catch(function(){});}
+if(window.MINAKUSA_LEDGER){
+ STEPS[1].self=false;STEPS[1].act=null;STEPS[1].d="当社で区画を調整しています。決まったらメールでお知らせし、この画面も自動で切り替わります（3営業日以内が目安）。";
+ STEPS[2].self=false;STEPS[2].act=null;STEPS[2].d="区画と日程のメールに書いた方法で、営業許可証の写真を送ってください。確認できたら自動で次に進みます。";
+ STEPS[3].self=false;STEPS[3].act=function(){if(S&&S.payUrl)window.open(S.payUrl,"_blank","noopener");};STEPS[3].btn="カードで支払う";STEPS[3].d="メールで届いたお支払いページから払うと、出店確定です。確認できたら自動で次に進みます。";
+ STEPS[4].self=false;STEPS[4].auto=function(){if(!S||!S.focus)return false;if(S.decision&&S.decision!=="未定")return true;var p=S.focus.split("-");return new Date()>=new Date(+p[0],+p[1]-1,+p[2]-1,22,0);};STEPS[4].d="前日の夕方に持ち物のお知らせ、22時までに開催するかの連絡がメールで届きます。";
+ STEPS[0].auto=function(){return true;};
+ ["assigned","permit","paid"].forEach(function(k,i){STEPS[i+1].auto=function(){return !!J[k];};});
+ STEPS[7].auto=function(){return S?!!(S.report||J["report:"+S.focus]):false;};
+ pull();setInterval(pull,60000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible")pull();});
+}
 function isDone(s){return s.auto?s.auto():!!J[s.k];}
 function render(){
  var n=0,cur=-1;STEPS.forEach(function(s,i){if(isDone(s))n++;else if(cur<0)cur=i;});
  $("jCount").textContent=n+" / "+STEPS.length;$("jBar").style.width=Math.round(n/STEPS.length*100)+"%";
  var nx=$("jNext");
  if(cur<0){nx.innerHTML='<div class="jcomplete"><b>🎉 おつかれさまでした！</b><p style="color:var(--muted)">出店のすべてのステップが完了しました。<br>報告はBRIDGE CYCLEに届いています。</p></div>';}
- else{var s=STEPS[cur],extra="";
+ else if(S&&S.declined){nx.innerHTML='<small>お知らせ</small><b>今回はご希望に沿えませんでした</b><p>メールでご連絡しています。次の開催の募集が始まったら、あらためてご案内します。</p>';}
+ else if(S&&S.decision==="中止"&&cur>=4&&cur<=6){nx.innerHTML='<small style="color:#b13d22">お知らせ</small><b>'+S.focus.slice(5).replace("-","/")+' は中止になりました</b><p>全額返金か別の日への振り替えにします。メールに返信してどちらがよいかお知らせください。</p>';}
+ else{var s=STEPS[cur],extra="";if(S&&cur===2&&S.permitNg)extra="（もう一度送ってください）";
   if(cur===4){var d=dayStart();if(d){var days=Math.ceil((d-new Date(new Date().toDateString()))/864e5);extra=days>1?"（出店日まで あと"+days+"日）":days===1?"（明日が出店日です）":"";}}
   nx.innerHTML='<small>次にやること（'+(cur+1)+'/'+STEPS.length+'）</small><b>'+s.t+extra+'</b><p>'+s.d+'</p><div class="btns">'+(s.act?'<button type="button" class="go" data-act="'+cur+'">'+(s.actLabel||s.btn)+'</button>':'')+(s.self?'<button type="button" class="done" data-self="'+cur+'">✓ '+s.btn+'</button>':'')+'</div>';}
- $("jSteps").innerHTML=STEPS.map(function(s,i){var ok=isDone(s);return '<li class="'+(ok?"ok":i===cur?"now":"")+'"><i>'+(ok?"✓":i+1)+'</i>'+s.t+(ok&&s.self?'<button type="button" data-undo="'+i+'">戻す</button>':'')+'</li>';}).join("");
+ $("jSteps").innerHTML=STEPS.map(function(s,i){var ok=isDone(s);return '<li class="'+(ok?"ok":i===cur?"now":"")+'"><i>'+(ok?"✓":i+1)+'</i>'+s.t+(ok&&s.self&&!window.MINAKUSA_LEDGER?'<button type="button" data-undo="'+i+'">戻す</button>':'')+'</li>';}).join("");
 }
 $("journey").addEventListener("click",function(e){
  var a=e.target.closest("[data-act]"),sf=e.target.closest("[data-self]"),u=e.target.closest("[data-undo]");
@@ -604,7 +640,7 @@ function multi(n){return [].map.call(F.querySelectorAll('input[name="'+n+'"]:che
 function markSent(){var at=J["report:"+(date.value||"")];if(!at)return;F.classList.add("sent");F.innerHTML='<div class="thanks">✓ '+at+' に終了報告を送りました。<br>これで今回の出店はすべて完了です。おつかれさまでした！</div>';}
 F.addEventListener("submit",function(ev){ev.preventDefault();
  var msg=$("fMsg"),btn=$("fSend"),shop=($("meShop").value||prof.shop||"").trim(),email=($("meEmail").value||prof.email||"").trim();
- if(!shop||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="ページ上の「あなたのお店」に屋号とメールアドレスを入れてください。";return;}
+ if(!window.MINAKUSA_LEDGER&&(!shop||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))){msg.textContent="ページ上の「あなたのお店」に屋号とメールアドレスを入れてください。";return;}
  if(!z.value||!date.value){msg.textContent="ページ上でエリアと出店日を選んでください。";return;}
  if($("fSales").value===""||$("fPeople").value===""){msg.textContent="売上とお客さんの人数を入れてください。";return;}
  if(!radio("fSat")||!radio("fAgain")){msg.textContent="満足度と「また出店したいか」を選んでください。";return;}
@@ -616,7 +652,8 @@ F.addEventListener("submit",function(ev){ev.preventDefault();
   "いちばん売れた時間":$("fPeak").value||"-","天気":radio("fWeather")||"-","多かったお客さん":multi("fWho")||"-","満足度":radio("fSat")+" / 5","また出店したいか":radio("fAgain"),"本店・SNSへの手応え":radio("fLink")||"-",
   "よかったこと":$("fGood").value||"なし","困ったこと・要望":$("fBad").value||"なし","撤収写真":sent("cleanup")?"送信済み":"未送信","送信時刻":hm,
   _subject:"【南草津 終了報告】"+shop+"｜"+date.value.slice(5).replace("-","/")+" "+zn+"｜売上"+sales.toLocaleString("ja-JP")+"円・"+people+"人",_page:location.href.split("?")[0]};
- fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})
+ var req=window.MINAKUSA_LEDGER?{url:window.MINAKUSA_VENDOR_API,body:{action:"report",t:window.MINAKUSA_TOKEN,date:date.value,sales:sales,people:people,qty:$("fQty").value,peak:$("fPeak").value,weather:radio("fWeather"),who:multi("fWho"),sat:radio("fSat"),again:radio("fAgain"),link:radio("fLink"),good:$("fGood").value,bad:$("fBad").value}}:{url:ENDPOINT,body:data};
+ fetch(req.url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(req.body)})
   .then(function(r){return r.json();}).then(function(j){if(!j||j.success!==true)throw new Error("relay");
    J["report:"+date.value]=hm;wr(JK,J);markSent();render();
    document.querySelectorAll('[data-check^="finish-"]').forEach(function(c){if(!c.checked){c.checked=true;c.dispatchEvent(new Event("change"));}});

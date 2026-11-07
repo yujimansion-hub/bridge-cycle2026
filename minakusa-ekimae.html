@@ -231,6 +231,7 @@ window.MINAKUSA_ENTRY={
   opensOn:'',                        // 受付開始日が決まったら入れる（例：'11月20日（金）'）。空なら「決まりしだいお知らせ」
   deadline:'',                       // 例：'11月25日（水）17:00'。空なら「定員になり次第」
   replyDays:'3営業日以内',
+  vendorApi:'',                      // 出店者台帳（gas/minakusa-vendor）のURL。入れると申込が台帳に入り、出店ナビの専用リンクがメールで届く
   endpoint:'https://script.google.com/macros/s/AKfycbxPWEX8MbMaAJ0LE92aw5f8G2FKE79hT-YywiBUA0RCl-Ra8sm3hqV_LktOA9FVMNSg/exec',
   fallback:'https://formsubmit.co/ajax/info@bridgecycleco.com'
 };
@@ -505,9 +506,10 @@ form.addEventListener('submit',function(ev){
     'BRIDGE CYCLE株式会社（南草津駅前 出店者募集・調整）','Mail info@bridgecycleco.com','TEL 080-5309-9770（平日10〜17時）'].join('\n');
   var body=JSON.stringify(data);
   try{window.bcTrack&&bcTrack('form_submit',{method:'web',form:'minakusa_apply'});}catch(e){}
-  fetch(C.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body})
+  var viaLedger=C.vendorApi?fetch(C.vendorApi,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({action:'apply'},data))}).then(function(r){return r.json();}).then(function(j){if(!j||j.success!==true||!j.t)throw new Error('ledger');try{localStorage.setItem('minakusa-vendor-token',j.t);}catch(e){}guideUrl='https://www.bridgecycleco.com/minakusa-day-guide.html?t='+encodeURIComponent(j.t);return j;}):Promise.reject(new Error('no-ledger'));
+  viaLedger.catch(function(){return fetch(C.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body})
     .then(function(r){return r.json();})
-    .then(function(j){if(!j||j.success!==true)throw new Error('relay');return j;})
+    .then(function(j){if(!j||j.success!==true)throw new Error('relay');return j;});})
     .catch(function(){return fetch(C.fallback,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:body}).then(function(r){if(!r.ok)throw new Error('fallback');return{};});})
     .then(function(){
       try{localStorage.setItem('minakusa-vendor-profile-v1',JSON.stringify({shop:shop,email:v('eEmail'),zone:v('eZone'),receipt:id,days:d,appliedAt:new Date().toISOString()}));localStorage.setItem('minakusa-journey-v1',JSON.stringify({applied:true}));}catch(e){}
