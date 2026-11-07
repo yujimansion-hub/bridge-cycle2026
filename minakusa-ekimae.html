@@ -83,15 +83,49 @@
 .zone-site-sources a{font-size:11px;color:#255c4d;font-weight:900;text-underline-offset:3px}
 .zone-site-footnote{font-size:11px;color:#6c6151;margin-top:9px;line-height:1.7}
 @media(max-width:760px){.zone-site-review{padding:17px}.zone-site-grid{grid-template-columns:1fr}.zone-site-header{display:block}.zone-site-header>span{display:inline-block;margin-top:10px}.zone-site-entry strong{font-size:14px}}
+
+.entry-status{display:flex;gap:12px;align-items:flex-start;padding:16px 19px;border-radius:14px;margin:0 0 22px;font-size:13px;line-height:1.8;font-weight:700}
+.entry-status.closed{background:#fff6ea;color:#744b2a;border:1px solid #f1d7b8}
+.entry-status.open{background:#eef5ec;color:#1d5a44;border:1px solid #cfe3cb}
+.entry-status b{white-space:nowrap}
+.entry-form{max-width:860px}
+.entry-form fieldset{border:0;margin:0;padding:0;min-width:0}
+.entry-form fieldset[disabled] .field,.entry-form fieldset[disabled] .entry-days{opacity:.62}
+.entry-form h3.entry-h{font-size:15px;margin:26px 0 12px;padding-top:18px;border-top:1px dashed var(--line);color:var(--pine)}
+.entry-form h3.entry-h:first-of-type{border-top:0;padding-top:0;margin-top:4px}
+.entry-days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 8px}
+.entry-days label{display:flex;align-items:center;gap:8px;border:1px solid #d4e2d6;background:#fafcf9;border-radius:11px;padding:10px 12px;font-size:13px;font-weight:800;color:var(--ink);cursor:pointer}
+.entry-days label.off{opacity:.35;cursor:not-allowed}
+.entry-days input{width:17px;height:17px;accent-color:var(--green)}
+.entry-hint{font-size:11px;color:var(--muted);margin:0 0 14px;line-height:1.7}
+.entry-submit{width:100%;margin-top:4px}
+.entry-submit[disabled]{background:#b9c7bf;box-shadow:none;cursor:not-allowed}
+.entry-done{background:#eef5ec;border:1px solid #cfe3cb;border-radius:14px;padding:18px 20px;font-size:13px;line-height:1.85;color:#1d5a44;margin-top:14px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.rules-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rules-list li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13px;line-height:1.8;color:var(--ink)}
+.rules-list li b{display:block;font-size:14px;color:var(--pine);margin-bottom:3px}
+@media(max-width:760px){.entry-days{grid-template-columns:repeat(2,1fr)}.rules-list{grid-template-columns:1fr}.entry-status{font-size:12px}}
 </style>
 <script src="/bc-analytics.js"></script>
+<script id="minakusa-entry-config">
+/* 出店申込の受付設定。受付を始めるときは open を true にし、締切・開始日を確定値に書き換える。 */
+window.MINAKUSA_ENTRY={
+  open:false,                       // true にすると申込フォームが送信可能になる
+  opensOn:'11月中旬（予定）',        // 受付開始前に表示する開始時期
+  deadline:'',                       // 例：'11月25日（水）17:00'。空なら「定員になり次第」
+  replyDays:'3営業日以内',
+  endpoint:'https://script.google.com/macros/s/AKfycbxPWEX8MbMaAJ0LE92aw5f8G2FKE79hT-YywiBUA0RCl-Ra8sm3hqV_LktOA9FVMNSg/exec',
+  fallback:'https://formsubmit.co/ajax/info@bridgecycleco.com'
+};
+</script>
 </head>
 <body>
-<div class="notice">南草津駅前 社会実験｜12月の開催日時・場所・料金は調整中です。現在は無料の先行相談のみ受け付けています。</div>
-<header class="nav"><div class="container nav-inner"><a href="#top" class="brand" aria-label="南草津駅前ポップアップ・先頭へ"><span class="brand-mark">BC</span><span class="brand-name">南草津駅前 POP-UP<small>MINAMIKUSATSU × BRIDGE CYCLE</small></span></a><nav class="nav-links" aria-label="主要メニュー"><a href="#zones">区画を見る</a><a href="#schedule">希望日を選ぶ</a><a href="#pricing">料金案</a><a href="#profits">採算を試す</a><a class="btn btn-orange small" href="#zones">出店希望を出す <span aria-hidden="true">↗</span></a></nav></div></header>
+<div class="notice" id="entryNotice">UDCみなくさによる南草津駅前の社会実験｜12月の金・土・日・3週間（予定）。出店申込は受付開始前です。いまは無料の先行相談を受け付けています。</div>
+<header class="nav"><div class="container nav-inner"><a href="#top" class="brand" aria-label="南草津駅前ポップアップ・先頭へ"><span class="brand-mark">BC</span><span class="brand-name">南草津駅前 POP-UP<small>MINAMIKUSATSU × BRIDGE CYCLE</small></span></a><nav class="nav-links" aria-label="主要メニュー"><a href="#zones">区画を見る</a><a href="#schedule">希望日を選ぶ</a><a href="#pricing">料金案</a><a href="#profits">採算を試す</a><a href="#rules">出店のルール</a><a class="btn btn-orange small" href="#entry" id="navEntry">出店申込 <span aria-hidden="true">↗</span></a></nav></div></header>
 <main id="top">
-<section class="hero" aria-labelledby="heroTitle"><div class="container hero-grid"><div class="hero-left"><span class="kicker white">南草津駅前・出店希望の先行相談</span><h1 id="heroTitle">駅前で、<br><em>あなたのお店</em>を<br>ひらこう。</h1><p class="hero-sub">たった1日の出店が、<br>次の常連さんとの出会いになる。</p><p class="hero-desc">JR南草津駅前で、新しいお客さんに商品を届けてみませんか。お店のPRも、新商品のテストも。まずは地図から場所を選んで、希望日をまとめて相談できます。</p><div class="hero-actions"><a class="btn btn-orange" href="#zones">区画を見て、希望を出す <span aria-hidden="true">↗</span></a><a class="hero-link" href="#benefits">どんなメリットがある？ ↓</a></div><p class="hero-caveat">※2026年12月4〜20日（金・土・日）は候補日です。実際の開催・募集・料金は主催者確認後に確定します。</p></div><div class="hero-visual"><div class="hero-img"><img src="images/minakusa/hero.jpg" alt="フード屋台で来店客へ商品を手渡す販売の様子" width="1000" height="667" onerror="this.style.display='none'"></div><div class="hero-index"><b>9</b>候補日<br>から相談</div><div class="hero-stamp"><b>まずは、売ってみる。</b><small>次は、本店のお客さんに。</small></div><span class="hero-side">POP-UP / STATION / COMMUNITY</span></div></div></section>
-<div class="quickfacts"><div class="container quickfacts-inner"><div class="fact"><b>0円</b><span>先行相談は無料<span class="tag">まだ予約ではありません</span></span></div><div class="fact"><b>9日</b><span>12月の候補日<span class="tag">金・土・日から選択</span></span></div><div class="fact"><b>3,300円〜</b><span>出店料金案<span class="tag">税込・条件未確定</span></span></div></div></div>
+<section class="hero" aria-labelledby="heroTitle"><div class="container hero-grid"><div class="hero-left"><span class="kicker white">南草津駅前・出店者募集（UDCみなくさ 社会実験）</span><h1 id="heroTitle">駅前で、<br><em>あなたのお店</em>を<br>ひらこう。</h1><p class="hero-sub">たった1日の出店が、<br>次の常連さんとの出会いになる。</p><p class="hero-desc">JR南草津駅の西口・東口の駅前広場で、12月の金・土・日に飲食の出店でにぎわいをつくる社会実験を行います。お店のPRも、新商品のテストも。1日から最大9日間まで出店できます。</p><div class="hero-actions"><a class="btn btn-orange" href="#zones">区画を見て、希望を出す <span aria-hidden="true">↗</span></a><a class="hero-link" href="#benefits">どんなメリットがある？ ↓</a></div><p class="hero-caveat" id="heroCaveat">※開催候補日は2026年12月4〜20日の金・土・日（9日間）。区画・時間・料金は受付開始時に確定します。</p></div><div class="hero-visual"><div class="hero-img"><img src="images/minakusa/hero.jpg" alt="フード屋台で来店客へ商品を手渡す販売の様子" width="1000" height="667" onerror="this.style.display='none'"></div><div class="hero-index"><b>9</b>候補日<br>から相談</div><div class="hero-stamp"><b>まずは、売ってみる。</b><small>次は、本店のお客さんに。</small></div><span class="hero-side">POP-UP / STATION / COMMUNITY</span></div></div></section>
+<div class="quickfacts"><div class="container quickfacts-inner"><div class="fact"><b>飲食</b><span>キッチンカー・飲食ブース<span class="tag">飲食の出店のみ</span></span></div><div class="fact"><b>9日</b><span>12月の金・土・日<span class="tag">1日〜最大9日間</span></span></div><div class="fact"><b>3,300円〜</b><span>出店料金案<span class="tag">税込・条件未確定</span></span></div></div></div>
 
 <section id="zones" class="section soft" aria-labelledby="zonesTitle"><div class="container"><div class="steps-nav" aria-label="出店希望の3ステップ"><span class="step active"><b>01</b> 場所を選ぶ</span><span class="step-connector"></span><span class="step"><b>02</b> 日付を選ぶ</span><span class="step-connector"></span><span class="step"><b>03</b> 先行相談を送る</span></div><div class="section-head split"><div><div class="eyebrow">CHOOSE YOUR SPOT</div><h2 id="zonesTitle">どこで売る？<br>写真から選べます。</h2></div><p>西口Aと東口B・C・D。航空写真を見て希望場所をタップ。区画の位置は概略で、実際の割り当てを確約するものではありません。</p></div><div class="zone-layout"><article class="zone-card"><div class="zone-top"><div class="zone-letter"><div><b>西口A｜みなくさフードガーデン</b><small>UDCみなくさが案内する西口駅前広場・キッチンカー／テントなど（案）</small></div></div><span class="zone-count">最大7区画案</span></div><div class="zone-photo"><img src="images/minakusa/west.jpg" alt="南草津駅西口の航空写真。Aの候補位置を示します" loading="lazy" onerror="this.style.display='none'"><div class="zone-photo-overlay"></div><span class="zone-photo-caption">WEST EXIT / A</span><div class="lot-overlay west-lots" role="group" aria-label="西口Aの仮区画を写真から選ぶ"><button type="button" class="lot-mini" data-booth="1" aria-label="西口A1の仮区画を希望する" aria-pressed="false">A1</button><button type="button" class="lot-mini" data-booth="2" aria-label="西口A2の仮区画を希望する" aria-pressed="false">A2</button><button type="button" class="lot-mini" data-booth="3" aria-label="西口A3の仮区画を希望する" aria-pressed="false">A3</button><button type="button" class="lot-mini" data-booth="4" aria-label="西口A4の仮区画を希望する" aria-pressed="false">A4</button><button type="button" class="lot-mini" data-booth="5" aria-label="西口A5の仮区画を希望する" aria-pressed="false">A5</button><button type="button" class="lot-mini" data-booth="6" aria-label="西口A6の仮区画を希望する" aria-pressed="false">A6</button><button type="button" class="lot-mini" data-booth="7" aria-label="西口A7の仮区画を希望する" aria-pressed="false">A7</button></div><span class="overlay-legend">仮区画線・配置イメージ</span></div><div class="zone-action"><p>写真では、候補として示された広場の2か所付近にA1〜A4・A5〜A7を仮に描いています。4枠＋3枠の分け方や実際の区画位置・並び順は未確定です。</p><div class="zone-list"><button class="zone-choice" data-zone="A" type="button" aria-pressed="false">西口Aを選ぶ</button><button class="zone-choice" data-zone="ANY" type="button" aria-pressed="true">場所は相談して決める</button></div><div class="booth-row" id="boothRow"><label>Aの仮番号を希望</label><button class="booth-chip" type="button" data-booth="1" aria-pressed="false">1</button><button class="booth-chip" type="button" data-booth="2" aria-pressed="false">2</button><button class="booth-chip" type="button" data-booth="3" aria-pressed="false">3</button><button class="booth-chip" type="button" data-booth="4" aria-pressed="false">4</button><button class="booth-chip" type="button" data-booth="5" aria-pressed="false">5</button><button class="booth-chip" type="button" data-booth="6" aria-pressed="false">6</button><button class="booth-chip" type="button" data-booth="7" aria-pressed="false">7</button></div></div></article>
 <article class="zone-card"><div class="zone-top"><div class="zone-letter"><div><b>東口｜B・C・D</b><small>バスのりば周辺・テイクアウト販売など（案）</small></div></div><span class="zone-count blue">曜日により異なる</span></div><div class="zone-photo east"><img src="images/minakusa/east.jpg" alt="南草津駅東口の航空写真。B、C、Dの候補位置を示します" loading="lazy" onerror="this.style.display='none'"><div class="zone-photo-overlay"></div><span class="zone-photo-caption">EAST EXIT / B C D</span><button class="lot-outline east-b" type="button" data-zone="B" aria-label="東口Bの仮エリア範囲を選ぶ" aria-pressed="false">B<small>5枠案</small></button><button class="lot-outline east-c" type="button" data-zone="C" aria-label="東口Cの仮エリア範囲を選ぶ" aria-pressed="false">C<small>4枠案</small></button><button class="lot-outline east-d" type="button" data-zone="D" aria-label="東口Dの仮エリア範囲を選ぶ" aria-pressed="false">D<small>3枠案</small></button><span class="overlay-legend">仮エリア輪郭・配置イメージ</span></div><div class="zone-action"><p>青い破線はB・C・Dの仮エリア輪郭です。B（1・2番のりば付近）は土日、C（3・4番のりば付近）・D（5番のりば付近）は金曜朝夕の候補です。最新のバス停配置と現地の待機列・通行帯を確認し、支障がある枠は削減します。</p><div class="zone-list"><button type="button" class="zone-choice east-choice" data-zone="B" aria-pressed="false">B｜土・日／5枠案</button><button type="button" class="zone-choice east-choice" data-zone="C" aria-pressed="false">C｜金曜／4枠案</button><button type="button" class="zone-choice east-choice" data-zone="D" aria-pressed="false">D｜金曜／3枠案</button></div></div></article></div><div class="zone-site-review" aria-label="航空写真と新しいバス停案内による仮配置の検討">
@@ -110,11 +144,43 @@
 
 <section id="pricing" class="section soft" aria-labelledby="priceTitle"><div class="container"><div class="section-head split"><div><div class="eyebrow">PRICE & TIME / DRAFT</div><h2 id="priceTitle">気になる出店料は、<br>1枠3,300円から。</h2></div><p>出店料案は税込・売上歩合なし。金曜は朝夕、土日は昼を中心に、売り場ごとに時間帯が異なります。</p></div><div class="price-grid"><article class="price-card"><div class="price-top"><span class="pill">西口 A</span><small class="smallprint">金曜・土日</small></div><h3>みなくさフードガーデンで<br>じっくり販売</h3><p>金 15:00〜20:00<br>土日 11:00〜16:00</p><div class="price">3,300円 <span>/ 1枠・案</span></div><div class="extra">土日の通し枠 10:00〜18:00 は5,500円案</div></article><article class="price-card"><div class="price-top"><span class="pill blue">東口 B</span><small class="smallprint">土・日</small></div><h3>週末の駅前で<br>テイクアウト販売</h3><p>10:00〜15:00 または<br>16:00〜21:00</p><div class="price">3,300円 <span>/ 1枠・案</span></div><div class="extra">通し枠 11:00〜19:00 は5,500円案</div></article><article class="price-card"><div class="price-top"><span class="pill blue">東口 C・D</span><small class="smallprint">金曜</small></div><h3>通勤・通学の<br>朝夕に販売</h3><p>朝 7:00〜9:30 または<br>夕 17:00〜19:30</p><div class="price">3,300円 <span>/ 1枠・案</span></div><div class="extra">朝夕セットは5,500円案</div></article></div><p class="price-disclaimer">※すべて開催・使用条件・料金が未承認の案です。東口は長机販売などを想定し、火気・電源・車両使用は現地条件と許可によります。売上は保証しません。</p></div></section>
 
-<section id="apply" class="section" aria-labelledby="applyTitle"><div class="container"><div class="steps-nav"><span class="step"><b>01</b> 場所を選ぶ</span><span class="step-connector"></span><span class="step"><b>02</b> 日付を選ぶ</span><span class="step-connector"></span><span class="step active"><b>03</b> 先行相談を送る</span></div><div class="section-head"><div class="eyebrow">LET'S TRY</div><h2 id="applyTitle">出店の相談は、<br>これだけでOK。</h2><p>いまは無料の先行相談。必要な情報だけ入力し、LINEかメールで送ってください。返信時に条件を一緒に確認します。</p></div><div class="apply-grid"><div class="apply-steps"><div class="apply-step"><i>01</i><div><b>売り場と希望日を選ぶ</b><p>決めきれなければ「場所も日程も相談」で大丈夫です。</p></div></div><div class="apply-step"><i>02</i><div><b>屋号と商品を入力する</b><p>まずは何を売りたいかを教えてください。</p></div></div><div class="apply-step"><i>03</i><div><b>LINEまたはメールで送る</b><p>送信アプリ内で送信したら相談受付です。正式申込・決済はまだ始まりません。</p></div></div><div class="apply-help"><b>「初めての出店」でも相談できます。</b><p>営業許可、保険、火気、搬入、販売品目などは条件を確認します。主催者の承認が必要な場合があり、先行相談時点では出店できることを保証しません。</p></div></div><form id="interestForm" class="apply-form" novalidate><h3>希望内容を送る</h3><p class="apply-lead">入力は約1分。送信するまで費用はかかりません。</p><div class="selected-box"><span class="num">✓</span><div><b id="applyZoneSummary">希望場所：運営と相談</b><small id="applyDaysSummary">希望日：相談して決めたい</small></div></div><div class="fieldgrid"><div class="field"><label for="shopName">屋号・お名前 <em>必須</em></label><input id="shopName" maxlength="80" autocomplete="organization" placeholder="例：〇〇キッチン" required></div><div class="field"><label for="kind">出店スタイル</label><select id="kind"><option>飲食店の出張販売</option><option>キッチンカー</option><option>弁当・惣菜・焼き菓子</option><option>食品の物販</option><option>その他・相談したい</option></select></div></div><div class="fieldgrid"><div class="field"><label for="goods">売りたいもの <em>必須</em></label><input id="goods" maxlength="150" placeholder="例：カレー、サンドイッチ" required></div><div class="field"><label for="reply">返信先メール・電話（任意）</label><input id="reply" maxlength="140" placeholder="LINE送信なら省略可能"></div></div><div class="fieldgrid"><div class="field"><label for="timePref">希望時間帯</label><select id="timePref"><option>時間帯は相談して決める</option><option>朝を希望</option><option>昼を希望</option><option>夕方・夜を希望</option></select></div><div class="field"><label for="referrer">紹介者・コード（任意）</label><input id="referrer" maxlength="80" placeholder="紹介してくれた方など"></div></div><div class="field"><label for="remarks">相談したいこと（任意）</label><textarea id="remarks" maxlength="800" placeholder="例：電源は使えますか？ 初出店ですが大丈夫でしょうか。"></textarea></div><label class="check"><input id="flexible" type="checkbox" checked><span>希望場所や日付が合わない場合、別の候補も案内してほしい</span></label><label class="check"><input id="consent" type="checkbox" required><span>開催条件は未確定で、これは予約・枠の確保ではないことを理解しました。出店調整のため、入力情報をBRIDGE CYCLEおよび主催・運営関係者に必要な範囲で共有することに同意します。<a href="privacy.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:900">プライバシーポリシー</a></span></label><div class="form-actions"><button class="btn btn-line" id="sendLine" type="button">LINEで先行相談 ↗</button><button class="btn btn-green" id="sendMail" type="button">メールで先行相談 ↗</button></div><div id="formMsg" class="form-msg" role="alert" aria-live="polite"></div><p class="form-note">LINE・メールアプリが開きます。アプリ上で送信した時点で相談が届きます。<button class="copy-link" id="copyText" type="button">送信文だけコピーする</button></p></form></div></div></section>
+<section id="apply" class="section" aria-labelledby="applyTitle"><div class="container"><div class="steps-nav"><span class="step"><b>01</b> 場所を選ぶ</span><span class="step-connector"></span><span class="step"><b>02</b> 日付を選ぶ</span><span class="step-connector"></span><span class="step active"><b>03</b> 先行相談を送る</span></div><div class="section-head"><div class="eyebrow">LET'S TRY</div><h2 id="applyTitle">受付開始の前に、<br>希望だけ伝えておく。</h2><p>正式な申込は、受付開始後に下の「出店申込フォーム」から。いま希望エリア・日付・商品をLINEかメールで送っておくと、受付開始のときに優先してご案内します。</p></div><div class="apply-grid"><div class="apply-steps"><div class="apply-step"><i>01</i><div><b>売り場と希望日を選ぶ</b><p>決めきれなければ「場所も日程も相談」で大丈夫です。</p></div></div><div class="apply-step"><i>02</i><div><b>屋号と商品を入力する</b><p>まずは何を売りたいかを教えてください。</p></div></div><div class="apply-step"><i>03</i><div><b>LINEまたはメールで送る</b><p>送信アプリ内で送信したら相談受付です。受付開始時に、こちらからご連絡します。</p></div></div><div class="apply-help"><b>「初めての出店」でも相談できます。</b><p>営業許可、保険、火気、搬入、販売品目などは条件を確認します。主催者の承認が必要な場合があり、先行相談時点では出店できることを保証しません。</p></div></div><form id="interestForm" class="apply-form" novalidate><h3>希望内容を送る</h3><p class="apply-lead">入力は約1分。送信するまで費用はかかりません。</p><div class="selected-box"><span class="num">✓</span><div><b id="applyZoneSummary">希望場所：運営と相談</b><small id="applyDaysSummary">希望日：相談して決めたい</small></div></div><div class="fieldgrid"><div class="field"><label for="shopName">屋号・お名前 <em>必須</em></label><input id="shopName" maxlength="80" autocomplete="organization" placeholder="例：〇〇キッチン" required></div><div class="field"><label for="kind">出店スタイル</label><select id="kind"><option>飲食店の出張販売</option><option>キッチンカー</option><option>弁当・惣菜・焼き菓子</option><option>食品の物販</option><option>その他・相談したい</option></select></div></div><div class="fieldgrid"><div class="field"><label for="goods">売りたいもの <em>必須</em></label><input id="goods" maxlength="150" placeholder="例：カレー、サンドイッチ" required></div><div class="field"><label for="reply">返信先メール・電話（任意）</label><input id="reply" maxlength="140" placeholder="LINE送信なら省略可能"></div></div><div class="fieldgrid"><div class="field"><label for="timePref">希望時間帯</label><select id="timePref"><option>時間帯は相談して決める</option><option>朝を希望</option><option>昼を希望</option><option>夕方・夜を希望</option></select></div><div class="field"><label for="referrer">紹介者・コード（任意）</label><input id="referrer" maxlength="80" placeholder="紹介してくれた方など"></div></div><div class="field"><label for="remarks">相談したいこと（任意）</label><textarea id="remarks" maxlength="800" placeholder="例：電源は使えますか？ 初出店ですが大丈夫でしょうか。"></textarea></div><label class="check"><input id="flexible" type="checkbox" checked><span>希望場所や日付が合わない場合、別の候補も案内してほしい</span></label><label class="check"><input id="consent" type="checkbox" required><span>開催条件は未確定で、これは予約・枠の確保ではないことを理解しました。出店調整のため、入力情報をBRIDGE CYCLEおよび主催・運営関係者に必要な範囲で共有することに同意します。<a href="privacy.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:900">プライバシーポリシー</a></span></label><div class="form-actions"><button class="btn btn-line" id="sendLine" type="button">LINEで先行相談 ↗</button><button class="btn btn-green" id="sendMail" type="button">メールで先行相談 ↗</button></div><div id="formMsg" class="form-msg" role="alert" aria-live="polite"></div><p class="form-note">LINE・メールアプリが開きます。アプリ上で送信した時点で相談が届きます。<button class="copy-link" id="copyText" type="button">送信文だけコピーする</button></p></form></div></div></section>
 
+<section id="entry" class="section white" aria-labelledby="entryTitle"><div class="container"><div class="section-head"><div class="eyebrow">ENTRY FORM</div><h2 id="entryTitle">出店申込フォーム</h2><p>入力は約5分。営業許可の内容が分かるもの（許可証）を手元に置いてお進みください。許可証の画像は、受付後にこちらから提出方法をご案内します。</p></div>
+<div id="entryStatus" class="entry-status closed" role="status"><b>受付開始前</b><span id="entryStatusText">いまは送信できません。受付開始は11月中旬（予定）です。開始のお知らせを受け取りたい方は、上の先行相談からLINEかメールで「希望」をお送りください。</span></div>
+<form id="entryForm" class="apply-form entry-form" novalidate><fieldset id="entryFields" disabled>
+<h3 class="entry-h">1. お店のこと</h3>
+<div class="fieldgrid"><div class="field"><label for="eShop">屋号・店名 <em>必須</em></label><input id="eShop" maxlength="80" autocomplete="organization" required></div><div class="field"><label for="eName">代表者・担当者のお名前 <em>必須</em></label><input id="eName" maxlength="60" autocomplete="name" required></div></div>
+<div class="fieldgrid"><div class="field"><label for="eEmail">メールアドレス <em>必須</em></label><input id="eEmail" type="email" maxlength="180" autocomplete="email" required></div><div class="field"><label for="eTel">電話番号（当日連絡用） <em>必須</em></label><input id="eTel" type="tel" maxlength="20" autocomplete="tel" required></div></div>
+<div class="field"><label for="eSns">InstagramなどのSNS・Webサイト（任意）</label><input id="eSns" maxlength="160" placeholder="例：@shopname"></div>
+<h3 class="entry-h">2. 出店のかたち</h3>
+<div class="fieldgrid"><div class="field"><label for="eStyle">出店の形 <em>必須</em></label><select id="eStyle" required><option value="">選んでください</option><option>キッチンカー</option><option>テント（飲食ブース）</option><option>どちらでもよい・相談したい</option></select></div><div class="field"><label for="eSize">車両・テントの大きさ <em>必須</em></label><input id="eSize" maxlength="100" placeholder="例：全長4.7m×幅1.9m×高さ2.6m／テント3m×3m" required></div></div>
+<div class="field"><label for="eMenu">販売するメニューと価格 <em>必須</em></label><textarea id="eMenu" maxlength="600" placeholder="例：チキンカレー 800円、ラッシー 400円" required></textarea></div>
+<div class="fieldgrid"><div class="field"><label for="eFire">火気の使用 <em>必須</em></label><select id="eFire" required><option value="">選んでください</option><option>使わない</option><option>ガス（カセットコンロ・プロパン）を使う</option><option>電気で調理する</option></select></div><div class="field"><label for="ePower">電源 <em>必須</em></label><select id="ePower" required><option value="">選んでください</option><option>使わない</option><option>発電機・ポータブル電源を持ち込む</option><option>電源がほしい（相談）</option></select></div></div>
+<h3 class="entry-h">3. 区画と日程</h3>
+<div class="fieldgrid"><div class="field"><label for="eZone">第1希望の区画 <em>必須</em></label><select id="eZone" required><option value="">選んでください</option><option value="A">西口A（駅前広場）</option><option value="B">東口B（のりば1・2前）</option><option value="C">東口C（のりば3・4前）</option><option value="D">東口D（のりば5前）</option><option value="ANY">おまかせ</option></select></div><div class="field"><label for="eZone2">第2希望の区画（任意）</label><select id="eZone2"><option value="">なし</option><option value="A">西口A（駅前広場）</option><option value="B">東口B（のりば1・2前）</option><option value="C">東口C（のりば3・4前）</option><option value="D">東口D（のりば5前）</option><option value="ANY">おまかせ</option></select></div></div>
+<div class="field" style="margin-bottom:6px"><label>出店したい日 <em>必須</em>（1日〜最大9日間）</label></div>
+<div class="entry-days" id="eDays"><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-04" data-label="12/4（金）"><span>12/4（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-05" data-label="12/5（土）"><span>12/5（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-06" data-label="12/6（日）"><span>12/6（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-11" data-label="12/11（金）"><span>12/11（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-12" data-label="12/12（土）"><span>12/12（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-13" data-label="12/13（日）"><span>12/13（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-18" data-label="12/18（金）"><span>12/18（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-19" data-label="12/19（土）"><span>12/19（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-20" data-label="12/20（日）"><span>12/20（日）</span></label></div>
+<p class="entry-hint" id="eDaysHint">西口Aは金・土・日、東口Bは土・日、東口C・Dは金曜の候補です。選んだ区画に合わない日は選べません。</p>
+<div class="fieldgrid"><div class="field"><label for="eTime">希望の時間帯</label><select id="eTime"><option>区画の標準の時間でよい</option><option>通し枠（長い時間）を希望</option><option>朝夕セットを希望（東口C・D）</option><option>相談したい</option></select></div><div class="field"><label for="eRefer">紹介者・コード（任意）</label><input id="eRefer" maxlength="80"></div></div>
+<h3 class="entry-h">4. 許可と保険</h3>
+<div class="fieldgrid"><div class="field"><label for="ePermit">営業許可の種類 <em>必須</em></label><select id="ePermit" required><option value="">選んでください</option><option>飲食店営業（自動車）</option><option>飲食店営業（臨時営業・露店）</option><option>菓子製造業</option><option>その他の許可・届出</option><option>申請中・これから取る</option></select></div><div class="field"><label for="ePermitNo">許可番号（任意）</label><input id="ePermitNo" maxlength="60"></div></div>
+<div class="fieldgrid"><div class="field"><label for="ePermitOffice">許可を出した保健所（任意）</label><input id="ePermitOffice" maxlength="60" placeholder="例：草津保健所"></div><div class="field"><label for="ePermitExp">許可の有効期限（任意）</label><input id="ePermitExp" type="date"></div></div>
+<div class="fieldgrid"><div class="field"><label for="eHygiene">食品衛生責任者 <em>必須</em></label><select id="eHygiene" required><option value="">選んでください</option><option>いる</option><option>いない・これから取る</option></select></div><div class="field"><label for="eInsurance">PL保険（生産物賠償責任保険） <em>必須</em></label><select id="eInsurance" required><option value="">選んでください</option><option>加入している</option><option>出店までに加入する</option><option>加入していない</option></select></div></div>
+<p class="entry-hint">許可証の画像はこのフォームでは受け付けていません。受付後のご連絡で提出方法をご案内します。</p>
+<h3 class="entry-h">5. そのほか</h3>
+<div class="field"><label for="eNote">確認したいこと・伝えておきたいこと（任意）</label><textarea id="eNote" maxlength="800"></textarea></div>
+<div class="hp" aria-hidden="true"><label>空欄のまま<input id="eHp" tabindex="-1" autocomplete="off"></label></div>
+<label class="check"><input id="eAgreeRules" type="checkbox" required><span>「出店のルール」を読み、守ります。お客さまからの事前注文・事前決済は受け付けません。<a href="#rules" style="color:var(--green);font-weight:900">出店のルール</a></span></label>
+<label class="check"><input id="eAgreePrivacy" type="checkbox" required><span>申込は出店の確定ではなく、区画・日程・出店料は確認後に決まること、入金の確認で出店確定となることを理解しました。出店調整のため、入力情報をBRIDGE CYCLEおよび主催者（UDCみなくさ）に必要な範囲で共有することに同意します。<a href="privacy.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:900">プライバシーポリシー</a></span></label>
+</fieldset>
+<button class="btn btn-orange entry-submit" id="entrySubmit" type="submit" disabled>受付開始前のため、まだ送信できません</button>
+<div id="entryMsg" class="form-msg" role="alert" aria-live="polite"></div>
+<div id="entryDone" class="entry-done" hidden></div>
+</form></div></section>
 <section id="profits" class="section white" aria-labelledby="profitTitle"><div class="container"><div class="section-head split"><div><div class="eyebrow">PROFIT CHECK</div><h2 id="profitTitle">売れたら、<br>いくら残る？</h2></div><p>材料費・出店料・人件費まで含めて試算できます。実際の売上や利益を保証するものではありません。</p></div><div class="profit-grid"><div class="profit-controls"><div class="calc-fields"><label>商品単価（円）<input id="unitPrice" type="number" min="0" max="100000" value="700"></label><label>販売数（個）<input id="peopleCount" type="number" min="0" max="10000" value="40"></label><label>材料原価（％）<input id="costRate" type="number" min="0" max="100" value="30"></label><label>出店料案（円）<input id="shopFee" type="number" min="0" max="100000" value="3300"></label></div><details class="calc-extra"><summary>人件費・準備時間なども調整する</summary><div class="calc-fields"><label>スタッフ人数（人）<input id="staffCount" type="number" min="0" max="30" value="1"></label><label>時給（円）<input id="hourlyWage" type="number" min="0" max="10000" value="1200"></label><label>販売時間（h）<input id="sellHours" type="number" min="0" max="24" step="0.5" value="5"></label><label>設営・撤収（h）<input id="prepHours" type="number" min="0" max="12" step="0.5" value="1.5"></label><label>包装資材（円／販売）<input id="packCost" type="number" min="0" max="2000" value="30"></label><label>交通・駐車費（円）<input id="transport" type="number" min="0" max="100000" value="1000"></label><label>決済手数料（％）<input id="processingFee" type="number" min="0" max="30" step="0.1" value="3"></label></div></details><p class="smallprint" style="margin-top:16px">※出店料などは案です。光熱費、税金、その他費用は含みません。実際に発生する条件は主催者と確認してください。</p></div><div class="calc-result" aria-live="polite"><div><span class="eyebrow">ESTIMATED PROFIT</span><small style="display:block;margin-top:12px">1回の出店で手元に残る金額（概算）</small><strong id="resultProfit">—</strong></div><dl><div><dt>売上の試算</dt><dd id="resultSales">—</dd></div><div><dt>損益分岐点</dt><dd id="resultBreakEven">—</dd></div><div><dt>費用の試算</dt><dd id="resultCost">—</dd></div></dl></div></div></div></section>
 
-<section id="process" class="section soft" aria-labelledby="processTitle"><div class="container"><div class="section-head"><div class="eyebrow">HOW TO JOIN</div><h2 id="processTitle">先行相談から、<br>正式出店まで。</h2><p>許可証の確認と入金は、正式開催が決まった後。今すぐ費用や画像提出は必要ありません。</p></div><div class="process-grid"><div class="process-item"><span>01</span><b>無料で先行相談</b><p>希望エリア・日付・商品をLINEまたはメールで送る。</p></div><div class="process-item"><span>02</span><b>条件と区画を確認</b><p>営業内容、設備、候補枠、正式な料金を運営が確認。</p></div><div class="process-item"><span>03</span><b>許可証の画像提出</b><p>正式受付後に安全な専用フォームへ。提出書類の種類は事前に案内。</p></div><div class="process-item"><span>04</span><b>審査後の入金で確定</b><p>許可証と空き枠の確認後に決済案内。入金確認で予約確定。</p></div></div><div class="process-note"><strong>大切なお知らせ：</strong>許可証をアップロードする安全な受付システムと決済は、現時点ではまだ開設していません。個人情報や許可証画像を、この公開ページや通常のLINE・メールに添付して送る必要はありません。営業許可証は保健所交付のものなので、重複した書類を要求しないよう正式受付時に確認します。</div></div></section>
+<section id="process" class="section soft" aria-labelledby="processTitle"><div class="container"><div class="section-head"><div class="eyebrow">HOW TO JOIN</div><h2 id="processTitle">申込から、<br>出店確定まで。</h2><p>書類と区画を確認してから、お支払い。出店できないのに先に払ってしまうことはありません。</p></div><div class="process-grid"><div class="process-item"><span>01</span><b>申込フォームを送る</b><p>受付開始後、このページのフォームから。受付前は先行相談で「希望」を伝えておけます。</p></div><div class="process-item"><span>02</span><b>区画と日程を調整</b><p>メニュー・設備・希望日をもとに、当社が区画を調整してメールでご連絡。</p></div><div class="process-item"><span>03</span><b>許可証を確認</b><p>提出方法は個別にご案内。営業許可と食品衛生責任者を確認します。</p></div><div class="process-item"><span>04</span><b>入金で出店確定</b><p>確定した出店料とお支払い方法をご案内。入金の確認で出店確定です。</p></div></div><div class="process-note"><strong>大切なお知らせ：</strong>許可証の画像は、申込フォームや先行相談のLINE・メールに添付しないでください。受付後のご連絡で、提出方法をご案内します。</div></div></section>
 
 <!-- バックエンド待ち：正式申込用の許可証提出UIを維持。HTTPSアップロードサーバー・管理者審査・決済の実装が完了するまで非表示、送信禁止。 -->
 <section class="section permit-section" id="formal-apply" aria-labelledby="formal-apply-title" hidden>
@@ -164,12 +230,23 @@
 </div>
 </section>
 
-<section id="faq" class="section" aria-labelledby="faqTitle"><div class="container"><div class="section-head"><div class="eyebrow">FAQ</div><h2 id="faqTitle">よくある質問。</h2></div><div class="faq-grid"><details><summary>12月の開催日時は決まっていますか？</summary><p>いいえ。2026年12月4〜20日の金・土・日は候補です。日時・場所・区画・料金の最終決定後に正式案内します。</p></details><details><summary>先行相談だけで料金が発生しますか？</summary><p>発生しません。先行相談は無料です。出店料の入金が必要になるのは正式な開催条件、許可・書類確認および空き枠が確定してからです。</p></details><details><summary>営業許可がまだない場合も相談できますか？</summary><p>可能です。ただし販売する食品や設備、営業方法によって必要な許可や届出が異なります。所管保健所・主催者に確認した上で出店可否を判断します。</p></details><details><summary>キッチンカー以外でも出店できますか？</summary><p>包装済み商品の販売や飲食店からの出張販売などもご相談ください。会場に応じて火気・電源・車両持込などの制約があります。</p></details><details><summary>区画A1〜A7の番号は現地と対応していますか？</summary><p>いいえ。希望を整理するための仮番号です。正式な区画境界、動線、寸法、設営場所は主催者の確認後に決まります。</p></details><details><summary>出店枠が満席かどうか分かりますか？</summary><p>現在は正式な残枠・予約管理を行っていません。表示している区画数は候補の最大規模案で、利用可能枠や空き枠数を保証するものではありません。</p></details></div><div class="map-detail" style="text-align:left;margin-top:23px"><a href="minakusa-details.html">会場の詳細案内・規約を見る ↗</a></div></div></section>
+<section id="rules" class="section soft" aria-labelledby="rulesTitle"><div class="container"><div class="section-head"><div class="eyebrow">RULES</div><h2 id="rulesTitle">出店のルール。</h2><p>駅前の公共空間を使う社会実験です。安全とまわりの方への配慮のため、次の点をお守りください。細かな条件は、受付時と出店確定時にご案内します。</p></div>
+<ul class="rules-list">
+<li><b>飲食の出店のみ</b>キッチンカー・飲食ブース（テント）が対象です。飲食物以外の物販だけの出店はできません。</li>
+<li><b>1日から最大9日間</b>12月の金・土・日（予定）の中から、1日単位で申し込めます。</li>
+<li><b>営業許可と食品衛生責任者</b>販売内容に合った保健所の営業許可と、食品衛生責任者が必要です。PL保険（生産物賠償責任保険）への加入をお願いします。</li>
+<li><b>その場の販売のみ</b>お客さまからの事前注文・事前決済は受け付けないでください。当日その場での販売をお願いします。</li>
+<li><b>設営と片付け</b>設営は枠の開始60分前から、撤収は終了後45分以内。ごみは各店で持ち帰り、使った場所は元の状態に戻してください。</li>
+<li><b>火気・電源・車両</b>火気・発電機・車両の使用は、区画ごとの条件に従ってください（出店確定時にご案内します）。</li>
+<li><b>出店料とお支払い</b>出店料は1区画1日3,300円（税込）から。区画・日程の確定後にご案内し、入金の確認で出店確定となります。</li>
+<li><b>雨天・キャンセル</b>雨天・荒天時の開催判断とキャンセルの扱いは、受付開始時にこのページでお知らせします。</li>
+</ul></div></section>
+<section id="faq" class="section" aria-labelledby="faqTitle"><div class="container"><div class="section-head"><div class="eyebrow">FAQ</div><h2 id="faqTitle">よくある質問。</h2></div><div class="faq-grid"><details><summary>12月の開催日時は決まっていますか？</summary><p>12月の金・土・日の3週間（2026年12月4〜20日の9日間）で予定しています。区画ごとの時間・料金は、受付開始時にこのページで確定します。</p></details><details><summary>申込や相談だけで料金が発生しますか？</summary><p>発生しません。出店料のお支払いは、区画・日程と許可の確認が済み、出店料をご案内してからです。入金の確認で出店確定となります。</p></details><details><summary>何日まで出店できますか？</summary><p>1日から最大9日間（全日程）まで申し込めます。希望が重なった場合は、なるべく多くのお店が出られるよう調整することがあります。</p></details><details><summary>お客さんから事前に注文を受けてもいいですか？</summary><p>いいえ。トラブルを防ぐため、事前注文・事前決済の受付はお控えください。当日その場での販売をお願いします。</p></details><details><summary>営業許可がまだない場合も相談できますか？</summary><p>可能です。ただし販売する食品や設備、営業方法によって必要な許可や届出が異なります。所管保健所・主催者に確認した上で出店可否を判断します。</p></details><details><summary>キッチンカー以外でも出店できますか？</summary><p>テントの飲食ブースでも出店できます。飲食店からの出張販売もご相談ください。飲食物以外の物販だけの出店はできません。会場に応じて火気・電源・車両持込などの制約があります。</p></details><details><summary>区画A1〜A7の番号は現地と対応していますか？</summary><p>いいえ。希望を整理するための仮番号です。正式な区画境界、動線、寸法、設営場所は主催者の確認後に決まります。</p></details><details><summary>出店枠が満席かどうか分かりますか？</summary><p>現在は正式な残枠・予約管理を行っていません。表示している区画数は候補の最大規模案で、利用可能枠や空き枠数を保証するものではありません。</p></details></div><div class="map-detail" style="text-align:left;margin-top:23px"><a href="minakusa-details.html">会場の詳細案内・規約を見る ↗</a></div></div></section>
 
 
 </main>
-<footer class="footer"><div class="container footer-inner"><div><b>BRIDGE CYCLE株式会社</b><p>「戻れるから、踏み出せる。」<br>南草津駅前の出店希望募集・調整サポート</p><p>社会実験「みなくさまちLAB」／主催・運営：一般社団法人アーバンデザインセンターみなくさ（UDCみなくさ）<br>本サイトの日時・料金・区画情報は未確定の検討案で、正式な主催者案内が優先します。</p></div><nav class="footer-links"><a href="minakusa-details.html">詳しい案内</a><a href="privacy.html">個人情報保護方針</a><a href="mailto:info@bridgecycleco.com">お問い合わせ</a><a href="https://www.bridgecycleco.com/">企業サイト</a></nav></div></footer>
-<div class="mobile-cta"><a class="btn btn-orange" href="#zones">区画を選んで無料相談する →</a></div>
+<footer class="footer"><div class="container footer-inner"><div><b>BRIDGE CYCLE株式会社</b><p>「戻れるから、踏み出せる。」<br>南草津駅前の出店希望募集・調整サポート</p><p>社会実験「みなくさまちLAB」／主催・運営：一般社団法人アーバンデザインセンターみなくさ（UDCみなくさ）<br>本ページの日時・料金・区画は受付開始時に確定します。主催者からの案内が優先します。</p></div><nav class="footer-links"><a href="minakusa-details.html">詳しい案内</a><a href="privacy.html">個人情報保護方針</a><a href="mailto:info@bridgecycleco.com">お問い合わせ</a><a href="https://www.bridgecycleco.com/">企業サイト</a></nav></div></footer>
+<div class="mobile-cta"><a class="btn btn-orange" href="#apply" id="mobileCta">受付前の先行相談をする →</a></div>
 <script>
 (()=>{'use strict';
 const ZONES={ANY:{label:'場所は運営と相談',weekday:'any',detail:'希望エリアが決まらなければ、場所はおまかせでも大丈夫です。'},A:{label:'西口 A｜みなくさフードガーデン（7区画案）',weekday:'any',detail:'西口Aの仮番号は現地の位置や空き枠を保証するものではありません。'},B:{label:'東口 B｜のりば1・2前（5枠案）',weekday:'weekend',detail:'Bは土日が候補です。金曜日を希望する場合は別エリアをお選びください。'},C:{label:'東口 C｜のりば3・4前（4枠案）',weekday:'fri',detail:'Cは金曜朝夕が候補です。土日を希望する場合は別エリアをお選びください。'},D:{label:'東口 D｜のりば5前（3枠案）',weekday:'fri',detail:'Dは金曜朝夕が候補です。土日を希望する場合は別エリアをお選びください。'}};
@@ -290,5 +367,102 @@ el('permitForm').addEventListener('submit',async e=>{
 });
 dates();update();
 })();
+</script>
+<script id="minakusa-entry">
+(function(){'use strict';
+var C=window.MINAKUSA_ENTRY||{open:false};
+var $=function(id){return document.getElementById(id);};
+var form=$('entryForm');if(!form)return;
+var fields=$('entryFields'),btn=$('entrySubmit'),msg=$('entryMsg');
+var ZONE={A:'西口A（駅前広場）',B:'東口B（のりば1・2前）',C:'東口C（のりば3・4前）',D:'東口D（のりば5前）',ANY:'おまかせ'};
+var DOW={A:['金','土','日'],B:['土','日'],C:['金'],D:['金'],ANY:['金','土','日']};
+var open=C.open===true;
+
+/* ---- 受付状態の表示 ---- */
+function setState(){
+  var st=$('entryStatus'),txt=$('entryStatusText');
+  if(open){
+    st.className='entry-status open';st.querySelector('b').textContent='受付中';
+    txt.textContent='出店申込を受け付けています。'+(C.deadline?'締切は'+C.deadline+'です。':'区画が埋まり次第、締め切ります。')+'送信後、'+(C.replyDays||'3営業日以内')+'を目安にメールでご連絡します。';
+    fields.disabled=false;btn.disabled=false;btn.textContent='この内容で申し込む';
+    var n=$('entryNotice');if(n)n.textContent='UDCみなくさによる南草津駅前の社会実験｜12月の金・土・日・3週間。出店申込を受け付けています'+(C.deadline?'（締切：'+C.deadline+'）':'')+'。';
+    var m=$('mobileCta');if(m){m.href='#entry';m.textContent='出店を申し込む →';}
+    var h=document.getElementById('applyTitle');if(h)h.innerHTML='まだ決めきれない方は、<br>相談からでもOK。';
+  }else{
+    txt.textContent='いまは送信できません。受付開始は'+(C.opensOn||'近日')+'です。開始のお知らせを受け取りたい方は、上の先行相談からLINEかメールで「希望」をお送りください。';
+    fields.disabled=true;btn.disabled=true;
+  }
+}
+
+/* ---- 区画に合わない日を選べなくする ---- */
+function syncDays(){
+  var z=$('eZone').value||'ANY',ok=DOW[z]||DOW.ANY;
+  Array.prototype.forEach.call(document.querySelectorAll('#eDays label'),function(l){
+    var allowed=ok.indexOf(l.getAttribute('data-dow'))>=0,box=l.querySelector('input');
+    l.classList.toggle('off',!allowed);box.disabled=!allowed||fields.disabled;if(!allowed)box.checked=false;
+  });
+}
+$('eZone').addEventListener('change',syncDays);
+
+function v(id){var e=$(id);return e?String(e.value||'').trim():'';}
+function days(){return Array.prototype.filter.call(document.querySelectorAll('#eDays input'),function(b){return b.checked;}).map(function(b){return b.getAttribute('data-label');});}
+function noUrl(s){return String(s).replace(/https?:\/\/\S+/g,'（URL省略）');}
+
+function validate(){
+  var req=[['eShop','屋号・店名'],['eName','お名前'],['eEmail','メールアドレス'],['eTel','電話番号'],['eStyle','出店の形'],['eSize','車両・テントの大きさ'],['eMenu','販売するメニュー'],['eFire','火気の使用'],['ePower','電源'],['eZone','第1希望の区画'],['ePermit','営業許可の種類'],['eHygiene','食品衛生責任者'],['eInsurance','PL保険']];
+  for(var i=0;i<req.length;i++){if(!v(req[i][0])){$(req[i][0]).focus();return req[i][1]+'を入力してください。';}}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('eEmail'))){$('eEmail').focus();return 'メールアドレスの形を確認してください。';}
+  if(!/^[0-9０-９+\-－() ]{9,20}$/.test(v('eTel'))){$('eTel').focus();return '電話番号を確認してください。';}
+  if(!days().length)return '出店したい日を1日以上選んでください。';
+  if(!$('eAgreeRules').checked||!$('eAgreePrivacy').checked)return '2つの確認事項にチェックを入れてください。';
+  return '';
+}
+
+function receiptId(){var d=new Date(),p=function(n){return('0'+n).slice(-2);};return 'MK'+p(d.getMonth()+1)+p(d.getDate())+'-'+Math.random().toString(36).slice(2,6).toUpperCase();}
+
+form.addEventListener('submit',function(ev){
+  ev.preventDefault();
+  if(!open){msg.textContent='受付開始前のため、まだ送信できません。';return;}
+  if(v('eHp'))return;
+  var err=validate();if(err){msg.textContent=err;return;}
+  msg.textContent='';btn.disabled=true;btn.textContent='送信しています…';
+  var id=receiptId(),shop=v('eShop'),d=days();
+  var data={
+    form:'minakusa_apply',
+    '受付番号':id,'会社名・屋号':shop,'お名前':v('eName'),email:v('eEmail'),'電話':v('eTel'),'SNS・Web':v('eSns')||'なし',
+    '出店の形':v('eStyle'),'大きさ':v('eSize'),'メニューと価格':v('eMenu'),'火気':v('eFire'),'電源':v('ePower'),
+    '第1希望の区画':ZONE[v('eZone')]||'','第2希望の区画':ZONE[v('eZone2')]||'なし','出店したい日':d.join('、')+'（'+d.length+'日）','希望の時間帯':v('eTime'),
+    '営業許可の種類':v('ePermit'),'許可番号':v('ePermitNo')||'未記入','保健所':v('ePermitOffice')||'未記入','有効期限':v('ePermitExp')||'未記入',
+    '食品衛生責任者':v('eHygiene'),'PL保険':v('eInsurance'),'紹介者':v('eRefer')||'なし','備考':v('eNote')||'なし',
+    '同意':'出店のルール・情報共有に同意',
+    _subject:'【南草津駅前 出店申込】'+shop+'（'+id+'）',_page:location.href.split('#')[0]
+  };
+  data._autoresponse=['【南草津駅前】出店申込を受け付けました（'+id+'）','',shop+' '+v('eName')+' 様','',
+    '南草津駅前（UDCみなくさによる社会実験）の出店にお申し込みいただき、ありがとうございます。','以下の内容で受け付けました。','',
+    '■ 受付番号：'+id,'■ 第1希望の区画：'+data['第1希望の区画'],'■ 第2希望の区画：'+data['第2希望の区画'],'■ 出店したい日：'+data['出店したい日'],
+    '■ 出店の形：'+data['出店の形']+'（'+noUrl(data['大きさ'])+'）','■ メニュー：'+noUrl(data['メニューと価格']).slice(0,300),'',
+    '■ この後の流れ','1. 当社で内容と区画を確認し、'+(C.replyDays||'3営業日以内')+'を目安にこのメールアドレスへご連絡します。',
+    '2. 営業許可証の画像は、そのご連絡で提出方法をご案内します（このメールへの添付は不要です）。',
+    '3. 区画・日程・出店料が決まったら、お支払い方法をご案内します。入金の確認で出店確定です。','',
+    '※この時点では、まだ出店は確定していません。','※お客さまからの事前注文・事前決済の受付はお控えください。','',
+    'BRIDGE CYCLE株式会社（南草津駅前 出店者募集・調整）','Mail info@bridgecycleco.com','TEL 080-5309-9770（平日10〜17時）'].join('\n');
+  var body=JSON.stringify(data);
+  try{window.bcTrack&&bcTrack('form_submit',{method:'web',form:'minakusa_apply'});}catch(e){}
+  fetch(C.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body})
+    .then(function(r){return r.json();})
+    .then(function(j){if(!j||j.success!==true)throw new Error('relay');return j;})
+    .catch(function(){return fetch(C.fallback,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:body}).then(function(r){if(!r.ok)throw new Error('fallback');return{};});})
+    .then(function(){
+      fields.disabled=true;btn.hidden=true;
+      var done=$('entryDone');done.hidden=false;
+      done.innerHTML='<b>申込を受け付けました。受付番号：'+id+'</b><br>'+(C.replyDays||'3営業日以内')+'を目安に、ご入力のメールアドレスへご連絡します。確認メールが届かない場合は、迷惑メールフォルダをご確認のうえ、info@bridgecycleco.com までご連絡ください。';
+      done.scrollIntoView({behavior:'smooth',block:'center'});
+    })
+    .catch(function(){btn.disabled=false;btn.textContent='この内容で申し込む';msg.textContent='送信できませんでした。時間をおいてもう一度お試しいただくか、info@bridgecycleco.com までご連絡ください。';});
+});
+
+setState();syncDays();
+})();
+
 </script>
 </body></html>
