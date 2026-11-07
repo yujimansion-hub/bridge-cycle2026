@@ -84,6 +84,35 @@
 .zone-site-footnote{font-size:11px;color:#6c6151;margin-top:9px;line-height:1.7}
 @media(max-width:760px){.zone-site-review{padding:17px}.zone-site-grid{grid-template-columns:1fr}.zone-site-header{display:block}.zone-site-header>span{display:inline-block;margin-top:10px}.zone-site-entry strong{font-size:14px}}
 
+.cal-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start}
+.cal-box{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.cal-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.cal-head b{font-size:18px;color:var(--pine)}
+.cal-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.cal-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-dow{font-size:11px;font-weight:900;text-align:center;color:var(--muted);padding:4px 0}
+.cal-dow.sat{color:var(--blue)}.cal-dow.sun{color:#c0503a}
+.cal-cell{min-height:74px;border-radius:12px;background:#f5f7f3;color:#a9b6ae;font-size:13px;font-weight:800;padding:7px 8px;text-align:left;border:1px solid transparent;display:flex;flex-direction:column;gap:3px}
+.cal-cell.empty{background:transparent}
+button.cal-cell{background:#fff;color:var(--ink);border-color:#d4e2d6;cursor:pointer;font:inherit;font-weight:800}
+button.cal-cell:hover{border-color:var(--green)}
+button.cal-cell.sel{border-color:var(--orange);box-shadow:0 0 0 2px #dd654033;background:#fff8f3}
+.cal-cell small{font-size:10px;font-weight:800;line-height:1.35;border-radius:6px;padding:1px 5px;display:block}
+.st-ok{background:#e3f1e2;color:#1d5a44}.st-few{background:#fff1d9;color:#8a5a12}.st-full{background:#eceeec;color:#8a958f}
+.cal-detail h3{font-size:18px;margin:0 0 4px;color:var(--pine)}
+.cal-detail .cal-sub{font-size:12px;color:var(--muted);margin:0 0 14px}
+.cal-zone{border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:10px;background:#fafcf9}
+.cal-zone-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.cal-zone-top b{font-size:14px;color:var(--ink)}
+.cal-zone p{margin:5px 0 0;font-size:12px;line-height:1.7;color:#37584a}
+.cal-zone .cal-shops{font-size:12px;color:var(--ink);margin-top:6px}
+.cal-zone button{margin-top:9px;width:100%;border:0;border-radius:10px;padding:10px;font:inherit;font-size:12px;font-weight:900;background:var(--pine);color:#fff;cursor:pointer}
+.cal-zone button[disabled]{background:#c9d3cd;cursor:not-allowed}
+.cal-empty{font-size:13px;color:var(--muted);line-height:1.8;padding:18px 4px}
+.cal-note{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.7}
+@media(max-width:860px){.cal-wrap{grid-template-columns:1fr}.cal-cell{min-height:62px;padding:5px}.cal-cell small{font-size:9px;padding:1px 3px}.cal-box{padding:14px}}
+
 .entry-status{display:flex;gap:12px;align-items:flex-start;padding:16px 19px;border-radius:14px;margin:0 0 22px;font-size:13px;line-height:1.8;font-weight:700}
 .entry-status.closed{background:#fff6ea;color:#744b2a;border:1px solid #f1d7b8}
 .entry-status.open{background:#eef5ec;color:#1d5a44;border:1px solid #cfe3cb}
@@ -108,6 +137,20 @@
 @media(max-width:760px){.entry-days{grid-template-columns:repeat(2,1fr)}.rules-list{grid-template-columns:1fr}.entry-status{font-size:12px}}
 </style>
 <script src="/bc-analytics.js"></script>
+<script id="minakusa-calendar-data">
+/* 空き状況カレンダーのデータ。出店が決まったら booked（区画ごとの確定数）と shops（公開してよい店名）を書き足す。 */
+window.MINAKUSA_CAL={
+  days:['2026-12-04','2026-12-05','2026-12-06','2026-12-11','2026-12-12','2026-12-13','2026-12-18','2026-12-19','2026-12-20'],
+  zones:{
+    A:{name:'西口A',sub:'駅前広場（みなくさフードガーデン）',cap:7,dow:{5:'15:00〜20:00',6:'11:00〜16:00',0:'11:00〜16:00'},price:'3,300円（土日の通し10:00〜18:00は5,500円）'},
+    B:{name:'東口B',sub:'のりば1・2前',cap:5,dow:{6:'10:00〜15:00／16:00〜21:00',0:'10:00〜15:00／16:00〜21:00'},price:'3,300円（通し11:00〜19:00は5,500円）'},
+    C:{name:'東口C',sub:'のりば3・4前',cap:4,dow:{5:'朝7:00〜9:30／夕17:00〜19:30'},price:'3,300円（朝夕セットは5,500円）'},
+    D:{name:'東口D',sub:'のりば5前',cap:3,dow:{5:'朝7:00〜9:30／夕17:00〜19:30'},price:'3,300円（朝夕セットは5,500円）'}
+  },
+  booked:{ /* 例：'2026-12-18':{A:1} */ },
+  shops:{  /* 例：'2026-12-18':[{zone:'A',name:'○○キッチン',item:'タコス'}] */ }
+};
+</script>
 <script id="minakusa-entry-config">
 /* 出店申込の受付設定。受付を始めるときは open を true にし、締切・開始日を確定値に書き換える。 */
 window.MINAKUSA_ENTRY={
@@ -122,7 +165,7 @@ window.MINAKUSA_ENTRY={
 </head>
 <body>
 <div class="notice" id="entryNotice">UDCみなくさによる南草津駅前の社会実験｜12月の金・土・日・3週間（予定）。出店申込は受付開始前です。いまは無料の先行相談を受け付けています。</div>
-<header class="nav"><div class="container nav-inner"><a href="#top" class="brand" aria-label="南草津駅前ポップアップ・先頭へ"><span class="brand-mark">BC</span><span class="brand-name">南草津駅前 POP-UP<small>MINAMIKUSATSU × BRIDGE CYCLE</small></span></a><nav class="nav-links" aria-label="主要メニュー"><a href="#zones">区画を見る</a><a href="#schedule">希望日を選ぶ</a><a href="#pricing">料金案</a><a href="#profits">採算を試す</a><a href="#rules">出店のルール</a><a class="btn btn-orange small" href="#entry" id="navEntry">出店申込 <span aria-hidden="true">↗</span></a></nav></div></header>
+<header class="nav"><div class="container nav-inner"><a href="#top" class="brand" aria-label="南草津駅前ポップアップ・先頭へ"><span class="brand-mark">BC</span><span class="brand-name">南草津駅前 POP-UP<small>MINAMIKUSATSU × BRIDGE CYCLE</small></span></a><nav class="nav-links" aria-label="主要メニュー"><a href="#zones">区画を見る</a><a href="#schedule">希望日を選ぶ</a><a href="#pricing">料金案</a><a href="#profits">採算を試す</a><a href="#calendar">空き状況</a><a href="#rules">出店のルール</a><a class="btn btn-orange small" href="#entry" id="navEntry">出店申込 <span aria-hidden="true">↗</span></a></nav></div></header>
 <main id="top">
 <section class="hero" aria-labelledby="heroTitle"><div class="container hero-grid"><div class="hero-left"><span class="kicker white">南草津駅前・出店者募集（UDCみなくさ 社会実験）</span><h1 id="heroTitle">駅前で、<br><em>あなたのお店</em>を<br>ひらこう。</h1><p class="hero-sub">たった1日の出店が、<br>次の常連さんとの出会いになる。</p><p class="hero-desc">JR南草津駅の西口・東口の駅前広場で、12月の金・土・日に飲食の出店でにぎわいをつくる社会実験を行います。お店のPRも、新商品のテストも。1日から最大9日間まで出店できます。</p><div class="hero-actions"><a class="btn btn-orange" href="#zones">区画を見て、希望を出す <span aria-hidden="true">↗</span></a><a class="hero-link" href="#benefits">どんなメリットがある？ ↓</a></div><p class="hero-caveat" id="heroCaveat">※開催候補日は2026年12月4〜20日の金・土・日（9日間）。区画・時間・料金は受付開始時に確定します。</p></div><div class="hero-visual"><div class="hero-img"><img src="images/minakusa/hero.jpg" alt="フード屋台で来店客へ商品を手渡す販売の様子" width="1000" height="667" onerror="this.style.display='none'"></div><div class="hero-index"><b>9</b>候補日<br>から相談</div><div class="hero-stamp"><b>まずは、売ってみる。</b><small>次は、本店のお客さんに。</small></div><span class="hero-side">POP-UP / STATION / COMMUNITY</span></div></div></section>
 <div class="quickfacts"><div class="container quickfacts-inner"><div class="fact"><b>飲食</b><span>キッチンカー・飲食ブース<span class="tag">飲食の出店のみ</span></span></div><div class="fact"><b>9日</b><span>12月の金・土・日<span class="tag">1日〜最大9日間</span></span></div><div class="fact"><b>3,300円〜</b><span>出店料金案<span class="tag">税込・条件未確定</span></span></div></div></div>
@@ -146,6 +189,9 @@ window.MINAKUSA_ENTRY={
 
 <section id="apply" class="section" aria-labelledby="applyTitle"><div class="container"><div class="steps-nav"><span class="step"><b>01</b> 場所を選ぶ</span><span class="step-connector"></span><span class="step"><b>02</b> 日付を選ぶ</span><span class="step-connector"></span><span class="step active"><b>03</b> 先行相談を送る</span></div><div class="section-head"><div class="eyebrow">LET'S TRY</div><h2 id="applyTitle">受付開始の前に、<br>希望だけ伝えておく。</h2><p>正式な申込は、受付開始後に下の「出店申込フォーム」から。いま希望エリア・日付・商品をLINEかメールで送っておくと、受付開始のときに優先してご案内します。</p></div><div class="apply-grid"><div class="apply-steps"><div class="apply-step"><i>01</i><div><b>売り場と希望日を選ぶ</b><p>決めきれなければ「場所も日程も相談」で大丈夫です。</p></div></div><div class="apply-step"><i>02</i><div><b>屋号と商品を入力する</b><p>まずは何を売りたいかを教えてください。</p></div></div><div class="apply-step"><i>03</i><div><b>LINEまたはメールで送る</b><p>送信アプリ内で送信したら相談受付です。受付開始時に、こちらからご連絡します。</p></div></div><div class="apply-help"><b>「初めての出店」でも相談できます。</b><p>営業許可、保険、火気、搬入、販売品目などは条件を確認します。主催者の承認が必要な場合があり、先行相談時点では出店できることを保証しません。</p></div></div><form id="interestForm" class="apply-form" novalidate><h3>希望内容を送る</h3><p class="apply-lead">入力は約1分。送信するまで費用はかかりません。</p><div class="selected-box"><span class="num">✓</span><div><b id="applyZoneSummary">希望場所：運営と相談</b><small id="applyDaysSummary">希望日：相談して決めたい</small></div></div><div class="fieldgrid"><div class="field"><label for="shopName">屋号・お名前 <em>必須</em></label><input id="shopName" maxlength="80" autocomplete="organization" placeholder="例：〇〇キッチン" required></div><div class="field"><label for="kind">出店スタイル</label><select id="kind"><option>飲食店の出張販売</option><option>キッチンカー</option><option>弁当・惣菜・焼き菓子</option><option>食品の物販</option><option>その他・相談したい</option></select></div></div><div class="fieldgrid"><div class="field"><label for="goods">売りたいもの <em>必須</em></label><input id="goods" maxlength="150" placeholder="例：カレー、サンドイッチ" required></div><div class="field"><label for="reply">返信先メール・電話（任意）</label><input id="reply" maxlength="140" placeholder="LINE送信なら省略可能"></div></div><div class="fieldgrid"><div class="field"><label for="timePref">希望時間帯</label><select id="timePref"><option>時間帯は相談して決める</option><option>朝を希望</option><option>昼を希望</option><option>夕方・夜を希望</option></select></div><div class="field"><label for="referrer">紹介者・コード（任意）</label><input id="referrer" maxlength="80" placeholder="紹介してくれた方など"></div></div><div class="field"><label for="remarks">相談したいこと（任意）</label><textarea id="remarks" maxlength="800" placeholder="例：電源は使えますか？ 初出店ですが大丈夫でしょうか。"></textarea></div><label class="check"><input id="flexible" type="checkbox" checked><span>希望場所や日付が合わない場合、別の候補も案内してほしい</span></label><label class="check"><input id="consent" type="checkbox" required><span>開催条件は未確定で、これは予約・枠の確保ではないことを理解しました。出店調整のため、入力情報をBRIDGE CYCLEおよび主催・運営関係者に必要な範囲で共有することに同意します。<a href="privacy.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:900">プライバシーポリシー</a></span></label><div class="form-actions"><button class="btn btn-line" id="sendLine" type="button">LINEで先行相談 ↗</button><button class="btn btn-green" id="sendMail" type="button">メールで先行相談 ↗</button></div><div id="formMsg" class="form-msg" role="alert" aria-live="polite"></div><p class="form-note">LINE・メールアプリが開きます。アプリ上で送信した時点で相談が届きます。<button class="copy-link" id="copyText" type="button">送信文だけコピーする</button></p></form></div></div></section>
 
+<section id="calendar" class="section soft" aria-labelledby="calTitle"><div class="container"><div class="section-head split"><div><div class="eyebrow">CALENDAR</div><h2 id="calTitle">空き状況を、<br>カレンダーで見る。</h2></div><p>日付をタップすると、その日に出られる区画・時間・残りの枠が分かります。出店が決まったお店は、了承をいただいた順にここで紹介します。</p></div>
+<div class="cal-wrap"><div class="cal-box"><div class="cal-head"><b>2026年12月</b><div class="cal-legend"><span><i style="background:#8fc79a"></i>空きあり</span><span><i style="background:#f0c27a"></i>残りわずか</span><span><i style="background:#c3cbc6"></i>満枠</span></div></div><div class="cal-grid" id="calGrid" role="grid" aria-label="12月の空き状況"></div><p class="cal-note">開催は金・土・日の9日間（予定）。西口は金・土・日、東口Bは土・日、東口C・Dは金曜です。枠の数は予定で、現地の条件により変わることがあります。</p></div>
+<div class="cal-box cal-detail" id="calDetail" aria-live="polite"><div class="cal-empty">カレンダーの日付を選ぶと、ここにその日の区画・時間・残りの枠が出ます。</div></div></div></div></section>
 <section id="entry" class="section white" aria-labelledby="entryTitle"><div class="container"><div class="section-head"><div class="eyebrow">ENTRY FORM</div><h2 id="entryTitle">出店申込フォーム</h2><p>入力は約5分。営業許可の内容が分かるもの（許可証）を手元に置いてお進みください。許可証の画像は、受付後にこちらから提出方法をご案内します。</p></div>
 <div id="entryStatus" class="entry-status closed" role="status"><b>受付開始前</b><span id="entryStatusText">いまは送信できません。受付開始日は、決まりしだいこのページでお知らせします。開始のお知らせを受け取りたい方は、上の先行相談からLINEかメールで「希望」をお送りください。</span></div>
 <form id="entryForm" class="apply-form entry-form" novalidate><fieldset id="entryFields" disabled>
@@ -366,6 +412,53 @@ el('permitForm').addEventListener('submit',async e=>{
  finally{sending=false;update();}
 });
 dates();update();
+})();
+</script>
+<script id="minakusa-calendar">
+(function(){'use strict';
+var D=window.MINAKUSA_CAL,E=window.MINAKUSA_ENTRY||{};if(!D)return;
+var grid=document.getElementById('calGrid'),detail=document.getElementById('calDetail');if(!grid)return;
+var W=['日','月','火','水','木','金','土'],open=E.open===true,sel=null;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function dt(iso){var p=iso.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function zonesOn(iso){var w=dt(iso).getDay();return Object.keys(D.zones).filter(function(z){return D.zones[z].dow[w]!==undefined;});}
+function left(iso,z){var b=(D.booked[iso]||{})[z]||0;return Math.max(0,D.zones[z].cap-b);}
+function cls(n,cap){return n===0?'st-full':(n<=Math.max(1,Math.floor(cap/3))?'st-few':'st-ok');}
+function render(){
+  var h='';['月','火','水','木','金','土','日'].forEach(function(w,i){h+='<div class="cal-dow'+(i===5?' sat':i===6?' sun':'')+'">'+w+'</div>';});
+  var first=new Date(2026,11,1),offset=(first.getDay()+6)%7;
+  for(var i=0;i<offset;i++)h+='<div class="cal-cell empty"></div>';
+  for(var d=1;d<=31;d++){
+    var iso='2026-12-'+('0'+d).slice(-2);
+    if(D.days.indexOf(iso)<0){h+='<div class="cal-cell" aria-hidden="true">'+d+'</div>';continue;}
+    var zs=zonesOn(iso),west=zs.filter(function(z){return z==='A';}),east=zs.filter(function(z){return z!=='A';});
+    var tag=function(list,label){if(!list.length)return '';var n=0,c=0;list.forEach(function(z){n+=left(iso,z);c+=D.zones[z].cap;});return '<small class="'+cls(n,c)+'">'+label+(n?' 残'+n:' 満')+'</small>';};
+    h+='<button type="button" class="cal-cell'+(sel===iso?' sel':'')+'" data-day="'+iso+'" aria-label="12月'+d+'日（'+W[dt(iso).getDay()]+'）の空き状況">'+d+tag(west,'西口')+tag(east,'東口')+'</button>';
+  }
+  grid.innerHTML=h;
+}
+function show(iso){
+  sel=iso;render();var d=dt(iso),label=(d.getMonth()+1)+'月'+d.getDate()+'日（'+W[d.getDay()]+'）';
+  var h='<h3>'+label+'</h3><p class="cal-sub">'+(open?'区画を選んで、そのまま申込フォームに進めます。':'いまは受付開始前です。申込フォームに日付と区画を入れておくことはできます。')+'</p>';
+  zonesOn(iso).forEach(function(z){
+    var Z=D.zones[z],n=left(iso,z),shops=(D.shops[iso]||[]).filter(function(s){return s.zone===z;});
+    h+='<div class="cal-zone"><div class="cal-zone-top"><b>'+esc(Z.name)+'｜'+esc(Z.sub)+'</b><small class="'+cls(n,Z.cap)+'">'+(n?'残り'+n+'枠（全'+Z.cap+'）':'満枠')+'</small></div>'
+      +'<p>時間：'+esc(Z.dow[d.getDay()])+'<br>出店料：'+esc(Z.price)+'</p>'
+      +(shops.length?'<div class="cal-shops">出店予定：'+shops.map(function(s){return esc(s.name)+(s.item?'（'+esc(s.item)+'）':'');}).join('、')+'</div>':'')
+      +'<button type="button" data-pick="'+z+'"'+(n?'':' disabled')+'>'+(n?'この日・この区画で申込フォームへ':'満枠のため選べません')+'</button></div>';
+  });
+  detail.innerHTML=h;
+  if(window.innerWidth<860)detail.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function pick(iso,z){
+  var zone=document.getElementById('eZone');if(zone){var wasDis=zone.disabled;zone.disabled=false;zone.value=z;zone.dispatchEvent(new Event('change'));zone.disabled=wasDis;}
+  var box=document.querySelector('#eDays input[value="'+iso+'"]');if(box){var dis=box.disabled;box.disabled=false;box.checked=true;box.disabled=dis;}
+  try{window.bcTrack&&bcTrack('calendar_pick',{day:iso,zone:z});}catch(e){}
+  var target=document.getElementById(open?'eZone':'entry');if(target)target.scrollIntoView({behavior:'smooth',block:'center'});
+}
+grid.addEventListener('click',function(e){var b=e.target.closest('[data-day]');if(b)show(b.getAttribute('data-day'));});
+detail.addEventListener('click',function(e){var b=e.target.closest('[data-pick]');if(b&&sel)pick(sel,b.getAttribute('data-pick'));});
+render();
 })();
 </script>
 <script id="minakusa-entry">
