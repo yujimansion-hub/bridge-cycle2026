@@ -94,6 +94,16 @@ footer a{font-size:11px}
 [hidden]{display:none!important}
 @media(max-width:720px){.wrap{width:min(100% - 28px,930px)}.context-controls{grid-template-columns:1fr}.controls{padding:15px}.stage-panel{padding:17px}.check-row{padding:14px 12px}.bottom-bar{display:block}footer{padding-bottom:105px}.head{min-height:58px}.brand strong{font-size:11px}.back{font-size:11px;padding:8px}.hero{padding:24px 0 28px}.hero h1{font-size:30px}.overview h2{font-size:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* 申込直後は当日確定と誤認されない準備モード */
+.application-mode{margin:20px 0 0;background:#eef7ef;border:2px solid #a2d0ad;border-radius:15px;padding:16px 19px;color:#19472f}
+.application-mode-head{display:flex;align-items:center;gap:12px}
+.application-mode-head>span{display:grid;place-items:center;flex:none;background:#236e4b;color:white;border-radius:50%;width:30px;height:30px;font-weight:900}
+.application-mode-head strong{font-size:17px;display:block}
+.application-mode-head small{font-size:11px;color:#4b735b;display:block}
+.application-mode p{font-size:12px;margin:8px 0;line-height:1.75}
+.application-mode ol{margin:10px 0;padding-left:20px;font-size:12px;line-height:2}
+.application-mode li{margin:1px 0}
 </style>
 </head>
 <body>
@@ -101,9 +111,10 @@ footer a{font-size:11px}
 <main>
 <section class="hero"><div class="wrap"><span class="eyebrow">VENDOR / MOBILE GUIDE</span><h1>今日することを、<br>順番に確認。</h1><p>JR南草津駅前の飲食出店に向けた、スマートフォン用の行動チェックリストです。出発前・到着・設営・営業・撤収・終了報告を1画面ずつ確認できます。</p><span class="tag">準備版｜集合場所・搬入時間・区画の詳細は未確定</span></div></section>
 <div class="wrap">
-<div class="disclaimer" role="note"><b>出店が確定した方へ</b>このページは現時点の一般的な手順を整理した準備版です。<strong>主催者・BRIDGE CYCLEから個別に届く確定案内と当日の係員の指示を必ず優先</strong>してください。チェックを付けても、運営への報告・受付は完了しません。</div>
+<div class="application-mode" id="applicationMode" hidden role="note"><div class="application-mode-head"><span aria-hidden="true">✓</span><div><strong>申込後の準備ガイド</strong><small>申込受付と出店確定は別です</small></div></div><p>申込後は、以下の準備を進められます。<strong>出店日・区画・搬入場所・支払い条件が確定するまで、当日の予定として扱わないでください。</strong></p><ol><li>申込受付番号・確認メールを保存する</li><li>販売メニュー・営業許可・車両やテントの寸法を確認する</li><li>区画・日程・事前入金について正式な連絡を待つ</li></ol><p>出店が確定したら、このページの当日チェックリストを使ってください。</p></div>
+<div class="disclaimer" role="note"><b>出店当日のご利用にあたって</b>このページは現時点の一般的な手順を整理した準備版です。<strong>主催者・BRIDGE CYCLEから個別に届く確定案内と当日の係員の指示を必ず優先</strong>してください。チェックを付けても、運営への報告・受付は完了しません。</div>
 <div class="controls"><div class="context-controls">
-<div class="field"><label for="zone">あなたの出店エリア（確定案内に合わせて選択）</label><select id="zone"><option value="">まだ決まっていない</option><option value="A">西口A｜駅前広場</option><option value="B">東口B｜1・2番のりば付近</option><option value="C">東口C｜3・4番のりば付近</option><option value="D">東口D｜5番のりば付近</option></select></div>
+<div class="field"><label id="zoneLabel" for="zone">あなたの出店エリア（確定案内に合わせて選択）</label><select id="zone"><option value="">まだ決まっていない</option><option value="A">西口A｜駅前広場</option><option value="B">東口B｜1・2番のりば付近</option><option value="C">東口C｜3・4番のりば付近</option><option value="D">東口D｜5番のりば付近</option></select></div>
 <div class="field"><label for="date">出店日（任意）</label><input type="date" id="date" aria-describedby="dateHint"></div>
 </div><p class="field-hint" id="dateHint">日付を指定すると、その日ごとにチェック状態を管理できます。確定した出店日を入力してください。</p>
 <div class="map-strip" id="arrival-info"><span id="mapDescription">場所は未選択です。正式案内で西口・東口と搬入口をご確認ください。</span><a class="map-btn" id="mapLink" href="https://www.google.com/maps/search/?api=1&amp;query=JR%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85" target="_blank" rel="noopener noreferrer">Googleマップで駅を見る ↗</a></div>
@@ -186,6 +197,12 @@ const z=document.getElementById("zone"),date=document.getElementById("date"),map
 let active=0,completed={},key="";
 const titleList=["出発前","到着・受付","設営","営業中","撤収","終了報告"];
 const qs=new URLSearchParams(location.search);
+const isApplication=qs.get("from")==="application";
+if(isApplication){
+ document.getElementById("applicationMode").hidden=false;
+ document.getElementById("zoneLabel").textContent="申し込み時の希望エリア（出店確定ではありません）";
+ document.title="申込後の準備ガイド｜南草津駅前・BRIDGE CYCLE";
+}
 const rememberedZone=qs.get("zone");
 if(["A","B","C","D"].includes(rememberedZone))z.value=rememberedZone;
 const d=qs.get("date");
