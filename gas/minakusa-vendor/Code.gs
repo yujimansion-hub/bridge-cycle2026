@@ -23,7 +23,7 @@ var LINE = 'https://line.me/R/ti/p/@907kxssd';
 var SH = { v: '出店者', d: '開催日', day: '当日記録', rep: '終了報告', conf: '設定', log: '通知記録' };
 var HEAD = {
   '出店者': ['受付番号', '鍵', '申込日時', '屋号', '担当者', 'メール', '電話', '希望エリア', '希望日', '出店の形', 'メニュー', '営業許可', '状態',
-            '確定エリア', '確定日', '時間枠', '許可証', '支払', '通知済み', 'メモ'],
+            '確定エリア', '区画番号', '確定日', '時間枠', '許可証', '支払', '通知済み', 'メモ'],
   '開催日': ['日付', '開催判断', '知らせた判断', 'ひとこと（任意・メールに入る）'],
   '当日記録': ['日時', '受付番号', '屋号', '出店日', '種類', '枚数'],
   '終了報告': ['日時', '受付番号', '屋号', '出店日', 'エリア', '売上', '人数', '客単価', '販売数', '売れた時間', '天気', '客層', '満足度', 'また出たいか', '本店・SNS', 'よかったこと', '困ったこと'],
@@ -241,7 +241,7 @@ function status_(key) {
   var st = focus ? slotTimes_(o, focus) : null;
   return {
     ok: true, shop: o['屋号'], no: o['受付番号'], state: o['状態'],
-    zone: String(o['確定エリア'] || ''), dates: dates, focus: focus, slot: st ? st.idx : null, slotName: st ? st.name : '',
+    zone: String(o['確定エリア'] || ''), booth: String(o['区画番号'] || ''), dates: dates, focus: focus, slot: st ? st.idx : null, slotName: st ? st.name : '',
     assigned: !!(o['確定エリア'] && dates.length && o['時間枠']), permit: o['許可証'] === '確認済', permitNg: o['許可証'] === '不備あり', paid: o['支払'] === '済' || o['状態'] === '出店確定',
     declined: o['状態'] === '見送り', decision: focus && dec[focus] ? dec[focus].val : '未定',
     arrival: log[focus + ':arrival'] || '', cleanup: log[focus + ':cleanup'] || '', report: log[focus + ':report'] || '',
@@ -269,7 +269,7 @@ function progress_() {
     if (ready && !o.sent.assigned) {
       var lines = o.dates.map(function (x) { var s = slotTimes_(o, x); return '・' + jpDay_(x) + '　' + (s ? s.name : o['時間枠']); });
       mail_(o, '区画連絡', '【南草津駅前】区画と日程が決まりました（' + o['受付番号'] + '）',
-        '出店の区画と日程が決まりました。\n\n■ 区画：' + (ZONE_NAME[o['確定エリア']] || o['確定エリア']) + '\n■ 出店日と時間\n' + lines.join('\n') + '\n\n' +
+        '出店の区画と日程が決まりました。\n\n■ 区画：' + (ZONE_NAME[o['確定エリア']] || o['確定エリア']) + (o['区画番号'] ? '　区画番号 ' + o['確定エリア'] + o['区画番号'] : '') + '\n■ 出店日と時間\n' + lines.join('\n') + '\n\n' +
         '■ 次にやること：営業許可証を送ってください\n' + conf_('許可証の出し方') + '\n確認できたら、出店料のお支払いページをお送りします。\n\n出店ナビ：' + naviUrl_(o));
       markSent_(o, 'assigned'); if (o['状態'] === '申込受付') setCell_(o._row, '状態', '区画連絡済');
     }
