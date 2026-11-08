@@ -636,7 +636,7 @@ var $=function(i){return document.getElementById(i);};
 var dm=$("dayMode"),z=$("zone"),date=$("date"),slot=$("slot"),booth=$("booth");if(!dm)return;
 var cur=0,N=9;
 var SL={A:{5:[["15:00","20:00"]],6:[["10:00","20:00"]],0:[["10:00","20:00"]]},B:{6:[["10:00","20:00"]],0:[["10:00","20:00"]]},C:{5:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],6:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],0:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]]},D:{5:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],6:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],0:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]]}};
-var LOTS=[[24,41],[36,41],[24,54],[36,54],[56,55],[68,55],[56,68]];
+var LOTS=[[24.8,48.9],[28.6,50.6],[28.2,44.3],[37.4,46.6],[40.1,49.7],[44.3,50.7],[58.5,83.1]]; /* 2026-11-08 現地の印に合わせた位置 */
 var EAST={B:[40.5,31],C:[36,4],D:[19.5,18]};
 var GATE={A:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",w:"330cm",pin:[24,49],route:[[13,63],[19,56],[24,49],[31,49],[37,48]],q:"南草津駅 西口 ロータリー",steps:["【経路】西口前の道路から、駅前広場の西の角（横断歩道と「ここから」の標識がある角）→ 搬入口（幅330cm）→ 赤いレンガ舗装を東へ → 区画A","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。車幅はミラーを含めて330cm未満であることを事前に確認してください。","テント・机は搬入口の近くで荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"]},
  E:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",w:"250cm",pin:[53,58],q:"南草津駅 東口 バスロータリー",steps:["【経路】東口ロータリーに入り、赤い舗装の車いす用乗降スペースの横 → 屋根の下の広場への入り口 → 搬入口（幅250cm）→ 屋根の下を通って区画（C・D）","搬入口の幅は250cmです。キッチンカーはミラーを含めた車幅が250cm未満であることを事前に確認し、係員の誘導で、バスと歩行者に気をつけながらゆっくり進入。","バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。テント・机は荷下ろし後、台車で区画へ。点字ブロックとバス待ちの列はふさがない。"]}};
@@ -659,7 +659,7 @@ if(arr)$("dmArrival").appendChild(arr);if(cln)$("dmCleanup").appendChild(cln);if
 $("dmPack").innerHTML=PACK.map(function(x,i){return '<label><input type="checkbox" data-dm="p'+i+'">'+x+'</label>';}).join("");
 dm.addEventListener("change",function(e){var c=e.target.closest("[data-dm]");if(!c||!date.value)return;var o=ck();o[c.getAttribute("data-dm")]=c.checked;try{localStorage.setItem(CK+date.value,JSON.stringify(o));}catch(x){}});
 function lotsHtml(zone,me){
- if(zone==="A")return LOTS.map(function(p,i){var n=i+1;return '<div class="dm-lot'+(String(me)===String(n)?" me":"")+'" style="left:'+p[0]+'%;top:'+p[1]+'%;width:11%;height:11%">A'+n+'</div>';}).join("");
+ if(zone==="A")return LOTS.map(function(p,i){var n=i+1;return '<div class="dm-lot'+(String(me)===String(n)?" me":"")+'" style="left:'+p[0]+'%;top:'+p[1]+'%;width:6%;height:7%">A'+n+'</div>';}).join("");
  var e=EAST[zone];return e?'<div class="dm-lot me" style="left:'+e[0]+'%;top:'+e[1]+'%;width:20%;height:18%">'+zone+'</div>':"";}
 function fill(){
  var zone=z.value,T=times(),g=zone==="B"?null:GATE[zone==="A"?"A":"E"],me=booth?booth.value:"";
