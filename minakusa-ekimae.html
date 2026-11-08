@@ -309,10 +309,10 @@ body:not(.is-prelaunch) .entry-closed{display:none}
 window.MINAKUSA_CAL={
   days:['2026-12-04','2026-12-05','2026-12-06','2026-12-11','2026-12-12','2026-12-13','2026-12-18','2026-12-19','2026-12-20'],
   zones:{
-    A:{name:'西口A',sub:'駅前広場（みなくさフードガーデン）',cap:7,dow:{5:'15:00〜20:00',6:'11:00〜16:00',0:'11:00〜16:00'},price:'3,300円（土日の通し10:00〜18:00は5,500円）'},
-    B:{name:'東口B',sub:'のりば1・2前',cap:5,dow:{6:'10:00〜15:00／16:00〜21:00',0:'10:00〜15:00／16:00〜21:00'},price:'3,300円（通し11:00〜19:00は5,500円）'},
-    C:{name:'東口C',sub:'のりば3・4前',cap:4,dow:{5:'朝7:00〜9:30／夕17:00〜19:30',6:'10:00〜15:00',0:'10:00〜15:00'},price:'3,300円（金曜の朝夕セットは5,500円）'},
-    D:{name:'東口D',sub:'のりば5前',cap:3,dow:{5:'朝7:00〜9:30／夕17:00〜19:30',6:'10:00〜15:00',0:'10:00〜15:00'},price:'3,300円（金曜の朝夕セットは5,500円）'}
+    A:{name:'西口A',sub:'駅前広場（みなくさフードガーデン）',cap:7,dow:{5:'15:00〜20:00',6:'10:00〜20:00（通し）',0:'10:00〜20:00（通し）'},price:'金曜 3,300円／土日 5,500円'},
+    B:{name:'東口B',sub:'のりば1・2前',cap:5,dow:{6:'10:00〜20:00（通し）',0:'10:00〜20:00（通し）'},price:'5,500円'},
+    C:{name:'東口C',sub:'のりば3・4前',cap:4,dow:{5:'朝7:00〜9:30／夕17:00〜20:00',6:'朝7:00〜9:30／夕17:00〜20:00',0:'朝7:00〜9:30／夕17:00〜20:00'},price:'3,300円／1枠（朝夕セットは5,500円）'},
+    D:{name:'東口D',sub:'のりば5前',cap:3,dow:{5:'朝7:00〜9:30／夕17:00〜20:00',6:'朝7:00〜9:30／夕17:00〜20:00',0:'朝7:00〜9:30／夕17:00〜20:00'},price:'3,300円／1枠（朝夕セットは5,500円）'}
   },
   booked:{ /* 例：'2026-12-18':{A:1} */ },
   shops:{  /* 例：'2026-12-18':[{zone:'A',name:'○○キッチン',item:'タコス'}] */ }
@@ -357,20 +357,20 @@ window.MINAKUSA_ENTRY={
 <h3>駅前広場で、ゆっくり売る<small>みなくさフードガーデン</small></h3>
 <div class="who"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20c.7-3.5 3-5 6-5s5.3 1.5 6 5M15 15.5c2.6 0 4.5 1.3 5 4"/></svg>近くに住む家族・買い物帰りの人</div>
 <div class="dows" aria-label="出店できる曜日：金・土・日"><span class="on">金</span><span class="on">土</span><span class="on">日</span></div>
-<dl class="zrow"><dt>時間</dt><dd>金 15:00〜20:00／土日 11:00〜16:00</dd><dt>形</dt><dd>キッチンカー・テント</dd></dl>
-<div class="price"><b>3,300</b><span>円／1枠（土日の通し10〜18時は5,500円）</span></div></div></article>
+<dl class="zrow"><dt>時間</dt><dd>金 15:00〜20:00<br>土日 10:00〜20:00（通し）</dd><dt>形</dt><dd>キッチンカー・テント</dd></dl>
+<div class="price"><b>3,300</b><span>円／金曜1枠（土日の通しは5,500円）</span></div></div></article>
 <article class="zone zB"><div class="zone-ph" style="background-image:url(images/minakusa/east.jpg)"><span class="tag">東口 B</span><span class="slots">5枠</span></div><div class="zone-body">
 <h3>週末のバスのりばで、持ち帰り<small>のりば1・2前</small></h3>
 <div class="who"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20c.7-3.5 3-5 6-5s5.3 1.5 6 5M15 15.5c2.6 0 4.5 1.3 5 4"/></svg>週末のお出かけ・バスを待つ人</div>
 <div class="dows" aria-label="出店できる曜日：土・日"><span>金</span><span class="on">土</span><span class="on">日</span></div>
-<dl class="zrow"><dt>時間</dt><dd>10:00〜15:00 または 16:00〜21:00</dd><dt>形</dt><dd>長机・テントでの販売</dd></dl>
-<div class="price"><b>3,300</b><span>円／1枠（通し11〜19時は5,500円）</span></div></div></article>
+<dl class="zrow"><dt>時間</dt><dd>10:00〜20:00（通し）</dd><dt>形</dt><dd>長机・テントでの販売</dd></dl>
+<div class="price"><b>5,500</b><span>円／1日（10〜20時の通し）</span></div></div></article>
 <article class="zone zC"><div class="zone-ph" style="background-image:url(images/minakusa/east.jpg);background-position:30% 40%"><span class="tag">東口 C・D</span><span class="slots">4枠＋3枠</span></div><div class="zone-body">
-<h3>金曜は通勤・通学の朝夕、土日は昼に売る<small>のりば3・4前（C）／のりば5前（D）</small></h3>
+<h3>駅を行き来する朝夕に、さっと売る<small>のりば3・4前（C）／のりば5前（D）</small></h3>
 <div class="who"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20c.7-3.5 3-5 6-5s5.3 1.5 6 5M15 15.5c2.6 0 4.5 1.3 5 4"/></svg>駅を行き来する学生・会社員</div>
 <div class="dows" aria-label="出店できる曜日：金・土・日"><span class="on">金</span><span class="on">土</span><span class="on">日</span></div>
-<dl class="zrow"><dt>時間</dt><dd>金 朝7:00〜9:30／夕17:00〜19:30<br>土日 10:00〜15:00</dd><dt>形</dt><dd>長机での販売</dd></dl>
-<div class="price"><b>3,300</b><span>円／1枠（金曜の朝夕セットは5,500円）</span></div></div></article></div>
+<dl class="zrow"><dt>時間</dt><dd>朝 7:00〜9:30／夕 17:00〜20:00</dd><dt>形</dt><dd>長机での販売</dd></dl>
+<div class="price"><b>3,300</b><span>円／1枠（朝夕セットは5,500円）</span></div></div></article></div>
 <div class="dots" id="zoneDots" aria-hidden="true"><i class="on"></i><i></i><i></i></div><p class="zone-note">※写真は位置の目安です。実際の区画の位置・搬入ルート・電源や火気の条件は、出店確定時にご案内します。　<a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%97%E8%8D%89%E6%B4%A5%E9%A7%85" target="_blank" rel="noopener noreferrer">Googleマップで南草津駅を見る ↗</a></p>
 </div></section>
 
@@ -436,7 +436,7 @@ window.MINAKUSA_ENTRY={
 <div class="field" style="margin-bottom:6px"><label>出店したい日 <em>必須</em>（1日〜最大9日間）</label></div>
 <div class="entry-days" id="eDays"><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-04" data-label="12/4（金）"><span>12/4（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-05" data-label="12/5（土）"><span>12/5（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-06" data-label="12/6（日）"><span>12/6（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-11" data-label="12/11（金）"><span>12/11（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-12" data-label="12/12（土）"><span>12/12（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-13" data-label="12/13（日）"><span>12/13（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-18" data-label="12/18（金）"><span>12/18（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-19" data-label="12/19（土）"><span>12/19（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-20" data-label="12/20（日）"><span>12/20（日）</span></label></div>
 <p class="entry-hint" id="eDaysHint">西口Aは金・土・日、東口Bは土・日、東口C・Dは金・土・日です。選んだ区画に合わない日は選べません。</p>
-<div class="fieldgrid"><div class="field"><label for="eTime">希望の時間帯</label><select id="eTime"><option>区画の標準の時間でよい</option><option>通し枠（長い時間）を希望</option><option>朝夕セットを希望（東口C・Dの金曜）</option><option>相談したい</option></select></div><div class="field"><label for="eRefer">紹介者・コード（任意）</label><input id="eRefer" maxlength="80"></div></div>
+<div class="fieldgrid"><div class="field"><label for="eTime">希望の時間帯</label><select id="eTime"><option>区画の標準の時間でよい</option><option>朝だけ・夕だけを希望（東口C・D）</option><option>朝夕セットを希望（東口C・D）</option><option>相談したい</option></select></div><div class="field"><label for="eRefer">紹介者・コード（任意）</label><input id="eRefer" maxlength="80"></div></div>
 <h3 class="entry-h">4. 許可と保険</h3>
 <div class="fieldgrid"><div class="field"><label for="ePermit">営業許可の種類 <em>必須</em></label><select id="ePermit" required><option value="">選んでください</option><option>飲食店営業（自動車）</option><option>飲食店営業（臨時営業・露店）</option><option>菓子製造業</option><option>その他の許可・届出</option><option>申請中・これから取る</option></select></div><div class="field"><label for="ePermitNo">許可番号（任意）</label><input id="ePermitNo" maxlength="60"></div></div>
 <div class="fieldgrid"><div class="field"><label for="ePermitOffice">許可を出した保健所（任意）</label><input id="ePermitOffice" maxlength="60" placeholder="例：草津保健所"></div><div class="field"><label for="ePermitExp">許可の有効期限（任意）</label><input id="ePermitExp" type="date"></div></div>
