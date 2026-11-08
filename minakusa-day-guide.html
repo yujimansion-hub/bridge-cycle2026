@@ -493,14 +493,14 @@ var GATES={
  west:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",w:"330cm",title:"西口A：駅前広場の西の角から",pin:[24,49],route:[[13,63],[19,56],[24,49],[31,49],[37,48]],zone:[31,40,22,16,"広場 A"],
   steps:["【経路】西口前の道路から、駅前広場の西の角（横断歩道と「ここから」の標識がある角）→ 搬入口（幅330cm）→ 赤いレンガ舗装を東へ → 区画A","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。車幅はミラーを含めて330cm未満であることを事前に確認してください。","テント・机は搬入口の近くで荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"],
   map:"南草津駅 西口 ロータリー"},
- east:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",w:"250cm",title:"東口B・C・D：バスロータリーの外から",pin:[53,58],zone:[30,14,24,40,"のりば B/C/D"],
-  steps:["【経路】東口ロータリーに入り、赤い舗装の車いす用乗降スペースの横 → 屋根の下の広場への入り口 → 搬入口（幅250cm）→ 屋根の下を通って区画（B・C・D）","搬入口の幅は250cmです。キッチンカーはミラーを含めた車幅が250cm未満であることを事前に確認し、係員の誘導で、バスと歩行者に気をつけながらゆっくり進入。","バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。テント・机は荷下ろし後、台車で区画へ。点字ブロックとバス待ちの列はふさがない。"],
+ east:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",w:"250cm",title:"東口C・D：バスロータリーの外から",pin:[53,58],zone:[30,14,24,40,"のりば B/C/D"],
+  steps:["【経路】東口ロータリーに入り、赤い舗装の車いす用乗降スペースの横 → 屋根の下の広場への入り口 → 搬入口（幅250cm）→ 屋根の下を通って区画（C・D）","搬入口の幅は250cmです。キッチンカーはミラーを含めた車幅が250cm未満であることを事前に確認し、係員の誘導で、バスと歩行者に気をつけながらゆっくり進入。","バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。テント・机は荷下ろし後、台車で区画へ。点字ブロックとバス待ちの列はふさがない。"],
   map:"南草津駅 東口 バスロータリー"}
 };
 function routeSvg(r){if(!r)return "";var pts=r.map(function(p){return p[0]+","+p[1];}).join(" ");return '<svg class="route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="stroke-width:9px"/><polyline points="'+pts+'" fill="none" stroke="#dd6540" stroke-dasharray="10 7" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="stroke-width:5px"/></svg>';}
 window.MK_ROUTE=routeSvg;
 function drawGate(){
- var v=z.value,g=v==="A"?GATES.west:(["B","C","D"].indexOf(v)>=0?GATES.east:null),box=$("gateBox");if(!box)return;
+ var v=z.value,g=v==="A"?GATES.west:(["C","D"].indexOf(v)>=0?GATES.east:null),box=$("gateBox");if(!box)return;
  if(!g){box.hidden=true;return;}box.hidden=false;
  $("gateImg").src=g.img;if($("gateReal")){$("gateReal").src=g.real;$("gateReal").parentNode.querySelector(".gw").textContent=g.w;}$("gateTitle").textContent="搬入口（仮）｜"+g.title;
  $("gateSteps").innerHTML=g.steps.map(function(s){return "<li>"+s+"</li>";}).join("");
@@ -639,7 +639,7 @@ var SL={A:{5:[["15:00","20:00"]],6:[["10:00","20:00"]],0:[["10:00","20:00"]]},B:
 var LOTS=[[24,41],[36,41],[24,54],[36,54],[56,55],[68,55],[56,68]];
 var EAST={B:[40.5,31],C:[36,4],D:[19.5,18]};
 var GATE={A:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",w:"330cm",pin:[24,49],route:[[13,63],[19,56],[24,49],[31,49],[37,48]],q:"南草津駅 西口 ロータリー",steps:["【経路】西口前の道路から、駅前広場の西の角（横断歩道と「ここから」の標識がある角）→ 搬入口（幅330cm）→ 赤いレンガ舗装を東へ → 区画A","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。車幅はミラーを含めて330cm未満であることを事前に確認してください。","テント・机は搬入口の近くで荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"]},
- E:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",w:"250cm",pin:[53,58],q:"南草津駅 東口 バスロータリー",steps:["【経路】東口ロータリーに入り、赤い舗装の車いす用乗降スペースの横 → 屋根の下の広場への入り口 → 搬入口（幅250cm）→ 屋根の下を通って区画（B・C・D）","搬入口の幅は250cmです。キッチンカーはミラーを含めた車幅が250cm未満であることを事前に確認し、係員の誘導で、バスと歩行者に気をつけながらゆっくり進入。","バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。テント・机は荷下ろし後、台車で区画へ。点字ブロックとバス待ちの列はふさがない。"]}};
+ E:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",w:"250cm",pin:[53,58],q:"南草津駅 東口 バスロータリー",steps:["【経路】東口ロータリーに入り、赤い舗装の車いす用乗降スペースの横 → 屋根の下の広場への入り口 → 搬入口（幅250cm）→ 屋根の下を通って区画（C・D）","搬入口の幅は250cmです。キッチンカーはミラーを含めた車幅が250cm未満であることを事前に確認し、係員の誘導で、バスと歩行者に気をつけながらゆっくり進入。","バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。テント・机は荷下ろし後、台車で区画へ。点字ブロックとバス待ちの列はふさがない。"]}};
 var ZN={A:"西口A",B:"東口B",C:"東口C",D:"東口D"};
 var PACK=["営業許可証（またはその写し）","食材・保冷ボックス・保冷剤","釣り銭・決済の端末","ごみ袋・ふきん・消毒用品","テント・机・重り（テントの方）","スマホの充電"];
 function day(){if(!date.value)return null;var p=date.value.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
@@ -662,7 +662,7 @@ function lotsHtml(zone,me){
  if(zone==="A")return LOTS.map(function(p,i){var n=i+1;return '<div class="dm-lot'+(String(me)===String(n)?" me":"")+'" style="left:'+p[0]+'%;top:'+p[1]+'%;width:11%;height:11%">A'+n+'</div>';}).join("");
  var e=EAST[zone];return e?'<div class="dm-lot me" style="left:'+e[0]+'%;top:'+e[1]+'%;width:20%;height:18%">'+zone+'</div>':"";}
 function fill(){
- var zone=z.value,T=times(),g=GATE[zone==="A"?"A":"E"],me=booth?booth.value:"";
+ var zone=z.value,T=times(),g=zone==="B"?null:GATE[zone==="A"?"A":"E"],me=booth?booth.value:"";
  $("dmSub").textContent=(date.value?date.value.slice(5).replace("-","/"):"日付未設定")+"　"+(ZN[zone]||"エリア未設定")+(me&&zone==="A"?"-"+me:"")+(slot.selectedOptions[0]?"　"+slot.selectedOptions[0].text:"");
  var o=ck();[].forEach.call(dm.querySelectorAll("[data-dm]"),function(c){c.checked=!!o[c.getAttribute("data-dm")];});
  if(T){$("dmLeave").textContent="出発の目安は "+hm(T.leave)+"。設営は "+hm(T.setup)+" から始められます。";
@@ -674,7 +674,8 @@ function fill(){
   $("dmNav").href="https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(g.q);
   $("dmBoothMap").innerHTML='<img src="'+g.img+'" alt="区画の位置">'+lotsHtml(zone,me);
   $("dmBoothTitle").textContent="あなたの区画："+ZN[zone]+(zone==="A"&&me?"-"+me:"");
-  $("dmBoothLead").textContent=zone==="A"?(me?"オレンジの枠があなたの区画です。":"番号は当日、係員が案内します。駅前広場の2か所（A1〜A4・A5〜A7）のどちらかです。"):(zone==="B"?"1・2番のりばの前です。バス側の帯に出店します。":zone==="C"?"3・4番のりばの前です。赤い舗装の車いす用乗降スペースの前の、屋根の下の歩道です。道路の向かいに「くぼた眼科」などのお店が並んでいるのが目印です。":"5番のりばの前です。駅舎に近い屋根の下で、バス停のベンチと自動販売機、階段のあたりが目印です。");}
+  $("dmBoothLead").textContent=zone==="A"?(me?"オレンジの枠があなたの区画です。":"番号は当日、係員が案内します。A1〜A6は駅前広場（公園側）、A7は西口の出口の近くです。"):(zone==="B"?"1・2番のりばの前です。バス側の帯に出店します。":zone==="C"?"3・4番のりばの前です。赤い舗装の車いす用乗降スペースの前の、屋根の下の歩道です。道路の向かいに「くぼた眼科」などのお店が並んでいるのが目印です。":"5番のりばの前です。駅舎に近い屋根の下で、バス停のベンチと自動販売機、階段のあたりが目印です。");}
+ else if(zone==="B"){$("dmGateMap").innerHTML='<div class="dm-lead" style="padding:20px">東口Bの搬入口は未定です。決まりしだい、メールでご案内します。</div>';$("dmGateSteps").innerHTML="";$("dmBoothMap").innerHTML='<div class="dm-lead" style="padding:20px">東口Bは、搬入口の奥から順に詰めて配置します。区画は当日、係員が案内します。</div>';$("dmBoothTitle").textContent="あなたの区画：東口B";$("dmBoothLead").textContent="1・2番のりばの前です。バス側の帯に出店します。";}
  else{$("dmGateMap").innerHTML=$("dmBoothMap").innerHTML='<div class="dm-lead" style="padding:20px">エリアを選んでください。</div>';}
  var dec=window.MINAKUSA_DECISION;$("dmDecision").innerHTML=dec&&dec!=="未定"?'<div class="dm-cd" style="background:'+(dec==="中止"?"#fbe3dc":"#e3f1e2")+';color:'+(dec==="中止"?"#a13b20":"#1d5a44")+'">今日は'+(dec==="中止"?"中止です。出発しないでください":"予定どおり開催します")+'</div>':'<p class="dm-lead">開催するかは前日22時までにメールで届きます。</p>';
  tick();
