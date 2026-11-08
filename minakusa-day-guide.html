@@ -303,7 +303,7 @@ window.MINAKUSA_LEDGER=!!(window.MINAKUSA_VENDOR_API&&window.MINAKUSA_TOKEN);})(
 <div class="dm-step" data-s="0"><div class="dm-k">1 / 9　出発</div><h2 class="dm-h">持ち物を確かめて、出発</h2><p class="dm-lead" id="dmLeave"></p>
 <div class="dm-checks" id="dmPack"></div><div id="dmDecision"></div></div>
 <div class="dm-step" data-s="1" hidden><div class="dm-k">2 / 9　搬入口</div><h2 class="dm-h">搬入口から入ります</h2><p class="dm-lead">印のところが搬入口です。<span class="dm-tag">仮の案内</span> 当日の係員の指示を優先してください。</p>
-<div class="dm-map" id="dmGateMap"></div><figure class="dm-real" id="dmGateReal" hidden><img alt="搬入口の現地写真"><figcaption>現地の写真：メジャーを当てているところが搬入口です</figcaption></figure><ol class="dm-list" id="dmGateSteps"></ol><a class="dm-btn green" id="dmNav" target="_blank" rel="noopener noreferrer">📍 Googleマップで道案内</a></div>
+<div class="dm-map" id="dmGateMap"></div><figure class="dm-real" id="dmGateReal" hidden><img alt="搬入口の現地写真"><figcaption>現地の写真：メジャーを当てているところが搬入口です（幅<span class="gw">330cm</span>）</figcaption></figure><ol class="dm-list" id="dmGateSteps"></ol><a class="dm-btn green" id="dmNav" target="_blank" rel="noopener noreferrer">📍 Googleマップで道案内</a></div>
 <div class="dm-step" data-s="2" hidden><div class="dm-k">3 / 9　区画の場所</div><h2 class="dm-h" id="dmBoothTitle">あなたの区画</h2><p class="dm-lead" id="dmBoothLead"></p>
 <div class="dm-map" id="dmBoothMap"></div><ul class="dm-list"><li><b>区画の中に収める</b>車両・テント・机・看板は区画の線の内側に。テントは3m×3mまで。</li><li><b>通路をふさがない</b>点字ブロック・駅の出入口・バス待ちの列の前は空けておく。</li></ul></div>
 <div class="dm-step" data-s="3" hidden><div class="dm-k">4 / 9　設営</div><h2 class="dm-h">設営して、写真で到着報告</h2><div class="dm-time"><div><small>設営開始</small><b id="dmSetup"></b></div><div class="hot"><small>開店</small><b id="dmStart"></b></div></div><div class="dm-cd" id="dmCd3"></div>
@@ -349,7 +349,7 @@ window.MINAKUSA_LEDGER=!!(window.MINAKUSA_VENDOR_API&&window.MINAKUSA_TOKEN);})(
 <label class="check-row"><input type="checkbox" data-check="arrival-3" aria-label="区画位置：係員の案内で使用許可された区画と搬入経路を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>区画位置</b><span>係員の案内で使用許可された区画と搬入経路を確認した</span></span></label>
 <label class="check-row"><input type="checkbox" data-check="arrival-4" aria-label="通行の確保：バス利用者・歩行者・車椅子・点字ブロックの動線を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>通行の確保</b><span>バス利用者・歩行者・車椅子・点字ブロックの動線を確認した</span></span></label></div>
 <div class="stage-tail"><span class="stage-count" data-stage-count="1">0 / 5 項目</span><a href="#arrival-info" class="stage-link">エリア・地図を確認 ↓</a></div>
-<div class="gate" id="gateBox"><div class="gate-ph" id="gatePh"><img id="gateImg" src="images/minakusa/west.jpg" alt="搬入口の位置（仮）を示した航空写真"><div id="gateMarks"></div></div><figure class="gate-real"><img id="gateReal" src="images/minakusa/gate-west.jpg" alt="搬入口の現地写真" loading="lazy"><figcaption>現地の写真：メジャーを当てているところが搬入口です</figcaption></figure><div class="gate-body"><span class="tag">仮の案内です</span><b id="gateTitle">搬入口（仮）</b><ol id="gateSteps"></ol><p>関係機関の承認後に確定します。確定案内の内容と、当日の係員の指示を優先してください。</p><a id="gateMap" href="#" target="_blank" rel="noopener noreferrer">Googleマップで周辺を見る ↗</a></div></div>
+<div class="gate" id="gateBox"><div class="gate-ph" id="gatePh"><img id="gateImg" src="images/minakusa/west.jpg" alt="搬入口の位置（仮）を示した航空写真"><div id="gateMarks"></div></div><figure class="gate-real"><img id="gateReal" src="images/minakusa/gate-west.jpg" alt="搬入口の現地写真" loading="lazy"><figcaption>現地の写真：メジャーを当てているところが搬入口です（幅<span class="gw">330cm</span>）</figcaption></figure><div class="gate-body"><span class="tag">仮の案内です</span><b id="gateTitle">搬入口（仮）</b><ol id="gateSteps"></ol><p>関係機関の承認後に確定します。確定案内の内容と、当日の係員の指示を優先してください。</p><a id="gateMap" href="#" target="_blank" rel="noopener noreferrer">Googleマップで周辺を見る ↗</a></div></div>
 <div class="photo" data-photo="arrival"><b>📷 到着・設営したら、写真で報告</b><p>設営が終わったら撮って送ってください。運営が配置を確認します。</p><ul><li>区画全体（車両・テント・机が区画の中にあること）</li><li>通路側から見た様子（通路・点字ブロックがふさがっていないこと）</li></ul><label class="shoot"><input type="file" accept="image/*" capture="environment" multiple data-pick>写真を撮る（3枚まで）</label><div class="thumbs" data-thumbs></div><button type="button" class="send" data-send disabled>写真を送って報告する</button><div class="msg" data-msg role="status" aria-live="polite"></div><span class="alt">送れないときは、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:900">運営のLINE</a>に写真を送ってください。</span></div></section>
 <section class="stage-panel" data-stage="2" id="stage-setup" hidden aria-labelledby="stage-title-2">
 <div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🛠️</div><div><span class="stage-overline">STEP 3 / 6</span><h2 id="stage-title-2">設営</h2><p>開店前の準備</p></div></div>
@@ -489,17 +489,17 @@ var $=function(i){return document.getElementById(i);};
 var z=$("zone"),date=$("date"),slot=$("slot");
 /* ---- 搬入口（仮）---- */
 var GATES={
- west:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",title:"西口A：西口ロータリー側から",pin:[40,63],zone:[31,40,22,16,"広場 A"],
-  steps:["西口ロータリーの一般車乗降場側から、駅前広場の舗装部分へ入ります。","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。","テント・机は乗降場で荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"],
+ west:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",w:"330cm",title:"西口A：西口ロータリー側から",pin:[40,63],zone:[31,40,22,16,"広場 A"],
+  steps:["【経路】西口ロータリーの一般車乗降場側 → 搬入口（幅330cm）→ 駅前広場の舗装部分 → 区画","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。車幅はミラーを含めて330cm未満であることを事前に確認してください。","テント・机は乗降場で荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"],
   map:"南草津駅 西口 ロータリー"},
- east:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",title:"東口B・C・D：バスロータリーの外から",pin:[53,58],zone:[30,14,24,40,"のりば B/C/D"],
-  steps:["バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。","キッチンカーは係員の誘導で、バスと歩行者に気をつけながらゆっくり区画へ進入。","テント・机は荷下ろし後、台車で区画へ。荷下ろし後の車は指定の場所へ。点字ブロックとバス待ちの列はふさがない。"],
+ east:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",w:"250cm",title:"東口B・C・D：バスロータリーの外から",pin:[53,58],zone:[30,14,24,40,"のりば B/C/D"],
+  steps:["【経路】東口バスロータリーの歩道側 → 搬入口（幅250cm）→ のりば前の歩道 → 区画（B・C・D）","搬入口の幅は250cmです。キッチンカーはミラーを含めた車幅が250cm未満であることを事前に確認し、係員の誘導で、バスと歩行者に気をつけながらゆっくり進入。","バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。テント・机は荷下ろし後、台車で区画へ。点字ブロックとバス待ちの列はふさがない。"],
   map:"南草津駅 東口 バスロータリー"}
 };
 function drawGate(){
  var v=z.value,g=v==="A"?GATES.west:(["B","C","D"].indexOf(v)>=0?GATES.east:null),box=$("gateBox");if(!box)return;
  if(!g){box.hidden=true;return;}box.hidden=false;
- $("gateImg").src=g.img;if($("gateReal"))$("gateReal").src=g.real;$("gateTitle").textContent="搬入口（仮）｜"+g.title;
+ $("gateImg").src=g.img;if($("gateReal")){$("gateReal").src=g.real;$("gateReal").parentNode.querySelector(".gw").textContent=g.w;}$("gateTitle").textContent="搬入口（仮）｜"+g.title;
  $("gateSteps").innerHTML=g.steps.map(function(s){return "<li>"+s+"</li>";}).join("");
  $("gateMarks").innerHTML='<div class="gate-zone" style="left:'+g.zone[0]+'%;top:'+g.zone[1]+'%;width:'+g.zone[2]+'%;height:'+g.zone[3]+'%">'+g.zone[4]+'</div><div class="gate-pin" style="left:'+g.pin[0]+'%;top:'+g.pin[1]+'%"><b>搬入口（仮）</b><i></i><s></s></div>';
  $("gateMap").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(g.map);
@@ -635,8 +635,8 @@ var cur=0,N=9;
 var SL={A:{5:[["15:00","20:00"]],6:[["10:00","20:00"]],0:[["10:00","20:00"]]},B:{6:[["10:00","20:00"]],0:[["10:00","20:00"]]},C:{5:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],6:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],0:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]]},D:{5:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],6:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]],0:[["07:00","09:30"],["17:00","20:00"],["07:00","20:00"]]}};
 var LOTS=[[24,41],[36,41],[24,54],[36,54],[56,55],[68,55],[56,68]];
 var EAST={B:[40.5,31],C:[36,4],D:[19.5,18]};
-var GATE={A:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",pin:[40,63],q:"南草津駅 西口 ロータリー",steps:["西口ロータリーの一般車乗降場の側から、駅前広場の舗装部分へ入ります。","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。","テント・机は乗降場で荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"]},
- E:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",pin:[53,58],q:"南草津駅 東口 バスロータリー",steps:["バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。","キッチンカーは係員の誘導で、バスと歩行者に気をつけながらゆっくり区画へ進入。","テント・机は荷下ろし後、台車で区画へ。荷下ろし後の車は指定の場所へ。点字ブロックとバス待ちの列はふさがない。"]}};
+var GATE={A:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",w:"330cm",pin:[40,63],q:"南草津駅 西口 ロータリー",steps:["【経路】西口ロータリーの一般車乗降場側 → 搬入口（幅330cm）→ 駅前広場の舗装部分 → 区画","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。車幅はミラーを含めて330cm未満であることを事前に確認してください。","テント・机は乗降場で荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"]},
+ E:{img:"images/minakusa/east.jpg",real:"images/minakusa/gate-east.jpg",w:"250cm",pin:[53,58],q:"南草津駅 東口 バスロータリー",steps:["【経路】東口バスロータリーの歩道側 → 搬入口（幅250cm）→ のりば前の歩道 → 区画（B・C・D）","搬入口の幅は250cmです。キッチンカーはミラーを含めた車幅が250cm未満であることを事前に確認し、係員の誘導で、バスと歩行者に気をつけながらゆっくり進入。","バスの運行を妨げないよう、係員の指示があるまでロータリーの中では停車しません。テント・机は荷下ろし後、台車で区画へ。点字ブロックとバス待ちの列はふさがない。"]}};
 var ZN={A:"西口A",B:"東口B",C:"東口C",D:"東口D"};
 var PACK=["営業許可証（またはその写し）","食材・保冷ボックス・保冷剤","釣り銭・決済の端末","ごみ袋・ふきん・消毒用品","テント・机・重り（テントの方）","スマホの充電"];
 function day(){if(!date.value)return null;var p=date.value.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
@@ -665,7 +665,7 @@ function fill(){
  if(T){$("dmLeave").textContent="出発の目安は "+hm(T.leave)+"。設営は "+hm(T.setup)+" から始められます。";
   $("dmSetup").textContent=hm(T.setup);$("dmStart").textContent=$("dmStart2").textContent=hm(T.start);$("dmEnd").textContent=$("dmEnd2").textContent=hm(T.end);$("dmOut").textContent=hm(T.out);}
  else $("dmLeave").textContent="エリア・日付・時間枠を選ぶと、時刻を表示します。";
- var gr=$("dmGateReal");if(gr){gr.hidden=!(zone&&g);if(zone&&g)gr.querySelector("img").src=g.real;}
+ var gr=$("dmGateReal");if(gr){gr.hidden=!(zone&&g);if(zone&&g){gr.querySelector("img").src=g.real;gr.querySelector(".gw").textContent=g.w;}}
  if(zone&&g){$("dmGateMap").innerHTML='<img src="'+g.img+'" alt="搬入口（仮）の位置">'+lotsHtml(zone,me).replace(/ me"/g,'"')+'<div class="dm-pin" style="left:'+g.pin[0]+'%;top:'+g.pin[1]+'%"><b>搬入口（仮）</b><i></i><s></s></div>';
   $("dmGateSteps").innerHTML=g.steps.map(function(s){return "<li>"+s+"</li>";}).join("");
   $("dmNav").href="https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(g.q);
