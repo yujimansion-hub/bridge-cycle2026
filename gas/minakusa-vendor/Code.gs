@@ -1,6 +1,9 @@
 /**
  * 南草津駅前 出店者台帳（Googleスプレッドシート ＋ Apps Script）
- * 版：v1（2026-11-07） BRIDGE CYCLE株式会社
+ * 版：v2（2026-11-21） BRIDGE CYCLE株式会社
+ *  v2：ページで空きを見て申し込み、その場でカード決済（Stripe Checkout）する「事前入金」に対応。
+ *      Stripeの秘密鍵はスクリプトのプロパティ STRIPE_SECRET_KEY に、本人が入れる（コードには書かない）。
+ *      「設定」シートの「受付」が「オン」のときだけ申込・決済を受け付ける。
  *
  * 目的：出店者がボタンを押さなくても、次にやることが届くようにする。
  *  ・申込を台帳に記録し、出店ナビ（minakusa-day-guide.html）の専用リンクをメールで送る
@@ -23,7 +26,7 @@ var LINE = 'https://line.me/R/ti/p/@907kxssd';
 var SH = { v: '出店者', d: '開催日', day: '当日記録', rep: '終了報告', conf: '設定', log: '通知記録' };
 var HEAD = {
   '出店者': ['受付番号', '鍵', '申込日時', '屋号', '担当者', 'メール', '電話', '希望エリア', '希望日', '出店の形', 'メニュー', '営業許可', '状態',
-            '確定エリア', '区画番号', '確定日', '時間枠', '許可証', '支払', '通知済み', 'メモ'],
+            '確定エリア', '区画番号', '確定日', '時間枠', '許可証', '支払', '通知済み', 'メモ', '決済ID', '金額'],
   '開催日': ['日付', '開催判断', '知らせた判断', 'ひとこと（任意・メールに入る）'],
   '当日記録': ['日時', '受付番号', '屋号', '出店日', '種類', '枚数'],
   '終了報告': ['日時', '受付番号', '屋号', '出店日', 'エリア', '売上', '人数', '客単価', '販売数', '売れた時間', '天気', '客層', '満足度', 'また出たいか', '本店・SNS', 'よかったこと', '困ったこと'],
@@ -35,8 +38,16 @@ var CONF_DEFAULT = [
   ['許可証の出し方', 'このメールに返信して、営業許可証の写真（全体が写ったもの）を送ってください。', '区画の連絡メールに入る文'],
   ['当日の連絡先', 'LINE（' + LINE + '）', '前日・当日のメールに入る'],
   ['前日のお知らせ時刻', '18', '前日のこの時刻（時）に送る'],
-  ['自動通知', 'オン', '「オフ」にすると自動メールを止める（申込の受付メールは送る）']
+  ['自動通知', 'オン', '「オフ」にすると自動メールを止める（申込の受付メールは送る）'],
+  ['受付', 'オフ', '「オン」でページからの申込とカード決済（事前入金）を受け付ける。「テスト」はページの ?preview=1&send=1 からだけ受け付ける（Stripeはテスト用の鍵で）'],
+  ['支払の期限（分）', '30', '申込からこの時間内に払わないと、仮押さえを取り消して枠を戻す（30〜120）']
 ];
+/* 1日あたりの枠数と出店料（ページの表示と同じ） */
+var CAP = { A: 7, B: 5, C: 4, D: 3 };
+var DAYS = ['2026-12-04', '2026-12-05', '2026-12-06', '2026-12-11', '2026-12-12', '2026-12-13', '2026-12-18', '2026-12-19', '2026-12-20'];
+var OFF = { B: ['2026-12-06', '2026-12-13'], C: ['2026-12-20'] };
+var DOW_OK = { A: [5, 6, 0], B: [6, 0], C: [5, 6, 0], D: [5, 6, 0] };
+var HOLD_STATES = ['支払待ち', '許可証確認待ち', '区画連絡済', '出店確定', '申込受付'];
 /* 区画・曜日ごとの時間枠（出店ナビと同じ並び。時間枠の欄にはこの表示名を入れる） */
 var SLOTS = {
   A: { 5: [['15:00', '20:00', '金曜 15:00〜20:00']], 6: [['10:00', '20:00', '通し 10:00〜20:00']], 0: [['10:00', '20:00', '通し 10:00〜20:00']] },
@@ -79,17 +90,21 @@ function setup() {
   }
   d.getRange('B2:B60').setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['未定', '開催', '中止'], true).build());
   var v = ss.getSheetByName(SH.v), col = function (n) { return HEAD['出店者'].indexOf(n) + 1; };
-  v.getRange(2, col('状態'), 500).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['申込受付', '区画連絡済', '出店確定', '見送り'], true).build());
+  v.getRange(2, col('状態'), 500).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['申込受付', '支払待ち', '許可証確認待ち', '区画連絡済', '出店確定', '期限切れ', '見送り'], true).build());
   v.getRange(2, col('確定エリア'), 500).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['A', 'B', 'C', 'D'], true).build());
   v.getRange(2, col('許可証'), 500).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['', '確認済', '不備あり'], true).build());
   v.getRange(2, col('支払'), 500).setDataValidation(SpreadsheetApp.newDataValidation().requireValueInList(['', '済'], true).build());
   v.getRange(1, col('確定日')).setNote('出店日を「2026/12/18」の形で。複数日は「2026/12/18,2026/12/19」のようにカンマで区切る');
   v.getRange(1, col('時間枠')).setNote('例：金曜 15:00〜20:00／通し 10:00〜20:00／朝 7:00〜9:30／夕 17:00〜20:00／朝夕セット（出店ナビと同じ表示名）');
   v.hideColumns(col('鍵')); v.hideColumns(col('通知済み'));
+  // v1で作った台帳に、v2の列（決済ID・金額）を足す
+  var hv = v.getRange(1, 1, 1, v.getLastColumn()).getValues()[0];
+  HEAD['出店者'].forEach(function (k) { if (hv.indexOf(k) < 0) { v.getRange(1, v.getLastColumn() + 1).setValue(k).setFontWeight('bold').setBackground('#e6f1e7'); } });
+  CONF_DEFAULT.forEach(function (r) { if (!conf_(r[0]) && conf.createTextFinder(r[0]).findNext() === null) conf.appendRow(r); });
   // 自動処理（編集時・15分ごと）
   ScriptApp.getProjectTriggers().forEach(function (t) { ScriptApp.deleteTrigger(t); });
   ScriptApp.newTrigger('onEditInstalled').forSpreadsheet(ss).onEdit().create();
-  ScriptApp.newTrigger('tick').timeBased().everyMinutes(15).create();
+  ScriptApp.newTrigger('tick').timeBased().everyMinutes(5).create();
   SpreadsheetApp.getActive().toast('シートと自動処理を準備しました。次に「デプロイ」でウェブアプリとして公開してください。');
 }
 
@@ -120,7 +135,7 @@ function vendors_() {
   }
   return out;
 }
-function setCell_(row, name, val) { var sh = SpreadsheetApp.getActive().getSheetByName(SH.v); sh.getRange(row, HEAD['出店者'].indexOf(name) + 1).setValue(val); }
+function setCell_(row, name, val) { var sh = SpreadsheetApp.getActive().getSheetByName(SH.v), h = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0], c = h.indexOf(name); if (c >= 0) sh.getRange(row, c + 1).setValue(val); }
 function markSent_(o, key) { o.sent[key] = fmt_(new Date()); setCell_(o._row, '通知済み', JSON.stringify(o.sent)); }
 function findByKey_(key) { if (!key) return null; var l = vendors_(); for (var i = 0; i < l.length; i++) if (String(l[i]['鍵']) === String(key)) return l[i]; return null; }
 function naviUrl_(o) { return NAVI + '?t=' + encodeURIComponent(o['鍵']); }
@@ -159,6 +174,7 @@ function autoOn_() { return conf_('自動通知') !== 'オフ'; }
 function doGet(e) {
   var p = (e && e.parameter) || {};
   if (p.action === 'status') return json_(status_(p.t));
+  if (p.action === 'avail') return json_(avail_());
   return json_({ ok: true });
 }
 function doPost(e) {
@@ -179,6 +195,7 @@ function doPost(e) {
 function apply_(d) {
   var email = String(d.email || '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { success: false, error: 'invalid_email' };
+  if (d.prepay) return prepay_(d, email);
   var key = Utilities.getUuid().replace(/-/g, '').slice(0, 24);
   var no = String(d['受付番号'] || ('MK' + fmt_(new Date(), 'MMdd') + '-' + key.slice(0, 4).toUpperCase())).slice(0, 20);
   var sh = SpreadsheetApp.getActive().getSheetByName(SH.v);
@@ -262,9 +279,15 @@ function progress_() {
   if (!autoOn_()) return;
   vendors_().forEach(function (o) {
     if (o['状態'] === '見送り') {
-      if (!o.sent.declined) { mail_(o, '見送り', '【南草津駅前】今回の出店について', '出店にお申し込みいただき、ありがとうございました。\n誠に申し訳ありませんが、今回は区画・日程の都合により、ご希望に沿うことができませんでした。\n次の開催の募集が始まりましたら、あらためてご案内します。'); markSent_(o, 'declined'); }
+      if (!o.sent.declined) {
+        var refund = o['支払'] === '済' ? '\n\nお支払いいただいた出店料 ' + Number(o['金額'] || 0).toLocaleString('ja-JP') + '円は、全額をカードに返金します（カード会社により、明細に反映されるまで数日〜1か月ほどかかります）。' : '';
+        mail_(o, '見送り', '【南草津駅前】今回の出店について', '出店にお申し込みいただき、ありがとうございました。\n誠に申し訳ありませんが、今回はご希望に沿うことができませんでした。' + refund + '\n次の開催の募集が始まりましたら、あらためてご案内します。'); markSent_(o, 'declined');
+        if (refund) MailApp.sendEmail({ to: OWNER, name: 'BRIDGE CYCLE 出店者台帳', subject: '【要返金】' + o['屋号'] + '（' + o['受付番号'] + '）' + Number(o['金額'] || 0) + '円', body: 'Stripeのダッシュボードで、この決済を返金してください。\n決済ID：' + o['決済ID'] });
+      }
       return;
     }
+    if (o['状態'] === '支払待ち' || o['状態'] === '期限切れ') return; // 事前入金の途中・取消は syncPayments_ が扱う
+    var pre = !!o['決済ID'];
     var ready = o['確定エリア'] && o.dates.length && o['時間枠'];
     if (ready && !o.sent.assigned) {
       var lines = o.dates.map(function (x) { var s = slotTimes_(o, x); return '・' + jpDay_(x) + '　' + (s ? s.name : o['時間枠']); });
@@ -277,14 +300,14 @@ function progress_() {
       mail_(o, '許可証不備', '【南草津駅前】営業許可証をもう一度お送りください', 'お送りいただいた営業許可証の写真で、内容を確認できませんでした。\n許可証の全体（許可の種類・番号・有効期限）がはっきり写るように撮って、このメールに返信してお送りください。\n\n出店ナビ：' + naviUrl_(o));
       markSent_(o, 'permitNg');
     }
-    if (ready && o['許可証'] === '確認済' && !o.sent.permit && o['支払'] !== '済') {
+    if (ready && !pre && o['許可証'] === '確認済' && !o.sent.permit && o['支払'] !== '済') {
       var pay = payUrl_(o);
       mail_(o, '支払案内', '【南草津駅前】出店料のお支払いをお願いします（' + o['受付番号'] + '）',
         '営業許可証を確認しました。ありがとうございます。\n\n■ 次にやること：出店料をカードでお支払いください\n' + (pay ? pay + '\n（' + o.dates.length + '日分。お支払いページで日数を選んでください）' : 'お支払いページは、追ってお送りします。') +
         '\nお支払いの完了で、出店確定です。\n\n出店ナビ：' + naviUrl_(o));
       markSent_(o, 'permit');
     }
-    if (ready && o['支払'] === '済' && !o.sent.paid) {
+    if (ready && o['支払'] === '済' && !o.sent.paid && (!pre || o['許可証'] === '確認済')) {
       mail_(o, '出店確定', '【南草津駅前】出店が確定しました（' + o['受付番号'] + '）',
         'お支払いを確認しました。出店確定です。よろしくお願いします。\n\n■ 区画：' + (ZONE_NAME[o['確定エリア']] || '') + '\n■ 搬入口（仮）：' + (GATE[o['確定エリア']] || '') + '\n\n' +
         '■ ここからの流れ（すべて自動でお知らせします）\n・前日夕方：持ち物の確認と、22時までの開催連絡\n・当日：設営の前にお知らせ。設営できたら写真で報告\n・閉店時：片付けたら写真で報告し、売上・人数・アンケートを送って完了\n\n出店ナビ（当日もこの画面を開いてください）：\n' + naviUrl_(o));
@@ -315,7 +338,7 @@ function tick() {
   if (!autoOn_()) return;
   var lock = LockService.getScriptLock(); if (!lock.tryLock(5000)) return;
   try {
-    progress_(); decisionsNotify_();
+    syncPayments_(); progress_(); decisionsNotify_();
     var now = new Date(), eveHour = Number(conf_('前日のお知らせ時刻')) || 18, dec = decisions_();
     vendors_().forEach(function (o) {
       if (o['支払'] !== '済' || o['状態'] === '見送り') return;
@@ -352,6 +375,115 @@ function tick() {
       });
     });
   } finally { lock.releaseLock(); }
+}
+
+/* ================= 事前入金（空き確認 → その場でカード決済） ================= */
+function dow_(ymd) { var p = ymd.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]).getDay(); }
+function slotKey_(z, slot) { return z === 'C' || z === 'D' ? (slot === '朝夕セット' ? [z + '朝', z + '夕'] : [z + (/^夕/.test(slot) ? '夕' : '朝')]) : [z]; }
+function capOf_(key) { return CAP[key.charAt(0)]; }
+function price_(z, ymd, slot) { if (z === 'A') return dow_(ymd) === 5 ? 3300 : 5500; if (z === 'B') return 5500; return slot === '朝夕セット' ? 5500 : 3300; }
+function holding_(o) {
+  if (HOLD_STATES.indexOf(String(o['状態'])) < 0) return false;
+  if (o['状態'] === '申込受付' && !o['確定エリア']) return false;
+  return true;
+}
+function used_() {
+  var u = {};
+  vendors_().forEach(function (o) {
+    if (!holding_(o)) return;
+    var z = String(o['確定エリア'] || ''); if (!CAP[z]) return;
+    o.dates.forEach(function (ymd) { slotKey_(z, String(o['時間枠'] || '')).forEach(function (k) { u[ymd] = u[ymd] || {}; u[ymd][k] = (u[ymd][k] || 0) + 1; }); });
+  });
+  return u;
+}
+function avail_() { return { ok: true, open: conf_('受付') === 'オン', used: used_(), cap: CAP, at: fmt_(new Date()) }; }
+
+function prepay_(d, email) {
+  var mode = conf_('受付');
+  if (!(mode === 'オン' || (mode === 'テスト' && d.test === true))) return { success: false, error: 'not_open' };
+  var key = PropertiesService.getScriptProperties().getProperty('STRIPE_SECRET_KEY');
+  if (!key) return { success: false, error: 'payment_not_ready' };
+  var z = String(d.zone || ''), slot = String(d.slot || ''), days = (Array.isArray(d.days) ? d.days : []).map(ymd_).filter(String);
+  if (!CAP[z]) return { success: false, error: 'bad_zone' };
+  if (z === 'C' || z === 'D') { if (['朝 7:00〜9:30', '夕 17:00〜20:00', '朝夕セット'].indexOf(slot) < 0) return { success: false, error: 'bad_slot' }; }
+  else slot = '通し 10:00〜20:00'; // 西口Aの金曜は 15:00〜20:00（slotTimes_ が曜日で読み替える）
+  days = days.filter(function (x, i, a) { return a.indexOf(x) === i; }).sort();
+  if (!days.length) return { success: false, error: 'no_days' };
+  for (var i = 0; i < days.length; i++) {
+    if (DAYS.indexOf(days[i]) < 0 || DOW_OK[z].indexOf(dow_(days[i])) < 0 || (OFF[z] || []).indexOf(days[i]) >= 0) return { success: false, error: 'bad_day', day: days[i] };
+  }
+  var u = used_(), full = [];
+  days.forEach(function (ymd) { slotKey_(z, slot).forEach(function (k) { if (((u[ymd] || {})[k] || 0) >= capOf_(k)) full.push(ymd); }); });
+  if (full.length) return { success: false, error: 'full', days: full, used: u };
+  var amount = days.reduce(function (a, ymd) { return a + price_(z, ymd, slot); }, 0);
+  var n33 = days.filter(function (x) { return price_(z, x, slot) === 3300; }).length, n55 = days.length - n33;
+
+  var tkey = Utilities.getUuid().replace(/-/g, '').slice(0, 24);
+  var no = String(d['受付番号'] || ('MK' + fmt_(new Date(), 'MMdd') + '-' + tkey.slice(0, 4).toUpperCase())).slice(0, 20);
+  var sh = SpreadsheetApp.getActive().getSheetByName(SH.v), hv = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+  var rec = { '受付番号': no, '鍵': tkey, '申込日時': new Date(), '屋号': d['会社名・屋号'], '担当者': d['お名前'], 'メール': email, '電話': d['電話'],
+    '希望エリア': ZONE_NAME[z], '希望日': d['出店したい日'], '出店の形': (d['出店の形'] || '') + '（' + (d['大きさ'] || '') + '）', 'メニュー': d['メニューと価格'],
+    '営業許可': (d['営業許可の種類'] || '') + ' ' + (d['許可番号'] || ''), '状態': '支払待ち', '確定エリア': z, '確定日': days.map(function (x) { return x.replace(/-/g, '/'); }).join(','),
+    '時間枠': slot, '通知済み': '{}', 'メモ': [d['火気'], d['電源'], d['食品衛生責任者'], d['PL保険'], d['備考']].filter(String).join('／'), '金額': amount };
+  sh.appendRow(hv.map(function (k) { return rec[k] === undefined ? '' : rec[k]; }));
+  var row = sh.getLastRow();
+
+  var lim = Math.max(30, Math.min(120, Number(conf_('支払の期限（分）')) || 30));
+  var label = ZONE_SHORT[z] + '｜' + days.map(function (x) { return x.slice(5).replace('-', '/'); }).join('・') + (z === 'C' || z === 'D' ? '｜' + slot : '');
+  var q = { 'mode': 'payment', 'locale': 'ja', 'customer_email': email, 'client_reference_id': no,
+    'success_url': LP + '?paid=' + encodeURIComponent(no) + '#entry', 'cancel_url': LP + '?cancel=' + encodeURIComponent(no) + '#entry',
+    'expires_at': String(Math.floor(Date.now() / 1000) + lim * 60), 'metadata[受付番号]': no, 'metadata[屋号]': String(d['会社名・屋号'] || '').slice(0, 400),
+    'payment_intent_data[description]': '南草津駅前 出店料 ' + no + '｜' + label };
+  var li = 0;
+  [[3300, n33], [5500, n55]].forEach(function (x) {
+    if (!x[1]) return;
+    q['line_items[' + li + '][quantity]'] = String(x[1]);
+    q['line_items[' + li + '][price_data][currency]'] = 'jpy';
+    q['line_items[' + li + '][price_data][unit_amount]'] = String(x[0]);
+    q['line_items[' + li + '][price_data][product_data][name]'] = '南草津駅前 出店料（' + x[0].toLocaleString('ja-JP') + '円の枠）';
+    q['line_items[' + li + '][price_data][product_data][description]'] = label;
+    li++;
+  });
+  var res = UrlFetchApp.fetch('https://api.stripe.com/v1/checkout/sessions', { method: 'post', headers: { Authorization: 'Bearer ' + key }, payload: q, muteHttpExceptions: true });
+  var j = JSON.parse(res.getContentText() || '{}');
+  if (res.getResponseCode() !== 200 || !j.url) {
+    setCell_(row, '状態', '期限切れ'); setCell_(row, 'メモ', 'Stripeエラー：' + ((j.error && j.error.message) || res.getResponseCode()));
+    return { success: false, error: 'stripe' };
+  }
+  setCell_(row, '決済ID', j.id);
+  var o = vendors_().filter(function (x) { return x['受付番号'] === no; })[0];
+  MailApp.sendEmail({ to: OWNER, replyTo: email, name: 'BRIDGE CYCLE 出店者台帳', subject: '【南草津 申込・支払待ち】' + (d['会社名・屋号'] || '') + '（' + no + '）' + amount + '円',
+    body: Object.keys(d).filter(function (k) { return k.charAt(0) !== '_' && ['action', 'form', 'days', 'prepay'].indexOf(k) < 0; }).map(function (k) { return k + '：' + String(d[k]).slice(0, 1000); }).join('\n') + '\n\n区画：' + label + '\n金額：' + amount + '円\n台帳：' + SpreadsheetApp.getActive().getUrl() });
+  mail_(o, '支払待ち', '【南草津駅前】出店料のお支払いをお待ちしています（' + no + '）',
+    '南草津駅前（UDCみなくさによる社会実験）の出店にお申し込みいただき、ありがとうございます。\n受付番号：' + no + '\n\n■ 申込の内容\n' + label + '\n出店料：' + amount.toLocaleString('ja-JP') + '円（税込）\n\n' +
+    '■ ' + lim + '分以内にお支払いください\nお支払いが済むと枠を確保します。期限を過ぎると申込は取り消され、枠は他の方に戻ります。\nお支払いページ：' + j.url + '\n\n' +
+    '■ お支払いのあと\n営業許可証の写真を送っていただき、確認できたら出店確定です。許可が確認できない場合は、出店料を全額返金します。\n\n出店ナビ：' + naviUrl_(o));
+  markSent_(o, 'applied');
+  return { success: true, t: tkey, no: no, checkout: j.url, amount: amount };
+}
+
+/* 支払の結果を確かめる（5分ごと）。払われたら確保、期限切れなら枠を戻す。
+   「支払待ち」の行は、Stripe上で期限切れになるまで枠を押さえ続ける（払った直後に二重に売らないため） */
+function syncPayments_() {
+  var key = PropertiesService.getScriptProperties().getProperty('STRIPE_SECRET_KEY'); if (!key) return;
+  vendors_().forEach(function (o) {
+    if (o['状態'] !== '支払待ち' || !o['決済ID']) return;
+    var res = UrlFetchApp.fetch('https://api.stripe.com/v1/checkout/sessions/' + encodeURIComponent(o['決済ID']), { headers: { Authorization: 'Bearer ' + key }, muteHttpExceptions: true });
+    if (res.getResponseCode() !== 200) return;
+    var j = JSON.parse(res.getContentText() || '{}');
+    if (j.status === 'complete' && j.payment_status === 'paid') {
+      setCell_(o._row, '支払', '済'); setCell_(o._row, '状態', '許可証確認待ち');
+      var lines = o.dates.map(function (x) { var s = slotTimes_(o, x); return '・' + jpDay_(x) + '　' + (s ? s.name : o['時間枠']); });
+      mail_(o, '支払確認', '【南草津駅前】お支払いを確認しました。枠を確保しました（' + o['受付番号'] + '）',
+        '出店料 ' + Number(o['金額'] || j.amount_total || 0).toLocaleString('ja-JP') + '円のお支払いを確認しました。ありがとうございます。\n\n■ 確保した枠：' + (ZONE_NAME[o['確定エリア']] || '') + '\n' + lines.join('\n') +
+        '\n（東口は区画を、西口Aは区画番号を、当社が決めてご案内します）\n\n■ 次にやること：営業許可証を送ってください\n' + conf_('許可証の出し方') +
+        '\n確認できたら出店確定です。許可が確認できない場合は、出店料を全額返金します。\n\n出店ナビ：' + naviUrl_(o));
+      o.sent.assigned = fmt_(new Date()); markSent_(o, 'prepaid');
+    } else if (j.status === 'expired') {
+      setCell_(o._row, '状態', '期限切れ');
+      mail_(o, '期限切れ', '【南草津駅前】お支払いが完了しなかったため、申込を取り消しました', '期限内にお支払いが確認できなかったため、申込（' + o['受付番号'] + '）を取り消し、枠を戻しました。\n出店をご希望の場合は、もう一度ページからお申し込みください（空きがあれば同じ枠を選べます）。\n' + LP + '#entry');
+    }
+  });
 }
 
 /* ================= 確認用 ================= */

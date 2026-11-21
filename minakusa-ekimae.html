@@ -316,6 +316,11 @@ body:not(.is-prelaunch) .entry-closed{display:none}
  .notify{padding:20px}.notify h3{font-size:20px}.notify .btns .btn{width:100%}
  .need{padding:18px}
 }
+.entry-days label small{margin-left:auto;font-size:11px;font-weight:800;color:#6b7c6e}.entry-days label.full small{color:#c0392b}
+.entry-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;border:2px solid var(--green);background:#f3f9f3;border-radius:14px;padding:14px 16px;margin:6px 0 16px}
+.entry-price span{font-size:13px;font-weight:900}.entry-price b{font-size:26px;font-weight:900;color:var(--green)}.entry-price small{flex-basis:100%;font-size:12px;color:#5d6b5f}
+#eSlotWrap.hide{display:none}.entry-status.preview{background:#fff7e0;border-color:#f0c040}
+.dz .left2{display:block;font-size:12px;font-weight:800;color:#5d6b5f;margin-top:4px}
 </style>
 <script src="/bc-analytics.js"></script>
 <script id="minakusa-calendar-data">
@@ -404,12 +409,12 @@ window.MINAKUSA_ENTRY={
 <div class="box detail" id="calDetail" aria-live="polite"><div class="empty"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><br>カレンダーの日付を押してください。<br>その日の売り場・時間・出店料が出ます。</div></div></div>
 </div></section>
 
-<section class="sec" id="flow"><div class="wrap"><div class="sh"><div class="en">HOW</div><h2>出店までは、4ステップ。</h2><p>出られるか分からないうちに、お金を払うことはありません。</p></div>
+<section class="sec" id="flow"><div class="wrap"><div class="sh"><div class="en">HOW</div><h2>出店までは、4ステップ。</h2><p>空いている枠を選んで、その場でカード払い。払った時点で枠を確保します。許可が確認できないときは全額返金します。</p></div>
 <div class="steps">
-<div class="step"><span class="n">1</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><b>このページから申し込む</b><p>募集開始後、フォームに入力（約5分）。いまはまだ申し込めません。</p></div>
-<div class="step"><span class="n">2</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div><b>区画と日程の連絡が届く</b><p>メニューや希望日をもとに当社が調整し、3営業日以内を目安にメールします。</p></div>
-<div class="step"><span class="n">3</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.8-1.5 1.8-2 3-2s2.2.5 3 2M14 10h4M14 13h3"/></svg></div><b>営業許可を確認</b><p>許可証の出し方は個別にご案内。食品衛生責任者も確認します。</p></div>
-<div class="step last"><span class="n">4</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><b>カードで払って出店確定</b><p>出店料はクレジットカード払い。支払いが済めば出店確定です。</p></div></div>
+<div class="step"><span class="n">1</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><b>空きを見て申し込む</b><p>売り場・日にち・時間を選んでフォームに入力（約5分）。いまはまだ申し込めません。</p></div>
+<div class="step"><span class="n">2</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div><b>その場でカード払い</b><p>出店料を事前にお支払いいただくと、枠を確保します（先着順）。30分以内に払わないと取り消し。</p></div>
+<div class="step"><span class="n">3</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.8-1.5 1.8-2 3-2s2.2.5 3 2M14 10h4M14 13h3"/></svg></div><b>許可証を送る</b><p>支払い後のメールで提出方法をご案内。確認できたら出店確定。確認できないときは全額返金。</p></div>
+<div class="step last"><span class="n">4</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><b>区画の連絡と当日</b><p>区画（番号）は当社が決めてお知らせ。当日はスマホの出店ナビが案内します。</p></div></div>
 <a class="guide-link" href="minakusa-day-guide.html"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>出店が決まったら、当日の流れはスマホのガイドで確認できます</span>見る →</a>
 </div></section>
 
@@ -433,20 +438,20 @@ window.MINAKUSA_ENTRY={
 <div class="rule"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><b>設営60分前から・撤収45分以内</b><p>ごみは持ち帰り、場所は元どおりに。</p></div>
 <div class="rule"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-3 2-4 2-6 1 1 2 2 3 2 0-2 0-4 0-6z"/></svg></div><b>火気・電源・車両は区画の条件で</b><p>出店確定時に区画ごとの条件をご案内します。</p></div>
 <div class="rule"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l6 8 6-8M12 12v8M7 13h10M7 17h10"/></svg></div><b>売上歩合なし</b><p>出店料は1枠3,300円〜の定額だけ。</p></div>
-<div class="rule"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><b>支払いはカード</b><p>区画・日程が決まってからお支払い。</p></div></div>
+<div class="rule"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><b>支払いは申込時にカード</b><p>事前入金で枠を確保。許可が確認できなければ全額返金。</p></div></div>
 <div class="policy"><div class="pol"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>キャンセルしたとき（出店者の都合）</h3>
 <div class="cancel"><div class="c1"><small>7日前まで</small><b>100%</b><span>返金（日程変更1回も可）</span></div><div class="c2"><small>6日前〜2日前</small><b>50%</b><span>返金</span></div><div class="c3"><small>前日・当日</small><b>0%</b><span>返金なし</span></div></div>
 <p>返金時は決済手数料を差し引きます。主催者側の都合や荒天で中止したときは全額返金します。</p></div>
 <div class="pol"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 15a4 4 0 0 1 .5-8A5 5 0 0 1 17 8a3.5 3.5 0 0 1 0 7z"/><path d="M9 18l-1 2M13 18l-1 2M17 18l-1 2"/></svg>雨の日</h3><div class="rainbig">前日22時</div><p style="margin-top:6px">までに開催するかを決めて、LINEかメールでお知らせします。中止なら全額返金か別の日に振り替え。小雨など安全に出られる天候なら原則開催です。</p></div></div>
 </div></section>
 
-<section class="sec white" id="faq"><div class="wrap"><div class="sh"><div class="en">FAQ</div><h2>よくある質問。</h2></div><div class="faq"><details><summary>いつ開催しますか？</summary><p>2026年12月4日（金）〜20日（日）の金・土・日、9日間を予定しています。売り場ごとのお休みは、東口Bが12/6（日）・12/13（日）（立命館大学行きのシャトルバスが走るため）、東口Cが12/20（日）（屋台を他の社会実験で使うため）です。その日も、ほかの売り場には出店できます。日程が確定したら、このページでお知らせします。</p></details><details><summary>いま申し込んだり、相談したりできますか？</summary><p>まだできません。募集開始後に、このページの申込フォームから受け付けます。開始のお知らせは、InstagramやLINEでも受け取れます。</p></details><details><summary>1日だけでも出られますか？</summary><p>はい。1日から、最大9日間（全日程）まで申し込めます。希望が重なったときは、なるべく多くのお店が出られるよう調整します。</p></details><details><summary>キッチンカーやテントがなくても出られますか？</summary><p>東口（B・C・D）は屋根の下なので、長机だけでも出店できます。ただし、横からの雨や風もあり、商品や机が濡れないことは保証できません。雨の日の備えはご自身でお願いします。西口Aはキッチンカーかテントでの出店です。どの売り場も、飲食物以外の物販だけの出店はできません。</p></details><details><summary>営業許可がまだありません。</summary><p>販売内容に合った保健所の営業許可と、食品衛生責任者が必要です。申込フォームでは「申請中・これから取る」も選べますが、出店確定までに許可が必要です。</p></details><details><summary>出店料はいつ、どうやって払いますか？</summary><p>区画・日程と許可の確認が済んでから、クレジットカードでお支払いいただきます。申込だけでは費用はかかりません。</p></details><details><summary>雨の日はどうなりますか？</summary><p>出店日の前日22時までに開催するかを決めて、LINEかメールでお知らせします。中止のときは全額返金か、別の日に振り替えます。</p></details><details><summary>お客さんから事前に注文を受けてもいいですか？</summary><p>いいえ。トラブルを防ぐため、事前注文・事前決済はお控えください。当日その場での販売をお願いします。</p></details></div></div></section>
+<section class="sec white" id="faq"><div class="wrap"><div class="sh"><div class="en">FAQ</div><h2>よくある質問。</h2></div><div class="faq"><details><summary>いつ開催しますか？</summary><p>2026年12月4日（金）〜20日（日）の金・土・日、9日間を予定しています。売り場ごとのお休みは、東口Bが12/6（日）・12/13（日）（立命館大学行きのシャトルバスが走るため）、東口Cが12/20（日）（屋台を他の社会実験で使うため）です。その日も、ほかの売り場には出店できます。日程が確定したら、このページでお知らせします。</p></details><details><summary>いま申し込んだり、相談したりできますか？</summary><p>まだできません。募集開始後に、このページの申込フォームから受け付けます。開始のお知らせは、InstagramやLINEでも受け取れます。</p></details><details><summary>1日だけでも出られますか？</summary><p>はい。1日から、最大9日間（全日程）まで申し込めます。枠は先着順で、カレンダーとフォームに残りの枠数が出ます。</p></details><details><summary>キッチンカーやテントがなくても出られますか？</summary><p>東口（B・C・D）は屋根の下なので、長机だけでも出店できます。ただし、横からの雨や風もあり、商品や机が濡れないことは保証できません。雨の日の備えはご自身でお願いします。西口Aはキッチンカーかテントでの出店です。どの売り場も、飲食物以外の物販だけの出店はできません。</p></details><details><summary>営業許可がまだありません。</summary><p>販売内容に合った保健所の営業許可と、食品衛生責任者が必要です。申込フォームでは「申請中・これから取る」も選べますが、出店日の7日前までに許可証を確認できない場合は、出店できません（出店料は全額返金します）。</p></details><details><summary>出店料はいつ、どうやって払いますか？</summary><p>申込フォームの最後に、クレジットカード（Stripe）でお支払いいただきます（事前入金）。払った時点で枠を確保し、30分以内に払わないと申込は取り消されます。その後、営業許可証を確認して出店確定です。許可が確認できないとき、また当社や主催者の都合で出店できなくなったときは、全額返金します。</p></details><details><summary>雨の日はどうなりますか？</summary><p>出店日の前日22時までに開催するかを決めて、LINEかメールでお知らせします。中止のときは全額返金か、別の日に振り替えます。</p></details><details><summary>お客さんから事前に注文を受けてもいいですか？</summary><p>いいえ。トラブルを防ぐため、事前注文・事前決済はお控えください。当日その場での販売をお願いします。</p></details></div></div></section>
 
 <section class="sec" id="entry"><div class="wrap"><div class="sh"><div class="en">ENTRY</div><h2 id="entryTitle">申込は、まもなく開始。</h2></div>
 <div id="entryStatus" class="entry-status closed" role="status"><b>募集開始前</b><span id="entryStatusText">募集開始日は、決まりしだいこのページでお知らせします。</span></div>
 <div class="entry-closed"><div class="notify"><h3 style="margin-top:0">始まったら、すぐ知らせます。</h3><p>Instagramをフォローするか、LINEで友だち追加しておくと、募集開始のお知らせが届きます。</p>
 <div class="btns"><a class="btn btn-w" href="https://www.instagram.com/bridgecycle_otsu/" target="_blank" rel="noopener noreferrer">Instagramをフォロー ↗</a><a class="btn btn-line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener noreferrer">LINEで友だち追加 ↗</a></div></div>
-<div class="need"><h3>申込のときに必要なもの</h3><ul><li><i>✓</i>お店の名前・連絡先</li><li><i>✓</i>販売するメニューと価格</li><li><i>✓</i>キッチンカー・テントの大きさ</li><li><i>✓</i>営業許可の種類（許可証を手元に）</li><li><i>✓</i>出たい売り場と日にち</li></ul><p class="entry-hint" style="margin:14px 0 0">入力は約5分。許可証の画像は、申込後のご連絡で提出方法をご案内します。</p></div></div>
+<div class="need"><h3>申込のときに必要なもの</h3><ul><li><i>✓</i>お店の名前・連絡先</li><li><i>✓</i>販売するメニューと価格</li><li><i>✓</i>キッチンカー・テントの大きさ</li><li><i>✓</i>営業許可の種類（許可証を手元に）</li><li><i>✓</i>出たい売り場と日にち</li><li><i>✓</i>クレジットカード（出店料の事前入金）</li></ul><p class="entry-hint" style="margin:14px 0 0">入力は約5分。最後にカードで出店料を払うと枠が確保されます。許可証の画像は、支払い後のメールで提出方法をご案内します。</p></div></div>
 <div id="entryFormWrap"><form id="entryForm" class="apply-form entry-form" novalidate><fieldset id="entryFields" disabled>
 <h3 class="entry-h">1. お店のこと</h3>
 <div class="fieldgrid"><div class="field"><label for="eShop">屋号・店名 <em>必須</em></label><input id="eShop" maxlength="80" autocomplete="organization" required></div><div class="field"><label for="eName">代表者・担当者のお名前 <em>必須</em></label><input id="eName" maxlength="60" autocomplete="name" required></div></div>
@@ -456,25 +461,27 @@ window.MINAKUSA_ENTRY={
 <div class="fieldgrid"><div class="field"><label for="eStyle">出店の形 <em>必須</em></label><select id="eStyle" required><option value="">選んでください</option><option>キッチンカー</option><option>テント（飲食ブース）</option><option>どちらでもよい・相談したい</option></select></div><div class="field"><label for="eSize">車両・テントの大きさ <em>必須</em></label><input id="eSize" maxlength="100" placeholder="例：全長4.7m×幅1.9m×高さ2.6m／テント3m×3m" required></div></div>
 <div class="field"><label for="eMenu">販売するメニューと価格 <em>必須</em></label><textarea id="eMenu" maxlength="600" placeholder="例：チキンカレー 800円、ラッシー 400円" required></textarea></div>
 <div class="fieldgrid"><div class="field"><label for="eFire">火気の使用 <em>必須</em></label><select id="eFire" required><option value="">選んでください</option><option>使わない</option><option>ガス（カセットコンロ・プロパン）を使う</option><option>電気で調理する</option></select></div><div class="field"><label for="ePower">電源 <em>必須</em></label><select id="ePower" required><option value="">選んでください</option><option>使わない</option><option>発電機・ポータブル電源を持ち込む</option><option>電源がほしい（相談）</option></select></div></div>
-<h3 class="entry-h">3. 区画と日程</h3>
-<div class="fieldgrid"><div class="field"><label for="eZone">第1希望の区画 <em>必須</em></label><select id="eZone" required><option value="">選んでください</option><option value="A">西口A（駅前広場）</option><option value="B">東口B（のりば1・2前）</option><option value="C">東口C（のりば3・4前・屋台を貸し出し）</option><option value="D">東口D（のりば5前）</option><option value="ANY">おまかせ</option></select></div><div class="field"><label for="eZone2">第2希望の区画（任意）</label><select id="eZone2"><option value="">なし</option><option value="A">西口A（駅前広場）</option><option value="B">東口B（のりば1・2前）</option><option value="C">東口C（のりば3・4前・屋台を貸し出し）</option><option value="D">東口D（のりば5前）</option><option value="ANY">おまかせ</option></select></div></div>
-<div class="field" style="margin-bottom:6px"><label>出店したい日 <em>必須</em>（1日〜最大9日間）</label></div>
+<h3 class="entry-h">3. 売り場・日にち・時間（先着順）</h3>
+<div class="fieldgrid"><div class="field"><label for="eZone">売り場 <em>必須</em></label><select id="eZone" required><option value="">選んでください</option><option value="A">西口A（駅前広場）</option><option value="B">東口B（のりば1・2前）</option><option value="C">東口C（のりば3・4前・屋台を貸し出し）</option><option value="D">東口D（のりば5前）</option></select></div><div class="field" id="eSlotWrap"><label for="eSlot">時間（東口C・Dのみ） <em>必須</em></label><select id="eSlot" disabled><option value="">先に売り場を選んでください</option></select></div></div>
+<div class="field" style="margin-bottom:6px"><label>出店する日 <em>必須</em>（1日〜最大9日間。満枠の日は選べません）</label></div>
 <div class="entry-days" id="eDays"><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-04" data-label="12/4（金）"><span>12/4（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-05" data-label="12/5（土）"><span>12/5（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-06" data-label="12/6（日）"><span>12/6（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-11" data-label="12/11（金）"><span>12/11（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-12" data-label="12/12（土）"><span>12/12（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-13" data-label="12/13（日）"><span>12/13（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-18" data-label="12/18（金）"><span>12/18（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-19" data-label="12/19（土）"><span>12/19（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-20" data-label="12/20（日）"><span>12/20（日）</span></label></div>
 <p class="entry-hint">東口（B・C・D）は区画を選べません。東口Bは搬入口の奥から順に詰めて配置します。西口Aの区画番号も、当社が決めてご案内します。</p>
 <p class="entry-hint" id="eDaysHint">西口Aは金・土・日、東口Bは土・日（12/6（日）・12/13（日）を除く）、東口C・Dは金・土・日です（東口Cは12/20（日）を除く）。選んだ区画に合わない日は選べません。</p>
-<div class="fieldgrid"><div class="field"><label for="eTime">希望の時間帯</label><select id="eTime"><option>区画の標準の時間でよい</option><option>朝だけ・夕だけを希望（東口C・D）</option><option>朝夕セットを希望（東口C・D）</option><option>相談したい</option></select></div><div class="field"><label for="eRefer">紹介者・コード（任意）</label><input id="eRefer" maxlength="80"></div></div>
+<div id="ePrice" class="entry-price" aria-live="polite"><span>出店料の合計</span><b>—</b><small>売り場と日にちを選ぶと計算します</small></div>
+<div class="field"><label for="eRefer">紹介者・コード（任意）</label><input id="eRefer" maxlength="80"></div>
 <h3 class="entry-h">4. 許可と保険</h3>
 <div class="fieldgrid"><div class="field"><label for="ePermit">営業許可の種類 <em>必須</em></label><select id="ePermit" required><option value="">選んでください</option><option>飲食店営業（自動車）</option><option>飲食店営業（臨時営業・露店）</option><option>菓子製造業</option><option>その他の許可・届出</option><option>申請中・これから取る</option></select></div><div class="field"><label for="ePermitNo">許可番号（任意）</label><input id="ePermitNo" maxlength="60"></div></div>
 <div class="fieldgrid"><div class="field"><label for="ePermitOffice">許可を出した保健所（任意）</label><input id="ePermitOffice" maxlength="60" placeholder="例：草津保健所"></div><div class="field"><label for="ePermitExp">許可の有効期限（任意）</label><input id="ePermitExp" type="date"></div></div>
 <div class="fieldgrid"><div class="field"><label for="eHygiene">食品衛生責任者 <em>必須</em></label><select id="eHygiene" required><option value="">選んでください</option><option>いる</option><option>いない・これから取る</option></select></div><div class="field"><label for="eInsurance">PL保険（生産物賠償責任保険） <em>必須</em></label><select id="eInsurance" required><option value="">選んでください</option><option>加入している</option><option>出店までに加入する</option><option>加入していない</option></select></div></div>
-<p class="entry-hint">許可証の画像はこのフォームでは受け付けていません。受付後のご連絡で提出方法をご案内します。</p>
+<p class="entry-hint">許可証の画像はこのフォームでは受け付けていません。お支払い後のメールで提出方法をご案内します。</p>
 <h3 class="entry-h">5. そのほか</h3>
 <div class="field"><label for="eNote">確認したいこと・伝えておきたいこと（任意）</label><textarea id="eNote" maxlength="800"></textarea></div>
 <div class="hp" aria-hidden="true"><label>空欄のまま<input id="eHp" tabindex="-1" autocomplete="off"></label></div>
 <label class="check"><input id="eAgreeRules" type="checkbox" required><span>「出店のルール」を読み、守ります。お客さまからの事前注文・事前決済は受け付けません。<a href="#rules" style="color:var(--green);font-weight:900">出店のルール</a></span></label>
-<label class="check"><input id="eAgreePrivacy" type="checkbox" required><span>申込は出店の確定ではなく、区画・日程・出店料は確認後に決まること、お支払い（クレジットカード）の完了で出店確定となることを理解しました。出店調整のため、入力情報をBRIDGE CYCLEおよび主催者（UDCみなくさ）に必要な範囲で共有することに同意します。<a href="privacy.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:900">プライバシーポリシー</a></span></label>
+<label class="check"><input id="eAgreePrivacy" type="checkbox" required><span>送信後すぐにカード（Stripe）で出店料を支払うこと、30分以内に払わないと申込が取り消されること、営業許可証を確認できたら出店確定となり、確認できないときは全額返金されること、区画（番号）は当社が決めることを理解しました。キャンセルの返金は「出店のルール」のとおりです。出店調整のため、入力情報をBRIDGE CYCLEおよび主催者（UDCみなくさ）に必要な範囲で共有することに同意します。<a href="privacy.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:900">プライバシーポリシー</a></span></label>
 </fieldset>
 <button class="btn btn-orange entry-submit" id="entrySubmit" type="submit" disabled>受付開始前のため、まだ送信できません</button>
+<p class="entry-hint" style="text-align:center;margin-top:8px">カード番号はこのページには入力しません。決済はStripeの画面で行います。</p>
 <div id="entryMsg" class="form-msg" role="alert" aria-live="polite"></div>
 <div id="entryDone" class="entry-done" hidden></div>
 </form></div>
@@ -493,12 +500,15 @@ r.addEventListener("scroll",function(){var w=r.firstElementChild?r.firstElementC
 (function(){'use strict';
 var D=window.MINAKUSA_CAL,E=window.MINAKUSA_ENTRY||{};if(!D)return;
 var g=document.getElementById('calGrid'),det=document.getElementById('calDetail');if(!g)return;
-var W=['日','月','火','水','木','金','土'],open=E.open===true,sel=null;
+var W=['日','月','火','水','木','金','土'],open=E.open===true||/[?&]preview=1/.test(location.search),sel=null;
 var COL={A:'cA',B:'cB',C:'cC',D:'cD'};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function dt(iso){var p=iso.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
 function zs(iso){var w=dt(iso).getDay();return Object.keys(D.zones).filter(function(z){return D.zones[z].dow[w]!==undefined&&(D.zones[z].off||[]).indexOf(iso)<0;});}
-function left(iso,z){return Math.max(0,D.zones[z].cap-((D.booked[iso]||{})[z]||0));}
+function left(iso,z){var u=(D.used||{})[iso]||{},b=(D.booked[iso]||{})[z]||0,c=D.zones[z].cap;
+  if(z==='C'||z==='D')return Math.max(0,Math.max(c-(u[z+'朝']||0),c-(u[z+'夕']||0))-b);return Math.max(0,c-(u[z]||0)-b);}
+function leftCD(iso,z){var u=(D.used||{})[iso]||{},c=D.zones[z].cap;return '朝 残り'+Math.max(0,c-(u[z+'朝']||0))+'枠・夕 残り'+Math.max(0,c-(u[z+'夕']||0))+'枠';}
+window.MINAKUSA_LEFT=left;
 function draw(){
   var h='';['月','火','水','木','金','土','日'].forEach(function(w,i){h+='<div class="dw'+(i===5?' sa':i===6?' su':'')+'">'+w+'</div>';});
   for(var i=0;i<(new Date(2026,11,1).getDay()+6)%7;i++)h+='<div class="dc blank"></div>';
@@ -508,13 +518,13 @@ function draw(){
     h+='<button type="button" class="dc'+(sel===iso?' sel':'')+'" data-day="'+iso+'" aria-label="12月'+d+'日（'+W[dt(iso).getDay()]+'）">'+d+'<span class="bars">'+bars+'</span></button>';}
   g.innerHTML=h;
 }
-function show(iso){sel=iso;draw();var d=dt(iso);
+function show(iso,quiet){sel=iso;draw();var d=dt(iso);
   var h='<h3>12月'+d.getDate()+'日（'+W[d.getDay()]+'）</h3><p class="sub">この日に出店できる売り場'+(open?'':'（募集開始前のため、残りの枠は受付開始後に表示します）')+'</p>';
   zs(iso).forEach(function(z){var Z=D.zones[z],n=left(iso,z),sh=(D.shops[iso]||[]).filter(function(s){return s.zone===z;});
-    h+='<div class="dz '+z+'">'+(open?'<span class="left">'+(n?'残り'+n+'枠':'満枠')+'</span>':'')+'<b>'+esc(Z.name)+'｜'+esc(Z.sub)+'</b><p>'+esc(Z.dow[d.getDay()])+'<br>'+esc(Z.price)+'</p>'
+    h+='<div class="dz '+z+'">'+(open?'<span class="left">'+(n?'残り'+n+'枠':'満枠')+'</span>':'')+'<b>'+esc(Z.name)+'｜'+esc(Z.sub)+'</b><p>'+esc(Z.dow[d.getDay()])+'<br>'+esc(Z.price)+(open&&(z==='C'||z==='D')?'<span class="left2">'+leftCD(iso,z)+'</span>':'')+'</p>'
       +(sh.length?'<p>出店予定：'+sh.map(function(s){return esc(s.name)+(s.item?'（'+esc(s.item)+'）':'');}).join('、')+'</p>':'')
       +(open&&n?'<button type="button" data-pick="'+z+'">この日・この売り場で申し込む</button>':'')+'</div>';});
-  det.innerHTML=h;if(window.innerWidth<900)det.scrollIntoView({behavior:'smooth',block:'start'});
+  det.innerHTML=h;if(!quiet&&window.innerWidth<900)det.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function pick(iso,z){var s=document.getElementById('eZone');if(s){s.value=z;s.dispatchEvent(new Event('change'));}
   var b=document.querySelector('#eDays input[value="'+iso+'"]');if(b&&!b.disabled)b.checked=true;
@@ -523,6 +533,14 @@ function pick(iso,z){var s=document.getElementById('eZone');if(s){s.value=z;s.di
 g.addEventListener('click',function(e){var b=e.target.closest('[data-day]');if(b)show(b.getAttribute('data-day'));});
 det.addEventListener('click',function(e){var b=e.target.closest('[data-pick]');if(b&&sel)pick(sel,b.getAttribute('data-pick'));});
 draw();
+/* 空き状況：台帳（出店者台帳のウェブアプリ）から、確保済み・支払待ちの枠数を読む */
+window.MINAKUSA_REFRESH=function(){
+  if(!E.vendorApi)return Promise.resolve();
+  return fetch(E.vendorApi+'?action=avail',{cache:'no-store'}).then(function(r){return r.json();}).then(function(j){
+    if(!j||!j.ok)return;D.used=j.used||{};D.serverOpen=j.open===true;draw();if(sel)show(sel,true);
+    document.dispatchEvent(new Event('minakusa-avail'));}).catch(function(){});
+};
+window.MINAKUSA_REFRESH();
 })();
 </script>
 <script id="minakusa-calc">
@@ -541,115 +559,152 @@ document.querySelectorAll('#cFee button').forEach(function(b){b.addEventListener
 calc();})();
 </script>
 <script id="minakusa-entry">
+/* 出店申込（事前入金）
+   ・空き状況は出店者台帳（MINAKUSA_ENTRY.vendorApi）から読み、満枠の日は選べなくする
+   ・送信すると台帳が枠を仮押さえし、Stripeの決済画面（Checkout）のURLを返す → そのまま移動して支払い
+   ・受付前（open:false）は送信できない。?preview=1 を付けると、入力と金額の計算だけ試せる（送信はしない）
+   ・?preview=1&send=1 は運営のテスト用。台帳の「受付」が「テスト」のときだけ受け付ける（Stripeはテスト用の鍵で） */
 (function(){'use strict';
-var C=window.MINAKUSA_ENTRY||{open:false};
+var C=window.MINAKUSA_ENTRY||{open:false},CAL=window.MINAKUSA_CAL||{zones:{}};
 var $=function(id){return document.getElementById(id);};
 var form=$('entryForm');if(!form)return;
 var fields=$('entryFields'),btn=$('entrySubmit'),msg=$('entryMsg');
-var ZONE={A:'西口A（駅前広場）',B:'東口B（のりば1・2前）',C:'東口C（のりば3・4前）',D:'東口D（のりば5前）',ANY:'おまかせ'};
-var DOW={A:['金','土','日'],B:['土','日'],C:['金','土','日'],D:['金','土','日'],ANY:['金','土','日']};
-var open=C.open===true;
-document.body.classList.toggle('is-prelaunch',!open);
+var ZONE={A:'西口A（駅前広場）',B:'東口B（のりば1・2前）',C:'東口C（のりば3・4前）',D:'東口D（のりば5前）'};
+var DOW={A:['金','土','日'],B:['土','日'],C:['金','土','日'],D:['金','土','日']};
+var SLOTS=['朝 7:00〜9:30','夕 17:00〜20:00','朝夕セット'];
+var open=C.open===true,preview=!open&&/[?&]preview=1/.test(location.search),testSend=preview&&/[?&]send=1/.test(location.search),ready=!!C.vendorApi;
+document.body.classList.toggle('is-prelaunch',!open&&!preview);
+function yen(n){return n.toLocaleString('ja-JP')+'円';}
 
 /* ---- 受付状態の表示 ---- */
 function setState(){
   var st=$('entryStatus'),txt=$('entryStatusText');
-  if(open){
+  if(open&&ready){
     st.className='entry-status open';st.querySelector('b').textContent='正式募集を受付中';
     var nav=document.getElementById('navEntry');if(nav)nav.textContent='出店を申し込む →';
-    txt.textContent='出店申込を受け付けています。'+(C.deadline?'締切は'+C.deadline+'です。':'区画が埋まり次第、締め切ります。')+'送信後、'+(C.replyDays||'3営業日以内')+'を目安にメールでご連絡します。';
-    fields.disabled=false;btn.disabled=false;btn.textContent='この内容で申し込む';
-    var n=$('entryNotice');if(n)n.textContent='南草津駅前の飲食出店・社会実験｜12月の金・土・日の3週間を予定。出店申込受付中'+(C.deadline?'（締切：'+C.deadline+'）':'')+'。';
+    txt.textContent='先着順で受け付けています。'+(C.deadline?'締切は'+C.deadline+'です。':'枠が埋まり次第、締め切ります。')+'最後にカードで出店料を払うと、枠を確保します。';
+    fields.disabled=false;btn.disabled=false;btn.textContent='カードの支払いへ進む';
+    var n=$('entryNotice');if(n)n.textContent='南草津駅前の飲食出店・社会実験｜12月の金・土・日。出店申込受付中（先着順・事前入金）'+(C.deadline?'（締切：'+C.deadline+'）':'')+'。';
     var m=$('mobileCta');if(m){m.href='#entry';m.textContent='出店を申し込む →';}
     var h=document.getElementById('entryTitle');if(h)h.textContent='出店申込フォーム';
+  }else if(preview){
+    st.className='entry-status preview';st.querySelector('b').textContent='プレビュー（運営の確認用）';
+    txt.textContent=testSend?'テスト送信モード：台帳の「受付」が「テスト」のときだけ送信でき、Stripeのテスト決済画面に進みます。':'入力と金額の計算を試せます。送信・決済はしません。';
+    fields.disabled=false;btn.disabled=false;btn.textContent='プレビュー：支払いへ進む（送信しません）';
   }else{
-    txt.textContent=(C.opensOn?'受付開始は'+C.opensOn+'の予定です。':'募集開始日は、決まりしだいこのページでお知らせします。')+'いまは申込・相談・仮予約は受け付けていません。';
+    txt.textContent=(open?'受付の準備中です。少し時間をおいて、もう一度開いてください。':(C.opensOn?'受付開始は'+C.opensOn+'の予定です。':'募集開始日は、決まりしだいこのページでお知らせします。'))+'いまは申込・相談・仮予約は受け付けていません。';
     fields.disabled=true;btn.disabled=true;
   }
 }
 
-/* ---- 区画に合わない日を選べなくする ---- */
-function syncDays(){
-  var z=$('eZone').value||'ANY',ok=DOW[z]||DOW.ANY;
-  Array.prototype.forEach.call(document.querySelectorAll('#eDays label'),function(l){
-    var box=l.querySelector('input'),zc=(window.MINAKUSA_CAL&&window.MINAKUSA_CAL.zones[z])||{},allowed=ok.indexOf(l.getAttribute('data-dow'))>=0&&(zc.off||[]).indexOf(box.value)<0;
-    l.classList.toggle('off',!allowed);box.disabled=!allowed||fields.disabled;if(!allowed)box.checked=false;
-  });
+/* ---- 時間（東口C・Dだけ選ぶ） ---- */
+function syncSlot(){
+  var z=$('eZone').value,s=$('eSlot'),w=$('eSlotWrap'),cd=z==='C'||z==='D',keep=s.value;
+  w.classList.toggle('hide',!!z&&!cd);
+  if(cd){s.innerHTML='<option value="">選んでください</option>'+SLOTS.map(function(x){return '<option'+(x===keep?' selected':'')+'>'+x+(x==='朝夕セット'?'（5,500円）':'（3,300円）')+'</option>';}).join('');
+    Array.prototype.forEach.call(s.options,function(o){if(o.value)o.value=o.textContent.replace(/（.*$/,'');});s.value=SLOTS.indexOf(keep)>=0?keep:'';s.disabled=fields.disabled;s.required=true;}
+  else{s.innerHTML='<option value="">'+(z?'選ぶ必要はありません（10:00〜20:00、西口Aの金曜は15:00〜20:00）':'先に売り場を選んでください')+'</option>';s.disabled=true;s.required=false;}
 }
-$('eZone').addEventListener('change',syncDays);
+
+/* ---- 日にち：区画の曜日・お休み・残り枠で選べる日を決める ---- */
+function remain(iso,z,slot){
+  var u=(CAL.used||{})[iso]||{},cap=(CAL.zones[z]||{}).cap||0,b=((CAL.booked||{})[iso]||{})[z]||0;
+  if(z==='C'||z==='D'){var m=cap-(u[z+'朝']||0)-b,e=cap-(u[z+'夕']||0)-b;return slot==='朝夕セット'?Math.min(m,e):/^夕/.test(slot)?e:/^朝/.test(slot)?m:Math.max(m,e);}
+  return cap-(u[z]||0)-b;
+}
+function syncDays(){
+  var z=$('eZone').value,slot=$('eSlot').value,ok=DOW[z]||['金','土','日'],zc=CAL.zones[z]||{},known=!!CAL.used;
+  Array.prototype.forEach.call(document.querySelectorAll('#eDays label'),function(l){
+    var box=l.querySelector('input'),sm=l.querySelector('small');
+    if(!sm){sm=document.createElement('small');l.appendChild(sm);}
+    var allowed=!!z&&ok.indexOf(l.getAttribute('data-dow'))>=0&&(zc.off||[]).indexOf(box.value)<0,r=z&&known?remain(box.value,z,slot):null,full=allowed&&r!==null&&r<=0;
+    sm.textContent=!z?'':!allowed?'お休み':full?'満枠':r!==null?'残り'+r:'';
+    l.classList.toggle('off',!allowed||full);l.classList.toggle('full',full);
+    box.disabled=!allowed||full||fields.disabled;if(box.disabled)box.checked=false;
+  });
+  calcPrice();
+}
+function picked(){return Array.prototype.filter.call(document.querySelectorAll('#eDays input'),function(b){return b.checked;});}
+function priceOf(z,iso,slot){var p=iso.split('-'),w=new Date(+p[0],+p[1]-1,+p[2]).getDay();if(z==='A')return w===5?3300:5500;if(z==='B')return 5500;return slot==='朝夕セット'?5500:3300;}
+function calcPrice(){
+  var z=$('eZone').value,slot=$('eSlot').value,d=picked(),box=$('ePrice');
+  if(!z||!d.length||((z==='C'||z==='D')&&!slot)){box.querySelector('b').textContent='—';box.querySelector('small').textContent='売り場・日にち'+((z==='C'||z==='D')?'・時間':'')+'を選ぶと計算します';return 0;}
+  var t=0,a=0,b=0;d.forEach(function(x){var p=priceOf(z,x.value,slot);t+=p;if(p===3300)a++;else b++;});
+  box.querySelector('b').textContent=yen(t)+'（税込）';
+  box.querySelector('small').textContent=[a?'3,300円×'+a+'日':'',b?'5,500円×'+b+'日':''].filter(String).join('＋')+'｜送信のあと、カードで払うと枠を確保します';
+  if(!btn.disabled&&open&&ready)btn.textContent='カードの支払いへ進む（'+yen(t)+'）';
+  return t;
+}
+$('eZone').addEventListener('change',function(){syncSlot();syncDays();});
+$('eSlot').addEventListener('change',syncDays);
+$('eDays').addEventListener('change',calcPrice);
+document.addEventListener('minakusa-avail',syncDays);
 
 function v(id){var e=$(id);return e?String(e.value||'').trim():'';}
-function days(){return Array.prototype.filter.call(document.querySelectorAll('#eDays input'),function(b){return b.checked;}).map(function(b){return b.getAttribute('data-label');});}
-function noUrl(s){return String(s).replace(/https?:\/\/\S+/g,'（URL省略）');}
-
 function validate(){
-  var req=[['eShop','屋号・店名'],['eName','お名前'],['eEmail','メールアドレス'],['eTel','電話番号'],['eStyle','出店の形'],['eSize','車両・テントの大きさ'],['eMenu','販売するメニュー'],['eFire','火気の使用'],['ePower','電源'],['eZone','第1希望の区画'],['ePermit','営業許可の種類'],['eHygiene','食品衛生責任者'],['eInsurance','PL保険']];
+  var req=[['eShop','屋号・店名'],['eName','お名前'],['eEmail','メールアドレス'],['eTel','電話番号'],['eStyle','出店の形'],['eSize','車両・テントの大きさ'],['eMenu','販売するメニュー'],['eFire','火気の使用'],['ePower','電源'],['eZone','売り場'],['ePermit','営業許可の種類'],['eHygiene','食品衛生責任者'],['eInsurance','PL保険']];
   for(var i=0;i<req.length;i++){if(!v(req[i][0])){$(req[i][0]).focus();return req[i][1]+'を入力してください。';}}
+  if((v('eZone')==='C'||v('eZone')==='D')&&!v('eSlot')){$('eSlot').focus();return '時間を選んでください。';}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('eEmail'))){$('eEmail').focus();return 'メールアドレスの形を確認してください。';}
   if(!/^[0-9０-９+\-－() ]{9,20}$/.test(v('eTel'))){$('eTel').focus();return '電話番号を確認してください。';}
-  if(!days().length)return '出店したい日を1日以上選んでください。';
+  if(!picked().length)return '出店する日を1日以上選んでください。';
   if(!$('eAgreeRules').checked||!$('eAgreePrivacy').checked)return '2つの確認事項にチェックを入れてください。';
   return '';
 }
-
 function receiptId(){var d=new Date(),p=function(n){return('0'+n).slice(-2);};return 'MK'+p(d.getMonth()+1)+p(d.getDate())+'-'+Math.random().toString(36).slice(2,6).toUpperCase();}
+var ERR={full:'選んだ日のうち、満枠になった日があります。日にちを選び直してください。',not_open:'受付開始前のため、まだ申し込めません。',payment_not_ready:'お支払いの準備中です。少し時間をおいてお試しください。',stripe:'お支払いページを用意できませんでした。少し時間をおいてお試しください。',bad_day:'選べない日が含まれています。日にちを選び直してください。',bad_slot:'時間を選び直してください。'};
 
 form.addEventListener('submit',function(ev){
   ev.preventDefault();
-  if(!open){msg.textContent='受付開始前のため、まだ送信できません。';return;}
+  if(!open&&!preview){msg.textContent='受付開始前のため、まだ送信できません。';return;}
   if(v('eHp'))return;
   var err=validate();if(err){msg.textContent=err;return;}
-  msg.textContent='';btn.disabled=true;btn.textContent='送信しています…';
-  var id=receiptId(),shop=v('eShop'),d=days();
-  // 個人情報や申込番号はURLに渡さず、希望エリアだけ引き継ぐ。
-  var requestedZone=v('eZone'),validGuideZone=['A','B','C','D'].indexOf(requestedZone)!==-1;
-  var guideUrl='https://www.bridgecycleco.com/minakusa-day-guide.html?from=application'+(validGuideZone?'&zone='+encodeURIComponent(requestedZone):'');
-  var data={
-    form:'minakusa_apply',
+  var d=picked(),total=calcPrice(),z=v('eZone'),slot=(z==='C'||z==='D')?v('eSlot'):'';
+  if(preview&&!testSend){msg.textContent='プレビューのため送信しません。本番では、ここで '+yen(total)+' のカード決済画面（Stripe）に移動します。';return;}
+  if(!ready){msg.textContent=ERR.payment_not_ready;return;}
+  msg.textContent='';btn.disabled=true;btn.textContent='お支払いページを用意しています…';
+  var id=receiptId(),shop=v('eShop'),labels=d.map(function(b){return b.getAttribute('data-label');});
+  var data={action:'apply',prepay:true,test:testSend,form:'minakusa_apply',zone:z,slot:slot,days:d.map(function(b){return b.value;}),
     '受付番号':id,'会社名・屋号':shop,'お名前':v('eName'),email:v('eEmail'),'電話':v('eTel'),'SNS・Web':v('eSns')||'なし',
     '出店の形':v('eStyle'),'大きさ':v('eSize'),'メニューと価格':v('eMenu'),'火気':v('eFire'),'電源':v('ePower'),
-    '第1希望の区画':ZONE[v('eZone')]||'','第2希望の区画':ZONE[v('eZone2')]||'なし','出店したい日':d.join('、')+'（'+d.length+'日）','希望の時間帯':v('eTime'),
+    '売り場':ZONE[z],'時間':slot||'標準','出店したい日':labels.join('、')+'（'+labels.length+'日）','出店料（税込）':total+'円',
     '営業許可の種類':v('ePermit'),'許可番号':v('ePermitNo')||'未記入','保健所':v('ePermitOffice')||'未記入','有効期限':v('ePermitExp')||'未記入',
-    '食品衛生責任者':v('eHygiene'),'PL保険':v('eInsurance'),'紹介者':v('eRefer')||'なし','備考':v('eNote')||'なし',
-    '同意':'出店のルール・情報共有に同意',
-    _subject:'【南草津駅前 出店申込】'+shop+'（'+id+'）',_page:location.href.split('#')[0]
-  };
-  data._autoresponse=['【南草津駅前】出店申込を受け付けました（'+id+'）','',shop+' '+v('eName')+' 様','',
-    '南草津駅前（UDCみなくさによる社会実験）の出店にお申し込みいただき、ありがとうございます。','以下の内容で受け付けました。','',
-    '■ 受付番号：'+id,'■ 第1希望の区画：'+data['第1希望の区画'],'■ 第2希望の区画：'+data['第2希望の区画'],'■ 出店したい日：'+data['出店したい日'],
-    '■ 出店の形：'+data['出店の形']+'（'+noUrl(data['大きさ'])+'）','■ メニュー：'+noUrl(data['メニューと価格']).slice(0,300),'',
-    '■ この後の流れ','1. 当社で内容と区画を確認し、'+(C.replyDays||'3営業日以内')+'を目安にこのメールアドレスへご連絡します。',
-    '2. 営業許可証の画像は、そのご連絡で提出方法をご案内します（このメールへの添付は不要です）。',
-    '3. 区画・日程・出店料が決まったら、カード決済（Stripe）のお支払いページをお送りします。お支払いの完了で出店確定です。','',
-    '※この時点では、まだ出店は確定していません。','※お客さまからの事前注文・事前決済の受付はお控えください。','※雨天時の開催は前日22時までにお知らせします。キャンセルの扱いはページの「出店のルール」をご覧ください。','','■ 申込後の準備・当日スマホガイド（準備版）',guideUrl,'※このリンクから準備を確認できます。正式な出店日・区画・搬入時間は確定案内を優先してください。','',
-    'BRIDGE CYCLE株式会社（南草津駅前 出店者募集・調整）','Mail info@bridgecycleco.com','TEL 080-5309-9770（平日10〜17時）'].join('\n');
-  var body=JSON.stringify(data);
-  try{window.bcTrack&&bcTrack('form_submit',{method:'web',form:'minakusa_apply'});}catch(e){}
-  var viaLedger=C.vendorApi?fetch(C.vendorApi,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({action:'apply'},data))}).then(function(r){return r.json();}).then(function(j){if(!j||j.success!==true||!j.t)throw new Error('ledger');try{localStorage.setItem('minakusa-vendor-token',j.t);}catch(e){}guideUrl='https://www.bridgecycleco.com/minakusa-day-guide.html?t='+encodeURIComponent(j.t);return j;}):Promise.reject(new Error('no-ledger'));
-  viaLedger.catch(function(){return fetch(C.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body})
+    '食品衛生責任者':v('eHygiene'),'PL保険':v('eInsurance'),'紹介者':v('eRefer')||'なし','備考':v('eNote')||'なし','同意':'出店のルール・事前入金・情報共有に同意'};
+  try{window.bcTrack&&bcTrack('form_submit',{method:'web',form:'minakusa_apply',value:total});}catch(e){}
+  fetch(C.vendorApi,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)})
     .then(function(r){return r.json();})
-    .then(function(j){if(!j||j.success!==true)throw new Error('relay');return j;});})
-    .catch(function(){return fetch(C.fallback,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:body}).then(function(r){if(!r.ok)throw new Error('fallback');return{};});})
-    .then(function(){
-      try{localStorage.setItem('minakusa-vendor-profile-v1',JSON.stringify({shop:shop,email:v('eEmail'),zone:v('eZone'),receipt:id,days:d,appliedAt:new Date().toISOString()}));localStorage.setItem('minakusa-journey-v1',JSON.stringify({applied:true}));}catch(e){}
-      fields.disabled=true;btn.hidden=true;
-      var done=$('entryDone');done.hidden=false;
-      done.innerHTML='<b>申込を受け付けました。受付番号：'+id+'</b><br>'+(C.replyDays||'3営業日以内')+'を目安に、ご入力のメールアドレスへご連絡します。なお、申込だけでは出店は確定しません。';
-      var guideMessage=document.createElement('p');guideMessage.className='application-guide-message';
-      var mobile=window.matchMedia('(max-width:820px)').matches;
-      guideMessage.textContent=mobile?'スマホ用の準備ガイドをこの画面で自動表示します。':'準備ガイドはスマホからも利用できます。下のリンクを開くか、確認メールのURLをスマホで開いてください。';
-      var guideButton=document.createElement('a');guideButton.className='btn btn-green application-guide-button';guideButton.href=guideUrl;guideButton.textContent='出店ナビを開く（撤収までスマホで案内） →';
-      done.append(guideMessage,guideButton);
-      done.scrollIntoView({behavior:'smooth',block:'center'});
-      // 外部申込送信が成功した場合のみガイドへ進む。モバイルは同じタブで開き、ポップアップ抑止を回避する。
-      if(mobile){window.setTimeout(function(){if(document.visibilityState==='visible'&&document.body.contains(done))window.location.assign(guideUrl);},2600);}
+    .then(function(j){
+      if(!j||j.success!==true||!j.checkout){var e=new Error((j&&j.error)||'ledger');e.code=j&&j.error;throw e;}
+      try{localStorage.setItem('minakusa-vendor-token',j.t);localStorage.setItem('minakusa-vendor-profile-v1',JSON.stringify({shop:shop,email:v('eEmail'),zone:z,receipt:j.no,days:labels,appliedAt:new Date().toISOString()}));localStorage.setItem('minakusa-journey-v1',JSON.stringify({applied:true}));}catch(e){}
+      btn.textContent='お支払いページへ移動しています…';
+      window.location.assign(j.checkout);
     })
-    .catch(function(){btn.disabled=false;btn.textContent='この内容で申し込む';msg.textContent='送信できませんでした。時間をおいてもう一度お試しいただくか、info@bridgecycleco.com までご連絡ください。';});
+    .catch(function(e){
+      btn.disabled=false;calcPrice();if(!/円/.test(btn.textContent))btn.textContent='カードの支払いへ進む';
+      msg.textContent=ERR[e.code]||'送信できませんでした。時間をおいてもう一度お試しいただくか、info@bridgecycleco.com までご連絡ください。';
+      if(e.code==='full'&&window.MINAKUSA_REFRESH)window.MINAKUSA_REFRESH();
+    });
 });
 
-setState();syncDays();
-})();
+/* ---- Stripeから戻ってきたとき ---- */
+function back(){
+  var q=new URLSearchParams(location.search),paid=q.get('paid'),cancel=q.get('cancel'),done=$('entryDone');
+  if(!paid&&!cancel)return;
+  var no=String(paid||cancel).replace(/[^A-Za-z0-9\-]/g,'').slice(0,20);
+  done.hidden=false;
+  if(paid){
+    fields.disabled=true;btn.hidden=true;
+    var t='';try{t=localStorage.getItem('minakusa-vendor-token')||'';}catch(e){}
+    done.innerHTML='<b>お支払いありがとうございます。受付番号：'+no+'</b><br>枠を確保しました。確認のメールが数分以内に届きます。次は営業許可証の提出です（メールでご案内します）。許可証を確認できたら出店確定です。';
+    if(t){var a=document.createElement('a');a.className='btn btn-green application-guide-button';a.href='https://www.bridgecycleco.com/minakusa-day-guide.html?t='+encodeURIComponent(t);a.textContent='出店ナビを開く（撤収までスマホで案内） →';done.appendChild(a);}
+  }else{
+    done.innerHTML='<b>お支払いは完了していません（受付番号：'+no+'）</b><br>申込から30分以内なら、確認メールのお支払いページから払えます。過ぎると申込は取り消され、枠は戻ります。';
+  }
+  setTimeout(function(){done.scrollIntoView({behavior:'smooth',block:'center'});},300);
+}
 
+setState();syncSlot();syncDays();back();
+})();
 </script>
 </body>
 </html>
