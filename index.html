@@ -361,6 +361,22 @@ section.alt{background:var(--mist)}
 
 /* 代表 */
 #person{background:#fff}
+/* 強み */
+#strengths{background:#fff;padding:clamp(48px,6vw,76px) 0}
+#strengths .st-k{font-size:11px;letter-spacing:.15em;color:#52794a;font-weight:800;margin-bottom:8px}
+#strengths h2{font-family:"Zen Old Mincho",serif;font-size:clamp(26px,3.2vw,38px);line-height:1.35;color:#142237;letter-spacing:-.03em}
+#strengths .st-lead{margin-top:10px;font-size:14px;color:#55687b;line-height:1.9;max-width:760px}
+.st-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
+.st-item{border:1px solid #dce5e4;border-radius:10px;padding:20px 22px;background:#fbfcfb}
+.st-item .no{font:800 12px/1 Arial,sans-serif;color:#5c9149;letter-spacing:.08em}
+.st-item h3{font-size:18px;line-height:1.5;color:#142237;margin:8px 0 6px}
+.st-item p{font-size:13.5px;line-height:1.85;color:#4f6170}
+.st-item .ev{margin-top:10px;font-size:12.5px;color:#476b37;background:#edf5e6;border-radius:5px;padding:7px 10px;line-height:1.7}
+.st-voice{margin-top:16px;border-left:4px solid #9bcf53;background:#f4f7f6;border-radius:0 10px 10px 0;padding:18px 22px}
+.st-voice q{display:block;font-size:16px;line-height:1.8;color:#142237;font-weight:700;quotes:"「" "」"}
+.st-voice p{margin-top:6px;font-size:12.5px;color:#627382}
+@media(max-width:760px){.st-grid{grid-template-columns:1fr}}
+
 .hero-microtrust a{color:#c5eb82;text-decoration:underline;text-underline-offset:3px}
 #person .person-career{margin:6px 0 16px;padding:16px 18px;background:#f4f7f6;border-radius:10px}#person .person-career-h{font-weight:700;color:var(--ai);font-size:14px;margin:0 0 8px}#person .person-career ul{list-style:none;margin:0;padding:0}#person .person-career li{font-size:13.5px;color:var(--ai-2);line-height:1.7;padding:5px 0;border-top:1px solid #e3e9e8}#person .person-career li:first-child{border-top:0}#person .person-career li b{display:inline-block;min-width:5.5em;color:var(--ai)}#person .person-career-note{font-size:12px!important;margin:8px 0 0!important}
 .person{display:grid;grid-template-columns:320px 1fr;gap:52px;align-items:start;margin-top:6px}
@@ -1154,6 +1170,21 @@ html .hero-microtrust{font-size:13px}
 
   <!-- 自治体・支援機関の方へ -->
 
+
+<section id="strengths" aria-labelledby="strengths-h">
+    <div class="w">
+      <p class="st-k">BRIDGE CYCLEの強み</p>
+      <h2 id="strengths-h">支援の仕組みをつくる側と、<br>支援を受ける現場の両方を知っています。</h2>
+      <p class="st-lead">代表は商工会の経営指導員として、事業者の伴走と、支援する組織・制度の見直しの両方に、成果の数字を持って関わってきました。その経験を、補助金・行政の業務・店舗の承継に使っています。</p>
+      <div class="st-grid">
+        <div class="st-item"><p class="no">01</p><h3>「何を成果として測るか」から設計します</h3><p>商工団体への補助を、相談件数ではなく支援先の生産性の伸びで決まる仕組みに見直すことを提案し、県・国の出先機関・市と実現しました。行政の業務では、報告書を納品して終わらず、次の施策に使える指標から組み立てます。</p><p class="ev">伴走支援のKPI：1人当たり付加価値額（営業利益＋人件費＋減価償却費÷従業員数）</p></div>
+        <div class="st-item"><p class="no">02</p><h3>採択のためでなく、事業が回る計画を</h3><p>経営計画は、数字まで代表が経営者と一緒につくります。採択はゴールではなく、設備を入れたあとに利益と人件費が増えることを目的にしています。</p><p class="ev">大型補助金 11／13件採択（代表個人の通算）・当社設立後の補助金 4／4件採択</p></div>
+        <div class="st-item"><p class="no">03</p><h3>支援する人を、成果に集中させる運営</h3><p>商工会の管理職として、受託事務や行事への動員を減らし、指導員を事業者の伴走に集中させました。複数の専門家で取り組む業務でも、全体の進め方と成果に責任を持ちます。</p><p class="ev">管理職を務めた商工会は、外部委員による組織評価で全項目が最高評価（令和7年度）</p></div>
+        <div class="st-item"><p class="no">04</p><h3>中立で、担当が変わりません</h3><p>設備メーカー・販売会社とは紹介料をやり取りしません。相談から計画づくりまで代表が自分で担当し、途中で担当者が替わることはありません。</p><p class="ev">認定経営革新等支援機関・M&amp;A支援機関登録・滋賀県 入札参加資格</p></div>
+      </div>
+      <div class="st-voice"><q>伴走して、事業計画の作成から補助金の申請、社員会議の同席までしてもらった結果、業績も上がった。感謝している。</q><p>鮮魚仲卸業の社長（代表が商工会の経営指導員として伴走した事業者・令和6年度）</p></div>
+    </div>
+  </section>
 
   <!-- 代表 -->
   <section class="alt" id="person">
