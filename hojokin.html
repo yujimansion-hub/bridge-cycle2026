@@ -93,6 +93,35 @@ section.alt{background:var(--mist)}
 #schedule .sk .dt b{font-size:16px;color:var(--ai)}
 #schedule .sk .left{margin-left:auto;font-size:14px;font-weight:700;color:var(--tape-d)}
 #schedule .sk .memo{width:100%;font-size:13px;color:var(--ai-3)}
+#schedule .sk-upd{margin-top:14px;font-size:13px;color:var(--ai-3)}
+#shindan .sd-card{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:24px;max-width:760px}
+#shindan .sd-prog{height:6px;background:var(--mist);border-radius:99px;overflow:hidden;margin-bottom:14px}
+#shindan .sd-prog span{display:block;height:100%;background:var(--tape)}
+#shindan .sd-step{font-size:13px;color:var(--ai-3);font-weight:700}
+#shindan .sd-q{font-size:20px;line-height:1.5;margin:4px 0 16px}
+#shindan .sd-opts{display:grid;gap:10px}
+#shindan .sd-opt{font:inherit;font-size:16px;text-align:left;background:#fff;color:var(--ai);border:1.5px solid var(--rule);border-radius:10px;padding:13px 16px;cursor:pointer}
+#shindan .sd-opt:hover,#shindan .sd-opt:focus{border-color:var(--ai);background:var(--mist)}
+#shindan .sd-back,#shindan .sd-again{font:inherit;font-size:14px;background:none;border:0;color:var(--ai-2);text-decoration:underline;cursor:pointer;margin-top:14px;padding:0}
+#shindan .sd-hit{border-top:1px solid var(--rule);padding:16px 0}
+#shindan .sd-hn{font-weight:700;font-size:18px}
+#shindan .sd-hs{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:6px 0;font-size:14px;color:var(--ai-2)}
+#shindan .sd-hs .dt b{color:var(--ai)}
+#shindan .sd-hs .left{font-weight:700;color:var(--tape-d)}
+#shindan .bdg{font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px}
+#shindan .bdg.open{background:var(--leaf);color:var(--tape-d)}
+#shindan .bdg.soon{background:var(--mist);color:var(--ai-2)}
+#shindan .bdg.tbd{background:#fff;color:var(--ai-3);border:1px solid var(--rule)}
+#shindan .sd-p{font-size:15px;margin-top:4px}
+#shindan .sd-mini{font-size:13px;color:var(--ai-3);margin-top:4px}
+#shindan .sd-warn{font-size:14px;color:var(--warn);margin-top:6px}
+#shindan .sd-fee{font-size:13px;color:var(--tape-d);margin-top:6px;font-weight:700}
+#shindan .sd-notes{background:var(--leaf);border-radius:10px;padding:12px 16px;font-size:14px;margin-top:8px}
+#shindan .sd-notes p+p{margin-top:8px}
+#shindan .sd-cta{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:18px}
+#shindan .sd-line{color:#06a14a;font-weight:700}
+#shindan .sd-disc{font-size:12px;color:var(--ai-3);margin-top:12px}
+@media(max-width:600px){#shindan .sd-card{padding:18px}#shindan .sd-go{width:100%}}
 #schedule .fallback{padding:18px 0;color:var(--ai-2);font-size:15px}
 /* 第20回 */
 .j20{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start}
@@ -334,6 +363,7 @@ details.fine>summary{display:none}
 <header class="hd"><div class="w">
   <a class="brand" href="./" title="BRIDGE CYCLE株式会社 トップへ"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2b4f"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="#9bcf53" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>BRIDGE CYCLE</a>
   <nav aria-label="このページ内">
+    <a href="#shindan-sec">30秒診断</a>
     <a href="#why-us">選ばれる理由</a>
     <a href="#jizokuka20">持続化補助金</a>
     <a href="#menu">料金</a>
@@ -349,7 +379,7 @@ details.fine>summary{display:none}
     <p class="where">滋賀・京都 ／ 認定経営革新等支援機関 ／ 初回相談0円</p>
     <h1>補助金を「取る」前に。<br><span class="focus">その投資に、意味があるか。</span></h1>
     <p class="sub"><strong>申請書を作るだけではありません。</strong> 約20年の経営支援経験を持つ代表が、補助金の要件、事業の収益性、資金繰りを一緒に確認。使うべき制度がなければ、無理に申請を勧めません。</p>
-    <div class="ctas"><a class="btn" href="#contact" data-consult-kind="これから決めたい／使える補助金を知りたい" data-t="hero_primary">自社に合う補助金を無料で確認する ›</a><a class="cv-inline-link" href="#why-us">BRIDGE CYCLEが選ばれる理由</a></div>
+    <div class="ctas"><a class="btn" href="#shindan-sec" data-t="hero_primary_shindan">自社に合う補助金を30秒で診断する ›</a><a class="cv-inline-link" href="#why-us">BRIDGE CYCLEが選ばれる理由</a></div>
     <p class="smallprom">60分の初回相談0円 ／ 原則2営業日以内に返信 ／ 契約前に料金をご説明</p>
     <p class="who"><span><b>元商工会経営指導員</b> 約20年</span><span><b>認定経営革新等支援機関</b> 2026年認定</span></p>
   </div>
@@ -489,61 +519,20 @@ details.fine>summary{display:none}
   </a>
 </div></section>
 
-<!-- 公募スケジュール（Googleシートから自動表示） -->
-<section id="schedule"><div class="w">
-  <h2 class="sec">いま申請できる補助金</h2>
-  <p class="lead">正確な要件・締切は各公式サイトでご確認ください。</p>
-  <div id="skList"><div class="fallback">スケジュールを読み込んでいます…</div></div>
-  <p class="mut" style="margin-top:12px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>ほか。掲載のない補助金もご相談いただけます。</p>
+<!-- 補助金診断と公募スケジュール（data/hojokin.json から自動表示・毎週更新） -->
+<section id="shindan-sec" class="alt"><div class="w">
+  <h2 class="sec">あなたに合う補助金を、30秒で。</h2>
+  <p class="lead">5つの質問に答えると、いま使えそうな補助金と締切、賃上げなどの注意点がわかります。名前やメールの入力は不要です。</p>
+  <div id="shindan"><div class="fallback">診断を読み込んでいます…</div></div>
 </div></section>
 
-<script>
-(function(){
-  var SHEET='1AWMnHyvHGEgqnlatVTzBa0pwz0u7lG0HyTfNntXUFXs';
-  var url='https://docs.google.com/spreadsheets/d/'+SHEET+'/gviz/tq?tqx=out:json&tq='+encodeURIComponent('select A,B,C,D,E,F');
-  var box=document.getElementById('skList');
-  function fallback(){box.innerHTML='<div class="fallback"><b>最新の公募スケジュールは、公式サイトでご確認ください。</b><br>中小機構「<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">補助金活用ナビ</a>」に主要補助金の公募状況がまとまっています。個別のご相談は下のフォームからどうぞ。</div>';}
-  function toDate(v){
-    if(v==null)return null;
-    if(typeof v==='string'){
-      var m=v.match(/Date\((\d+),(\d+),(\d+)/); if(m)return new Date(+m[1],+m[2],+m[3]);
-      var m2=v.match(/(\d{4})[\/年-](\d{1,2})[\/月-](\d{1,2})/); if(m2)return new Date(+m2[1],+m2[2]-1,+m2[3]);
-    }
-    return null;
-  }
-  function fmt(d){return (d.getMonth()+1)+'月'+d.getDate()+'日';}
-  fetch(url).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){
-    var j=JSON.parse(t.substring(t.indexOf('(')+1,t.lastIndexOf(')')));
-    var rows=(j.table&&j.table.rows)||[];
-    var today=new Date(); today.setHours(0,0,0,0);
-    var items=[];
-    rows.forEach(function(r){
-      var c=r.c||[]; function g(i){return c[i]?(c[i].f!=null?String(c[i].f):(c[i].v!=null?String(c[i].v):'')):'';}
-      var name=g(0); if(!name||name==='補助金名')return;
-      var kai=g(1), st=toDate(c[2]&&c[2].v!=null?String(c[2].v):g(2)), en=toDate(c[3]&&c[3].v!=null?String(c[3].v):g(3));
-      var memo=g(4), link=g(5);
-      var status,order,extra='';
-      if(en&&today>en){return;} // 締切済みは表示しない
-      if(en&&(!st||today>=st)){
-        var days=Math.round((en-today)/86400000);
-        status='<span class="bdg open">受付中</span>'; order=0+days/1000;
-        extra='<span class="left">締切まで あと'+days+'日</span>';
-      }else if(st&&today<st){
-        status='<span class="bdg soon">まもなく</span>'; order=1+st.getTime()/1e13;
-      }else{
-        status='<span class="bdg tbd">時期未定</span>'; order=2;
-      }
-      var dt='';
-      if(st||en){dt='<span class="dt">'+(st?fmt(st):'')+(st&&en?' → ':'')+(en?'<b>'+fmt(en)+'</b> 締切':'')+'</span>';}
-      var nm=link?'<a href="'+link+'" target="_blank" rel="noopener" style="color:inherit">'+name+'</a>':name;
-      items.push({order:order,html:'<div class="sk">'+status+'<span class="nm">'+nm+'</span><span class="rd">'+kai+'</span>'+dt+extra+(memo?'<span class="memo">'+memo+'</span>':'')+'</div>'});
-    });
-    if(!items.length){fallback();return;}
-    items.sort(function(a,b){return a.order-b.order;});
-    box.innerHTML=items.map(function(i){return i.html;}).join('');
-  }).catch(fallback);
-})();
-</script>
+<section id="schedule"><div class="w">
+  <h2 class="sec">いま申請できる補助金</h2>
+  <p class="lead">締切が近い順に並べています。正確な要件は各公式サイトの公募要領でご確認ください。</p>
+  <div id="skList"><div class="fallback">スケジュールを読み込んでいます…</div></div>
+  <p class="mut" style="margin-top:12px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>、各事務局の公式サイト。掲載のない補助金もご相談いただけます。</p>
+</div></section>
+<script src="/assets/hojokin-shindan.js?v=20261126" defer></script>
 
 <section id="menu" class="alt"><div class="w">
   <h2 class="sec">料金を、最初から明確に。</h2>
