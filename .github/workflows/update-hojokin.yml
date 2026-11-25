@@ -25,12 +25,12 @@ jobs:
         run: node scripts/fetch-jgrants.mjs
       - name: 変更があればコミット
         run: |
-          if git diff --quiet -- data/jgrants.json; then
+          git add data/jgrants.json
+          if git diff --cached --quiet -- data/jgrants.json; then
             echo "変更なし"; exit 0
           fi
           git config user.name "bridge-cycle-bot"
           git config user.email "info@bridgecycleco.com"
-          git add data/jgrants.json
           git commit -m "補助金データ（jGrants）を自動更新 $(TZ=Asia/Tokyo date +%Y-%m-%d)"
           git pull --rebase origin main
           git push
