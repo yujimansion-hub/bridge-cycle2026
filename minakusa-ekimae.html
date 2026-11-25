@@ -343,7 +343,7 @@ window.MINAKUSA_ENTRY={
   open:true,                        // true にすると申込フォームが送信可能になる
   opensOn:'',                        // 受付開始日が決まったら入れる（例：'11月20日（金）'）。空なら「決まりしだいお知らせ」
   deadline:'',                       // 例：'11月25日（水）17:00'。空なら「定員になり次第」
-  replyDays:'3営業日以内',
+  replyDays:'翌営業日まで',
   // vendorApi が空のあいだは「後払い受付」：申込はフォーム受付（endpoint）に届き、申込者へ自動返信。枠の確定・許可証確認のあと、当社から支払いページを送る。
   // vendorApi を入れると「事前入金」：台帳が枠を仮押さえし、その場でStripe決済へ。
   vendorApi:'https://script.google.com/macros/s/AKfycbwKc0bgRYzD5z_oO9ywU9icN5I9e4KK9QdXtwh0IcOQjs_jFDMMM3ZFpKXj2hvf1zpA/exec',                      // 出店者台帳（gas/minakusa-vendor）のURL。入れると申込が台帳に入り、出店ナビの専用リンクがメールで届く
@@ -384,7 +384,7 @@ window.MINAKUSA_ENTRY={
 <h3>週末のバスのりばで、持ち帰り<small>のりば1・2前</small></h3>
 <div class="who"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20c.7-3.5 3-5 6-5s5.3 1.5 6 5M15 15.5c2.6 0 4.5 1.3 5 4"/></svg>週末のお出かけ・バスを待つ人</div>
 <div class="dows" aria-label="出店できる曜日：土・日"><span>金</span><span class="on">土</span><span class="on">日</span></div>
-<dl class="zrow"><dt>場所</dt><dd>東口のバスのりば、1・2番のりば前のバスレーン<br><small>土日はバスが来ないので、歩道ではなく車道側に出店します。ただし12/6（日）と12/13（日）は、立命館大学の試験・学園祭のためシャトルバスが走るので、東口Bはお休みです。<a href="https://www.google.com/maps/@?api=1&amp;map_action=pano&amp;viewpoint=35.003465,135.948131&amp;heading=105&amp;pitch=-12&amp;fov=80" target="_blank" rel="noopener noreferrer">バスレーンの様子をストリートビューで見る ↗</a></small></dd><dt>お休み</dt><dd>12/6（日）・12/13（日）<br><small>立命館大学行きのシャトルバスが走るため（出店できるのは12/5・12/12・12/19・12/20の4日間）</small></dd><dt>時間</dt><dd>10:00〜20:00（通し）</dd><dt>形</dt><dd>キッチンカー・テント・長机<br><small>バスレーンの上なので屋根はありません</small></dd><dt>区画</dt><dd>選べません<br><small>搬入口の奥から順に詰めて配置します</small></dd><dt>搬入口</dt><dd>未定<br><small>決まりしだいご案内します</small></dd></dl>
+<dl class="zrow"><dt>場所</dt><dd>東口のバスのりば、1・2番のりば前のバスレーン<br><small>土日はバスが来ないので、歩道ではなく車道側に出店します。ただし12/6（日）と12/13（日）は、立命館大学の試験・学園祭のためシャトルバスが走るので、東口Bはお休みです。<a href="https://www.google.com/maps/@?api=1&amp;map_action=pano&amp;viewpoint=35.003465,135.948131&amp;heading=105&amp;pitch=-12&amp;fov=80" target="_blank" rel="noopener noreferrer">バスレーンの様子をストリートビューで見る ↗</a></small></dd><dt>お休み</dt><dd>12/6（日）・12/13（日）<br><small>立命館大学行きのシャトルバスが走るため（出店できるのは12/5・12/12・12/19・12/20の4日間）</small></dd><dt>時間</dt><dd>10:00〜20:00（通し）</dd><dt>形</dt><dd>キッチンカー・テント・長机<br><small>バスレーンの上なので屋根はありません</small></dd><dt>区画</dt><dd>選べません<br><small>当社が決めてご案内します</small></dd><dt>搬入口</dt><dd>不要<br><small>バスレーンに出店するため、搬入口はありません</small></dd></dl>
 <div class="price"><b>5,500</b><span>円／1日（10〜20時の通し）</span></div></div></article>
 <article class="zone zC"><div class="zone-ph zone-ph2"><i style="background:#f4f0e4 url(images/minakusa/east-c-yatai.jpg?v=2) center/contain no-repeat"><em style="top:8px;bottom:auto">貸し出す屋台</em></i><i style="background-image:url(images/minakusa/east-c.jpg);background-position:45% 60%"><em>場所</em></i><span class="tag">東口 C</span><span class="slots">4枠</span></div><div class="zone-body">
 <h3>屋台を借りて、朝夕の駅でさっと売る<small>のりば3・4前</small></h3>
@@ -402,7 +402,7 @@ window.MINAKUSA_ENTRY={
 <div class="kk" id="layout"><h3 class="kk-h">区画の配置図</h3><p class="kk-lead">現地に印を付けた区画です。東口（B・C・D）は区画を選べません。西口Aの区画番号も、申込内容をもとに当社が決めてご案内します。</p>
 <div class="kk-grid"><figure class="kk-map"><figcaption><b class="kA">西口A</b>駅前広場・7区画</figcaption><svg viewBox="0 0 880 640" role="img" aria-label="西口の区画の位置"><image href="images/minakusa/kukaku-west.jpg" width="880" height="640"/><g class="kk-b"><polygon points="60.6,128.4 47.6,149.5 89.6,174.4 102.6,153.5" fill="#2fbf7f"/><text x="75" y="157">A1</text></g><g class="kk-b"><polygon points="130.1,148.5 117.1,169.4 159.1,194.4 172.1,173.4" fill="#2fbf7f"/><text x="145" y="177">A2</text></g><g class="kk-b"><polygon points="117.1,113.7 162.2,107.4 160.8,85.8 112.1,94.0" fill="#2fbf7f"/><text x="138" y="106">A3</text></g><g class="kk-b"><polygon points="283.3,136.5 332.5,136.5 328.5,119.9 283.3,111.9" fill="#2fbf7f"/><text x="307" y="132">A4</text></g><g class="kk-b"><polygon points="328.5,156.7 368.8,184.9 383.0,164.9 342.7,136.6" fill="#2fbf7f"/><text x="356" y="167">A5</text></g><g class="kk-b"><polygon points="200.9,163.8 187.9,184.7 229.9,209.7 242.9,188.7" fill="#2fbf7f"/><text x="216" y="192">A6</text></g><g class="kk-b"><polygon points="266.9,172.5 253.9,193.4 295.9,218.4 308.9,197.4" fill="#2fbf7f"/><text x="282" y="201">A7</text></g></svg></figure>
 <figure class="kk-map"><figcaption><b class="kB">東口B</b>のりば1・2前・5区画　<b class="kC">東口C</b>のりば3・4前・屋台　<b class="kD">東口D</b>のりば5前・3区画</figcaption><svg viewBox="0 0 750 760" role="img" aria-label="東口の区画の位置"><image href="images/minakusa/kukaku-east.jpg" width="750" height="760"/><g class="kk-b"><polygon points="587.1,279.1 629.6,303.7 642.3,282.8 599.8,258.2" fill="#f0a020"/><text x="615" y="287">C</text></g><g class="kk-b"><polygon points="536.9,249.9 579.4,275.4 591.4,253.5 549.6,229.0" fill="#f0a020"/><text x="564" y="258">C</text></g><g class="kk-b"><polygon points="482.3,215.1 524.8,239.7 536.7,218.8 494.9,193.3" fill="#f0a020"/><text x="510" y="223">C</text></g><g class="kk-b"><polygon points="428.6,181.4 471.1,205.9 483.0,185.0 441.3,160.4" fill="#f0a020"/><text x="456" y="189">C</text></g><g class="kk-b kk-s"><polygon points="314.9,108.8 335.7,121.5 348.4,100.6 326.8,87.9" fill="#f0a020"/><text x="331" y="111">C</text></g><g class="kk-b"><polygon points="594.2,460.5 575.4,485.1 589.2,492.5 607.9,466.4" fill="#5b8fe0"/><text x="592" y="482">B</text></g><g class="kk-b"><polygon points="573.6,493.4 555.8,526.6 569.2,535.0 587.1,500.9" fill="#5b8fe0"/><text x="572" y="520">B</text></g><g class="kk-b"><polygon points="548.1,532.4 529.5,567.0 543.4,576.5 564.5,543.4" fill="#5b8fe0"/><text x="547" y="561">B</text></g><g class="kk-b"><polygon points="523.0,575.8 503.4,609.0 518.2,619.0 538.4,584.7" fill="#5b8fe0"/><text x="521" y="603">B</text></g><g class="kk-b"><polygon points="500.6,614.8 479.3,638.4 495.2,648.9 512.8,623.8" fill="#5b8fe0"/><text x="497" y="637">B</text></g><g class="kk-b"><polygon points="158.1,178.9 132.6,220.8 152.8,232.6 178.2,189.7" fill="#b36aa6"/><text x="155" y="212">D</text></g><g class="kk-b"><polygon points="186.7,132.2 163.7,176.5 180.4,185.9 205.8,142.5" fill="#b36aa6"/><text x="184" y="165">D</text></g><g class="kk-b kk-s"><polygon points="202.8,107.5 192.6,130.7 210.0,138.0 224.1,118.9" fill="#b36aa6"/><text x="207" y="130">D</text></g></svg></figure></div>
-<ul class="kk-notes"><li><b>大きさ</b>6m×3m。東口Dのうち1区画（いちばん端）は3m×3m、東口Bは約4.5m×2mです。東口Cは、UDCみなくさの屋台（幅80cm×奥行40cm×高さ170cm）を貸し出します（出店料に含む）。キッチンカー・テントは出店できません。6m×3mの区画は、半分を売り場、半分をお客さまの待つ場所に使ってください。</li><li><b>東口（B・C・D）は区画を選べません</b>Bは搬入口から遠い奥の区画から、出店が決まった順に詰めて配置します。C・Dも、当社が区画を決めてご案内します。</li><li><b>列は区画の中に</b>バスを待つ人の列と点字ブロックに、お客さまの列がかからないようにしてください。点字ブロックの上には、テント・机・看板も置けません（とくに東口C）。東口Bはバスレーンに出店し、お客さまは歩道側から買いに来ます。</li></ul>
+<ul class="kk-notes"><li><b>大きさ</b>6m×3m。東口Dのうち1区画（いちばん端）は3m×3m、東口Bは約4.5m×2mです。東口Cは、UDCみなくさの屋台（幅80cm×奥行40cm×高さ170cm）を貸し出します（出店料に含む）。キッチンカー・テントは出店できません。6m×3mの区画は、半分を売り場、半分をお客さまの待つ場所に使ってください。</li><li><b>東口（B・C・D）は区画を選べません</b>B・C・Dとも、当社が区画を決めてご案内します。</li><li><b>列は区画の中に</b>バスを待つ人の列と点字ブロックに、お客さまの列がかからないようにしてください。点字ブロックの上には、テント・机・看板も置けません（とくに東口C）。東口Bはバスレーンに出店し、お客さまは歩道側から買いに来ます。</li></ul>
 <p class="kk-attr">地図画像：Google（画像 ©2026 Airbus, Maxar Technologies／地図データ ©2026 Google）。区画の位置は目安で、関係機関との調整で変わることがあります。</p></div>
 </div></section>
 
@@ -414,7 +414,7 @@ window.MINAKUSA_ENTRY={
 <section class="sec" id="flow"><div class="wrap"><div class="sh"><div class="en">HOW</div><h2>出店までは、4ステップ。</h2><p><span class="pay-now-only">空いている枠を選んで、その場でカード払い。払った時点で枠を確保します。許可が確認できないときは全額返金します。</span><span class="pay-later-only">申し込むと、受付メールがすぐ自動で届きます。枠（先着順）と営業許可を確認したら、カードの支払いページをお送りします。</span></p></div>
 <div class="steps">
 <div class="step"><span class="n">1</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><b>空きを見て申し込む</b><p>売り場・日にち・時間を選んでフォームに入力（約5分）。<span class="pre-only">いまはまだ申し込めません。</span></p></div>
-<div class="step"><span class="n">2</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div><span class="pay-now-only"><b>その場でカード払い</b></span><span class="pay-later-only"><b>受付メールが届く</b></span><p><span class="pay-now-only">出店料を事前にお支払いいただくと、枠を確保します（先着順）。30分以内に払わないと取り消し。</span><span class="pay-later-only">送信するとすぐ自動で届きます。枠の確保（先着順）は、当社から<span class="reply-days">3営業日以内</span>にメールでお知らせします。</span></p></div>
+<div class="step"><span class="n">2</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div><span class="pay-now-only"><b>その場でカード払い</b></span><span class="pay-later-only"><b>受付メールが届く</b></span><p><span class="pay-now-only">出店料を事前にお支払いいただくと、枠を確保します（先着順）。30分以内に払わないと取り消し。</span><span class="pay-later-only">送信するとすぐ自動で届きます。枠の確保（先着順）は、当社から<span class="reply-days">翌営業日まで</span>にメールでお知らせします。</span></p></div>
 <div class="step"><span class="n">3</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.8-1.5 1.8-2 3-2s2.2.5 3 2M14 10h4M14 13h3"/></svg></div><span class="pay-now-only"><b>許可証を送る</b></span><span class="pay-later-only"><b>許可証を送って、カードで払う</b></span><p><span class="pay-now-only">支払い後のメールで提出方法をご案内。確認できたら出店確定。確認できないときは全額返金。</span><span class="pay-later-only">許可証の写真をメールで提出。確認できたら支払いページ（カード）をお送りし、お支払いで出店確定です。</span></p></div>
 <div class="step last"><span class="n">4</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><b>区画の連絡と当日</b><p>区画（番号）は当社が決めてお知らせ。当日はスマホの出店ナビが案内します。</p></div></div>
 <a class="guide-link" href="minakusa-day-guide.html"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>出店が決まったら、当日の流れはスマホのガイドで確認できます</span>見る →</a>
@@ -467,7 +467,7 @@ window.MINAKUSA_ENTRY={
 <div class="fieldgrid"><div class="field"><label for="eZone">売り場 <em>必須</em></label><select id="eZone" required><option value="">選んでください</option><option value="A">西口A（駅前広場）</option><option value="B">東口B（のりば1・2前）</option><option value="C">東口C（のりば3・4前・屋台を貸し出し）</option><option value="D">東口D（のりば5前）</option></select></div><div class="field" id="eSlotWrap"><label for="eSlot">時間（東口C・Dのみ） <em>必須</em></label><select id="eSlot" disabled><option value="">先に売り場を選んでください</option></select></div></div>
 <div class="field" style="margin-bottom:6px"><label>出店する日 <em>必須</em>（1日〜最大9日間。満枠の日は選べません）</label></div>
 <div class="entry-days" id="eDays"><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-04" data-label="12/4（金）"><span>12/4（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-05" data-label="12/5（土）"><span>12/5（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-06" data-label="12/6（日）"><span>12/6（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-11" data-label="12/11（金）"><span>12/11（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-12" data-label="12/12（土）"><span>12/12（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-13" data-label="12/13（日）"><span>12/13（日）</span></label><label data-dow="金"><input type="checkbox" name="eDay" value="2026-12-18" data-label="12/18（金）"><span>12/18（金）</span></label><label data-dow="土"><input type="checkbox" name="eDay" value="2026-12-19" data-label="12/19（土）"><span>12/19（土）</span></label><label data-dow="日"><input type="checkbox" name="eDay" value="2026-12-20" data-label="12/20（日）"><span>12/20（日）</span></label></div>
-<p class="entry-hint">東口（B・C・D）は区画を選べません。東口Bは搬入口の奥から順に詰めて配置します。西口Aの区画番号も、当社が決めてご案内します。</p>
+<p class="entry-hint">東口（B・C・D）は区画を選べません。区画は当社が決めてご案内します。西口Aの区画番号も、当社が決めてご案内します。</p>
 <p class="entry-hint" id="eDaysHint">西口Aは金・土・日、東口Bは土・日（12/6（日）・12/13（日）を除く）、東口C・Dは金・土・日です（東口Cは12/20（日）を除く）。選んだ区画に合わない日は選べません。</p>
 <div id="ePrice" class="entry-price" aria-live="polite"><span>出店料の合計</span><b>—</b><small>売り場と日にちを選ぶと計算します</small></div>
 <div class="field"><label for="eRefer">紹介者・コード（任意）</label><input id="eRefer" maxlength="80"></div>
@@ -577,7 +577,7 @@ var SLOTS=['朝 7:00〜9:30','夕 17:00〜20:00','朝夕セット'];
 var open=C.open===true,preview=!open&&/[?&]preview=1/.test(location.search),testSend=preview&&/[?&]send=1/.test(location.search),prepay=!!C.vendorApi,later=!prepay&&!!(C.endpoint||C.fallback),ready=prepay||later;
 document.body.classList.toggle('is-prelaunch',!open&&!preview);
 document.body.classList.toggle('pay-later',!prepay);
-Array.prototype.forEach.call(document.querySelectorAll('.reply-days'),function(e){e.textContent=C.replyDays||'3営業日以内';});
+Array.prototype.forEach.call(document.querySelectorAll('.reply-days'),function(e){e.textContent=C.replyDays||'翌営業日まで';});
 function yen(n){return n.toLocaleString('ja-JP')+'円';}
 
 /* ---- 受付状態の表示 ---- */
@@ -586,7 +586,7 @@ function setState(){
   if(open&&ready){
     st.className='entry-status open';st.querySelector('b').textContent='正式募集を受付中';
     var nav=document.getElementById('navEntry');if(nav)nav.textContent='出店を申し込む →';
-    txt.textContent='先着順で受け付けています。'+(C.deadline?'締切は'+C.deadline+'です。':'枠が埋まり次第、締め切ります。')+(prepay?'最後にカードで出店料を払うと、枠を確保します。':'送信するとすぐ受付メールが届き、'+(C.replyDays||'3営業日以内')+'に枠の確保をお知らせします。');
+    txt.textContent='先着順で受け付けています。'+(C.deadline?'締切は'+C.deadline+'です。':'枠が埋まり次第、締め切ります。')+(prepay?'最後にカードで出店料を払うと、枠を確保します。':'送信するとすぐ受付メールが届き、'+(C.replyDays||'翌営業日まで')+'に枠の確保をお知らせします。');
     fields.disabled=false;btn.disabled=false;btn.textContent=prepay?'カードの支払いへ進む':'この内容で申し込む';
     var n=$('entryNotice');if(n)n.textContent='南草津駅前の飲食出店・社会実験｜12月の金・土・日。出店申込受付中（先着順）'+(C.deadline?'（締切：'+C.deadline+'）':'')+'。';
     var m=$('mobileCta');if(m){m.href='#entry';m.textContent='出店を申し込む →';}
@@ -709,7 +709,7 @@ function replyText(d,id,shop,labels,z,slot,total){
   L.push('■ メニュー：'+String(d['メニューと価格']).slice(0,200));
   L.push('');
   L.push('■ この後の流れ');
-  L.push('1. 先着順で枠を確認し、'+(C.replyDays||'3営業日以内')+'に、枠の確保（区画・日程）をメールでお知らせします。');
+  L.push('1. 先着順で枠を確認し、'+(C.replyDays||'翌営業日まで')+'に、枠の確保（区画・日程）をメールでお知らせします。');
   L.push('2. 営業許可証の写真（全体が写ったもの）を、そのメールへの返信でお送りください。');
   L.push('3. 許可証を確認したら、カード（Stripe）の支払いページをお送りします。お支払いで出店確定です。');
   L.push('4. 区画番号と当日の流れをご案内します。当日はスマホの出店ナビで案内します。');
@@ -752,7 +752,7 @@ function sendLater(d,id,shop,labels,z,slot,total){
     var done=$('entryDone');done.hidden=false;
     done.innerHTML='<b>お申し込みを受け付けました。受付番号：'+id+'</b><br>'
       +(j&&j.autoreply===false?'受付メールの自動送信が混み合っています。内容は届いていますので、':'入力したメールアドレスに受付メールを送りました（数分たっても届かないときは迷惑メールもご確認ください）。')
-      +(C.replyDays||'3営業日以内')+'に、枠の確保をメールでお知らせします。この時点では、まだ費用はかかりません。';
+      +(C.replyDays||'翌営業日まで')+'に、枠の確保をメールでお知らせします。この時点では、まだ費用はかかりません。';
     var a=document.createElement('a');a.className='btn btn-green application-guide-button';a.href='minakusa-day-guide.html';a.textContent='当日の流れを見る（出店ナビ） →';done.appendChild(a);
     setTimeout(function(){done.scrollIntoView({behavior:'smooth',block:'center'});},200);
   }).catch(function(){
