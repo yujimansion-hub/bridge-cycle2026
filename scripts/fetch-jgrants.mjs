@@ -10,7 +10,7 @@ const OUT = new URL('../data/jgrants.json', import.meta.url);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // 事業者の役に立たないもの（練習用・個人向けの住宅や医療の一部など）は除きます
-const EXCLUDE = [/練習/, /テスト/, /休廃止鉱山/, /廃止石油坑井/, /救命救急/, /放送ネットワーク/];
+const EXCLUDE = [/練習/, /テスト/, /撤回/, /取下げ|取り下げ/, /変更届|変更承認/, /実績報告/, /交付申請等/, /状況報告/, /概算払|精算/, /休廃止鉱山/, /廃止石油坑井/, /救命救急/, /放送ネットワーク/];
 
 async function getJSON(url, tries = 3) {
   for (let i = 0; i < tries; i++) {
