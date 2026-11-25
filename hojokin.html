@@ -82,17 +82,6 @@ section.alt{background:var(--mist)}
 @media (max-width:700px){.pk{grid-template-columns:1fr;padding:22px}.pk .go{text-align:center}}
 /* schedule (filled by script) */
 #skList{margin-top:24px;border-top:2px solid var(--ai)}
-#schedule .sk{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--rule)}
-#schedule .sk .nm{font-weight:700;font-size:17px}
-#schedule .sk .rd{font-size:13px;color:var(--ai-3)}
-#schedule .sk .bdg{flex:none;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px}
-#schedule .sk .bdg.open{background:var(--leaf);color:var(--tape-d)}
-#schedule .sk .bdg.soon{background:var(--mist);color:var(--ai-2)}
-#schedule .sk .bdg.tbd{background:#fff;color:var(--ai-3);border:1px solid var(--rule)}
-#schedule .sk .dt{font-size:14px;color:var(--ai-2)}
-#schedule .sk .dt b{font-size:16px;color:var(--ai)}
-#schedule .sk .left{margin-left:auto;font-size:14px;font-weight:700;color:var(--tape-d)}
-#schedule .sk .memo{width:100%;font-size:13px;color:var(--ai-3)}
 #schedule .sk-upd{margin-top:14px;font-size:13px;color:var(--ai-3)}
 #shindan .sd-card{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:24px;max-width:760px}
 #shindan .sd-prog{height:6px;background:var(--mist);border-radius:99px;overflow:hidden;margin-bottom:14px}
@@ -122,6 +111,35 @@ section.alt{background:var(--mist)}
 #shindan .sd-line{color:#06a14a;font-weight:700}
 #shindan .sd-disc{font-size:12px;color:var(--ai-3);margin-top:12px}
 @media(max-width:600px){#shindan .sd-card{padding:18px}#shindan .sd-go{width:100%}}
+.sk-f{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:8px}
+.sk-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.sk-tabs button{font:inherit;font-size:14px;border:1px solid var(--rule);background:#fff;color:var(--ai-2);border-radius:999px;padding:5px 13px;cursor:pointer}
+.sk-tabs button.on{background:var(--ai);color:#fff;border-color:var(--ai)}
+.sk-pref{font-size:14px;color:var(--ai-2)}
+.sk-pref select,#shindan .sd-sel{font:inherit;font-size:15px;padding:7px 10px;border:1px solid var(--rule);border-radius:8px;background:#fff;color:var(--ai)}
+.sk-sub{font-size:16px;margin:26px 0 4px;color:var(--ai)}
+#schedule .sk,#schedule .jg,#shindan .sd-hit,#shindan .jg{border-bottom:1px solid var(--rule);padding:16px 0}
+.sk-h{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.sk-h .lv{flex:none;font-size:12px;font-weight:700;color:var(--tape-d);background:var(--leaf);border-radius:4px;padding:1px 7px}
+.sk-h .nm{font-weight:700;font-size:17px}
+.sk-h .nm a{color:inherit}
+.sk-r{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-top:6px;font-size:14px;color:var(--ai-2)}
+.sk-r .rd{font-size:13px;color:var(--ai-3)}
+.sk-r .dt b{color:var(--ai);font-size:15px}
+.sk-r .left{font-weight:700;color:var(--tape-d)}
+.bdg{flex:none;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px}
+.bdg.open{background:var(--leaf);color:var(--tape-d)}
+.bdg.soon{background:var(--mist);color:var(--ai-2)}
+.bdg.tbd{background:#fff;color:var(--ai-3);border:1px solid var(--rule)}
+.sk-dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:13.5px;margin-top:8px}
+.sk-dl dt{color:var(--ai-3);font-weight:700}
+.sk-dl dd{margin:0;color:var(--ai-2)}
+.sk-req{margin-top:6px;font-size:13.5px;color:var(--ai-2)}
+.sk-req summary{cursor:pointer;color:var(--ai);font-weight:700}
+.sk-req ul{margin:6px 0 0 1.2em}
+.sk-more{font:inherit;font-size:14px;margin-top:14px;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:9px 16px;cursor:pointer;color:var(--ai)}
+#shindan .sd-sub{font-weight:700;font-size:14px;color:var(--ai-3);margin-top:18px}
+#shindan .sd-selrow{display:flex;flex-wrap:wrap;gap:10px}
 #schedule .fallback{padding:18px 0;color:var(--ai-2);font-size:15px}
 /* 第20回 */
 .j20{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start}
@@ -522,17 +540,17 @@ details.fine>summary{display:none}
 <!-- 補助金診断と公募スケジュール（data/hojokin.json から自動表示・毎週更新） -->
 <section id="shindan-sec" class="alt"><div class="w">
   <h2 class="sec">あなたに合う補助金を、30秒で。</h2>
-  <p class="lead">5つの質問に答えると、いま使えそうな補助金と締切、賃上げなどの注意点がわかります。名前やメールの入力は不要です。</p>
+  <p class="lead">国の補助金に加えて、全国の自治体の補助金、雇用・賃上げの助成金、農業の補助金から、地域と目的に合うものを探します。締切・補助率・上限・審査の方式・主な要件まで表示。名前やメールの入力は不要です。</p>
   <div id="shindan"><div class="fallback">診断を読み込んでいます…</div></div>
 </div></section>
 
 <section id="schedule"><div class="w">
-  <h2 class="sec">いま申請できる補助金</h2>
-  <p class="lead">締切が近い順に並べています。正確な要件は各公式サイトの公募要領でご確認ください。</p>
+  <h2 class="sec">いま申請できる補助金・助成金</h2>
+  <p class="lead">国・都道府県・市区町村の補助金、雇用の助成金、農業の補助金を、締切が近い順に並べています。3日ごとに自動で更新。正確な要件は各公募要領でご確認ください。</p>
   <div id="skList"><div class="fallback">スケジュールを読み込んでいます…</div></div>
-  <p class="mut" style="margin-top:12px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>、各事務局の公式サイト。掲載のない補助金もご相談いただけます。</p>
+  <p class="mut" style="margin-top:12px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>、<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a>、各省庁・自治体・事務局の公式サイト。掲載のない補助金もご相談いただけます。</p>
 </div></section>
-<script src="/assets/hojokin-shindan.js?v=20261126" defer></script>
+<script src="/assets/hojokin-shindan.js?v=20261126b" defer></script>
 
 <section id="menu" class="alt"><div class="w">
   <h2 class="sec">料金を、最初から明確に。</h2>

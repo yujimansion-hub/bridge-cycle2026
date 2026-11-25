@@ -1,132 +1,276 @@
 {
   "updated": "2026-11-26",
-  "source_checked": "中小機構「補助金活用ナビ」公募スケジュール（2026年11月20日更新）、ミラサポplus、J-Net21",
-  "note": "補助金診断（hojokin.html の #shindan）と「いま申請できる補助金」の一覧は、このファイルだけを読んで表示します。締切日（end）を過ぎた回は自動で消えます。日付は YYYY-MM-DD。日付が決まっていない回は start/end を空にして when に「12月上旬（予定）」のように書きます。purposes は診断の「何に使いたいか」と結びつけるタグです（sales=集客・販路開拓, labor=省力化・人手不足, newbiz=新商品・新事業, it=IT化・AI導入, succession=事業承継・M&A）。small_only が true の制度は小規模事業者だけが対象です。wage は required（賃上げが申請要件）か optional（賃上げは任意・特例で上乗せ）。fee は当社の料金表示（jizokuka=持続化の料金, ogata=大型補助金の料金, consult=個別相談）。",
+  "source_checked": "中小機構「補助金活用ナビ」（2026年11月20日更新）、ミラサポplus、J-Net21、厚生労働省・各労働局、農林水産省、滋賀県、大津市、京都市の公式資料",
+  "note": "当社が公式資料を読んで要点を整理した主要制度です（3日ごとに確認・更新）。全国の自治体の補助金は data/jgrants.json（jGrantsから自動取得）にあります。締切日（end）を過ぎた回は自動で消えます。日付は YYYY-MM-DD。決まっていない回は start/end を空にして when に書きます。level=国/都道府県/市区町村。pref は対象の都道府県（全国なら空）。sector=business（事業者の補助金）/employment（雇用・賃上げの助成金）/agri（農業）。purposes は診断のタグ（sales=集客・販路, labor=省力化, newbiz=新事業, it=IT・AI, succession=承継, hire=雇用・人材育成・賃上げ, energy=省エネ・光熱費, agri=農業）。review=batch（締切後に一斉審査）/rolling（随時受付・随時審査）/first_come（受付順・予算に達し次第終了）/local（市町村の要望調査を経て採択）。wage=required（賃上げが要件）/optional（任意・特例で上乗せ）/core（賃上げそのものが助成の条件）/none。fee=jizokuka/ogata/consult。",
   "programs": [
     {
       "id": "jizokuka",
       "name": "小規模事業者持続化補助金",
+      "level": "国", "pref": "", "sector": "business",
       "summary": "チラシ・ホームページ・店舗改装・小さな設備など、販路開拓の取り組みに。",
       "purposes": ["sales", "newbiz", "it"],
       "small_only": true,
-      "wage": "optional",
-      "wage_text": "賃上げは任意です（賃金引上げ特例に当てはまると上限が上乗せ）。",
-      "rate": "原則2/3",
-      "max": "通常50万円（特例で上乗せ）",
-      "fee": "jizokuka",
-      "link": "https://official.jizokukanb.com/",
+      "requirements": ["小規模事業者（商業・サービス業は従業員5人以下、製造業その他は20人以下）", "商工会・商工会議所の事業支援計画書（様式4）を受けること", "ウェブサイト関連費だけの申請はできない"],
+      "rate": "原則2/3", "max": "通常50万円（インボイス特例・賃金引上げ特例で上乗せ）",
+      "review": "batch", "review_text": "締切後に一斉審査（採択・不採択）",
+      "wage": "optional", "wage_text": "賃上げは任意です（賃金引上げ特例に当てはまると上限が上乗せ）。",
+      "fee": "jizokuka", "link": "https://official.jizokukanb.com/",
       "rounds": [
-        {
-          "label": "一般型 第20回",
-          "start": "2026-11-05",
-          "end": "2026-12-15",
-          "end_time": "17:00",
-          "memo": "商工会・商工会議所の事業支援計画書（様式4）の発行受付は12月4日（金）まで。"
-        },
-        {
-          "label": "創業型 第4回",
-          "start": "2026-11-05",
-          "end": "2026-12-15",
-          "end_time": "17:00",
-          "memo": "市区町村の特定創業支援等事業を受けた、創業間もない方向けの型です。"
-        }
+        {"label": "一般型 第20回", "start": "2026-11-05", "end": "2026-12-15", "end_time": "17:00", "memo": "様式4の発行受付は12月4日（金）まで。"},
+        {"label": "創業型 第4回", "start": "2026-11-05", "end": "2026-12-15", "end_time": "17:00", "memo": "市区町村の特定創業支援等事業を受けた、創業間もない方向け。"}
       ]
     },
     {
       "id": "shinmono",
       "name": "新事業進出・ものづくり商業サービス補助金",
-      "summary": "新製品・新サービスの開発、既存事業とは違う新市場への進出、輸出のための設備投資に。",
+      "level": "国", "pref": "", "sector": "business",
+      "summary": "新製品・新サービスの開発、既存事業と違う新市場への進出、輸出体制の強化のための設備投資に。",
       "purposes": ["newbiz"],
       "small_only": false,
-      "wage": "required",
-      "wage_text": "賃上げの計画が申請の要件に含まれます（賃上げ特例で上限の引き上げあり）。",
-      "rate": "1/2（小規模事業者などは2/3）",
-      "max": "枠・従業員数により750万〜7,000万円（賃上げ特例で上乗せ）",
-      "fee": "ogata",
-      "link": "https://mirasapo-plus.go.jp/infomation/34119/",
+      "requirements": ["中小企業等（3つの枠：革新的新製品・サービス枠／新事業進出枠／グローバル枠）", "付加価値額・賃金の向上を含む事業計画", "金融機関から資金提供を受ける場合は、その金融機関の事業計画確認"],
+      "rate": "1/2（小規模事業者・再生事業者は2/3、最低賃金引上げ特例で2/3）",
+      "max": "革新的新製品・サービス枠 750万〜2,500万円／新事業進出枠・グローバル枠 2,500万〜7,000万円（賃上げ特例で上乗せ）",
+      "review": "batch", "review_text": "締切後に一斉審査（書面審査・口頭審査）",
+      "wage": "required", "wage_text": "賃上げの計画が申請の要件に含まれます（賃上げ特例で上限の引き上げあり）。",
+      "fee": "ogata", "link": "https://mirasapo-plus.go.jp/infomation/34119/",
       "rounds": [
-        {
-          "label": "第2回",
-          "start": "2026-11-30",
-          "end": "2026-12-25",
-          "end_time": "15:00",
-          "memo": "受付は11月30日から。事業計画づくりに1か月以上かかるため、今から準備が必要です。"
-        }
+        {"label": "第2回", "start": "2026-11-30", "end": "2026-12-25", "end_time": "15:00", "memo": "計画づくりに1か月以上かかります。今から準備が必要です。"}
       ]
     },
     {
       "id": "shoryoku",
       "name": "中小企業省力化投資補助金",
-      "summary": "人手不足を補う機械・設備・システムの導入に（一般型はオーダーメイドの設備、カタログ注文型は登録製品から選ぶ形）。",
+      "level": "国", "pref": "", "sector": "business",
+      "summary": "人手不足を補う機械・設備・システムの導入に（一般型はオーダーメイドの設備、カタログ注文型は登録製品から選ぶ）。",
       "purposes": ["labor"],
       "small_only": false,
-      "wage": "required",
-      "wage_text": "一般型は賃上げの計画が申請の要件に含まれます。カタログ注文型は賃上げで上限が上がる特例があります。",
-      "rate": "1/2〜2/3（型・規模による）",
-      "max": "型・従業員数による",
-      "fee": "ogata",
-      "link": "https://shoryokuka.smrj.go.jp/",
+      "requirements": ["人手不足の状態にある中小企業等", "労働生産性の向上を含む事業計画", "一般型は賃上げの計画が必要"],
+      "rate": "1/2〜2/3（型・規模による）", "max": "型・従業員数による",
+      "review": "batch", "review_text": "一般型は締切後に一斉審査／カタログ注文型は随時受付",
+      "wage": "required", "wage_text": "一般型は賃上げの計画が申請の要件に含まれます。カタログ注文型は賃上げで上限が上がる特例があります。",
+      "fee": "ogata", "link": "https://shoryokuka.smrj.go.jp/",
       "rounds": [
-        {
-          "label": "一般型 第9回",
-          "start": "",
-          "end": "",
-          "when": "12月上旬に受付開始・12月下旬締切（予定）",
-          "memo": "日程は予定です。確定したらこの欄を更新します。"
-        },
-        {
-          "label": "カタログ注文型",
-          "start": "",
-          "end": "",
-          "always": true,
-          "when": "随時受付",
-          "memo": "事務局に登録された製品が対象です。"
-        }
+        {"label": "一般型 第9回", "start": "", "end": "", "when": "12月上旬に受付開始・12月下旬締切（予定）", "memo": "日程は予定です。確定したら更新します。"},
+        {"label": "カタログ注文型", "start": "", "end": "", "always": true, "when": "随時受付", "memo": "事務局に登録された製品が対象です。"}
       ]
     },
     {
       "id": "digital",
       "name": "デジタル化・AI導入補助金（旧IT導入補助金）",
+      "level": "国", "pref": "", "sector": "business",
       "summary": "会計・予約・在庫・勤怠などのソフトやクラウド、AIツールの導入に。",
       "purposes": ["it"],
       "small_only": false,
-      "wage": "required",
-      "wage_text": "第7次から、1人当たり給与支給総額の向上が申請要件に加わりました。",
-      "rate": "1/2〜（枠・規模による）",
-      "max": "通常枠 5万〜450万円",
-      "fee": "consult",
-      "link": "https://it-shien.smrj.go.jp/",
+      "requirements": ["事務局に登録されたITツールを、IT導入支援事業者と一緒に申請", "GビズIDプライムの取得、SECURITY ACTIONの自己宣言", "第7次から、1人当たり給与支給総額の向上が申請要件に追加"],
+      "rate": "1/2〜（枠・規模による）", "max": "通常枠 5万〜450万円／セキュリティ対策推進枠 最大150万円",
+      "review": "batch", "review_text": "締切回ごとに審査（約1か月ごとの締切）",
+      "wage": "required", "wage_text": "第7次から、1人当たり給与支給総額の向上が申請要件に加わりました。",
+      "fee": "consult", "link": "https://it-shien.smrj.go.jp/",
       "rounds": [
-        {
-          "label": "通常枠ほか 第7次",
-          "start": "2026-03-30",
-          "end": "2026-12-01",
-          "end_time": "",
-          "memo": "IT導入支援事業者（ツールの販売会社）と一緒に申請します。"
-        }
+        {"label": "通常枠ほか 第7次", "start": "2026-03-30", "end": "2026-12-01", "end_time": "", "memo": "締切間近です。IT導入支援事業者（販売会社）への相談が先です。"}
       ]
     },
     {
       "id": "shokei",
       "name": "事業承継・M&A補助金",
+      "level": "国", "pref": "", "sector": "business",
       "summary": "事業を引き継ぐ・買う・売るときの設備投資や専門家費用に。",
       "purposes": ["succession"],
       "small_only": false,
-      "wage": "optional",
-      "wage_text": "枠により賃上げで上限が上がる特例があります。",
-      "rate": "枠による",
-      "max": "枠による",
-      "fee": "consult",
-      "link": "https://shoukei-mahojokin.go.jp/",
+      "requirements": ["事業承継・M&Aを予定または実施した中小企業等", "枠ごとの要件（事業承継促進枠・専門家活用枠・PMI推進枠など）"],
+      "rate": "枠による", "max": "枠による",
+      "review": "batch", "review_text": "締切後に一斉審査",
+      "wage": "optional", "wage_text": "枠により賃上げで上限が上がる特例があります。",
+      "fee": "consult", "link": "https://shoukei-mahojokin.go.jp/",
       "rounds": [
-        {
-          "label": "次回（第17回）",
-          "start": "",
-          "end": "",
-          "when": "未定（第16回は11月6日に締切）",
-          "memo": "次の公募が出たら更新します。"
-        }
+        {"label": "次回（第17回）", "start": "", "end": "", "when": "未定（第16回は11月6日に締切）", "memo": "次の公募が出たら更新します。"}
       ]
+    },
+    {
+      "id": "shoene",
+      "name": "省エネ・非化石転換補助金（省エネ補助金）",
+      "level": "国", "pref": "", "sector": "business",
+      "summary": "空調・照明・冷凍冷蔵・ボイラーなど、省エネ性能の高い設備への更新に。",
+      "purposes": ["energy", "labor"],
+      "small_only": false,
+      "requirements": ["国内で事業を営む法人・個人事業主", "型ごとに対象設備・省エネ効果の要件あり（設備単位型は指定設備から選ぶ）"],
+      "rate": "型による", "max": "型による",
+      "review": "batch", "review_text": "公募回ごとに締切後審査",
+      "wage": "none", "wage_text": "賃上げは要件ではありません。",
+      "fee": "consult", "link": "https://sii.or.jp/",
+      "rounds": [
+        {"label": "設備単位型 3次公募", "start": "", "end": "", "when": "詳細決まり次第、SIIが公表予定（従来枠はなし）", "memo": "1次・2次は終了。3次の日程が出たら更新します。"}
+      ]
+    },
+    {
+      "id": "gyomu-kaizen",
+      "name": "業務改善助成金",
+      "level": "国", "pref": "", "sector": "employment",
+      "summary": "事業場内で最も低い時給を50円以上引き上げ、あわせて生産性を上げる設備・システムを入れるときに。",
+      "purposes": ["hire", "labor", "it"],
+      "small_only": false,
+      "requirements": ["中小企業・小規模事業者", "事業場内最低賃金を50円以上引き上げ", "交付決定前に設備を導入すると対象外", "同じ事業場の申請は年度内1回まで"],
+      "rate": "3/4〜4/5（事業場内最低賃金による）", "max": "30万〜600万円（コース・引上げ人数による）",
+      "review": "first_come", "review_text": "申請順に審査。予算の範囲内で交付し、期間中でも終了あり",
+      "wage": "core", "wage_text": "賃上げ（時給50円以上の引上げ）そのものが助成の条件です。",
+      "fee": "consult", "link": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/shienjigyou/03.html",
+      "rounds": [
+        {"label": "令和9年度", "start": "", "end": "", "when": "令和8年度の受付は終了（9月1日〜各県の最低賃金発効日の前日または11月30日まで）。次年度は未定", "memo": "例年、最低賃金の改定前（夏〜秋）が勝負です。早めの準備を。"}
+      ]
+    },
+    {
+      "id": "career-up",
+      "name": "キャリアアップ助成金（正社員化・賃金規定等改定）",
+      "level": "国", "pref": "", "sector": "employment",
+      "summary": "パート・有期の従業員を正社員にする、または非正規の賃金規定を3%以上引き上げるときに。",
+      "purposes": ["hire"],
+      "small_only": false,
+      "requirements": ["雇用保険の適用事業所", "キャリアアップ計画を事前に労働局へ提出", "賃金規定等改定コースは非正規の基本給を3%以上増額改定"],
+      "rate": "定額（1人あたり）", "max": "賃金規定等改定：1人4万〜7万円（中小企業）など",
+      "review": "rolling", "review_text": "随時受付（取組後、所定の期間内に支給申請）",
+      "wage": "core", "wage_text": "賃上げ・正社員化そのものが助成の条件です。",
+      "fee": "consult", "link": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/part_haken/jigyounushi/career.html",
+      "rounds": [{"label": "通年", "start": "", "end": "", "always": true, "when": "通年受付", "memo": "計画の提出が取組より先です。社会保険労務士との連携をおすすめします。"}]
+    },
+    {
+      "id": "jinzai-kaihatsu",
+      "name": "人材開発支援助成金",
+      "level": "国", "pref": "", "sector": "employment",
+      "summary": "従業員の研修・リスキリング（新事業・DX・AI人材など）の費用と、研修中の賃金の一部に。",
+      "purposes": ["hire", "newbiz", "it"],
+      "small_only": false,
+      "requirements": ["雇用保険の適用事業所", "訓練開始の6か月前〜1か月前に職業訓練実施計画届を労働局へ提出（コースによる）", "10時間以上のOFF-JTなど、コースごとの訓練要件"],
+      "rate": "経費の45%〜（中小企業は60%〜、賃上げ等で加算）", "max": "1事業所1年度あたり1,000万円など（コースによる）",
+      "review": "rolling", "review_text": "随時受付（計画届→訓練→支給申請）",
+      "wage": "optional", "wage_text": "賃上げをすると助成率・額が加算されます。",
+      "fee": "consult", "link": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html",
+      "rounds": [{"label": "通年", "start": "", "end": "", "always": true, "when": "通年受付", "memo": "訓練を始める前の計画届が必須です。"}]
+    },
+    {
+      "id": "jinzai-kakuho",
+      "name": "人材確保等支援助成金（雇用管理制度・雇用環境整備助成コース）",
+      "level": "国", "pref": "", "sector": "employment",
+      "summary": "人事評価・諸手当などの制度づくりや、作業負担を軽くする機器の導入で離職率を下げたときに。",
+      "purposes": ["hire", "labor"],
+      "small_only": false,
+      "requirements": ["雇用管理制度または作業負担を軽減する機器の導入計画を作成", "実施後に離職率が下がること"],
+      "rate": "制度導入は定額／機器は導入経費の62.5%または75%（賃上げなしは50%）", "max": "最大325万円（複数導入・賃上げをした場合）",
+      "review": "rolling", "review_text": "随時受付（計画→実施→離職率の評価→支給申請）",
+      "wage": "optional", "wage_text": "賃上げをすると助成額が上がります。",
+      "fee": "consult", "link": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/package_00007.html",
+      "rounds": [{"label": "通年", "start": "", "end": "", "always": true, "when": "通年受付", "memo": "結果（離職率）の評価まで1年以上かかります。"}]
+    },
+    {
+      "id": "agri-hatten",
+      "name": "新規就農者育成総合対策（経営発展支援事業）",
+      "level": "国", "pref": "", "sector": "agri",
+      "summary": "就農後の経営発展のための機械・施設、家畜導入、果樹・茶の改植、機械リースに（都道府県と国が上乗せで支援）。",
+      "purposes": ["agri"],
+      "small_only": false,
+      "requirements": ["49歳以下の認定新規就農者（独立・自営、親元就農も対象）", "経営開始5年目までに農業で生計が成り立つ計画", "地域計画の目標地図に位置付けられていること等", "本人負担分について金融機関から融資を受けること"],
+      "rate": "都道府県支援分の2倍を国が支援（国は上限1/2。例：国1/2・県1/4・本人1/4）", "max": "国費上限500万円（経営開始資金の交付対象者は250万円）",
+      "review": "local", "review_text": "市町村を通じて申請。取組計画に応じて採択",
+      "wage": "none", "wage_text": "賃上げは要件ではありません。",
+      "fee": "consult", "link": "https://www.maff.go.jp/j/new_farmer/",
+      "rounds": [{"label": "令和9年度分", "start": "", "end": "", "when": "市町村の要望調査（時期は市町村・都道府県による）", "memo": "まず市町村の農政担当・農業委員会に相談します。"}]
+    },
+    {
+      "id": "agri-challenge",
+      "name": "新規就農者チャレンジ事業（地域農業構造転換支援対策）",
+      "level": "国", "pref": "", "sector": "agri",
+      "summary": "認定新規就農者が早期に経営を伸ばすための農業用機械・施設の導入（中古・リースも可）に。",
+      "purposes": ["agri"],
+      "small_only": false,
+      "requirements": ["認定新規就農者（独立・自営就農時65歳未満）", "地域計画の目標地図に位置付けられていること等", "成果目標を1つ選ぶ（経営面積3割拡大／付加価値額1割拡大／労働生産性3%向上）", "経営開始資金との同時受給は不可"],
+      "rate": "購入3/10以内、リースは定額（取得額相当の3/7）", "max": "個人1,500万円、法人3,000万円",
+      "review": "local", "review_text": "市町村の要望調査→規模の根拠を審査して計画承認",
+      "wage": "none", "wage_text": "賃上げは要件ではありません。",
+      "fee": "consult", "link": "https://www.maff.go.jp/j/new_farmer/",
+      "rounds": [{"label": "要望調査", "start": "", "end": "", "when": "市町村ごとの要望調査（例：神戸市は令和8年度分を9月3日締切）", "memo": "次年度分の要望調査を見逃さないよう、市町村に早めに確認を。"}]
+    },
+    {
+      "id": "agri-kouzou",
+      "name": "地域農業構造転換支援事業（担い手の機械・施設導入）",
+      "level": "国", "pref": "", "sector": "agri",
+      "summary": "地域の中核として農地を引き受ける担い手が、経営改善のために農業用機械・施設を導入するときに。",
+      "purposes": ["agri"],
+      "small_only": false,
+      "requirements": ["地域計画に位置付けられた担い手（認定農業者・認定新規就農者・集落営農組織など）", "地域計画の目標集積率などの地域要件", "整備内容ごとに事業費50万円以上、耐用年数おおむね5〜20年"],
+      "rate": "購入3/10以内、リースは定額（取得額相当の3/7）", "max": "個人1,500万円、法人3,000万円",
+      "review": "local", "review_text": "市町村・都道府県を通じた要望・ポイント審査",
+      "wage": "none", "wage_text": "賃上げは要件ではありません。",
+      "fee": "consult", "link": "https://www.maff.go.jp/j/keiei/",
+      "rounds": [{"label": "要望調査", "start": "", "end": "", "when": "市町村の要望調査（時期は地域による）", "memo": "スマート農業技術活用促進法の認定があると加点されます。"}]
+    },
+    {
+      "id": "agri-yushi",
+      "name": "農地利用効率化等支援事業（融資主体支援タイプ）",
+      "level": "国", "pref": "", "sector": "agri",
+      "summary": "担い手が融資を受けて農業用機械・施設を導入するとき、融資残額の一部を補助（乾燥機・調製施設なども）。",
+      "purposes": ["agri"],
+      "small_only": false,
+      "requirements": ["地域計画に位置付けられた担い手", "金融機関の融資を受けて導入すること"],
+      "rate": "3/10以内", "max": "300万円など",
+      "review": "local", "review_text": "市町村・都道府県を通じた要望・ポイント審査",
+      "wage": "none", "wage_text": "賃上げは要件ではありません。",
+      "fee": "consult", "link": "https://www.maff.go.jp/j/keiei/",
+      "rounds": [{"label": "要望調査", "start": "", "end": "", "when": "市町村の要望調査（時期は地域による）", "memo": "融資の相談（JA・日本政策金融公庫など）と並行して進めます。"}]
+    },
+    {
+      "id": "agri-tsuyoi",
+      "name": "強い農業づくり総合支援交付金",
+      "level": "国", "pref": "", "sector": "agri",
+      "summary": "産地の共同利用施設（集出荷・貯蔵・処理加工施設など）の整備に。主に農業者の組織する団体向け。",
+      "purposes": ["agri"],
+      "small_only": false,
+      "requirements": ["農業者の組織する団体等（JA・農業法人・食品企業との連携など）", "産地の計画（食料システム構築計画など）に基づく取組"],
+      "rate": "1/2以内など", "max": "整備事業 年20億円、ソフト支援 年5,000万円（タイプによる）",
+      "review": "local", "review_text": "都道府県を通じた要望・審査（一部は国が直接採択）",
+      "wage": "none", "wage_text": "賃上げは要件ではありません。",
+      "fee": "consult", "link": "https://www.maff.go.jp/j/seisan/suisin/tuyoi_nougyou/",
+      "rounds": [{"label": "要望調査", "start": "", "end": "", "when": "都道府県の要望調査（時期は都道府県による）", "memo": "個人の農家より、産地・団体での活用が中心です。"}]
+    },
+    {
+      "id": "otsu-seisansei",
+      "name": "大津市生産性向上推進事業費補助金",
+      "level": "市区町村", "pref": "滋賀県", "area": "滋賀県大津市", "sector": "business",
+      "summary": "大津市内の中小企業が、業務の効率化・省人化で生産性を上げる取り組みに。",
+      "purposes": ["labor", "it", "newbiz"],
+      "small_only": false,
+      "requirements": ["大津市内に本店・主たる事務所がある中小企業者・小規模企業者", "支援機関（商工会議所・商工会など）の確認書", "市税の滞納がないこと／フランチャイズ等は対象外", "賃金引上げ枠は従業員の平均賃金を3.5%以上引き上げ"],
+      "rate": "通常枠1/2、賃金引上げ枠1/2〜2/3", "max": "400万円",
+      "review": "first_come", "review_text": "期間中でも予算の上限に達した時点で募集終了（審査あり）",
+      "wage": "optional", "wage_text": "賃金引上げ枠（平均賃金3.5%以上）で補助率が上がります。",
+      "fee": "consult", "link": "https://www.city.otsu.lg.jp/",
+      "rounds": [{"label": "令和8年度 第2次募集", "start": "2026-09-01", "end": "2026-12-28", "end_time": "", "memo": "予算に達し次第終了。早めの申請を。"}]
+    },
+    {
+      "id": "shiga-gyomukaizen",
+      "name": "滋賀県業務改善・賃上げ支援事業補助金",
+      "level": "都道府県", "pref": "滋賀県", "area": "滋賀県", "sector": "employment",
+      "summary": "国の業務改善助成金に県が上乗せ。助成金で残った自己負担額の半分を補助します。",
+      "purposes": ["hire", "labor"],
+      "small_only": false,
+      "requirements": ["滋賀県内の事業場規模30人未満の事業者", "令和8年9月1日以降に滋賀労働局へ業務改善助成金を交付申請し、令和9年2月26日までに交付額確定の通知を受けていること", "滋賀県税の未納がないこと"],
+      "rate": "自己負担額の1/2以内", "max": "業務改善助成金のコース・引上げ人数による",
+      "review": "rolling", "review_text": "業務改善助成金の額の確定後に随時申請",
+      "wage": "core", "wage_text": "業務改善助成金（賃上げが条件）を受けた事業者が対象です。",
+      "fee": "consult", "link": "https://www.pref.shiga.lg.jp/fe00/28970.html",
+      "rounds": [{"label": "令和8年度", "start": "", "end": "", "when": "業務改善助成金の額の確定後に申請（確定通知は2027年2月26日まで）", "memo": "国の助成金とセットで考えます。"}]
+    },
+    {
+      "id": "kyoto-shoene",
+      "name": "京都市中小事業者の省エネリノベーション支援事業補助金",
+      "level": "市区町村", "pref": "京都府", "area": "京都府京都市", "sector": "business",
+      "summary": "京都市内の中小事業者が、空調・照明・給湯・冷凍冷蔵設備を省エネ型に更新するときに。",
+      "purposes": ["energy"],
+      "small_only": false,
+      "requirements": ["京都市内の中小事業者・自治会等", "エネルギー消費量等報告書を提出できること", "既存設備の更新（新規設置は対象外）・新品であること", "国・府など他の公的補助金と併用しないこと"],
+      "rate": "機器費・工事費の1/3", "max": "200万円（下限20万円）",
+      "review": "first_come", "review_text": "受付順。予算額に達し次第、受付終了",
+      "wage": "none", "wage_text": "賃上げは要件ではありません。",
+      "fee": "consult", "link": "https://j-lppf2.jp/kyoto-chusho-eco/",
+      "rounds": [{"label": "令和8年度", "start": "2026-08-28", "end": "2027-03-31", "end_time": "", "memo": "予算に達し次第終了します。"}]
     }
   ]
 }

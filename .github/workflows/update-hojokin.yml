@@ -1,0 +1,36 @@
+name: 補助金データの自動更新（jGrants）
+
+on:
+  schedule:
+    - cron: '0 18 */3 * *'   # 3日ごと 日本時間3:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-hojokin
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: jGrantsから受付中の補助金を取得
+        run: node scripts/fetch-jgrants.mjs
+      - name: 変更があればコミット
+        run: |
+          if git diff --quiet -- data/jgrants.json; then
+            echo "変更なし"; exit 0
+          fi
+          git config user.name "bridge-cycle-bot"
+          git config user.email "info@bridgecycleco.com"
+          git add data/jgrants.json
+          git commit -m "補助金データ（jGrants）を自動更新 $(TZ=Asia/Tokyo date +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push
