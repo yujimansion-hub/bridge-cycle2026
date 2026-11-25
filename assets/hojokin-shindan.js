@@ -121,68 +121,134 @@
     draw();
   }
 
-  /* 診断 */
+  /* 補助金検索（会社の条件を入力して探す） */
+  var INDS=[['製造業','製造業',20,300],['建設業','建設業',20,300],['卸売業','卸売業、小売業',5,100],['小売業','卸売業、小売業',5,50],['飲食店','宿泊業、飲食サービス業',5,50],['宿泊業','宿泊業、飲食サービス業',20,100],['生活関連サービス・娯楽（美容・理容・クリーニング等）','生活関連サービス業、娯楽業',5,100],['医療・福祉（クリニック・介護等）','医療、福祉',5,100],['運輸業','運輸業、郵便業',20,300],['情報通信業','情報通信業',5,100],['不動産・物品賃貸業','不動産業、物品賃貸業',5,100],['専門・技術サービス（士業・設計・コンサル等）','学術研究、専門・技術サービス業',5,100],['教育・学習支援','教育、学習支援業',5,100],['農業・林業','農業、林業',20,300],['漁業','漁業',20,300],['その他のサービス業','サービス業（他に分類されないもの）',5,100]];
+  /* 設備名から目的を推定（設備販売会社が入力しやすいように） */
+  var EQ=[
+    ['agri',/乾燥機|トラクター|コンバイン|田植|籾|もみ|選別機|防除|ドローン|ハウス|温室|ビニール|農機|農業|畜舎|搾乳|育苗|精米|色彩選別/],
+    ['labor',/食洗機|食器洗浄|券売機|配膳|ロボット|自動|スチコン|スチームコンベクション|真空|包装機|充填|フィラー|デポジッター|成形|加工機|NC|マシニング|レーザー|溶接|プレス|フォークリフト|コンベア|省力|省人|検品|仕分|セルフレジ|製氷|冷凍機|急速冷凍|ブラスト/],
+    ['energy',/エアコン|空調|LED|照明|冷蔵庫|冷凍庫|冷凍冷蔵|ボイラー|給湯|ヒートポンプ|太陽光|蓄電|断熱|二重窓|省エネ|EV|電気自動車|充電/],
+    ['it',/システム|ソフト|アプリ|予約|POS|レジ|AI|クラウド|会計|勤怠|在庫管理|受発注|顧客管理|CRM|キャッシュレス|タブレット|パソコン|PC|セキュリティ/],
+    ['sales',/ホームページ|HP|ウェブ|Web|EC|ネットショップ|チラシ|看板|改装|内装|外装|展示会|出展|パンフ|広告|店舗/],
+    ['newbiz',/新商品|新製品|新サービス|開発|新事業|試作|キッチンカー|工房|設備一式/],
+    ['hire',/研修|教育|人材|採用|雇用|正社員|賃上げ|資格/],
+    ['succession',/承継|M&A|事業譲渡|引継/]
+  ];
+  function guessPurposes(t){var r=[];EQ.forEach(function(e){if(e[1].test(t))r.push(e[0]);});return r;}
+  function words(t){return String(t||'').split(/[\s、,，・\/／]+/).filter(function(w){return w.length>=2;});}
+  function cityOf(it){
+    var m=(it.title||'').match(/【(?:[^】]*?[都道府県])?\s*([^【】\s]{1,8}?[市町村区])】/);if(m)return m[1];
+    var a=(it.area||'').trim();if(/^[^\s、。]{1,8}[市町村区]$/.test(a))return a;
+    return '';
+  }
+  function maxEmp(s){var m=String(s||'').match(/(\d+)名以下/);return m?+m[1]:null;}
+  function monthDate(v){var m=String(v||'').match(/(\d{4})-(\d{1,2})/);return m?new Date(+m[1],+m[2]-1,1):null;}
+  /* 導入時期と申請期間の関係：ok=間に合う / tight=急ぎ / late=導入予定に間に合わない / wait=次の公募待ち / free=随時 */
+  function timing(endDate,state,order){
+    if(state==='always'||state==='rolling')return{k:'free',t:'随時申請できます（交付決定の後に発注）'};
+    if(state==='plan')return{k:'wait',t:'次の公募の日程待ち。導入時期が近いなら、時期の調整が必要です'};
+    if(!order)return endDate?{k:'ok',t:'導入時期を決めるときは、交付決定の後に発注を'}:{k:'wait',t:'日程は公式発表待ち'};
+    if(!endDate)return{k:'ok',t:''};
+    var gap=(order-endDate)/864e5;
+    if(gap>=60)return{k:'ok',t:'締切後、交付決定を待ってから発注しても間に合う見込み'};
+    if(gap>=0)return{k:'tight',t:'締切から導入までが短いです。交付決定の時期を確認し、発注を遅らせる余地を'};
+    return{k:'late',t:'導入予定が締切より前です。交付決定前の発注は対象外になるため、導入を遅らせるか別の制度を'};
+  }
+  var TM={ok:['◎','間に合う'],tight:['△','急ぎ'],late:['×','時期が合わない'],wait:['…','公募待ち'],free:['◎','随時']};
+  function tmHTML(x){if(!x||!x.t)return '';return '<p class="sd-tm sd-tm-'+x.k+'"><b>'+TM[x.k][0]+' '+TM[x.k][1]+'</b> '+esc(x.t)+'</p>';}
+
   function renderShindan(box,data,jg){
-    var a={},hist=[],step=0;
-    function nextStep(s){while(s<Q.length&&Q[s].when&&!Q[s].when(a))s++;return s;}
-    function q(){
-      var c=Q[step],n=Q.filter(function(x){return !x.when||x.when(a);}).length,idx=hist.length+1;
-      var opts=c.sel?'<div class="sd-selrow"><select class="sd-sel" aria-label="都道府県"><option value="">選んでください</option>'+PREFS.map(function(p){return '<option'+(a.pref===p?' selected':'')+'>'+p+'</option>';}).join('')+'</select><button type="button" class="btn sd-next"'+(a.pref?'':' disabled')+'>次へ ›</button></div>'
-        :'<div class="sd-opts">'+c.o.filter(function(o){return !(c.k==='purpose'&&o[0]==='agri'&&a.ind!=='agri');}).map(function(o){return '<button type="button" class="sd-opt" data-v="'+o[0]+'">'+esc(o[1])+'</button>';}).join('')+'</div>';
-      box.innerHTML='<div class="sd-card"><div class="sd-prog"><span style="width:'+Math.round((idx-1)/n*100)+'%"></span></div><p class="sd-step">質問 '+idx+' / '+n+'</p><h3 class="sd-q">'+esc(c.t)+'</h3>'+opts+(hist.length?'<button type="button" class="sd-back">‹ 前の質問へ</button>':'')+'</div>';
-      function go(v){a[c.k]=v;if(!hist.length)track('hojokin_shindan_start',{});hist.push(step);step=nextStep(step+1);if(step<Q.length)q();else result();}
-      if(c.sel){var s=box.querySelector('.sd-sel'),nb=box.querySelector('.sd-next');s.onchange=function(){nb.disabled=!s.value;};nb.onclick=function(){if(s.value)go(s.value);};}
-      else box.querySelectorAll('.sd-opt').forEach(function(b){b.onclick=function(){go(b.getAttribute('data-v'));};});
-      var bk=box.querySelector('.sd-back');if(bk)bk.onclick=function(){step=hist.pop();q();};
-    }
-    function label(k){var c=Q.filter(function(x){return x.k===k;})[0];if(c.sel)return a[k]||'';var o=c.o.filter(function(x){return x[0]===a[k];})[0];return o?o[1]:'';}
-    function result(){
-      var small=a.ind==='shogyo'?a.emp==='5':(a.emp!=='21');
-      var hits=[];
+    var qs=new URLSearchParams(location.search);
+    var mm=new Date();mm.setMonth(mm.getMonth()+4);var defMonth=mm.getFullYear()+'-'+String(mm.getMonth()+1).padStart(2,'0');
+    box.innerHTML='<form class="sd-card sd-form" novalidate>'
+      +'<div class="sd-grid">'
+      +'<label class="sd-f"><span>業種<em>必須</em></span><select name="ind" required><option value="">選んでください</option>'+INDS.map(function(x,i){return '<option value="'+i+'">'+esc(x[0])+'</option>';}).join('')+'</select></label>'
+      +'<label class="sd-f"><span>常時雇用する従業員数<em>必須</em></span><span class="sd-unit"><input name="emp" type="number" inputmode="numeric" min="0" max="99999" placeholder="例：8" required>人</span><small>役員・事業主本人は含めず、パート等は所定労働時間などで判断</small></label>'
+      +'<label class="sd-f"><span>都道府県<em>必須</em></span><select name="pref" required><option value="">選んでください</option>'+PREFS.map(function(p){return '<option>'+p+'</option>';}).join('')+'</select></label>'
+      +'<label class="sd-f"><span>市区町村</span><input name="city" placeholder="例：大津市" maxlength="20"><small>入れると、その市町村の補助金に絞れます</small></label>'
+      +'<label class="sd-f sd-wide"><span>導入しようと考えている設備・取り組み<em>必須</em></span><input name="equip" placeholder="例：食器洗浄機、予約システム、乾燥機、店舗の改装" maxlength="80" required><small>複数あるときは「、」で区切ってください</small></label>'
+      +'<label class="sd-f"><span>導入（発注・契約）の予定時期</span><input name="when" type="month" value="'+defMonth+'"></label>'
+      +'<label class="sd-f"><span>この1〜3年の賃上げ</span><select name="wage"><option value="dk">わからない</option><option value="yes">計画できる</option><option value="hard">難しい</option></select></label>'
+      +'</div><p class="sd-err" role="alert"></p><button type="submit" class="btn sd-go-search">使える補助金を検索する ›</button>'
+      +'<p class="sd-mini">入力内容は送信されません（この画面の中だけで検索します）。</p></form><div class="sd-out"></div>';
+    var f=box.querySelector('form'),out=box.querySelector('.sd-out');
+    ['ind','emp','pref','city','equip','when','wage'].forEach(function(k){var v=qs.get(k);if(v!=null&&f[k])f[k].value=v;});
+    f.onsubmit=function(e){e.preventDefault();run(true);};
+    if(qs.get('equip')&&qs.get('pref'))run(false);
+
+    function run(scroll){
+      var err=box.querySelector('.sd-err');err.textContent='';
+      var a={ind:f.ind.value,emp:f.emp.value,pref:f.pref.value,city:f.city.value.trim(),equip:f.equip.value.trim(),when:f.when.value,wage:f.wage.value};
+      if(a.ind===''||a.emp===''||!a.pref||!a.equip){err.textContent='業種・従業員数・都道府県・導入したい設備は必須です。';return;}
+      var IND=INDS[+a.ind],emp=+a.emp,order=monthDate(a.when);
+      var small=emp<=IND[2],sme=emp<=IND[3]||emp<=300&&/製造|建設|運輸|農業|漁業/.test(IND[1]);
+      var purposes=guessPurposes(a.equip);var isAgri=/農業|漁業/.test(IND[1]);
+      if(isAgri&&purposes.indexOf('agri')<0&&/機|施設|ハウス/.test(a.equip))purposes.push('agri');
+      if(!purposes.length)purposes=['labor','newbiz','it','sales'];
+      var ws=words(a.equip),results=[];
+      /* 主な制度 */
       data.programs.forEach(function(p){
         if(p.pref&&p.pref!==a.pref)return;
-        if(p.sector==='agri'){
-          if(a.ind!=='agri')return;
-          if(a.purpose!=='agri'&&a.purpose!=='any')return;
-          var ok={new:['agri-hatten','agri-challenge'],ninaite:['agri-kouzou','agri-yushi'],group:['agri-tsuyoi']}[a.role]||[];
-          if(ok.indexOf(p.id)<0)return;
-        }else{
-          if(a.purpose==='agri')return;
-          if(a.purpose!=='any'&&(p.purposes||[]).indexOf(a.purpose)<0)return;
-          if(p.small_only&&!small)return;
-        }
-        hits.push(p);
+        if(p.area&&a.city&&p.area.indexOf(a.pref)===0&&p.area.length>a.pref.length&&p.area.indexOf(a.city)<0)return;
+        if(p.sector==='agri'&&!isAgri)return;
+        var hit=(p.purposes||[]).filter(function(x){return purposes.indexOf(x)>=0;}).length;
+        if(!hit)return;
+        if(p.small_only&&!small)return;
+        var live=liveRounds(p),best=live[0];
+        var st=!best?null:(best.rs.s==='always'||p.review==='rolling')?'always':(best.rs.s==='plan'?'plan':'open');
+        var tm=best?timing(day(best.r.end),st,order):{k:'wait',t:'次の公募は未定です'};
+        if(p.review==='local')tm={k:'wait',t:'市町村の要望調査が入口です。導入の1年前から市町村に相談を'};
+        results.push({kind:'p',p:p,score:hit*3+(p.pref?2:0)+(tm.k==='ok'||tm.k==='free'?2:tm.k==='late'?-3:0),tm:tm});
       });
-      hits.sort(function(x,y){return progOrder(x)-progOrder(y);});
-      var local=(jg&&jg.items||[]).filter(function(it){return jgLive(it)&&jgMatch(it,a.pref,a.purpose==='any'?'':a.purpose);});
+      /* 全国の自治体の公募（jGrants） */
+      (jg&&jg.items||[]).forEach(function(it){
+        if(!jgLive(it))return;
+        var nat=it.pref.indexOf('全国')>=0;
+        if(!nat&&it.pref.indexOf(a.pref)<0)return;
+        var c=cityOf(it);if(c&&a.city&&c!==a.city&&a.city.indexOf(c)<0)return;
+        if(it.industry&&it.industry.indexOf(IND[1])<0)return;
+        var me=maxEmp(it.employees);if(me!=null&&emp>me)return;
+        var text=it.title+' '+it.purpose+' '+it.summary+' '+it.requirements;
+        var kw=ws.filter(function(w){return text.indexOf(w)>=0;}).length;
+        var pk=purposes.filter(function(x){return KW[x]&&KW[x].test(it.title+' '+it.purpose);}).length;
+        var score=kw*4+pk*2+(nat?0:2)+(c&&a.city&&c===a.city?3:0);
+        if(nat&&kw===0)return;           /* 全国向けは設備名が一致したものだけ */
+        if(!nat&&kw===0&&pk===0)return;
+        results.push({kind:'j',it:it,score:score,tm:timing(day(it.end),it.end?'open':'always',order)});
+      });
+      results.sort(function(x,y){return y.score-x.score;});
       var notes=[];
-      if(a.when==='soon')notes.push('<b>発注は、交付決定のあとに。</b>多くの補助金は、交付決定より前に発注・契約した費用が対象外です。申請の日程から逆算して発注日を決めましょう。');
-      if(!small&&(a.purpose==='sales'||a.purpose==='any'))notes.push('従業員数から、小規模事業者向けの持続化補助金は対象外の可能性が高いです。');
-      if(a.ind==='agri')notes.push('農業の補助金の多くは、市町村の農政担当・農業委員会への<b>要望調査</b>から始まります。締切が市町村ごとに違うため、早めの確認が大切です。');
-      var total=hits.length+Math.min(local.length,8);
-      var html='<div class="sd-card sd-res"><p class="sd-step">診断の結果（'+esc(a.pref)+'）</p><h3 class="sd-q">'+(total?'候補になりそうな補助金・助成金は '+total+' 件です。':'いまの条件で、すぐに合う補助金は見当たりません。')+'</h3>';
-      if(!total)html+='<p class="sd-p">補助金がなくても、融資・リース・投資時期の見直しで進められることがあります。初回相談（0円）で一緒に考えます。</p>';
-      if(hits.length)html+='<p class="sd-sub">主な制度</p>'+hits.map(function(p){return programCard(p,a,'sd-hit');}).join('');
-      if(local.length)html+='<p class="sd-sub">'+esc(a.pref)+'の自治体などの公募（受付中）</p>'+local.slice(0,8).map(jgCard).join('')+(local.length>8?'<p class="sd-mini">ほか '+(local.length-8)+' 件は、下の一覧で地域を選ぶと見られます。</p>':'');
+      if(!sme)notes.push('従業員数から、中小企業の定義（'+esc(IND[0])+'は'+IND[3]+'人以下など）を超える可能性があります。資本金でも判定できるので、ご相談ください。');
+      if(order&&(order-today())/864e5<90)notes.push('<b>導入まで3か月を切っています。</b>多くの補助金は交付決定より前に発注した費用が対象外です。補助金を使うなら、導入時期の見直しも検討しましょう。');
+      if(isAgri)notes.push('農業の国の補助金の多くは、市町村の農政担当・農業委員会への<b>要望調査</b>から始まります。');
+      var w=a.wage;
+      var html='<div class="sd-card sd-res"><p class="sd-step">検索結果：'+esc(a.pref+(a.city?' '+a.city:''))+'／'+esc(IND[0])+'／従業員'+emp+'人／「'+esc(a.equip)+'」'+(a.when?'／導入 '+esc(a.when.replace('-','年'))+'月':'')+'</p>'
+        +'<h3 class="sd-q">'+(results.length?'活用できる可能性がある補助金・助成金は '+results.length+' 件です。':'条件に合う補助金は見つかりませんでした。')+'</h3>';
+      if(!results.length)html+='<p class="sd-p">設備名の書き方を変える（例：「スチコン」→「厨房機器」）、市区町村を空欄にする、で広く探せます。融資・リース・導入時期の見直しも含め、初回相談（0円）で一緒に考えます。</p>';
+      html+=results.slice(0,20).map(function(r){
+        if(r.kind==='p')return programCard(r.p,{wage:w},'sd-hit').replace(/<\/div>$/,tmHTML(r.tm)+'</div>');
+        return jgCard(r.it).replace(/<\/div>$/,tmHTML(r.tm)+'</div>');
+      }).join('');
+      if(results.length>20)html+='<p class="sd-mini">ほか '+(results.length-20)+' 件。条件を足すと絞り込めます。</p>';
       if(notes.length)html+='<div class="sd-notes">'+notes.map(function(n){return '<p>'+n+'</p>';}).join('')+'</div>';
-      html+='<div class="sd-cta"><button type="button" class="btn sd-go">この結果で無料相談する ›</button><a class="sd-line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで聞く</a><button type="button" class="sd-again">もう一度診断する</button></div>'
-        +'<p class="sd-disc">※公開情報をもとにした目安です。要件の詳細は各公募要領で確認し、採択・交付を保証するものではありません。</p></div>';
-      box.innerHTML=html;
-      track('hojokin_shindan_complete',{purpose:a.purpose,pref:a.pref,hits:total});
-      box.querySelector('.sd-again').onclick=function(){a={};hist=[];step=0;q();};
-      box.querySelector('.sd-go').onclick=function(){
-        track('hojokin_shindan_to_contact',{purpose:a.purpose});
-        var kind=document.getElementById('cKind'),msg=document.getElementById('cMsg');
-        if(kind){var map={sales:'販路開拓・小規模事業者持続化補助金',labor:'設備投資・改装の補助金',newbiz:'設備投資・改装の補助金',energy:'設備投資・改装の補助金',agri:'設備投資・改装の補助金',succession:'事業承継・M&A関連の補助金'};var v=map[a.purpose];if(v)kind.value=v;}
+      var share=location.origin+location.pathname+'?'+new URLSearchParams({ind:a.ind,emp:a.emp,pref:a.pref,city:a.city,equip:a.equip,when:a.when,wage:a.wage}).toString()+'#shindan-sec';
+      html+='<div class="sd-cta"><button type="button" class="btn sd-go">この結果で無料相談する ›</button><a class="sd-line" href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener">LINEで聞く</a><button type="button" class="sd-share">この条件のURLをコピー</button></div>'
+        +'<p class="sd-disc">※公開情報をもとにした目安です。対象の可否・要件は各公募要領で確認し、採択・交付を保証するものではありません。</p></div>';
+      out.innerHTML=html;
+      track('hojokin_search',{ind:IND[0],pref:a.pref,hits:results.length,purposes:purposes.join(',')});
+      out.querySelector('.sd-share').onclick=function(){var b=this;try{navigator.clipboard.writeText(share).then(function(){b.textContent='コピーしました';});}catch(e){prompt('このURLをコピーしてください',share);}};
+      out.querySelector('.sd-go').onclick=function(){
+        track('hojokin_shindan_to_contact',{ind:IND[0]});
+        var kind=document.getElementById('cKind'),msg=document.getElementById('cMsg'),co=document.getElementById('cCompany');
+        if(kind){var v=purposes.indexOf('sales')>=0&&small?'販路開拓・小規模事業者持続化補助金':purposes.indexOf('succession')>=0?'事業承継・M&A関連の補助金':'設備投資・改装の補助金';kind.value=v;}
         if(msg&&!msg.value.trim()){
-          msg.value='【補助金診断の結果】\n・地域：'+a.pref+'\n・業種：'+label('ind')+(a.role?'\n・農業での立場：'+label('role'):'')+'\n・使いたいこと：'+label('purpose')+'\n・従業員：'+label('emp')+'\n・発注の時期：'+label('when')+'\n・賃上げ：'+label('wage')+'\n・候補：'+(hits.map(function(p){return p.name;}).concat(local.slice(0,3).map(function(it){return it.title;})).join('、')||'なし')+'\n';
+          msg.value='【補助金検索の条件】\n・業種：'+IND[0]+'\n・常時雇用の従業員：'+emp+'人\n・所在地：'+a.pref+(a.city?' '+a.city:'')+'\n・導入したい設備等：'+a.equip+'\n・導入予定：'+(a.when||'未定')+'\n・賃上げ：'+({yes:'計画できる',hard:'難しい',dk:'わからない'}[w])+'\n・候補：'+results.slice(0,5).map(function(r){return r.kind==='p'?r.p.name:r.it.title;}).join('、')+'\n';
         }
         var c=document.getElementById('contact')||document.getElementById('form');
         if(c)c.scrollIntoView({behavior:'smooth'});
       };
-      box.scrollIntoView({behavior:'smooth',block:'start'});
+      if(scroll)out.scrollIntoView({behavior:'smooth',block:'start'});
     }
-    q();
   }
 
   function init(){

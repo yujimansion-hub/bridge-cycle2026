@@ -140,6 +140,22 @@ section.alt{background:var(--mist)}
 .sk-more{font:inherit;font-size:14px;margin-top:14px;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:9px 16px;cursor:pointer;color:var(--ai)}
 #shindan .sd-sub{font-weight:700;font-size:14px;color:var(--ai-3);margin-top:18px}
 #shindan .sd-selrow{display:flex;flex-wrap:wrap;gap:10px}
+.sd-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.sd-f{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;color:var(--ai)}
+.sd-f em{font-style:normal;font-size:11px;color:#fff;background:var(--warn);border-radius:4px;padding:0 6px;margin-left:6px}
+.sd-f small{font-weight:400;font-size:12px;color:var(--ai-3)}
+.sd-f input,.sd-f select{font:inherit;font-size:16px;font-weight:400;padding:9px 11px;border:1px solid var(--rule);border-radius:8px;background:#fff;color:var(--ai);width:100%}
+.sd-unit{display:flex;align-items:center;gap:6px;font-weight:400}
+.sd-wide{grid-column:1/-1}
+.sd-err{color:var(--warn);font-size:14px;margin:10px 0 0;min-height:1em}
+.sd-go-search{margin-top:8px}
+.sd-out{margin-top:18px}
+.sd-tm{font-size:13.5px;margin-top:6px;padding:6px 10px;border-radius:6px;background:var(--mist);color:var(--ai-2)}
+.sd-tm b{margin-right:4px}
+.sd-tm-ok,.sd-tm-free{background:var(--leaf);color:var(--tape-d)}
+.sd-tm-late{background:#fbecea;color:var(--warn)}
+.sd-share{font:inherit;font-size:14px;background:none;border:0;color:var(--ai-2);text-decoration:underline;cursor:pointer}
+@media(max-width:600px){.sd-grid{grid-template-columns:1fr}.sd-go-search{width:100%}}
 #schedule .fallback{padding:18px 0;color:var(--ai-2);font-size:15px}
 /* 第20回 */
 .j20{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start}
@@ -381,7 +397,7 @@ details.fine>summary{display:none}
 <header class="hd"><div class="w">
   <a class="brand" href="./" title="BRIDGE CYCLE株式会社 トップへ"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2b4f"/><path d="M14 40 Q32 18 50 40" fill="none" stroke="#9bcf53" stroke-width="5" stroke-linecap="round"/><path d="M20 44 Q32 30 44 44" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>BRIDGE CYCLE</a>
   <nav aria-label="このページ内">
-    <a href="#shindan-sec">30秒診断</a>
+    <a href="#shindan-sec">補助金検索</a>
     <a href="#why-us">選ばれる理由</a>
     <a href="#jizokuka20">持続化補助金</a>
     <a href="#menu">料金</a>
@@ -397,7 +413,7 @@ details.fine>summary{display:none}
     <p class="where">滋賀・京都 ／ 認定経営革新等支援機関 ／ 初回相談0円</p>
     <h1>補助金を「取る」前に。<br><span class="focus">その投資に、意味があるか。</span></h1>
     <p class="sub"><strong>申請書を作るだけではありません。</strong> 約20年の経営支援経験を持つ代表が、補助金の要件、事業の収益性、資金繰りを一緒に確認。使うべき制度がなければ、無理に申請を勧めません。</p>
-    <div class="ctas"><a class="btn" href="#shindan-sec" data-t="hero_primary_shindan">自社に合う補助金を30秒で診断する ›</a><a class="cv-inline-link" href="#why-us">BRIDGE CYCLEが選ばれる理由</a></div>
+    <div class="ctas"><a class="btn" href="#shindan-sec" data-t="hero_primary_shindan">自社で使える補助金を検索する ›</a><a class="cv-inline-link" href="#why-us">BRIDGE CYCLEが選ばれる理由</a></div>
     <p class="smallprom">60分の初回相談0円 ／ 原則2営業日以内に返信 ／ 契約前に料金をご説明</p>
     <p class="who"><span><b>元商工会経営指導員</b> 約20年</span><span><b>認定経営革新等支援機関</b> 2026年認定</span></p>
   </div>
@@ -539,8 +555,8 @@ details.fine>summary{display:none}
 
 <!-- 補助金診断と公募スケジュール（data/hojokin.json から自動表示・毎週更新） -->
 <section id="shindan-sec" class="alt"><div class="w">
-  <h2 class="sec">あなたに合う補助金を、30秒で。</h2>
-  <p class="lead">国の補助金に加えて、全国の自治体の補助金、雇用・賃上げの助成金、農業の補助金から、地域と目的に合うものを探します。締切・補助率・上限・審査の方式・主な要件まで表示。名前やメールの入力は不要です。</p>
+  <h2 class="sec">会社の条件を入れて、使える補助金を検索。</h2>
+  <p class="lead">業種・常時雇用する従業員数・所在地・導入したい設備・導入時期を入れると、国の補助金、全国の自治体の補助金、雇用の助成金、農業の補助金から候補を探し、締切・補助率・上限・審査方式・主な要件と「導入時期に間に合うか」を表示します。設備販売会社の方は、検索条件のURLをお客様と共有できます。</p>
   <div id="shindan"><div class="fallback">診断を読み込んでいます…</div></div>
 </div></section>
 
@@ -550,7 +566,7 @@ details.fine>summary{display:none}
   <div id="skList"><div class="fallback">スケジュールを読み込んでいます…</div></div>
   <p class="mut" style="margin-top:12px">出典：<a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">中小機構「補助金活用ナビ」</a>、<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a>、各省庁・自治体・事務局の公式サイト。掲載のない補助金もご相談いただけます。</p>
 </div></section>
-<script src="/assets/hojokin-shindan.js?v=20261126c" defer></script>
+<script src="/assets/hojokin-shindan.js?v=20261126d" defer></script>
 
 <section id="menu" class="alt"><div class="w">
   <h2 class="sec">料金を、最初から明確に。</h2>
