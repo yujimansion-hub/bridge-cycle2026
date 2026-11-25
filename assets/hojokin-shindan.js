@@ -24,7 +24,7 @@
   function day(s){if(!s)return null;var m=String(s).match(/(\d{4})-(\d{1,2})-(\d{1,2})/);return m?new Date(+m[1],+m[2]-1,+m[3]):null;}
   function md(d){return (d.getFullYear()!==new Date().getFullYear()?d.getFullYear()+'年':'')+(d.getMonth()+1)+'月'+d.getDate()+'日';}
   function jgLive(it){var e=day(it.end);return !e||e>=today();}
-  function shortArea(it){var a=(it.area||'').replace(/詳細は.*$/,'').trim();if(a.length>16)a='';var p=it.pref.indexOf(' / ')>=0?'複数の都道府県':it.pref;return a?p+' '+a:p;}
+  function shortArea(it){var a=(it.area||'').replace(/詳細は.*$/,'').trim();if(a.length>16)a='';var p=/\//.test(it.pref)?(it.pref.indexOf('全国')>=0?'全国':'複数の都道府県'):it.pref;if(/\//.test(a))a='';return a?p+' '+a:p;}
   function today(){var t=new Date();t.setHours(0,0,0,0);return t;}
   function yen(n){if(!n)return '';if(n>=1e8)return (Math.round(n/1e6)/100)+'億円';if(n>=1e4)return (Math.round(n/1e3)/10).toLocaleString()+'万円';return n.toLocaleString()+'円';}
   function track(n,v){try{if(typeof window.bcTrack==='function')window.bcTrack(n,v||{});}catch(e){}}
