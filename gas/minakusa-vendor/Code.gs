@@ -504,3 +504,11 @@ function showSummary() {
 
 /** 外部接続（Stripe）の権限を許可するために、エディタで一度だけ実行する */
 function authorizeStripe() { UrlFetchApp.fetch('https://api.stripe.com/healthcheck', { muteHttpExceptions: true }); MailApp.getRemainingDailyQuota(); SpreadsheetApp.getActive(); ScriptApp.getProjectTriggers(); Session.getEffectiveUser().getEmail(); }
+
+/** Stripeの鍵で、支払い画面の作成・確認ができるかを確かめる（お金は動かない）。結果は実行ログに出る */
+function checkStripe() {
+  var key = PropertiesService.getScriptProperties().getProperty('STRIPE_SECRET_KEY') || '';
+  var r = UrlFetchApp.fetch('https://api.stripe.com/v1/checkout/sessions?limit=1', { headers: { Authorization: 'Bearer ' + key }, muteHttpExceptions: true });
+  var j = JSON.parse(r.getContentText() || '{}');
+  console.log('鍵の種類：' + key.slice(0, 8) + '… ／ 支払い確認（読み取り）：' + (r.getResponseCode() === 200 ? 'OK' : 'NG ' + r.getResponseCode() + ' ' + ((j.error && j.error.message) || '')));
+}
