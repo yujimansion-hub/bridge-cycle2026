@@ -500,3 +500,7 @@ function showSummary() {
   SpreadsheetApp.getUi().alert('出店者：' + l.length + '件\n' + Object.keys(c).map(function (k) { return '・' + k + '：' + c[k] + '件'; }).join('\n') +
     '\n\n終了報告：' + r.length + '件\n売上合計：' + sales.toLocaleString('ja-JP') + '円\nお客さん合計：' + people + '人');
 }
+
+
+/** 外部接続（Stripe）の権限を許可するために、エディタで一度だけ実行する */
+function authorizeStripe() { UrlFetchApp.fetch('https://api.stripe.com/healthcheck', { muteHttpExceptions: true }); MailApp.getRemainingDailyQuota(); SpreadsheetApp.getActive(); ScriptApp.getProjectTriggers(); Session.getEffectiveUser().getEmail(); }
