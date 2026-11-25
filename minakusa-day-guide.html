@@ -272,7 +272,7 @@ svg.route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 </style>
 <script id="vendor-ledger-config">
 /* 出店者台帳（gas/minakusa-vendor）のウェブアプリURL。入れると、運営が台帳に入力した内容で「次にやること」が自動で切り替わる */
-window.MINAKUSA_VENDOR_API='';
+window.MINAKUSA_VENDOR_API='https://script.google.com/macros/s/AKfycbwKc0bgRYzD5z_oO9ywU9icN5I9e4KK9QdXtwh0IcOQjs_jFDMMM3ZFpKXj2hvf1zpA/exec';
 (function(){var q=new URLSearchParams(location.search).get("t");try{if(q&&/^[a-f0-9]{16,40}$/.test(q))localStorage.setItem("minakusa-vendor-token",q);}catch(e){}
 window.MINAKUSA_TOKEN=(function(){try{return localStorage.getItem("minakusa-vendor-token")||"";}catch(e){return q||"";}})();
 window.MINAKUSA_LEDGER=!!(window.MINAKUSA_VENDOR_API&&window.MINAKUSA_TOKEN);})();

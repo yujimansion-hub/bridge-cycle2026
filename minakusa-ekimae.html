@@ -346,7 +346,7 @@ window.MINAKUSA_ENTRY={
   replyDays:'3営業日以内',
   // vendorApi が空のあいだは「後払い受付」：申込はフォーム受付（endpoint）に届き、申込者へ自動返信。枠の確定・許可証確認のあと、当社から支払いページを送る。
   // vendorApi を入れると「事前入金」：台帳が枠を仮押さえし、その場でStripe決済へ。
-  vendorApi:'',                      // 出店者台帳（gas/minakusa-vendor）のURL。入れると申込が台帳に入り、出店ナビの専用リンクがメールで届く
+  vendorApi:'https://script.google.com/macros/s/AKfycbwKc0bgRYzD5z_oO9ywU9icN5I9e4KK9QdXtwh0IcOQjs_jFDMMM3ZFpKXj2hvf1zpA/exec',                      // 出店者台帳（gas/minakusa-vendor）のURL。入れると申込が台帳に入り、出店ナビの専用リンクがメールで届く
   endpoint:'https://script.google.com/macros/s/AKfycbxPWEX8MbMaAJ0LE92aw5f8G2FKE79hT-YywiBUA0RCl-Ra8sm3hqV_LktOA9FVMNSg/exec',
   fallback:'https://formsubmit.co/ajax/info@bridgecycleco.com'
 };
