@@ -22,7 +22,9 @@
   ];
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function day(s){if(!s)return null;var m=String(s).match(/(\d{4})-(\d{1,2})-(\d{1,2})/);return m?new Date(+m[1],+m[2]-1,+m[3]):null;}
-  function md(d){return (d.getMonth()+1)+'月'+d.getDate()+'日';}
+  function md(d){return (d.getFullYear()!==new Date().getFullYear()?d.getFullYear()+'年':'')+(d.getMonth()+1)+'月'+d.getDate()+'日';}
+  function jgLive(it){var e=day(it.end);return !e||e>=today();}
+  function shortArea(it){var a=(it.area||'').replace(/詳細は.*$/,'').trim();if(a.length>16)a='';var p=it.pref.indexOf(' / ')>=0?'複数の都道府県':it.pref;return a?p+' '+a:p;}
   function today(){var t=new Date();t.setHours(0,0,0,0);return t;}
   function yen(n){if(!n)return '';if(n>=1e8)return (Math.round(n/1e6)/100)+'億円';if(n>=1e4)return (Math.round(n/1e3)/10).toLocaleString()+'万円';return n.toLocaleString()+'円';}
   function track(n,v){try{if(typeof window.bcTrack==='function')window.bcTrack(n,v||{});}catch(e){}}
@@ -91,6 +93,7 @@
         return true;
       }).sort(function(x,y){return progOrder(x)-progOrder(y);});
       var jgs=(jg&&jg.items||[]).filter(function(it){
+        if(!jgLive(it))return false;
         if(f.tab==='agri'&&!KW.agri.test(it.title+it.purpose))return false;
         if(f.tab==='business'||f.tab==='employment')return false;
         if(f.pref&&it.pref.indexOf(f.pref)<0)return false;
@@ -151,7 +154,7 @@
         hits.push(p);
       });
       hits.sort(function(x,y){return progOrder(x)-progOrder(y);});
-      var local=(jg&&jg.items||[]).filter(function(it){return jgMatch(it,a.pref,a.purpose==='any'?'':a.purpose);});
+      var local=(jg&&jg.items||[]).filter(function(it){return jgLive(it)&&jgMatch(it,a.pref,a.purpose==='any'?'':a.purpose);});
       var notes=[];
       if(a.when==='soon')notes.push('<b>発注は、交付決定のあとに。</b>多くの補助金は、交付決定より前に発注・契約した費用が対象外です。申請の日程から逆算して発注日を決めましょう。');
       if(!small&&(a.purpose==='sales'||a.purpose==='any'))notes.push('従業員数から、小規模事業者向けの持続化補助金は対象外の可能性が高いです。');

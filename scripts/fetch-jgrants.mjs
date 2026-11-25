@@ -70,6 +70,8 @@ async function main() {
     const d = await getJSON(`${API}/id/${it.id}`);
     await sleep(250);
     const r = (d && d.result && d.result[0]) || {};
+    const dEnd = r.acceptance_end_datetime ? new Date(r.acceptance_end_datetime).getTime() : null;
+    if (dEnd && dEnd < now) continue;
     const text = stripHtml(r.detail);
     const req = section(text, ['応募資格', '対象者', '補助対象者', '交付対象者', '対象事業者', '申請資格']);
     const what = section(text, ['目的・概要', '概要', '目的', '事業概要']);
