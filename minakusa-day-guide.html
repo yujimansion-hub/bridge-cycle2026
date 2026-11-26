@@ -198,7 +198,7 @@ body.dm-lock{overflow:hidden}
 .final .msg{color:#b13d22;font-size:13px;font-weight:800;margin-top:8px}
 .final.sent{border-color:var(--line);background:var(--lighter)}
 .final .thanks{font-size:15px;font-weight:900;color:var(--green);line-height:1.7}
-/* ===== 搬入口（仮） ===== */
+/* ===== 搬入口 ===== */
 .gate{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:14px 0}
 .gate-ph{position:relative;background:#dfe7df}
 svg.route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
@@ -303,7 +303,7 @@ window.MINAKUSA_LEDGER=!!(window.MINAKUSA_VENDOR_API&&window.MINAKUSA_TOKEN);})(
 <div class="dm-body" id="dmBody">
 <div class="dm-step" data-s="0"><div class="dm-k">1 / 9　出発</div><h2 class="dm-h">持ち物を確かめて、出発</h2><p class="dm-lead" id="dmLeave"></p>
 <div class="dm-checks" id="dmPack"></div><div id="dmDecision"></div></div>
-<div class="dm-step" data-s="1" hidden><div class="dm-k">2 / 9　搬入口</div><h2 class="dm-h">搬入口から入ります</h2><p class="dm-lead">印のところが搬入口です。<span class="dm-tag">仮の案内</span> 当日の係員の指示を優先してください。</p>
+<div class="dm-step" data-s="1" hidden><div class="dm-k">2 / 9　搬入口</div><h2 class="dm-h">搬入口から入ります</h2><p class="dm-lead">印のところが搬入口です。当日の係員の指示を優先してください。</p>
 <div class="dm-map" id="dmGateMap"></div><figure class="dm-real" id="dmGateReal" hidden><img alt="搬入口の現地写真"><figcaption>現地の写真：メジャーを当てているところが搬入口です（幅<span class="gw">330cm</span>）</figcaption></figure><ol class="dm-list" id="dmGateSteps"></ol><a class="dm-btn green" id="dmNav" target="_blank" rel="noopener noreferrer">📍 Googleマップで道案内</a></div>
 <div class="dm-step" data-s="2" hidden><div class="dm-k">3 / 9　区画の場所</div><h2 class="dm-h" id="dmBoothTitle">あなたの区画</h2><p class="dm-lead" id="dmBoothLead"></p>
 <div class="dm-map" id="dmBoothMap"></div><figure class="dm-zumen" id="dmZumen" hidden style="margin:10px 0 0"><a id="dmZumenA" href="#" target="_blank" rel="noopener"><img id="dmZumenImg" src="" alt="区画の図面（UDCみなくさ作成）" loading="lazy" style="width:100%;height:auto;border-radius:10px;border:1px solid #e3ddd2"></a><figcaption id="dmZumenCap" style="font-size:12px;color:#6b665e;margin-top:4px"></figcaption></figure><ul class="dm-list"><li><b>区画の中に収める</b>車両・テント・机・看板は区画の線の内側に。テントは3m×3mまで（東口B・Dは幅2mの区画なので、幅2mに収まるもの）。</li><li><b>通路をふさがない</b>点字ブロック・駅の出入口・バス待ちの列の前は空けておく。</li></ul></div>
@@ -350,7 +350,7 @@ window.MINAKUSA_LEDGER=!!(window.MINAKUSA_VENDOR_API&&window.MINAKUSA_TOKEN);})(
 <label class="check-row"><input type="checkbox" data-check="arrival-3" aria-label="区画位置：係員の案内で使用許可された区画と搬入経路を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>区画位置</b><span>係員の案内で使用許可された区画と搬入経路を確認した</span></span></label>
 <label class="check-row"><input type="checkbox" data-check="arrival-4" aria-label="通行の確保：バス利用者・歩行者・車椅子・点字ブロックの動線を確認した"><span class="check-custom" aria-hidden="true">✓</span><span class="check-copy"><b>通行の確保</b><span>バス利用者・歩行者・車椅子・点字ブロックの動線を確認した</span></span></label></div>
 <div class="stage-tail"><span class="stage-count" data-stage-count="1">0 / 5 項目</span><a href="#arrival-info" class="stage-link">エリア・地図を確認 ↓</a></div>
-<div class="gate" id="gateBox"><div class="gate-ph" id="gatePh"><img id="gateImg" src="images/minakusa/west.jpg" alt="搬入口の位置（仮）を示した航空写真"><div id="gateMarks"></div></div><figure class="gate-real"><img id="gateReal" src="images/minakusa/gate-west.jpg" alt="搬入口の現地写真" loading="lazy"><figcaption>現地の写真：メジャーを当てているところが搬入口です（幅<span class="gw">330cm</span>）</figcaption></figure><div class="gate-body"><span class="tag">仮の案内です</span><b id="gateTitle">搬入口（仮）</b><ol id="gateSteps"></ol><p>関係機関の承認後に確定します。確定案内の内容と、当日の係員の指示を優先してください。</p><a id="gateMap" href="#" target="_blank" rel="noopener noreferrer">Googleマップで周辺を見る ↗</a></div></div>
+<div class="gate" id="gateBox"><div class="gate-ph" id="gatePh"><img id="gateImg" src="images/minakusa/west.jpg" alt="搬入口の位置を示した航空写真"><div id="gateMarks"></div></div><figure class="gate-real"><img id="gateReal" src="images/minakusa/gate-west.jpg" alt="搬入口の現地写真" loading="lazy"><figcaption>現地の写真：メジャーを当てているところが搬入口です（幅<span class="gw">330cm</span>）</figcaption></figure><div class="gate-body"><b id="gateTitle">搬入口</b><ol id="gateSteps"></ol><p>当日の係員の指示を優先してください。東口Bはバスレーンに出店するため、搬入口はありません。</p><a id="gateMap" href="#" target="_blank" rel="noopener noreferrer">Googleマップで周辺を見る ↗</a></div></div>
 <div class="photo" data-photo="arrival"><b>📷 到着・設営したら、写真で報告</b><p>設営が終わったら撮って送ってください。運営が配置を確認します。</p><ul><li>区画全体（車両・テント・机が区画の中にあること）</li><li>通路側から見た様子（通路・点字ブロックがふさがっていないこと）</li></ul><label class="shoot"><input type="file" accept="image/*" capture="environment" multiple data-pick>写真を撮る（3枚まで）</label><div class="thumbs" data-thumbs></div><button type="button" class="send" data-send disabled>写真を送って報告する</button><div class="msg" data-msg role="status" aria-live="polite"></div><span class="alt">送れないときは、<a href="https://line.me/R/ti/p/@907kxssd" target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:900">運営のLINE</a>に写真を送ってください。</span></div></section>
 <section class="stage-panel" data-stage="2" id="stage-setup" hidden aria-labelledby="stage-title-2">
 <div class="stage-heading"><div class="stage-symbol" aria-hidden="true">🛠️</div><div><span class="stage-overline">STEP 3 / 6</span><h2 id="stage-title-2">設営</h2><p>開店前の準備</p></div></div>
@@ -488,7 +488,7 @@ setMap();load();go(0,false);
 (function(){"use strict";
 var $=function(i){return document.getElementById(i);};
 var z=$("zone"),date=$("date"),slot=$("slot");
-/* ---- 搬入口（仮）---- */
+/* ---- 搬入口 ---- */
 var GATES={
  west:{img:"images/minakusa/west.jpg",real:"images/minakusa/gate-west.jpg",w:"330cm",title:"西口A：駅前広場の西の角から",pin:[24,49],route:[[13,63],[19,56],[24,49],[31,49],[37,48]],zone:[31,40,22,16,"広場 A"],
   steps:["【経路】西口前の道路から、駅前広場の西の角（横断歩道と「ここから」の標識がある角）→ 搬入口（幅330cm）→ 赤いレンガ舗装を東へ → 区画A","キッチンカーは係員の誘導で、歩行者がいないことを確かめながらゆっくり進入。車幅はミラーを含めて330cm未満であることを事前に確認してください。","テント・机は搬入口の近くで荷下ろしし、台車で区画へ。荷下ろし後の車は指定の場所へ。"],
@@ -502,9 +502,9 @@ window.MK_ROUTE=routeSvg;
 function drawGate(){
  var v=z.value,g=v==="A"?GATES.west:(["C","D"].indexOf(v)>=0?GATES.east:null),box=$("gateBox");if(!box)return;
  if(!g){box.hidden=true;return;}box.hidden=false;
- $("gateImg").src=g.img;if($("gateReal")){$("gateReal").src=g.real;$("gateReal").parentNode.querySelector(".gw").textContent=g.w;}$("gateTitle").textContent="搬入口（仮）｜"+g.title;
+ $("gateImg").src=g.img;if($("gateReal")){$("gateReal").src=g.real;$("gateReal").parentNode.querySelector(".gw").textContent=g.w;}$("gateTitle").textContent="搬入口｜"+g.title;
  $("gateSteps").innerHTML=g.steps.map(function(s){return "<li>"+s+"</li>";}).join("");
- $("gateMarks").innerHTML=routeSvg(g.route)+'<div class="gate-zone" style="left:'+g.zone[0]+'%;top:'+g.zone[1]+'%;width:'+g.zone[2]+'%;height:'+g.zone[3]+'%">'+g.zone[4]+'</div><div class="gate-pin" style="left:'+g.pin[0]+'%;top:'+g.pin[1]+'%"><b>搬入口（仮）</b><i></i><s></s></div>';
+ $("gateMarks").innerHTML=routeSvg(g.route)+'<div class="gate-zone" style="left:'+g.zone[0]+'%;top:'+g.zone[1]+'%;width:'+g.zone[2]+'%;height:'+g.zone[3]+'%">'+g.zone[4]+'</div><div class="gate-pin" style="left:'+g.pin[0]+'%;top:'+g.pin[1]+'%"><b>搬入口</b><i></i><s></s></div>';
  $("gateMap").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(g.map);
 }
 z.addEventListener("change",drawGate);drawGate();
@@ -585,7 +585,7 @@ function events(){
  ev.push({t:eve,k:"prep",b:"前日22時：開催の連絡",s:"雨天などで中止のときはLINEかメールで届きます。届いた内容を確認。",eve:true});
  var start=at(d,o[0]),end=at(d,o[1]);
  ev.push({t:at(d,o[0],-90),k:"prep",b:"出発",s:"許可証・食材・釣り銭・ごみ袋を最終確認して出発（目安）。"});
- ev.push({t:at(d,o[0],-60),k:"setup",b:"到着・設営開始",s:"搬入口（仮）から入り、区画の中に設営。設営できたら到着の写真を送る。"});
+ ev.push({t:at(d,o[0],-60),k:"setup",b:"到着・設営開始",s:"搬入口から入り（東口Bは係員の案内で区画へ）、区画の中に設営。設営できたら到着の写真を送る。"});
  ev.push({t:start,k:"sell",b:"開店",s:"行列が歩道やバスの列をふさがないように。"});
  var last=end;
  if(o[3]){ev.push({t:end,k:"clean",b:"朝の販売終了・片付け",s:"夕方まで場所を空けます。火と電源を止めて一度撤収。"});
@@ -669,7 +669,7 @@ function fill(){
   $("dmSetup").textContent=hm(T.setup);$("dmStart").textContent=$("dmStart2").textContent=hm(T.start);$("dmEnd").textContent=$("dmEnd2").textContent=hm(T.end);$("dmOut").textContent=hm(T.out);}
  else $("dmLeave").textContent="エリア・日付・時間枠を選ぶと、時刻を表示します。";
  var gr=$("dmGateReal");if(gr){gr.hidden=!(zone&&g);if(zone&&g){gr.querySelector("img").src=g.real;gr.querySelector(".gw").textContent=g.w;}}
- if(zone&&g){$("dmGateMap").innerHTML='<img src="'+g.img+'" alt="搬入口（仮）の位置">'+(window.MK_ROUTE?window.MK_ROUTE(g.route):"")+lotsHtml(zone,me).replace(/ me"/g,'"')+'<div class="dm-pin" style="left:'+g.pin[0]+'%;top:'+g.pin[1]+'%"><b>搬入口（仮）</b><i></i><s></s></div>';
+ if(zone&&g){$("dmGateMap").innerHTML='<img src="'+g.img+'" alt="搬入口の位置">'+(window.MK_ROUTE?window.MK_ROUTE(g.route):"")+lotsHtml(zone,me).replace(/ me"/g,'"')+'<div class="dm-pin" style="left:'+g.pin[0]+'%;top:'+g.pin[1]+'%"><b>搬入口</b><i></i><s></s></div>';
   $("dmGateSteps").innerHTML=g.steps.map(function(s){return "<li>"+s+"</li>";}).join("");
   $("dmNav").href="https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(g.q);
   $("dmBoothMap").innerHTML='<img src="'+g.img+'" alt="区画の位置">'+lotsHtml(zone,me);
@@ -746,7 +746,7 @@ var STEPS=[
  {k:"permit",t:"営業許可証を提出する",d:"連絡メールにある方法で、許可証の画像を送ってください。",btn:"提出した",self:true},
  {k:"paid",t:"カードで出店料を払う（出店確定）",d:"メールで届くお支払いページから払うと、出店確定です。",btn:"支払った",self:true},
  {k:"eve",t:"前日：準備と開催の連絡",d:"持ち物をチェック。前日22時までに開催するかの連絡が届きます。",btn:"準備できた",actLabel:"持ち物チェックを開く",self:true,act:function(){openStage(0);}},
- {k:"arrive",t:"当日：到着・設営して写真を送る",d:"搬入口（仮）から入って設営。設営できたら写真で報告します。",auto:function(){return sent("arrival");},act:function(){window.MK_DAY&&MK_DAY.open(1);},btn:"到着の写真を送る"},
+ {k:"arrive",t:"当日：到着・設営して写真を送る",d:"搬入口から入って設営（東口Bは係員が区画へ案内）。設営できたら写真で報告します。",auto:function(){return sent("arrival");},act:function(){window.MK_DAY&&MK_DAY.open(1);},btn:"到着の写真を送る"},
  {k:"clean",t:"営業して、撤収したら写真を送る",d:"行列が歩道をふさがないように営業。片付けたら写真で報告します。",auto:function(){return sent("cleanup");},act:function(){window.MK_DAY&&MK_DAY.open(5);},btn:"撤収の写真を送る"},
  {k:"report",t:"終了報告：売上・人数・アンケート",d:"これを送れば完了です。",auto:function(){return !!J["report:"+(date.value||"")];},act:function(){window.MK_DAY&&MK_DAY.open(6);},btn:"終了報告を入力する"}
 ];
