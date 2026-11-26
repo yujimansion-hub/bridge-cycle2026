@@ -306,7 +306,7 @@ window.MINAKUSA_LEDGER=!!(window.MINAKUSA_VENDOR_API&&window.MINAKUSA_TOKEN);})(
 <div class="dm-step" data-s="1" hidden><div class="dm-k">2 / 9　搬入口</div><h2 class="dm-h">搬入口から入ります</h2><p class="dm-lead">印のところが搬入口です。<span class="dm-tag">仮の案内</span> 当日の係員の指示を優先してください。</p>
 <div class="dm-map" id="dmGateMap"></div><figure class="dm-real" id="dmGateReal" hidden><img alt="搬入口の現地写真"><figcaption>現地の写真：メジャーを当てているところが搬入口です（幅<span class="gw">330cm</span>）</figcaption></figure><ol class="dm-list" id="dmGateSteps"></ol><a class="dm-btn green" id="dmNav" target="_blank" rel="noopener noreferrer">📍 Googleマップで道案内</a></div>
 <div class="dm-step" data-s="2" hidden><div class="dm-k">3 / 9　区画の場所</div><h2 class="dm-h" id="dmBoothTitle">あなたの区画</h2><p class="dm-lead" id="dmBoothLead"></p>
-<div class="dm-map" id="dmBoothMap"></div><ul class="dm-list"><li><b>区画の中に収める</b>車両・テント・机・看板は区画の線の内側に。テントは3m×3mまで（東口B・Dは幅2mの区画なので、幅2mに収まるもの）。</li><li><b>通路をふさがない</b>点字ブロック・駅の出入口・バス待ちの列の前は空けておく。</li></ul></div>
+<div class="dm-map" id="dmBoothMap"></div><figure class="dm-zumen" id="dmZumen" hidden style="margin:10px 0 0"><a id="dmZumenA" href="#" target="_blank" rel="noopener"><img id="dmZumenImg" src="" alt="区画の図面（UDCみなくさ作成）" loading="lazy" style="width:100%;height:auto;border-radius:10px;border:1px solid #e3ddd2"></a><figcaption id="dmZumenCap" style="font-size:12px;color:#6b665e;margin-top:4px"></figcaption></figure><ul class="dm-list"><li><b>区画の中に収める</b>車両・テント・机・看板は区画の線の内側に。テントは3m×3mまで（東口B・Dは幅2mの区画なので、幅2mに収まるもの）。</li><li><b>通路をふさがない</b>点字ブロック・駅の出入口・バス待ちの列の前は空けておく。</li></ul></div>
 <div class="dm-step" data-s="3" hidden><div class="dm-k">4 / 9　設営</div><h2 class="dm-h">設営して、写真で到着報告</h2><div class="dm-time"><div><small>設営開始</small><b id="dmSetup"></b></div><div class="hot"><small>開店</small><b id="dmStart"></b></div></div><div class="dm-cd" id="dmCd3"></div>
 <div class="dm-checks"><label><input type="checkbox" data-dm="s1">車両・テントを区画の中に置いた</label><label><input type="checkbox" data-dm="s2">テント・看板を固定した（重り・輪止め）</label><label><input type="checkbox" data-dm="s3">手洗い・消毒・食材の温度管理を整えた</label><label><input type="checkbox" data-dm="s4">通路と点字ブロックが空いている</label></div><div id="dmArrival"></div></div>
 <div class="dm-step" data-s="4" hidden><div class="dm-k">5 / 9　営業中</div><h2 class="dm-h">営業中</h2><div class="dm-time"><div><small>開店</small><b id="dmStart2"></b></div><div class="hot"><small>閉店</small><b id="dmEnd"></b></div></div><div class="dm-cd" id="dmCd4"></div>
@@ -675,8 +675,9 @@ function fill(){
   $("dmBoothMap").innerHTML='<img src="'+g.img+'" alt="区画の位置">'+lotsHtml(zone,me);
   $("dmBoothTitle").textContent="あなたの区画："+ZN[zone]+(zone==="A"&&me?"-"+me:"");
   $("dmBoothLead").textContent=zone==="A"?(me?"オレンジの枠があなたの区画です。":"番号は当日、係員が案内します。A1〜A7は、すべて駅前広場の中です。"):(zone==="B"?"1・2番のりばの前のバスレーンです（土日はバスが来ないため、歩道ではなく車道側に出店します）。":zone==="C"?"3・4番のりばの前です。赤い舗装の車いす用乗降スペースの前の、屋根の下の歩道です。道路の向かいに「くぼた眼科」などのお店が並んでいるのが目印です。東口Cは、UDCみなくさの木製の屋台（幅80cm×奥行40cm×高さ170cm）を貸し出します（出店料に含む）。点字ブロックの上には出さないでください。":"5番のりばの前です。駅舎に近い屋根の下で、バス停のベンチと自動販売機、階段のあたりが目印です。");}
- else if(zone==="B"){$("dmGateMap").innerHTML='<div class="dm-lead" style="padding:20px">東口Bはバスレーンに出店するため、搬入口はありません。</div>';$("dmGateSteps").innerHTML="";$("dmBoothMap").innerHTML='<div class="dm-lead" style="padding:20px">東口Bの区画は当社が決めてご案内します。当日は係員が案内します。</div>';$("dmBoothTitle").textContent="あなたの区画：東口B";$("dmBoothLead").textContent="1・2番のりばの前のバスレーンです（土日はバスが来ないため、歩道ではなく車道側に出店します）。";}
+ else if(zone==="B"){$("dmGateMap").innerHTML='<div class="dm-lead" style="padding:20px">東口Bはバスレーンに出店するため、搬入口はありません。</div>';$("dmGateSteps").innerHTML="";$("dmBoothMap").innerHTML='<div class="dm-lead" style="padding:20px">東口Bは2m×6mの区画が5つ（下の図面の水色）。どの区画かは当社が決めてご案内し、当日は係員が案内します。</div>';$("dmBoothTitle").textContent="あなたの区画：東口B";$("dmBoothLead").textContent="1・2番のりばの前のバスレーンです（土日はバスが来ないため、歩道ではなく車道側に出店します）。";}
  else{$("dmGateMap").innerHTML=$("dmBoothMap").innerHTML='<div class="dm-lead" style="padding:20px">エリアを選んでください。</div>';}
+ var zf=$("dmZumen");if(zf){zf.hidden=!zone;if(zone){var zs=zone==="A"?"images/minakusa/zumen-west.jpg":"images/minakusa/zumen-east.jpg";$("dmZumenImg").src=zs;$("dmZumenA").href=zs;$("dmZumenCap").textContent=(zone==="A"?"西口の図面：緑が西口A（6m×3m×7区画）":zone==="B"?"東口の図面：水色が東口B（2m×6m×5区画）":zone==="C"?"東口の図面：ピンクが東口C（マルシェ台）":"東口の図面：黄色が東口D（2m×6m×2区画と2m×2m×1区画）")+"。図面：UDCみなくさ作成（2026年11月）。タップで拡大";}}
  var dec=window.MINAKUSA_DECISION;$("dmDecision").innerHTML=dec&&dec!=="未定"?'<div class="dm-cd" style="background:'+(dec==="中止"?"#fbe3dc":"#e3f1e2")+';color:'+(dec==="中止"?"#a13b20":"#1d5a44")+'">今日は'+(dec==="中止"?"中止です。出発しないでください":"予定どおり開催します")+'</div>':'<p class="dm-lead">開催するかは前日22時までにメールで届きます。</p>';
  tick();
 }
@@ -768,13 +769,15 @@ function applyServer(s){
 }
 function pull(){if(!window.MINAKUSA_LEDGER)return;fetch(window.MINAKUSA_VENDOR_API+"?action=status&t="+encodeURIComponent(window.MINAKUSA_TOKEN)).then(function(r){return r.json();}).then(applyServer).catch(function(){});}
 if(window.MINAKUSA_LEDGER){
- STEPS[1].self=false;STEPS[1].act=null;STEPS[1].d="当社で区画を調整しています。決まったらメールでお知らせし、この画面も自動で切り替わります（翌営業日までが目安）。";
- STEPS[2].self=false;STEPS[2].act=null;STEPS[2].d="区画と日程のメールに書いた方法で、営業許可証の写真を送ってください。確認できたら自動で次に進みます。";
- STEPS[3].self=false;STEPS[3].act=function(){if(S&&S.payUrl)window.open(S.payUrl,"_blank","noopener");};STEPS[3].btn="カードで支払う";STEPS[3].d="メールで届いたお支払いページから払うと、出店確定です。確認できたら自動で次に進みます。";
+ /* 台帳は「事前入金」：申込と同時に売り場・日程・時間枠を押さえ、その場でカード払い → 許可証の確認で出店確定 */
+ STEPS[1].self=false;STEPS[1].act=null;STEPS[1].t="売り場と日程を押さえる";STEPS[1].d="申込で選んだ売り場・日にち・時間で枠を押さえています。区画の番号は当社が決めて、メールでお知らせします。";
+ STEPS[3].self=false;STEPS[3].act=function(){if(S&&S.payUrl)window.open(S.payUrl,"_blank","noopener");};STEPS[3].btn="カードで支払う";STEPS[3].t="カードで出店料を払う（枠の確保）";STEPS[3].d="申込のすぐあとのカード払いで、枠が確保されます。30分以内に払わないと申込は取り消され、枠は戻ります。";
+ STEPS[2].self=false;STEPS[2].act=null;STEPS[2].t="営業許可証を送る（出店確定）";STEPS[2].d="お支払い後のメールに書いた方法で、営業許可証の写真を送ってください。当社で確認できたら出店確定です（翌営業日までが目安）。確認できないときは全額返金します。";
  STEPS[4].self=false;STEPS[4].auto=function(){if(!S||!S.focus)return false;if(S.decision&&S.decision!=="未定")return true;var p=S.focus.split("-");return new Date()>=new Date(+p[0],+p[1]-1,+p[2]-1,22,0);};STEPS[4].d="前日の夕方に持ち物のお知らせ、22時までに開催するかの連絡がメールで届きます。";
  STEPS[0].auto=function(){return true;};
  ["assigned","permit","paid"].forEach(function(k,i){STEPS[i+1].auto=function(){return !!J[k];};});
  STEPS[7].auto=function(){return S?!!(S.report||J["report:"+S.focus]):false;};
+ var _pm=STEPS[2];STEPS[2]=STEPS[3];STEPS[3]=_pm; /* 表示順：申込→枠→支払→許可証 */
  pull();setInterval(pull,60000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible")pull();});
 }
 function isDone(s){return s.auto?s.auto():!!J[s.k];}
@@ -785,7 +788,7 @@ function render(){
  if(cur<0){nx.innerHTML='<div class="jcomplete"><b>🎉 おつかれさまでした！</b><p style="color:var(--muted)">出店のすべてのステップが完了しました。<br>報告はBRIDGE CYCLEに届いています。</p></div>';}
  else if(S&&S.declined){nx.innerHTML='<small>お知らせ</small><b>今回はご希望に沿えませんでした</b><p>メールでご連絡しています。次の開催の募集が始まったら、あらためてご案内します。</p>';}
  else if(S&&S.decision==="中止"&&cur>=4&&cur<=6){nx.innerHTML='<small style="color:#b13d22">お知らせ</small><b>'+S.focus.slice(5).replace("-","/")+' は中止になりました</b><p>全額返金か別の日への振り替えにします。メールに返信してどちらがよいかお知らせください。</p>';}
- else{var s=STEPS[cur],extra="";if(S&&cur===2&&S.permitNg)extra="（もう一度送ってください）";
+ else{var s=STEPS[cur],extra="";if(S&&s.k==="permit"&&S.permitNg)extra="（もう一度送ってください）";
   if(cur===4){var d=dayStart();if(d){var days=Math.ceil((d-new Date(new Date().toDateString()))/864e5);extra=days>1?"（出店日まで あと"+days+"日）":days===1?"（明日が出店日です）":"";}}
   nx.innerHTML='<small>次にやること（'+(cur+1)+'/'+STEPS.length+'）</small><b>'+s.t+extra+'</b><p>'+s.d+'</p><div class="btns">'+(s.act?'<button type="button" class="go" data-act="'+cur+'">'+(s.actLabel||s.btn)+'</button>':'')+(s.self?'<button type="button" class="done" data-self="'+cur+'">✓ '+s.btn+'</button>':'')+'</div>';}
  $("jSteps").innerHTML=STEPS.map(function(s,i){var ok=isDone(s);return '<li class="'+(ok?"ok":i===cur?"now":"")+'"><i>'+(ok?"✓":i+1)+'</i>'+s.t+(ok&&s.self&&!window.MINAKUSA_LEDGER?'<button type="button" data-undo="'+i+'">戻す</button>':'')+'</li>';}).join("");
