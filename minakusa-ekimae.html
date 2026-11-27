@@ -117,11 +117,25 @@ img{max-width:100%;display:block}a{color:inherit}
 .dc.blank{background:none}
 button.dc{background:#fff;color:var(--ink);border-color:#d4e2d6;cursor:pointer;font-family:inherit}
 button.dc:hover{border-color:var(--green)}button.dc.sel{border-color:var(--orange);background:#fff7f2}
-.bars{display:flex;gap:3px}.bars i{flex:1;height:7px;border-radius:3px}
+.bars{display:flex;flex-direction:column;gap:3px}.bars i{display:block;height:6px;border-radius:3px;position:relative;overflow:hidden}
+.bars i.g{background:#e2e6e1!important}
+.bars i .f{position:absolute;inset:0 auto 0 0;background:repeating-linear-gradient(135deg,#9aa39d 0 3px,#b9c0bb 3px 6px)}
+.dc .lf{font-size:10px;font-weight:900;color:var(--green);line-height:1}
+.dc.few .lf{color:#d9822b}
+button.dc.full{background:#eef0ed;border-color:#d8dcd7;color:#9aa39d}
+button.dc.full .lf{color:#b4553f}
+.dc .top{display:flex;justify-content:space-between;align-items:baseline;gap:2px}
+@media(max-width:560px){.dc .top{flex-direction:column;align-items:flex-start;gap:1px}.dc .lf{font-size:9px;white-space:nowrap}.dc{padding:5px}}
+.pips{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px;align-items:center}
+.pips span{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:11px;font-weight:900;color:#fff}
+.pips span.x{background:repeating-linear-gradient(135deg,#9aa39d 0 3px,#b9c0bb 3px 6px)!important;color:#fff}
+.pips em{font-style:normal;font-size:11px;color:var(--muted);align-self:center;margin-left:4px}
+.dz.full{background:#eef0ed;opacity:.85}.dz.full .left{color:#b4553f}
+.legend .lg-x{background:repeating-linear-gradient(135deg,#9aa39d 0 3px,#b9c0bb 3px 6px)}
 .cA{background:var(--green)}.cB{background:var(--blue)}.cC{background:var(--amber)}.cD{background:var(--plum)}
 .detail h3{margin:0 0 2px;font-size:22px;color:var(--pine)}.detail .sub{font-size:12px;color:var(--muted);margin:0 0 14px}
 .dz{border-radius:14px;padding:13px 15px;margin-bottom:10px;background:var(--cream);border-left:5px solid var(--green)}
-.dz.B{border-color:var(--blue)}.dz.C,.dz.D{border-color:var(--amber)}
+.dz.B{border-color:var(--blue)}.dz.C{border-color:var(--amber)}.dz.D{border-color:var(--plum)}
 .dz b{font-size:15px}.dz p{margin:4px 0 0;font-size:13px;line-height:1.7}
 .dz .left{float:right;font-size:12px;font-weight:900;color:var(--green)}
 .dz button{margin-top:10px;width:100%;border:0;border-radius:10px;padding:10px;font:inherit;font-weight:900;font-size:13px;background:var(--pine);color:#fff;cursor:pointer}
@@ -407,7 +421,7 @@ window.MINAKUSA_ENTRY={
 </div></section>
 
 <section class="sec white" id="calendar"><div class="wrap"><div class="sh"><div class="en">WHEN</div><h2>12月の、6日間。</h2><p>12/11からの2週間、金・土・日だけの開催です。日付を押すと、その日に出られる売り場・時間・出店料が分かります。</p></div>
-<div class="cal"><div class="box"><div class="cal-top"><b>2026年12月</b><div class="legend"><span><i class="cA"></i>西口A</span><span><i class="cB"></i>東口B</span><span><i class="cC"></i>東口C（屋台）</span><span><i class="cD"></i>東口D</span></div></div><div class="grid7" id="calGrid" aria-label="12月の開催日"></div></div>
+<div class="cal"><div class="box"><div class="cal-top"><b>2026年12月</b><div class="legend"><span><i class="cA"></i>西口A</span><span><i class="cB"></i>東口B</span><span><i class="cC"></i>東口C（屋台）</span><span><i class="cD"></i>東口D</span><span><i class="lg-x"></i>埋まった枠</span></div></div><div class="grid7" id="calGrid" aria-label="12月の開催日"></div></div>
 <div class="box detail" id="calDetail" aria-live="polite"><div class="empty"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><br>カレンダーの日付を押してください。<br>その日の売り場・時間・出店料が出ます。</div></div></div>
 </div></section>
 
@@ -509,6 +523,9 @@ function dt(iso){var p=iso.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
 function zs(iso){var w=dt(iso).getDay();return Object.keys(D.zones).filter(function(z){return D.zones[z].dow[w]!==undefined&&(D.zones[z].off||[]).indexOf(iso)<0;});}
 function left(iso,z){var u=(D.used||{})[iso]||{},b=(D.booked[iso]||{})[z]||0,c=D.zones[z].cap;
   if(z==='C'||z==='D')return Math.max(0,Math.max(c-(u[z+'朝']||0),c-(u[z+'夕']||0))-b);return Math.max(0,c-(u[z]||0)-b);}
+function usedOf(iso,z){var u=(D.used||{})[iso]||{},b=(D.booked[iso]||{})[z]||0,c=D.zones[z].cap;
+  if(z==='C'||z==='D'){var m=Math.min(c,(u[z+'朝']||0)+b),e=Math.min(c,(u[z+'夕']||0)+b);return {cap:2*c,used:m+e,m:m,e:e,c:c};}
+  var x=Math.min(c,(u[z]||0)+b);return {cap:c,used:x};}
 function leftCD(iso,z){var u=(D.used||{})[iso]||{},c=D.zones[z].cap;return '朝 残り'+Math.max(0,c-(u[z+'朝']||0))+'枠・夕 残り'+Math.max(0,c-(u[z+'夕']||0))+'枠';}
 window.MINAKUSA_LEFT=left;
 function draw(){
@@ -516,14 +533,20 @@ function draw(){
   for(var i=0;i<(new Date(2026,11,1).getDay()+6)%7;i++)h+='<div class="dc blank"></div>';
   for(var d=1;d<=31;d++){var iso='2026-12-'+('0'+d).slice(-2);
     if(D.days.indexOf(iso)<0){h+='<div class="dc" aria-hidden="true">'+d+'</div>';continue;}
-    var bars=zs(iso).map(function(z){return '<i class="'+COL[z]+'"></i>';}).join('');
-    h+='<button type="button" class="dc'+(sel===iso?' sel':'')+'" data-day="'+iso+'" aria-label="12月'+d+'日（'+W[dt(iso).getDay()]+'）">'+d+'<span class="bars">'+bars+'</span></button>';}
+    var known=open&&!!D.used,tl=0,tc=0;
+    var bars=zs(iso).map(function(z){var q=usedOf(iso,z),n=q.cap-q.used;tl+=n;tc+=q.cap;var f=known?Math.round(q.used/q.cap*100):0;
+      return '<i class="'+COL[z]+(known&&!n?' g':'')+'" title="'+esc(D.zones[z].name)+(known?(n?' 残り'+n+'枠':' 満枠'):'')+'"><span class="f" style="width:'+f+'%"></span></i>';}).join('');
+    var full=known&&tl===0,few=known&&tl>0&&tl<=Math.ceil(tc/4);
+    var lab=known?(full?'満枠':'残り'+tl):'';
+    h+='<button type="button" class="dc'+(sel===iso?' sel':'')+(full?' full':'')+(few?' few':'')+'" data-day="'+iso+'" aria-label="12月'+d+'日（'+W[dt(iso).getDay()]+'）'+(lab?' '+lab+(full?'':'枠'):'')+'"><span class="top">'+d+'<span class="lf">'+lab+'</span></span><span class="bars">'+bars+'</span></button>';}
   g.innerHTML=h;
 }
 function show(iso,quiet){sel=iso;draw();var d=dt(iso);
   var h='<h3>12月'+d.getDate()+'日（'+W[d.getDay()]+'）</h3><p class="sub">この日に出店できる売り場'+(open?'':'（募集開始前のため、残りの枠は受付開始後に表示します）')+'</p>';
   zs(iso).forEach(function(z){var Z=D.zones[z],n=left(iso,z),sh=(D.shops[iso]||[]).filter(function(s){return s.zone===z;});
-    h+='<div class="dz '+z+'">'+(open?'<span class="left">'+(n?'残り'+n+'枠':'満枠')+'</span>':'')+'<b>'+esc(Z.name)+'｜'+esc(Z.sub)+'</b><p>'+esc(Z.dow[d.getDay()])+'<br>'+esc(Z.price)+(open&&(z==='C'||z==='D')?'<span class="left2">'+leftCD(iso,z)+'</span>':'')+'</p>'
+    var pp='';if(open&&D.used){var q=usedOf(iso,z),row=function(u,c,lab){var r='';for(var k=0;k<c;k++)r+=k<u?'<span class="x">×</span>':'<span class="'+COL[z]+'"></span>';return '<div class="pips" aria-hidden="true">'+(lab?'<em style="margin:0 4px 0 0">'+lab+'</em>':'')+r+'<em>'+u+'/'+c+'枠 埋まり</em></div>';};
+      pp=(z==='C'||z==='D')?row(q.m,q.c,'朝')+row(q.e,q.c,'夕'):row(q.used,q.cap,'');}
+    h+='<div class="dz '+z+(open&&!n?' full':'')+'">'+(open?'<span class="left">'+(n?'残り'+n+'枠':'満枠')+'</span>':'')+'<b>'+esc(Z.name)+'｜'+esc(Z.sub)+'</b>'+pp+'<p>'+esc(Z.dow[d.getDay()])+'<br>'+esc(Z.price)+(open&&(z==='C'||z==='D')?'<span class="left2">'+leftCD(iso,z)+'</span>':'')+'</p>'
       +(sh.length?'<p>出店予定：'+sh.map(function(s){return esc(s.name)+(s.item?'（'+esc(s.item)+'）':'');}).join('、')+'</p>':'')
       +(open&&n?'<button type="button" data-pick="'+z+'">この日・この売り場で申し込む</button>':'')+'</div>';});
   det.innerHTML=h;if(!quiet&&window.innerWidth<900)det.scrollIntoView({behavior:'smooth',block:'start'});
